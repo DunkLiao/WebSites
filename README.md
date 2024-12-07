@@ -14,3 +14,6 @@
 [專利發想說明](/WebSites/patent/ "專利發想說明")
 
 [信託部集思會報告](/WebSites/TrustDeptRpt/ "信託部集思會報告")
+
+## BOT_風險管理部
+[台灣2024醫療科技展醫院AI應用](/WebSites/2024expohealth/ "台灣2024醫療科技展醫院AI應用")
