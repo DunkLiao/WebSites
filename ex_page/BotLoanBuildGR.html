@@ -1,0 +1,808 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>臺灣銀行對建築業集團授信限額分析</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-icons@1.13.14/iconfont/material-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/preline@3.0.1/dist/preline.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#EBF5FF',
+                            100: '#E1EFFE',
+                            200: '#C3DDFD',
+                            300: '#A4CAFE',
+                            400: '#76A9FA',
+                            500: '#3F83F8',
+                            600: '#1C64F2',
+                            700: '#1A56DB',
+                            800: '#1E429F',
+                            900: '#233876',
+                        },
+                        secondary: {
+                            50: '#F5F7FA',
+                            100: '#E4E7EB',
+                            200: '#CBD2D9',
+                            300: '#9AA5B1',
+                            400: '#7B8794',
+                            500: '#616E7C',
+                            600: '#4A5568',
+                            700: '#374151',
+                            800: '#252F3F',
+                            900: '#161E2E',
+                        },
+                        accent: {
+                            50: '#F9FAFB',
+                            100: '#F3F4F6',
+                            200: '#E5E7EB',
+                            300: '#D1D5DB',
+                            400: '#9CA3AF',
+                            500: '#6B7280',
+                            600: '#4B5563',
+                            700: '#374151',
+                            800: '#1F2937',
+                            900: '#111827',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans TC', 'sans-serif'],
+                        serif: ['Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
+                        mono: ['Menlo', 'Monaco', 'Consolas', '"Liberation Mono"', '"Courier New"', 'monospace'],
+                    },
+                    spacing: {
+                        '128': '32rem',
+                        '144': '36rem',
+                    },
+                    borderRadius: {
+                        '4xl': '2rem',
+                    }
+                },
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hover-scale {
+            transition: transform 0.3s ease;
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200 antialiased">
+    <div class="bg-gradient-to-r from-primary-600 to-primary-800 dark:from-primary-800 dark:to-primary-900">
+        <div class="container mx-auto px-4 py-16 md:py-20">
+            <div class="fade-in">
+                <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white">臺灣銀行對建築業集團授信限額分析</h1>
+                <p class="text-lg md:text-xl text-white/90 max-w-3xl">深入探討臺灣銀行針對各建築業集團的授信限額情況，包含法規框架、風險管理及政策影響</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主要内容区 -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- 目录导航 -->
+        <nav class="p-4 mb-8 bg-gray-50 dark:bg-gray-800 rounded-lg shadow-sm fade-in">
+            <h2 class="text-xl font-semibold mb-3 flex items-center">
+                <i class="material-icons mr-2 text-primary-600 dark:text-primary-400">bookmark</i> 目錄
+            </h2>
+            <ul class="space-y-1 pl-4">
+                <li>
+                    <a href="#overview" class="text-primary-600 dark:text-primary-400 hover:underline">總覽</a>
+                </li>
+                <li>
+                    <a href="#regulatory-framework" class="text-primary-600 dark:text-primary-400 hover:underline">建築業授信之監管框架</a>
+                </li>
+                <li>
+                    <a href="#credit-limits" class="text-primary-600 dark:text-primary-400 hover:underline">授信限額規範</a>
+                </li>
+                <li>
+                    <a href="#risk-management" class="text-primary-600 dark:text-primary-400 hover:underline">臺灣銀行之建築業授信政策與風險管理</a>
+                </li>
+                <li>
+                    <a href="#explanation" class="text-primary-600 dark:text-primary-400 hover:underline">關於「各建築業集團授信限額表」之說明</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- 总览部分 -->
+        <section id="overview" class="mb-16 fade-in">
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200 dark:border-gray-700 flex items-center">
+                    <i class="material-icons mr-2 text-primary-600 dark:text-primary-400">summarize</i>總覽
+                </h2>
+                <p class="text-lg mb-6 leading-relaxed">
+                    本報告旨在分析臺灣銀行針對各建築業集團的授信限額情況。經綜合研判，目前並無公開的「臺灣銀行承作各建築業集團授信限額表」。然而，臺灣銀行對建築業集團的授信行為，受到《銀行法》、金融監督管理委員會（金管會）及中央銀行相關法規的嚴格規範，涵蓋對單一集團、同一關係企業的授信總額度限制，以及針對不動產及建築業授信的特定風險控管要求。臺灣銀行內部亦設有授信政策及風險管理機制，以應對建築業的融資需求與潛在風險。
+                </p>
+                
+                <div class="p-4 bg-primary-50 dark:bg-gray-700/50 rounded-lg">
+                    <h3 class="text-lg font-medium mb-3 text-primary-700 dark:text-primary-300">主要發現</h3>
+                    <ul class="list-disc list-inside space-y-2">
+                        <li>授信行為受《銀行法》及金管會、央行法規嚴格監管</li>
+                        <li>建築業授信涉及多項特殊風險控管要求</li>
+                        <li>各集團授信額度由銀行內部評估決定，無公開資訊</li>
+                        <li>臺灣銀行已強化建築業授信風險控管機制</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 监管框架部分 -->
+        <section id="regulatory-framework" class="mb-16 fade-in">
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200 dark:border-gray-700 flex items-center">
+                    <i class="material-icons mr-2 text-primary-600 dark:text-primary-400">balance</i>建築業授信之監管框架
+                </h2>
+                
+                <p class="mb-6">臺灣的銀行機構在承作建築業授信時，需遵循一套完整的監管框架，旨在維持金融穩定及控管信用風險。</p>
+
+                <h3 class="text-xl font-semibold mb-4 text-primary-700 dark:text-primary-300">主要法規依據</h3>
+                                
+
+                <div class="space-y-6">
+                    <!-- 银行法部分 -->
+                    <div class="p-5 bg-gray-50 dark:bg-gray-700/50 rounded-lg hover-scale">
+                        <h4 class="text-lg font-semibold mb-3 flex items-center">
+                            <i class="fas fa-landmark mr-2 text-primary-600 dark:text-primary-400"></i>《銀行法》
+                        </h4>
+                        <ul class="space-y-3">
+                            <li class="flex">
+                                <span class="font-medium mr-2">第三十三條之三:</span>
+                                <span>規範銀行對同一自然人、同一法人、同一關係人及同一關係企業的授信總餘額，不得超過銀行淨值的一定比例，以避免風險過度集中於單一或少數客戶。金管會已於2025年3月預告修正「銀行法第三十三條之三授權規定事項辦法」第二條草案，擬將不計入授信總餘額之小額放款金額由新臺幣一百萬元調高至二百萬元，以降低銀行作業負擔，此修正最快可能於2025年5月底實施。</span>
+                            </li>
+                            <li class="flex">
+                                <span class="font-medium mr-2">第七十二條之二:</span>
+                                <span>規定商業銀行辦理住宅建築及企業建築放款之總額，不得超過放款時所收存款總餘額及金融債券發售額之和的特定百分比（目前為30%），旨在避免銀行資金過度集中於建築放款。金管會曾發布解釋令，說明特定境內外放款項目得不計入此限額。</span>
+                            </li>
+                            <li class="flex">
+                                <span class="font-medium mr-2">第三十二條、第三十三條:</span>
+                                <span>規範銀行對其利害關係人（如持有銀行實收資本總額一定比例以上之企業、銀行負責人、職員或主要股東等）的授信條件，無擔保授信有所限制，擔保授信則需有十足擔保且條件不得優於其他同類授信對象，達一定金額以上者須經董事會特別決議。</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 金管会部分 -->
+                    <div class="p-5 bg-gray-50 dark:bg-gray-700/50 rounded-lg hover-scale">
+                        <h4 class="text-lg font-semibold mb-3 flex items-center">
+                            <i class="fas fa-shield-alt mr-2 text-primary-600 dark:text-primary-400"></i>金融監督管理委員會 (金管會) 指引
+                        </h4>
+                        <ul class="space-y-3 list-disc list-inside">
+                            <li>金管會要求銀行授信規章應包含徵信程序、核准權限及曝險限額，包括對單一交易對手、同一集團、同一產業等的集中度限額。</li>
+                            <li>針對不動產授信風險，金管會已多次發布新聞稿及函釋，要求銀行強化風險控管，例如調整不動產抵押貸款（包括建築業相關貸款）適用的風險權數，並對建築貸款過度集中的銀行採取相應的風險控管措施。2022年2月，金管會發布令釋，針對公司法人購置住宅貸款、自然人購置第三戶以上住宅貸款、購地貸款、建築業餘屋貸款及工業區閒置土地抵押貸款等，提高了適用的風險權數。</li>
+                            <li>銀行應落實不動產貸款的風險集中度控管，並將資金、作業成本及風險因素納入放款訂價。</li>
+                        </ul>
+                    </div>
+
+                    <!-- 中央银行部分 -->
+                    <div class="p-5 bg-gray-50 dark:bg-gray-700/50 rounded-lg hover-scale">
+                        <h4 class="text-lg font-semibold mb-3 flex items-center">
+                            <i class="fas fa-university mr-2 text-primary-600 dark:text-primary-400"></i>中央銀行措施
+                        </h4>
+                        <ul class="space-y-3 list-disc list-inside">
+                            <li>中央銀行為健全房地產市場，實施選擇性信用管制措施，影響銀行對不動產相關貸款（包括建築融資）的承作。</li>
+                            <li>銀行辦理購地貸款時，需詳細查核借款人提出的具體興建計畫，包括建築計畫、財務計畫及還款計畫等。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 授信限额规范 -->
+        <section id="credit-limits" class="mb-16 fade-in">
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200 dark:border-gray-700 flex items-center">
+                    <i class="material-icons mr-2 text-primary-600 dark:text-primary-400">account_balance_wallet</i>授信限額規範
+                </h2>
+                
+                <p class="mb-6">銀行對建築業集團的授信限額，主要受到對單一客戶、同一關係人/企業以及產業集中度的規範。</p>
+
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <!-- 对单一集团及关系户之限制 -->
+                    <div class="p-5 bg-gray-50 dark:bg-gray-700/50 rounded-lg hover-scale h-full">
+                        <h4 class="text-lg font-semibold mb-3 text-primary-700 dark:text-primary-300">對單一集團及關係戶之限制</h4>
+                        <p class="mb-4">根據「銀行法第三十三條之三授權規定事項辦法」，銀行對同一法人之授信總餘額不得超過該銀行淨值的一定比例（例如15%）。</p>
+                        <p>對同一關係人之授信總餘額不得超過該銀行淨值的40%，其中對自然人之授信不得超過淨值的6%；對同一關係企業之授信總餘額也有相應規範。這些規定旨在分散銀行的授信風險。</p>
+                    </div>
+
+                    <!-- 对建筑产业之特殊考虑 -->
+                    <div class="p-5 bg-gray-50 dark:bg-gray-700/50 rounded-lg hover-scale h-full">
+                        <h4 class="text-lg font-semibold mb-3 text-primary-700 dark:text-primary-300">對建築產業之特殊考量</h4>
+                        <p class="mb-4">由於建築業與不動產市場景氣高度相關，且融資金額通常較大，回收期較長，因此被視為風險較高的產業之一。監管機構特別關注銀行在此領域的風險集中度。</p>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li><span class="font-medium">風險權數調整:</span> 金管會已針對特定不動產及建築相關貸款設定較高的風險權數</li>
+                            <li><span class="font-medium">總量管制與集中度管理:</span> 中央銀行與金管會均要求銀行自主管理不動產貸款總量</li>
+                        </ul>
+                    </div>
+                </div>
+               
+
+                <!-- 授权額度限制 -->
+                <div class="p-5 bg-gray-100 dark:bg-gray-700/30 rounded-lg mb-6">
+                    <h3 class="text-xl font-semibold mb-4 flex items-center">
+                        <i class="fas fa-chart-pie mr-2 text-primary-600 dark:text-primary-400"></i>授信額度限制比例概覽
+                    </h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg">
+                            <thead>
+                                <tr class="bg-gray-50 dark:bg-gray-700 text-left">
+                                    <th class="py-3 px-4 border-b border-gray-200 dark:border-gray-700">對象類別</th>
+                                    <th class="py-3 px-4 border-b border-gray-200 dark:border-gray-700">限制比例</th>
+                                    <th class="py-3 px-4 border-b border-gray-200 dark:border-gray-700">說明</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                                    <td class="py-3 px-4 border-b border-gray-200 dark:border-gray-700">同一自然人</td>
+                                    <td class="py-3 px-4 border-b border-gray-200 dark:border-gray-700">銀行淨值的6%</td>
+                                    <td class="py-3 px-4 border-b border-gray-200 dark:border-gray-700">對個人授信的限制</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                                    <td class="py-3 px-4 border-b border-gray-200 dark:border-gray-700">同一法人</td>
+                                    <td class="py-3 px-4 border-b border-gray-200 dark:border-gray-700">銀行淨值的15%</td>
+                                    <td class="py-3 px-4 border-b border-gray-200 dark:border-gray-700">對單一企業的授信上限</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                                    <td class="py-3 px-4 border-b border-gray-200 dark:border-gray-700">同一關係人</td>
+                                    <td class="py-3 px-4 border-b border-gray-200 dark:border-gray-700">銀行淨值的40%</td>
+                                    <td class="py-3 px-4 border-b border-gray-200 dark:border-gray-700">對關聯方授信的總體限制</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                                    <td class="py-3 px-4 border-b border-gray-200 dark:border-gray-700">建築放款總額</td>
+                                    <td class="py-3 px-4 border-b border-gray-200 dark:border-gray-700">存款總餘額及金融債券發售額之和的30%</td>
+                                    <td class="py-3 px-4 border-b border-gray-200 dark:border-gray-700">避免過度集中於建築業</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 臺灣銀行之建築業授信政策與風險管理 -->
+        <section id="risk-management" class="mb-16 fade-in">
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200 dark:border-gray-700 flex items-center">
+                    <i class="material-icons mr-2 text-primary-600 dark:text-primary-400">security</i>臺灣銀行之建築業授信政策與風險管理
+                </h2>
+                
+                <p class="mb-6">臺灣銀行作為國內主要銀行之一，其建築業授信政策除遵循前述外部監管規定外，亦有其內部風險管理機制。</p>
+
+                <!-- 授信政策流程图 -->
+                <div class="mb-8">
+                    <div class="mermaid-wrapper bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm mb-4">
+                        <div class="mermaid">
+                            graph TD
+                                A[建築業授信申請] --> B{風險評估}
+                                B --> C[內部風險監控]
+                                B --> D[外部法規遵循]
+                                C --> E[信用評估]
+                                C --> F[擔保評估]
+                                D --> G[法定限額檢核]
+                                D --> H[總量管制檢核]
+                                E --> I{授信決策}
+                                F --> I
+                                G --> I
+                                H --> I
+                                I --> J[核准授信]
+                                I --> K[拒絕授信]
+                                J --> L[後續監控管理]
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 text-center">臺灣銀行建築業授信流程示意圖</p>
+                </div>
+
+                <!-- 风险管理政策 -->
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <!-- 内部风险监控 -->
+                    <div class="p-5 bg-gray-50 dark:bg-gray-700/50 rounded-lg hover-scale h-full">
+                        <h4 class="text-lg font-semibold mb-3 flex items-center">
+                            <i class="fas fa-tasks mr-2 text-primary-600 dark:text-primary-400"></i>內部風險監控
+                        </h4>
+                        <ul class="space-y-2 list-disc list-inside">
+                            <li>訂有經營風險監控項目及指標，並定期進行評估</li>
+                            <li>已建置高氣候轉型風險產業的授信曝險查詢功能，顯示其對特定產業風險的關注</li>
+                            <li>建立全面的風險預警系統及風險緩釋措施</li>
+                        </ul>
+                    </div>
+
+                    <!-- 授信政策调整 -->
+                    <div class="p-5 bg-gray-50 dark:bg-gray-700/50 rounded-lg hover-scale h-full">
+                        <h4 class="text-lg font-semibold mb-3 flex items-center">
+                            <i class="fas fa-sliders-h mr-2 text-primary-600 dark:text-primary-400"></i>授信政策調整
+                        </h4>
+                        <ul class="space-y-2 list-disc list-inside">
+                            <li>因應中央銀行的選擇性信用管制及不動產貸款總量管制，已採取強化建築業授信風險控管的配套措施</li>
+                            <li>有縮減土地及建築融資的趨勢</li>
+                            <li>動態調整授信政策以應對市場變化及監管要求</li>
+                        </ul>
+                    </div>
+
+                    <!-- 支持政府政策 -->
+                    <div class="p-5 bg-gray-50 dark:bg-gray-700/50 rounded-lg hover-scale h-full">
+                        <h4 class="text-lg font-semibold mb-3 flex items-center">
+                            <i class="fas fa-handshake mr-2 text-primary-600 dark:text-primary-400"></i>支持政府政策
+                        </h4>
+                        <ul class="space-y-2 list-disc list-inside">
+                            <li>在其願景中提及積極支持政府經濟發展，提供相關產業資金融通服務</li>
+                            <li>推動綠色授信專案，可能惠及符合條件的綠色建築項目</li>
+                            <li>配合國家住宅及都市更新等政策，提供相應金融服務</li>
+                        </ul>
+                    </div>
+
+                    <!-- 近期监管事件 -->
+                    <div class="p-5 bg-gray-50 dark:bg-gray-700/50 rounded-lg hover-scale h-full">
+                        <h4 class="text-lg font-semibold mb-3 flex items-center">
+                            <i class="fas fa-exclamation-triangle mr-2 text-primary-600 dark:text-primary-400"></i>近期監管事件
+                        </h4>
+                        <p>根據報導，中央銀行於2025年3月曾因臺灣銀行在貸款業務審查流程中出現管理疏漏，未能確保業務符合相關規範，而對其處以罰款。此事件凸顯了監管機構對銀行授信業務合規性的重視。</p>
+                    </div>
+                </div>
+
+                <!-- 建筑业风险与管控措施 -->
+                <div class="p-5 bg-gray-100 dark:bg-gray-700/30 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-4">建築業授信風險與管控措施</h3>
+					<div class='tableauPlaceholder' id='viz1747842466064' style='position: relative'><noscript><a href='#'><img alt='本行承作各建築業集團授信限額表 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_17478412803020&#47;sheet6&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_17478412803020&#47;sheet6' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_17478412803020&#47;sheet6&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1747842466064');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1300px';vizElement.style.height='927px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1300px';vizElement.style.height='927px';} else { vizElement.style.width='100%';vizElement.style.height='2077px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                    <div id="risk-management-chart" class="w-full h-80"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 关于「各建筑业集团授信额度表」之说明 -->
+        <section id="explanation" class="mb-16 fade-in">
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                <h2 class="text-2xl font-bold mb-6 pb-2 border-b border-gray-200 dark:border-gray-700 flex items-center">
+                    <i class="material-icons mr-2 text-primary-600 dark:text-primary-400">info</i>關於「各建築業集團授信限額表」之說明
+                </h2>
+                                
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- 内部文件性质 -->
+                    <div class="p-5 bg-gray-50 dark:bg-gray-700/50 rounded-lg hover-scale h-full shadow-sm">
+                        <div class="flex justify-center mb-4 text-3xl text-primary-600 dark:text-primary-400">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h4 class="text-lg font-semibold mb-3 text-center">內部文件性質</h4>
+                        <p class="text-center">銀行對特定產業或集團客戶的詳細授信額度及條件，通常屬於銀行內部授信政策與風險管理的範疇。</p>
+                    </div>
+
+                    <!-- 动态调整 -->
+                    <div class="p-5 bg-gray-50 dark:bg-gray-700/50 rounded-lg hover-scale h-full shadow-sm">
+                        <div class="flex justify-center mb-4 text-3xl text-primary-600 dark:text-primary-400">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h4 class="text-lg font-semibold mb-3 text-center">動態調整</h4>
+                        <p class="text-center">授信限額會根據個別集團的信用狀況、擔保條件、市場變化以及銀行自身的風險胃納等因素動態評估與調整，難以用固定表格形式呈現給公眾。</p>
+                    </div>
+
+                    <!-- 法规框架下的运作 -->
+                    <div class="p-5 bg-gray-50 dark:bg-gray-700/50 rounded-lg hover-scale h-full shadow-sm">
+                        <div class="flex justify-center mb-4 text-3xl text-primary-600 dark:text-primary-400">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h4 class="text-lg font-semibold mb-3 text-center">法規框架下的運作</h4>
+                        <p class="text-center">臺灣銀行對建築業集團的授信，是在《銀行法》及相關法規框架下，結合自身風險評估後決定，但其授信行為受到嚴格的量化指標約束。</p>
+                    </div>
+                </div>
+
+                <div class="mt-8 p-5 bg-primary-50 dark:bg-primary-900/30 rounded-lg border border-primary-100 dark:border-primary-800">
+                    <h3 class="text-lg font-semibold mb-4 text-primary-700 dark:text-primary-300">結論</h3>
+                    <p>授信業務受到多層次法規及內部政策的嚴格規範與限制。依據法規要求，針對不同建築業集團的個別情況進行信用評估並核定相應的授信額度。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+
+    <script>
+        // 深色/浅色模式切换
+        document.addEventListener('DOMContentLoaded', function() {
+            // 监听系统主题变化
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+            
+            // 主题切换按钮
+            const themeToggle = document.getElementById('theme-toggle');
+            if (themeToggle) {
+                themeToggle.addEventListener('click', function() {
+                    document.documentElement.classList.toggle('dark');
+                });
+            }
+            
+            // Mermaid 初始化
+            mermaid.initialize({
+                theme: document.documentElement.classList.contains('dark') ? 'dark' : 'default',
+                startOnLoad: true,
+                securityLevel: 'loose',
+                flowchart: {
+                    useMaxWidth: true,
+                    htmlLabels: true
+                }
+            });
+
+            // 监听深色模式变化，更新 Mermaid 主题
+            const observer = new MutationObserver(function(mutations) {
+                mutations.forEach(function(mutation) {
+                    if (mutation.attributeName === 'class') {
+                        const isDark = document.documentElement.classList.contains('dark');
+                        mermaid.initialize({
+                            theme: isDark ? 'dark' : 'default'
+                        });
+                        // 重新渲染图表
+                        document.querySelectorAll('.mermaid').forEach(function(el) {
+                            const content = el.textContent;
+                            el.textContent = content;
+                            mermaid.init(undefined, el);
+                        });
+                        
+                        // 法规架构图
+                        const regulatoryChart = echarts.getInstanceByDom(document.getElementById('regulatory-chart'));
+                        if (regulatoryChart) {
+                            updateChartTheme(regulatoryChart, isDark);
+                        }
+                        
+                        // 风险权重图表
+                        const riskWeightChart = echarts.getInstanceByDom(document.getElementById('risk-weight-chart'));
+                        if (riskWeightChart) {
+                            updateChartTheme(riskWeightChart, isDark);
+                        }
+                        
+                        // 风险管理图表
+                        const riskManagementChart = echarts.getInstanceByDom(document.getElementById('risk-management-chart'));
+                        if (riskManagementChart) {
+                            updateChartTheme(riskManagementChart, isDark);
+                        }
+                    }
+                });
+            });
+            
+            observer.observe(document.documentElement, { attributes: true });
+            
+            // 初始化法规架构图
+            const regulatoryChartDom = document.getElementById('regulatory-chart');
+            const regulatoryChart = echarts.init(regulatoryChartDom);
+            const isDark = document.documentElement.classList.contains('dark');
+            
+            const regulatoryChartOption = {
+                title: {
+                    text: '臺灣建築業授信監管架構',
+                    left: 'center',
+                    textStyle: {
+                        color: isDark ? '#e5e7eb' : '#111827'
+                    }
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{b}: {c}'
+                },
+                legend: {
+                    top: 'bottom',
+                    left: 'center',
+                    textStyle: {
+                        color: isDark ? '#e5e7eb' : '#111827'
+                    }
+                },
+                series: [
+                    {
+                        name: '監管架構',
+                        type: 'tree',
+                        data: [
+                            {
+                                name: '建築業授信監管框架',
+                                children: [
+                                    {
+                                        name: '《銀行法》',
+                                        children: [
+                                            { name: '第三十三條之三: 同一關係人授信限額', value: 1 },
+                                            { name: '第七十二條之二: 建築放款總額限制', value: 1 },
+                                            { name: '第三十二/三十三條: 利害關係人授信限制', value: 1 }
+                                        ]
+                                    },
+                                    {
+                                        name: '金管會規範',
+                                        children: [
+                                            { name: '授信規章要求', value: 1 },
+                                            { name: '不動產授信風險控管', value: 1 },
+                                            { name: '風險權數調整', value: 1 }
+                                        ]
+                                    },
+                                    {
+                                        name: '中央銀行措施',
+                                        children: [
+                                            { name: '選擇性信用管制', value: 1 },
+                                            { name: '不動產貸款總量管制', value: 1 }
+                                        ]
+                                    }
+                                ]
+                            }
+                        ],
+                        left: '2%',
+                        right: '2%',
+                        top: '10%',
+                        bottom: '10%',
+                        symbol: 'emptyCircle',
+                        symbolSize: 8,
+                        orient: 'vertical',
+                        expandAndCollapse: true,
+                        label: {
+                            position: 'top',
+                            rotate: 0,
+                            verticalAlign: 'middle',
+                            align: 'center',
+                            fontSize: 12,
+                            color: isDark ? '#e5e7eb' : '#111827'
+                        },
+                        leaves: {
+                            label: {
+                                position: 'right',
+                                verticalAlign: 'middle',
+                                align: 'left'
+                            }
+                        },
+                        emphasis: {
+                            focus: 'descendant'
+                        },
+                        itemStyle: {
+                            color: '#3F83F8'
+                        },
+                        lineStyle: {
+                            color: isDark ? '#6B7280' : '#9CA3AF',
+                            width: 1.5,
+                            curveness: 0.5
+                        }
+                    }
+                ]
+            };
+            
+            regulatoryChart.setOption(regulatoryChartOption);
+            
+            // 风险权重图表
+            const riskWeightChartDom = document.getElementById('risk-weight-chart');
+            const riskWeightChart = echarts.init(riskWeightChartDom);
+            
+            const riskWeightChartOption = {
+                title: {
+                    text: '不同貸款類型之風險權數比較',
+                    left: 'center',
+                    textStyle: {
+                        color: isDark ? '#e5e7eb' : '#111827'
+                    }
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'shadow'
+                    }
+                },
+                legend: {
+                    data: ['風險權數 (%)'],
+                    top: 'bottom',
+                    textStyle: {
+                        color: isDark ? '#e5e7eb' : '#111827'
+                    }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '15%',
+                    containLabel: true
+                },
+                xAxis: [
+                    {
+                        type: 'category',
+                        data: ['一般企業貸款', '自住型房貸', '投資型房貸', '購地貸款(住宅區)', '購地貸款(商業區)', '建築業餘屋貸款'],
+                        axisLabel: {
+                            interval: 0,
+                            rotate: 30,
+                            color: isDark ? '#e5e7eb' : '#111827'
+                        }
+                    }
+                ],
+                yAxis: [
+                    {
+                        type: 'value',
+                        name: '風險權數 (%)',
+                        nameTextStyle: {
+                            color: isDark ? '#e5e7eb' : '#111827'
+                        },
+                        axisLabel: {
+                            color: isDark ? '#e5e7eb' : '#111827'
+                        }
+                    }
+                ],
+                series: [
+                    {
+                        name: '風險權數 (%)',
+                        type: 'bar',
+                        data: [100, 35, 100, 150, 200, 150],
+                        itemStyle: {
+                            color: function(params) {
+                                const colorList = ['#3F83F8', '#10B981', '#F59E0B', '#EF4444', '#8B5CF6', '#EC4899'];
+                                return colorList[params.dataIndex];
+                            }
+                        },
+                        label: {
+                            show: true,
+                            position: 'top',
+                            formatter: '{c}%',
+                            color: isDark ? '#e5e7eb' : '#111827'
+                        }
+                    }
+                ]
+            };
+            
+            riskWeightChart.setOption(riskWeightChartOption);
+            
+            // 风险管理图表
+            const riskManagementChartDom = document.getElementById('risk-management-chart');
+            const riskManagementChart = echarts.init(riskManagementChartDom);
+            
+            const riskManagementChartOption = {
+                title: {
+                    text: '建築業授信主要風險及管控措施',
+                    left: 'center',
+                    textStyle: {
+                        color: isDark ? '#e5e7eb' : '#111827'
+                    }
+                },
+                tooltip: {
+                    trigger: 'item'
+                },
+                legend: {
+                    top: 'bottom',
+                    left: 'center',
+                    textStyle: {
+                        color: isDark ? '#e5e7eb' : '#111827'
+                    }
+                },
+                series: [
+                    {
+                        name: '風險與管控',
+                        type: 'radar',
+                        data: [
+                            {
+                                value: [90, 85, 70, 80, 95],
+                                name: '風險程度',
+                                areaStyle: {
+                                    color: 'rgba(255, 99, 71, 0.3)'
+                                },
+                                lineStyle: {
+                                    color: 'rgba(255, 99, 71, 1)'
+                                }
+                            },
+                            {
+                                value: [80, 75, 65, 70, 85],
+                                name: '管控水平',
+                                areaStyle: {
+                                    color: 'rgba(63, 131, 248, 0.3)'
+                                },
+                                lineStyle: {
+                                    color: 'rgba(63, 131, 248, 1)'
+                                }
+                            }
+                        ],
+                        indicator: [
+                            { name: '市場波動風險', max: 100 },
+                            { name: '資金回收風險', max: 100 },
+                            { name: '政策法規風險', max: 100 },
+                            { name: '擔保品價值變動', max: 100 },
+                            { name: '集中度風險', max: 100 }
+                        ]
+                    }
+                ]
+            };
+            
+            riskManagementChart.setOption(riskManagementChartOption);
+            
+            // 更新图表主题的函数
+            function updateChartTheme(chart, isDark) {
+                const option = chart.getOption();
+                
+                // 更新标题颜色
+                if (option.title) {
+                    option.title.forEach(title => {
+                        title.textStyle = title.textStyle || {};
+                        title.textStyle.color = isDark ? '#e5e7eb' : '#111827';
+                    });
+                }
+                
+                // 更新图例颜色
+                if (option.legend) {
+                    option.legend.forEach(legend => {
+                        legend.textStyle = legend.textStyle || {};
+                        legend.textStyle.color = isDark ? '#e5e7eb' : '#111827';
+                    });
+                }
+                
+                // 更新X轴标签颜色
+                if (option.xAxis) {
+                    option.xAxis.forEach(axis => {
+                        axis.axisLabel = axis.axisLabel || {};
+                        axis.axisLabel.color = isDark ? '#e5e7eb' : '#111827';
+                    });
+                }
+                
+                // 更新Y轴标签颜色
+                if (option.yAxis) {
+                    option.yAxis.forEach(axis => {
+                        axis.axisLabel = axis.axisLabel || {};
+                        axis.axisLabel.color = isDark ? '#e5e7eb' : '#111827';
+                        
+                        axis.nameTextStyle = axis.nameTextStyle || {};
+                        axis.nameTextStyle.color = isDark ? '#e5e7eb' : '#111827';
+                    });
+                }
+                
+                // 如果有树状图，更新节点标签颜色
+                if (option.series) {
+                    option.series.forEach(series => {
+                        if (series.type === 'tree') {
+                            series.label = series.label || {};
+                            series.label.color = isDark ? '#e5e7eb' : '#111827';
+                            
+                            series.lineStyle = series.lineStyle || {};
+                            series.lineStyle.color = isDark ? '#6B7280' : '#9CA3AF';
+                        }
+                        
+                        // 对于柱状图，更新标签颜色
+                        if (series.type === 'bar' && series.label) {
+                            series.label.color = isDark ? '#e5e7eb' : '#111827';
+                        }
+                    });
+                }
+                
+                chart.setOption(option);
+            }
+            
+            // 窗口尺寸变化时，重新调整图表大小
+            window.addEventListener('resize', function() {
+                if (regulatoryChart) regulatoryChart.resize();
+                if (riskWeightChart) riskWeightChart.resize();
+                if (riskManagementChart) riskManagementChart.resize();
+            });
+
+            // 淡入效果
+            const fadeElements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+
+            fadeElements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(10px)';
+                element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
