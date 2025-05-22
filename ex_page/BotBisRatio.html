@@ -1,0 +1,773 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>本國銀行資本適足率分析報告</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            950: '#082f49',
+                        },
+                        secondary: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617',
+                        },
+                        accent: {
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            200: '#a7f3d0',
+                            300: '#6ee7b7',
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                            800: '#065f46',
+                            900: '#064e3b',
+                            950: '#022c22',
+                        },
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans TC', 'sans-serif'],
+                        serif: ['Noto Serif TC', 'serif'],
+                    },
+                },
+            },
+            darkMode: 'class',
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/preline@3.0.1/dist/preline.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-icons@1.13.14/iconfont/material-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        .section-fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .section-fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200">
+    <!-- 主導航 -->
+    <header class="bg-white shadow-sm dark:bg-gray-800 dark:border-gray-700 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <span class="text-primary-700 dark:text-primary-400 text-xl font-bold">銀行資本適足率分析</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                        <i class="fa-solid fa-sun text-yellow-500 dark:hidden"></i>
+                        <i class="fa-solid fa-moon text-blue-300 hidden dark:block"></i>
+                    </button>
+                    <button class="hidden md:block px-4 py-2 bg-primary-600 hover:bg-primary-700 text-white rounded-md transition-colors dark:bg-primary-700 dark:hover:bg-primary-600">
+                        完整報告
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 摘要區塊 -->
+    <section class="pt-8 pb-12 bg-gradient-to-b from-primary-600 to-primary-800 dark:from-primary-800 dark:to-primary-950 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 animate-fade-in">
+            <h1 class="text-4xl font-bold mb-6">本國銀行資本適足率分析</h1>
+            <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 shadow-lg">
+                <h2 class="text-2xl font-semibold mb-4">概述</h2>
+                <p class="text-lg leading-relaxed">
+                    本國銀行資本適足率整體表現穩健，近年來皆符合法定最低標準，並呈現逐年增長趨勢，顯示銀行體系風險承受能力持續強化。金融監督管理委員會（金管會）為與國際巴塞爾資本協定三（Basel III）最終改革接軌，已發布多項資本計提規範修正，將分階段於2025年1月1日及7月1日實施。新規定對整體銀行平均資本適足率影響輕微，但部分銀行可能面臨較大的調整壓力，特別是在市場風險資本計提方面。系統性重要銀行（D-SIBs）需符合更高的資本要求，目前均已達標各年度最低標準，但仍需為2025年底的最終要求持續努力。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要內容區塊 -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- 關鍵指標區塊 -->
+        <section class="mb-16 section-fade-in">
+            <h2 class="text-3xl font-bold mb-8 text-gray-900 dark:text-white border-b pb-2 border-primary-200 dark:border-primary-800">
+                <i class="fas fa-chart-line text-primary-600 dark:text-primary-400 mr-2"></i>關鍵指標
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 指標卡片 -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100 dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-2">最低資本適足率</h3>
+                    <p class="text-3xl font-bold text-primary-600 dark:text-primary-400">10.5%</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">法定最低標準</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100 dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-2">普通股權益比率</h3>
+                    <p class="text-3xl font-bold text-primary-600 dark:text-primary-400">7%</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">法定最低標準</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100 dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-2">第一類資本比率</h3>
+                    <p class="text-3xl font-bold text-primary-600 dark:text-primary-400">8.5%</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">法定最低標準</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-100 dark:border-gray-700">
+                    <h3 class="text-xl font-semibold text-gray-700 dark:text-gray-300 mb-2">逾期放款比率</h3>
+                    <p class="text-3xl font-bold text-accent-600 dark:text-accent-400">0.16%</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">2025年3月底</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 資本適足率現況圖表區塊 -->
+        <section class="mb-16 section-fade-in">
+            <h2 class="text-3xl font-bold mb-8 text-gray-900 dark:text-white border-b pb-2 border-primary-200 dark:border-primary-800">
+                <i class="fas fa-university text-primary-600 dark:text-primary-400 mr-2"></i>本國銀行資本適足率趨勢
+            </h2>
+            <div class="mb-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- 資本適足率趨勢圖 -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                    <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">資本適足率年度趨勢</h3>
+                    <div id="capital-ratio-chart" class="h-80"></div>
+                </div>
+                <!-- 不同類型資本比率圖 -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                    <h3 class="text-lg font-semibold mb-4 text-gray-800 dark:text-gray-200">各類資本比率比較</h3>
+                    <div id="capital-types-chart" class="h-80"></div>
+                </div>
+            </div>
+            <div class='tableauPlaceholder' id='viz1747920171041' style='position: relative'><noscript><a href='#'><img alt='儀表板窗格 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_17312155470620&#47;sheet5&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_17312155470620&#47;sheet5' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_17312155470620&#47;sheet5&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1747920171041');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1300px';vizElement.style.height='927px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1300px';vizElement.style.height='927px';} else { vizElement.style.width='100%';vizElement.style.height='1827px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl">
+                <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">現況分析</h3>
+                <p class="text-gray-700 dark:text-gray-300 mb-4">
+                    本國銀行資本適足率是衡量其自有資本對抗風險性資產能力的重要指標。近年來，本國銀行體系的資本適足率普遍符合《銀行資本適足性及資本等級管理辦法》設定的最低要求，即普通股權益比率7%、第一類資本比率8.5%及資本適足率10.5%。整體而言，資本適足率呈現逐年增加的趨勢，顯示銀行業的風險承擔能力有所提升。
+                </p>
+                <p class="text-gray-700 dark:text-gray-300">
+                    截至2025年3月底，本國銀行逾期放款比率為0.16%，備抵呆帳覆蓋率為845.95%，資產品質維持穩健。然而，部分銀行的資本適足率可能仍低於同業平均水準，需持續改善。
+                </p>
+            </div>
+        </section>
+
+        <!-- 巴塞爾資本協定三最終改革區塊 -->
+        <section class="mb-16 section-fade-in">
+            <h2 class="text-3xl font-bold mb-8 text-gray-900 dark:text-white border-b pb-2 border-primary-200 dark:border-primary-800">
+                <i class="fas fa-file-contract text-primary-600 dark:text-primary-400 mr-2"></i>巴塞爾資本協定三最終改革
+            </h2>
+            
+            <!-- 實施時間表 -->
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm mb-8 border border-gray-100 dark:border-gray-700">
+                <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">實施時間表</h3>
+                <div class="relative">
+                    <!-- 時間軸 -->
+                    <div class="hidden sm:block w-full h-1 bg-gray-200 dark:bg-gray-700 absolute top-6"></div>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <!-- 現在 -->
+                        <div class="relative pt-3">
+                            <div class="flex items-center mb-2">
+                                <div class="z-10 flex items-center justify-center w-6 h-6 bg-primary-100 rounded-full ring-0 ring-white dark:bg-primary-900 sm:ring-8 dark:ring-gray-800 shrink-0">
+                                    <span class="flex w-3 h-3 bg-primary-500 rounded-full"></span>
+                                </div>
+                                <div class="hidden sm:block w-full bg-primary-100 h-0.5 dark:bg-primary-800"></div>
+                            </div>
+                            <div class="mt-3">
+                                <h4 class="text-lg font-semibold text-primary-600 dark:text-primary-400">現行標準</h4>
+                                <p class="text-gray-600 dark:text-gray-400">普通股權益比率7%、第一類資本比率8.5%及資本適足率10.5%</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 2025年1月 -->
+                        <div class="relative pt-3">
+                            <div class="flex items-center mb-2">
+                                <div class="z-10 flex items-center justify-center w-6 h-6 bg-primary-100 rounded-full ring-0 ring-white dark:bg-primary-900 sm:ring-8 dark:ring-gray-800 shrink-0">
+                                    <span class="flex w-3 h-3 bg-primary-500 rounded-full"></span>
+                                </div>
+                                <div class="hidden sm:block w-full bg-primary-100 h-0.5 dark:bg-primary-800"></div>
+                            </div>
+                            <div class="mt-3">
+                                <h4 class="text-lg font-semibold text-primary-600 dark:text-primary-400">2025年1月1日</h4>
+                                <p class="text-gray-600 dark:text-gray-400">第一階段新規：信用風險標準法、信用風險內部評等法、產出下限、作業風險及槓桿比率規定實施</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 2025年7月 -->
+                        <div class="relative pt-3">
+                            <div class="flex items-center mb-2">
+                                <div class="z-10 flex items-center justify-center w-6 h-6 bg-primary-100 rounded-full ring-0 ring-white dark:bg-primary-900 sm:ring-8 dark:ring-gray-800 shrink-0">
+                                    <span class="flex w-3 h-3 bg-primary-500 rounded-full"></span>
+                                </div>
+                                <div class="hidden sm:block w-full bg-primary-100 h-0.5 dark:bg-primary-800"></div>
+                            </div>
+                            <div class="mt-3">
+                                <h4 class="text-lg font-semibold text-primary-600 dark:text-primary-400">2025年7月1日</h4>
+                                <p class="text-gray-600 dark:text-gray-400">第二階段新規：市場風險、信用評價調整（CVA）及證券化曝險規範實施</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 新規內容 -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
+                        <i class="fas fa-calendar-day text-primary-600 dark:text-primary-400 mr-2"></i>第一階段（2025/1/1）
+                    </h3>
+                    <ul class="space-y-3 list-disc list-inside text-gray-700 dark:text-gray-300">
+                        <li>信用風險標準法調整</li>
+                        <li>信用風險內部評等法（IRB法）修正</li>
+                        <li>產出下限規定實施</li>
+                        <li>作業風險新規計算方法</li>
+                        <li>槓桿比率相關規範調整</li>
+                        <li>放寬中小企業信用保證案件風險權數適用範圍</li>
+                    </ul>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">
+                        <i class="fas fa-calendar-week text-primary-600 dark:text-primary-400 mr-2"></i>第二階段（2025/7/1）
+                    </h3>
+                    <ul class="space-y-3 list-disc list-inside text-gray-700 dark:text-gray-300">
+                        <li>市場風險：明確銀行簿及交易簿範圍，修訂新的「標準法」以提高風險敏感性</li>
+                        <li>信用評價調整（CVA）風險：資本計提方法分為基礎法及標準法</li>
+                        <li>證券化曝險：修正定義，優化資本計提方法以提高風險敏感性</li>
+                        <li>特定條件銀行（如資產總額達2.5兆元以上）須適用新標準法</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- 新規影響分析圖表 -->
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                <h3 class="text-xl font-semibold mb-6 text-gray-800 dark:text-gray-200">新規範實施影響分析</h3>
+                <div id="basel-impact-chart" class="h-80"></div>
+                <div class="mt-6 text-gray-700 dark:text-gray-300">
+                    <p class="mb-3">
+                        <strong>整體影響評估：</strong>根據金管會以2023年12月底38家本國銀行個體資本適足率為基礎的試算，兩階段新規實施後，全體銀行平均普通股權益比率、第一類資本比率及資本適足率預計分別微幅下降0.28、0.32及0.36個百分點，整體影響有限。
+                    </p>
+                    <p class="mb-3">
+                        <strong>個別銀行影響差異：</strong>儘管平均影響不大，但新規對個別銀行的影響可能存在差異。部分銀行，特別是交易部位較大或業務較複雜者，資本適足率可能面臨較大的下降壓力。據估算，有三家銀行的資本適足率可能因此下降0.6個百分點。
+                    </p>
+                    <p>
+                        <strong>重點風險變化：</strong>市場風險資本計提新規預計將使38家本國銀行的加權風險性資產合計增加約新臺幣1,500億元，是此次新規中對銀行資本適足率影響最劇烈的一項。相對地，證券化曝險新規因限縮證券化交易定義，預計可使整體銀行風險性資產減少約新臺幣1,000億元。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 系統性重要銀行 (D-SIBs) 區塊 -->
+        <section class="mb-16 section-fade-in">
+            <h2 class="text-3xl font-bold mb-8 text-gray-900 dark:text-white border-b pb-2 border-primary-200 dark:border-primary-800">
+                <i class="fas fa-building-columns text-primary-600 dark:text-primary-400 mr-2"></i>系統性重要銀行 (D-SIBs) 特別要求
+            </h2>
+            
+            <!-- D-SIBs 資訊 -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm lg:col-span-2 border border-gray-100 dark:border-gray-700">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">2024年度指定D-SIBs名單</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+                        <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
+                            <p class="font-semibold">中國信託商業銀行</p>
+                        </div>
+                        <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
+                            <p class="font-semibold">台北富邦商業銀行</p>
+                        </div>
+                        <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
+                            <p class="font-semibold">國泰世華商業銀行</p>
+                        </div>
+                        <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
+                            <p class="font-semibold">合作金庫商業銀行</p>
+                        </div>
+                        <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
+                            <p class="font-semibold">兆豐國際商業銀行</p>
+                        </div>
+                        <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
+                            <p class="font-semibold">第一商業銀行</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">D-SIBs認定條件</h3>
+                    <ul class="space-y-2 list-disc list-inside text-gray-700 dark:text-gray-300">
+                        <li>規模（總資產等）</li>
+                        <li>業務複雜程度</li>
+                        <li>與其他金融機構關聯性</li>
+                        <li>業務可替代性</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- D-SIBs 資本要求對比圖 -->
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm mb-8 border border-gray-100 dark:border-gray-700">
+                <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">D-SIBs 額外資本要求</h3>
+                <div id="dsib-requirements-chart" class="h-80"></div>
+            </div>
+            
+            <!-- D-SIBs 監理框架說明 -->
+            <div class="bg-amber-50 dark:bg-amber-900/20 p-6 rounded-xl">
+                <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">D-SIBs監理強化措施</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-gray-700 dark:text-gray-300">
+                    <div>
+                        <h4 class="font-semibold text-primary-700 dark:text-primary-400 mb-2">資本要求分階段提升</h4>
+                        <p>D-SIBs被要求自指定日次年起，分4年（2022年至2025年）平均提列2%的額外法定資本要求及2%的內部管理資本要求。</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-primary-700 dark:text-primary-400 mb-2">經營危機應變措施</h4>
+                        <p>D-SIBs須向主管機關申報「經營危機應變措施」，確保在經營困難時有適當的應急計畫。</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-primary-700 dark:text-primary-400 mb-2">壓力測試要求</h4>
+                        <p>D-SIBs需每年辦理且通過2年期的壓力測試，以評估其在不利環境下的資本韌性。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 影響資本適足率的關鍵因素與未來展望 -->
+        <section class="section-fade-in">
+            <h2 class="text-3xl font-bold mb-8 text-gray-900 dark:text-white border-b pb-2 border-primary-200 dark:border-primary-800">
+                <i class="fas fa-magnifying-glass-chart text-primary-600 dark:text-primary-400 mr-2"></i>關鍵影響因素與未來展望
+            </h2>
+            
+            <!-- 關鍵因素流程圖 -->
+            <div class="mb-8">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                    <h3 class="text-xl font-semibold mb-6 text-gray-800 dark:text-gray-200">影響資本適足率的關鍵因素</h3>
+                    <div class="mermaid-chart bg-white dark:bg-gray-900 p-4 rounded-lg overflow-auto">
+                        <pre class="mermaid">
+flowchart TD
+    A[資本適足率] --> B[資產品質]
+    A --> C[風險管理實務]
+    A --> D[經營績效]
+    B --> B1[逾期放款比率]
+    B --> B2[備抵呆帳覆蓋率]
+    C --> C1[風險鑑別]
+    C --> C2[風險監控]
+    C --> C3[風險減緩]
+    D --> D1[獲利能力]
+    D --> D2[資產配置]
+    D --> D3[成本效益]
+                        </pre>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 因素分析與未來展望 -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- 關鍵因素檢視 -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">影響因素分析</h3>
+                    
+                    <div class="space-y-4 text-gray-700 dark:text-gray-300">
+                        <div class="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                            <h4 class="font-semibold text-primary-700 dark:text-primary-400 mb-2">資產品質</h4>
+                            <p>銀行的資產品質，特別是逾期放款比率，對其經營績效及資本適足性有顯著的負向影響。截至2025年3月底，本國銀行逾期放款比率為0.16%，備抵呆帳覆蓋率為845.95%，顯示資產品質尚屬穩定。</p>
+                        </div>
+                        
+                        <div class="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                            <h4 class="font-semibold text-primary-700 dark:text-primary-400 mb-2">風險管理實務</h4>
+                            <p>健全的風險管理機制是銀行維持資本適足的關鍵。金管會於2025年度的金融檢查重點中，亦包含保險業風險管理機制之落實及資本適足率之計提情形等。銀行應確實執行風險管理實務守則，並依風險基礎原則執行各項業務。</p>
+                        </div>
+                        
+                        <div class="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                            <h4 class="font-semibold text-primary-700 dark:text-primary-400 mb-2">經營績效</h4>
+                            <p>研究顯示，銀行資本適足率與經營績效間存在顯著的正向影響關係，但過高或不足的資本適足率反而可能降低銀行的經營績效。因此，銀行需在風險承擔與經營效益間取得平衡。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 未來展望 -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-gray-200">未來展望與挑戰</h3>
+                    
+                    <div class="space-y-4 text-gray-700 dark:text-gray-300">
+                        <div class="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                            <h4 class="font-semibold text-primary-700 dark:text-primary-400 mb-2">持續監理與國際接軌</h4>
+                            <p>金管會將持續參考BCBS發布的各項國際規範及主要國家的作法，在兼顧與國際接軌及穩健可行的原則下，研議修正我國資本適足性相關規範，以強化本國銀行的風險管理架構與損失吸收能力。</p>
+                        </div>
+                        
+                        <div class="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                            <h4 class="font-semibold text-primary-700 dark:text-primary-400 mb-2">銀行應對策略</h4>
+                            <p>面對新規範的實施，銀行需積極進行系統調整、內部規範修訂及人員培訓，以確保符合規定。同時，銀行應審慎評估業務結構對資本計提的影響，並適時調整經營策略與資本規劃，以維持資本韌性。</p>
+                        </div>
+                        
+                        <div class="p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                            <h4 class="font-semibold text-primary-700 dark:text-primary-400 mb-2">金融穩定意涵</h4>
+                            <p>資本適足率是外界衡量本國銀行風險承受能力的重要指標，亦是維護整體金融體系穩定的基石。透過持續強化資本要求與風險管理，有助於提升銀行體系應對外部衝擊的能力，支持實體經濟發展。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>    
+
+    <script>
+        // 主題切換
+        document.getElementById('theme-toggle').addEventListener('click', function() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.theme = 'dark';
+            }
+        });
+        
+        // 初始化主題設定
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+        
+        // 初始化 Mermaid
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: document.documentElement.classList.contains('dark') ? 'dark' : 'default',
+            securityLevel: 'loose',
+            themeVariables: {
+                dark: {
+                    primaryColor: '#0369a1',
+                    primaryTextColor: '#ffffff',
+                    primaryBorderColor: '#075985',
+                    lineColor: '#64748b',
+                    secondaryColor: '#334155',
+                    tertiaryColor: '#1e293b'
+                }
+            }
+        });
+
+        // 畫面捲動動畫
+        function checkVisibility() {
+            const elements = document.querySelectorAll('.section-fade-in');
+            elements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                const windowHeight = window.innerHeight || document.documentElement.clientHeight;
+                
+                if (rect.top <= windowHeight * 0.8) {
+                    el.classList.add('visible');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', checkVisibility);
+        window.addEventListener('resize', checkVisibility);
+        window.addEventListener('load', checkVisibility);
+        
+        // 初始化圖表
+        window.addEventListener('DOMContentLoaded', (event) => {
+            // 取得當前主題
+            const isDark = document.documentElement.classList.contains('dark');
+            const textColor = isDark ? '#e2e8f0' : '#1e293b';
+            const gridLineColor = isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
+            
+            // 資本適足率趨勢圖
+            const capitalRatioChart = echarts.init(document.getElementById('capital-ratio-chart'));
+            capitalRatioChart.setOption({
+                backgroundColor: 'transparent',
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data: ['資本適足率'],
+                    textStyle: { color: textColor }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: ['2019', '2020', '2021', '2022', '2023', '2024', '2025Q1'],
+                    axisLabel: { color: textColor },
+                    axisLine: { lineStyle: { color: gridLineColor } }
+                },
+                yAxis: {
+                    type: 'value',
+                    axisLabel: { color: textColor },
+                    axisLine: { lineStyle: { color: gridLineColor } },
+                    splitLine: { lineStyle: { color: gridLineColor } },
+                    min: 10,
+                    max: 15
+                },
+                series: [
+                    {
+                        name: '資本適足率',
+                        type: 'line',
+                        smooth: true,
+                        data: [11.8, 12.2, 12.6, 13.1, 13.7, 14.2, 14.3],
+                        itemStyle: { color: '#0ea5e9' },
+                        areaStyle: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                { offset: 0, color: isDark ? 'rgba(14, 165, 233, 0.7)' : 'rgba(14, 165, 233, 0.4)' },
+                                { offset: 1, color: isDark ? 'rgba(14, 165, 233, 0.1)' : 'rgba(14, 165, 233, 0.1)' }
+                            ])
+                        },
+                        markLine: {
+                            symbol: 'none',
+                            lineStyle: { color: '#f87171' },
+                            data: [
+                                { 
+                                    yAxis: 10.5, 
+                                    name: '法定下限',
+                                    label: { formatter: '法定下限 (10.5%)', position: 'start' }
+                                }
+                            ]
+                        }
+                    }
+                ]
+            });
+            
+            // 各類資本比率比較圖
+            const capitalTypesChart = echarts.init(document.getElementById('capital-types-chart'));
+            capitalTypesChart.setOption({
+                backgroundColor: 'transparent',
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'shadow'
+                    }
+                },
+                legend: {
+                    data: ['法定最低標準', '現行平均水準'],
+                    textStyle: { color: textColor }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['普通股權益比率', '第一類資本比率', '資本適足率'],
+                    axisLabel: { color: textColor },
+                    axisLine: { lineStyle: { color: gridLineColor } }
+                },
+                yAxis: {
+                    type: 'value',
+                    axisLabel: { color: textColor },
+                    axisLine: { lineStyle: { color: gridLineColor } },
+                    splitLine: { lineStyle: { color: gridLineColor } },
+                    min: 0,
+                    max: 15
+                },
+                series: [
+                    {
+                        name: '法定最低標準',
+                        type: 'bar',
+                        data: [7, 8.5, 10.5],
+                        itemStyle: { color: '#94a3b8' }
+                    },
+                    {
+                        name: '現行平均水準',
+                        type: 'bar',
+                        data: [11.2, 12.1, 14.3],
+                        itemStyle: { color: '#0ea5e9' }
+                    }
+                ]
+            });
+            
+            // 巴塞爾三最終改革影響圖表
+            const baselImpactChart = echarts.init(document.getElementById('basel-impact-chart'));
+            baselImpactChart.setOption({
+                backgroundColor: 'transparent',
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'shadow'
+                    }
+                },
+                legend: {
+                    data: ['現行水準', '第一階段後', '第二階段後'],
+                    textStyle: { color: textColor }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'value',
+                    axisLabel: { color: textColor },
+                    axisLine: { lineStyle: { color: gridLineColor } },
+                    splitLine: { lineStyle: { color: gridLineColor } },
+                    min: 10,
+                    max: 15
+                },
+                yAxis: {
+                    type: 'category',
+                    data: ['資本適足率', '第一類資本比率', '普通股權益比率'],
+                    axisLabel: { color: textColor },
+                    axisLine: { lineStyle: { color: gridLineColor } }
+                },
+                series: [
+                    {
+                        name: '現行水準',
+                        type: 'bar',
+                        data: [14.3, 12.1, 11.2],
+                        itemStyle: { color: '#0ea5e9' },
+                        label: {
+                            show: true,
+                            position: 'insideRight',
+                            formatter: '{c}%'
+                        }
+                    },
+                    {
+                        name: '第一階段後',
+                        type: 'bar',
+                        data: [14.0, 11.8, 11.0],
+                        itemStyle: { color: '#38bdf8' },
+                        label: {
+                            show: true,
+                            position: 'insideRight',
+                            formatter: '{c}%'
+                        }
+                    },
+                    {
+                        name: '第二階段後',
+                        type: 'bar',
+                        data: [13.9, 11.8, 10.9],
+                        itemStyle: { color: '#7dd3fc' },
+                        label: {
+                            show: true,
+                            position: 'insideRight',
+                            formatter: '{c}%'
+                        }
+                    }
+                ]
+            });
+            
+            // D-SIBs資本要求對比圖
+            const dsibRequirementsChart = echarts.init(document.getElementById('dsib-requirements-chart'));
+            dsibRequirementsChart.setOption({
+                backgroundColor: 'transparent',
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'shadow'
+                    }
+                },
+                legend: {
+                    data: ['一般銀行', 'D-SIBs (2025年底要求)'],
+                    textStyle: { color: textColor }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['普通股權益比率', '第一類資本比率', '資本適足率'],
+                    axisLabel: { color: textColor },
+                    axisLine: { lineStyle: { color: gridLineColor } }
+                },
+                yAxis: {
+                    type: 'value',
+                    axisLabel: { color: textColor },
+                    axisLine: { lineStyle: { color: gridLineColor } },
+                    splitLine: { lineStyle: { color: gridLineColor } },
+                    min: 0,
+                    max: 16
+                },
+                series: [
+                    {
+                        name: '一般銀行',
+                        type: 'bar',
+                        data: [7, 8.5, 10.5],
+                        itemStyle: { color: '#94a3b8' }
+                    },
+                    {
+                        name: 'D-SIBs (2025年底要求)',
+                        type: 'bar',
+                        data: [11, 12.5, 14.5],
+                        itemStyle: { color: '#0ea5e9' }
+                    }
+                ]
+            });
+            
+            // 監聽窗口大小變化，以更新圖表尺寸
+            window.addEventListener('resize', function() {
+                capitalRatioChart.resize();
+                capitalTypesChart.resize();
+                baselImpactChart.resize();
+                dsibRequirementsChart.resize();
+            });
+            
+            // 監聽主題變化，以更新圖表樣式
+            document.getElementById('theme-toggle').addEventListener('click', function() {
+                setTimeout(() => {
+                    const isDark = document.documentElement.classList.contains('dark');
+                    const textColor = isDark ? '#e2e8f0' : '#1e293b';
+                    const gridLineColor = isDark ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)';
+                    
+                    // 更新每個圖表的文字和網格線顏色
+                    [capitalRatioChart, capitalTypesChart, baselImpactChart, dsibRequirementsChart].forEach(chart => {
+                        const option = chart.getOption();
+                        if (option.legend && option.legend[0]) {
+                            option.legend[0].textStyle.color = textColor;
+                        }
+                        if (option.xAxis && option.xAxis[0]) {
+                            option.xAxis[0].axisLabel.color = textColor;
+                            option.xAxis[0].axisLine.lineStyle.color = gridLineColor;
+                            if (option.xAxis[0].splitLine) {
+                                option.xAxis[0].splitLine.lineStyle.color = gridLineColor;
+                            }
+                        }
+                        if (option.yAxis && option.yAxis[0]) {
+                            option.yAxis[0].axisLabel.color = textColor;
+                            option.yAxis[0].axisLine.lineStyle.color = gridLineColor;
+                            if (option.yAxis[0].splitLine) {
+                                option.yAxis[0].splitLine.lineStyle.color = gridLineColor;
+                            }
+                        }
+                        chart.setOption(option);
+                    });
+                    
+                    // 更新mermaid圖表
+                    mermaid.initialize({
+                        theme: isDark ? 'dark' : 'default'
+                    });
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>
