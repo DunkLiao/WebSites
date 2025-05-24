@@ -1,0 +1,804 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信用風險標準法下的臺灣銀行帳面金額與風險性資產分析</title>
+    <meta name="description" content="本報告分析信用風險標準法下，臺灣銀行帳面金額與風險性資產之間的關係及計算方法">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-icons@1.13.14/iconfont/material-icons.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/preline@3.0.1/dist/preline.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        secondary: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                        },
+                        accent: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            200: '#fde68a',
+                            300: '#fcd34d',
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                            800: '#92400e',
+                            900: '#78350f',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans TC', 'sans-serif'],
+                        serif: ['Georgia', 'Noto Serif TC', 'serif'],
+                        mono: ['Consolas', 'monospace']
+                    }
+                }
+            }
+        }
+    </script><style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;700&display=swap');
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #94a3b8;
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #64748b;
+        }
+        
+        .dark ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        
+        .dark ::-webkit-scrollbar-thumb {
+            background: #475569;
+        }
+        
+        .dark ::-webkit-scrollbar-thumb:hover {
+            background: #64748b;
+        }
+        
+        /* Animation classes */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .slide-up {
+            animation: slideUp 0.5s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(20px); 
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0); 
+            }
+        }
+
+        @media print {
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white text-secondary-800 dark:bg-secondary-900 dark:text-secondary-100 min-h-screen font-sans">
+    <!-- Header with navigation -->
+    <header class="sticky top-0 z-50 bg-white/90 dark:bg-secondary-900/90 backdrop-blur-sm shadow-sm dark:shadow-secondary-800/10 transition-all duration-300 no-print">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <i class="fas fa-chart-line text-primary-600 dark:text-primary-400 text-2xl"></i>
+                <h1 class="text-xl font-semibold text-secondary-900 dark:text-white">信用風險標準法分析</h1>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-secondary-100 dark:hover:bg-secondary-800 transition-colors">
+                    <i class="fas fa-sun text-accent-500 dark:hidden"></i>
+                    <i class="fas fa-moon text-primary-300 hidden dark:block"></i>
+                </button>
+                
+                <button class="flex items-center space-x-2 bg-primary-600 hover:bg-primary-700 text-white py-2 px-4 rounded-lg transition-all shadow-sm hover:shadow md:inline-flex" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                    <i class="fas fa-arrow-up text-sm"></i>
+                    <span class="hidden md:inline">回到頂部</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="container mx-auto px-4 py-8 max-w-7xl">
+        <!-- Table of Contents -->
+        <aside class="hidden lg:block fixed left-4 top-32 w-64 p-4 bg-white dark:bg-secondary-800 rounded-lg shadow-md dark:shadow-secondary-900 no-print">
+            <h3 class="text-lg font-semibold mb-4 text-secondary-900 dark:text-white">目錄</h3>
+            <nav class="space-y-2 text-sm">
+                <a href="#overview" class="block py-1 px-2 rounded hover:bg-primary-50 dark:hover:bg-secondary-700 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">概述</a>
+                <a href="#basic-concepts" class="block py-1 px-2 rounded hover:bg-primary-50 dark:hover:bg-secondary-700 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">信用風險標準法之基本概念</a>
+                <a href="#book-value" class="block py-1 px-2 rounded hover:bg-primary-50 dark:hover:bg-secondary-700 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">帳面金額的定義與應用</a>
+                <a href="#rwa-calculation" class="block py-1 px-2 rounded hover:bg-primary-50 dark:hover:bg-secondary-700 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">風險性資產的計算</a>
+                <a href="#relationship-analysis" class="block py-1 px-2 rounded hover:bg-primary-50 dark:hover:bg-secondary-700 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">帳面金額與風險性資產關聯分析</a>
+                <a href="#conclusion" class="block py-1 px-2 rounded hover:bg-primary-50 dark:hover:bg-secondary-700 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">結論</a>
+                <a href="#future" class="block py-1 px-2 rounded hover:bg-primary-50 dark:hover:bg-secondary-700 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">未來展望與研究領域</a>
+            </nav>
+        </aside>
+
+        <!-- Content -->		
+        <div class="lg:ml-64 xl:ml-72">
+            <article class="prose prose-lg dark:prose-invert max-w-4xl mx-auto prose-headings:text-secondary-900 dark:prose-headings:text-white prose-a:text-primary-600 dark:prose-a:text-primary-400">
+                <!-- Overview Section -->
+                <section id="overview" class="mb-16 slide-up">
+                    <h1 class="text-3xl md:text-4xl font-bold mb-6 text-secondary-900 dark:text-white">信用風險標準法下的帳面金額與風險性資產分析</h1>
+                    <div class="bg-primary-50 dark:bg-secondary-800/50 p-6 rounded-xl mb-8 border-l-4 border-primary-500">
+                        <p class="text-lg font-medium mb-0">
+                            本報告旨在分析信用風險標準法下，帳面金額與風險性資產之間的關係及計算方法。信用風險標準法為金融機構計算信用風險資本計提的基礎方法之一，其核心概念是將資產的帳面金額（或表外項目的信用相當額）乘以相應的風險權數，從而得出風險性資產。此風險性資產的數額直接影響銀行所需提列的資本適足率。台灣金融監督管理委員會頒布的「銀行自有資本與風險性資產之計算方法說明及表格」為此提供了詳細的規範與計算指引；其中部分修正條文已於2025年生效，旨在強化銀行風險管理的敏感性與國際標準接軌。臺灣銀行作為國內主要銀行，其風險管理框架與資本計提需嚴格遵守此規範。
+                        </p>
+                    </div>                   
+                </section>
+
+                <!-- Basic Concepts Section -->
+                <section id="basic-concepts" class="mb-16 slide-up">
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-secondary-900 dark:text-white">信用風險標準法之基本概念</h2>
+                    
+                    <p>信用風險標準法（Standardized Approach for Credit Risk）是巴塞爾資本協定下，銀行用以計算信用風險所需資本的一種衡量方法。此方法要求銀行根據資產負債表內項目及表外項目的性質，參照外部信用評等機構的評級或監管機構訂定的標準，對不同類型的暴險部位（exposures）賦予特定的風險權數。其目的是以相對簡潔且標準化的方式，評估銀行資產組合的信用風險，並確保銀行持有足夠的資本以應對潛在損失。</p>
+
+                    <p>台灣的銀行業亦遵循此架構，相關規定詳載於金融監督管理委員會發布的「銀行自有資本與風險性資產之計算方法說明及表格」中。該文件詳細列明了各類資產的風險權數、合格外部信用評等機構的標準、風險抵減工具的認可條件，以及表內與表外項目信用風險的計算方式。相關法規亦有持續修訂，部分新規定自民國114年（2025年）起生效。</p>
+                    
+                </section>
+
+                <!-- Book Value Section -->
+                <section id="book-value" class="mb-16 slide-up">
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-secondary-900 dark:text-white">帳面金額（Book Value）的定義與應用</h2>
+                <p>帳面金額，在財務會計上，通常指公司資產負債表上資產的價值，即資產的原始成本減去累計折舊、攤銷或減損後的餘額。對於金融機構而言，在計算信用風險性資產時，資產負債表內項目的「帳面金額」是計算風險暴露的基礎。</p>
+
+                    <div class="grid md:grid-cols-2 gap-6 my-8">
+                        <div class="bg-white dark:bg-secondary-800 p-6 rounded-xl shadow-sm">
+                            <h4 class="text-lg font-medium mb-3 text-secondary-900 dark:text-white flex items-center">
+                                <i class="fas fa-balance-scale text-primary-500 mr-2"></i>
+                                表內項目帳面金額
+                            </h4>
+                            <p class="text-secondary-600 dark:text-secondary-300">
+                                帳面金額可能需要經過特定調整。例如，根據規定，帳面金額可能需先扣除針對預期損失所提列的備抵呆帳或特定減損準備後，再乘以適用的風險權數。
+                            </p>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-secondary-800 p-6 rounded-xl shadow-sm">
+                            <h4 class="text-lg font-medium mb-3 text-secondary-900 dark:text-white flex items-center">
+                                <i class="fas fa-exchange-alt text-primary-500 mr-2"></i>
+                                表外項目信用相當額
+                            </h4>
+                            <p class="text-secondary-600 dark:text-secondary-300">
+                                對於資產負債表表外項目，由於其名目本金不直接反映在資產負債表內，因此會先透過「信用轉換係數」（Credit Conversion Factor, CCF）將其轉換為「信用相當額」（Credit Equivalent Amount），此信用相當額在後續計算中扮演類似於表內項目帳面金額的角色。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Book Value Calculation Example -->
+                    <div class="bg-secondary-50 dark:bg-secondary-800/60 p-6 rounded-xl my-8 border border-secondary-200 dark:border-secondary-700">
+                        <h4 class="text-lg font-medium mb-3 text-secondary-900 dark:text-white">帳面金額調整示例</h4>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full divide-y divide-secondary-200 dark:divide-secondary-700">
+                                <thead>
+                                    <tr>
+                                        <th class="px-4 py-3 text-left text-xs font-medium text-secondary-500 dark:text-secondary-400 uppercase tracking-wider">項目</th><th class="px-4 py-3 text-left text-xs font-medium text-secondary-500 dark:text-secondary-400 uppercase tracking-wider">原始帳面金額</th>
+                                        <th class="px-4 py-3 text-left text-xs font-medium text-secondary-500 dark:text-secondary-400 uppercase tracking-wider">備抵項目</th>
+                                        <th class="px-4 py-3 text-left text-xs font-medium text-secondary-500 dark:text-secondary-400 uppercase tracking-wider">調整後帳面金額</th></tr>
+                                </thead>
+                                <tbody class="bg-white dark:bg-secondary-800 divide-y divide-secondary-200 dark:divide-secondary-700">
+                                    <tr>
+                                        <td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">企業放款</td>
+                                        <td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">10,000,000</td>
+                                        <td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">-100,000 (備抵呆帳)</td>
+                                        <td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">9,900,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">債券投資</td>
+                                        <td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">5,000,000</td>
+                                        <td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">-50,000 (評價調整)</td>
+                                        <td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">4,950,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">房屋貸款</td>
+                                        <td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">15,000,000</td>
+                                        <td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">-150,000 (備抵呆帳)</td>
+                                        <td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">14,850,000</td>
+                                    </tr></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- RWA Calculation Section -->
+                <section id="rwa-calculation" class="mb-16 slide-up">
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-secondary-900 dark:text-white">風險性資產（Risk-Weighted Assets, RWA）的計算</h2>
+                    
+                    <p>風險性資產是衡量銀行所需持有資本的關鍵指標。其計算方式是將不同資產的暴險額（通常基於調整後的帳面金額或信用相當額）乘以各自對應的風險權數。</p>
+
+                    <div class="bg-white dark:bg-secondary-800 p-6 rounded-xl shadow-sm dark:shadow-secondary-900/20 my-8">
+                        <h3 class="text-xl font-semibold mb-4 text-secondary-900 dark:text-white">計算公式</h3>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-primary-50 dark:bg-secondary-700/50 p-4 rounded-lg">
+                                <h4 class="text-lg font-medium mb-2 text-primary-800 dark:text-primary-300">表內項目</h4>
+                                <div class="bg-white dark:bg-secondary-800 p-3 rounded"><p class="font-mono text-secondary-800 dark:text-secondary-200">
+                                        風險性資產 = 調整後帳面金額 × 風險權數
+                                    </p>
+                                </div>
+                            </div>
+                <div class="bg-primary-50 dark:bg-secondary-700/50 p-4 rounded-lg">
+                                <h4 class="text-lg font-medium mb-2 text-primary-800 dark:text-primary-300">表外項目</h4>
+                                <div class="bg-white dark:bg-secondary-800 p-3 rounded mb-2">
+                                    <p class="font-mono text-secondary-800 dark:text-secondary-200">
+                                        1. 信用相當額 = 表外項目名目金額 × 信用轉換係數
+                                    </p>
+                                </div>
+                                <div class="bg-white dark:bg-secondary-800 p-3 rounded">
+                                    <p class="font-mono text-secondary-800 dark:text-secondary-200">
+                                        2. 風險性資產 = 信用相當額 × 風險權數
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                <p>風險權數的大小取決於交易對手的類型（如政府、銀行、企業、零售等）、外部信用評等等級以及擔保品等風險抵減工具的使用情況。例如，對中央政府的債權若符合特定條件，風險權數可能為0%；而對信用評級較低的企業債權，風險權數則可能高達100%或150%。</p>
+				<br/>
+				<h4 class="font-semibold text-secondary-700 dark:text-secondary-200 mb-3">風險權數之決定</h4>
+                <p class="text-secondary-700 dark:text-secondary-200 mb-3">
+                    風險權數是根據資產的類型和感知風險來確定的。例如：
+                </p>
+                <ul class="list-disc pl-5 mb-4 space-y-2 text-secondary-700 dark:text-secondary-200">
+                    <li>對中央政府或中央銀行的債權，若符合特定條件，可能適用較低的風險權數，甚至為0%。</li>
+                    <li>對企業的債權，風險權數會根據企業的信用評等等級或特定分類而有所不同，一般工商企業放款的風險權數可能設定為100%。</li>
+                    <li>住宅用不動產抵押貸款的風險權數，會依據是否為收益型、或自然人持有的戶數等因素而有所不同，例如一般住宅適用50%，收益型住宅則適用100%。</li>
+                    <li>對於特定投資，如銀行投資於某些債務工具，若帳列銀行簿並依信用風險標準法計提資本，可能適用150%的風險權數，此規定自2025年1月1日起實施。</li>
+                    <li>地方政府及非營利國營事業債權的風險權數，通常比照其本國主權國家風險權數次一等級。</li>
+                </ul>
+                <p class="text-secondary-700 dark:text-secondary-200">
+                    金管會發布的「銀行自有資本與風險性資產之計算方法說明及表格」中詳細列示了各類資產的風險權數及計算細則。
+                </p>
+
+                    <!-- RWA Calculation Example -->
+                    <div class="bg-secondary-50 dark:bg-secondary-800/60 p-6 rounded-xl my-8 border border-secondary-200 dark:border-secondary-700">
+                        <h4 class="text-lg font-medium mb-3 text-secondary-900 dark:text-white">風險性資產計算示例</h4>
+                        <div class="overflow-x-auto">
+                            <table class="min-w-full divide-y divide-secondary-200 dark:divide-secondary-700">
+                                <thead>
+                                    <tr><th class="px-4 py-3 text-left text-xs font-medium text-secondary-500 dark:text-secondary-400 uppercase tracking-wider">暴險類型</th>
+                                        <th class="px-4 py-3 text-left text-xs font-medium text-secondary-500 dark:text-secondary-400 uppercase tracking-wider">調整後帳面金額/信用相當額</th>
+                                        <th class="px-4 py-3 text-left text-xs font-medium text-secondary-500 dark:text-secondary-400 uppercase tracking-wider">風險權數</th>
+                                        <th class="px-4 py-3 text-left text-xs font-medium text-secondary-500 dark:text-secondary-400 uppercase tracking-wider">風險性資產</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white dark:bg-secondary-800 divide-y divide-secondary-200 dark:divide-secondary-700">
+                                    <tr>
+                                        <td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">中央政府債權</td>
+                                        <td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">5,000,000</td>
+                                        <td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">0%</td><td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">0</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">銀行債權 (AAA至AA-)</td><td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">10,000,000</td>
+                                        <td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">20%</td><td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">2,000,000</td>
+                                    </tr>
+                                    <tr><td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">企業債權 (BBB+至BBB-)</td>
+                                        <td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">15,000,000</td>
+                                        <td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">100%</td>
+                                        <td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">15,000,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">零售債權</td>
+                                        <td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">8,000,000</td>
+                                        <td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">75%</td>
+                                        <td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">6,000,000</td></tr>
+                                    <tr>
+                                        <td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">信用狀 (表外項目)</td>
+                                        <td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">2,000,000 (信用相當額)</td><td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">50%</td>
+                                        <td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">1,000,000</td></tr>
+                                    <tr class="bg-secondary-50 dark:bg-secondary-700">
+                                        <td class="px-4 py-3 text-sm font-semibold text-secondary-900 dark:text-white">總計</td>
+                                        <td class="px-4 py-3 text-sm text-secondary-900 dark:text-white">40,000,000</td>
+                                        <td class="px-4 py-3 text-sm text-secondary-900 dark:text-white">-</td>
+                                        <td class="px-4 py-3 text-sm font-semibold text-secondary-900 dark:text-white">24,000,000</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Relationship Analysis Section -->
+                <section id="relationship-analysis" class="mb-16 slide-up">
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-secondary-900 dark:text-white">帳面金額與風險性資產在標準法下之關聯分析</h2>    <p>在信用風險標準法下，帳面金額（或其衍生的信用相當額）是計算風險性資產的起點與核心基礎。</p>
+                    <div class='tableauPlaceholder' id='viz1748067699604' style='position: relative'><noscript><a href='#'><img alt='帳面與RWA分析儀表板 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;BI&#47;BIS_17480652188010&#47;RWA&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='BIS_17480652188010&#47;RWA' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;BI&#47;BIS_17480652188010&#47;RWA&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1748067699604');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1300px';vizElement.style.height='927px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1300px';vizElement.style.height='927px';} else { vizElement.style.width='100%';vizElement.style.height='2127px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+
+                    <div class="space-y-6 my-8">
+                        <div class="bg-white dark:bg-secondary-800 p-6 rounded-xl shadow-sm">
+                            <h4 class="text-lg font-medium mb-3 text-secondary-900 dark:text-white flex items-center">
+                                <i class="fas fa-clipboard-list text-primary-500 mr-2"></i>
+                                表內項目分析
+                            </h4>
+                            <p class="text-secondary-600 dark:text-secondary-300">
+                                對於資產負債表表內項目，銀行首先確認其在資產負債表上的帳面金額。接著，依據監管規定，此帳面金額可能需扣除已提列的損失準備（如備抵呆帳）。調整後的淨額再乘以該資產類別所適用的風險權數，得出該項資產的風險性資產額。例如，「銀行自有資本與風險性資產之計算方法說明及表格」中明確指出，表內項目計提信用風險的計算方法是以帳面金額為基礎，乘以規定的風險權數。
+                            </p>
+                        </div><div class="bg-white dark:bg-secondary-800 p-6 rounded-xl shadow-sm">
+                            <h4 class="text-lg font-medium mb-3 text-secondary-900 dark:text-white flex items-center">
+                                <i class="fas fa-external-link-alt text-primary-500 mr-2"></i>
+                                表外項目分析
+                            </h4>
+                            <p class="text-secondary-600 dark:text-secondary-300">
+                                對於資產負債表表外項目（如貸款承諾、信用證等），其風險的衡量並非直接使用名目金額。首先，需將表外項目的名目金額乘以一個信用轉換係數（CCF），得到信用暴險相當額。這個信用相當額代表了該表外項目若轉化為實際資產時，銀行可能面臨的潛在信用風險。隨後，此信用相當額再乘以適當的交易對手風險權數，計算出該表外項目的風險性資產額。
+                            </p>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-secondary-800 p-6 rounded-xl shadow-sm">
+                            <h4 class="text-lg font-medium mb-3 text-secondary-900 dark:text-white flex items-center">
+                                <i class="fas fa-shield-alt text-primary-500 mr-2"></i>
+                                風險抵減效果
+                            </h4>
+                            <p class="text-secondary-600 dark:text-secondary-300">銀行可運用合格的擔保品、保證或信用衍生性金融商品等風險抵減工具，來降低特定暴險的帳面金額或信用相當額，進而減少最終計算出的風險性資產。相關的處理原則與合格工具的認定標準，均在監管規範中有詳細說明。
+                            </p>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-secondary-800 p-6 rounded-xl shadow-sm">
+                            <h4 class="text-lg font-medium mb-3 text-secondary-900 dark:text-white flex items-center">
+                                <i class="fas fa-file-contract text-primary-500 mr-2"></i>
+                                台灣法規實務
+                            </h4>
+                            <p class="text-secondary-600 dark:text-secondary-300">
+                                台灣金融監督管理委員會發布的「銀行自有資本與風險性資產之計算方法說明及表格」及其附錄，提供了各類資產（包括企業暴險、零售暴險、不動產抵押貸款等）在標準法下應適用的風險權數及計算細則。例如，對於不同信用評等的企業債權，或不同貸款成數（LTV）的不動產抵押貸款，均有其特定的風險權數規定。銀行需依循這些表格及說明，計算其總信用風險性資產，作為資本適足率計算的基礎。
+                            </p>
+                        </div>
+                    </div>
+					 <!-- 法規遵循卡片 -->
+					<div class="bg-white dark:bg-secondary-800 rounded-xl shadow-md p-6 md:p-8 mb-8">
+						<h3 class="text-xl font-semibold mb-4 text-secondary-800 dark:text-secondary-100">臺灣相關法規與臺灣銀行之遵循</h3>
+						
+						<h4 class="font-semibold text-secondary-700 dark:text-secondary-200 mb-2">主管機關與法規框架</h4>
+						<p class="text-secondary-700 dark:text-secondary-200 mb-4 leading-relaxed">
+							臺灣的銀行業資本適足性主要由金融監督管理委員會（金管會）監管。核心法規為「銀行法」以及金管會依據巴塞爾資本協定發布的「銀行自有資本與風險性資產之計算方法說明及表格」。此計算方法說明及表格會定期修正，以反映最新的國際監理標準與國內市場狀況。
+						</p>
+						<p class="text-secondary-700 dark:text-secondary-200 mb-4 leading-relaxed">
+							例如，金管會於2023年12月7日發布金管銀法字第11202741271號令，修正了部分內容並自2025年1月1日生效。其後，於2025年1月3日再以金管銀法字第11302743801號令修正，部分條文自2025年1月1日生效，其餘則自2025年7月1日生效。這些修正旨在強化信用風險資本計提的風險敏感性，並細緻化暴險分類與相對應的風險權數。
+						</p>
+						
+						<h4 class="font-semibold text-secondary-700 dark:text-secondary-200 mb-2">臺灣銀行風險管理實務</h4>
+						<p class="text-secondary-700 dark:text-secondary-200 leading-relaxed">
+							臺灣銀行作為臺灣的主要銀行之一，其風險管理作業必須遵循金管會的上述規範。臺灣銀行設有董事會作為風險管理的最高決策單位，下設風險管理委員會及獨立的風險管理部，負責監控全行風險。該行在其官方網站設有「資本適足性與風險管理專區」，依法揭露資本適足率、風險管理制度等相關資訊；其計算方法依循金管會頒布的標準法規定。臺灣銀行亦推動如高氣候風險產業監控等措施，將新興風險納入其管理框架。
+						</p>
+					</div>
+                </section>
+				
+				<!-- 分析與影響區域 -->
+				<section id="analysis" class="mb-16 animate-fade-in animate-delay-400 scroll-mt-20">
+					<div class="flex items-center mb-6">
+						<div class="bg-primary-100 dark:bg-primary-900/30 p-2 rounded-lg mr-3">
+							<i class="material-icons text-primary-600 dark:text-primary-400">analytics</i>
+						</div>
+						<h2 class="text-2xl font-bold font-serif text-secondary-800 dark:text-secondary-100">分析與影響</h2>
+					</div>
+
+					<div class="bg-white dark:bg-secondary-800 rounded-xl shadow-md p-6 md:p-8 mb-8">
+						<p class="text-secondary-700 dark:text-secondary-200 mb-6 leading-relaxed">
+							信用風險標準法下帳面金額至風險性資產的轉換過程，對銀行的資本規劃、資產配置及業務策略均有深遠影響。
+						</p>
+						
+						<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+							<div class="bg-secondary-50 dark:bg-secondary-700/30 p-5 rounded-lg card-hover">
+								<div class="flex items-center mb-3">
+									<i class="material-icons text-primary-600 dark:text-primary-400 mr-2">assessment</i>
+									<h4 class="font-semibold text-secondary-800 dark:text-secondary-100">資本適足率影響</h4>
+								</div>
+								<p class="text-secondary-700 dark:text-secondary-200 text-sm leading-relaxed">
+									風險性資產總額是計算資本適足率（自有資本 / 風險性資產總額）的分母。因此，帳面金額越高或適用風險權數越高的資產，其產生的風險性資產也越高，進而對資本適足率造成壓力，可能需要銀行持有更多資本。
+								</p>
+							</div>
+							
+							<div class="bg-secondary-50 dark:bg-secondary-700/30 p-5 rounded-lg card-hover">
+								<div class="flex items-center mb-3">
+									<i class="material-icons text-primary-600 dark:text-primary-400 mr-2">account_balance_wallet</i>
+									<h4 class="font-semibold text-secondary-800 dark:text-secondary-100">資產組合管理</h4>
+								</div>
+								<p class="text-secondary-700 dark:text-secondary-200 text-sm leading-relaxed">
+									銀行在進行資產配置時，會考量不同資產類別對風險性資產的影響。高風險權數的資產會消耗更多資本，銀行可能因此調整其放款或投資組合，以在風險與報酬間取得平衡。
+								</p>
+							</div>
+						</div>
+						
+						<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+							<div class="bg-secondary-50 dark:bg-secondary-700/30 p-5 rounded-lg card-hover">
+								<div class="flex items-center mb-3">
+									<i class="material-icons text-primary-600 dark:text-primary-400 mr-2">trending_up</i>
+									<h4 class="font-semibold text-secondary-800 dark:text-secondary-100">定價與業務策略</h4>
+								</div>
+								<p class="text-secondary-700 dark:text-secondary-200 text-sm leading-relaxed">
+									資本成本是銀行定價的重要考量因素。風險權數較高的業務，因其消耗較多資本，銀行可能會要求較高的收益率或手續費。
+								</p>
+							</div>
+							
+							<div class="bg-secondary-50 dark:bg-secondary-700/30 p-5 rounded-lg card-hover">
+								<div class="flex items-center mb-3">
+									<i class="material-icons text-primary-600 dark:text-primary-400 mr-2">gavel</i>
+									<h4 class="font-semibold text-secondary-800 dark:text-secondary-100">法規遵循成本</h4>
+								</div>
+								<p class="text-secondary-700 dark:text-secondary-200 text-sm leading-relaxed">
+									銀行需投入資源確保其風險分類、帳面金額計算、信用轉換係數及風險權數的應用均符合複雜且不斷更新的法規要求。
+								</p>
+							</div>
+						</div>
+					</div>
+					
+				</section>
+
+                <!-- Conclusion Section -->
+                <section id="conclusion" class="mb-16 slide-up">
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-secondary-900 dark:text-white">結論</h2>
+                <div class="bg-primary-50 dark:bg-primary-900/20 p-8 rounded-xl border-l-4 border-primary-500 dark:border-primary-400">
+                        <p class="text-secondary-800 dark:text-secondary-100 mb-0 text-lg">
+                            本報告主要基於公開的法規條文及一般性說明進行分析。關於臺灣銀行在信用風險標準法下具體的各類資產帳面金額、對應的風險權數分配、以及最終計算出的詳細風險性資產結構數據，並未在本次提供的資料中充分揭露。這些詳細數據通常屬於銀行內部經營資訊或需查閱其更為詳盡的法定公開揭露報告。
+                        </p>
+						<p class="text-secondary-800 dark:text-secondary-100 mb-0 text-lg">
+							展望未來，隨著國際監理標準（如巴塞爾協定最終改革方案）的逐步實施，臺灣的相關法規預計將持續演進。銀行需密切關注法規變化，例如2025年7月1日即將生效的「銀行自有資本與風險性資產之計算方法說明及表格」其餘修正部分，並及時調整其風險管理系統與資本計提作業，以確保合規性及資本的穩健性。對手方信用風險的計算方法（如SA-CCR）及作業風險新標準法的引入，亦是銀行未來需重點關注的領域。
+						</p>
+                    </div>
+                </section>
+
+                <!-- Future Outlook Section -->
+                <section id="future" class="mb-16 slide-up">
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-secondary-900 dark:text-white">未來展望與進一步研究領域</h2>    <p>隨著金融市場的發展與監管要求的演進，信用風險標準法的細則及相關風險權數可能會持續調整，以更精準地反映實際風險。金融機構應密切關注相關法規的更新，並持續優化內部風險管理系統。未來可進一步研究不同經濟週期下，帳面金額的波動對風險性資產計算的敏感性，以及不同風險抵減工具在降低風險性資產方面的實際效益。</p>
+
+                    <!-- Future research areas -->
+                    <div class="bg-white dark:bg-secondary-800 p-6 rounded-xl shadow-sm dark:shadow-secondary-900/20 my-8">
+                        <h3 class="text-xl font-semibold mb-4 text-secondary-900 dark:text-white">潛在研究方向</h3>
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div class="bg-secondary-50 dark:bg-secondary-700/50 p-4 rounded-lg">
+                                <div class="text-primary-600 dark:text-primary-400 text-2xl mb-2"><i class="fas fa-chart-line"></i>
+                                </div>
+                                <h4 class="text-lg font-medium mb-2 text-secondary-900 dark:text-white">經濟週期敏感性</h4>
+                                <p class="text-secondary-600 dark:text-secondary-300 text-sm">
+                                    分析經濟衰退期與成長期中，帳面金額變動對風險性資產及資本適足率的影響。
+                                </p>
+                            </div>
+                <div class="bg-secondary-50 dark:bg-secondary-700/50 p-4 rounded-lg">
+                                <div class="text-primary-600 dark:text-primary-400 text-2xl mb-2">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h4 class="text-lg font-medium mb-2 text-secondary-900 dark:text-white">風險抵減效能</h4>
+                                <p class="text-secondary-600 dark:text-secondary-300 text-sm">
+                                    評估不同風險抵減工具在各類資產中的應用效率與成本效益分析。
+                                </p>
+                            </div><div class="bg-secondary-50 dark:bg-secondary-700/50 p-4 rounded-lg">
+                                <div class="text-primary-600 dark:text-primary-400 text-2xl mb-2">
+                                    <i class="fas fa-balance-scale"></i>
+                                </div>
+                                <h4 class="text-lg font-medium mb-2 text-secondary-900 dark:text-white">標準法與內部評等法比較</h4>
+                                <p class="text-secondary-600 dark:text-secondary-300 text-sm">
+                                    比較標準法與進階內部評等法在風險性資產計算上的差異及影響。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </article>
+        </div>
+    </main>
+    
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-primary-600 hover:bg-primary-700 text-white p-3 rounded-full shadow-lg transition-all transform hover:scale-105 opacity-0 invisible no-print" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        // Check system preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            html.classList.add('dark');
+        }
+        
+        // Theme toggle button handler
+        themeToggleBtn.addEventListener('click', () => {
+            html.classList.toggle('dark');
+        });
+        
+        // Back to top button visibility
+        const backToTopBtn = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.classList.remove('opacity-0', 'invisible');
+                backToTopBtn.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopBtn.classList.add('opacity-0', 'invisible');
+                backToTopBtn.classList.remove('opacity-100', 'visible');
+            }
+        });
+        
+        // Initialize Mermaid diagramsdocument.addEventListener('DOMContentLoaded', function() {
+            mermaid.initialize({ 
+                startOnLoad: true,
+                theme: html.classList.contains('dark') ? 'dark' : 'default',
+                securityLevel: 'loose',
+                flowchart: {
+                    useMaxWidth: true,
+                    htmlLabels: true,
+                    curve: 'cardinal',
+                },});
+            
+            // Create mermaid flow chart
+            const flowChart = document.getElementById('flow-chart');
+            flowChart.innerHTML = `
+                graph TD
+                    A[資產負債表內項目<br>帳面金額] --> B{需要調整?}
+                    B -->|是| C[扣除特定損失準備]
+                    B -->|否| D[直接使用帳面金額]
+                    C --> E[調整後帳面金額]
+                    D --> E
+                    E --> F[乘以風險權數]
+                    
+                    G[表外項目<br>名目金額] --> H[乘以信用轉換係數]
+                    H --> I[信用相當額]
+                    I --> F    F --> J[風險性資產]
+                    J --> K[資本適足率計算]
+                    
+                    style A fill:#d1e7ff,stroke:#0369a1,stroke-width:2px
+                    style G fill:#d1e7ff,stroke:#0369a1,stroke-width:2px
+                    style J fill:#fde68a,stroke:#b45309,stroke-width:2px
+                    style K fill:#fde68a,stroke:#b45309,stroke-width:2px
+            `;
+            // Render the mermaid diagram
+            mermaid.init(undefined, '.mermaid-chart');
+            
+            // Initialize ECharts instances
+            const isDarkMode = html.classList.contains('dark');
+            const textColor = isDarkMode ? '#e2e8f0' : '#1e293b';
+            const axisLineColor = isDarkMode ? '#475569' : '#cbd5e1';
+            const borderColor = isDarkMode ? '#475569' : '#e2e8f0';
+            
+            // Risk weights chart
+            const riskWeightsChart = echarts.init(document.getElementById('risk-weights-chart'));
+            const riskWeightsOption = {
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'shadow'
+                    }
+                },
+                legend: {
+                    data: ['最低風險權數', '最高風險權數'],
+                    textStyle: {
+                        color: textColor
+                    }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'value',
+                    boundaryGap: [0, 0.01],
+                    axisLabel: {
+                        color: textColor
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: axisLineColor
+                        }
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            color: borderColor
+                        }
+                    },
+                    max: 150
+                },
+                yAxis: {
+                    type: 'category',
+                    data: [
+                        '中央政府債權',
+                        '銀行間債權',
+                        '企業債權',
+                        '合格零售債權',
+                        '住宅房地產債權', 
+                        '商業房地產債權',
+                        '逾期放款',
+                        '高風險債權'
+                    ],
+                    axisLabel: {
+                        color: textColor
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: axisLineColor
+                        }
+                    }
+                },
+                series: [
+                    {
+                        name: '最低風險權數',
+                        type: 'bar',
+                        data: [0, 20, 20, 75, 35, 50, 50, 100],
+                        color: '#38bdf8'
+                    },
+                    {
+                        name: '最高風險權數',
+                        type: 'bar',
+                        data: [50, 150, 150, 75, 75, 100, 150, 150],
+                        color: '#0284c7'
+                    }
+                ]
+            };
+            riskWeightsChart.setOption(riskWeightsOption);
+            
+            // Relationship between book value and RWA chart
+            const relationshipChart = echarts.init(document.getElementById('relationship-chart'));
+            const relationshipOption = {
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'shadow'
+                    }
+                },
+                legend: {
+                    data: ['帳面金額', '風險性資產'],
+                    textStyle: {
+                        color: textColor
+                    }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['中央政府債權', '銀行債權', '企業債權', '零售債權', '住宅抵押貸款'],
+                    axisLabel: {
+                        color: textColor,
+                        rotate: 30,
+                        interval: 0
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: axisLineColor
+                        }
+                    }
+                },
+                yAxis: {
+                    type: 'value',
+                    name: '百萬元',
+                    axisLabel: {
+                        color: textColor
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: axisLineColor
+                        }
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            color: borderColor
+                        }
+                    }
+                },
+                series: [
+                    {
+                        name: '帳面金額',
+                        type: 'bar',
+                        data: [10000, 10000, 10000, 10000, 10000],
+                        color: '#38bdf8',
+                        emphasis: {
+                            focus: 'series'
+                        },
+                        itemStyle: {
+                            borderRadius: [5, 5, 0, 0]
+                        }
+                    },
+                    {
+                        name: '風險性資產',
+                        type: 'bar',
+                        data: [0, 2000, 10000, 7500, 3500],
+                        color: '#f59e0b',
+                        emphasis: {
+                            focus: 'series'
+                        },
+                        itemStyle: {
+                            borderRadius: [5, 5, 0, 0]
+                        }
+                    }
+                ]
+            };
+            relationshipChart.setOption(relationshipOption);
+            
+            // Handle dark mode changes for charts
+            const updateChartsTheme = () => {
+                const isDark = html.classList.contains('dark');
+                const textColor = isDark ? '#e2e8f0' : '#1e293b';
+                const axisLineColor = isDark ? '#475569' : '#cbd5e1';
+                const borderColor = isDark ? '#475569' : '#e2e8f0';
+                
+                // Update risk weights chart
+                const riskWeightsOpt = riskWeightsChart.getOption();
+                riskWeightsOpt.legend[0].textStyle.color = textColor;
+                riskWeightsOpt.xAxis[0].axisLabel.color = textColor;
+                riskWeightsOpt.xAxis[0].axisLine.lineStyle.color = axisLineColor;
+                riskWeightsOpt.xAxis[0].splitLine.lineStyle.color = borderColor;
+                riskWeightsOpt.yAxis[0].axisLabel.color = textColor;
+                riskWeightsOpt.yAxis[0].axisLine.lineStyle.color = axisLineColor;
+                riskWeightsChart.setOption(riskWeightsOpt);
+                
+                // Update relationship chart
+                const relationshipOpt = relationshipChart.getOption();
+                relationshipOpt.legend[0].textStyle.color = textColor;
+                relationshipOpt.xAxis[0].axisLabel.color = textColor;
+                relationshipOpt.xAxis[0].axisLine.lineStyle.color = axisLineColor;
+                relationshipOpt.yAxis[0].axisLabel.color = textColor;
+                relationshipOpt.yAxis[0].axisLine.lineStyle.color = axisLineColor;
+                relationshipOpt.yAxis[0].splitLine.lineStyle.color = borderColor;
+                relationshipChart.setOption(relationshipOpt);
+            };
+            
+            // Listen for theme changes
+            themeToggleBtn.addEventListener('click', () => {
+                setTimeout(() => {
+                    updateChartsTheme();
+                }, 100);
+            });
+            
+            // Responsive charts
+            window.addEventListener('resize', () => {
+                riskWeightsChart.resize();
+                relationshipChart.resize();
+            });
+        });
+    </script>
+</body>
+</html>
