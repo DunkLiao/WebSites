@@ -1,0 +1,806 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>臺灣銀行國外債券市場分析</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Preline UI -->
+    <script src="https://cdn.jsdelivr.net/npm/preline@3.0.1/dist/preline.min.js"></script>
+    <!-- Mermaid -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Material Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-icons@1.13.14/iconfont/material-icons.min.css">
+    <!-- ECharts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                            950: '#082f49'
+                        },
+                        secondary: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans TC', 'sans-serif'],
+                        serif: ['Noto Serif TC', 'serif']
+                    }
+                }
+            }
+        };
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap');
+
+        html {
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+
+        /* Animation Effects */
+        .fade-in {
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .slide-up {
+            animation: slideUp 0.8s ease-out;
+        }
+
+        @keyframes slideUp {
+            0% { transform: translateY(20px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Card hover effects */
+        .content-card {
+            transition: all 0.3s ease;
+        }
+        
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Button hover effects */
+        .hover-button {
+            transition: all 0.2s ease;
+        }
+        
+        .hover-button:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle" class="fixed right-4 top-4 p-2 rounded-full bg-gray-200 dark:bg-gray-800 z-50 hover-button">
+        <i class="fas fa-sun dark:hidden text-yellow-500"></i>
+        <i class="fas fa-moon hidden dark:inline text-blue-300"></i>
+    </button>
+
+    <!-- Header Section -->
+    <header class="py-8 px-4 lg:px-8 bg-gradient-to-r from-primary-700 to-primary-900 text-white">
+        <div class="container mx-auto max-w-7xl">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0 text-center md:text-left">
+                    <h1 class="text-3xl md:text-4xl font-bold mb-2 fade-in">臺灣銀行國外債券市場分析</h1>
+                    <p class="text-lg md:text-xl text-blue-100 slide-up">全面解析臺灣銀行債券投資服務與市場環境</p>
+                </div>
+                <div class="flex space-x-4 slide-up">
+                    <a href="#overview" class="px-5 py-2.5 rounded-md bg-white/20 hover:bg-white/30 transition-all">總覽</a><a href="#details" class="px-5 py-2.5 rounded-md bg-white/20 hover:bg-white/30 transition-all">詳細報告</a>
+                    <a href="#charts" class="px-5 py-2.5 rounded-md bg-white/20 hover:bg-white/30 transition-all">數據圖表</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto max-w-7xl px-4 py-12 lg:px-8">
+        <!-- Overview Section -->
+        <section id="overview" class="mb-16 fade-in">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 pb-2 border-b border-gray-200 dark:border-gray-700">總覽</h2>
+            <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md content-card">
+                <p class="text-lg leading-relaxed">臺灣銀行為投資者提供多元化的國外債券產品。在其官方網站上，設有「國外債券」專區，方便客戶查閱詳細的債券列表（總覽）、最新的投資優惠、完整的投資指南以及清晰的費用結構。該行不僅提供投資服務，亦積極參與資本市場，曾發行包括美元計價在內的多種金融債券，並透過發行可持續發展債券以支持綠色金融及社會效益項目。
+                </p>
+            </div>
+        </section>
+
+        <!-- Detailed Report Section -->
+        <section id="details" class="mb-16">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 pb-2 border-b border-gray-200 dark:border-gray-700">詳細報告</h2>
+            
+            <!-- Basic Concepts -->
+            <div class="mb-12 slide-up">
+                <h3 class="text-xl md:text-2xl font-semibold mb-4 text-primary-700 dark:text-primary-400">國外債券基本概念</h3>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md content-card">
+                        <h4 class="text-lg font-bold mb-3 flex items-center text-primary-600 dark:text-primary-300">
+                            <i class="material-icons mr-2">description</i>定義與功能
+                        </h4>
+                        <p class="leading-relaxed">
+                            國外債券是由外國政府、金融機構或企業等實體為籌集資金而在國際市場上發行的債務證券。在臺灣的規範中，國際債券是指國內外發行人在臺灣境內或境外發行，並以外國貨幣計價的債券。其中，若以人民幣計價，則被特稱為「寶島債」(Formosa bond)。發行國外債券的主要目的在於滿足發行機構中長期的穩定融資需求。
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md content-card">
+                        <h4 class="text-lg font-bold mb-3 flex items-center text-primary-600 dark:text-primary-300">
+                            <i class="material-icons mr-2">category</i>主要類型
+                        </h4>
+                        <p class="leading-relaxed">
+                            市場上流通的國外債券主要可分為固定利率債券、浮動利率債券以及零息債券等類型，以滿足不同投資者的偏好。
+                        </p>
+                        <div class="mt-4 py-3 px-4 rounded-lg bg-gray-100 dark:bg-gray-700">
+                            <div class="flex items-center mb-2 text-primary-600 dark:text-primary-300">
+                                <i class="fas fa-info-circle mr-2"></i>
+                                <span class="font-semibold">債券類型一覽</span>
+                            </div>
+                            <ul class="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
+                                <li>固定利率債券 - 利率固定不變直到到期</li>
+                                <li>浮動利率債券 - 利率隨參考利率浮動調整</li>
+                                <li>零息債券 - 不支付利息，以折價發行</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Taiwan Bank's Foreign Bond Services -->
+            <div class="mb-12 slide-up">
+                <h3 class="text-xl md:text-2xl font-semibold mb-4 text-primary-700 dark:text-primary-400">臺灣銀行之國外債券服務</h3>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md content-card">
+                        <h4 class="text-lg font-bold mb-3 flex items-center text-primary-600 dark:text-primary-300">
+                            <i class="material-icons mr-2">people</i>投資者服務
+                        </h4>
+                        <p class="leading-relaxed mb-4">
+                            臺灣銀行為其客戶開闢了投資國外債券的渠道。在其官方網站（bot.com.tw）的「個人金融」服務項目下，設有「國外債券」專門頁面。
+                        </p>
+                        <div class="bg-gray-100 dark:bg-gray-700 rounded-lg p-4">
+                            <h5 class="font-medium mb-2 text-gray-700 dark:text-gray-300">專區包含以下資訊：</h5>
+                            <ul class="space-y-2">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle mt-1 mr-2 text-green-500"></i><span class="text-gray-600 dark:text-gray-400"><strong>國外債券總覽</strong>: 提供當前可供投資的國外債券詳細清單</span>
+                                </li>
+                                <li class="flex items-start"><i class="fas fa-check-circle mt-1 mr-2 text-green-500"></i><span class="text-gray-600 dark:text-gray-400"><strong>最新優惠方案</strong>: 公布關於國外債券投資的最新促銷或優惠條件</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle mt-1 mr-2 text-green-500"></i>
+                                    <span class="text-gray-600 dark:text-gray-400"><strong>國外債券投資須知</strong>: 詳細說明投資國外債券前應了解的注意事項、風險及申購流程</span>
+                                </li>
+                                <li class="flex items-start"><i class="fas fa-check-circle mt-1 mr-2 text-green-500"></i><span class="text-gray-600 dark:text-gray-400"><strong>國外債券收費總覽</strong>: 清楚列出投資國外債券可能涉及的各項費用</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle mt-1 mr-2 text-green-500"></i>
+                                    <span class="text-gray-600 dark:text-gray-400"><strong>重大訊息公告</strong>: 發布與債券產品相關的市場重大變動或產品更新資訊</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div><div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md content-card">
+                        <h4 class="text-lg font-bold mb-3 flex items-center text-primary-600 dark:text-primary-300">
+                            <i class="material-icons mr-2">account_balance</i>債券發行角色
+                        </h4>
+                        <p class="leading-relaxed">
+                            臺灣銀行不僅是國外債券的銷售機構，本身亦是債券市場的活躍發行者。該行曾成功發行多期金融債券，其中部分債券以美元等外幣計價，例如「臺灣銀行107年度第1期無擔保美元計價一般順位金融債券A券」。此外，臺灣銀行也發行新臺幣計價的金融債券，如「113年度第1期新臺幣無擔保一般順位金融債券」。
+                        </p>
+                        <div class="mt-4 p-3 rounded-lg bg-primary-50 dark:bg-primary-900/30 border border-primary-200 dark:border-primary-800">
+                            <div class="flex items-center text-primary-700 dark:text-primary-300 font-medium">
+                                <i class="fas fa-leaf mr-2"></i>永續發展債券
+                            </div>
+                            <p class="mt-1 text-sm text-primary-600 dark:text-primary-400">
+                                為響應全球永續發展目標，臺灣銀行亦發行可持續發展債券，將募集資金用於綠色投資及具社會效益的計畫。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md content-card md:col-span-2">
+                        <h4 class="text-lg font-bold mb-3 flex items-center text-primary-600 dark:text-primary-300">
+                            <i class="material-icons mr-2">public</i>國際金融業務分行 (OBU)
+                        </h4>
+                        <p class="leading-relaxed">
+                            臺灣銀行的國際金融業務分行（OBU）負責處理境外客戶的金融業務，其中包括外匯交易及國外有價證券的投資服務。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Taiwan Foreign Bond Market Environment -->
+            <div class="mb-12 slide-up">
+                <h3 class="text-xl md:text-2xl font-semibold mb-4 text-primary-700 dark:text-primary-400">臺灣國外債券市場環境</h3>
+                
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md content-card">
+                        <h4 class="text-lg font-bold mb-3 flex items-center text-primary-600 dark:text-primary-300">
+                            <i class="material-icons mr-2">storefront</i>主要交易平台
+                        </h4>
+                        <p class="leading-relaxed">
+                            臺灣的國際債券（外幣計價債券）主要在財團法人中華民國證券櫃檯買賣中心（TPEx）掛牌交易。TPEx對國際債券市場採取專業板與一般板的分級管理制度，藉此簡化專業機構投資人參與的債券發行流程。部分政府公債及外國債券亦在臺灣證券交易所（TWSE）掛牌交易。
+                        </p>
+                        <p class="mt-3 text-gray-600 dark:text-gray-400">
+                            此外，市場上亦有未在櫃買中心上櫃，但依規定辦理登錄的外國債券供特定投資人交易。
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md content-card">
+                        <h4 class="text-lg font-bold mb-3 flex items-center text-primary-600 dark:text-primary-300">
+                            <i class="material-icons mr-2">verified_user</i>投資人資格區分
+                        </h4>
+                        <p class="leading-relaxed">
+                            臺灣的法規將國外債券的投資人分為「專業投資人」與「非專業投資人」，兩者在可投資的債券種類、交易條件及風險承受能力要求上有所不同。
+                        </p>
+                        <div class="mt-4 grid grid-cols-2 gap-3">
+                            <div class="p-3 rounded-lg bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800">
+                                <h5 class="text-sm font-semibold text-blue-700 dark:text-blue-300 mb-1">專業投資人</h5>
+                                <p class="text-xs text-blue-600 dark:text-blue-400">可投資較廣泛的債券類型，交易限制較少</p>
+                            </div>
+                            <div class="p-3 rounded-lg bg-purple-50 dark:bg-purple-900/30 border border-purple-200 dark:border-purple-800">
+                                <h5 class="text-sm font-semibold text-purple-700 dark:text-purple-300 mb-1">非專業投資人</h5>
+                                <p class="text-xs text-purple-600 dark:text-purple-400">投資範圍較受限，有更多保護性監管</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md content-card">
+                        <h4 class="text-lg font-bold mb-3 flex items-center text-primary-600 dark:text-primary-300">
+                            <i class="material-icons mr-2">security</i>集中保管與結算
+                        </h4>
+                        <p class="leading-relaxed">
+                            臺灣集中保管結算所（TDCC）為臺灣的債券市場提供後台服務，包括國際債券及登錄外國債券的帳戶開設、證券保管、款券帳簿劃撥交割，以及後續的本金與利息支付等作業。
+                        </p>
+                        <div class="mt-4 flex items-center">
+                            <div class="mr-3 p-2 rounded-full bg-gray-100 dark:bg-gray-700">
+                                <i class="fas fa-shield-alt text-primary-600 dark:text-primary-400"></i>
+                            </div>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">
+                                TDCC提供安全高效的結算系統，確保交易安全
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Investment Risks and Fees -->
+            <div class="mb-12 slide-up">
+                <h3 class="text-xl md:text-2xl font-semibold mb-4 text-primary-700 dark:text-primary-400">投資國外債券之主要風險與相關費用</h3>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md content-card">
+                        <h4 class="text-lg font-bold mb-3 flex items-center text-primary-600 dark:text-primary-300">
+                            <i class="material-icons mr-2">warning</i>風險考量
+                        </h4>
+                        <p class="leading-relaxed mb-4">
+                            投資國外債券屬於投資行為，與銀行存款不同，不受中央存款保險公司的存款保險保障。投資者在進行投資決策前，應充分了解並評估以下主要風險：
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex p-3 rounded-lg bg-gray-100 dark:bg-gray-700">
+                                <div class="mr-3 mt-1 text-red-500">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div><h5 class="font-medium text-gray-800 dark:text-gray-200">利率風險</h5>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">市場利率的上升可能導致債券價格下跌，反之亦然。</p>
+                                </div>
+                            </div>            <div class="flex p-3 rounded-lg bg-gray-100 dark:bg-gray-700">
+                                <div class="mr-3 mt-1 text-blue-500">
+                                    <i class="fas fa-dollar-sign"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-medium text-gray-800 dark:text-gray-200">匯率風險</h5>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">若投資的債券是以非本國貨幣計價，則匯率的波動將直接影響到換算回本國貨幣的實際投資報酬。</p>
+                                </div>
+                            </div>            <div class="flex p-3 rounded-lg bg-gray-100 dark:bg-gray-700">
+                                <div class="mr-3 mt-1 text-orange-500">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-medium text-gray-800 dark:text-gray-200">信用風險</h5>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">債券發行機構若未能履行其債務責任（即違約），投資者可能面臨無法收回全部或部分本金及利息的風險。</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex p-3 rounded-lg bg-gray-100 dark:bg-gray-700">
+                                <div class="mr-3 mt-1 text-purple-500">
+                                    <i class="fas fa-hourglass-half"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-medium text-gray-800 dark:text-gray-200">流動性風險</h5><p class="text-sm text-gray-600 dark:text-gray-400">部分國外債券可能因市場交易量不大，導致投資者在需要變現時不易以合理價格迅速賣出。</p>
+                                </div>
+                            </div>
+                <div class="flex p-3 rounded-lg bg-gray-100 dark:bg-gray-700">
+                                <div class="mr-3 mt-1 text-teal-500">
+                                    <i class="fas fa-random"></i>
+                                </div>
+                                <div><h5 class="font-medium text-gray-800 dark:text-gray-200">其他潛在風險</h5>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400">尚包括發行機構提前贖回債券的風險（提前贖回風險）、利息收入再投資於當時市場可能較低利率標的的風險（再投資風險）、以及發行機構所在國家的政治經濟風險（國家風險）等。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md content-card">
+                        <h4 class="text-lg font-bold mb-3 flex items-center text-primary-600 dark:text-primary-300">
+                            <i class="material-icons mr-2">attach_money</i>費用結構
+                        </h4>
+                        <p class="leading-relaxed mb-4">
+                            投資國外債券時，投資人可能需要支付的費用通常包括申購手續費、信託管理費以及其他相關服務費用。臺灣銀行在其官方網站上提供了「國外債券收費總覽」，供投資人參考。
+                        </p>
+                        <div class="overflow-x-auto mt-4">
+                            <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
+                                <thead class="bg-gray-100 dark:bg-gray-700">
+                                    <tr>
+                                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                                            費用類型
+                                        </th>
+                                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                                            收取方式
+                                        </th>
+                                        <th class="px-4 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">
+                                            計算標準
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody class="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
+                                    <tr>
+                                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                                            申購手續費</td>
+                                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                                            前收
+                                        </td>
+                                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                                            投資金額的0.5-1.5%
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                                            信託管理費</td>
+                                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                                            年費
+                                        </td>
+                                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                                            約0.2-0.5%/年
+                                        </td>
+                                    </tr><tr>
+                                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                                            提前贖回費用
+                                        </td>
+                                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                                            贖回時
+                                        </td>
+                                        <td class="px-4 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">
+                                            視債券特性而定</td>
+                                    </tr></tbody>
+                            </table>
+                        </div>
+                        <div class="mt-6 p-4 rounded-lg bg-yellow-50 dark:bg-yellow-900/30 border border-yellow-200 dark:border-yellow-800">
+                            <div class="flex items-center text-yellow-600 dark:text-yellow-400">
+                                <i class="fas fa-info-circle mr-2"></i>
+                                <span class="font-medium">費用說明</span>
+                            </div>
+                            <p class="mt-1 text-sm text-yellow-600 dark:text-yellow-400">
+                                實際費用標準請以臺灣銀行官方網站或臨櫃諮詢為準，上表僅供參考。費用結構可能因債券類型、投資金額及市場狀況而有所調整。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Query Methods -->
+            <div class="mb-12 slide-up">
+                <h3 class="text-xl md:text-2xl font-semibold mb-4 text-primary-700 dark:text-primary-400">如何查詢臺灣銀行國外債券資訊之途徑</h3>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md content-card">
+                    <p class="leading-relaxed mb-6">
+                        投資者若欲查詢臺灣銀行提供的國外債券產品資訊，可直接訪問臺灣銀行的官方網站（https://www.bot.com.tw）。在網站的「個人金融」項下，通常能找到「基金／投資」進而連結至「國外債券」專區。該專區會提供「國外債券總覽」，列出可供申購的債券及其基本資料，如債券代碼、債券全名、計價幣別、票面利率、配息方式、到期日等。此類資訊的呈現方式，與其他提供類似服務的金融機構（例如臺灣土地銀行或臺灣企銀在其網站上提供的債券報價資訊）相似。
+                    </p>
+                    
+                    <!-- Website Navigation Flow Chart -->
+                    <div class="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+                        <div class="px-4 py-3 bg-gray-100 dark:bg-gray-700 font-medium">臺灣銀行網站導覽流程
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-4">
+                            <div class="mermaid">
+                                graph TD
+                                    A[訪問臺灣銀行官方網站<br>bot.com.tw] --> B[點選「個人金融」]
+                                    B --> C[點選「基金/投資」]
+                                    C --> D[進入「國外債券」專區]
+                                    D --> E[查看「國外債券總覽」]
+                                    D --> F[查詢「最新優惠方案」]
+                                    D --> G[閱讀「國外債券投資須知」]
+                                    D --> H[了解「國外債券收費總覽」]
+                                    
+                                    style A fill:#d4f1f9,stroke:#05b2dc,stroke-width:2px
+                                    style E fill:#e1f5fe,stroke:#4fc3f7,stroke-width:1px
+                                    style F fill:#e1f5fe,stroke:#4fc3f7,stroke-width:1px
+                                    style G fill:#e1f5fe,stroke:#4fc3f7,stroke-width:1px
+                                    style H fill:#e1f5fe,stroke:#4fc3f7,stroke-width:1px
+                            </div>
+                        </div>
+                    </div>
+                <div class="mt-6 p-4 rounded-lg bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-800">
+                        <div class="flex items-center text-blue-600 dark:text-blue-400">
+                            <i class="fas fa-lightbulb mr-2"></i>
+                            <span class="font-medium">專業建議</span>
+                        </div>
+                        <p class="mt-1 text-sm text-blue-600 dark:text-blue-400">
+                            查詢國外債券資訊時，建議同時關注發行機構信用評等、債券配息頻率、次級市場交易活躍度等關鍵指標，以便做出更全面的投資決策。若有疑問，可直接聯繫臺灣銀行客服或前往分行諮詢專業人員。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Visualization Section -->
+        <section id="charts" class="mb-16 slide-up">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 pb-2 border-b border-gray-200 dark:border-gray-700">數據圖表</h2>
+            <div class='tableauPlaceholder' id='viz1748086964955' style='position: relative'><noscript><a href='#'><img alt='債券報價儀表板 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;__&#47;__17238821439500&#47;sheet7&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='__17238821439500&#47;sheet7' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;__&#47;__17238821439500&#47;sheet7&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1748086964955');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1300px';vizElement.style.height='927px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1300px';vizElement.style.height='927px';} else { vizElement.style.width='100%';vizElement.style.height='2227px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Bond Types Distribution Chart -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md content-card">
+                    <h3 class="text-xl font-semibold mb-4 text-primary-700 dark:text-primary-400">臺灣國外債券類型分布</h3>
+                    <div id="bondTypesChart" class="w-full h-80"></div>
+                </div>
+                
+                <!-- Bond Currency Distribution Chart -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md content-card">
+                    <h3 class="text-xl font-semibold mb-4 text-primary-700 dark:text-primary-400">國外債券計價貨幣分布</h3>
+                    <div id="bondCurrencyChart" class="w-full h-80"></div>
+                </div>
+                
+                <!-- Bond Risk-Return Chart -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md content-card">
+                    <h3 class="text-xl font-semibold mb-4 text-primary-700 dark:text-primary-400">債券風險-報酬關係</h3>
+                    <div id="riskReturnChart" class="w-full h-80"></div>
+                </div>
+                
+                <!-- Bond Trading Volume Trend -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md content-card">
+                    <h3 class="text-xl font-semibold mb-4 text-primary-700 dark:text-primary-400">近年國外債券交易量趨勢</h3>
+                    <div id="tradingVolumeChart" class="w-full h-80"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Scripts -->
+    <script>
+        // Initialize Mermaid
+        mermaid.initialize({ startOnLoad: true, theme: window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default' });
+        
+        // Theme toggle functionality
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        
+        // Check for dark mode preference
+        if (localStorage.getItem('color-theme') === 'dark' || (!localStorage.getItem('color-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+        
+        // Add event listener for theme toggle
+        themeToggleBtn.addEventListener('click', function() {
+            // Toggle dark class on html element
+            document.documentElement.classList.toggle('dark');
+            
+            // Update localStorage
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.setItem('color-theme', 'dark');
+                mermaid.initialize({ theme: 'dark' });
+            } else {
+                localStorage.setItem('color-theme', 'light');
+                mermaid.initialize({ theme: 'default' });
+            }
+            
+            // Reinitialize charts for proper theming
+            initializeCharts();
+        });
+        
+        // Charts initialization
+        function initializeCharts() {
+            const isDarkMode = document.documentElement.classList.contains('dark');
+            const textColor = isDarkMode ? '#e2e8f0' : '#1e293b';
+            const borderColor = isDarkMode ? '#475569' : '#e2e8f0';
+            const backgroundColor = isDarkMode ? '#1e293b' : '#ffffff';
+            
+            // Bond Types Distribution Chart
+            const bondTypesChart = echarts.init(document.getElementById('bondTypesChart'));
+            bondTypesChart.setOption({
+                backgroundColor: backgroundColor,
+                title: {
+                    text: '',
+                    textStyle: { color: textColor }
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{b}: {c} ({d}%)'
+                },
+                legend: {
+                    orient: 'vertical',
+                    right: 10,
+                    top: 'center',
+                    textStyle: { color: textColor }
+                },
+                series: [
+                    {
+                        name: '債券類型',
+                        type: 'pie',
+                        radius: ['40%', '70%'],
+                        avoidLabelOverlap: false,
+                        itemStyle: {
+                            borderRadius: 10,
+                            borderColor: backgroundColor,
+                            borderWidth: 2
+                        },
+                        label: {
+                            show: false,
+                            position: 'center'
+                        },
+                        emphasis: {
+                            label: {
+                                show: true,
+                                fontSize: '18',
+                                fontWeight: 'bold',
+                                color: textColor
+                            }
+                        },
+                        labelLine: {
+                            show: false
+                        },
+                        data: [
+                            { value: 48, name: '固定利率債券' },
+                            { value: 22, name: '浮動利率債券' },
+                            { value: 15, name: '零息債券' },
+                            { value: 10, name: '永續債券' },
+                            { value: 5, name: '其他類型' }
+                        ]
+                    }
+                ]
+            });
+            
+            // Bond Currency Distribution Chart
+            const bondCurrencyChart = echarts.init(document.getElementById('bondCurrencyChart'));
+            bondCurrencyChart.setOption({
+                backgroundColor: backgroundColor,
+                title: {
+                    text: '',
+                    textStyle: { color: textColor }
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: { type: 'shadow' }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['美元', '人民幣', '歐元', '澳幣', '日圓', '其他'],
+                    axisLine: { lineStyle: { color: borderColor } },
+                    axisLabel: { color: textColor }
+                },
+                yAxis: {
+                    type: 'value',
+                    name: '佔比 (%)',
+                    nameTextStyle: { color: textColor },
+                    axisLine: { lineStyle: { color: borderColor } },
+                    axisLabel: { color: textColor }
+                },
+                series: [
+                    {
+                        name: '貨幣分布',
+                        type: 'bar',
+                        barWidth: '60%',
+                        data: [65, 15, 8, 5, 4, 3],
+                        itemStyle: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                { offset: 0, color: '#0ea5e9' },
+                                { offset: 1, color: '#0369a1' }
+                            ])
+                        }
+                    }
+                ]
+            });
+            
+            // Bond Risk-Return Chart
+            const riskReturnChart = echarts.init(document.getElementById('riskReturnChart'));
+            riskReturnChart.setOption({
+                backgroundColor: backgroundColor,
+                title: {
+                    text: '',
+                    textStyle: { color: textColor }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'value',
+                    name: '風險指數',
+                    nameTextStyle: { color: textColor },
+                    min: 0,
+                    max: 10,
+                    axisLine: { lineStyle: { color: borderColor } },
+                    axisLabel: { color: textColor }
+                },
+                yAxis: {
+                    type: 'value',
+                    name: '預期報酬率 (%)',
+                    nameTextStyle: { color: textColor },
+                    min: 0,
+                    max: 10,
+                    axisLine: { lineStyle: { color: borderColor } },
+                    axisLabel: { color: textColor }
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: function(params) {
+                        return params.data[2] + '<br/>風險: ' + params.data[0] + '<br/>報酬: ' + params.data[1] + '%';
+                    }
+                },
+                series: [
+                    {
+                        type: 'scatter',
+                        symbolSize: function(data) {
+                            return data[3] * 5;
+                        },
+                        data: [
+                            [2.1, 3.2, '政府債券', 8],
+                            [3.5, 4.1, '投資級公司債', 7],
+                            [5.2, 5.3, '高收益債券', 5],
+                            [6.8, 6.7, '新興市場債券', 4],
+                            [8.1, 8.5, '永續債券', 3]
+                        ],
+                        itemStyle: {
+                            color: function(params) {
+                                const colors = ['#3498db', '#2ecc71', '#f39c12', '#e74c3c', '#9b59b6'];
+                                return colors[params.dataIndex];
+                            }
+                        }
+                    }
+                ]
+            });
+            
+            // Bond Trading Volume Trend Chart
+            const tradingVolumeChart = echarts.init(document.getElementById('tradingVolumeChart'));
+            tradingVolumeChart.setOption({
+                backgroundColor: backgroundColor,
+                title: {
+                    text: '',
+                    textStyle: { color: textColor }
+                },
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data: ['交易量', '新債發行量'],
+                    textStyle: { color: textColor }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: ['2020', '2021', '2022', '2023', '2024'],
+                    axisLine: { lineStyle: { color: borderColor } },
+                    axisLabel: { color: textColor }
+                },
+                yAxis: {
+                    type: 'value',
+                    name: '金額（億美元）',
+                    nameTextStyle: { color: textColor },
+                    axisLine: { lineStyle: { color: borderColor } },
+                    axisLabel: { color: textColor }
+                },
+                series: [
+                    {
+                        name: '交易量',
+                        type: 'line',
+                        stack: '總量',
+                        smooth: true,
+                        data: [120, 132, 101, 134, 150],
+                        lineStyle: { width: 3 },
+                        areaStyle: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                { offset: 0, color: isDarkMode ? 'rgba(14, 165, 233, 0.6)' : 'rgba(14, 165, 233, 0.3)' },
+                                { offset: 1, color: isDarkMode ? 'rgba(14, 165, 233, 0.1)' : 'rgba(14, 165, 233, 0.05)' }
+                            ])
+                        }
+                    },
+                    {
+                        name: '新債發行量',
+                        type: 'line',
+                        stack: '總量',
+                        smooth: true,
+                        data: [82, 93, 90, 94, 110],
+                        lineStyle: { width: 3 },
+                        areaStyle: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                { offset: 0, color: isDarkMode ? 'rgba(59, 130, 246, 0.6)' : 'rgba(59, 130, 246, 0.3)' },
+                                { offset: 1, color: isDarkMode ? 'rgba(59, 130, 246, 0.1)' : 'rgba(59, 130, 246, 0.05)' }
+                            ])
+                        }
+                    }
+                ]
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                bondTypesChart.resize();
+                bondCurrencyChart.resize();
+                riskReturnChart.resize();
+                tradingVolumeChart.resize();
+            });
+        }
+        
+        // Initialize charts on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeCharts();
+            
+            // Initialize Preline UI components
+            setTimeout(() => {
+                if (typeof HSStaticMethods !== 'undefined') {
+                    HSStaticMethods.autoInit();
+                }
+            }, 100);
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 20,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
