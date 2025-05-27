@@ -1,0 +1,841 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中央存款保險公司風險指標資料查核報告</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/preline@3.0.1/dist/preline.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#fdf2f8',
+							100: '#fce7f3',
+							200: '#fbcfe8',
+							300: '#f9a8d4',
+							400: '#f472b6',
+							500: '#ec4899',
+							600: '#db2777',
+							700: '#be185d',
+							800: '#9d174d',
+							900: '#831843'
+                        },
+                        secondary: {
+							50: '#f8fafc',
+							100: '#f1f5f9',
+							200: '#e2e8f0',
+							300: '#cbd5e1',
+							400: '#94a3b8',
+							500: '#64748b',
+							600: '#475569',
+							700: '#334155',
+							800: '#1e293b',
+							900: '#0f172a'
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+                        'mono': ['SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'monospace']
+                    }
+                }
+            },
+            darkMode: 'class'
+        }
+    </script>
+</head>
+<body class="bg-white dark:bg-secondary-900 text-secondary-800 dark:text-secondary-200 transition-colors duration-300">
+    <!-- Header -->
+    <header class="bg-white dark:bg-secondary-900 shadow-sm border-b border-secondary-100 dark:border-secondary-800 sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 bg-gradient-to-br from-primary-500 to-primary-600 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-university text-white text-sm"></i>
+                    </div>
+                    <h1 class="text-lg font-semibold text-secondary-900 dark:text-white">存保公司風險指標資料查核</h1>
+                </div>
+                <button id="theme-toggle" class="p-2 rounded-lg bg-secondary-100 dark:bg-secondary-800 hover:bg-secondary-200 dark:hover:bg-secondary-700 transition-colors duration-200">
+                    <i class="fas fa-moon dark:hidden text-secondary-600"></i>
+                    <i class="fas fa-sun hidden dark:block text-secondary-400"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Hero Section -->
+        <div class="mb-12 text-center animate-fade-in">
+            <div class="inline-flex items-center px-4 py-2 bg-primary-50 dark:bg-primary-900/20 rounded-full mb-6">
+                <i class="fas fa-chart-line text-primary-600 dark:text-primary-400 mr-2"></i>
+                <span class="text-sm font-medium text-primary-700 dark:text-primary-300">風險管理報告</span>
+            </div>
+            <h1 class="text-4xl font-bold text-secondary-900 dark:text-white mb-4">
+                中央存款保險公司
+                <span class="block text-primary-600 dark:text-primary-400">風險指標資料查核報告</span>
+            </h1>
+            <p class="text-lg text-secondary-600 dark:text-secondary-400 max-w-3xl mx-auto">
+                確保金融體系穩定，保障存款人權益，透過系統性查核提升風險管控效能
+            </p>
+        </div>
+
+        <!-- Overview Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div class="bg-white dark:bg-secondary-800 rounded-xl shadow-sm border border-secondary-100 dark:border-secondary-700 p-6 hover:shadow-md transition-all duration-200 hover:scale-105">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/20 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-shield-alt text-blue-600 dark:text-blue-400"></i>
+                    </div>
+                    <h3 class="ml-3 text-lg font-semibold text-secondary-900 dark:text-white">風險基礎計費</h3>
+                </div>
+                <p class="text-secondary-600 dark:text-secondary-400">支持風險為基礎的差別費率計收，確保保費計算公平性與準確性</p>
+            </div>
+
+            <div class="bg-white dark:bg-secondary-800 rounded-xl shadow-sm border border-secondary-100 dark:border-secondary-700 p-6 hover:shadow-md transition-all duration-200 hover:scale-105">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-green-100 dark:bg-green-900/20 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-search text-green-600 dark:text-green-400"></i>
+                    </div>
+                    <h3 class="ml-3 text-lg font-semibold text-secondary-900 dark:text-white">場外監控</h3>
+                </div>
+                <p class="text-secondary-600 dark:text-secondary-400">強化金融預警系統效能，及早發現機構經營異常變化</p>
+            </div>
+
+            <div class="bg-white dark:bg-secondary-800 rounded-xl shadow-sm border border-secondary-100 dark:border-secondary-700 p-6 hover:shadow-md transition-all duration-200 hover:scale-105">
+                <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-orange-100 dark:bg-orange-900/20 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-users text-orange-600 dark:text-orange-400"></i>
+                    </div>
+                    <h3 class="ml-3 text-lg font-semibold text-secondary-900 dark:text-white">存款人保障</h3>
+                </div>
+                <p class="text-secondary-600 dark:text-secondary-400">透過風險監管有效控制承保風險，保障存款人權益</p>
+            </div>
+        </div>
+
+        <!-- 查核流程圖 -->
+        <div class="bg-white dark:bg-secondary-800 rounded-xl shadow-sm border border-secondary-100 dark:border-secondary-700 p-8 mb-12">
+            <h2 class="text-2xl font-bold text-secondary-900 dark:text-white mb-6 flex items-center">
+                <i class="fas fa-project-diagram text-primary-600 dark:text-primary-400 mr-3"></i>
+                查核流程架構
+            </h2>
+            <div class="mermaid bg-white dark:bg-secondary-800 rounded-lg p-4" id="flowchart">
+                flowchart TD
+                    A[風險指標資料查核] --> B[銀行]
+                    A --> C[信用合作社]
+                    A --> D[農會及漁會信用部]
+                    
+                    B --> E[資料收集與分析]
+                    C --> E
+                    D --> E
+                    
+                    E --> F[缺失發現與分類]
+                    F --> G[限期改善要求]
+                    F --> H[追蹤考核機制]
+                    
+                    G --> I[書面審核]
+                    H --> I
+                    H --> J[實地覆查]
+                    
+                    I --> K[改善確認]
+                    J --> K
+                    
+                    K --> L[公開發布]
+                    L --> M[存保公司官網]
+                    L --> N[政府資料開放平臺]
+            </div>
+        </div>
+        
+        <!-- 詳細內容區塊 -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <!-- 查核目的 -->
+            <div class="bg-white dark:bg-secondary-800 rounded-xl shadow-sm border border-secondary-100 dark:border-secondary-700 p-8">
+                <h2 class="text-2xl font-bold text-secondary-900 dark:text-white mb-6 flex items-center">
+                    <i class="fas fa-target text-primary-600 dark:text-primary-400 mr-3"></i>
+                    查核目的與重要性
+                </h2>
+                <div class="space-y-4">
+                    <div class="flex items-start">
+                        <div class="w-2 h-2 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                        <div>
+                            <h3 class="font-semibold text-secondary-900 dark:text-white mb-1">支持風險基礎計費系統</h3>
+                            <p class="text-secondary-600 dark:text-secondary-400 text-sm">自2012年起針對風險基礎保費評級系統所需風險指標數據進行查核，確保保費計算公平性與準確性</p>
+                        </div></div>
+                    <div class="flex items-start">
+                        <div class="w-2 h-2 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                        <div>
+                            <h3 class="font-semibold text-secondary-900 dark:text-white mb-1">強化場外監控與預警</h3>
+                            <p class="text-secondary-600 dark:text-secondary-400 text-sm">透過分析要保機構經營狀況及風險指標，提升場外監控績效，及早發現異常變化</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start"><div class="w-2 h-2 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                        <div>
+                            <h3 class="font-semibold text-secondary-900 dark:text-white mb-1">降低承保風險</h3>
+                            <p class="text-secondary-600 dark:text-secondary-400 text-sm">透過風險指標監管，有效控管承保風險，保障存款人權益</p>
+                        </div>
+                    </div></div>
+            </div>
+
+            <!-- 缺失處理機制 -->
+            <div class="bg-white dark:bg-secondary-800 rounded-xl shadow-sm border border-secondary-100 dark:border-secondary-700 p-8">
+                <h2 class="text-2xl font-bold text-secondary-900 dark:text-white mb-6 flex items-center"><i class="fas fa-cogs text-primary-600 dark:text-primary-400 mr-3"></i>缺失處理與追蹤機制
+                </h2>
+                <div class="space-y-6">
+                    <div class="bg-red-50 dark:bg-red-900/20 rounded-lg p-4 border border-red-200 dark:border-red-800">
+                        <h3 class="font-semibold text-red-800 dark:text-red-300 mb-2 flex items-center">
+                            <i class="fas fa-exclamation-circle mr-2"></i>
+                            限期改善
+                        </h3>
+                        <p class="text-red-700 dark:text-red-400 text-sm">查核發現的缺失，均要求要保機構限期改善，如針對59家金融機構的風險指標資料正確性查核缺失</p>
+                    </div><div class="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 border border-blue-200 dark:border-blue-800">
+                        <h3 class="font-semibold text-blue-800 dark:text-blue-300 mb-2 flex items-center">
+                            <i class="fas fa-search mr-2"></i>
+                            追蹤考核
+                        </h3>
+                        <p class="text-blue-700 dark:text-blue-400 text-sm">依據「對要保機構業務缺失追蹤考核要點」進行書面審核與派員實地覆查</p>
+                    </div>
+                    <div class="bg-green-50 dark:bg-green-900/20 rounded-lg p-4 border border-green-200 dark:border-green-800">
+                        <h3 class="font-semibold text-green-800 dark:text-green-300 mb-2 flex items-center">
+                            <i class="fas fa-arrow-up mr-2"></i>
+                            持續精進
+                        </h3>
+                        <p class="text-green-700 dark:text-green-400 text-sm">借鑒國際經驗，持續精進查核機制與應對措施，有效控管承保風險</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 發布平台資訊 -->
+        <div class="bg-gradient-to-br from-primary-50 to-blue-50 dark:from-primary-900/20 dark:to-blue-900/20 rounded-xl p-8 mb-12">
+            <h2 class="text-2xl font-bold text-secondary-900 dark:text-white mb-6 flex items-center">
+                <i class="fas fa-globe text-primary-600 dark:text-primary-400 mr-3"></i>
+                缺失態樣發布平台
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white dark:bg-secondary-800 rounded-lg p-6 shadow-sm">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-building text-primary-600 dark:text-primary-400 text-2xl mr-3"></i>
+                        <h3 class="text-lg font-semibold text-secondary-900 dark:text-white">存保公司官方網站</h3>
+                    </div>
+                    <p class="text-secondary-600 dark:text-secondary-400 mb-3">「法定查核業務」項下的「缺失態樣」專區</p>
+                    <ul class="text-sm text-secondary-600 dark:text-secondary-400 space-y-1">
+                        <li>• 提供ODF開放文件格式</li>
+                        <li>• 依金融機構類別分類</li><li>• 按查核期別整理</li></ul>
+                </div>
+                <div class="bg-white dark:bg-secondary-800 rounded-lg p-6 shadow-sm"><div class="flex items-center mb-4">
+                        <i class="fas fa-database text-green-600 dark:text-green-400 text-2xl mr-3"></i>
+                        <h3 class="text-lg font-semibold text-secondary-900 dark:text-white">政府資料開放平臺</h3>
+                    </div>
+                    <p class="text-secondary-600 dark:text-secondary-400 mb-3">「風險指標資料查核缺失態樣及改善作法」資料集</p>
+                    <ul class="text-sm text-secondary-600 dark:text-secondary-400 space-y-1">
+                        <li>• 提供CSV等格式</li>
+                        <li>• 包含完整資料欄位</li>
+                        <li>• 供大眾查詢應用</li></ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 統計數據 -->
+        <div class="bg-white dark:bg-secondary-800 rounded-xl shadow-sm border border-secondary-100 dark:border-secondary-700 p-8 mb-12">
+            <h2 class="text-2xl font-bold text-secondary-900 dark:text-white mb-6 flex items-center">
+                <i class="fas fa-chart-bar text-primary-600 dark:text-primary-400 mr-3"></i>
+                近兩年銀行查核重點(112~113)
+				
+				<h3><b>金融機構在評估資產風險時，最常見的哪些項目容易出現錯誤？</b></h3>
+				<p>根據您提供的來源文件，金融機構在評估資產風險時，許多常見的項目容易出現錯誤。這些錯誤遍及信用風險、交易對手信用風險、市場風險、流動性風險以及銀行簿利率風險等不同領域。以下整理出在不同查核期間（112年上半年、112年下半年、113年上半年、113年下半年）重複出現的常見缺失態樣：</p>
+				<p><strong>1. 信用風險評估的錯誤</strong></p>
+				<ul>
+				<li><strong>銀行類暴險 (Exposure to Banks)</strong><ul>
+				<li>對於<strong>未評等之國外存放銀行同業或拆放銀行同業</strong>，常誤用銀行短期債權的風險權數50%計算，而未依規定採用不低於該銀行註冊國家的風險權數100%。</li>
+				<li>將<strong>中華郵政</strong>誤列為銀行，應改列為企業並適用風險權數100%。</li>
+				<li>將<strong>美國聯邦儲備銀行</strong>誤列為銀行，應改列為主權國家並適用風險權數0%。</li>
+				<li>持有國外銀行金融債券時，未能根據<strong>外部信評</strong>結果正確適用20%或50%的風險權數。</li>
+				</ul>
+				</li>
+				<li><strong>企業類暴險 (Exposure to Corporates)</strong><ul>
+				<li>未送保的<strong>中小企業信用保證基金放款</strong>案件，風險權數常從20%誤調至100%。</li>
+				<li><strong>無外部信評之企業債權</strong>，風險權數常從50%誤調至100%。</li>
+				<li><strong>有外部信評之企業債權</strong>，風險權數常從100%誤調至20%或50%。</li>
+				<li>將銀行或金控公司發行的<strong>金融債券</strong>誤列為企業債權，應依其信評結果改列為銀行類暴險。</li>
+				<li>持有國內、外公司債券時，若有兩個外部信評，未能適用較低者；或信評調升時，未能依最新信評適用正確的風險權數。</li>
+				</ul>
+				</li>
+				<li><strong>不動產暴險 (Exposure to Real Estate)</strong><ul>
+				<li>將<strong>不具居住性質</strong>的不動產（如策略性產業、農用、商用）擔保貸款，誤適用一般住宅用不動產的風險權數 (20%, 30%, 70%)，應改適用一般商用或收益型商用不動產的風險權數 (60%, 75%, 110% 或 70%)。</li>
+				<li>將<strong>建設或開發公司</strong>以未來出售為目的的不動產作為擔保的貸款，誤適用一般住宅用不動產風險權數，應改適用收益型住宅用不動產風險權數。</li>
+				<li>建設公司或從事建築投資個人用於<strong>土地收購、開發及建築 (ADC)</strong> 的借款用途，誤適用一般住宅用或商用不動產風險權數，應改適用ADC風險權數150%。</li>
+				<li>特定公司（如○○渡假事業公司）的<strong>逾期債權</strong>，誤以一般住宅用不動產的風險權數計算，應改適用企業逾期債權的風險權數150%。</li>
+				</ul>
+				</li>
+				<li><strong>權益證券投資 (Equity Exposures)</strong><ul>
+				<li>漏未將<strong>投資非金融相關事業股票</strong>計入計算。</li>
+				<li><strong>基金及創業投資事業之權益證券投資</strong>方面，若不符合拆解法 (LTA) 或委託基礎法 (MBA) 的條件（例如未按季公告財報或未提供契約文件），誤繼續適用LTA/MBA，應改依備用法 (FBA) 適用高風險權數1,250%。</li>
+				<li>計算創業投資公司及不動產投資信託基金的<strong>風險性資產帳面金額</strong>有錯誤。</li>
+				</ul>
+				</li>
+				</ul>
+				<p><strong>2. 信用風險抵減的錯誤</strong></p>
+				<ul>
+				<li>誤將<strong>未約定或已解除設定的擔保品</strong>列入風險抵減。</li>
+				<li><strong>重複計算</strong>擔保品風險抵減金額。</li>
+				<li>將移送<strong>中小企業信用保證基金</strong>提供信用保障的授信戶，誤以帳面金額（或承保金額）全數列入抵減，未依獲保成數及風險權數20%計算抵減金額。</li>
+				<li>將<strong>非合格擔保品</strong>（如關係企業或本人所營事業的股票）列入抵減。</li>
+				</ul>
+				<p><strong>3. 交易對手信用風險及信用評價調整風險 (CCR &amp; CVA) 的錯誤</strong></p>
+				<ul>
+				<li><strong>附賣回/附買回交易 (RS/RP)</strong><ul>
+				<li>計算暴險部位或擔保品現值時，誤以成交金額計算，未依規定以<strong>期末履約值之折現值或擔保品市價</strong>計算。</li>
+				<li>計算風險抵減後暴險額時，適用<strong>法定折扣比率</strong>錯誤。</li>
+				<li><strong>交易對手暴險類型</strong>歸類錯誤（如企業誤為銀行）。</li>
+				</ul>
+				</li>
+				<li><strong>衍生性金融商品交易對手信用風險性資產</strong><ul>
+				<li>計算暴險額時，對於不符合淨額結算合約規定的交易，誤以<strong>淨額結算方式</strong>計算。</li>
+				<li>將與銀行端承作的<strong>結構型商品</strong>誤列為外匯類，應列為利率類計算暴險。</li>
+				<li>對於外匯衍生性金融商品，計算調整後名目本金時，誤多乘或漏乘<strong>法定存續期間 (SDi)</strong>。</li>
+				<li>未依<strong>交易對手信用評等</strong>適用正確的風險權數。</li>
+				<li>未區分無保證金及有保證金交易，導致計算<strong>重置成本及期限因子 (MFi)</strong> 錯誤。</li>
+				<li><strong>乘數因子</strong>適用錯誤。</li>
+				<li>暴險額為負數時，風險性資產誤計為負數。</li>
+				</ul>
+				</li>
+				<li><strong>信用評價調整風險 (CVA)</strong><ul>
+				<li>計算交易對手之違約暴險額時，誤以當期暴險法計算，應依<strong>標準法 (SA-CCR)</strong> 規定計算。</li>
+				<li>未依交易對手信用評等適用正確的<strong>計算權數 (Wi)</strong>。</li>
+				</ul>
+				</li>
+				</ul>
+				<p><strong>4. 市場風險應計提資本的錯誤</strong></p>
+				<ul>
+				<li><strong>利率風險</strong><ul>
+				<li>計算個別風險時，誤將「非合格債務工具」分類於「合格債務工具」。</li>
+				<li>誤將國庫券、公債、金融債券、公司債等<strong>票債券以票面金額列入計算</strong>，應以資產市價計算。</li>
+				<li>漏未將特定交易簿的<strong>金融債券、公司債、附買回/附賣回交易持有之標的債務工具</strong>等列入計算。</li>
+				<li>誤將銀行簿債券列入市場風險計算。</li>
+				<li>對<strong>央行可轉讓定期存單</strong>未以資產市價計算.</li>
+				<li>誤將未符合<strong>互抵條件</strong>的交易互抵。</li>
+				</ul>
+				</li>
+				<li><strong>匯率風險</strong><ul>
+				<li>誤將<strong>銀行內部交易</strong>列入外匯風險計算。</li>
+				<li>漏未將<strong>匯率期貨</strong>或自行國外部之自有資金列入外匯風險計算。</li>
+				<li>計算換匯換利及遠期外匯等衍生性金融商品之外匯風險時，未依規以<strong>名目本金</strong>計算。</li>
+				<li>計算應計提資本時，<strong>總體淨部位</strong>計算錯誤。</li>
+				<li>每一種外幣未以基準日<strong>即期匯率轉換為本國貨幣</strong>。</li>
+				</ul>
+				</li>
+				</ul>
+				<p><strong>5. 流動性覆蓋比率 (LCR) 申報的錯誤 (與資產相關)</strong></p>
+				<ul>
+				<li><strong>合格高品質流動性資產 (HQLA)</strong><ul>
+				<li>計算帳列<strong>「按攤銷後成本衡量之債務工具投資」</strong>的合格HQLA時，未以公允價值計算，誤以帳列金額計算。</li>
+				<li>將債券價格於30天壓力期間內跌價超過門檻的<strong>海外公司債</strong>誤列入計算。</li>
+				<li>將非屬合格普通股權益證券的<strong>指數型證券投資信託基金 (ETF)</strong> 或股價跌幅超過門檻的<strong>金融機構普通股</strong>誤列入第二層B級資產。</li>
+				<li>未將擔保借出交易（如RS）所取得的<strong>政府公債</strong>列入計算。</li>
+				<li>對於承作附買回交易或設質的有價證券，未以<strong>公允價值扣除</strong>，誤以帳列淨額扣除。</li>
+				</ul>
+				</li>
+				<li><strong>現金流入 (Cash Inflows)</strong><ul>
+				<li>計算<strong>來自金融機構交易對手的應收款項</strong>時，誤將非金融機構交易對手或到期日逾30天的項目列入。</li>
+				<li>計算<strong>到期證券之現金流入</strong>時，誤將基金受益憑證、短期公債ETF列入，或誤以公允價值計算，未以面額計算。</li>
+				<li>計算<strong>衍生性商品淨現金流入</strong>時，誤將即期外匯交易計入。</li>
+				<li>計算<strong>其他約定現金流入</strong>時，誤將無實質資金流入（如應收利息）、逾期或訴訟中債權、超逾30天可收回項目列入計算。</li>
+				</ul>
+				</li>
+				</ul>
+				<p><strong>6. 淨穩定資金比率 (NSFR) 申報的錯誤 (與資產相關)</strong></p>
+				<ul>
+				<li><strong>應有穩定資金 (Required Stable Funding - RSF)</strong><ul>
+				<li><strong>資產負債表表內暴險</strong>方面，計算某些資產（如透過其他綜合損益按公允價值衡量之金融資產）時，誤扣除預期信用損失。</li>
+				<li><strong>貼現及放款</strong>計算錯誤，未計入具分期攤還性質放款未來一年內將償還金額，或誤計入折溢價調整數。</li>
+				<li>誤將應收信用卡偽冒款、應收承兌票款、出售股票及基金之應收交割款項計入某些資產類別。</li>
+				<li>誤將受限制的股票計入剩餘期間在1年以上之有價證券。</li>
+				<li>誤將提供擔保提存於法院且無明確限制期間的中央政府公債計入所有受限制期間達1年以上之資產。</li>
+				<li>風險權數45%以下且剩餘期間1年以上之<strong>住宅擔保放款</strong>，誤將1年內分期攤還部分或企業/個人購地貸款等不符資格的項目計入。</li>
+				</ul>
+				</li>
+				</ul>
+				<p><strong>7. 銀行簿利率風險 (IRRBB) 量化指標試算的錯誤 (與資產相關)</strong></p>
+				<ul>
+				<li>針對多種資產類型（如存放同業、拆放同業、存放央行、有價證券、附賣回債票券、放款、信用卡與循環額度、零息資產等），計算<strong>名目重定價現金流量及加權平均利率</strong>時出現大量錯誤。<ul>
+				<li>錯誤包括：未以正確的衡量基礎（如面額而非購入成本/到期殖利率）計算。</li>
+				<li>時間區間配置錯誤，未能依下次利率重設日、央行利率會議時點或實際攤還條件配置。</li>
+				<li>利率型態歸類錯誤（如機動利率誤為浮動/固定利率，或管理利率誤為機動）。</li>
+				<li>加權平均利率計算錯誤或誤鍵為0%。</li>
+				<li>漏未納入或誤計入某些交易或資產項目（如可轉換公司債資產交換、央行融資、催收款項、非利率敏感性資產、信用卡分期付款等）。</li>
+				</ul>
+				</li>
+				<li><strong>自動式/分拆式選擇權</strong>方面，對於資產部位內含的選擇權（如可轉換公司債的買權、貸款的提前贖回權），存在漏未分拆、多次分拆或時間區間配置錯誤等問題。</li>
+				</ul>
+				<p>總的來說，金融機構在評估資產風險時，最常見的錯誤集中在<strong>對不同類型資產的歸類、風險權數的適用、擔保品的認定與計算抵減金額、衍生性金融商品及附買回/附賣回交易的估值方法，以及在流動性及利率風險計量中對資產現金流量及利率特性的精確捕捉</strong>。這些錯誤顯示出對相關法規和計算方法理解不足或系統建置、資料輸入及覆核機制不完善等問題。</p>
+				
+				<h3><b>金融機構在評估資產風險時，最常見的哪些項目容易出現錯誤？</b></h3>
+				<p>根據您提供的來源資料，銀行在計算資本適足率時，涉及風險加權資產的計算最容易出現申報錯誤的類型主要集中在<strong>信用風險</strong>領域，但也包括<strong>市場風險</strong>的計算。這些錯誤通常源於對不同「暴險類型」（Exposure Type）的誤判、風險權數或信用轉換係數的誤用、擔保品或信用保障的計算錯誤，以及交易估值和現金流量計算的不準確。</p>
+				<p>以下是根據來源資料，在計算風險加權資產時，最容易申報錯誤的幾類資產或暴險類型：</p>
+				<ul>
+				<li><p><strong>銀行（含多邊開發銀行及集中結算交易對手）暴險</strong>：</p>
+				<ul>
+				<li>對於<strong>未評等之國外存放或拆放銀行同業</strong>，常誤用較低的短期債權風險權數50%，而未按規定採用其註冊國主權國家的風險權數100%（如越南、緬甸）計算。</li>
+				<li>將屬營利性質且無外部信評的<strong>中華郵政</strong>誤列為存放銀行同業，應改列為企業暴險並適用100%風險權數。</li>
+				<li>將屬主權國家的<strong>美國聯邦儲備銀行</strong>誤列為存放銀行同業，應依其主權評等結果改列為主權國家暴險，風險權數可能為0%。</li>
+				<li>持有的<strong>國外銀行金融債券</strong>常因外部信評適用錯誤，誤用風險權數50%或100%，應改依實際評等適用20%或50%。</li>
+				<li>對<strong>保證合約期間超過3個月的應收保證款項</strong>，誤以銀行短期債權的50%風險權數計算，應依外部信評適用長期債權的100%。</li>
+				</ul>
+				</li>
+				<li><p><strong>企業（含證券及保險公司）暴險</strong>：</p>
+				<ul>
+				<li><strong>未送保之中小企業信用保證基金放款</strong>，風險權數常誤設為20%，應調整至100%。</li>
+				<li><strong>無外部信評之企業債權</strong>，風險權數常誤設為50%，應調整至100%。</li>
+				<li><strong>有外部信評之企業債權</strong>，風險權數常誤設為100%，應依評等結果調整至20%或50%。</li>
+				<li>持有金融機構發行的<strong>金融債券</strong>（如○○聯邦銀行、○○合作銀行、○○金控），應屬對銀行之債權，而非企業暴險，應依機構評等適用銀行暴險的風險權數（20%或50%）。</li>
+				<li>持有<strong>國內外公司債券</strong>，若有二項外部信評，常未適用較低者；或信評調升時，未依最新評等更新風險權數（如誤設100%，應為50%；或誤設50%，應為100%）。</li>
+				<li>針對<strong>聯貸案件</strong>已約定收取承諾費，屬不可取消約定融資但尚未動用的信用額度，常誤適用信用轉換係數0%，應改適用20%或50%。</li>
+				</ul>
+				</li>
+				<li><p><strong>不動產暴險</strong>：</p>
+				<ul>
+				<li>將<strong>不具居住性質</strong>（如策略性產業、農資材室、商用）或<strong>收益型住宅用不動產</strong>為擔保的貸款，誤以一般住宅用風險權數計算，應改適用一般商用或收益型商用不動產的風險權數。</li>
+				<li>將<strong>建設或開發公司以未來出售為目的不動產</strong>為擔保的貸款，誤以一般住宅用風險權數計算，應改適用收益型住宅用不動產風險權數。</li>
+				<li>建設公司或建築投資個人用於<strong>土地收購、開發及建築（ADC）</strong>相關用途的借款，常誤以一般住宅用或商用不動產風險權數計算，應改適用較高的ADC風險權數150%。特別是若借款用途是購地建屋出租或出售，且住宅用樓地板面積未大於總面積的70%，風險權數應為150%。</li>
+				</ul>
+				</li>
+				<li><p><strong>基金及創業投資事業之權益證券投資</strong>：</p>
+				<ul>
+				<li>對於<strong>創業投資事業</strong>，常誤採<strong>拆解法 (LTA)</strong> 計算風險權數，但因其未按季公告財報或未提供符合規定的資訊，不符合LTA或委託基礎法 (MBA) 條件，應改依備用法 (FBA) 適用高風險權數1,250%。</li>
+				<li>採用<strong>委託基礎法 (MBA)</strong> 時，因未提供委託契約或法定規範文件，不符合條件，也應改依備用法 (FBA) 適用1,250%風險權數。</li>
+				<li>計算創投或不動產投資信託基金的風險性資產時，常見帳面金額錯誤，或未依約定計算觸及可投資上限時的加權風險性資產。</li>
+				<li>投資<strong>不動產投資信託基金</strong>原採混合型(LTA)計算，若不符LTA條件，應改適用MBA或混合型其他方法。</li>
+				</ul>
+				</li>
+				<li><p><strong>權益證券投資</strong>：</p>
+				<ul>
+				<li>常<strong>漏未計入投資非金融相關事業股票</strong>。</li>
+				</ul>
+				</li>
+				<li><p><strong>逾期債權</strong>：</p>
+				<ul>
+				<li>特定逾期債權類型（如<strong>○○渡假事業公司之逾期債權</strong>）常誤以一般住宅用不動產風險權數(100%)計算，應改適用企業之逾期債權風險權數150%。</li>
+				<li><strong>對一般住宅用不動產之催收款項</strong>，超過鑑價金額的部分常漏未以無擔保逾期債權風險權數100%計算。</li>
+				<li>非不動產擔保的<strong>中小企業信用保證基金保證逾期債權</strong>，常誤以住宅用不動產風險權數計算，應改以零售債權的逾期債權計算，並依信用保障情況適用不同風險權數。</li>
+				<li>屬<strong>呆帳戶之應收保證款項</strong>到期多年，常未依逾期放款計算方式適用不同風險權數。</li>
+				</ul>
+				</li>
+				<li><p><strong>交易對手信用風險</strong>：</p>
+				<ul>
+				<li><strong>附賣回交易 (RS)</strong> 和<strong>附買回交易 (RP)</strong> 在計算暴險部位、擔保品現值及風險抵減後的暴險額時，常發生計算方法錯誤（如誤用成交金額而非履約值折現或市價），或法定折扣比率適用錯誤，或交易對手歸類錯誤。</li>
+				<li><strong>衍生性金融商品</strong>的計算錯誤多樣，包括法定delta調整值計算錯誤、不符淨額結算條件卻採淨額計算、結構型商品分類錯誤（如應為利率類誤為外匯類）、調整後名目本金計算誤乘存續期間、信用違約交換法定因子適用錯誤、<strong>未依交易對手信評適用正確風險權數</strong>（如誤用50%應為20%）等.</li>
+				</ul>
+				</li>
+				<li><p><strong>表外信用風險抵減</strong>：</p>
+				<ul>
+				<li>常誤將<strong>未約定或已解除設定的擔保品</strong>列入風險抵減。</li>
+				<li>存在<strong>重覆計算擔保品風險抵減</strong>的情況。</li>
+				<li>將授信戶移送<strong>中小企業信用保證基金提供信用保障</strong>者，常誤以全數帳面金額（或承保金額）列入抵減，而未依獲保成數及20%風險權數計算抵減金額。</li>
+				</ul>
+				</li>
+				</ul>
+				<p>除了信用風險，<strong>市場風險</strong>應計提資本的計算也是常見錯誤領域。錯誤包括：</p>
+				<ul>
+				<li><strong>利率風險</strong>計算時，常誤將非合格債務工具歸類為合格、誤用票面金額而非市價、漏計特定交易簿項目（如金融債券、公司債、RP、IRS、遠期外匯）、互抵條件誤判、內部資金移轉交易干擾計算、基準日錯誤等。</li>
+				<li><strong>外匯風險</strong>計算時，常誤將銀行內部交易計入、漏計期貨或自有資金、未依規以名目本金計算衍生性商品、即期短部位多計海外分支機構資金、未依基準日匯率轉換、未與會計帳核對等.</li>
+				<li><strong>選擇權風險</strong>（利率選擇權、匯率選擇權）計算時，常誤用標的市價或選擇權市價，而非名目本金或履約價來計算價內外值；未依部位類別適用不同計算方式.</li>
+				</ul>
+				<p>總結來說，最容易出錯的資產風險加權計算類型涵蓋了銀行日常經營中的多個面向，尤其是在複雜產品（如衍生性金融商品、結構型商品、基金投資）或需要細緻分類和判斷的領域（如不動產擔保類型、企業信評與擔保情況、逾期債權處理）。這些錯誤通常涉及對監管規定的理解不準確、數據建檔錯誤、計算方法誤用以及缺乏有效的複核機制。</p>
+				
+				<h3><b>在流動性與穩定資金比率申報上，現金流入流出項目常見哪些計算或分類問題？</b></h3>
+				<p>根據您提供的資料，銀行在流動性覆蓋比率 (LCR) 和淨穩定資金比率 (NSFR) 的申報上，現金流入流出項目（或與資金來源運用相關的項目）常見的計算或分類問題如下：</p>
+				<p><strong>流動性覆蓋比率 (LCR) 申報缺失 (態樣三)</strong></p>
+				<p><strong>現金流出申報錯誤：</strong></p>
+				<ul>
+				<li><strong>存款分類錯誤：</strong><ul>
+				<li>將管理委員會、公司籌備處、獨資或企業行號等非自然人存款誤計入零售存款。應改適用小型企業存款的係數。</li>
+				<li>設質存款未扣除已動用放款餘額。</li>
+				<li>小型企業存款未將分公司與總公司存款合併歸戶計算。</li>
+				<li>歸戶後存款餘額超過新臺幣4千萬元的小型企業存款，誤適用小型企業存款係數。應改適用非營運存款係數。</li>
+				<li>將屬於金融機構、信託業、證券投資信託業募集或保管基金、銀行關聯企業等的存款或資金，誤計入小型企業存款或非營運存款。應改適用其他存款(負債)的係數。</li>
+				<li>將支應特定專案放款的基金，誤計入非營運存款。</li>
+				<li>將無擔保批發性存款 (包含小型企業及非營運存款) 或剩餘期間超過30天的存款，誤計入其他存款 (負債)。</li>
+				<li>將歸戶後存款餘額小於新臺幣4千萬元的小型企業存款，誤計入其他存款 (負債)。</li>
+				<li>誤將以合格高品質流動性資產作為擔保的央行拆放款金額，誤計入其他存款 (負債)。</li>
+				<li>漏未將「透支銀行同業」金額列入其他存款 (負債) 計算。</li>
+				<li>誤將無設置信用部的農、漁會機構或非屬信用部的其他部門存款，誤計入其他存款 (負債)。</li>
+				</ul>
+				</li>
+				<li><strong>擔保融資交易分類與計算錯誤：</strong><ul>
+				<li>擔保證券信用評等或30天壓力期間內跌價超過10%的證券，誤列為第二層A級資產。應改列為第二層B級資產並適用相應係數。</li>
+				<li>擔保證券信用評等誤列為第二層B級資產。應改列為所有其他擔保融資交易並適用相應係數。</li>
+				</ul>
+				</li>
+				<li><strong>衍生性商品淨現金流出計算錯誤：</strong><ul>
+				<li>誤將即期外匯交易計入。</li>
+				<li>漏未列計確定於30日內交割的換利契約、利率交換選擇權及匯率選擇權等交易的應付利息。</li>
+				<li>未將「存入保證金」納入衍生性商品市場評價變化所增加的流動性需求計算。</li>
+				</ul>
+				</li>
+				<li><strong>信用融資及流動性融資額度分類錯誤：</strong><ul>
+				<li>誤將有條件可取消的信用融資額度，歸類為無條件可取消的信用融資額度。</li>
+				<li>將OBU分行授信戶的約定融資額度，誤全數歸類為與貿易融資有關的或有融資義務。</li>
+				<li>對可於額度內相互流用的綜合信用融資額度或共用額度，誤歸類為與貿易融資有關的或有融資義務或其他或有融資負債。</li>
+				<li>零售及小型企業戶的信用融資額度，漏未將自然人循環信貸、理財型房貸及股票融資等產品的約定融資額度列入。</li>
+				<li>零售及小型企業戶的信用融資額度，誤列入與貿易融資有關的或有負債義務、非金融機構企業、銀行以外其他金融機構、已結清並塗銷擔保品客戶的信用融資額度。</li>
+				<li>銀行以外其他金融機構的信用融資額度，誤列為非金融機構企業戶。</li>
+				<li>非金融機構企業戶的信用融資額度，誤將展期後為非循環額度的聯貸案件原額度計入。</li>
+				</ul>
+				</li>
+				</ul>
+				<p><strong>應有現金流入申報錯誤：</strong></p>
+				<ul>
+				<li>少列出售股票及基金的應收交割款項。</li>
+				<li><strong>來自金融機構交易對手之應收款項計算錯誤：</strong><ul>
+				<li>誤將非屬金融機構交易對手，或到期日逾30天的存放銀行同業或金融機構放款列入計算。</li>
+				</ul>
+				</li>
+				<li><strong>到期證券之現金流入計算錯誤：</strong><ul>
+				<li>誤將基金等受益憑證及短期公債ETF列入。</li>
+				<li>誤以公允價值計算，未以面額計算。</li>
+				<li>漏列資產公司發行之商業本票。</li>
+				</ul>
+				</li>
+				<li><strong>衍生性商品淨現金流入計算錯誤：</strong><ul>
+				<li>誤將即期外匯交易計入。</li>
+				<li>誤計入30日內到期換利契約的重置成本正值。</li>
+				<li>漏列換利契約30日內應收利息。</li>
+				<li>誤以換匯交易已知現金流出及流入互抵後計入。</li>
+				</ul>
+				</li>
+				<li><strong>其他約定現金流入計算錯誤：</strong><ul>
+				<li>漏未將「應收承購帳款-信用狀」列入。</li>
+				<li>誤將帳列受益憑證(基金)列入。</li>
+				<li>誤將無實質資金流入的應收利息、短期墊款或放款備抵呆帳列入。</li>
+				<li>多列非屬30天內到期可收回的信用卡循環信用動用金額。</li>
+				<li>誤將逾期超過30天的應收利息、逾期息，或訴訟中應收承購帳款債權列入。</li>
+				<li>誤將超過30天可收回的應收關係人帳款、信用卡循環信用動用金額、應收現金卡息列入。</li>
+				<li>「買入遠期外匯」重複計算。</li>
+				</ul>
+				</li>
+				</ul>
+				<p><strong>淨穩定資金比率 (NSFR) 申報缺失 (態樣四)</strong></p>
+				<p><strong>可用穩定資金 (ASF) 申報錯誤：</strong></p>
+				<ul>
+				<li><strong>合格資本及負債計算錯誤：</strong><ul>
+				<li>少列保證責任準備及備抵呆帳。</li>
+				<li>誤將累計減損-承受擔保品列入計算。</li>
+				</ul>
+				</li>
+				<li><strong>零售與小型企業戶存款分類錯誤：</strong><ul>
+				<li>將地方政府、金融機構的存款誤計入「穩定存款」或「較不穩定存款」。</li>
+				<li>將零售與小型企業戶歸戶後超過存款保險額度(目前為新臺幣3百萬元)的新臺幣存款誤計入「穩定存款」。</li>
+				<li>將零售與小型企業戶的外幣存款誤計入「穩定存款」。</li>
+				<li>將證券投資信託業募集的基金專戶存款、公庫活期存款(如勞工保險局受託辦理國民年金保險基金)、金融機構存款誤計入「較不穩定存款」。</li>
+				</ul>
+				</li>
+				<li><strong>同業存款分類錯誤：</strong><ul>
+				<li>將非屬依規定轉存的銀行同業存款(農、漁會信用部活期性存款)誤計入機構網路中合作銀行的存款。</li>
+				</ul>
+				</li>
+				<li><strong>歸戶及統計缺失：</strong><ul>
+				<li>分公司未與總公司存款合併歸戶。</li>
+				<li>同一公司戶開立多個存款帳戶未確實辦理歸戶及統計。</li>
+				<li>因歸戶問題導致誤計入「穩定存款」或「較不穩定存款」。</li>
+				</ul>
+				</li>
+				<li><strong>非金融機構企業戶等資金分類錯誤：</strong><ul>
+				<li>將歸戶後總存款餘額低於4千萬的久未往來專戶存款、創業投資管理顧問公司的專戶存款、小型企業戶存款，誤計入剩餘期間小於1年的資金。</li>
+				</ul>
+				</li>
+				<li><strong>其他負債及權益分類錯誤：</strong><ul>
+				<li>將小型企業存款誤計入剩餘期間為6個月以上未達1年的負債。</li>
+				<li>將承兌匯票、應收承兌票款、與小型企業戶承作的附買回票券及債券負債(RP)，誤計入剩餘期間小於6個月或無特定到期日的負債。</li>
+				</ul>
+				</li>
+				</ul>
+				<p><strong>應有穩定資金 (RSF) 申報錯誤：</strong></p>
+				<ul>
+				<li><strong>資產負債表表內暴險計算與分類錯誤：</strong><ul>
+				<li>將受央行委託國庫業務的中央銀行不計息存款誤計入央行準備金。</li>
+				<li>少列出售股票及基金的應收交割款項。</li>
+				<li>誤以公允價值計算按攤銷後成本衡量的債務工具投資。</li>
+				<li>誤將非以第一層資產為擔保承作的擔保借出交易(RS)計入以第一層資產為擔保的金融機構應收款項。</li>
+				<li>誤將聯行間的交易款項計入以第一層資產以外資產為擔保或無擔保的金融機構應收款項。</li>
+				<li>計算透過其他綜合損益按公允價值衡量的金融資產時，誤扣除預期信用損失。</li>
+				<li>計算貼現及放款時，未計入具分期攤還性質放款未來一年內將償還金額，或誤將貼現及放款折溢價調整數等計入。</li>
+				<li>誤將應收信用卡偽冒款、應收承兌票款、出售股票及基金的應收交割款項計入。</li>
+				<li>誤將遭限制股權不得買賣及移轉、無明確受限制期間的投資股票計入剩餘期間在1年以上或在交易所交易的權益證券。</li>
+				<li>誤將提供擔保提存於法院、無明確受限制期間的中央政府公債計入所有受限制期間達1年以上資產。</li>
+				<li>誤將屬1年內分期攤還部分、企業(個人)的購地貸款、以不具居住性質不動產為擔保放款計入風險權數45%以下且剩餘期間1年以上住宅擔保放款。</li>
+				<li>計算透過其他綜合損益按公允價值衡量之債務工具投資時，未將評價損益計入帳面金額，並誤將提列之備抵損失扣除。</li>
+				<li>計算按攤銷後成本衡量之債務工具投資時，誤以公允價值計算。</li>
+				<li>私人公司發行之商業本票所適用係數，誤依保證發行金融機構之信用評等分類。</li>
+				</ul>
+				</li>
+				<li><strong>資產負債表表外暴險計算與分類錯誤：</strong><ul>
+				<li>誤將進、出口押匯、出口O/A未動用額度、應收保證款項、應收信用狀款項計入不可取消及有條件可取消的信用融資及流動性融資額度未動用餘額。</li>
+				<li>漏未將不可取消及有條件可取消的信用融資額度及流動性融資額度列入計算。</li>
+				</ul>
+				</li>
+				</ul>
+				<p>總結來說，這些缺失多數源於對法規條文理解不透徹、數據建檔錯誤、分類標準混淆、計算邏輯錯誤以及缺乏有效的內部核對與覆核機制。銀行需要參考相關法規，訂定或修改作業程序，並落實正確建檔與覆核機制，同時將申報資料正確性列為內部稽核的重點，以確保流動性與穩定資金比率申報的準確性。</p>
+
+				
+
+            </h2>
+            
+        </div>
+
+        <!-- 時間軸 -->
+        <div class="bg-white dark:bg-secondary-800 rounded-xl shadow-sm border border-secondary-100 dark:border-secondary-700 p-8">
+            <h2 class="text-2xl font-bold text-secondary-900 dark:text-white mb-6 flex items-center">
+                <i class="fas fa-calendar-alt text-primary-600 dark:text-primary-400 mr-3"></i>
+                查核制度發展歷程
+            </h2>
+            <div class="relative">
+                <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-primary-200 dark:bg-primary-800"></div>
+                <div class="space-y-8">
+                    <div class="flex items-start">
+                        <div class="w-8 h-8 bg-primary-500 rounded-full flex items-center justify-center relative z-10">
+                            <i class="fas fa-play text-white text-xs"></i>
+                        </div>
+                        <div class="ml-4">
+                            <div class="bg-primary-100 dark:bg-primary-900/20 text-primary-800 dark:text-primary-300 px-2 py-1 rounded-md text-sm font-medium inline-block mb-1">2012年</div>
+                            <h3 class="text-lg font-semibold text-secondary-900 dark:text-white">風險基礎保費評級系統啟動</h3>
+                            <p class="text-secondary-600 dark:text-secondary-400">開始針對風險基礎保費評級系統所需之風險指標數據進行查核</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="w-8 h-8 bg-primary-500 rounded-full flex items-center justify-center relative z-10">
+                            <i class="fas fa-search text-white text-xs"></i>
+                        </div>
+                        <div class="ml-4">
+                            <div class="bg-primary-100 dark:bg-primary-900/20 text-primary-800 dark:text-primary-300 px-2 py-1 rounded-md text-sm font-medium inline-block mb-1">持續進行</div>
+                            <h3 class="text-lg font-semibold text-secondary-900 dark:text-white">定期查核機制建立</h3>
+                            <p class="text-secondary-600 dark:text-secondary-400">對「保險費基數」、「電子資料建置格式及內容」與「風險指標資料」進行系統性查核</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="w-8 h-8 bg-primary-500 rounded-full flex items-center justify-center relative z-10">
+                            <i class="fas fa-globe text-white text-xs"></i>
+                        </div>
+                        <div class="ml-4">
+                            <div class="bg-primary-100 dark:bg-primary-900/20 text-primary-800 dark:text-primary-300 px-2 py-1 rounded-md text-sm font-medium inline-block mb-1">113年下半年</div>
+                            <h3 class="text-lg font-semibold text-secondary-900 dark:text-white">資訊公開機制完善</h3>
+                            <p class="text-secondary-600 dark:text-secondary-400">透過官網及政府資料開放平臺對外公布查核缺失態樣，提升透明度</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>    
+
+    <script>
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        // Listen for system theme changes
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            htmlElement.classList.add('dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+        });
+
+        // Initialize Mermaid
+        mermaid.initialize({
+            theme: htmlElement.classList.contains('dark') ? 'dark' : 'default',
+            startOnLoad: true,
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true
+            }
+        });
+
+        // Pie Chart
+        const pieChartElement = document.getElementById('pieChart');
+        const pieChart = echarts.init(pieChartElement);
+        
+        const pieOption = {
+            title: {
+                text: '查核對象分布比例',
+                left: 'center',
+                textStyle: {
+                    color: htmlElement.classList.contains('dark') ? '#e2e8f0' : '#1e293b'
+                }
+            },
+            tooltip: {
+                trigger: 'item',
+                formatter: '{a} <br/>{b} : {c} ({d}%)'
+            },
+            legend: {
+                orient: 'vertical',
+                left: 'left',
+                textStyle: {
+                    color: htmlElement.classList.contains('dark') ? '#cbd5e1' : '#475569'
+                }
+            },
+            series: [
+                {
+                    name: '金融機構類型',
+                    type: 'pie',
+                    radius: '50%',
+                    data: [
+                        {value: 40, name: '銀行', itemStyle: {color: '#0ea5e9'}},
+                        {value: 35, name: '信用合作社', itemStyle: {color: '#06b6d4'}},
+                        {value: 25, name: '農會及漁會信用部', itemStyle: {color: '#8b5cf6'}}
+                    ],
+                    emphasis: {
+                        itemStyle: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+        
+        pieChart.setOption(pieOption);
+
+        // Bar Chart
+        const barChartElement = document.getElementById('barChart');
+        const barChart = echarts.init(barChartElement);
+        
+        const barOption = {
+            title: {
+                text: '年度查核執行統計',
+                left: 'center',
+                textStyle: {
+                    color: htmlElement.classList.contains('dark') ? '#e2e8f0' : '#1e293b'
+                }
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'shadow'
+                }
+            },
+            legend: {
+                data: ['查核機構數', '發現缺失數', '改善完成數'],
+                top: 30,
+                textStyle: {
+                    color: htmlElement.classList.contains('dark') ? '#cbd5e1' : '#475569'
+                }
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'category',
+                data: ['110年', '111年', '112年', '113年'],
+                axisLine: {
+                    lineStyle: {
+                        color: htmlElement.classList.contains('dark') ? '#475569' : '#cbd5e1'
+                    }
+                },
+                axisLabel: {
+                    color: htmlElement.classList.contains('dark') ? '#cbd5e1' : '#475569'
+                }
+            },
+            yAxis: {
+                type: 'value',
+                axisLine: {
+                    lineStyle: {
+                        color: htmlElement.classList.contains('dark') ? '#475569' : '#cbd5e1'
+                    }
+                },
+                axisLabel: {
+                    color: htmlElement.classList.contains('dark') ? '#cbd5e1' : '#475569'
+                }
+            },
+            series: [
+                {
+                    name: '查核機構數',
+                    type: 'bar',
+                    data: [52, 55, 59, 61],
+                    itemStyle: { color: '#0ea5e9' }
+                },
+                {
+                    name: '發現缺失數',
+                    type: 'bar',
+                    data: [15, 18, 22, 19],
+                    itemStyle: { color: '#ef4444' }
+                },
+                {
+                    name: '改善完成數',
+                    type: 'bar',
+                    data: [12, 16, 20, 17],
+                    itemStyle: { color: '#10b981' }
+                }
+            ]
+        };
+        
+        barChart.setOption(barOption);
+
+        // Resize charts on window resize
+        window.addEventListener('resize', () => {
+            pieChart.resize();
+            barChart.resize();
+        });
+
+        // Update charts theme when dark mode toggles
+        const observer = new MutationObserver(() => {
+            const isDark = htmlElement.classList.contains('dark');
+            
+            // Update pie chart
+            pieOption.title.textStyle.color = isDark ? '#e2e8f0' : '#1e293b';
+            pieOption.legend.textStyle.color = isDark ? '#cbd5e1' : '#475569';
+            pieChart.setOption(pieOption);
+            
+            // Update bar chart
+            barOption.title.textStyle.color = isDark ? '#e2e8f0' : '#1e293b';
+            barOption.legend.textStyle.color = isDark ? '#cbd5e1' : '#475569';
+            barOption.xAxis.axisLine.lineStyle.color = isDark ? '#475569' : '#cbd5e1';
+            barOption.xAxis.axisLabel.color = isDark ? '#cbd5e1' : '#475569';
+            barOption.yAxis.axisLine.lineStyle.color = isDark ? '#475569' : '#cbd5e1';
+            barOption.yAxis.axisLabel.color = isDark ? '#cbd5e1' : '#475569';
+            barChart.setOption(barOption);
+        });
+        
+        observer.observe(htmlElement, {
+            attributes: true,
+            attributeFilter: ['class']
+        });
+
+        // Add smooth scrolling and animations
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.animate-fade-in');
+            elements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        // Initial load animationsdocument.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.animate-fade-in');
+            elements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+            
+            setTimeout(() => {
+                animateOnScroll();
+            }, 100);
+        });
+
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+</body>
+</html>
