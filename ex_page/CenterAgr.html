@@ -223,7 +223,10 @@
                         <i class="fas fa-building text-primary-600 dark:text-primary-400 text-2xl mr-3"></i>
                         <h3 class="text-lg font-semibold text-secondary-900 dark:text-white">存保公司官方網站</h3>
                     </div>
-                    <p class="text-secondary-600 dark:text-secondary-400 mb-3">「法定查核業務」項下的「缺失態樣」專區</p>
+                    <p class="text-secondary-600 dark:text-secondary-400 mb-3">「法定查核業務」項下的「缺失態樣」專區
+						<a href="https://www.cdic.gov.tw/main_ch/deletionsCheck.aspx?uid=294&pid=9" target="_blank"><mark>連結</mark></a>
+					</p>
+					
                     <ul class="text-sm text-secondary-600 dark:text-secondary-400 space-y-1">
                         <li>• 提供ODF開放文件格式</li>
                         <li>• 依金融機構類別分類</li><li>• 按查核期別整理</li></ul>
@@ -232,7 +235,9 @@
                         <i class="fas fa-database text-green-600 dark:text-green-400 text-2xl mr-3"></i>
                         <h3 class="text-lg font-semibold text-secondary-900 dark:text-white">政府資料開放平臺</h3>
                     </div>
-                    <p class="text-secondary-600 dark:text-secondary-400 mb-3">「風險指標資料查核缺失態樣及改善作法」資料集</p>
+                    <p class="text-secondary-600 dark:text-secondary-400 mb-3">「風險指標資料查核缺失態樣及改善作法」資料集
+						<a href="https://data.gov.tw/dataset/11975" target="_blank"><mark>連結</mark></a>
+					</p>
                     <ul class="text-sm text-secondary-600 dark:text-secondary-400 space-y-1">
                         <li>• 提供CSV等格式</li>
                         <li>• 包含完整資料欄位</li>
@@ -247,135 +252,348 @@
                 <i class="fas fa-chart-bar text-primary-600 dark:text-primary-400 mr-3"></i>
                 近兩年銀行查核重點(112~113)
 				
-				<h3><b>金融機構在評估資產風險時，最常見的哪些項目容易出現錯誤？</b></h3>
-				<p>根據您提供的來源文件，金融機構在評估資產風險時，許多常見的項目容易出現錯誤。這些錯誤遍及信用風險、交易對手信用風險、市場風險、流動性風險以及銀行簿利率風險等不同領域。以下整理出在不同查核期間（112年上半年、112年下半年、113年上半年、113年下半年）重複出現的常見缺失態樣：</p>
-				<p><strong>1. 信用風險評估的錯誤</strong></p>
+				<h3><b style="color: red;">信用風險常見問題</b></h3>
+				<p>好的，根據您提供的資料，以下是銀行在風險指標資料查核中，關於信用風險加權風險性資產申報常見的缺失態樣：</p>
+				<p>資料顯示，銀行在計算信用風險加權風險性資產時常出現申報錯誤，這些錯誤涵蓋了多個面向，包括暴險類型分類、風險權數適用、信用轉換係數計算、信用風險抵減以及衍生性金融商品交易對手信用風險等。</p>
+				<p>以下是一些主要的常見缺失：</p>
 				<ul>
-				<li><strong>銀行類暴險 (Exposure to Banks)</strong><ul>
-				<li>對於<strong>未評等之國外存放銀行同業或拆放銀行同業</strong>，常誤用銀行短期債權的風險權數50%計算，而未依規定採用不低於該銀行註冊國家的風險權數100%。</li>
-				<li>將<strong>中華郵政</strong>誤列為銀行，應改列為企業並適用風險權數100%。</li>
-				<li>將<strong>美國聯邦儲備銀行</strong>誤列為銀行，應改列為主權國家並適用風險權數0%。</li>
-				<li>持有國外銀行金融債券時，未能根據<strong>外部信評</strong>結果正確適用20%或50%的風險權數。</li>
+				<li><strong>暴險類型與風險權數適用錯誤</strong><ul>
+				<li>將逾期債權誤用為一般住宅用不動產的風險權數（100%），應改適用企業的逾期債權風險權數（150%）。</li>
+				<li>對未評等的國外銀行同業存放或拆放，誤以未評等銀行短期債權風險權數（50%）計算，應依規定不得低於該銀行註冊登記所在主權國家適用的風險權數（100%，如越南、緬甸）。</li>
+				<li>帳列銀行同業存放之中華郵政(股)公司，誤分類為銀行，因其屬營利性質國營企業且無外部信評，應改列為企業（風險權數100%）。</li>
+				<li>帳列存放銀行同業之美國聯邦儲備銀行，應依主權國家評等結果改列為主權國家（風險權數0%），而非銀行暴險。</li>
+				<li>對有外部信評的應收帳款、存放銀行同業或國外銀行金融債券，誤用風險權數50%或100%，應依外部信評結果適用20%或50%。</li>
+				<li>未送保之中小企業信用保證基金放款案件，風險權數誤用20%，應調整至100%。</li>
+				<li>無外部信評的企業債權，風險權數誤用50%，應調整至100%。</li>
+				<li>有外部信評的企業債權，風險權數誤用100%，應調整至20%或50%。</li>
+				<li>將對銀行的債權（如聯邦銀行、合作銀行、金控公司金融債券），誤列為企業債權，應依外部信評結果改列為銀行（風險權數20%或50%）。</li>
+				<li>持有國內、外公司債券有二項外部信用評等時，未適用較低者。</li>
+				<li>信用評等調升時，未依最新外部信用評等適用正確風險權數。</li>
+				<li>不動產暴險中，對土地收購、開發及建築（ADC）誤適用風險權數100%，應改適用150%。</li>
+				<li>對一般住宅用不動產之催收款項，其貸放餘額超過不動產鑑價金額的部分，未依無擔保逾期債權風險權數100%計算。</li>
+				<li>對非提供不動產為擔保之中小企業信用保證基金保證之逾期債權，誤全數以一般住宅用不動產風險權數計算，應改以零售債權逾期債權計算，並分別適用考慮信用保障後及無風險抵減的風險權數。</li>
+				<li>將國立大學及公司戶誤以主權國家風險權數（0%）計算，應分別改適用非中央政府公共部門（風險權數20%）及企業（風險權數100%）。</li>
+				<li>JP LEASE PRODUCTS AND SERVICES CO.,LTD.放款誤適用銀行風險權數（50%），應改適用企業，依外部信用評等或未評等適用100%。</li>
 				</ul>
 				</li>
-				<li><strong>企業類暴險 (Exposure to Corporates)</strong><ul>
-				<li>未送保的<strong>中小企業信用保證基金放款</strong>案件，風險權數常從20%誤調至100%。</li>
-				<li><strong>無外部信評之企業債權</strong>，風險權數常從50%誤調至100%。</li>
-				<li><strong>有外部信評之企業債權</strong>，風險權數常從100%誤調至20%或50%。</li>
-				<li>將銀行或金控公司發行的<strong>金融債券</strong>誤列為企業債權，應依其信評結果改列為銀行類暴險。</li>
-				<li>持有國內、外公司債券時，若有兩個外部信評，未能適用較低者；或信評調升時，未能依最新信評適用正確的風險權數。</li>
+				<li><strong>暴險額計算錯誤</strong><ul>
+				<li>應收保證款項未計算銀行自行保證部位的加權風險性資產，以與被保證部位相較採計較高者。</li>
+				<li>漏未將投資非金融相關事業股票計入權益證券投資暴險。</li>
 				</ul>
 				</li>
-				<li><strong>不動產暴險 (Exposure to Real Estate)</strong><ul>
-				<li>將<strong>不具居住性質</strong>的不動產（如策略性產業、農用、商用）擔保貸款，誤適用一般住宅用不動產的風險權數 (20%, 30%, 70%)，應改適用一般商用或收益型商用不動產的風險權數 (60%, 75%, 110% 或 70%)。</li>
-				<li>將<strong>建設或開發公司</strong>以未來出售為目的的不動產作為擔保的貸款，誤適用一般住宅用不動產風險權數，應改適用收益型住宅用不動產風險權數。</li>
-				<li>建設公司或從事建築投資個人用於<strong>土地收購、開發及建築 (ADC)</strong> 的借款用途，誤適用一般住宅用或商用不動產風險權數，應改適用ADC風險權數150%。</li>
-				<li>特定公司（如○○渡假事業公司）的<strong>逾期債權</strong>，誤以一般住宅用不動產的風險權數計算，應改適用企業逾期債權的風險權數150%。</li>
+				<li><strong>基金及創業投資事業權益證券投資計算錯誤</strong><ul>
+				<li>採用拆解法（LTA）的創業投資事業，因未按季公告財務資訊而不符條件，且不符委託基礎法（MBA）條件，應改依備用法（FBA）適用風險權數1,250%。</li>
+				<li>採用委託基礎法（MBA）的創業投資事業，因未提供委託契約或法定投資規範文件而不符條件，應改依備用法（FBA）適用風險權數1,250%。</li>
+				<li>計算創業投資公司及不動產投資信託基金的風險性資產帳面金額錯誤。</li>
+				<li>未依合約或委任契約規定計算觸及投資上限時的加權風險性資產或最大槓桿倍數。</li>
+				<li>投資不動產投資信託基金原採混合型中之拆解法，因不符條件，應改適用委託基礎法或混合型其他方式。</li>
 				</ul>
 				</li>
-				<li><strong>權益證券投資 (Equity Exposures)</strong><ul>
-				<li>漏未將<strong>投資非金融相關事業股票</strong>計入計算。</li>
-				<li><strong>基金及創業投資事業之權益證券投資</strong>方面，若不符合拆解法 (LTA) 或委託基礎法 (MBA) 的條件（例如未按季公告財報或未提供契約文件），誤繼續適用LTA/MBA，應改依備用法 (FBA) 適用高風險權數1,250%。</li>
-				<li>計算創業投資公司及不動產投資信託基金的<strong>風險性資產帳面金額</strong>有錯誤。</li>
+				<li><strong>表外項目信用轉換係數（CCF）適用錯誤</strong><ul>
+				<li>屬原始契約期限一年以上之不可取消約定融資額度，誤適用信用轉換係數0%，應改為50%。</li>
+				<li>屬原始契約期限一年以上之應收保證款項-其他保證，信用轉換係數誤為20%，應為50%。</li>
+				<li>聯貸案件已約定計收承諾費，屬不可取消約定融資尚未動用額度，誤適用信用轉換係數0%，應改適用20%或50%。</li>
+				<li>屬原始契約期限一年以下(或以上)之不可取消約定融資額度，誤適用信用轉換係數0%。</li>
+				<li>放款餘額已逾4千萬元，誤適用零售債權風險權數，應改適用企業風險權數100%。</li>
 				</ul>
 				</li>
-				</ul>
-				<p><strong>2. 信用風險抵減的錯誤</strong></p>
-				<ul>
-				<li>誤將<strong>未約定或已解除設定的擔保品</strong>列入風險抵減。</li>
-				<li><strong>重複計算</strong>擔保品風險抵減金額。</li>
-				<li>將移送<strong>中小企業信用保證基金</strong>提供信用保障的授信戶，誤以帳面金額（或承保金額）全數列入抵減，未依獲保成數及風險權數20%計算抵減金額。</li>
-				<li>將<strong>非合格擔保品</strong>（如關係企業或本人所營事業的股票）列入抵減。</li>
-				</ul>
-				<p><strong>3. 交易對手信用風險及信用評價調整風險 (CCR &amp; CVA) 的錯誤</strong></p>
-				<ul>
-				<li><strong>附賣回/附買回交易 (RS/RP)</strong><ul>
-				<li>計算暴險部位或擔保品現值時，誤以成交金額計算，未依規定以<strong>期末履約值之折現值或擔保品市價</strong>計算。</li>
-				<li>計算風險抵減後暴險額時，適用<strong>法定折扣比率</strong>錯誤。</li>
-				<li><strong>交易對手暴險類型</strong>歸類錯誤（如企業誤為銀行）。</li>
+				<li><strong>信用風險抵減（CR-Mitigation）計算錯誤</strong><ul>
+				<li>對中小企業信用保證基金保證案件，誤以放款餘額（或承保金額）全數列入抵減，未依獲保成數及風險權數20%計算抵減金額。</li>
+				<li>對中小企業信用保證基金全額保證之紓困貸款，未以風險權數（20%）辦理風險抵減。</li>
+				<li>提供擔保品為關係企業或本人所營事業股票，因屬非合格擔保品，誤列入抵減。</li>
+				<li>提供本行存單設定質押，因屬合格擔保品，漏未列入抵減。</li>
+				<li>承做附買回交易(RP)或設質之有價證券，擔保品現值誤以成交金額、期末履約值或帳列淨額計算，應以擔保品市價計算。</li>
+				<li>計算風險抵減後暴險額時，法定折扣比率適用錯誤。</li>
+				<li>對擔保品市價的折扣比率，未依交易類型、市價評估及追繳保證金的頻率調整。</li>
+				<li>承做附買回交易(RP)，擔保品現值未以到期履約價格之折現值計算。</li>
+				<li>承做附買回交易(RP)，交易對手暴險類型歸類錯誤。</li>
 				</ul>
 				</li>
-				<li><strong>衍生性金融商品交易對手信用風險性資產</strong><ul>
-				<li>計算暴險額時，對於不符合淨額結算合約規定的交易，誤以<strong>淨額結算方式</strong>計算。</li>
-				<li>將與銀行端承作的<strong>結構型商品</strong>誤列為外匯類，應列為利率類計算暴險。</li>
-				<li>對於外匯衍生性金融商品，計算調整後名目本金時，誤多乘或漏乘<strong>法定存續期間 (SDi)</strong>。</li>
-				<li>未依<strong>交易對手信用評等</strong>適用正確的風險權數。</li>
-				<li>未區分無保證金及有保證金交易，導致計算<strong>重置成本及期限因子 (MFi)</strong> 錯誤。</li>
-				<li><strong>乘數因子</strong>適用錯誤。</li>
-				<li>暴險額為負數時，風險性資產誤計為負數。</li>
+				<li><strong>預期損失（Expected Loss）申報錯誤</strong><ul>
+				<li>申報預期損失調減表內外各暴險項目備抵呆帳時，誤多列表內外項目備抵呆帳，導致信用風險加權風險性資產計算錯誤。</li>
 				</ul>
 				</li>
-				<li><strong>信用評價調整風險 (CVA)</strong><ul>
-				<li>計算交易對手之違約暴險額時，誤以當期暴險法計算，應依<strong>標準法 (SA-CCR)</strong> 規定計算。</li>
-				<li>未依交易對手信用評等適用正確的<strong>計算權數 (Wi)</strong>。</li>
-				</ul>
-				</li>
-				</ul>
-				<p><strong>4. 市場風險應計提資本的錯誤</strong></p>
-				<ul>
-				<li><strong>利率風險</strong><ul>
-				<li>計算個別風險時，誤將「非合格債務工具」分類於「合格債務工具」。</li>
-				<li>誤將國庫券、公債、金融債券、公司債等<strong>票債券以票面金額列入計算</strong>，應以資產市價計算。</li>
-				<li>漏未將特定交易簿的<strong>金融債券、公司債、附買回/附賣回交易持有之標的債務工具</strong>等列入計算。</li>
-				<li>誤將銀行簿債券列入市場風險計算。</li>
-				<li>對<strong>央行可轉讓定期存單</strong>未以資產市價計算.</li>
-				<li>誤將未符合<strong>互抵條件</strong>的交易互抵。</li>
-				</ul>
-				</li>
-				<li><strong>匯率風險</strong><ul>
-				<li>誤將<strong>銀行內部交易</strong>列入外匯風險計算。</li>
-				<li>漏未將<strong>匯率期貨</strong>或自行國外部之自有資金列入外匯風險計算。</li>
-				<li>計算換匯換利及遠期外匯等衍生性金融商品之外匯風險時，未依規以<strong>名目本金</strong>計算。</li>
-				<li>計算應計提資本時，<strong>總體淨部位</strong>計算錯誤。</li>
-				<li>每一種外幣未以基準日<strong>即期匯率轉換為本國貨幣</strong>。</li>
+				<li><strong>衍生性金融商品交易對手信用風險（CCR）計算錯誤</strong><ul>
+				<li>對外匯數位選擇權的法定delta調整值，未依規定計算。</li>
+				<li>對於不符合淨額結算合約規定的衍生性金融商品交易，誤以同一交易對手淨額結算方式計算暴險額，應個別計算。</li>
+				<li>與銀行端承作之結構型商品交易，應列為利率類衍生性商品計算暴險，誤以外匯類計提。</li>
+				<li>外匯衍生性金融商品計算調整後名目本金時，誤多乘法定存續期間（SDi）。</li>
+				<li>與結算交易所之結算會員承作之利率交換期貨(IR Future)，於計算調整後名目本金時，漏未乘以法定存續期間(SDi)。</li>
+				<li>與銀行端承作之信用違約交換(CDS)，法定因子(SFi)未按連結實體信評等級計算。</li>
+				<li>未依交易對手信用評等適用正確的風險權數（如誤將20%用為50%）。</li>
+				<li>期貨原始保證金誤列入表內項目計算，因係屬交易對手提供之擔保品，應改列入交易對手信用風險資本計提。</li>
+				<li>透過結算會員與集中結算交易對手承作利率期貨商品，未依規定列入集中結算交易對手交易暴險計提資本。</li>
+				<li>對於交易對手的違約暴險額，誤以當期暴險法計算，應依標準法（SA-CCR）計算。</li>
 				</ul>
 				</li>
 				</ul>
-				<p><strong>5. 流動性覆蓋比率 (LCR) 申報的錯誤 (與資產相關)</strong></p>
-				<ul>
-				<li><strong>合格高品質流動性資產 (HQLA)</strong><ul>
-				<li>計算帳列<strong>「按攤銷後成本衡量之債務工具投資」</strong>的合格HQLA時，未以公允價值計算，誤以帳列金額計算。</li>
-				<li>將債券價格於30天壓力期間內跌價超過門檻的<strong>海外公司債</strong>誤列入計算。</li>
-				<li>將非屬合格普通股權益證券的<strong>指數型證券投資信託基金 (ETF)</strong> 或股價跌幅超過門檻的<strong>金融機構普通股</strong>誤列入第二層B級資產。</li>
-				<li>未將擔保借出交易（如RS）所取得的<strong>政府公債</strong>列入計算。</li>
-				<li>對於承作附買回交易或設質的有價證券，未以<strong>公允價值扣除</strong>，誤以帳列淨額扣除。</li>
-				</ul>
-				</li>
-				<li><strong>現金流入 (Cash Inflows)</strong><ul>
-				<li>計算<strong>來自金融機構交易對手的應收款項</strong>時，誤將非金融機構交易對手或到期日逾30天的項目列入。</li>
-				<li>計算<strong>到期證券之現金流入</strong>時，誤將基金受益憑證、短期公債ETF列入，或誤以公允價值計算，未以面額計算。</li>
-				<li>計算<strong>衍生性商品淨現金流入</strong>時，誤將即期外匯交易計入。</li>
-				<li>計算<strong>其他約定現金流入</strong>時，誤將無實質資金流入（如應收利息）、逾期或訴訟中債權、超逾30天可收回項目列入計算。</li>
-				</ul>
-				</li>
-				</ul>
-				<p><strong>6. 淨穩定資金比率 (NSFR) 申報的錯誤 (與資產相關)</strong></p>
-				<ul>
-				<li><strong>應有穩定資金 (Required Stable Funding - RSF)</strong><ul>
-				<li><strong>資產負債表表內暴險</strong>方面，計算某些資產（如透過其他綜合損益按公允價值衡量之金融資產）時，誤扣除預期信用損失。</li>
-				<li><strong>貼現及放款</strong>計算錯誤，未計入具分期攤還性質放款未來一年內將償還金額，或誤計入折溢價調整數。</li>
-				<li>誤將應收信用卡偽冒款、應收承兌票款、出售股票及基金之應收交割款項計入某些資產類別。</li>
-				<li>誤將受限制的股票計入剩餘期間在1年以上之有價證券。</li>
-				<li>誤將提供擔保提存於法院且無明確限制期間的中央政府公債計入所有受限制期間達1年以上之資產。</li>
-				<li>風險權數45%以下且剩餘期間1年以上之<strong>住宅擔保放款</strong>，誤將1年內分期攤還部分或企業/個人購地貸款等不符資格的項目計入。</li>
-				</ul>
-				</li>
-				</ul>
-				<p><strong>7. 銀行簿利率風險 (IRRBB) 量化指標試算的錯誤 (與資產相關)</strong></p>
-				<ul>
-				<li>針對多種資產類型（如存放同業、拆放同業、存放央行、有價證券、附賣回債票券、放款、信用卡與循環額度、零息資產等），計算<strong>名目重定價現金流量及加權平均利率</strong>時出現大量錯誤。<ul>
-				<li>錯誤包括：未以正確的衡量基礎（如面額而非購入成本/到期殖利率）計算。</li>
-				<li>時間區間配置錯誤，未能依下次利率重設日、央行利率會議時點或實際攤還條件配置。</li>
-				<li>利率型態歸類錯誤（如機動利率誤為浮動/固定利率，或管理利率誤為機動）。</li>
-				<li>加權平均利率計算錯誤或誤鍵為0%。</li>
-				<li>漏未納入或誤計入某些交易或資產項目（如可轉換公司債資產交換、央行融資、催收款項、非利率敏感性資產、信用卡分期付款等）。</li>
-				</ul>
-				</li>
-				<li><strong>自動式/分拆式選擇權</strong>方面，對於資產部位內含的選擇權（如可轉換公司債的買權、貸款的提前贖回權），存在漏未分拆、多次分拆或時間區間配置錯誤等問題。</li>
-				</ul>
-				<p>總的來說，金融機構在評估資產風險時，最常見的錯誤集中在<strong>對不同類型資產的歸類、風險權數的適用、擔保品的認定與計算抵減金額、衍生性金融商品及附買回/附賣回交易的估值方法，以及在流動性及利率風險計量中對資產現金流量及利率特性的精確捕捉</strong>。這些錯誤顯示出對相關法規和計算方法理解不足或系統建置、資料輸入及覆核機制不完善等問題。</p>
+				<p><strong>信用風險相關查核常見缺失彙整表</strong></p>
+				<table>
+				<thead>
+				<tr>
+				<th align="left">缺失類別</th>
+				<th align="left">缺失內容</th>
+				<th align="left">相關來源</th>
+				</tr>
+				</thead>
+				<tbody><tr>
+				<td align="left"><strong>暴險類型與風險權數適用錯誤</strong></td>
+				<td align="left">未評等之國外存放銀行同業或拆放，誤用未評等銀行短期債權風險權數50%，應以主權國家風險權數100%計算。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">中華郵政(股)公司帳列存放銀行同業，誤分類為銀行，應改列營利性質國營企業/企業(風險權數100%)。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">美國聯邦儲備銀行帳列存放銀行同業，誤列銀行暴險，應依主權國家評等結果改列主權國家(風險權數0%)。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">應收帳款、存放銀行同業或國外銀行金融債券有外部信評，誤用風險權數50%或100%，應依外部信評適用20%或50%。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">未送保之中小企業信用保證基金放款案件，風險權數誤用20%，應調整至100%。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">無外部信評之企業債權，風險權數誤用50%，應調整至100%。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">有外部信評之企業債權，風險權數誤用100%，應調整至20%或50%。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">聯邦銀行、合作銀行、金控金融債券，屬對銀行之債權，誤列企業債權，應依外部信評改列銀行(風險權數20%或50%)。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">持有國內、外公司債券有二項外部信用評等時，未適用較低者。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">信用評等調升時，未依最新外部信用評等適用正確風險權數。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">不動產暴險中，對土地收購、開發及建築(ADC)誤適用風險權數100%，應改適用150%。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">對一般住宅用不動產之催收款項，其貸放餘額超過不動產鑑價金額部分，未依無擔保逾期債權風險權數100%計算。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">對非提供不動產為擔保之中小企業信用保證基金保證之逾期債權，誤全數以一般住宅用不動產風險權數計算，應改以零售債權逾期債權計算，並分別適用考慮信用保障後及無風險抵減的風險權數。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">國立大學及公司戶誤以主權國家風險權數(0%)計算，應分別改適用非中央政府公共部門(風險權數20%)及企業(風險權數100%)。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">JP LEASE PRODUCTS AND SERVICES CO.,LTD.放款誤適用銀行風險權數(50%)，應改適用企業(100%)。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">企業暴險符合中小企業認定標準，未改適用零售債權(75%)。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">不符合合格零售債權之單一中小企業，或非屬不符中小企業認定標準之中小企業，誤適用零售債權(75%)，應改適用企業(100%)。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"><strong>暴險額及暴險項目計算錯誤</strong></td>
+				<td align="left">應收保證款項未計算該行自行保證部位之加權風險性資產，俾與被保證部位相較採計較高者。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">漏未將投資非金融相關事業股票計入權益證券投資暴險。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">創業投資事業因不符LTA/MBA條件，應改依FBA適用風險權數1,250%。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">計算創業投資公司及不動產投資信託基金之風險性資產，帳面金額錯誤，及未依合約約定計算觸及約定可投資上限時之加權風險性資產或最大槓桿倍數。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">投資不動產投資信託基金原採LTA/MBA，因不符條件，應改適用委託基礎法或其他混合型方式。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">表外項目：原始契約期限一年以上之不可取消約定融資額度，信用轉換係數誤為0%，應改為50%。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">表外項目：原始契約期限一年以上之應收保證款項-其他保證，信用轉換係數誤為20%，應為50%。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">表外項目：聯貸案件已約定計收承諾費，屬不可取消約定融資尚未動用額度，信用轉換係數誤為0%，應改適用20%或50%。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">表外項目：原始契約期限一年以下(或以上)之不可取消約定融資額度，誤適用信用轉換係數0%。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">表外項目：放款餘額已逾4千萬元，誤適用零售債權風險權數，應改適用企業風險權數100%。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"><strong>信用風險抵減計算錯誤</strong></td>
+				<td align="left">誤將未約定或已解除設定之擔保品列入風險抵減.</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">重複計算擔保品風險抵減.</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">中小企業信用保證基金保證案件，誤以帳面金額/承保金額全數列入抵減，未依獲保成數及風險權數20%計算抵減金額。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">中小企業信用保證基金全額保證之紓困貸款，未以風險權數(20%)辦理風險抵減.</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">關係企業或本人所營事業股票屬非合格擔保品，誤列入抵減.</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">本行存單設定質押屬合格擔保品，漏未列入抵減.</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">附買回(RP)或設質有價證券，擔保品現值誤以成交金額等計算，應以擔保品市價計算。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">計算風險抵減後暴險額之法定折扣比率適用錯誤。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">擔保品市價折扣比率未依交易類型、市價評估及追繳保證金頻率調整。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">附買回(RP)，擔保品現值未以到期履約價格之折現值計算。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">附買回(RP)，交易對手暴險類型歸類錯誤。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">附賣回(RS)，暴險部位現值誤以成交金額*(1+折扣比率)計算，應以期末履約值折現值。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">附賣回(RS)，擔保品現值誤以成交金額或期末履約值*(1-折扣比率)計算，應以擔保品市價*(1-折扣比率)計算。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"><strong>預期損失申報錯誤</strong></td>
+				<td align="left">申報預期損失調減表內外各暴險項目備抵呆帳時，誤多列表內外項目備抵呆帳.</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"><strong>交易對手信用風險 (CCR) 計算錯誤</strong></td>
+				<td align="left">對外匯數位選擇權之法定delta調整值，未依規定計算。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">不符合淨額結算合約規定之衍生性金融商品交易，誤以同一交易對手淨額結算方式計算暴險額，應個別計算。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">與銀行端承作之結構型商品交易，應列為利率類衍生性商品計算暴險，誤以外匯類計提。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">外匯衍生性金融商品調整後名目本金計算，誤多乘法定存續期間(SDi)。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">與結算交易所結算會員承作利率交換期貨，計算調整後名目本金時，漏未乘以法定存續期間(SDi)。</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">與銀行端承作信用違約交換(CDS)之法定因子(SFi)，未按連結實體信評等級計算.</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">未依交易對手信用評等適用正確風險權數.</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">期貨原始保證金誤列表內項目信用風險加權風險性資產計算，應改列交易對手信用風險資本計提.</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">透過結算會員與集中結算交易對手承作利率期貨，未依規定列入集中結算交易對手交易暴險計提資本.</td>
+				<td align="left"></td>
+				</tr>
+				<tr>
+				<td align="left"></td>
+				<td align="left">交易對手違約暴險額，誤以當期暴險法計算，應依標準法(SA-CCR)規定計算 (此項屬於信用評價調整風險CVA，但與CCR相關)。</td>
+				<td align="left"></td>
+				</tr>
+				</tbody></table>
 				
-				<h3><b>金融機構在評估資產風險時，最常見的哪些項目容易出現錯誤？</b></h3>
+				<h3><b style="color: red;">金融機構在評估資產風險時，最常見的哪些項目容易出現錯誤？</b></h3>
 				<p>根據您提供的來源資料，銀行在計算資本適足率時，涉及風險加權資產的計算最容易出現申報錯誤的類型主要集中在<strong>信用風險</strong>領域，但也包括<strong>市場風險</strong>的計算。這些錯誤通常源於對不同「暴險類型」（Exposure Type）的誤判、風險權數或信用轉換係數的誤用、擔保品或信用保障的計算錯誤，以及交易估值和現金流量計算的不準確。</p>
 				<p>以下是根據來源資料，在計算風險加權資產時，最容易申報錯誤的幾類資產或暴險類型：</p>
 				<ul>
@@ -448,7 +666,7 @@
 				</ul>
 				<p>總結來說，最容易出錯的資產風險加權計算類型涵蓋了銀行日常經營中的多個面向，尤其是在複雜產品（如衍生性金融商品、結構型商品、基金投資）或需要細緻分類和判斷的領域（如不動產擔保類型、企業信評與擔保情況、逾期債權處理）。這些錯誤通常涉及對監管規定的理解不準確、數據建檔錯誤、計算方法誤用以及缺乏有效的複核機制。</p>
 				
-				<h3><b>在流動性與穩定資金比率申報上，現金流入流出項目常見哪些計算或分類問題？</b></h3>
+				<h3><b style="color: red;">在流動性與穩定資金比率申報上，現金流入流出項目常見哪些計算或分類問題？</b></h3>
 				<p>根據您提供的資料，銀行在流動性覆蓋比率 (LCR) 和淨穩定資金比率 (NSFR) 的申報上，現金流入流出項目（或與資金來源運用相關的項目）常見的計算或分類問題如下：</p>
 				<p><strong>流動性覆蓋比率 (LCR) 申報缺失 (態樣三)</strong></p>
 				<p><strong>現金流出申報錯誤：</strong></p>
@@ -587,49 +805,8 @@
             </h2>
             
         </div>
-
-        <!-- 時間軸 -->
-        <div class="bg-white dark:bg-secondary-800 rounded-xl shadow-sm border border-secondary-100 dark:border-secondary-700 p-8">
-            <h2 class="text-2xl font-bold text-secondary-900 dark:text-white mb-6 flex items-center">
-                <i class="fas fa-calendar-alt text-primary-600 dark:text-primary-400 mr-3"></i>
-                查核制度發展歷程
-            </h2>
-            <div class="relative">
-                <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-primary-200 dark:bg-primary-800"></div>
-                <div class="space-y-8">
-                    <div class="flex items-start">
-                        <div class="w-8 h-8 bg-primary-500 rounded-full flex items-center justify-center relative z-10">
-                            <i class="fas fa-play text-white text-xs"></i>
-                        </div>
-                        <div class="ml-4">
-                            <div class="bg-primary-100 dark:bg-primary-900/20 text-primary-800 dark:text-primary-300 px-2 py-1 rounded-md text-sm font-medium inline-block mb-1">2012年</div>
-                            <h3 class="text-lg font-semibold text-secondary-900 dark:text-white">風險基礎保費評級系統啟動</h3>
-                            <p class="text-secondary-600 dark:text-secondary-400">開始針對風險基礎保費評級系統所需之風險指標數據進行查核</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start">
-                        <div class="w-8 h-8 bg-primary-500 rounded-full flex items-center justify-center relative z-10">
-                            <i class="fas fa-search text-white text-xs"></i>
-                        </div>
-                        <div class="ml-4">
-                            <div class="bg-primary-100 dark:bg-primary-900/20 text-primary-800 dark:text-primary-300 px-2 py-1 rounded-md text-sm font-medium inline-block mb-1">持續進行</div>
-                            <h3 class="text-lg font-semibold text-secondary-900 dark:text-white">定期查核機制建立</h3>
-                            <p class="text-secondary-600 dark:text-secondary-400">對「保險費基數」、「電子資料建置格式及內容」與「風險指標資料」進行系統性查核</p>
-                        </div>
-                    </div>
-                    <div class="flex items-start">
-                        <div class="w-8 h-8 bg-primary-500 rounded-full flex items-center justify-center relative z-10">
-                            <i class="fas fa-globe text-white text-xs"></i>
-                        </div>
-                        <div class="ml-4">
-                            <div class="bg-primary-100 dark:bg-primary-900/20 text-primary-800 dark:text-primary-300 px-2 py-1 rounded-md text-sm font-medium inline-block mb-1">113年下半年</div>
-                            <h3 class="text-lg font-semibold text-secondary-900 dark:text-white">資訊公開機制完善</h3>
-                            <p class="text-secondary-600 dark:text-secondary-400">透過官網及政府資料開放平臺對外公布查核缺失態樣，提升透明度</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+		
+		<div class='tableauPlaceholder' id='viz1748442538991' style='position: relative'><noscript><a href='#'><img alt='儀表板 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_17484423551010&#47;sheet6&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_17484423551010&#47;sheet6' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_17484423551010&#47;sheet6&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1748442538991');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1300px';vizElement.style.height='927px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1300px';vizElement.style.height='927px';} else { vizElement.style.width='100%';vizElement.style.height='1977px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>        
     </main>    
 
     <script>
