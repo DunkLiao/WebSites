@@ -2,16 +2,234 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <title>Tableau Webpage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>金融數據分析平台</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft JhengHei', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .card h3 {
+            color: #2c3e50;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .card p {
+            color: #7f8c8d;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 10px 20px;
+            border: 2px solid #667eea;
+            border-radius: 25px;
+            background: transparent;
+        }
+
+        .card-link:hover {
+            background: #667eea;
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .card-link::after {
+            content: '→';
+            margin-left: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .card-link:hover::after {
+            transform: translateX(3px);
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-	<a href="BotNewQinganmortgage.html">新青安房貸政策分析</a><br/>
-	<a href="BotEntEsg.html">臺灣上市櫃公司ESG資訊揭露指南</a><br/>
-    <a href="BotBisRwaAndDealAmt.html">信用風險標準法下的帳面金額與風險性資產分析</a><br/>
-    <a href="BotBisRatio.html">本國銀行資本適足率分析</a><br/>
-	<a href="BotLoanBuildGR.html">臺灣銀行對建築業集團授信限額分析</a><br/>
-	<a href="BotLoanHouse.html">臺灣銀行房貸逾期放款趨勢分析</a><br/>
-	<a href="CenterAgr.html">中央存款保險公司風險指標資料查核報告</a><br/>
-	<a href="BotBondPrice.html">臺灣銀行國外債券分析</a><br/>
+    <div class="container">
+        <div class="header">
+            <h1>金融數據分析平台</h1>
+            <p>專業的金融風險評估與政策分析工具</p>
+        </div>
+        
+        <div class="content">
+            <div class="grid">
+				
+				<div class="card">
+                    <div class="card-icon">💱</div>
+                    <h3>放款進出口押匯對象及用途別</h3>
+                    <p>統計、管理及監理進出口押匯授信業務時，依據借款對象及資金用途所進行的分類工具。</p>
+                    <a href="BotExpRpt.html" class="card-link">查看分析</a>
+                </div>
+				
+                <div class="card">
+                    <div class="card-icon">🏠</div>
+                    <h3>新青安房貸政策分析</h3>
+                    <p>深入分析新青安房貸政策對市場的影響，提供詳細的數據洞察與趨勢預測。</p>
+                    <a href="BotNewQinganmortgage.html" class="card-link">查看分析</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🌱</div>
+                    <h3>ESG資訊揭露指南</h3>
+                    <p>臺灣上市櫃公司ESG資訊揭露的完整指南，協助企業建立永續發展策略。</p>
+                    <a href="BotEntEsg.html" class="card-link">查看指南</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">📊</div>
+                    <h3>信用風險資產分析</h3>
+                    <p>信用風險標準法下的帳面金額與風險性資產深度分析，提升風險管理效能。</p>
+                    <a href="BotBisRwaAndDealAmt.html" class="card-link">查看分析</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">💰</div>
+                    <h3>資本適足率分析</h3>
+                    <p>本國銀行資本適足率的全面分析，掌握銀行業健康狀況與風險水平。</p>
+                    <a href="BotBisRatio.html" class="card-link">查看分析</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🏢</div>
+                    <h3>建築業授信限額分析</h3>
+                    <p>臺灣銀行對建築業集團授信限額的詳細分析，評估產業風險與機會。</p>
+                    <a href="BotLoanBuildGR.html" class="card-link">查看分析</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🏘️</div>
+                    <h3>房貸逾期趨勢分析</h3>
+                    <p>臺灣銀行房貸逾期放款趨勢的深入分析，預測市場風險與發展方向。</p>
+                    <a href="BotLoanHouse.html" class="card-link">查看分析</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🛡️</div>
+                    <h3>風險指標查核報告</h3>
+                    <p>中央存款保險公司風險指標資料的專業查核報告，確保數據準確性。</p>
+                    <a href="CenterAgr.html" class="card-link">查看報告</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🌐</div>
+                    <h3>國外債券分析</h3>
+                    <p>臺灣銀行國外債券投資的全面分析，掌握國際市場投資機會與風險。</p>
+                    <a href="BotBondPrice.html" class="card-link">查看分析</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
