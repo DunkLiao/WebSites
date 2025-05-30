@@ -185,9 +185,10 @@
                     <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-secondary-900 dark:text-white">信用風險標準法之基本概念</h2>
                     
                     <p>信用風險標準法（Standardized Approach for Credit Risk）是巴塞爾資本協定下，銀行用以計算信用風險所需資本的一種衡量方法。此方法要求銀行根據資產負債表內項目及表外項目的性質，參照外部信用評等機構的評級或監管機構訂定的標準，對不同類型的暴險部位（exposures）賦予特定的風險權數。其目的是以相對簡潔且標準化的方式，評估銀行資產組合的信用風險，並確保銀行持有足夠的資本以應對潛在損失。</p>
-
+					<p>風險性資產（Risk-Weighted Assets, RWA）是將銀行的各類資產，根據其內含的信用風險程度，賦予不同的風險權數後加權計算得出的總資產。它是計算銀行資本適足率（Capital Adequacy Ratio, CAR）的關鍵分母。</p><br/>
+					<p>銀行的資本適足率計算公式為：<code class="bg-purple-100 text-purple-800 px-2 py-1 rounded">自有資本 / 風險性資產總額 >= 法定比率</code>。</p><br/>
                     <p>台灣的銀行業亦遵循此架構，相關規定詳載於金融監督管理委員會發布的「銀行自有資本與風險性資產之計算方法說明及表格」中。該文件詳細列明了各類資產的風險權數、合格外部信用評等機構的標準、風險抵減工具的認可條件，以及表內與表外項目信用風險的計算方式。相關法規亦有持續修訂，部分新規定自民國114年（2025年）起生效。</p>
-                    
+										                    
                 </section>
 
                 <!-- Book Value Section -->
@@ -254,7 +255,18 @@
 
                 <!-- RWA Calculation Section -->
                 <section id="rwa-calculation" class="mb-16 slide-up">
-                    <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-secondary-900 dark:text-white">風險性資產（Risk-Weighted Assets, RWA）的計算</h2>
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-secondary-900 dark:text-white">風險性資產（Risk-Weighted Assets, RWA）的計算核心概念</h2>
+					<div class="g-white dark:bg-secondary-800 p-6 rounded-xl shadow-sm dark:shadow-secondary-900/20 my-8">
+						<div class="mb-6">
+							<h3 class="text-xl font-medium text-purple-700 mb-2">1. 違約暴險額 (Exposure at Default, EAD)</h3> <p>指當債務人發生違約時，銀行預期可能損失的金額。對於表內資產，EAD 通常是其帳面價值；對於表外項目（如貸款承諾、信用狀等），則需乘以信用轉換因子（Credit Conversion Factor, CCF）轉換為表內相當金額。</p>
+						</div>
+						<div class="mb-6">
+							<h3 class="text-xl font-medium text-purple-700 mb-2">2. 風險權數 (Risk Weight, RW)</h3> <p>反映特定資產類別的相對信用風險程度。風險權數通常由監管機構規定，並可能基於外部信評機構（如標準普爾、穆迪、惠譽等）對債務人或債項的評級而有所不同。評級越高，風險權數通常越低；反之亦然。</p>
+						</div>
+						 <div>
+							<h3 class="text-xl font-medium text-purple-700 mb-2">3. 信用風險抵減 (Credit Risk Mitigation, CRM)</h3> <p>指銀行採用合格的抵押品、保證或信用衍生工具等方式來降低信用風險的措施。在計算RWA時，若有合格的CRM工具，可以對暴險額或風險權數進行調整，從而降低所需資本。</p>
+						</div>
+					</div>
                     
                     <p>風險性資產是衡量銀行所需持有資本的關鍵指標。其計算方式是將不同資產的暴險額（通常基於調整後的帳面金額或信用相當額）乘以各自對應的風險權數。</p>
 
@@ -347,7 +359,72 @@
                             </table>
                         </div>
                     </div>
-                </section>
+					<div class="bg-secondary-50 dark:bg-secondary-800/60 p-6 rounded-xl my-8 border border-secondary-200 dark:border-secondary-700">
+					<h4 class="text-lg font-medium mb-3 text-secondary-900 dark:text-white">主要資產類別與典型風險權數</h4> <p class="mb-4">以下列舉部分常見資產類別及其在標準法下可能適用的風險權數。實際權數需參考當地監管機構的具體規定及外部信評結果。</p>
+					<div class="overflow-x-auto">
+						<table class="min-w-full divide-y divide-secondary-200 dark:divide-secondary-700">
+							<thead> 
+								<tr>
+									<th class="px-4 py-3 text-left text-xs font-medium text-secondary-500 dark:text-secondary-400 uppercase tracking-wider">資產類別</th>
+									<th class="px-4 py-3 text-left text-xs font-medium text-secondary-500 dark:text-secondary-400 uppercase tracking-wider">典型風險權數 (範例)</th>
+									<th class="px-4 py-3 text-left text-xs font-medium text-secondary-500 dark:text-secondary-400 uppercase tracking-wider">說明</th>
+								</tr>
+							</thead>
+							<tbody class="bg-white dark:bg-secondary-800 divide-y divide-secondary-200 dark:divide-secondary-700"> <tr>
+									<td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">對主權國家及中央銀行之債權</td>
+									<td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">0% - 150%</td>
+									<td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">視國家信評而定。OECD國家通常較低。</td>
+								</tr>
+								<tr>
+									<td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">對非中央政府公共部門實體 (PSEs) 之債權</td>
+									<td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">視處理方式 (比照主權或銀行) 及信評</td>
+									<td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">如地方政府、國營事業。</td>
+								</tr>
+								<tr>
+									<td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">對多邊開發銀行 (MDBs) 之債權</td>
+									<td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">0% (特定機構)</td>
+									<td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">如世界銀行、亞洲開發銀行等。</td>
+								</tr>
+								<tr>
+									<td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">對銀行之債權</td>
+									<td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">20% - 150%</td>
+									<td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">視銀行信評及原始期限而定。</td>
+								</tr>
+								<tr>
+									<td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">對企業之債權</td>
+									<td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">20% - 150% (有信評) / 100% (無信評)</td>
+									<td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">未評級企業通常為100%。</td>
+								</tr>
+								<tr>
+									<td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">零售債權 (合格者)</td>
+									<td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">75%</td>
+									<td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">需符合分散性及金額上限等條件。</td>
+								</tr>
+								<tr>
+									<td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">住宅用不動產抵押貸款</td>
+									<td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">35% - 75%</td>
+									<td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">視貸款成數 (LTV) 等條件。</td>
+								</tr>
+								 <tr>
+									<td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">商用不動產抵押貸款</td>
+									<td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">50% - 150%</td>
+									<td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">視是否產生足夠現金流償還債務等。</td>
+								</tr>
+								<tr>
+									<td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">逾期債權</td>
+									<td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">100% 或 150%</td>
+									<td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">視逾期天數及提列備抵呆帳情況。</td>
+								</tr>
+								<tr>
+									<td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">其他資產</td>
+									<td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">0%, 20%, 100%</td>
+									<td class="px-4 py-3 text-sm text-secondary-900 dark:text-secondary-300">如現金、黃金、固定資產等。</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<p class="mt-4 text-sm text-purple-600">重要提示：上表僅為範例，實際風險權數應以最新監管法規為準。</p> </div>
+				</section>
 
                 <!-- Relationship Analysis Section -->
                 <section id="relationship-analysis" class="mb-16 slide-up">
