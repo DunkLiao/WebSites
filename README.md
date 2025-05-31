@@ -2,6 +2,8 @@
 
 [資料視覺化](/WebSites/ex_page/ "資料視覺化")
 
+[風險月報](/WebSites/RiskRpt/ "風險月報")
+
 [集思會報告](/WebSites/DepartmentRpt/ "集思會報告")
 
 [數位轉型報告](/WebSites/DX/ "數位轉型報告")
