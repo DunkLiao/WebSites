@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="2025年5月臺灣銀行業信用風險管理深度分析報告">
+    <title>2025年5月臺灣銀行業信用風險管理報告</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- ECharts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Material Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/material-icons@1.13.14/iconfont/material-icons.min.css">
+    
+    <!-- Preline UI -->
+    <script src="https://cdn.jsdelivr.net/npm/preline@3.0.1/dist/preline.min.js"></script>
+    
+    <!-- Mermaid -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script><script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#fdf2f8',
+							  100: '#fce7f3',
+							  200: '#fbcfe8',
+							  300: '#f9a8d4',
+							  400: '#f472b6',
+							  500: '#ec4899',
+							  600: '#db2777',
+							  700: '#be185d',
+							  800: '#9d174d',
+							  900: '#831843'
+                        },
+                        secondary: {
+                            50: '#f8fafc',
+							  100: '#f1f5f9',
+							  200: '#e2e8f0',
+							  300: '#cbd5e1',
+							  400: '#94a3b8',
+							  500: '#64748b',
+							  600: '#475569',
+							  700: '#334155',
+							  800: '#1e293b',
+							  900: '#0f172a'
+                        },
+                        accent: {
+                           50: '#fdf4ff',
+							  100: '#fae8ff',
+							  200: '#f5d0fe',
+							  300: '#f0abfc',
+							  400: '#e879f9',
+							  500: '#d946ef',
+							  600: '#c026d3',
+							  700: '#a21caf',
+							  800: '#86198f',
+							  900: '#701a75'
+                }
+                    },
+                    fontFamily: {
+                        'sans': [
+                            'ui-sans-serif',
+                            'system-ui',
+                            '-apple-system',
+                            'BlinkMacSystemFont',
+                            '"Segoe UI"',
+                            'Roboto',
+                            '"Helvetica Neue"',
+                            'Arial',
+                            '"Noto Sans"',
+                            'sans-serif',
+                            '"Apple Color Emoji"',
+                            '"Segoe UI Emoji"',
+                            '"Segoe UI Symbol"','"Noto Color Emoji"'
+                        ]
+                    }
+                }
+            }
+        }
+        // Dark mode toggle functionality
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        }
+        
+        // Initialize theme on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.documentElement.classList.add('dark');
+            }
+            
+            // Initialize Mermaid
+            mermaid.initialize({ 
+                theme: document.documentElement.classList.contains('dark') ? 'dark' : 'default',
+                startOnLoad: true 
+            });
+            
+            initCharts();
+            addScrollAnimations();
+        });
+        
+        function initCharts() {
+            // Asset Quality Chart
+            const assetQualityChart = echarts.init(document.getElementById('assetQualityChart'));
+            const assetQualityOption = {
+                title: {
+                    text: '資產品質指標趨勢',
+                    left: 'center',
+                    textStyle: { fontSize: 16}
+                },
+                tooltip: { trigger: 'axis' },
+                legend: {
+                    data: ['減損放款比率', '房地產不良率'],
+                    bottom: 10
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['2022', '2023', '2024', '2025E']
+                },
+                yAxis: {
+                    type: 'value',
+                    axisLabel: { formatter: '{value}%' }
+                },
+                series: [
+                    {
+                        name: '減損放款比率',
+                        type: 'line',
+                        data: [1.2, 1.0, 0.8, 1.1],
+                        itemStyle: { color: '#0ea5e9' }
+                    },
+                    {
+                        name: '房地產不良率',
+                        type: 'line',
+                        data: [0.5, 0.4, 0.3, 0.6],
+                        itemStyle: { color: '#f59e0b' }
+                    }
+                ]
+            };
+            assetQualityChart.setOption(assetQualityOption);
+            
+            // Risk Distribution Chart
+            const riskChart = echarts.init(document.getElementById('riskChart'));
+            const riskOption = {
+                title: {
+                    text: '信用風險分佈',
+                    left: 'center',
+                    textStyle: { fontSize: 16 }
+                },
+                tooltip: { trigger: 'item' },
+                series: [{
+                    type: 'pie',
+                    radius: '50%',
+                    data: [
+                        { value: 35, name: '出口產業風險' },
+                        { value: 28, name: '房地產風險' },
+                        { value: 20, name: '中小企業風險' },
+                        { value: 10, name: '氣候變遷風險' },
+                        { value: 7, name: '其他風險' }
+                    ],
+                    emphasis: {
+                        itemStyle: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }]
+            };
+            riskChart.setOption(riskOption);
+            
+            // Penalty Chart
+            const penaltyChart = echarts.init(document.getElementById('penaltyChart'));
+            const penaltyOption = {
+                title: {
+                    text: '銀行業裁罰金額趨勢',
+                    left: 'center',
+                    textStyle: { fontSize: 16 }
+                },
+                tooltip: { trigger: 'axis' },
+                xAxis: {
+                    type: 'category',
+                    data: ['2023Q1', '2023 Q2', '2023 Q3', '2023 Q4', '2024 Q1', '2024 Q2', '2024 Q3', '2024 Q4', '2025 Q1']
+                },
+                yAxis: {
+                    type: 'value',
+                    axisLabel: { formatter: '{value}萬元' }
+                },
+                series: [{
+                    data: [2800, 3200, 2900, 3500, 3350, 2800, 2600, 2400, 2417],
+                    type: 'bar',
+                    itemStyle: { color: '#0ea5e9' }
+                }]
+            };
+            penaltyChart.setOption(penaltyOption);
+        }
+        
+        function addScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);document.querySelectorAll('.fade-in').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                observer.observe(el);
+            });}
+    </script>
+</head>
+
+<body class="h-full bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100transition-colors duration-300">
+    <!-- Header -->
+    <header class="bg-white dark:bg-gray-800 shadow-lg sticky top-0 z-50 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <i class="fas fa-university text-2xl text-primary-600 dark:text-primary-400 mr-3"></i>
+                    <h1 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">
+                         2025年5月臺灣銀行業信用風險報告
+                    </h1>
+                </div>
+                <button onclick="toggleDarkMode()" 
+                        class="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-all duration-200">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:inline"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl sm:text-5xl font-bold mb-6">2025年5月</h2>
+            <p class="text-xl sm:text-2xl mb-8 opacity-90">臺灣銀行業信用風險管理深度分析</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-medium"><i class="fas fa-chart-line mr-2"></i>資產品質分析
+                </span>
+                <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-medium">
+                    <i class="fas fa-shield-alt mr-2"></i>風險管理
+                </span>
+                <span class="px-4 py-2 bg-white/20 rounded-full text-sm font-medium">
+                    <i class="fas fa-gavel mr-2"></i>監管合規
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Executive Summary -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="fade-in bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 mb-12 border border-gray-200 dark:border-gray-700">
+                <h2 class="text-3xl font-bold mb-6 text-center"><i class="fas fa-clipboard-list mr-3text-primary-600"></i>執行摘要
+                </h2><div class="prose prose-lg max-w-none dark:prose-invert">
+                    <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+                        2025年5月，臺灣銀行業在信用風險管理上面臨多元挑戰，包括國際關稅變動、房地產市場潛在波動以及客戶行為變化等事件。
+                        雖然整體資產品質維持韌性，但部分產業及房貸集中銀行顯現壓力升高跡象。監管要求持續強化，包括氣候情境分析、
+                        資本適足率升級與反詐騙新制實施。銀行業資本緩衝充裕，多數機構仍具備吸收潛在信用損失的能力，業界展現出強大適應力。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Metrics Dashboard -->
+    <section class="py-16bg-gray-100 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 fade-in">
+                <i class="fas fa-chart-bar mr-3 text-primary-600"></i>關鍵指標儀表板
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="fade-in bg-white dark:bg-gray-700 rounded-xl p-6 shadow-lg border border-gray-200 dark:border-gray-600hover:shadow-xl transition-shadow duration-300">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="p-3 bg-red-100 dark:bg-red-900/20 rounded-lg">
+                            <i class="fas fa-exclamation-triangle text-red-600 dark:text-red-400 text-xl"></i>
+                </div>
+                        <span class="text-3xl font-bold text-red-600 dark:text-red-400">&lt;1%</span>
+                    </div>
+                    <h3 class="font-semibold text-gray-700 dark:text-gray-300">減損放款比率</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">預期2025年略高於1%</p>
+                </div>
+
+                <div class="fade-in bg-white dark:bg-gray-700 rounded-xl p-6 shadow-lg border border-gray-200 dark:border-gray-600 hover:shadow-xl transition-shadow duration-300" style="animation-delay: 0.1s">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="p-3 bg-orange-100 dark:bg-orange-900/20 rounded-lg">
+                            <i class="fas fa-home text-orange-600 dark:text-orange-400 text-xl"></i>
+                        </div>
+                        <span class="text-3xl font-bold text-orange-600 dark:text-orange-400">2%</span>
+                    </div>
+                    <h3 class="font-semibold text-gray-700 dark:text-gray-300">房貸壓力情境NPL</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">壓力測試預期水準</p>
+                </div>
+
+                <div class="fade-in bg-white dark:bg-gray-700 rounded-xl p-6 shadow-lg border border-gray-200 dark:border-gray-600 hover:shadow-xl transition-shadow duration-300" style="animation-delay: 0.2s">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="p-3 bg-green-100 dark:bg-green-900/20 rounded-lg">
+                            <i class="fas fa-percentage text-green-600 dark:text-green-400 text-xl"></i>
+                        </div>
+                        <span class="text-3xl font-bold text-green-600 dark:text-green-400">55-60%</span>
+                    </div>
+                    <h3 class="font-semibold text-gray-700 dark:text-gray-300">房貸成數</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">監管控制範圍</p>
+                </div>
+
+                <div class="fade-in bg-white dark:bg-gray-700 rounded-xl p-6 shadow-lg border border-gray-200 dark:border-gray-600 hover:shadow-xl transition-shadow duration-300" style="animation-delay: 0.3s">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="p-3 bg-blue-100 dark:bg-blue-900/20 rounded-lg">
+                            <i class="fas fa-gavel text-blue-600 dark:text-blue-400 text-xl"></i>
+                        </div>
+                        <span class="text-3xl font-bold text-blue-600 dark:text-blue-400">2,417萬</span>
+                    </div>
+                    <h3 class="font-semibold text-gray-700 dark:text-gray-300">2025 Q1裁罰金額</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">年減28%但仍居冠</p>
+                </div>
+            </div>
+
+            <!-- Charts Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <div class="fade-in bg-white dark:bg-gray-700 rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-600">
+                    <div id="assetQualityChart" style="height: 300px;"></div>
+                </div>
+                <div class="fade-in bg-white dark:bg-gray-700 rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-600">
+                    <div id="riskChart" style="height: 300px;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Major Risk Events -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 fade-in">
+                <i class="fas fa-exclamation-circle mr-3 text-accent-600"></i>重要信用風險事件
+            </h2>
+
+            <div class="space-y-8">
+                <!-- Tariff Risk -->
+                <div class="fade-in bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 border border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-shadow duration-300">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0">
+                            <div class="p-3 bg-red-100 dark:bg-red-900/20 rounded-lg">
+                                <i class="fas fa-globe-americas text-red-600 dark:text-red-400 text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">關稅及全球市場變動</h3>
+                            <p class="text-gray-700 dark:text-gray-300 mb-4leading-relaxed">
+                                美國等國調高進口關稅，導致出口產業、中小企業受挫，部分銀行資產品質備受挑戰。雖然不良貸款比例可能升高，但業界仍表現出高度適應能力與危機管理措施。
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-red-100 dark:bg-red-900/20 text-red-700 dark:text-red-300 rounded-full text-sm">出口產業影響</span>
+                                <span class="px-3 py-1 bg-red-100 dark:bg-red-900/20 text-red-700 dark:text-red-300 rounded-full text-sm">中小企業承壓</span>
+                                <span class="px-3 py-1 bg-red-100 dark:bg-red-900/20 text-red-700 dark:text-red-300 rounded-full text-sm">資產品質挑戰</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Climate Risk -->
+                <div class="fade-in bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 border border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-shadow duration-300">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0">
+                            <div class="p-3 bg-green-100 dark:bg-green-900/20 rounded-lg">
+                                <i class="fas fa-leaf text-green-600 dark:text-green-400 text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">氣候變遷與永續壓力測試</h3>
+                            <p class="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
+                                新版監管要求下，銀行須於2025年6月底前完成113年版氣候變遷情境分析與壓力測試申報，
+                                並揭露於ESG永續報告書。壓力測試涵蓋三大類型：長期（2050年視角）、短期（極端事件一年內發生）、基準情境。
+                            </p>
+                            
+                            <!-- Climate Scenarios -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4mb-4">
+                                <div class="p-4 bg-blue-50 dark:bg-blue-900/10 rounded-lg border border-blue-200 dark:border-blue-800"><h4 class="font-semibold text-blue-900 dark:text-blue-300mb-2">
+                                        <i class="fas fa-clock mr-2"></i>短期情境
+                                    </h4>
+                                    <p class="text-sm text-blue-800 dark:text-blue-200">
+                                        如溫升2°C下發生莫拉克型颱風，或碳費政策加嚴，推估造成授信與擔保品價值減損概率上升
+                                    </p>
+                                </div>
+                                <div class="p-4 bg-purple-50 dark:bg-purple-900/10 rounded-lg border border-purple-200 dark:border-purple-800">
+                                    <h4 class="font-semibold text-purple-900 dark:text-purple-300 mb-2">
+                                        <i class="fas fa-chart-line mr-2"></i>長期情境
+                                    </h4>
+                                    <p class="text-sm text-purple-800 dark:text-purple-200">
+                                        評估有序、無序、消極三種轉型情境，藉由違約率（PD）、損失率（LGD）等模型量化氣候風險
+                                    </p>
+                                </div>
+                            </div><div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-300 rounded-full text-sm">情境分析</span>
+                                <span class="px-3 py-1 bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-300 rounded-full text-sm">ESG揭露</span>
+                                <span class="px-3 py-1 bg-green-100 dark:bg-green-900/20 text-green-700 dark:text-green-300 rounded-full text-sm">TCFD標準</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Real Estate Risk -->
+                <div class="fade-in bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 border border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-shadow duration-300">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0">
+                            <div class="p-3 bg-orange-100 dark:bg-orange-900/20 rounded-lg">
+                                <i class="fas fa-building text-orange-600 dark:text-orange-400 text-2xl"></i>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold mb-4 text-gray-900 dark:text-white">房地產與個別產業風險</h3>
+                            <p class="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed">
+                                監管加強房地產相關授信控管，並針對房市景氣循環實施貸放成數與備抵政策。
+                                新青安貸款帶動下，2024全年房貸成長率仍達10.4%，惟預期2025房貸動能趨緩、成長回歸審慎。
+                            </p>
+                            <div class="bg-orange-50 dark:bg-orange-900/10 p-4 rounded-lg border border-orange-200 dark:border-orange-800mb-4">
+                                <div class="flex items-center text-orange-800 dark:text-orange-200 mb-2">
+                                    <i class="fas fa-chart-bar mr-2"></i><span class="font-semibold">房貸成長數據</span>
+                                </div>
+                                <p class="text-sm text-orange-700 dark:text-orange-300">
+                                    2024年房貸成長率：<strong>10.4%</strong> | 2025年預期：趨緩成長
+                                </p>
+                            </div>
+                <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900/20 text-orange-700 dark:text-orange-300 rounded-full text-sm">新青安貸款</span>
+                                <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900/20 text-orange-700 dark:text-orange-300 rounded-full text-sm">授信控管</span>
+                                <span class="px-3 py-1 bg-orange-100 dark:bg-orange-900/20 text-orange-700 dark:text-orange-300 rounded-full text-sm">集中度風險</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Regulatory Updates -->
+    <section class="py-16 bg-gray-100 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center mb-12 fade-in">
+                <i class="fas fa-balance-scale mr-3 text-primary-600"></i>監管動態與合規要求
+            </h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Anti-fraud Measures -->
+                <div class="fade-in bg-white dark:bg-gray-700 rounded-xl shadow-lg p-8 border border-gray-200 dark:border-gray-600">
+                    <h3 class="text-xl font-bold mb-4 flex items-center text-gray-900 dark:text-white">
+                        <i class="fas fa-shield-alt mr-3text-blue-600 dark:text-blue-400"></i>
+                        反詐騙專案與新措施
+                    </h3>
+                    <p class="text-gray-700 dark:text-gray-300 mb-4">
+                        2025年5月29日，臺灣銀行實施「久未往來帳戶鎖戶」防詐新制，新台幣帳戶連續半年無活動紀錄及餘額未達標者會被限制自動化交易功能。
+                    </p>
+                    <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border border-blue-200 dark:border-blue-700">
+                        <h4 class="font-semibold text-blue-900 dark:text-blue-300 mb-2">新制影響</h4>
+                        <ul class="list-disc list-inside text-sm text-blue-800 dark:text-blue-200 space-y-1">
+                            <li>防堵人頭帳戶與詐騙洗錢</li>
+                            <li>民間反彈聲音增加</li>
+                            <li>其他銀行可能跟進</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Capital Requirements -->
+                <div class="fade-in bg-white dark:bg-gray-700 rounded-xl shadow-lg p-8 border border-gray-200 dark:border-gray-600">
+                    <h3 class="text-xl font-bold mb-4 flex items-center text-gray-900 dark:text-white">
+                        <i class="fas fa-chart-pie mr-3 text-green-600 dark:text-green-400"></i>
+                        資本適足率與Basel III升級
+                    </h3>
+                    <p class="text-gray-700 dark:text-gray-300 mb-4">
+                        2025年1月起正式施行信用風險標準法升級與市場風險新制。銀行對於國際TLAC債券之投資與資本計提亦調整，有助於資本質量提升。
+                    </p>
+                    <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg border border-green-200 dark:border-green-700">
+                        <h4 class="font-semibold text-green-900 dark:text-green-300 mb-2">重要改變</h4>
+                        <ul class="list-disc list-inside text-sm text-green-800 dark:text-green-200 space-y-1">
+                            <li>信用風險標準法升級</li>
+                            <li>市場風險新制實施</li>
+                            <li>TLAC債券投資調整</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Penalty Chart -->
+            <div class="mt-12 fade-in bg-white dark:bg-gray-700 rounded-xl shadow-lg p-8 border border-gray-200 dark:border-gray-600">
+                <div id="penaltyChart" style="height: 400px;"></div>
+            </div>
+
+            <!-- Penalty Table -->
+            <div class="mt-8 fade-in bg-white dark:bg-gray-700 rounded-xl shadow-lg overflow-hidden border border-gray-200 dark:border-gray-600">
+                <div class="px-6 py-4 bg-gray-50 dark:bg-gray-800 border-b border-gray-200 dark:border-gray-600">
+                    <h3 class="text-lg font-semibold text-gray-900 dark:text-white">重大裁罰事件彙整</h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-600">
+                        <thead class="bg-gray-50 dark:bg-gray-800">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">裁罰事件</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">發生時間</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">問題描述</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">處分結果</th></tr>
+                        </thead>
+                        <tbody class="bg-white dark:bg-gray-700divide-y divide-gray-200 dark:divide-gray-600">
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-600transition-colors duration-200">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">台銀沙鹿分行行員挪用公款</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">2025/04</td>
+                                <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">違反銀行法，內控疏失</td>
+                                <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">金管會處罰</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors duration-200">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">台新銀行信用卡帳單錯置</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">2025/05</td>
+                                <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">客戶資料處理疏失</td>
+                                <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">主管機關罰鍰</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors duration-200">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 dark:text-white">元大銀債權行員挪用款項</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 dark:text-gray-400">2024/05</td>
+                                <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">客戶資金流失</td>
+                                <td class="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">相關人員懲處</td>
+                            </tr></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+	
+	<iframe src="https://1drv.ms/b/c/c4f04c89690b805c/IQSfwyWYgRShTIzd6eETNdUbAdLSHgqgsYHwYLB69C7JxlY" width="1600" height="1200" frameborder="0" scrolling="no"></iframe>
+
+    <!-- Conclusion -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="fade-in bg-gradient-to-br from-primary-600 to-primary-800 text-white rounded-2xl shadow-2xl p-8">
+                <h2 class="text-3xl font-bold text-center mb-8">
+                    <i class="fas fa-lightbulb mr-3"></i>總結與展望
+                </h2>
+                <div class="max-w-4xl mx-auto">
+                    <p class="text-lg leading-relaxed mb-6opacity-90">
+                        2025年5月，臺灣銀行業信用風險事件主要集中於出口受制關稅、特定產業（特別是房地產與中小企業）信用損失上升、
+                        防詐騙新制推動、以及對新型監理要求的適應。雖受外部壓力衝擊，銀行業整體資本與資產品質表現穩健，展現出良好風險緩衝能力。
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6mb-6">
+                        <div class="bg-white/10 rounded-lg p-4">
+                            <h3 class="font-semibold mb-2 flex items-center">
+                                <i class="fas fa-eye mr-2"></i>短期觀察重點
+                            </h3>
+                            <ul class="text-sm space-y-1 opacity-90">
+                                <li>• 個別集中度高的銀行表現</li>
+                                <li>• 結構性高收益債領域</li>
+                                <li>• 氣候風險揭露落實程度</li></ul>
+                        </div>
+                        <div class="bg-white/10 rounded-lg p-4">
+                            <h3 class="font-semibold mb-2 flex items-center">
+                                <i class="fas fa-trend-up mr-2"></i>未來發展方向
+                            </h3>
+                            <ul class="text-sm space-y-1 opacity-90">
+                                <li>• 透明度要求提升</li>
+                                <li>• 永續發展目標</li>
+                                <li>• 客戶保護強化</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center">
+                        <p class="text-lg font-medium">
+                            監管對透明度、永續發展及客戶保護的要求也勢必推動臺灣銀行業朝更高標準前進。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Scroll to top button -->
+    <button id="scrollToTop" 
+            class="fixed bottom-6 right-6 bg-primary-600 hover:bg-primary-700 text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300"
+            onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Show/hide scroll to top button
+        window.addEventListener('scroll', function() {
+            const scrollToTopBtn = document.getElementById('scrollToTop');
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.remove('opacity-0', 'invisible');} else {
+                scrollToTopBtn.classList.add('opacity-0', 'invisible');
+            }
+        });
+        // Responsive chart resize
+        window.addEventListener('resize', function() {
+            if (typeof echarts !== 'undefined') {
+                echarts.getInstanceByDom(document.getElementById('assetQualityChart'))?.resize();
+                echarts.getInstanceByDom(document.getElementById('riskChart'))?.resize();
+                echarts.getInstanceByDom(document.getElementById('penaltyChart'))?.resize();
+            }
+        });
+    </script>
+</body>
+</html>
