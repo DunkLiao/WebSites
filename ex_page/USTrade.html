@@ -1,0 +1,928 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>美中貿易戰深度報告 2025</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><text y='20' font-size='20'>📊</text></svg>">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/preline@3.0.1/dist/preline.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/material-icons@1.13.14/iconfont/material-icons.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+						  50: '#fdf2f8',
+						  100: '#fce7f3',
+						  200: '#fbcfe8',
+						  300: '#f9a8d4',
+						  400: '#f472b6',
+						  500: '#ec4899',
+						  600: '#db2777',
+						  700: '#be185d',
+						  800: '#9d174d',
+						  900: '#831843'
+                        },
+                        secondary: {
+						  50: '#f8fafc',
+						  100: '#f1f5f9',
+						  200: '#e2e8f0',
+						  300: '#cbd5e1',
+						  400: '#94a3b8',
+						  500: '#64748b',
+						  600: '#475569',
+						  700: '#334155',
+						  800: '#1e293b',
+						  900: '#0f172a'
+                        }
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif']
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.8s ease-in-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'bounce-gentle': 'bounceGentle 2s ease-in-out infinite'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { transform: translateY(30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes bounceGentle {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-5px); }
+            60% { transform: translateY(-3px); }
+        }
+        .chart-container {
+            height: 400px;
+        }
+        .mermaid {
+            text-align: center;
+        }
+		.timeline {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+		.highlight {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-left: 4px solid #ffc107;
+            margin: 15px 0;
+        }
+        .strategy-box {
+            border: 2px solid #3498db;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            background-color: #f8f9ff;
+        }
+		.container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+		</style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300">
+    <!-- Dark Mode Toggle -->
+    <div class="fixed top-4 right-4 z-50">
+        <button id="darkModeToggle" class="p-3 rounded-full bg-white dark:bg-gray-800 shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
+            <i class="fas fa-sun dark:hidden text-yellow-500 text-lg"></i>
+            <i class="fas fa-moon hidden dark:block text-pink-400 text-lg"></i>
+        </button>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="relative bg-gradient-to-br from-pink-500 via-pink-600 to-pink-800 text-white py-20 overflow-hidden">
+		<div class="absolute inset-0 bg-black opacity-20"></div>
+		<div class="container mx-auto px-6 relative z-10">
+			<div class="max-w-4xl mx-auto text-center animate-fade-in">
+				<div class="mb-6">
+					<i class="fas fa-chart-line text-6xl mb-4 animate-bounce-gentle"></i>
+				</div>
+				<h1 class="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+					美中貿易戰深度報告<span class="block text-3xl md:text-4xl text-pink-200 font-light mt-2">2025年分析與展望</span>
+				</h1>
+				<p class="text-xl md:text-2xl text-pink-100 max-w-3xl mx-auto leading-relaxed">
+					深入解析兩大經濟體之間的貿易摩擦，探討對全球經濟格局的深遠影響
+				</p>
+			</div>
+		</div>
+	</header>
+
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-40 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 shadow-sm">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center py-4">
+                <ul class="flex flex-wrap gap-6text-sm font-medium">
+                    <li><a href="#overview" class="nav-link text-gray-600 dark:text-gray-300 hover:text-pink-600 dark:hover:text-pink-400 transition-colors">總覽</a></li>
+                    <li><a href="#escalation" class="nav-link text-gray-600 dark:text-gray-300 hover:text-pink-600 dark:hover:text-pink-400 transition-colors">升級態勢</a></li>
+                    <li><a href="#impact" class="nav-link text-gray-600 dark:text-gray-300 hover:text-pink-600 dark:hover:text-pink-400 transition-colors">經濟影響</a></li>
+                    <li><a href="#industries" class="nav-link text-gray-600 dark:text-gray-300 hover:text-pink-600 dark:hover:text-pink-400 transition-colors">產業分析</a></li>
+                    <li><a href="#taiwan" class="nav-link text-gray-600 dark:text-gray-300 hover:text-pink-600 dark:hover:text-pink-400 transition-colors">台灣角色</a></li>
+                    <li><a href="#future" class="nav-link text-gray-600 dark:text-gray-300 hover:text-pink-600 dark:hover:text-pink-400 transition-colors">未來展望</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-6 py-12">
+        <!-- Overview Section -->
+        <section id="overview" class="mb-20animate-slide-up">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">總覽</h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-pink-500 to-purple-500 mx-auto"></div></div>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
+                    <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-8">
+                        美中貿易戰自2018年起，對全球經濟格局產生深遠影響。美國以國家安全、貿易逆差及不公平貿易行為為由，對中國商品加徵多輪關稅，中國亦採取反制措施。2025年，貿易戰急速升級，美國對中國商品徵收的關稅一度高達<strong class="text-red-600dark:text-red-400">145%</strong>，中國對美國商品的報復性關稅也達到<strong class="text-red-600 dark:text-red-400">125%</strong>。</p>
+                    
+                    <!-- Key Metrics -->
+                    <div class="grid md:grid-cols-3 gap-6 mb-8">
+                        <div class="text-center p-6 bg-red-50 dark:bg-red-900/20 rounded-xl border border-red-200 dark:border-red-800">
+                            <div class="text-3xl font-bold text-red-600 dark:text-red-400 mb-2">145%</div>
+                            <div class="text-sm text-red-600 dark:text-red-400">美國對華關稅峰值</div>
+                        </div>
+                        <div class="text-center p-6 bg-orange-50 dark:bg-orange-900/20 rounded-xl border border-orange-200 dark:border-orange-800">
+                            <div class="text-3xl font-bold text-orange-600 dark:text-orange-400 mb-2">125%</div>
+                            <div class="text-sm text-orange-600 dark:text-orange-400">中國對美關稅峰值</div>
+                        </div>
+                        <div class="text-center p-6 bg-green-50 dark:bg-green-900/20 rounded-xl border border-green-200 dark:border-green-800">
+                            <div class="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">90天</div>
+                            <div class="text-sm text-green-600 dark:text-green-400">暫時休戰期</div>
+                        </div>
+                    </div><div class="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-6 border border-blue-200 dark:border-blue-800">
+                        <h3 class="text-xl font-semibold text-pink-900 dark:text-pink-100 mb-3"><i class="fas fa-handshake mr-2"></i>2025年5月協議重點
+                        </h3>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <h4 class="font-medium text-pink-800 dark:text-pink-200 mb-2">美國承諾：</h4>
+                                <p class="text-sm text-pink-700 dark:text-pink-300">關稅從145%降至30%</p>
+                            </div>
+                            <div>
+                                <h4 class="font-medium text-pink-800 dark:text-pink-200 mb-2">中國承諾：</h4>
+                                <p class="text-sm text-pink-700 dark:text-pink-300">關稅從125%降至10%</p>
+                            </div>
+                        </div>
+                    </div></div>
+            </div>
+        </section>
+
+        <!-- Tariff Escalation Timeline -->
+        <section id="escalation" class="mb-20 animate-slide-up">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">2025年貿易戰升級時間線</h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-pink-500 to-purple-500 mx-auto"></div>
+                </div>
+
+                <!-- Timeline Chart -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 border border-gray-200 dark:border-gray-700 mb-8">
+                    <div id="tariffChart" class="chart-container"></div>
+                </div>
+
+                <!-- Timeline Events -->
+                <div class="space-y-6">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-700hover:shadow-xl transition-shadow">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-red-100 dark:bg-red-900/30 rounded-full p-3 flex-shrink-0">
+                                <i class="fas fa-calendar-alt text-red-600 dark:text-red-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">2月1日 - 首輪加徵</h3>
+                                <p class="text-gray-700 dark:text-gray-300">特朗普簽署行政命令，對所有中國進口商品加徵10%關稅</p>
+                            </div>
+                        </div></div>
+
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-orange-100 dark:bg-orange-900/30 rounded-full p-3 flex-shrink-0">
+                                <i class="fas fa-arrow-up text-orange-600 dark:text-orange-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">3月3日 - 關稅提升</h3>
+                                <p class="text-gray-700 dark:text-gray-300">額外關稅從10%提高至20%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-red-100 dark:bg-red-900/30 rounded-full p-3 flex-shrink-0">
+                                <i class="fas fa-exclamation-triangle text-red-600 dark:text-red-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">4月2日 - 全面升級</h3>
+                                <p class="text-gray-700 dark:text-gray-300">對中國商品額外加徵34%關稅，總體新增關稅達到54%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-6 border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-shadow">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-green-100 dark:bg-green-900/30 rounded-full p-3 flex-shrink-0">
+                                <i class="fas fa-handshake text-green-600 dark:text-green-400"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">5月12日 - 日內瓦協議</h3>
+                                <p class="text-gray-700 dark:text-gray-300">雙方同意90天內暫時大幅降低關稅，為後續談判創造空間</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Economic Impact -->
+        <section id="impact" class="mb-20 animate-slide-up">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">經濟影響分析</h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-pink-500 to-purple-500 mx-auto"></div>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-8mb-12">
+                    <!-- US Impact -->
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+                        <div class="bg-blue-600 text-white p-6">
+                            <h3 class="text-2xl font-bold flex items-center">
+                                <i class="fas fa-flag-usa mr-3"></i>對美國的影響
+                            </h3>
+                </div>
+                        <div class="p-6">
+                            <div class="space-y-4">
+                                <div class="flex items-start gap-3">
+                                    <i class="fas fa-dollar-sign text-red-500 mt-1"></i><div>
+                                        <h4 class="font-semibold text-gray-900 dark:text-white">消費者成本上升</h4><p class="text-gray-600 dark:text-gray-300text-sm">每個美國家庭平均增加近1200美元的稅負</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <i class="fas fa-chart-line text-orange-500 mt-1"></i>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900 dark:text-white">經濟產出減少</h4><p class="text-gray-600 dark:text-gray-300 text-sm">預估經濟產出減少1.6%，通脹上升5.5%</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <i class="fas fa-boxes text-pink-500 mt-1"></i>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900 dark:text-white">供應短缺</h4>
+                                        <p class="text-gray-600 dark:text-gray-300 text-sm">市場供應短缺和物價上漲，可能引發裁員</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- China Impact -->
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+                        <div class="bg-red-600 text-white p-6">
+                            <h3 class="text-2xl font-bold flex items-center">
+                                <i class="fas fa-flag text-yellow-400 mr-3"></i>對中國的影響
+                            </h3>
+                        </div>
+                        <div class="p-6">
+                            <div class="space-y-4">
+                                <div class="flex items-start gap-3">
+                                    <i class="fas fa-chart-line-down text-red-500 mt-1"></i>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900 dark:text-white">經濟增長壓力</h4>
+                                        <p class="text-gray-600 dark:text-gray-300 text-sm">預估2025年經濟增長率為4.5%，低於5%官方目標</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <i class="fas fa-shipping-fast text-orange-500 mt-1"></i>
+                                    <div><h4 class="font-semibold text-gray-900 dark:text-white">出口商受挫</h4><p class="text-gray-600 dark:text-gray-300 text-sm">超過50%的出口商預計2025年業績將同比下滑</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-3">
+                                    <i class="fas fa-industry text-pink-500 mt-1"></i>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900 dark:text-white">產業鏈調整</h4><p class="text-gray-600 dark:text-gray-300 text-sm">製造商考慮轉移生產線至東南亞、墨西哥等地</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Global Trade Impact Chart -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">全球貿易萎縮預測</h3>
+                    <div id="globalTradeChart" class="chart-container"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Industry Analysis -->
+        <section id="industries" class="mb-20 animate-slide-up">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">特定產業影響分析</h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-pink-500 to-purple-500 mx-auto"></div>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Agriculture -->
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
+                        <div class="p-6">
+                            <div class="bg-green-100 dark:bg-green-900/30 rounded-full w-16 h-16 flex items-center justify-center mb-4 mx-auto">
+                                <i class="fas fa-seedling text-green-600 dark:text-green-400 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white text-center mb-3">農業</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm text-center">
+                                美國農業部門受中國報復性關稅嚴重打擊，大豆等產品對華出口大幅下滑
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Technology -->
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
+                        <div class="p-6">
+                            <div class="bg-blue-100 dark:bg-blue-900/30 rounded-full w-16 h-16 flex items-center justify-center mb-4 mx-auto">
+                                <i class="fas fa-microchip text-pink-600 dark:text-pink-400 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white text-center mb-3">科技產業</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm text-center">
+                                半導體、電動汽車等高科技產品成為重點關稅目標，科技競爭持續加劇
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Manufacturing -->
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
+                        <div class="p-6">
+                            <div class="bg-purple-100 dark:bg-purple-900/30 rounded-full w-16 h-16 flex items-center justify-center mb-4 mx-auto">
+                                <i class="fas fa-industry text-purple-600 dark:text-purple-400 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white text-center mb-3">製造業</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm text-center">
+                                面臨進口零部件成本上升和需求減少的雙重壓力，工業產出增長降至多年低點
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Retail -->
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
+                        <div class="p-6">
+                            <div class="bg-orange-100 dark:bg-orange-900/30 rounded-full w-16 h-16 flex items-center justify-center mb-4 mx-auto">
+                                <i class="fas fa-store text-orange-600 dark:text-orange-400 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white text-center mb-3">零售業</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm text-center">沃爾瑪、塔吉特等零售商警告關稅將導致商品短缺和價格上漲
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Automotive -->
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
+                        <div class="p-6">
+                            <div class="bg-red-100 dark:bg-red-900/30 rounded-full w-16 h-16 flex items-center justify-center mb-4 mx-auto">
+                                <i class="fas fa-car text-red-600 dark:text-red-400 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white text-center mb-3">汽車產業</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm text-center">
+                                電動汽車成為關稅重點目標，傳統汽車供應鏈也受到衝擊
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Raw Materials -->
+                    <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
+                        <div class="p-6">
+                            <div class="bg-gray-100 dark:bg-gray-700rounded-full w-16 h-16 flex items-center justify-center mb-4 mx-auto">
+                                <i class="fas fa-mountain text-gray-600 dark:text-gray-400 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-900 dark:text-white text-center mb-3">稀土礦產</h3>
+                            <p class="text-gray-600 dark:text-gray-300 text-sm text-center">
+                                中國對鎵、鍺等稀土產品實施出口管制，影響全球供應鏈
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Taiwan Role -->
+        <section id="taiwan" class="mb-20 animate-slide-up">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">台灣的角色與應對策略</h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-pink-500 to-purple-500 mx-auto"></div>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <!-- Challenges -->
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700">
+                        <div class="bg-red-50 dark:bg-red-900/20 p-6 rounded-t-2xl border-b border-red-200 dark:border-red-800">
+                            <h3 class="text-2xl font-bold text-red-800 dark:text-red-200 flex items-center">
+                                <i class="fas fa-exclamation-triangle mr-3"></i>面臨挑戰
+                            </h3>
+                        </div>
+                        <div class="p-6">
+                            <ul class="space-y-4">
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-dot-circle text-red-500 mt-2 text-xs"></i>
+                                    <span class="text-gray-700 dark:text-gray-300">在大陸設廠的台商面臨關稅導致的成本增加</span>
+                                </li>
+                                <li class="flex items-start gap-3"><i class="fas fa-dot-circle text-red-500 mt-2 text-xs"></i><span class="text-gray-700 dark:text-gray-300">「台灣接單、大陸生產、出口美國」模式受衝擊</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-dot-circle text-red-500 mt-2 text-xs"></i>
+                                    <span class="text-gray-700 dark:text-gray-300">伺服器代工廠面臨關鍵零組件成本上升壓力</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Opportunities -->
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700">
+                        <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-t-2xl border-b border-green-200 dark:border-green-800">
+                            <h3 class="text-2xl font-bold text-green-800 dark:text-green-200 flex items-center">
+                                <i class="fas fa-lightbulb mr-3"></i>發展機遇
+                            </h3>
+                        </div>
+                        <div class="p-6">
+                            <ul class="space-y-4">
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-dot-circle text-green-500 mt-2 text-xs"></i>
+                                    <span class="text-gray-700 dark:text-gray-300">手工具、扣件、馬達等產業可能獲得轉單效應</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-dot-circle text-green-500 mt-2 text-xs"></i>
+                                    <span class="text-gray-700 dark:text-gray-300">高階面板產品因大陸競爭對手受課稅影響而受益</span>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <i class="fas fa-dot-circle text-green-500 mt-2 text-xs"></i>
+                                    <span class="text-gray-700 dark:text-gray-300">精密機械、工業電腦等產業受影響較小</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Strategy Flow Chart -->
+                <div class="mt-12 bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">台灣企業應對策略流程圖</h3>
+                    <div class="mermaid">
+                        graph TD
+                            A[台灣企業] --> B[評估現況]
+                            B --> C{生產基地在哪？}
+                            C -->|大陸| D[轉移生產基地]
+                            C -->|台灣| E[善用關稅工具]
+                            D --> F[東南亞]
+                            D --> G[墨西哥]
+                            D --> H[回流台灣]
+                            E --> I[檢視產品稅則分類]
+                            F --> J[全球佈局策略]
+                            G --> J
+                            H --> J
+                            I --> J
+                            J --> K[智慧製造升級]
+                            J --> L[融入區域經濟]
+                            K --> M[提升競爭力]
+                            L --> M</div>
+                </div>
+            </div>
+			
+			<div class="container">
+			        
+				<div class="highlight">
+					<strong>核心概念：</strong>面對中美貿易摩擦，企業需制定全面因應策略，從短期應變到長期轉型，分階段執行。
+				</div>
+
+				<h2>短期緊急應變 <span class="timeline">(0-6個月)</span></h2>
+				
+				<div class="strategy-box">
+					<h3>🔧 善用稅務工具降低衝擊</h3>
+					<ul>
+						<li><strong>重新檢視產品進口稅則分類</strong> - 跨國企業平均有20%～30%稅則歸類錯誤可能性</li>
+						<li><strong>探討「首次銷售原則」</strong> - 中間商可以較低交易價格計算關稅</li>
+					</ul>
+				</div>
+
+				<div class="strategy-box">
+					<h3>📦 調整接單和出貨模式</h3>
+					<ul>
+						<li>調整接單地點，將美國訂單安排到中國大陸以外工廠生產</li>
+						<li>透過第三地轉單及半成品加工方式繞開限制</li>
+					</ul>
+				</div>
+
+				<h2>中期戰略調整 <span class="timeline">(6個月-2年)</span></h2>
+				
+				<div class="strategy-box">
+					<h3>🌏 重新布局供應鏈</h3>
+					<p><strong>現況：</strong>40%台灣CEO已開始調整供應鏈，39%正轉移市場重心</p>
+					<ul>
+						<li><strong>東南亞布局：</strong>越南、馬來西亞、泰國（與台灣簽有FTA）</li>
+						<li><strong>回台生產：</strong>政府協助解決「五缺」問題並提供投資服務</li>
+						<li><strong>就近設廠：</strong>美墨邊境加工出口區達成「在地製造」資格</li>
+					</ul>
+				</div>
+
+				<div class="strategy-box">
+					<h3>🎯 市場多元化策略</h3>
+					<ul>
+						<li>轉向東協、印度等新興市場</li>
+						<li>發展歐洲、中東、日本代理通路</li>
+						<li>強化中國大陸內需市場佈局</li>
+					</ul>
+				</div>
+
+				<h2>長期轉型升級 <span class="timeline">(2年以上)</span></h2>
+				
+				<div class="strategy-box">
+					<h3>⚡ 產業升級與價值創造</h3>
+					<p><strong>轉型重點：</strong>「台灣接單、大陸生產、外銷美國」模式已無法延續</p>
+					<ul>
+						<li><strong>從代工轉向ODM/OBM：</strong>提升技術含量，發展自有品牌</li>
+						<li><strong>產品模組化：</strong>美國課稅部件移至當地生產</li>
+						<li><strong>發展服務化：</strong>SaaS、數位授權、AI API等模式</li>
+					</ul>
+				</div>
+
+				<div class="strategy-box">
+					<h3>🏭 建構產業聚落</h3>
+					<p>善用政府策略性重構高附加價值產業聚落機會，與其他廠商形成產業鏈合作。</p>
+				</div>
+
+				<h2>💰 善用政府資源</h2>
+				<div class="strategy-box">
+					<ul>
+						<li><strong>資金回流專法：</strong>境外資金回台投資優惠措施</li>
+						<li><strong>新南向政策資源：</strong>協助企業到東南亞設廠投資</li>
+						<li><strong>美中貿易衝突因應專案小組：</strong>提供轉移生產基地全方位協助</li>
+					</ul>
+				</div>
+
+				<div class="highlight">
+					<strong>總結：</strong>企業應採取分階段策略，從短期稅務調整、中期供應鏈重布局，到長期產業升級轉型，同時善用政府資源，建立多元化、高附加價值的營運模式。
+				</div>
+			</div>
+
+			<!-- tableau-->
+			<div class='mt-12 bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 border border-gray-200 dark:border-gray-700' id='viz1748658577462' style='position: relative'><noscript><a href='#'><img alt='儀表板 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_17486583110770&#47;sheet7&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_17486583110770&#47;sheet7' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_17486583110770&#47;sheet7&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1748658577462');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1300px';vizElement.style.height='927px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1300px';vizElement.style.height='927px';} else { vizElement.style.width='100%';vizElement.style.height='2077px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+        </section>
+
+        <!-- Future Outlook -->
+        <section id="future" class="mb-20 animate-slide-up">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">未來展望與情境分析</h2>
+                    <div class="w-24 h-1 bg-gradient-to-r from-pink-500 to-purple-500 mx-auto"></div>
+                </div>
+
+                <!-- Scenario Analysis -->
+                <div class="grid md:grid-cols-3 gap-6mb-12">
+                    <div class="bg-gradient-to-br from-red-500 to-red-600 rounded-2xl shadow-xl text-white p-8 hover:shadow-2xl transition-all duration-300">
+                        <div class="text-center mb-6">
+                            <i class="fas fa-chart-line text-4xl mb-4"></i>
+                            <h3 class="text-xl font-bold">情境一：長期高關稅</h3>
+                </div>
+                        <ul class="text-sm space-y-2">
+                            <li>• 持續抬高成本</li>
+                            <li>• 壓制消費熱情</li>
+                            <li>• 工廠減產停產</li>
+                            <li>• 全球保護主義升級</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-green-500 to-green-600 rounded-2xl shadow-xl text-white p-8 hover:shadow-2xl transition-all duration-300">
+                        <div class="text-center mb-6">
+                            <i class="fas fa-arrow-down text-4xl mb-4"></i>
+                            <h3 class="text-xl font-bold">情境二：關稅快速下調</h3>
+                        </div>
+                        <ul class="text-sm space-y-2">
+                            <li>• 積壓訂單集中釋放</li>
+                            <li>• 短期貿易大幅上漲</li>
+                            <li>• 出現「搶貨」現象</li>
+                            <li>• 市場快速復甦</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-pink-500 to-blue-600 rounded-2xl shadow-xl text-white p-8 hover:shadow-2xl transition-all duration-300">
+                        <div class="text-center mb-6">            <i class="fas fa-sync-alt text-4xl mb-4"></i>
+                            <h3 class="text-xl font-bold">情境三：反覆搖擺</h3>
+                        </div>
+                        <ul class="text-sm space-y-2">
+                            <li>• 談判與施壓交替</li>
+                            <li>• 政策頻繁變動</li>
+                            <li>• 供應鏈規劃困難</li>
+                            <li>• 企業多地佈局</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Key Tension Areas -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
+                    <div class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white p-6">
+                        <h3 class="text-2xl font-bold">持續緊張領域</h3></div>
+                    <div class="p-8">
+                        <div class="grid md:grid-cols-2 gap-8">
+                            <div class="space-y-6">
+                                <div class="flex items-start gap-4">
+                                    <div class="bg-purple-100 dark:bg-purple-900/30 rounded-full p-3 flex-shrink-0">
+                                        <i class="fas fa-microchip text-purple-600 dark:text-purple-400"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900 dark:text-white mb-2">科技競爭</h4>
+                                        <p class="text-gray-600 dark:text-gray-300 text-sm">半導體、人工智能、生物技術等高科技領域的競爭和限制將持續</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4"><div class="bg-red-100 dark:bg-red-900/30 rounded-full p-3 flex-shrink-0">
+                                        <i class="fas fa-shield-alt text-red-600 dark:text-red-400"></i>
+                                    </div><div>
+                                        <h4 class="font-semibold text-gray-900 dark:text-white mb-2">國家安全</h4>
+                                        <p class="text-gray-600 dark:text-gray-300 text-sm">美國對中國在數據安全、間諜活動等方面的擔憂持續存在</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="space-y-6">
+                                <div class="flex items-start gap-4">
+                                    <div class="bg-blue-100 dark:bg-blue-900/30 rounded-full p-3 flex-shrink-0">
+                                        <i class="fas fa-network-wired text-pink-600 dark:text-pink-400"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold text-gray-900 dark:text-white mb-2">供應鏈重組</h4>
+                                        <p class="text-gray-600 dark:text-gray-300 text-sm">全球供應鏈的長期調整將持續，企業尋求多元化佈局</p></div>
+                                </div>
+                                <div class="flex items-start gap-4">
+                                    <div class="bg-green-100 dark:bg-green-900/30 rounded-full p-3 flex-shrink-0">
+                                        <i class="fas fa-comments text-green-600 dark:text-green-400"></i>
+                                    </div>
+                                    <div><h4 class="font-semibold text-gray-900 dark:text-white mb-2">結構性問題</h4>
+                                        <p class="text-gray-600 dark:text-gray-300 text-sm">產業補貼、市場準入等深層次問題短期內難以解決</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion -->
+        <section class="mb-20 animate-slide-up">
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-gradient-to-br from-pink-50 via-indigo-50 to-purple-50 dark:from-pink-900/20 dark:via-indigo-900/20 dark:to-purple-900/20 rounded-2xl p-8 border border-blue-200 dark:border-blue-800 shadow-xl">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-lightbulb text-4xl text-pink-600 dark:text-pink-400 mb-4"></i>
+                        <h2 class="text-3xl font-bold text-gray-900 dark:text-white">總結</h2>
+                    </div>
+                    <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 text-center">
+                儘管2025年5月的協議暫時緩和了劍拔弩張的氣氛，但美中貿易關係的根本性挑戰依然存在。
+                        全球經濟仍將面臨這兩個最大經濟體之間持續摩擦帶來的影響。
+                        <strong class="text-pink-600 dark:text-pink-400">企業和各國政府需要採取更靈活和多元化的策略</strong>，
+                        以應對這個充滿不確定性的新時代。
+                    </p></div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Dark mode toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const html = document.documentElement;
+        
+        // Check for saved dark mode preference or default to system preference
+        const savedTheme = localStorage.getItem('darkMode');
+        const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (savedTheme === 'dark' || (!savedTheme && systemTheme)) {
+            html.classList.add('dark');
+        }
+        
+        darkModeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            localStorage.setItem('darkMode', html.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Initialize Mermaid
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: html.classList.contains('dark') ? 'dark' : 'default',
+            flowchart: {
+                htmlLabels: true,
+                curve: 'basis'
+            }
+        });
+
+        // Tariff Escalation Chart
+        const tariffChart = echarts.init(document.getElementById('tariffChart'));
+        const tariffOption = {
+            title: {
+                text: '2025年美中關稅升級時間線',
+                left: 'center',
+                textStyle: {
+                    color: html.classList.contains('dark') ? '#ffffff' : '#374151'
+                }
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross'
+                }
+            },
+            legend: {
+                data: ['美國對華關稅', '中國對美關稅'],
+                top: '10%',
+                textStyle: {
+                    color: html.classList.contains('dark') ? '#ffffff' : '#374151'
+                }
+            },
+            grid: {
+                left: '3%',
+                right: '4%',
+                bottom: '3%',
+                containLabel: true
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: false,
+                data: ['2月1日', '3月3日', '4月2日', '4月9日', '5月12日'],
+                axisLabel: {
+                    color: html.classList.contains('dark') ? '#d1d5db' : '#6b7280'
+                }
+            },
+            yAxis: {
+                type: 'value',
+                name: '關稅率(%)',
+                axisLabel: {
+                    color: html.classList.contains('dark') ? '#d1d5db' : '#6b7280'
+                },
+                nameTextStyle: {
+                    color: html.classList.contains('dark') ? '#ffffff' : '#374151'
+                }
+            },
+            series: [
+                {
+                    name: '美國對華關稅',
+                    type: 'line',
+                    stack: 'Total',
+                    data: [10, 20, 54, 104, 30],
+                    lineStyle: {
+                        color: '#ef4444'
+                    },
+                    itemStyle: {
+                        color: '#ef4444'
+                    },
+                    areaStyle: {
+                        color: 'rgba(239, 68, 68, 0.1)'
+                    }
+                },
+                {
+                    name: '中國對美關稅',
+                    type: 'line',
+                    stack: 'Total',
+                    data: [8, 15, 45, 90, 10],
+                    lineStyle: {
+                        color: '#3b82f6'
+                    },
+                    itemStyle: {
+                        color: '#3b82f6'
+                    },
+                    areaStyle: {
+                        color: 'rgba(59, 130, 246, 0.1)'
+                    }
+                }
+            ]
+        };
+        tariffChart.setOption(tariffOption);
+
+        // Global Trade Impact Chart
+        const globalTradeChart = echarts.init(document.getElementById('globalTradeChart'));
+        const globalTradeOption = {
+            title: {
+                text: '全球貿易受影響預測',
+                left: 'center',
+                textStyle: {
+                    color: html.classList.contains('dark') ? '#ffffff' : '#374151'
+                }
+            },
+            tooltip: {
+                trigger: 'item'
+            },
+            legend: {
+                orient: 'vertical',
+                left: 'left',
+                textStyle: {
+                    color: html.classList.contains('dark') ? '#ffffff' : '#374151'
+                }
+            },
+            series: [
+                {
+                    name: '貿易影響',
+                    type: 'pie',
+                    radius: '50%',
+                    data: [
+                        { value: 90, name: '美中直接貿易下降' },
+                        { value: 0.2, name: '全球商品貿易損失' },
+                        { value: 1.6, name: '美國經濟產出減少' },
+                        { value: 1.5, name: '中國經濟增長放緩' }
+                    ],
+                    emphasis: {
+                        itemStyle: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+        globalTradeChart.setOption(globalTradeOption);
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-slide-up').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(el);
+        });
+
+        // Resize charts when window resizes
+        window.addEventListener('resize', () => {
+            tariffChart.resize();
+            globalTradeChart.resize();
+        });
+
+        // Update charts when dark mode changes
+        new MutationObserver(() => {
+            const isDark = html.classList.contains('dark');
+            // Update tariff chart
+            tariffOption.title.textStyle.color = isDark ? '#ffffff' : '#374151';
+            tariffOption.legend.textStyle.color = isDark ? '#ffffff' : '#374151';
+            tariffOption.xAxis.axisLabel.color = isDark ? '#d1d5db' : '#6b7280';
+            tariffOption.yAxis.axisLabel.color = isDark ? '#d1d5db' : '#6b7280';
+            tariffOption.yAxis.nameTextStyle.color = isDark ? '#ffffff' : '#374151';
+            tariffChart.setOption(tariffOption);
+            
+            // Update global trade chart
+            globalTradeOption.title.textStyle.color = isDark ? '#ffffff' : '#374151';
+            globalTradeOption.legend.textStyle.color = isDark ? '#ffffff' : '#374151';
+            globalTradeChart.setOption(globalTradeOption);
+            
+            // Reinitialize Mermaid
+            mermaid.initialize({
+                startOnLoad: true,
+                theme: isDark ? 'dark' : 'default',
+                flowchart: {
+                    htmlLabels: true,
+                    curve: 'basis'
+                }
+            });
+        }).observe(html, { attributes: true, attributeFilter: ['class'] });
+    </script>
+</body>
+</html>
