@@ -12,7 +12,7 @@
         }
 
         body {
-            font-family: 'Microsoft JhengHei', 'PingFang TC', sans-serif;
+            font-family: 'Microsoft JhengHei', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333333;
             background-color: #ffffff;
@@ -21,646 +21,686 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 0 20px;
         }
 
+        /* Header */
         .header {
             background: linear-gradient(135deg, #9A0036, #941C61);
             color: white;
-            padding: 40px 20px;
+            padding: 40px 0;
             text-align: center;
-            border-radius: 12px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(154, 0, 54, 0.2);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
         .header h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-size: 2.5em;
             margin-bottom: 15px;
+            font-weight: 700;
         }
 
         .header .subtitle {
-            font-size: 1.1rem;
+            font-size: 1.2em;
             opacity: 0.9;
             font-weight: 300;
         }
 
-        .summary-card {
-            background: #F5F5F5;
-            border-left: 5px solid #9A0036;
-            padding: 25px;
+        /* Navigation */
+        .nav {
+            background-color: #F5F5F5;
+            padding: 15px 0;
+            border-bottom: 2px solid #EEBAC0;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .nav li {
+            margin: 0 20px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #333333;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .nav a:hover {
+            background-color: #9A0036;
+            color: white;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 40px 0;
+            min-height: calc(100vh - 200px);
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
             margin-bottom: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-left: 5px solid #9A0036;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .summary-card h2 {
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .card h2 {
             color: #9A0036;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #EEBAC0;
+            padding-bottom: 10px;
         }
 
-        .key-metrics {
+        .card h3 {
+            color: #941C61;
+            font-size: 1.4em;
+            margin: 25px 0 15px 0;
+        }
+
+        .card h4 {
+            color: #333333;
+            font-size: 1.2em;
+            margin: 20px 0 10px 0;
+        }
+
+        /* Statistics Grid */
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             margin: 30px 0;
         }
 
-        .metric-card {
-            background: white;
-            border: 1px solid #EEBAC0;
+        .stat-item {
+            background: linear-gradient(135deg, #F5F5F5, #EEBAC0);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            border: 2px solid #941C61;
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #9A0036;
+            display: block;
+        }
+
+        .stat-label {
+            color: #333333;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, #EEBAC0, #F5F5F5);
+            border: 2px solid #941C61;
             border-radius: 12px;
             padding: 25px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin: 25px 0;
         }
 
-        .metric-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(154, 0, 54, 0.15);
-        }
-
-        .metric-value {
-            font-size: 2.5rem;
-            font-weight: 700;
+        .highlight-box h4 {
             color: #9A0036;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
-        .metric-label {
-            font-size: 1rem;
-            color: #666;
-            margin-bottom: 8px;
-        }
-
-        .metric-change {
-            font-size: 0.9rem;
-            padding: 5px 12px;
-            border-radius: 20px;
-            display: inline-block;
-        }
-
-        .metric-change.increase {
-            background: #FFE5E5;
-            color: #D32F2F;
-        }
-
-        .metric-change.stable {
-            background: #E8F5E8;
-            color: #388E3C;
-        }
-
-        .section {
-            background: white;
-            border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-            border: 1px solid #F0F0F0;
-        }
-
-        .section h2 {
-            color: #9A0036;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #EEBAC0;
-        }
-
-        .section h3 {
-            color: #941C61;
-            font-size: 1.4rem;
-            margin: 25px 0 15px 0;
-        }
-
-        .section h4 {
-            color: #666;
-            font-size: 1.2rem;
-            margin: 20px 0 10px 0;
-        }
-
-        .highlight-box {
-            background: linear-gradient(135deg, #FFF8F8, #FFEEF0);
-            border-left: 4px solid #9A0036;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-        }
-
+        /* Warning Box */
         .warning-box {
-            background: #FFF3E0;
-            border-left: 4px solid #FF9800;
+            background-color: #FFF3CD;
+            border: 2px solid #FFC107;
+            border-radius: 12px;
             padding: 20px;
             margin: 20px 0;
-            border-radius: 8px;
         }
 
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 20px 0;
-        }
-
-        .info-item {
-            background: #FAFAFA;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #E0E0E0;
-        }
-
-        .info-item h4 {
-            color: #9A0036;
+        .warning-box h4 {
+            color: #856404;
             margin-bottom: 10px;
         }
 
-        .data-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        /* Lists */
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 30px;
         }
 
-        .data-table th {
-            background: #9A0036;
-            color: white;
-            padding: 15px;
-            text-align: left;
-            font-weight: 600;
+        li {
+            margin: 8px 0;
         }
 
-        .data-table td {
-            padding: 12px 15px;
-            border-bottom: 1px solid #F0F0F0;
-        }
-
-        .data-table tr:hover {
-            background: #FAFAFA;
-        }
-
+        /* Buttons */
         .btn {
             display: inline-block;
             padding: 12px 25px;
-            background: #9A0036;
+            background: linear-gradient(135deg, #9A0036, #941C61);
             color: white;
             text-decoration: none;
             border-radius: 25px;
-            font-weight: 600;
+            font-weight: 500;
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
         }
 
         .btn:hover {
-            background: #7A002B;
+            background: linear-gradient(135deg, #941C61, #9A0036);
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(154, 0, 54, 0.3);
         }
 
-        .btn-secondary {
-            background: #941C61;
+        /* Table */
+        .table-container {
+            overflow-x: auto;
+            margin: 25px 0;
         }
 
-        .btn-secondary:hover {
-            background: #7A1850;
-        }
-
-        .timeline {
-            position: relative;
-            padding-left: 30px;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 15px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: #EEBAC0;
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 25px;
-            padding: 20px;
+        table {
+            width: 100%;
+            border-collapse: collapse;
             background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -37px;
-            top: 25px;
-            width: 12px;
-            height: 12px;
-            background: #9A0036;
-            border-radius: 50%;
-            border: 3px solid white;
-        }
-
-        .footer {
-            background: #333333;
-            color: white;
-            padding: 30px 20px;
-            text-align: center;
-            margin-top: 40px;
             border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
-        .footer h3 {
+        th {
+            background: linear-gradient(135deg, #9A0036, #941C61);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #F5F5F5;
+        }
+
+        tr:hover {
+            background-color: #F5F5F5;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #333333;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .footer-section h4 {
             color: #EEBAC0;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
+        .footer-bottom {
+            border-top: 1px solid #555;
+            padding-top: 20px;
+            margin-top: 20px;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .container {
-                padding: 15px;
-            }
-
             .header h1 {
-                font-size: 2rem;
+                font-size: 2em;
             }
 
-            .key-metrics {
-                grid-template-columns: 1fr;
+            .nav ul {
+                flex-direction: column;
+                align-items: center;
             }
 
-            .section {
+            .nav li {
+                margin: 5px 0;
+            }
+
+            .card {
                 padding: 20px;
             }
 
-            .info-grid {
+            .stats-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .stat-number {
+                font-size: 2em;
             }
         }
 
-        .risk-indicator {
-            display: inline-block;
-            padding: 5px 10px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            text-transform: uppercase;
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .risk-high {
-            background: #FFEBEE;
-            color: #C62828;
-        }
-
-        .risk-medium {
-            background: #FFF3E0;
-            color: #F57C00;
-        }
-
-        .risk-low {
-            background: #E8F5E8;
-            color: #2E7D32;
+        .card {
+            animation: fadeInUp 0.6s ease-out;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <!-- 標題區域 -->
-        <div class="header">
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
             <h1>2025年1月台灣銀行業信用風險事件彙整與分析報告</h1>
-            <div class="subtitle">基於金管會最新統計數據的專業分析</div>
+            <p class="subtitle">基於金管會最新統計數據的專業分析</p>
         </div>
+    </header>
 
-        <!-- 執行摘要 -->
-        <div class="summary-card">
-            <h2>執行摘要</h2>
-            <p>根據金管會最新統計數據，2025年1月台灣銀行業面臨了多項信用風險挑戰，其中房貸與建築融資逾期放款金額雙雙創下新高，分別達到78.4億元的三年高點及75.8億元的逾十年新高。這些數據反映出房市兩大資產品質同時亮起紅燈，銀行信用風險正逐步升溫，需要密切關注其對整體金融體系的潛在影響。</p>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <ul>
+                <li><a href="#overview">概況總覽</a></li>
+                <li><a href="#mortgage">房貸分析</a></li>
+                <li><a href="#construction">建融風險</a></li>
+                <li><a href="#policy">政策影響</a></li>
+                <li><a href="#risk-control">風險管控</a></li>
+                <li><a href="#conclusion">結論建議</a></li>
+            </ul>
         </div>
+    </nav>
 
-        <!-- 關鍵指標 -->
-        <div class="key-metrics">
-            <div class="metric-card">
-                <div class="metric-value">78.4億</div>
-                <div class="metric-label">房貸逾期放款金額</div>
-                <div class="metric-change increase">月增 3.48億元</div>
-            </div>
-            <div class="metric-card">
-                <div class="metric-value">75.8億</div>
-                <div class="metric-label">建築融資逾期放款</div>
-                <div class="metric-change increase">逾十年新高</div>
-            </div>
-            <div class="metric-card">
-                <div class="metric-value">0.07%</div>
-                <div class="metric-label">房貸逾放比率</div>
-                <div class="metric-change stable">與上月相同</div>
-            </div>
-            <div class="metric-card">
-                <div class="metric-value">0.2%</div>
-                <div class="metric-label">建融逾放比率</div>
-                <div class="metric-change increase">增加 0.09%</div>
-            </div>
-        </div>
-
-        <!-- 房貸逾期放款狀況分析 -->
-        <div class="section">
-            <h2>房貸逾期放款狀況分析</h2>
-            
-            <h3>逾期放款金額持續攀升</h3>
-            <div class="highlight-box">
-                <p><strong>關鍵數據：</strong>2025年1月國銀房貸逾期放款金額達到78.42億元，月增3.48億元，不僅是近五年同期新高，也是近五年單月次高。這已是房貸逾放金額連續六個月走升，且連續三個月站上「七」字頭。</p>
-            </div>
-
-            <div class="info-grid">
-                <div class="info-item">
-                    <h4>趨勢分析</h4>
-                    <p>連續六個月走升，顯示房貸資產品質持續惡化。前次高點出現在2024年12月，單月增加3.63億元。</p>
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- 概況總覽 -->
+            <section id="overview" class="card">
+                <h2>概況總覽</h2>
+                <p>根據金管會最新統計數據，2025年1月台灣銀行業面臨了多項信用風險挑戰，其中房貸與建築融資逾期放款金額雙雙創下新高，分別達到78.4億元的三年高點及75.8億元的逾十年新高。這些數據反映出房市兩大資產品質同時亮起紅燈，銀行信用風險正逐步升溫。</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number">78.4億</span>
+                        <div class="stat-label">房貸逾期放款金額<br>（三年高點）</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">75.8億</span>
+                        <div class="stat-label">建融逾期放款金額<br>（逾十年新高）</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">0.07%</span>
+                        <div class="stat-label">房貸逾放比率<br>（維持穩定）</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">0.2%</span>
+                        <div class="stat-label">建融逾放比率<br>（逾四年高點）</div>
+                    </div>
                 </div>
-                <div class="info-item">
-                    <h4>比率穩定</h4>
-                    <p>儘管逾期放款金額持續上升，但房貸逾放比率維持在0.07%，與上月相同，金管會表示無重大異常。</p>
-                </div>
-            </div>
+            </section>
 
-            <h3>房貸逾期成因分析</h3>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h4>客戶財務吃緊 <span class="risk-indicator risk-high">高風險</span></h4>
-                    <p>部分銀行客戶因疫情或經濟環境因素，導致財務狀況惡化，影響還款能力。</p>
-                </div>
-                <div class="timeline-item">
-                    <h4>升息影響 <span class="risk-indicator risk-medium">中等風險</span></h4>
-                    <p>央行從2022年首季起升息六次，加重借款人利息負擔，或因寬限期滿而無力償還。</p>
-                </div>
-                <div class="timeline-item">
-                    <h4>投資策略失效 <span class="risk-indicator risk-high">高風險</span></h4>
-                    <p>小資族或投資客仰賴寬限期賣屋套利，卻因央行控管、房市無人接手又難轉貸，資金周轉失靈。</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 建築融資風險事件 -->
-        <div class="section">
-            <h2>建築融資風險事件</h2>
-            
-            <h3>新莊泰舍至善元聯貸案違約</h3>
-            <div class="warning-box">
-                <p><strong>重大事件：</strong>2025年1月建融逾放月增額達到34.4億元，主要歸因於單一建商聯貸案「新莊泰舍至善元」已連續三個月沒還款、產生逾放所致。</p>
-            </div>
-
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>項目</th>
-                        <th>金額/詳情</th>
-                        <th>狀態</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>總聯貸額</td>
-                        <td>83.52億元</td>
-                        <td><span class="risk-indicator risk-high">違約</span></td>
-                    </tr>
-                    <tr>
-                        <td>貸放餘額</td>
-                        <td>58.1億元</td>
-                        <td><span class="risk-indicator risk-high">逾放</span></td>
-                    </tr>
-                    <tr>
-                        <td>估計市值</td>
-                        <td>115.3億元</td>
-                        <td><span class="risk-indicator risk-low">足額擔保</span></td>
-                    </tr>
-                    <tr>
-                        <td>主辦銀行</td>
-                        <td>土地銀行</td>
-                        <td>已宣告違約</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h4>參貸銀行名單</h4>
-            <div class="info-grid">
-                <div class="info-item">
-                    <h4>公股銀行</h4>
-                    <p>兆豐銀行、彰化銀行、高雄銀行、台企銀</p>
-                </div>
-                <div class="info-item">
-                    <h4>民營銀行</h4>
-                    <p>農業金庫、台中商銀、板信銀行、國票金融</p>
-                </div>
-            </div>
-
-            <h3>建融市場整體風險評估</h3>
-            <p>銀行業者指出，近期建融逾放大跳增反映兩大問題：第一，央行打建商餘屋政策影響；第二，建商在面臨爭議事件時財務韌性不足。去年央行再度加強管控力道後，中小型建商因土融轉建融申請不易，自有資金不足又借款不易，恐加速財務惡化。</p>
-        </div>
-
-        <!-- 政策環境與市場影響因素 -->
-        <div class="section">
-            <h2>政策環境與市場影響因素</h2>
-            
-            <h3>央行政策影響</h3>
-            <div class="highlight-box">
-                <p>央行實施第七波選擇性信用管制，導致新撥貸偏低。2025年1月底國銀承做房貸餘額11兆525億元，月增282億元是近十個月低點；建融餘額3兆8,384億元，年增5.51%是五個月低點。</p>
-            </div>
-
-            <h3>市場前景展望</h3>
-            <div class="info-grid">
-                <div class="info-item">
-                    <h4>短期展望</h4>
-                    <p>2025年央行政策不變，房市續緊縮，小資族或投資客愈來愈難「變現脫困」。</p>
-                </div>
-                <div class="info-item">
-                    <h4>中期預測</h4>
-                    <p>除非銀行直接轉銷壞帳，否則房貸高逾放水位恐會持續到第3季。</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 風險管控與監理機制 -->
-        <div class="section">
-            <h2>風險管控與監理機制</h2>
-            
-            <h3>銀行資本充足性</h3>
-            <div class="info-grid">
-                <div class="info-item">
-                    <h4>整體評估 <span class="risk-indicator risk-low">穩健</span></h4>
-                    <p>中華信評表示，台灣銀行業資本緩衝良好，有助因應不確定性，資產品質仍可維持強韌。</p>
-                </div>
-                <div class="info-item">
+            <!-- 房貸逾期放款狀況分析 -->
+            <section id="mortgage" class="card">
+                <h2>房貸逾期放款狀況分析</h2>
+                
+                <h3>逾期放款金額持續攀升</h3>
+                <p>2025年1月國銀房貸逾期放款金額達到78.42億元，月增3.48億元，不僅是近五年同期新高，也是近五年單月次高。這已是房貸逾放金額連續六個月走升，且連續三個月站上「七」字頭，顯示房貸資產品質持續惡化。</p>
+                
+                <div class="highlight-box">
                     <h4>關鍵數據</h4>
-                    <p>商業銀行不良貸款率1.51%，較上季末上升0.01個百分點，授信成本仍低於亞太同業水準。</p>
+                    <ul>
+                        <li>連續六個月走升</li>
+                        <li>連續三個月站上「七」字頭</li>
+                        <li>月增3.48億元創近五年同期最大增幅</li>
+                        <li>逾放比率維持在0.07%</li>
+                    </ul>
                 </div>
-            </div>
 
-            <h3>金管會監理重點</h3>
-            <p>金管會檢查局發布2025年度金融檢查重點，將「防制詐騙」、「不動產授信風險管理」、「金融消費者權益保護」、「公司治理」及「資通安全」等議題列為特別關注領域。</p>
+                <h3>房貸逾期成因分析</h3>
+                <p>銀行局副局長侯立洋針對房貸逾放額連六個月走升提出三大說明：</p>
+                <ol>
+                    <li><strong>客戶財務吃緊：</strong>部分銀行客戶財務狀況惡化</li>
+                    <li><strong>房貸量續增：</strong>房貸總量持續增加，逾放金額增加屬合理現象</li>
+                    <li><strong>比率穩定：</strong>逾放比0.07%與上月相同，無重大異常</li>
+                </ol>
 
-            <table class="data-table">
-                <thead>
-                    <tr>
-                        <th>監理指標</th>
-                        <th>當前數值</th>
-                        <th>變化趨勢</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>本國銀行家數</td>
-                        <td>38家</td>
-                        <td>穩定</td>
-                    </tr>
-                    <tr>
-                        <td>放款總餘額</td>
-                        <td>42兆5,961億元</td>
-                        <td>月增3,885億元</td>
-                    </tr>
-                    <tr>
-                        <td>逾期放款金額</td>
-                        <td>685.04億元</td>
-                        <td>月增71.19億元</td>
-                    </tr>
-                    <tr>
-                        <td>逾放比率</td>
-                        <td>0.16%</td>
-                        <td>月增0.01%</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <!-- 國際比較與整體評估 -->
-        <div class="section">
-            <h2>國際比較與整體評估</h2>
-            
-            <h3>台灣銀行業表現優異</h3>
-            <div class="highlight-box">
-                <p><strong>全球領先：</strong>根據馨傳不動產智庫彙整全球25個主要國家數據，台灣不良貸款率高居全球第一低、僅約0.15%，住宅貸款逾放比更只有0.07%，房貸違約率同為世界最低。</p>
-            </div>
-
-            <h3>風險可控性評估</h3>
-            <div class="info-grid">
-                <div class="info-item">
-                    <h4>整體風險 <span class="risk-indicator risk-low">可控</span></h4>
-                    <p>中華信評分析，即使不動產逾期放款壓力升高，台灣銀行業仍有能力吸收房地產市場潛在風險。</p>
+                <div class="warning-box">
+                    <h4>銀行業界三大警訊</h4>
+                    <ul>
+                        <li><strong>中小企業負責人影響：</strong>疫情或經濟環境因素導致公司經營不善，影響個人還款能力</li>
+                        <li><strong>升息壓力：</strong>央行從2022年首季起升息六次，加重借款人利息負擔</li>
+                        <li><strong>投資客困境：</strong>小資族或投資客仰賴寬限期，因房市無人接手又難轉貸，資金周轉失靈</li>
+                    </ul>
                 </div>
-                <div class="info-item">
-                    <h4>潛在壓力</h4>
-                    <p>若房市進一步修正，部分中小型銀行或房貸集中度較高者，獲利與資本壓力恐將提高。</p>
-                </div>
-            </div>
-        </div>
+            </section>
 
-        <!-- 結論與建議 -->
-        <div class="section">
-            <h2>結論與建議</h2>
-            
-            <div class="highlight-box">
-                <h3>主要結論</h3>
+            <!-- 建築融資風險事件 -->
+            <section id="construction" class="card">
+                <h2>建築融資風險事件</h2>
+                
+                <h3>新莊泰舍至善元聯貸案違約</h3>
+                <p>2025年1月建融逾放月增額達到34.4億元，逾放比也增加0.09個百分點至0.2%的逾四年高點。這主要歸因於單一建商聯貸案「新莊泰舍至善元」已連續三個月沒還款、產生逾放所致。</p>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>項目</th>
+                                <th>金額/詳情</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>主辦銀行</td>
+                                <td>土地銀行</td>
+                            </tr>
+                            <tr>
+                                <td>總聯貸額</td>
+                                <td>83.52億元</td>
+                            </tr>
+                            <tr>
+                                <td>貸放餘額</td>
+                                <td>58.1億元</td>
+                            </tr>
+                            <tr>
+                                <td>參貸銀行</td>
+                                <td>兆豐銀行、彰化銀行、高雄銀行、台企銀、農業金庫、台中商銀、板信銀行、國票金融</td>
+                            </tr>
+                            <tr>
+                                <td>目前市值</td>
+                                <td>115.3億元</td>
+                            </tr>
+                            <tr>
+                                <td>違約宣告日期</td>
+                                <td>2025年2月6日</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>建融市場整體風險評估</h3>
+                <p>銀行業者指出，近期建融逾放大跳增反映兩大問題：</p>
+                <ul>
+                    <li><strong>央行政策影響：</strong>央行打建商餘屋政策導致安泰銀主辦港商新朗興業聯貸案爆發違約</li>
+                    <li><strong>建商抗壓能力不足：</strong>建商在面臨爭議事件時，立刻「扛不住」而倒地</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <h4>風險因素分析</h4>
+                    <p>中小型建商因土融轉建融申請不易或因預售屋銷售狀況不如預期，自有資金不足又借款不易，若又有其他爭議案，恐加速建商財務惡化，最終成了銀行呆帳。</p>
+                </div>
+            </section>
+
+            <!-- 政策環境與市場影響因素 -->
+            <section id="policy" class="card">
+                <h2>政策環境與市場影響因素</h2>
+                
+                <h3>央行政策影響</h3>
+                <p>央行實施第七波選擇性信用管制，導致新撥貸偏低，同時1月農曆年前資金充裕，還款量增加，加上農曆假期交易天數減少，這些因素共同影響了房貸與建融市場。</p>
+
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number">11兆525億</span>
+                        <div class="stat-label">房貸餘額<br>月增282億（近十個月低點）</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">9.83%</span>
+                        <div class="stat-label">房貸年增率<br>連四個月走低</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">3兆8,384億</span>
+                        <div class="stat-label">建融餘額</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">5.51%</span>
+                        <div class="stat-label">建融年增率<br>五個月低點</div>
+                    </div>
+                </div>
+
+                <h3>市場前景展望</h3>
+                <div class="warning-box">
+                    <h4>專家預測</h4>
+                    <p>高力國際業主代表服務部董事黃舒衛表示，2025年央行政策不變，房市續緊縮，小資族或投資客愈來愈難「變現脫困」，即便2月有年終舒緩，除非銀行一口氣直接轉銷壞帳，否則房貸高逾放水位恐會持續到第3季。</p>
+                </div>
+            </section>
+
+            <!-- 風險管控與監理機制 -->
+            <section id="risk-control" class="card">
+                <h2>風險管控與監理機制</h2>
+                
+                <h3>銀行資本充足性</h3>
+                <p>中華信評副首席分析師何思嫻表示，雖然外部經濟壓力升高，可能導致信用損失增加，但台灣銀行業資本緩衝良好，有助因應不確定性。截至2025年，台灣銀行資產品質仍可維持強韌，授信成本雖略微上升，但仍低於亞太同業水準。</p>
+
+                <div class="highlight-box">
+                    <h4>2025年一季度末數據</h4>
+                    <ul>
+                        <li>銀行業金融機構本外幣資產總額：458.3萬億元，同比增長6.7%</li>
+                        <li>商業銀行不良貸款率：1.51%，較上季末上升0.01個百分點</li>
+                    </ul>
+                </div>
+
+                <h3>金管會監理重點</h3>
+                <p>金管會檢查局發布2025年度金融檢查重點，將以下議題列為特別關注領域：</p>
+                <ul>
+                    <li>防制詐騙</li>
+                    <li><strong>不動產授信風險管理</strong></li>
+                    <li>金融消費者權益保護</li>
+                    <li>公司治理</li>
+                    <li>資通安全</li>
+                </ul>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>項目</th>
+                                <th>數據</th>
+                                <th>變化</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>本國銀行家數</td>
+                                <td>38家</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>放款總餘額</td>
+                                <td>42兆5,961億元</td>
+                                <td>較上月增加3,885億元</td>
+                            </tr>
+                            <tr>
+                                <td>逾期放款金額</td>
+                                <td>685.04億元</td>
+                                <td>較上月增加71.19億元</td>
+                            </tr>
+                            <tr>
+                                <td>逾放比率</td>
+                                <td>0.16%</td>
+                                <td>較上月增加0.01個百分點</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- 國際比較與整體評估 -->
+            <section class="card">
+                <h2>國際比較與整體評估</h2>
+                
+                <h3>台灣銀行業表現優異</h3>
+                <p>從國際比較來看，台灣銀行業的風險控制能力相對優秀。根據馨傳不動產智庫彙整全球25個主要國家全體銀行2022年底的「不良貸款率」，台灣不良貸款率高居全球第一低、僅約0.15%，同期住宅貸款逾放比更只有0.07%，房貸違約率同為世界最低。</p>
+
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number">0.15%</span>
+                        <div class="stat-label">台灣不良貸款率<br>全球第一低</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">0.07%</span>
+                        <div class="stat-label">住宅貸款逾放比<br>世界最低</div>
+                    </div>
+                </div>
+
+                <h3>風險可控性評估</h3>
+                <div class="highlight-box">
+                    <h4>中華信評分析</h4>
+                    <p>在房價居高不下，及去年央行開始加強不動產授信控管的背景下，即使不動產逾期放款壓力升高，台灣銀行業仍有能力吸收房地產市場潛在風險，整體風險仍屬可控。不過，若房市若再進一步修正，部分中小型銀行或房貸集中度較高者，獲利與資本壓力恐將提高。</p>
+                </div>
+            </section>
+
+            <!-- 結論與建議 -->
+            <section id="conclusion" class="card">
+                <h2>結論與建議</h2>
+                
                 <p>2025年1月台灣銀行業信用風險事件主要集中在房貸與建融領域，雖然逾期放款金額創下新高，但整體風險仍在可控範圍內。新莊泰舍至善元聯貸案違約雖然對建融逾放金額造成顯著影響，但該案屬於特殊情況，不應以偏概全。</p>
-            </div>
 
-            <h3>政策建議</h3>
-            <div class="info-grid">
-                <div class="info-item">
-                    <h4>銀行業建議</h4>
-                    <ul>
-                        <li>持續加強風險管控</li>
-                        <li>針對中小型建商的授信審核</li>
-                        <li>密切關注央行政策變化</li>
-                    </ul>
-                </div>
-                <div class="info-item">
-                    <h4>監理機關建議</h4>
-                    <ul>
-                        <li>完善不動產授信風險管理機制</li>
-                        <li>確保金融體系穩定</li>
-                        <li>加強市場監控</li>
-                    </ul>
-                </div>
-                <div class="info-item">
-                    <h4>市場參與者建議</h4>
-                    <ul>
-                        <li>理性看待當前風險狀況</li>
-                        <li>避免過度恐慌</li>
-                        <li>做好風險防範措施</li>
-                    </ul>
-                </div>
-            </div>
+                <h3>對銀行業的建議</h3>
+                <ul>
+                    <li>持續加強風險管控，特別是針對中小型建商的授信審核</li>
+                    <li>密切關注央行政策變化對市場的影響</li>
+                    <li>加強客戶財務狀況監控，提早識別潛在風險</li>
+                </ul>
 
-            <div class="warning-box">
-                <h4>總體評估</h4>
-                <p>台灣銀行業在全球範圍內仍保持相對優秀的資產品質，但面對房市調整和政策緊縮的環境，需要更加謹慎地管理信用風險，確保金融體系的長期穩健發展。</p>
-            </div>
+                <h3>對監理機關的建議</h3>
+                <ul>
+                    <li>繼續完善不動產授信風險管理機制</li>
+                    <li>確保金融體系穩定</li>
+                    <li>加強對中小型建商的監管</li>
+                </ul>
 
+                <h3>對投資者的建議</h3>
+                <ul>
+                    <li>理性看待當前風險狀況，避免過度恐慌</li>
+                    <li>做好風險防範措施</li>
+                    <li>關注銀行業資產品質變化</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <h4>總體評估</h4>
+                    <p>台灣銀行業在全球範圍內仍保持相對優秀的資產品質，但面對房市調整和政策緊縮的環境，需要更加謹慎地管理信用風險，確保金融體系的長期穩健發展。</p>
+                </div>
+                
+            </section>
         </div>
+    </main>
 
-        <!-- 頁尾 -->
-        <div class="footer">
-            <h3>報告說明</h3>
-            <p>本報告基於公開資料及金管會統計數據編製，僅供參考，不構成投資建議。</p>
-            <p>資料來源：金管會、中華信評、各大銀行公開資訊</p>
-            <p>版權所有 © 台灣金融風險分析中心</p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>免責申明</h4>
+                    <p>基於公開資料，僅供參考，不構成建議</p>
+                </div>
+                <div class="footer-section">
+                    <h4>資料來源</h4>
+                    <p>網頁公開資訊</p>
+                </div>
+                <div class="footer-section">
+                    <h4>版權所有</h4>
+                    <p>© Dunk</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>本報告基於2025年1月最新數據編製，數據來源包括金管會、央行及各大銀行公開資訊</p>
+            </div>
         </div>
-    </div>
+    </footer>
 
     <script>
-        // 添加互動效果
-        document.addEventListener('DOMContentLoaded', function() {
-            // 平滑滾動效果
-            const links = document.querySelectorAll('a[href^="#"]');
-            links.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-
-            // 卡片懸停效果增強
-            const cards = document.querySelectorAll('.metric-card, .info-item');
-            cards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-5px)';
-                });
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0)';
-                });
-            });
-
-            // 按鈕點擊效果
-            const buttons = document.querySelectorAll('.btn');
-            buttons.forEach(button => {
-                button.addEventListener('click', function(e) {
-                    // 創建波紋效果
-                    const ripple = document.createElement('span');
-                    const rect = this.getBoundingClientRect();
-                    const size = Math.max(rect.width, rect.height);
-                    const x = e.clientX - rect.left - size / 2;
-                    const y = e.clientY - rect.top - size / 2;
-                    
-                    ripple.style.width = ripple.style.height = size + 'px';
-                    ripple.style.left = x + 'px';
-                    ripple.style.top = y + 'px';
-                    ripple.classList.add('ripple');
-                    
-                    this.appendChild(ripple);
-                    
-                    setTimeout(() => {
-                        ripple.remove();
-                    }, 600);
-                });
+        // 平滑滾動效果
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             });
         });
+
+        // 滾動時導航高亮
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav a[href^="#"]');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // 數字動畫效果
+        function animateNumbers() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                const finalNumber = stat.textContent;
+                const isPercentage = finalNumber.includes('%');
+                const isBillion = finalNumber.includes('億');
+                const isTrillion = finalNumber.includes('兆');
+                
+                let numericValue = parseFloat(finalNumber.replace(/[^\d.]/g, ''));
+                
+                if (numericValue && numericValue > 0) {
+                    let currentNumber = 0;
+                    const increment = numericValue / 50;
+                    
+                    const timer = setInterval(() => {
+                        currentNumber += increment;
+                        if (currentNumber >= numericValue) {
+                            currentNumber = numericValue;
+                            clearInterval(timer);
+                        }
+                        
+                        let displayValue = currentNumber.toFixed(isPercentage ? 2 : 1);
+                        if (isTrillion) displayValue += '兆';
+                        else if (isBillion) displayValue += '億';
+                        if (isPercentage) displayValue += '%';
+                        
+                        stat.textContent = displayValue;
+                    }, 20);
+                }
+            });
+        }
+
+        // 當頁面載入完成時執行數字動畫
+        window.addEventListener('load', animateNumbers);
     </script>
 </body>
 </html>
