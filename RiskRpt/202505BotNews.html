@@ -1,0 +1,601 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台灣金融市場月報 - 2025年5月</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft JhengHei', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #9A0036, #941C61);
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            text-align: center;
+            opacity: 0.9;
+        }
+
+        /* Navigation */
+        .nav {
+            background-color: #F5F5F5;
+            padding: 1rem 0;
+            border-bottom: 2px solid #EEBAC0;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #9A0036;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: #9A0036;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 3rem 0;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #9A0036;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #EEBAC0;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: #941C61;
+        }
+
+        /* Card Layout */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: 1px solid #F5F5F5;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(154, 0, 54, 0.15);
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            color: #9A0036;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .card-content {
+            color: #333333;
+            line-height: 1.7;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, #EEBAC0, #F5F5F5);
+            border-left: 5px solid #9A0036;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .highlight-title {
+            font-size: 1.4rem;
+            color: #9A0036;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        /* Key Statistics */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border: 2px solid #F5F5F5;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #9A0036;
+            display: block;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Quote Box */
+        .quote-box {
+            background: #F5F5F5;
+            border-left: 4px solid #941C61;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .quote-author {
+            text-align: right;
+            margin-top: 1rem;
+            font-weight: 600;
+            color: #9A0036;
+        }
+
+        /* Button */
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #9A0036, #941C61);
+            color: white;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(154, 0, 54, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #333333;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: #EEBAC0;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .card {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <h1>台灣金融市場月報</h1>
+            <p class="subtitle">2025年5月份 綜合分析報告</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-links">
+                <a href="#market-overview">市場概況</a>
+                <a href="#currency">匯率動態</a>
+                <a href="#financial-sector">金融業表現</a>
+                <a href="#international">國際情勢</a>
+                <a href="#industry">產業動態</a>
+                <a href="#quotes">重要引述</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            
+            <!-- Market Overview Section -->
+            <section id="market-overview" class="section">
+                <h2 class="section-title">市場概況</h2>
+                
+                <div class="highlight-box">
+                    <h3 class="highlight-title">5月份重點摘要</h3>
+                    <p>2025年5月台灣金融市場面臨重大挑戰，新台幣經歷「暴力升值」，多次創下新高匯價，甚至閃見2字頭。同時，川普關稅政策效應持續發酵，為市場帶來不確定性。金融三業第一季獲利衰退8.7%，主要受股市震盪及新台幣升值影響。</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number">8.74%</span>
+                        <div class="stat-label">新台幣今年升幅<br>躍居最強亞幣</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">-8.7%</span>
+                        <div class="stat-label">金融三業Q1<br>獲利衰退幅度</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">186億</span>
+                        <div class="stat-label">金控4月獲利<br>創九年同期低點</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">1兆元</span>
+                        <div class="stat-label">國銀Q1放款<br>大增金額</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Currency Section -->
+            <section id="currency" class="section">
+                <h2 class="section-title">新台幣匯率動態</h2>
+                
+                <div class="card-grid">
+                    <div class="card">
+                        <h3 class="card-title">升值幅度與原因</h3>
+                        <div class="card-content">
+                            <p><strong>4月勁揚3.6%</strong>，創逾17個月單月最大升幅。今年來升幅高達8.74%，躍居最強亞幣。</p>
+                            <br>
+                            <p><strong>主要原因：</strong></p>
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                <li>國際美元走弱</li>
+                                <li>熱錢大量湧入</li>
+                                <li>壽險業避險需求</li>
+                                <li>市場預期心理</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card-title">央行應對措施</h3>
+                        <div class="card-content">
+                            <p><strong>楊金龍總裁多次信心喊話：</strong></p>
+                            <p>「不尋常狀態到此為止」、「新台幣過度波動...ABNORMAL」</p>
+                            <br>
+                            <p><strong>具體行動：</strong></p>
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                <li>啟動專案金檢追查炒匯禿鷹</li>
+                                <li>鎖定外資異常資金流動</li>
+                                <li>強調「市場平靜」才會停止金檢</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card-title">產業衝擊影響</h3>
+                        <div class="card-content">
+                            <p><strong>科技業：</strong>美元每貶值1%，台積電營業利益率下降0.4個百分點</p>
+                            <br>
+                            <p><strong>機械業：</strong>產業公會呼籲政府守住匯率，避免升破30元</p>
+                            <br>
+                            <p><strong>壽險業：</strong>面臨鉅額匯損，五家公司被惠譽列入負向評等觀察名單</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quote-box">
+                    <p>「若新台幣升破『彭淮南防線』（28.5元），預估全年經濟成長率將下修0.1個百分點」</p>
+                    <div class="quote-author">— 主計長 陳淑姿</div>
+                </div>
+            </section>
+
+            <!-- Financial Sector Section -->
+            <section id="financial-sector" class="section">
+                <h2 class="section-title">金融業表現</h2>
+                
+                <div class="card-grid">
+                    <div class="card">
+                        <h3 class="card-title">銀行業</h3>
+                        <div class="card-content">
+                            <p><strong>Q1獲利表現：</strong>1,519.4億元，創歷年同期次高</p>
+                            <p><strong>放款成長：</strong>Q1放款大增1兆元，企業提前拉貨力道強勁</p>
+                            <p><strong>風控措施：</strong>公股銀因應關稅風險，強化授信風控</p>
+                            <p><strong>防詐行動：</strong>大砍提款轉帳額度，應對人頭戶問題</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card-title">壽險業</h3>
+                        <div class="card-content">
+                            <p><strong>主要挑戰：</strong></p>
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                <li>新台幣升值導致鉅額匯損</li>
+                                <li>海外資產風險增加</li>
+                                <li>五家公司被惠譽列入負向評等觀察</li>
+                                <li>部分公司決定今年不發放股利</li>
+                            </ul>
+                            <p><strong>因應措施：</strong>向金管會求助，建議調整匯率計算方式</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card-title">證券期貨業</h3>
+                        <div class="card-content">
+                            <p><strong>Q1表現：</strong>獲利減近3成，受股市震盪影響最大</p>
+                            <p><strong>市場發展：</strong></p>
+                            <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                                <li>台股總開戶數攀新高</li>
+                                <li>權證市場蓬勃發展，台灣躍居全球第四大</li>
+                                <li>創新板2.0注入新動能</li>
+                                <li>證交所積極防堵內線交易</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- International Section -->
+            <section id="international" class="section">
+                <h2 class="section-title">國際情勢與關稅戰</h2>
+                
+                <div class="highlight-box">
+                    <h3 class="highlight-title">川普效應持續發酵</h3>
+                    <p>川普當選的可能性及其MAGA政策成為市場重要變數，關稅政策對全球貿易格局產生深遠影響。台美完成首輪關稅實體磋商，台灣與韓、日、越並列優先四國。</p>
+                </div>
+
+                <div class="card-grid">
+                    <div class="card">
+                        <h3 class="card-title">美國情勢</h3>
+                        <div class="card-content">
+                            <p><strong>貨幣政策：</strong>Fed 6月降息預期轉濃</p>
+                            <p><strong>經濟狀況：</strong>企業大裁員，就業市場轉疲</p>
+                            <p><strong>信用評等：</strong>穆迪調降美國主權評等，引發拋售美國資產潮</p>
+                            <p><strong>政策影響：</strong>金融業實施72小時規則防範川普政策「亂流」</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card-title">中國大陸</h3>
+                        <div class="card-content">
+                            <p><strong>貨幣政策：</strong>人民銀行降準降息，強化與美國較勁體質</p>
+                            <p><strong>經濟表現：</strong>製造業PMI滑落榮枯線，陷入萎縮</p>
+                            <p><strong>外資流動：</strong>外資撤離情況沒有好轉</p>
+                            <p><strong>政策動向：</strong>證監會支持優質中概股回流</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card-title">關稅戰進展</h3>
+                        <div class="card-content">
+                            <p><strong>台美磋商：</strong>完成首輪關稅實體磋商，此次未觸及匯率</p>
+                            <p><strong>美中停火：</strong>5月中旬出現90天停火跡象，激勵全球股市</p>
+                            <p><strong>法院裁決：</strong>美國國際貿易法院裁定川普「對等關稅」政策越權</p>
+                            <p><strong>市場影響：</strong>台灣PMI、NMI受關稅衝擊跳水</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Industry Section -->
+            <section id="industry" class="section">
+                <h2 class="section-title">產業動態</h2>
+                
+                <div class="card-grid">
+                    <div class="card">
+                        <h3 class="card-title">半導體產業</h3>
+                        <div class="card-content">
+                            <p><strong>供應鏈重組：</strong>日月光、友達等評估赴美設廠</p>
+                            <p><strong>業績表現：</strong>聯發科Q1獲利勁揚兩成，但下半年需求不確定性高</p>
+                            <p><strong>政策思考：</strong>社論認為台灣半導體民主供應鏈不應單押美國</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card-title">房地產市場</h3>
+                        <div class="card-content">
+                            <p><strong>風險警示：</strong>房價驟跌恐增銀行信用風險</p>
+                            <p><strong>資金緊縮：</strong>壽險房貸額度快滿，首購族排隊難獲資金</p>
+                            <p><strong>政策維持：</strong>央行暫不鬆綁打炒房政策</p>
+                            <p><strong>市場動態：</strong>建商面臨央行限期壓力，催出住宅開工潮</p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card-title">其他重要產業</h3>
+                        <div class="card-content">
+                            <p><strong>航空業：</strong>華航獲利因新台幣升值進補</p>
+                            <p><strong>租賃業：</strong>大陸經濟復甦遲緩影響，租賃三雄Q1獲利衰退</p>
+                            <p><strong>產險業：</strong>前四月保費成長逾12%，積極參與綠能業務</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quotes Section -->
+            <section id="quotes" class="section">
+                <h2 class="section-title">重要引述</h2>
+                
+                <div class="quote-box">
+                    <p>「不尋常狀態到此為止」、「新台幣過度波動...ABNORMAL」</p>
+                    <div class="quote-author">— 央行總裁 楊金龍</div>
+                </div>
+
+                <div class="quote-box">
+                    <p>「暴力升值 影響暫時」，強調壽險持有的美元資產「中長期來看沒有問題」</p>
+                    <div class="quote-author">— 富邦金董事長 蔡明忠 / 國泰金董事長 蔡宏圖</div>
+                </div>
+
+                <div class="quote-box">
+                    <p>「暴走 市場從驚奇變驚嚇」，認為川普政策創造不確定性，Q2挑戰加劇</p>
+                    <div class="quote-author">— 永豐金總經理 朱士廷</div>
+                </div>
+
+                <div class="quote-box">
+                    <p>「須觀察國際情勢」，並將觀察四關鍵來決定是否解除限空令</p>
+                    <div class="quote-author">— 金管會主委 彭金隆</div>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#market-overview">市場概況</a>
+                    <a href="#currency">匯率動態</a>
+                    <a href="#financial-sector">金融業表現</a>
+                    <a href="#international">國際情勢</a>
+                </div>
+                <p style="margin-bottom: 0.5rem;"><strong>免責申明：</strong>基於公開資料，僅供參考，不構成建議</p>
+                <p style="margin-bottom: 0.5rem;"><strong>資料來源：</strong>網頁公開資訊</p>
+                <p><strong>版權所有：</strong>© Dunk</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
