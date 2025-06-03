@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025年4月法令遵循法規異動彙整</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary: #9A0036;
+            --secondary: #EEBAC0;
+            --accent: #941C61;
+            --text-dark: #333333;
+            --bg-light: #F5F5F5;
+            --gold: #D4AF37;
+        }
+        
+        body {
+            font-family: 'Noto Sans TC', sans-serif, Arial;
+            color: var(--text-dark);
+            background-color: white;
+            scroll-behavior: smooth;
+        }
+        
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: #7D002C;
+        }
+        
+        .btn-accent {
+            background-color: var(--gold);
+            color: white;
+            transition: background-color 0.3s ease;
+        }
+        
+        .btn-accent:hover {
+            background-color: #B8960C;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .tag {
+            background-color: var(--secondary);
+            color: var(--primary);
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 9999px;
+            display: inline-block;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer {
+            background-color: var(--bg-light);
+            padding: 1rem;
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--text-dark);
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- 導航欄 -->
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-[#9A0036]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span class="ml-2 text-xl font-bold text-[#9A0036]">金融法規資訊平台</span>
+            </div>
+            <div class="hidden md:flex space-x-6">
+                <a href="#" class="nav-link text-[#333333] hover:text-[#9A0036]">首頁</a>
+                <a href="#" class="nav-link text-[#333333] hover:text-[#9A0036]">最新法規</a>
+                <a href="#" class="nav-link text-[#333333] hover:text-[#9A0036]">法規分類</a>
+                <a href="#" class="nav-link text-[#333333] hover:text-[#9A0036]">關於我們</a>
+            </div>
+            <div class="md:hidden">
+                <button class="text-[#333333]">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 頂部橫幅 -->
+    <div class="bg-[#9A0036] text-white py-12 px-4">
+        <div class="container mx-auto text-center">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">2025年4月法令遵循法規異動彙整</h1>
+            <p class="text-lg md:text-xl max-w-3xl mx-auto">掌握最新金融法規動態，助您做出明智決策</p>
+            <div class="mt-8">
+                <button class="bg-white text-[#9A0036] px-6 py-2 rounded-md font-medium hover:bg-gray-100">了解更多</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 主要內容區域 -->
+    <div class="container mx-auto py-10 px-4">
+        <h2 class="text-2xl font-bold mb-8 text-[#333333] border-l-4 border-[#9A0036] pl-3">最新法規修訂</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- 法規卡片 1 -->
+            <div class="card bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="bg-[#EEBAC0] h-2"></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3 text-[#9A0036]">信託業營運範圍受益權轉讓限制風險揭露及行銷訂約管理辦法</h3>
+                    <p class="text-gray-600 mb-4">本次修訂針對《信託業營運範圍受益權轉讓限制風險揭露及行銷訂約管理辦法》第十一條、第二十一條及第十條附表二至附表四進行調整，旨在規範信託業在運用信託財產時對於投資標的及行銷行為的管理。</p>
+                    <div class="mb-4">
+                        <span class="tag">信託業</span>
+                        <span class="tag">受益權轉讓限制</span>
+                        <span class="tag">風險揭露</span>
+                        <span class="tag">行銷訂約</span>
+                    </div>
+                    <a href="#trust-law" class="btn-primary w-full py-2 rounded-md font-medium block text-center">查看詳情</a>
+                </div>
+            </div>
+
+            <!-- 法規卡片 2 -->
+            <div class="card bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="bg-[#EEBAC0] h-2"></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3 text-[#9A0036]">機關採購工作及審查小組設置及作業辦法</h3>
+                    <p class="text-gray-600 mb-4">本次修訂針對《機關採購工作及審查小組設置及作業辦法》第五條進行調整，旨在強化小組會議的運作機制，確保審查程序的透明度與公正性。</p>
+                    <div class="mb-4">
+                        <span class="tag">機關採購</span>
+                        <span class="tag">審查小組</span>
+                        <span class="tag">會議召集</span>
+                        <span class="tag">審查程序</span>
+                    </div>
+                    <a href="#procurement-law" class="btn-primary w-full py-2 rounded-md font-medium block text-center">查看詳情</a>
+                </div>
+            </div>
+
+            <!-- 法規卡片 3 -->
+            <div class="card bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="bg-[#EEBAC0] h-2"></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3 text-[#9A0036]">中小微企業多元發展專案貸款要點</h3>
+                    <p class="text-gray-600 mb-4">本次修訂針對《中小微企業多元發展專案貸款要點》進行調整，旨在協助中小微企業運用數位轉型、淨零轉型及通路發展策略，優化經營效能所需資金。</p>
+                    <div class="mb-4">
+                        <span class="tag">中小微企業</span>
+                        <span class="tag">貸款要點</span>
+                        <span class="tag">數位轉型</span>
+                        <span class="tag">淨零轉型</span>
+                    </div>
+                    <a href="#sme-loan-law" class="btn-primary w-full py-2 rounded-md font-medium block text-center">查看詳情</a>
+                </div>
+            </div>
+
+            <!-- 法規卡片 4 -->
+            <div class="card bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="bg-[#EEBAC0] h-2"></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3 text-[#9A0036]">金融業申請進駐地方資產管理專區試辦業務作業原則</h3>
+                    <p class="text-gray-600 mb-4">本次修訂針對《金融業申請進駐地方資產管理專區試辦業務作業原則》進行調整，旨在配合亞洲資產管理中心推動政策，提升金融競爭力。</p>
+                    <div class="mb-4">
+                        <span class="tag">金融業</span>
+                        <span class="tag">資產管理專區</span>
+                        <span class="tag">試辦業務</span>
+                        <span class="tag">財富管理</span>
+                    </div>
+                    <a href="#asset-management-law" class="btn-primary w-full py-2 rounded-md font-medium block text-center">查看詳情</a>
+                </div>
+            </div>
+
+            <!-- 法規卡片 5 -->
+            <div class="card bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="bg-[#EEBAC0] h-2"></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3 text-[#9A0036]">財政部因應國際經貿情勢強化出口廠商金融支持措施執行要點</h3>
+                    <p class="text-gray-600 mb-4">本次修訂針對《財政部因應國際經貿情勢強化出口廠商金融支持措施執行要點》進行調整，旨在協助受美國關稅影響的出口廠商，提供金融支持措施。</p>
+                    <div class="mb-4">
+                        <span class="tag">財政部</span>
+                        <span class="tag">出口廠商</span>
+                        <span class="tag">金融支持</span>
+                        <span class="tag">貿易融資</span>
+                    </div>
+                    <a href="#export-support-law" class="btn-primary w-full py-2 rounded-md font-medium block text-center">查看詳情</a>
+                </div>
+            </div>
+
+            <!-- 法規卡片 6 -->
+            <div class="card bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="bg-[#EEBAC0] h-2"></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3 text-[#9A0036]">證券自營商投資標的管理辦法</h3>
+                    <p class="text-gray-600 mb-4">本次修訂針對《證券自營商投資標的管理辦法》進行調整，旨在規範證券自營商可投資的標的範圍，並強化風險控管機制，以確保市場穩定性及投資安全。</p>
+                    <div class="mb-4">
+                        <span class="tag">證券自營商</span>
+                        <span class="tag">投資標的</span>
+                        <span class="tag">風險控管</span>
+                        <span class="tag">市場穩定</span>
+                    </div>
+                    <a href="#securities-dealer-law" class="btn-primary w-full py-2 rounded-md font-medium block text-center">查看詳情</a>
+                </div>
+            </div>
+            
+            <!-- 法規卡片 7 -->
+            <div class="card bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="bg-[#EEBAC0] h-2"></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3 text-[#9A0036]">公開發行公司取得或處分資產處理準則</h3>
+                    <p class="text-gray-600 mb-4">本次修訂針對《公開發行公司取得或處分資產處理準則》第三十一條及第三十五條進行調整，旨在強化公開發行公司資產交易的透明度與合規性。</p>
+                    <div class="mb-4">
+                        <span class="tag">公開發行公司</span>
+                        <span class="tag">資產交易</span>
+                        <span class="tag">資訊揭露</span>
+                        <span class="tag">公司治理</span>
+                    </div>
+                    <a href="#public-company-asset-law" class="btn-primary w-full py-2 rounded-md font-medium block text-center">查看詳情</a>
+                </div>
+            </div>
+            
+            <!-- 法規卡片 8 -->
+            <div class="card bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="bg-[#EEBAC0] h-2"></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3 text-[#9A0036]">金融控股公司及銀行業內部控制及稽核制度實施辦法</h3>
+                    <p class="text-gray-600 mb-4">本次修訂針對《金融控股公司及銀行業內部控制及稽核制度實施辦法》進行調整，旨在強化金融機構內部控制機制，提升稽核制度的透明度與執行效能。</p>
+                    <div class="mb-4">
+                        <span class="tag">金融控股公司</span>
+                        <span class="tag">銀行業</span>
+                        <span class="tag">內部控制</span>
+                        <span class="tag">稽核制度</span>
+                    </div>
+                    <a href="#financial-holding-audit-law" class="btn-primary w-full py-2 rounded-md font-medium block text-center">查看詳情</a>
+                </div>
+            </div>
+            
+            <!-- 法規卡片 9 -->
+            <div class="card bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="bg-[#EEBAC0] h-2"></div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-3 text-[#9A0036]">銀行業辦理外匯業務管理辦法</h3>
+                    <p class="text-gray-600 mb-4">本次修訂針對《銀行業辦理外匯業務管理辦法》部分條文進行調整，旨在強化銀行業外匯業務的管理機制，確保交易透明度及合規性。</p>
+                    <div class="mb-4">
+                        <span class="tag">銀行業</span>
+                        <span class="tag">外匯業務</span>
+                        <span class="tag">中央銀行</span>
+                        <span class="tag">風險控管</span>
+                    </div>
+                    <a href="#foreign-exchange-law" class="btn-primary w-full py-2 rounded-md font-medium block text-center">查看詳情</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 法規詳情區塊 -->
+        <div class="mt-16">
+            <h2 class="text-2xl font-bold mb-8 text-[#333333] border-l-4 border-[#9A0036] pl-3">法規詳情</h2>
+            
+            <!-- 信託業營運範圍受益權轉讓限制風險揭露及行銷訂約管理辦法 -->
+            <div id="trust-law" class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+                <div class="bg-[#9A0036] py-4 px-6">
+                    <h3 class="text-xl font-bold text-white">信託業營運範圍受益權轉讓限制風險揭露及行銷訂約管理辦法</h3>
+                </div>
+                <div class="p-6">
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">總述</h4>
+                        <p class="text-gray-700">本次修訂針對《信託業營運範圍受益權轉讓限制風險揭露及行銷訂約管理辦法》第十一條、第二十一條及第十條附表二至附表四進行調整，旨在規範信託業在運用信託財產時對於投資標的及行銷行為的管理，確保投資人權益及風險控管。</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">異動項目</h4>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                            <li><strong>第十一條調整</strong> - 明確規範非專業投資人可投資的標的種類，如外幣存款、外國有價證券、境外基金等，並強化槓桿或放空效果ETF的限制。</li>
+                            <li><strong>第二十一條修訂</strong> - 限制信託業針對特定投資標的進行廣告或促銷，並規定非專業投資人需有書面同意才能接受推介。</li>
+                            <li><strong>第十條附表二至附表四</strong> - 更新相關信用評等標準，確保信託業選擇投資標的時符合一定的信用評等條件。</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">總結</h4>
+                        <p class="text-gray-700">本次修正主要聚焦於加強對信託業投資標的的規範，並提升投資人保護機制，避免風險過度擴散。此外，對信託業的行銷行為設定更嚴謹的要求，以確保資訊透明度及投資安全性。</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">關鍵字</h4>
+                        <div>
+                            <span class="tag">信託業</span>
+                            <span class="tag">受益權轉讓限制</span>
+                            <span class="tag">風險揭露</span>
+                            <span class="tag">行銷訂約</span>
+                            <span class="tag">投資標的</span>
+                            <span class="tag">信用評等</span>
+                            <span class="tag">ETF</span>
+                            <span class="tag">境外基金</span>
+                            <span class="tag">信託財產</span>
+                            <span class="tag">非專業投資人</span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">備註</h4>
+                        <a href="https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg031065/ch04/type1/gov36/num3/Eg.htm" class="text-[#9A0036] hover:underline" target="_blank">行政院公報相關法規內容</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 機關採購工作及審查小組設置及作業辦法 -->
+            <div id="procurement-law" class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+                <div class="bg-[#9A0036] py-4 px-6">
+                    <h3 class="text-xl font-bold text-white">機關採購工作及審查小組設置及作業辦法</h3>
+                </div>
+                <div class="p-6">
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">總述</h4>
+                        <p class="text-gray-700">本次修訂針對《機關採購工作及審查小組設置及作業辦法》第五條進行調整，旨在強化小組會議的運作機制，確保審查程序的透明度與公正性，提升政府採購效能。</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">異動項目</h4>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                            <li><strong>第五條修訂</strong> - 調整小組會議召集方式，明確規定會議主席由機關首長或其授權人員擔任，以確保決策的權威性。</li>
+                            <li><strong>會議程序規範</strong> - 增加對會議紀錄的要求，規定須詳實記載討論過程及決議事項，並由出席成員確認。</li>
+                            <li><strong>委員迴避機制</strong> - 強化委員利益迴避規定，確保審查過程的公正性與客觀性。</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">總結</h4>
+                        <p class="text-gray-700">本次修訂主要聚焦於提升機關採購審查小組的運作效能，強化會議程序的規範性，確保審查過程的透明度與公正性，進而提升政府採購的品質與效率。</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">關鍵字</h4>
+                        <div>
+                            <span class="tag">機關採購</span>
+                            <span class="tag">審查小組</span>
+                            <span class="tag">會議召集</span>
+                            <span class="tag">審查程序</span>
+                            <span class="tag">利益迴避</span>
+                            <span class="tag">會議紀錄</span>
+                            <span class="tag">政府採購</span>
+                            <span class="tag">透明度</span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">備註</h4>
+                        <a href="https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg031076/ch06/type1/gov51/num14/Eg.htm" class="text-[#9A0036] hover:underline" target="_blank">行政院公報相關法規內容</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 中小微企業多元發展專案貸款要點 -->
+            <div id="sme-loan-law" class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+                <div class="bg-[#9A0036] py-4 px-6">
+                    <h3 class="text-xl font-bold text-white">中小微企業多元發展專案貸款要點</h3>
+                </div>
+                <div class="p-6">
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">總述</h4>
+                        <p class="text-gray-700">本次修訂針對《中小微企業多元發展專案貸款要點》進行調整，旨在協助中小微企業運用數位轉型、淨零轉型及通路發展策略，優化經營效能所需資金，提升企業競爭力。</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">異動項目</h4>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                            <li><strong>貸款對象擴大</strong> - 將貸款對象擴大至符合「中小企業認定標準」的企業，並特別納入微型企業。</li>
+                            <li><strong>貸款用途調整</strong> - 增加數位轉型、淨零轉型及通路發展等項目，協助企業因應市場變化。</li>
+                            <li><strong>貸款額度提高</strong> - 根據企業規模及需求，調整貸款額度上限，最高可達新臺幣一千萬元。</li>
+                            <li><strong>貸款期限延長</strong> - 延長貸款期限，最長可達七年，寬限期最長二年，減輕企業還款壓力。</li>
+                            <li><strong>利率優惠調整</strong> - 提供優惠利率，並針對特定產業或轉型項目給予額外利率減免。</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">總結</h4>
+                        <p class="text-gray-700">本次修訂主要聚焦於提供中小微企業更多元、更彈性的融資管道，協助企業因應數位化、淨零碳排等趨勢進行轉型，提升市場競爭力，促進永續發展。</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">關鍵字</h4>
+                        <div>
+                            <span class="tag">中小微企業</span>
+                            <span class="tag">貸款要點</span>
+                            <span class="tag">數位轉型</span>
+                            <span class="tag">淨零轉型</span>
+                            <span class="tag">通路發展</span>
+                            <span class="tag">融資管道</span>
+                            <span class="tag">優惠利率</span>
+                            <span class="tag">企業競爭力</span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">備註</h4>
+                        <a href="https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg031077/ch04/type2/gov31/num7/Eg.htm" class="text-[#9A0036] hover:underline" target="_blank">行政院公報相關法規內容</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 金融業申請進駐地方資產管理專區試辦業務作業原則 -->
+            <div id="asset-management-law" class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+                <div class="bg-[#9A0036] py-4 px-6">
+                    <h3 class="text-xl font-bold text-white">金融業申請進駐地方資產管理專區試辦業務作業原則</h3>
+                </div>
+                <div class="p-6">
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">總述</h4>
+                        <p class="text-gray-700">本次修訂針對《金融業申請進駐地方資產管理專區試辦業務作業原則》進行調整，旨在配合亞洲資產管理中心推動政策，提升金融競爭力，促進地方金融發展。</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">異動項目</h4>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                            <li><strong>申請資格調整</strong> - 放寬金融業申請進駐資產管理專區的資格條件，鼓勵更多金融機構參與。</li>
+                            <li><strong>試辦業務範圍擴大</strong> - 增加可試辦的業務項目，包括財富管理、資產配置、投資顧問等服務。</li>
+                            <li><strong>審核程序簡化</strong> - 簡化申請審核流程，縮短審核時間，提高行政效率。</li>
+                            <li><strong>監管機制調整</strong> - 建立更彈性的監管框架，在確保風險控管的前提下，給予金融機構更多創新空間。</li>
+                            <li><strong>跨境業務合作</strong> - 增加與國際金融機構合作的機會，促進跨境資產管理業務發展。</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">總結</h4>
+                        <p class="text-gray-700">本次修訂主要聚焦於優化資產管理專區的運作機制，提供金融業更友善的發展環境，促進台灣成為亞洲資產管理中心，提升國際競爭力。</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">關鍵字</h4>
+                        <div>
+                            <span class="tag">金融業</span>
+                            <span class="tag">資產管理專區</span>
+                            <span class="tag">試辦業務</span>
+                            <span class="tag">財富管理</span>
+                            <span class="tag">亞洲資產管理中心</span>
+                            <span class="tag">跨境合作</span>
+                            <span class="tag">金融創新</span>
+                            <span class="tag">監管框架</span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">備註</h4>
+                        <a href="https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg031059/ch04/type2/gov36/num13/Eg.htm" class="text-[#9A0036] hover:underline" target="_blank">行政院公報相關法規內容</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 財政部因應國際經貿情勢強化出口廠商金融支持措施執行要點 -->
+            <div id="export-support-law" class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+                <div class="bg-[#9A0036] py-4 px-6">
+                    <h3 class="text-xl font-bold text-white">財政部因應國際經貿情勢強化出口廠商金融支持措施執行要點</h3>
+                </div>
+                <div class="p-6">
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">總述</h4>
+                        <p class="text-gray-700">本次修訂針對《財政部因應國際經貿情勢強化出口廠商金融支持措施執行要點》進行調整，旨在協助受美國關稅影響的出口廠商，提供金融支持措施，維持產業競爭力。</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">異動項目</h4>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                            <li><strong>適用對象擴大</strong> - 將支持措施的適用對象擴大至受國際貿易摩擦影響的各類出口廠商。</li>
+                            <li><strong>融資額度提高</strong> - 提高出口廠商的融資額度，最高可達新臺幣五億元，協助企業因應資金需求。</li>
+                            <li><strong>貸款利率優惠</strong> - 提供優惠貸款利率，減輕企業融資成本，提升國際競爭力。</li>
+                            <li><strong>貸款期限延長</strong> - 延長貸款期限至最長五年，給予企業更充裕的資金運用時間。</li>
+                            <li><strong>申請程序簡化</strong> - 簡化申請流程，縮短審核時間，加速資金取得。</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">總結</h4>
+                        <p class="text-gray-700">本次修訂主要聚焦於提供出口廠商更全面的金融支持，協助企業因應國際經貿情勢變化，維持產業競爭力，確保經濟穩定發展。</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">關鍵字</h4>
+                        <div>
+                            <span class="tag">財政部</span>
+                            <span class="tag">出口廠商</span>
+                            <span class="tag">金融支持</span>
+                            <span class="tag">貿易融資</span>
+                            <span class="tag">國際經貿</span>
+                            <span class="tag">優惠利率</span>
+                            <span class="tag">融資額度</span>
+                            <span class="tag">產業競爭力</span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">備註</h4>
+                        <a href="https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg031073/ch04/type2/gov30/num3/Eg.htm" class="text-[#9A0036] hover:underline" target="_blank">行政院公報相關法規內容</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 證券自營商投資標的管理辦法 -->
+            <div id="securities-dealer-law" class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+                <div class="bg-[#9A0036] py-4 px-6">
+                    <h3 class="text-xl font-bold text-white">證券自營商投資標的管理辦法</h3>
+                </div>
+                <div class="p-6">
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">總述</h4>
+                        <p class="text-gray-700">本次修訂針對《證券自營商投資標的管理辦法》進行調整，旨在規範證券自營商可投資的標的範圍，並強化風險控管機制，以確保市場穩定性及投資安全。</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">異動項目</h4>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                            <li><strong>新增投資標的</strong> - 允許證券自營商購買私募有價證券、資產基礎證券及創櫃板公司增資發行的新股。</li>
+                            <li><strong>投資金額限制</strong> - 單一公司投資標的金額不得超過證券商淨值的5%，總額不得超過證券商淨值的10%。</li>
+                            <li><strong>風險控管要求</strong> - 投資標的交易金額達一定門檻時，須經董事會通過並依規定公告申報。</li>
+                            <li><strong>財務健全性要求</strong> - 投資後證券商的自有資本適足比率不得低於200%。</li>
+                            <li><strong>決策程序規範</strong> - 投資決策須符合內部稽核規範，並於交易發生後兩日內完成申報。</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">總結</h4>
+                        <p class="text-gray-700">本次修訂強化證券自營商的投資標的管理，確保市場穩定性，並提升風險控管機制，以維護投資安全及財務健全性。</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">關鍵字</h4>
+                        <div>
+                            <span class="tag">證券自營商</span>
+                            <span class="tag">投資標的</span>
+                            <span class="tag">風險控管</span>
+                            <span class="tag">財務健全性</span>
+                            <span class="tag">私募證券</span>
+                            <span class="tag">資產基礎證券</span>
+                            <span class="tag">創櫃板</span>
+                            <span class="tag">投資決策</span>
+                            <span class="tag">內部稽核</span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">備註</h4>
+                        <a href="https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg031073/ch04/type2/gov36/num6/Eg.htm" class="text-[#9A0036] hover:underline" target="_blank">行政院公報相關法規內容</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 公開發行公司取得或處分資產處理準則 -->
+            <div id="public-company-asset-law" class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+                <div class="bg-[#9A0036] py-4 px-6">
+                    <h3 class="text-xl font-bold text-white">公開發行公司取得或處分資產處理準則</h3>
+                </div>
+                <div class="p-6">
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">總述</h4>
+                        <p class="text-gray-700">本次修訂針對《公開發行公司取得或處分資產處理準則》第三十一條及第三十五條進行調整，旨在強化公開發行公司資產交易的透明度與合規性，確保投資人權益及市場秩序。</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">異動項目</h4>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                            <li><strong>第三十一條修訂</strong> - 明確規範公開發行公司在進行重大資產交易時，須依規定進行資訊揭露，並確保交易條件符合市場公平性。</li>
+                            <li><strong>第三十五條調整</strong> - 增加對資產處分程序的規範，要求公司須提供完整的交易背景資料，並確保董事會決策符合公司治理原則。</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">總結</h4>
+                        <p class="text-gray-700">本次修訂主要聚焦於提升公開發行公司資產交易的透明度與合規性，確保市場公平性，並加強對投資人權益的保障。</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">關鍵字</h4>
+                        <div>
+                            <span class="tag">公開發行公司</span>
+                            <span class="tag">資產交易</span>
+                            <span class="tag">資訊揭露</span>
+                            <span class="tag">公司治理</span>
+                            <span class="tag">投資人權益</span>
+                            <span class="tag">交易公平性</span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">備註</h4>
+                        <a href="https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg031067/ch04/type3/gov36/num11/Eg.htm" class="text-[#9A0036] hover:underline" target="_blank">行政院公報相關法規內容</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 金融控股公司及銀行業內部控制及稽核制度實施辦法 -->
+            <div id="financial-holding-audit-law" class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+                <div class="bg-[#9A0036] py-4 px-6">
+                    <h3 class="text-xl font-bold text-white">金融控股公司及銀行業內部控制及稽核制度實施辦法</h3>
+                </div>
+                <div class="p-6">
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">總述</h4>
+                        <p class="text-gray-700">本次修訂針對《金融控股公司及銀行業內部控制及稽核制度實施辦法》進行調整，旨在強化金融機構內部控制機制，提升稽核制度的透明度與執行效能，以確保金融市場的穩定性與合規性。</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">異動項目</h4>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                            <li><strong>內部控制機制強化</strong> - 針對金融控股公司及銀行業的內部控制架構進行優化，要求機構建立更完善的風險管理機制。</li>
+                            <li><strong>稽核制度調整</strong> - 明確規範稽核程序，要求金融機構定期進行內部稽核，並向主管機關提交稽核報告。</li>
+                            <li><strong>法規適用範圍擴大</strong> - 修訂條文涵蓋金融控股公司法、銀行法、信用合作社法、票券金融管理法及信託業法，確保各類金融機構均符合規範。</li>
+                            <li><strong>資訊揭露要求</strong> - 金融機構須依規定公開內部控制及稽核制度的執行狀況，以提升市場透明度。</li>
+                            <li><strong>主管機關監督機制</strong> - 金融監督管理委員會將加強對金融機構內部控制及稽核制度的監督，確保法規落實。</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">總結</h4>
+                        <p class="text-gray-700">本次修訂強化金融機構的內部控制與稽核制度，提升市場透明度與合規性，並加強主管機關的監督機制，以確保金融市場的穩定發展。</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">關鍵字</h4>
+                        <div>
+                            <span class="tag">金融控股公司</span>
+                            <span class="tag">銀行業</span>
+                            <span class="tag">內部控制</span>
+                            <span class="tag">稽核制度</span>
+                            <span class="tag">風險管理</span>
+                            <span class="tag">資訊揭露</span>
+                            <span class="tag">法規適用</span>
+                            <span class="tag">監督機制</span>
+                            <span class="tag">金融市場穩定</span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">備註</h4>
+                        <a href="https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg031069/ch04/type3/gov36/num8/Eg.htm" class="text-[#9A0036] hover:underline" target="_blank">行政院公報相關法規內容</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 銀行業辦理外匯業務管理辦法 -->
+            <div id="foreign-exchange-law" class="bg-white rounded-lg shadow-md overflow-hidden mb-8">
+                <div class="bg-[#9A0036] py-4 px-6">
+                    <h3 class="text-xl font-bold text-white">銀行業辦理外匯業務管理辦法</h3>
+                </div>
+                <div class="p-6">
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">總述</h4>
+                        <p class="text-gray-700">本次修訂針對《銀行業辦理外匯業務管理辦法》部分條文進行調整，旨在強化銀行業外匯業務的管理機制，確保交易透明度及合規性，並提升市場穩定性。</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">異動項目</h4>
+                        <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                            <li><strong>修正機關</strong> - 由中央銀行負責修訂，依據《中央銀行法》第三十五條第二項進行調整。</li>
+                            <li><strong>資訊揭露強化</strong> - 要求銀行業在辦理外匯業務時，須提供更詳細的交易資訊，以提升市場透明度。</li>
+                            <li><strong>風險控管機制</strong> - 增加對外匯業務風險評估的規範，確保銀行業在進行外匯交易時符合風險管理標準。</li>
+                            <li><strong>申報程序調整</strong> - 針對銀行業申請外匯業務的流程進行優化，簡化行政程序，提高作業效率。</li>
+                            <li><strong>監管機制強化</strong> - 主管機關將加強對銀行業外匯業務的監督，確保法規落實並維護市場秩序。</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">總結</h4>
+                        <p class="text-gray-700">本次修訂強化銀行業外匯業務的管理規範，提升交易透明度與風險控管機制，並加強監管機制，以確保市場穩定性與合規性。</p>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">關鍵字</h4>
+                        <div>
+                            <span class="tag">銀行業</span>
+                            <span class="tag">外匯業務</span>
+                            <span class="tag">中央銀行</span>
+                            <span class="tag">風險控管</span>
+                            <span class="tag">資訊揭露</span>
+                            <span class="tag">監管機制</span>
+                            <span class="tag">交易透明度</span>
+                            <span class="tag">申報程序</span>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="text-lg font-semibold mb-2 text-[#941C61]">備註</h4>
+                        <a href="https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg031070/ch04/type3/gov32/num8/Eg.htm" class="text-[#9A0036] hover:underline" target="_blank">行政院公報相關法規內容</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 頁腳 -->
+    <footer class="footer mt-12">
+        <div class="container mx-auto">
+            <div class="mb-4">
+                <p>免責申明：基於公開資料，僅供參考，不構成建議</p>
+                <p>資料來源：網頁公開資訊</p>
+                <p>版權所有： © Dunk</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 平滑滾動到錨點
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 100,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'949fcc0ca062a9c8',t:'MTc0ODk2MDA2OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
