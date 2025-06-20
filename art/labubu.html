@@ -1,0 +1,460 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LABUBU 潮流文化</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pink-primary: #ff66c4;
+            --pink-secondary: #ff99d6;
+            --pink-light: #ffcce6;
+            --industrial-gray: #2a2a2a;
+            --industrial-dark: #1a1a1a;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--industrial-dark);
+            color: white;
+        }
+        
+        .warhol-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .warhol-card {
+            background-color: var(--industrial-gray);
+            border: 2px solid var(--pink-primary);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .warhol-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(255, 102, 196, 0.3);
+        }
+        
+        .warhol-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--pink-primary), var(--pink-secondary), var(--pink-light));
+        }
+        
+        .section-title {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--pink-primary), var(--pink-secondary));
+        }
+        
+        .pop-art-bg {
+            background-image: radial-gradient(circle, var(--pink-secondary) 10%, transparent 10%),
+                             radial-gradient(circle, var(--pink-secondary) 10%, transparent 10%);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            opacity: 0.1;
+        }
+        
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--pink-primary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .industrial-divider {
+            height: 3px;
+            background: repeating-linear-gradient(
+                45deg,
+                var(--pink-primary),
+                var(--pink-primary) 10px,
+                var(--industrial-gray) 10px,
+                var(--industrial-gray) 20px
+            );
+        }
+        
+        .labubu-icon {
+            fill: var(--pink-primary);
+        }
+        
+        /* Andy Warhol inspired color blocks */
+        .color-block-1 { background-color: #ff66c4; }
+        .color-block-2 { background-color: #66c4ff; }
+        .color-block-3 { background-color: #c4ff66; }
+        .color-block-4 { background-color: #ff6666; }
+    </style>
+</head>
+<body>
+    <div class="pop-art-bg fixed inset-0 z-0"></div>
+    
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-[#1a1a1a] border-b-2 border-[#ff66c4]">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <svg class="labubu-icon w-10 h-10 mr-2" viewBox="0 0 24 24">
+                        <path d="M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2z M12,20c-4.41,0-8-3.59-8-8s3.59-8,8-8s8,3.59,8,8 S16.41,20,12,20z M16.9,7.1C16.3,6.5,15.55,6.2,14.8,6.2c-0.75,0-1.5,0.3-2.1,0.9L12,7.8l-0.7-0.7c-0.6-0.6-1.35-0.9-2.1-0.9 c-0.75,0-1.5,0.3-2.1,0.9c-1.2,1.2-1.2,3,0,4.2L12,16.2l4.9-4.9C18.1,10.1,18.1,8.3,16.9,7.1z"/>
+                    </svg>
+                    <h1 class="text-2xl font-bold text-[#ff66c4]">LABUBU</h1>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#intro" class="nav-link text-white hover:text-[#ff66c4]">引言</a>
+                    <a href="#character" class="nav-link text-white hover:text-[#ff66c4]">角色設計</a>
+                    <a href="#popularity" class="nav-link text-white hover:text-[#ff66c4]">全球現象</a>
+                    <a href="#aesthetics" class="nav-link text-white hover:text-[#ff66c4]">醜萌美學</a>
+                    <a href="#collection" class="nav-link text-white hover:text-[#ff66c4]">收藏價值</a>
+                    <a href="#collaboration" class="nav-link text-white hover:text-[#ff66c4]">跨界聯名</a>
+                    <a href="#market" class="nav-link text-white hover:text-[#ff66c4]">市場現象</a>
+                </div>
+                <button class="md:hidden text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative h-[70vh] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="grid grid-cols-2 grid-rows-2 h-full">
+                <div class="color-block-1 opacity-70"></div>
+                <div class="color-block-2 opacity-70"></div>
+                <div class="color-block-3 opacity-70"></div>
+                <div class="color-block-4 opacity-70"></div>
+            </div>
+        </div>
+        <div class="container mx-auto px-4 z-10 text-center">
+            <h1 class="text-5xl md:text-7xl font-bold mb-4 text-white drop-shadow-lg">LABUBU</h1>
+            <p class="text-xl md:text-2xl mb-8 text-white max-w-2xl mx-auto">從北歐神話到全球潮流：探索LABUBU的「醜萌」魅力與文化現象</p>
+            <div class="flex justify-center space-x-4">
+                <button class="bg-[#ff66c4] hover:bg-[#ff99d6] text-white font-bold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105">
+                    探索LABUBU
+                </button>
+                <button class="bg-transparent border-2 border-white hover:border-[#ff66c4] text-white font-bold py-3 px-6 rounded-full transition duration-300 transform hover:scale-105 hover:text-[#ff66c4]">
+                    收藏指南
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Introduction Section -->
+    <section id="intro" class="py-16 relative">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl md:text-4xl font-bold mb-12 text-[#ff66c4]">引言</h2>
+            
+            <div class="warhol-grid">
+                <!-- Card 1 -->
+                <div class="warhol-card rounded-lg p-6 shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 text-[#ff99d6]">LABUBU的背景介紹</h3>
+                    <p class="mb-4">LABUBU的創作者是香港出生的比利時籍藝術家龍家昇（Kasing Lung），他以插畫師的身份開始其藝術生涯，並在2013年出版了首本中文版繪本《我的小星球》。</p>
+                    <p>龍家昇的創作深受北歐風格影響，這與他自幼隨家人移居荷蘭的生活背景密切相關。LABUBU的設計靈感來自北歐神話故事，角色的外型特徵包括尖耳朵、九顆尖牙以及毛茸茸的身體。</p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="warhol-card rounded-lg p-6 shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 text-[#ff99d6]">創作者與角色設計</h3>
+                    <p class="mb-4">龍家昇在2010年首次將LABUBU從童話故事實體化，與玩具品牌How2work合作推出實體角色。2019年，他與中國潮玩品牌泡泡瑪特（Pop Mart）簽訂獨家授權協議。</p>
+                    <p>這一合作不僅使LABUBU成為盲盒界的頂流收藏品，也為龍家昇的藝術創作注入了商業化的活力，成功將LABUBU打造成全球知名的明星IP。</p>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="warhol-card rounded-lg p-6 shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 text-[#ff99d6]">IP背景與靈感來源</h3>
+                    <p class="mb-4">LABUBU隸屬於「The Monsters」系列，這是一個由九個角色組成的精靈天團。每個角色都有明確的背景設定和彼此之間的關係，這使得整個系列充滿故事性和互動性。</p>
+                    <p>LABUBU的靈感來源於北歐民間傳說與神話，這些故事通常圍繞森林中的精靈展開，角色的設計也融入了北歐文化的元素，例如大耳朵和尖牙等特徵。</p>
+                </div>
+                
+                <!-- Card 4 -->
+                <div class="warhol-card rounded-lg p-6 shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 text-[#ff99d6]">角色特徵與設定</h3>
+                    <p class="mb-4">LABUBU的角色設定充滿了反差萌的特質。作為主角的LABUBU是一個善良、樂於助人的女生，擁有強烈的正義感，並且樂於幫助朋友渡過困難。</p>
+                    <p>她的外型特徵包括粉紅色的大耳朵、九顆尖牙以及沒有尾巴，這些設計元素使LABUBU在眾多潮玩角色中脫穎而出。LABUBU的設計不走傳統萌系娃娃的路線，而是以「可愛中帶點反差感」的風格，展現出一種獨特的美學。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="industrial-divider mx-auto w-3/4 my-8"></div>
+
+    <!-- Character Design Section -->
+    <section id="character" class="py-16 relative">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl md:text-4xl font-bold mb-12 text-[#ff66c4]">LABUBU的全球現象</h2>
+            
+            <div class="warhol-grid">
+                <!-- Card 1 -->
+                <div class="warhol-card rounded-lg p-6 shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 text-[#ff99d6]">爆紅原因概述</h3>
+                    <p class="mb-4">LABUBU的爆紅可以歸因於多方面的因素。首先是其獨特的角色設計和故事背景，這使得LABUBU在潮玩市場中具有極高的辨識度。</p>
+                    <p>其次是明星效應的推動，特別是BLACKPINK成員Lisa的帶貨效應，她在Instagram上曬出整面牆的LABUBU收藏，並給最愛的「夜光精靈」款配文「我的小可愛們」，瞬間讓#Lisalabubu登上推特熱搜。</p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="warhol-card rounded-lg p-6 shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 text-[#ff99d6]">明星效應的影響</h3>
+                    <p class="mb-4">明星效應是LABUBU全球爆紅的重要推動力。BLACKPINK成員Lisa是引爆LABUBU熱潮的關鍵人物，她經常在社交媒體上分享LABUBU收藏，並將其作為包包掛飾搭配不同造型，瞬間引發粉絲跟風購買。</p>
+                    <p>隨後，蕾哈娜、貝克漢姆等歐美一線明星也加入，進一步放大了LABUBU的全球影響力。明星效應不僅提升了LABUBU的品牌知名度，也推動了其銷售量的增長。</p>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="warhol-card rounded-lg p-6 shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 text-[#ff99d6]">潮玩文化的崛起</h3>
+                    <p class="mb-4">LABUBU的成功也反映了潮玩文化的崛起。潮玩作為一種新興的文化現象，已經從亞文化走向主流，並成為全球消費市場的重要組成部分。</p>
+                    <p>LABUBU的盲盒模式不僅吸引了大量收藏家，也推動了潮玩市場的快速增長。例如，LABUBU的隱藏款「蒙娜麗莎LABUBU」在二手市場的價格飆升至1.5萬港元，這種稀缺性和收藏價值成為潮玩文化的重要特徵。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="industrial-divider mx-auto w-3/4 my-8"></div>
+
+    <!-- Popularity Section -->
+    <section id="popularity" class="py-16 relative">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl md:text-4xl font-bold mb-12 text-[#ff66c4]">角色設計與IP背景</h2>
+            
+            <div class="warhol-grid">
+                <!-- Card 1 -->
+                <div class="warhol-card rounded-lg p-6 shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 text-[#ff99d6]">北歐神話靈感</h3>
+                    <p class="mb-4">LABUBU的設計靈感深受北歐神話的啟發，這一點在其角色設定中表現得尤為明顯。LABUBU的創作者龍家昇（Kasing Lung）是一位香港出生的比利時籍藝術家，他的作品以北歐民間傳說和神話為基礎。</p>
+                    <p>這些角色的特徵包括尖耳朵、毛茸茸的外形以及獨特的鋸齒狀牙齒，這些設計元素不僅賦予角色獨特的外觀，也讓人聯想到北歐神話中神秘而奇幻的生物。</p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="warhol-card rounded-lg p-6 shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 text-[#ff99d6]">「The Monsters」系列特徵</h3>
+                    <p class="mb-4">LABUBU隸屬於「The Monsters」系列，這是一個由九個主要角色組成的精靈天團。每個角色都有其獨特的外觀和性格設定，例如LABUBU的粉紅大耳朵和九顆尖牙，ZIMOMO的沉穩可靠，以及MOKOKO的自戀與溫柔。</p>
+                    <p>這些角色之間還有明確的關係設定，例如ZIMOMO作為首領，負責保護和帶領整個家族，而LABUBU則是善良且樂於助人的核心角色。</p>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="warhol-card rounded-lg p-6 shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 text-[#ff99d6]">善良與正義感的角色設定</h3>
+                    <p class="mb-4">LABUBU的角色設定中最突出的特徵是其善良和正義感。作為一個生活在森林中的精靈，LABUBU以助人為樂，並且在面對困難時展現出強烈的正義感。</p>
+                    <p>LABUBU的善良與正義感還體現在其與其他角色的互動中。例如，LABUBU經常幫助其他角色解決問題，並在危機時刻挺身而出。這種角色設定不僅增強了故事的吸引力，也為粉絲提供了一個積極的價值觀參考。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="industrial-divider mx-auto w-3/4 my-8"></div>
+
+    <!-- Aesthetics Section -->
+    <section id="aesthetics" class="py-16 relative">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl md:text-4xl font-bold mb-12 text-[#ff66c4]">「醜萌」美學與情緒投射</h2>
+            
+            <div class="warhol-grid">
+                <!-- Card 1 -->
+                <div class="warhol-card rounded-lg p-6 shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 text-[#ff99d6]">反傳統萌系設計</h3>
+                    <p class="mb-4">LABUBU的設計風格被稱為「醜萌」，這是一種反傳統的萌系設計。與傳統的可愛玩具不同，LABUBU的外型具有不對稱的鋸齒牙和毛茸茸的耳朵，這種設計不僅讓人印象深刻，也挑戰了傳統的審美標準。</p>
+                    <p>這種「醜萌」設計反映了年輕世代對標準審美的叛逆態度。他們更傾向於選擇具有個性和獨特性的產品，而LABUBU正好滿足了這一需求。</p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="warhol-card rounded-lg p-6 shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 text-[#ff99d6]">年輕世代的自我投射</h3>
+                    <p class="mb-4">LABUBU的「醜萌」設計還為年輕世代提供了一種自我投射的方式。其獨特的外型和善良的內在特質讓人們能夠在其中找到自己的影子。這種情感投射使得LABUBU不僅僅是一個玩具，更是一種情感的寄託。</p>
+                    <p>年輕人通過購買和展示LABUBU來表達自己的個性和價值觀，這種現象進一步增強了LABUBU的品牌影響力。</p>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="warhol-card rounded-lg p-6 shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 text-[#ff99d6]">療癒屬性與情感共鳴</h3>
+                    <p class="mb-4">LABUBU的療癒屬性是其成功的重要因素之一。其可愛中帶點反差感的設計讓人感到放鬆和愉悅，這種情感共鳴使得LABUBU成為一種療癒的存在。</p>
+                    <p>在現代社會中，人們面臨著越來越多的壓力，而LABUBU的出現為他們提供了一種情感的出口。這種療癒屬性不僅吸引了年輕人，也吸引了更多的成年人。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="industrial-divider mx-auto w-3/4 my-8"></div>
+
+    <!-- Collection Value Section -->
+    <section id="collection" class="py-16 relative">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl md:text-4xl font-bold mb-12 text-[#ff66c4]">收藏與投資價值</h2>
+            
+            <div class="warhol-grid">
+                <!-- Card 1 -->
+                <div class="warhol-card rounded-lg p-6 shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 text-[#ff99d6]">隱藏款的稀缺性</h3>
+                    <p class="mb-4">LABUBU的隱藏款具有極高的稀缺性，這使得它們成為收藏家的夢想。例如，每個LABUBU系列都藏有「1/144概率」的隱藏款，這些隱藏款的設計通常具有獨特的細節和高辨識度。</p>
+                    <p>這種稀缺性不僅提升了LABUBU的收藏價值，也為其市場熱度提供了持續的動力。收藏家們為了獲得這些稀有款式，往往願意支付高於市場價格的費用。</p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="warhol-card rounded-lg p-6 shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 text-[#ff99d6]">拍賣市場的高價成交</h3>
+                    <p class="mb-4">LABUBU在拍賣市場上的表現也非常亮眼。例如，一款初代藏品級的薄荷色LABUBU在拍賣中以108萬元的高價成交，這一紀錄進一步鞏固了其在收藏市場的地位。</p>
+                    <p>這些高價成交的案例不僅吸引了更多的收藏家，也提升了LABUBU的品牌價值。拍賣市場的熱度也反映了LABUBU作為一種文化符號的重要性。</p>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="warhol-card rounded-lg p-6 shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 text-[#ff99d6]">收藏市場的增值潛力</h3>
+                    <p class="mb-4">LABUBU的收藏市場具有巨大的增值潛力。隨著其知名度的提升和市場需求的增加，LABUBU的價格在二手市場上持續上漲。</p>
+                    <p>這種增值潛力使得LABUBU不僅是一個玩具，更是一種投資。許多收藏家將LABUBU視為一種長期投資，並期待其未來的價值增長。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="industrial-divider mx-auto w-3/4 my-8"></div>
+
+    <!-- Collaboration Section -->
+    <section id="collaboration" class="py-16 relative">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl md:text-4xl font-bold mb-12 text-[#ff66c4]">跨界聯名與文化融合</h2>
+            
+            <div class="warhol-grid">
+                <!-- Card 1 -->
+                <div class="warhol-card rounded-lg p-6 shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 text-[#ff99d6]">與可口可樂的合作</h3>
+                    <p class="mb-4">LABUBU積極進行跨界聯名，其中與可口可樂的合作是一個典型案例。這一合作不僅提升了LABUBU的品牌影響力，也為其帶來了更多的商業機會。</p>
+                    <p>這種跨界合作展示了LABUBU在文化融合方面的潛力，並為其未來的發展提供了更多的可能性。通過與知名品牌的合作，LABUBU成功地將自己的形象與全球性的品牌聯繫起來。</p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="warhol-card rounded-lg p-6 shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 text-[#ff99d6]">法國雕塑家合作的藝術展覽</h3>
+                    <p class="mb-4">LABUBU還與法國雕塑家Bruno Catalano合作，推出了「斷臂LABUBU」系列，這一系列在巴黎盧浮宮展覽期間引發了廣泛關注。</p>
+                    <p>這種藝術與潮玩的結合不僅提升了LABUBU的藝術價值，也為其品牌形象注入了更多的文化內涵。通過與高端藝術的結合，LABUBU成功地將自己定位為一種文化符號，而不僅僅是一個玩具。</p>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="warhol-card rounded-lg p-6 shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 text-[#ff99d6]">數字化突圍與虛擬盲盒</h3>
+                    <p class="mb-4">LABUBU在數字化領域也有積極的嘗試，例如推出「MetaBox」虛擬盲盒，用戶可以在元宇宙中開盒並獲得NFT皮膚。</p>
+                    <p>這種數字化突圍不僅為LABUBU開創了新的市場，也為其品牌注入了更多的科技元素。通過進入數字領域，LABUBU成功地將自己的影響力擴展到了虛擬世界，吸引了更多的年輕用戶。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="industrial-divider mx-auto w-3/4 my-8"></div>
+
+    <!-- Market Phenomenon Section -->
+    <section id="market" class="py-16 relative">
+        <div class="container mx-auto px-4">
+            <h2 class="section-title text-3xl md:text-4xl font-bold mb-12 text-[#ff66c4]">真偽辨識與市場現象</h2>
+            
+            <div class="warhol-grid">
+                <!-- Card 1 -->
+                <div class="warhol-card rounded-lg p-6 shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 text-[#ff99d6]">盜版產品的泛濫</h3>
+                    <p class="mb-4">隨著LABUBU的爆紅，市場上出現了大量的盜版產品。例如，一款名為「Lafufu」的盜版LABUBU在海外市場的銷量甚至超過了正品。</p>
+                    <p>這種盜版現象不僅損害了LABUBU的品牌形象，也對其市場造成了負面影響。盜版產品的質量往往無法保證，這可能會影響消費者對LABUBU品牌的印象。</p>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="warhol-card rounded-lg p-6 shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 text-[#ff99d6]">真偽辨識的要點</h3>
+                    <p class="mb-4">為了幫助消費者辨別真偽，LABUBU的品牌方提供了一些辨識要點，例如毛髮質感、腳底標籤等。</p>
+                    <p>這些辨識要點不僅提高了消費者的購買信心，也為品牌形象提供了保障。通過教育消費者如何辨別真偽，LABUBU成功地保護了自己的品牌價值。</p>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="warhol-card rounded-lg p-6 shadow-lg">
+                    <h3 class="text-xl font-bold mb-4 text-[#ff99d6]">市場監管與打擊行動</h3>
+                    <p class="mb-4">為了應對盜版問題，各地市場監管部門和海關已經展開了多次打擊行動。例如，中國港珠澳大橋海關查獲了超過2萬件侵權LABUBU商品。</p>
+                    <p>這些行動不僅有效遏制了盜版產品的流通，也為LABUBU的品牌保護提供了支持。通過與監管部門的合作，LABUBU成功地保護了自己的知識產權。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+	<footer class="bg-[#1a1a1a] border-t-2 border-[#ff66c4] py-10">
+		<div class="container mx-auto px-4">
+			<div class="flex justify-center text-center">
+				<div class="max-w-md">
+					<h3 class="text-xl font-bold mb-4 text-[#ff66c4]">關於LABUBU</h3>
+					<p class="text-gray-300">LABUBU是由香港出生的比利時籍藝術家龍家昇（Kasing Lung）創作的潮玩IP，以其獨特的「醜萌」設計風格和北歐神話靈感聞名於世。</p>
+				</div>
+			</div>
+			<div class="mt-8 pt-8 border-t border-gray-700 text-center">
+				<p class="text-gray-400">&copy; 2025 LABUBU 潮流文化. All rights reserved.</p>
+			</div>
+		</div>
+	</footer>
+
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add animation to cards on scroll
+        const cards = document.querySelectorAll('.warhol-card');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        cards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'952f05d4a0b7a39d',t:'MTc1MDQ2MTg5OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
