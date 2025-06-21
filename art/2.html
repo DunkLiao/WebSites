@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>處處都是外人 - 第60屆威尼斯國際美術雙年展</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400;700&display=swap');
+        
+        :root {
+            --primary: #ff6b6b;
+            --secondary: #4ecdc4;
+            --accent: #ffe66d;
+            --dark: #1a535c;
+            --light: #f7fff7;
+        }
+        
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #0f172a;
+            color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Noto Serif TC', serif;
+        }
+        
+        .surreal-bg {
+            background: linear-gradient(45deg, #0f172a, #1e293b);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-slow {
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        .floating-fast {
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        
+        .surreal-shape {
+            position: absolute;
+            opacity: 0.4;
+            filter: blur(4px);
+            z-index: -1;
+        }
+        
+        .dream-card {
+            backdrop-filter: blur(8px);
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .dream-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .glow {
+            text-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent), 0 0 30px var(--accent);
+        }
+        
+        .parallax {
+            transition: transform 0.2s ease-out;
+        }
+        
+        .artist-image {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.5rem;
+        }
+        
+        .artist-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 107, 107, 0.3), rgba(78, 205, 196, 0.3));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .artist-image:hover::after {
+            opacity: 1;
+        }
+        
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after {
+            width: 80%;
+        }
+        
+        .surreal-border {
+            position: relative;
+        }
+        
+        .surreal-border::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border: 2px solid var(--accent);
+            border-radius: 0.5rem;
+            z-index: -1;
+            opacity: 0.5;
+            transform: rotate(-2deg);
+        }
+        
+        .exhibition-map {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .map-point {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 0 rgba(255, 230, 109, 0.7);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(255, 230, 109, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(255, 230, 109, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(255, 230, 109, 0);
+            }
+        }
+        
+        .tooltip {
+            position: absolute;
+            background-color: rgba(26, 83, 92, 0.9);
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+            transform: translateY(10px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            pointer-events: none;
+            z-index: 10;
+            width: max-content;
+            max-width: 200px;
+        }
+        
+        .map-point:hover .tooltip {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .surreal-divider {
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+            margin: 2rem 0;
+        }
+        
+        .artist-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .artist-card::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+        }
+        
+        .artist-card:hover::before {
+            top: 100%;
+            left: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="surreal-bg"></div>
+    
+    <!-- Surreal floating shapes -->
+    <svg class="surreal-shape floating" style="top: 10%; left: 5%; width: 300px; height: 300px;">
+        <circle cx="150" cy="150" r="100" fill="url(#grad1)" />
+        <defs>
+            <radialGradient id="grad1" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                <stop offset="0%" style="stop-color:rgb(255,107,107);stop-opacity:0.7" />
+                <stop offset="100%" style="stop-color:rgb(255,107,107);stop-opacity:0" />
+            </radialGradient>
+        </defs>
+    </svg>
+    
+    <svg class="surreal-shape floating-slow" style="top: 60%; right: 10%; width: 200px; height: 200px;">
+        <polygon points="100,10 40,180 190,60 10,60 160,180" fill="url(#grad2)" />
+        <defs>
+            <radialGradient id="grad2" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                <stop offset="0%" style="stop-color:rgb(78,205,196);stop-opacity:0.7" />
+                <stop offset="100%" style="stop-color:rgb(78,205,196);stop-opacity:0" />
+            </radialGradient>
+        </defs>
+    </svg>
+    
+    <svg class="surreal-shape floating-fast" style="top: 30%; left: 70%; width: 250px; height: 250px;">
+        <path d="M125,30 L150,90 L215,90 L165,130 L180,190 L125,160 L70,190 L85,130 L35,90 L100,90 Z" fill="url(#grad3)" />
+        <defs>
+            <radialGradient id="grad3" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                <stop offset="0%" style="stop-color:rgb(255,230,109);stop-opacity:0.7" />
+                <stop offset="100%" style="stop-color:rgb(255,230,109);stop-opacity:0" />
+            </radialGradient>
+        </defs>
+    </svg>
+
+    <div class="container mx-auto px-4 py-8">
+        <!-- Navigation -->
+        <nav class="flex flex-wrap justify-between items-center mb-12">
+            <div class="text-2xl font-bold text-white">
+                <span class="text-[#ff6b6b]">Biennale</span> <span class="text-[#4ecdc4]">Arte</span> <span class="text-[#ffe66d]">2024</span>
+            </div>
+            <div class="flex space-x-2 md:space-x-6">
+                <a href="#overview" class="nav-link">總覽</a>
+                <a href="#theme" class="nav-link">主題</a>
+                <a href="#structure" class="nav-link">展覽結構</a>
+                <a href="#artists" class="nav-link">焦點藝術家</a>
+                <a href="#pavilions" class="nav-link">國家館</a>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <div class="relative mb-20 overflow-hidden rounded-xl">
+            <div class="absolute inset-0 bg-gradient-to-r from-[#1a535c]/70 to-[#ff6b6b]/70 z-10"></div>
+            <div class="relative z-20 py-20 px-6 md:px-12 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 glow">
+                    處處都是外人
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+                    Stranieri Ovunque – Foreigners Everywhere
+                </p>
+                <p class="text-lg mb-8 max-w-2xl mx-auto">
+                    第60屆威尼斯國際美術雙年展
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <div class="dream-card px-6 py-3 rounded-full">
+                        2024.04.20 - 2024.11.24
+                    </div>
+                    <div class="dream-card px-6 py-3 rounded-full">
+                        策展人: 阿德里亞諾·佩德羅薩
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Surreal elements -->
+            <div class="absolute top-1/2 left-1/4 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 rounded-full bg-[#4ecdc4]/30 blur-xl floating-slow"></div>
+            <div class="absolute bottom-1/4 right-1/3 transform translate-x-1/2 translate-y-1/2 w-60 h-60 rounded-full bg-[#ff6b6b]/20 blur-xl floating"></div>
+        </div>
+
+        <!-- Overview Section -->
+        <section id="overview" class="mb-20">
+            <div class="dream-card p-8 rounded-xl relative overflow-hidden">
+                <h2 class="text-3xl font-bold mb-6 relative z-10">總覽</h2>
+                <div class="relative z-10">
+                    <p class="mb-4">
+                        第60屆威尼斯國際美術雙年展於2024年4月20日至11月24日舉行，主題為「處處都是外人」(Stranieri Ovunque – Foreigners Everywhere)。本屆雙年展由聖保羅藝術博物館藝術總監阿德里亞諾·佩德羅薩 (Adriano Pedrosa) 策劃，匯集了來自世界各地的331位藝術家及藝術團體。
+                    </p>
+                    <p class="mb-4">
+                        展覽聚焦於那些本身即為外國人、移民、僑民、流亡者或難民的藝術家，特別是來自全球南方、酷兒、原住民及邊緣群體的創作者。展覽分為「當代核心」(Nucleo Contemporaneo) 與「歷史核心」(Nucleo Storico) 兩大部分，並包含88個國家館及30項平行活動。
+                    </p>
+                    <p>
+                        紐西蘭的毛利女性藝術團體「Mataaho Collective」榮獲最佳藝術家金獅獎，而澳洲原住民藝術家 Archie Moore 則以其在澳洲館的展覽獲得最佳國家館金獅獎。
+                    </p>
+                </div>
+                
+                <!-- Surreal elements -->
+                <div class="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-gradient-to-r from-[#ffe66d]/10 to-[#ff6b6b]/10 blur-xl"></div>
+                <div class="absolute -top-10 -left-10 w-40 h-40 rounded-full bg-gradient-to-r from-[#4ecdc4]/10 to-[#1a535c]/10 blur-xl"></div>
+            </div>
+        </section>
+
+        <!-- Theme Section -->
+        <section id="theme" class="mb-20">
+            <div class="dream-card p-8 rounded-xl relative overflow-hidden">
+                <h2 class="text-3xl font-bold mb-6 relative z-10">主題與策展理念</h2>
+                <div class="grid md:grid-cols-2 gap-8 relative z-10">
+                    <div>
+                        <p class="mb-4">
+                            本屆雙年展的主題「處處都是外人」源自巴勒莫的藝術團體克萊爾·方丹 (Claire Fontaine) 自2004年起創作的一系列霓虹燈雕塑作品。該短語本身則來自一個在21世紀初於義大利都靈對抗種族主義和仇外心理的團體名稱。
+                        </p>
+                        <p>
+                            策展人阿德里亞諾·佩德羅薩藉此主題探討身份、國籍與歸屬感，強調在全球化的當代，作為「外人」的微妙經歷。展覽的核心宗旨在於為過去被邊緣化的群體提供空間與能見度，包括移民、僑民、酷兒藝術家、素人藝術家及原住民藝術家。
+                        </p>
+                    </div>
+                    <div class="surreal-border p-6">
+                        <div class="relative overflow-hidden rounded-lg">
+                            <svg viewBox="0 0 400 300" class="w-full h-auto">
+                                <defs>
+                                    <linearGradient id="neonGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+                                        <stop offset="50%" style="stop-color:#ffe66d;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#4ecdc4;stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
+                                <rect x="50" y="100" width="300" height="100" fill="none" stroke="url(#neonGradient)" stroke-width="3" />
+                                <text x="200" y="160" font-family="'Noto Sans TC', sans-serif" font-size="24" fill="white" text-anchor="middle" class="glow">處處都是外人</text>
+                                <text x="200" y="190" font-family="'Noto Sans TC', sans-serif" font-size="16" fill="white" text-anchor="middle">Stranieri Ovunque</text>
+                            </svg>
+                            <div class="absolute inset-0 bg-gradient-to-r from-[#1a535c]/10 to-transparent"></div>
+                        </div>
+                        <p class="mt-4 text-sm text-center italic">
+                            靈感來源：克萊爾·方丹 (Claire Fontaine) 的霓虹燈雕塑作品
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Surreal elements -->
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-radial from-[#1a535c]/5 to-transparent blur-xl"></div>
+            </div>
+        </section>
+
+        <!-- Exhibition Structure -->
+        <section id="structure" class="mb-20">
+            <h2 class="text-3xl font-bold mb-8">展覽結構</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="dream-card p-8 rounded-xl h-full flex flex-col justify-between relative overflow-hidden">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 text-[#4ecdc4]">當代核心</h3>
+                        <h4 class="text-lg italic mb-2">Nucleo Contemporaneo</h4>
+                        <p class="mb-4">
+                            此部分展出當代藝術家的作品，特別關注四類主體：酷兒藝術家、素人藝術家、自學或民間藝術家，以及原住民藝術家。
+                        </p>
+                        <p>
+                            共有110位藝術家參與此部分，他們的作品探討了從性別不服從到離散行動主義等多種議題。
+                        </p>
+                    </div>
+                    
+                    <!-- Surreal element -->
+                    <svg class="mt-6" viewBox="0 0 200 100">
+                        <path d="M10,50 Q50,10 100,50 T190,50" stroke="#4ecdc4" stroke-width="2" fill="none" />
+                        <circle cx="10" cy="50" r="5" fill="#4ecdc4" />
+                        <circle cx="100" cy="50" r="5" fill="#ffe66d" />
+                        <circle cx="190" cy="50" r="5" fill="#ff6b6b" />
+                    </svg>
+                    
+                    <div class="absolute -bottom-20 -right-20 w-60 h-60 rounded-full bg-[#4ecdc4]/10 blur-xl"></div>
+                </div>
+                
+                <div class="dream-card p-8 rounded-xl h-full flex flex-col relative overflow-hidden">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4 text-[#ff6b6b]">歷史核心</h3>
+                        <h4 class="text-lg italic mb-2">Nucleo Storico</h4>
+                        <p class="mb-4">
+                            此部分匯集了20世紀在拉丁美洲、非洲、亞洲和中東地區的現代主義作品，旨在呈現一部更廣闊、更多元的藝術史。
+                        </p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                        <div class="dream-card p-4 rounded-lg">
+                            <h5 class="font-bold mb-2">肖像</h5>
+                            <p class="text-sm">位於綠園城堡的中央展館，此展區匯集了111位藝術家的作品，專注於肖像畫與人物形象的表現。</p>
+                        </div>
+                        <div class="dream-card p-4 rounded-lg">
+                            <h5 class="font-bold mb-2">抽象</h5>
+                            <p class="text-sm">同樣位於中央展館，此展區展示了37位藝術家的作品，呈現了有別於歐洲幾何建構主義、更偏向有機和曲線形態的抽象藝術。</p>
+                        </div>
+                        <div class="dream-card p-4 rounded-lg">
+                            <h5 class="font-bold mb-2">四海為家的義大利人</h5>
+                            <p class="text-sm">位於軍械庫，此展區聚焦於40位在海外（非洲、亞洲、拉丁美洲等地）發展其藝術生涯的義大利藝術家。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute -top-20 -left-20 w-60 h-60 rounded-full bg-[#ff6b6b]/10 blur-xl"></div>
+                </div>
+            </div>
+            
+            <!-- Exhibition Map -->
+            <div class="dream-card p-8 rounded-xl mb-8">
+                <h3 class="text-2xl font-bold mb-6">展覽地圖</h3>
+                <div class="exhibition-map relative h-[400px] rounded-lg overflow-hidden">
+                    <!-- Stylized Venice Map -->
+                    <svg viewBox="0 0 800 400" class="w-full h-full">
+                        <defs>
+                            <pattern id="water" patternUnits="userSpaceOnUse" width="20" height="20">
+                                <path d="M0,10 Q5,5 10,10 T20,10" fill="none" stroke="#1a535c" stroke-width="1" />
+                            </pattern>
+                        </defs>
+                        
+                        <!-- Water background -->
+                        <rect x="0" y="0" width="800" height="400" fill="url(#water)" />
+                        
+                        <!-- Venice main island -->
+                        <path d="M200,100 C300,80 400,90 500,120 C550,150 600,200 580,250 C550,300 450,320 350,310 C250,300 150,250 200,100 Z" 
+                              fill="#0f172a" stroke="#4ecdc4" stroke-width="2" />
+                        
+                        <!-- Small islands -->
+                        <circle cx="650" cy="180" r="30" fill="#0f172a" stroke="#4ecdc4" stroke-width="2" />
+                        <circle cx="150" cy="220" r="25" fill="#0f172a" stroke="#4ecdc4" stroke-width="2" />
+                        
+                        <!-- Canals -->
+                        <path d="M300,120 C350,150 400,180 350,250" fill="none" stroke="#1a535c" stroke-width="3" />
+                        <path d="M400,100 C450,150 500,200 450,280" fill="none" stroke="#1a535c" stroke-width="3" />
+                    </svg>
+                    
+                    <!-- Map points -->
+                    <div class="map-point" style="top: 40%; left: 35%;">
+                        <div class="tooltip">綠園城堡 (Giardini)<br>中央展館</div>
+                    </div>
+                    <div class="map-point" style="top: 60%; left: 55%;">
+                        <div class="tooltip">軍械庫 (Arsenale)</div>
+                    </div>
+                    <div class="map-point" style="top: 45%; left: 80%;">
+                        <div class="tooltip">瑪格拉堡 (Forte Marghera)</div>
+                    </div>
+                    <div class="map-point" style="top: 55%; left: 20%;">
+                        <div class="tooltip">朱代卡島<br>教廷館</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Exhibition Info -->
+            <div class="dream-card p-8 rounded-xl">
+                <h3 class="text-2xl font-bold mb-6">展覽資訊</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <tbody>
+                            <tr class="border-b border-white/10">
+                                <td class="py-3 pr-4 font-bold">展覽名稱</td>
+                                <td class="py-3">第60屆威尼斯國際美術雙年展：處處都是外人</td>
+                            </tr>
+                            <tr class="border-b border-white/10">
+                                <td class="py-3 pr-4 font-bold">展期</td>
+                                <td class="py-3">2024年4月20日至11月24日</td>
+                            </tr>
+                            <tr class="border-b border-white/10">
+                                <td class="py-3 pr-4 font-bold">策展人</td>
+                                <td class="py-3">阿德里亞諾·佩德羅薩 (Adriano Pedrosa)</td>
+                            </tr>
+                            <tr class="border-b border-white/10">
+                                <td class="py-3 pr-4 font-bold">主要場館</td>
+                                <td class="py-3">綠園城堡 (Giardini)、軍械庫 (Arsenale)、瑪格拉堡 (Forte Marghera)</td>
+                            </tr>
+                            <tr class="border-b border-white/10">
+                                <td class="py-3 pr-4 font-bold">參展藝術家總數</td>
+                                <td class="py-3">331位</td>
+                            </tr>
+                            <tr class="border-b border-white/10">
+                                <td class="py-3 pr-4 font-bold">國家館數量</td>
+                                <td class="py-3">88個</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 pr-4 font-bold">首次參展國家</td>
+                                <td class="py-3">貝南、衣索比亞、坦尚尼亞、東帝汶</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Artists Section -->
+        <section id="artists" class="mb-20">
+            <h2 class="text-3xl font-bold mb-8">焦點藝術家與作品</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="dream-card p-8 rounded-xl relative overflow-hidden">
+                    <div class="relative z-10">
+                        <h3 class="text-2xl font-bold mb-4">終身成就金獅獎</h3>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div>
+                                <div class="artist-image mb-3 aspect-square bg-gradient-to-br from-[#1a535c] to-[#4ecdc4]">
+                                    <div class="flex items-center justify-center h-full">
+                                        <svg class="w-16 h-16 text-white/70" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <h4 class="font-bold">Anna Maria Maiolino</h4>
+                                <p class="text-sm text-white/70">義大利裔巴西藝術家</p>
+                            </div>
+                            <div>
+                                <div class="artist-image mb-3 aspect-square bg-gradient-to-br from-[#ff6b6b] to-[#ffe66d]">
+                                    <div class="flex items-center justify-center h-full">
+                                        <svg class="w-16 h-16 text-white/70" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                </div>
+                                <h4 class="font-bold">Nil Yalter</h4>
+                                <p class="text-sm text-white/70">駐巴黎的土耳其藝術家</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Surreal element -->
+                    <div class="absolute -bottom-10 -right-10 w-40 h-40 rounded-full bg-[#ffe66d]/10 blur-xl"></div>
+                </div>
+                
+                <div class="dream-card p-8 rounded-xl relative overflow-hidden">
+                    <div class="relative z-10">
+                        <h3 class="text-2xl font-bold mb-4">金獅獎得主</h3>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div>
+                                <div class="artist-image mb-3 aspect-square bg-gradient-to-br from-[#4ecdc4] to-[#ffe66d]">
+                                    <div class="flex items-center justify-center h-full text-center p-4">
+                                        <p class="font-bold">Mataaho Collective</p>
+                                    </div>
+                                </div>
+                                <h4 class="font-bold">最佳藝術家金獅獎</h4>
+                                <p class="text-sm text-white/70">紐西蘭毛利女性藝術團體</p>
+                            </div>
+                            <div>
+                                <div class="artist-image mb-3 aspect-square bg-gradient-to-br from-[#ffe66d] to-[#ff6b6b]">
+                                    <div class="flex items-center justify-center h-full text-center p-4">
+                                        <p class="font-bold">Archie Moore</p>
+                                    </div>
+                                </div>
+                                <h4 class="font-bold">最佳國家館金獅獎</h4>
+                                <p class="text-sm text-white/70">澳洲原住民藝術家</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Surreal element -->
+                    <div class="absolute -top-10 -left-10 w-40 h-40 rounded-full bg-[#ff6b6b]/10 blur-xl"></div>
+                </div>
+            </div>
+            
+            <!-- Featured Artists -->
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="artist-card dream-card p-6 rounded-xl">
+                    <div class="mb-4 aspect-video bg-gradient-to-br from-[#1a535c] to-[#4ecdc4] rounded-lg flex items-center justify-center">
+                        <svg class="w-16 h-16 text-white/50" viewBox="0 0 100 100">
+                            <path d="M20,50 Q35,20 50,50 T80,50" stroke="white" stroke-width="2" fill="none" />
+                            <path d="M20,70 Q35,40 50,70 T80,70" stroke="white" stroke-width="2" fill="none" />
+                        </svg>
+                    </div>
+                    <h4 class="font-bold text-lg mb-1">Mataaho Collective</h4>
+                    <p class="text-sm text-white/70 mb-3">紐西蘭</p>
+                    <p class="text-sm">
+                        由四位毛利女性藝術家組成的團體，以其大型編織裝置《Takapau》(2022) 贏得最佳藝術家金獅獎。作品懸掛在軍械庫入口處，由工業貨運綁帶編織而成，參考了毛利女性傳統的分娩墊。
+                    </p>
+                </div>
+                
+                <div class="artist-card dream-card p-6 rounded-xl">
+                    <div class="mb-4 aspect-video bg-gradient-to-br from-[#ff6b6b] to-[#ffe66d] rounded-lg flex items-center justify-center">
+                        <svg class="w-16 h-16 text-white/50" viewBox="0 0 100 100">
+                            <rect x="20" y="20" width="60" height="60" stroke="white" stroke-width="2" fill="none" />
+                            <circle cx="50" cy="50" r="20" stroke="white" stroke-width="2" fill="none" />
+                        </svg>
+                    </div>
+                    <h4 class="font-bold text-lg mb-1">MAHKU</h4>
+                    <p class="text-sm text-white/70 mb-3">巴西</p>
+                    <p class="text-sm">
+                        來自巴西的原住民藝術家團體，他們在中央展館的外牆上繪製了一幅巨大的壁畫，描繪了其祖先騎在鱷魚背上穿越白令海峽的神話故事，色彩斑斕，充滿活力。
+                    </p>
+                </div>
+                
+                <div class="artist-card dream-card p-6 rounded-xl">
+                    <div class="mb-4 aspect-video bg-gradient-to-br from-[#4ecdc4] to-[#ffe66d] rounded-lg flex items-center justify-center">
+                        <svg class="w-16 h-16 text-white/50" viewBox="0 0 100 100">
+                            <path d="M30,70 L70,30 M30,30 L70,70" stroke="white" stroke-width="2" />
+                            <circle cx="50" cy="50" r="30" stroke="white" stroke-width="2" fill="none" />
+                        </svg>
+                    </div>
+                    <h4 class="font-bold text-lg mb-1">Teresa Margolles</h4>
+                    <p class="text-sm text-white/70 mb-3">墨西哥</p>
+                    <p class="text-sm">
+                        她的作品《Tela Venezuelana》是一塊布，上面留有一名委內瑞拉移民在穿越哥倫比亞邊境時遇害後留下的血跡印記，直面死亡與遷徙的殘酷現實。
+                    </p>
+                </div>
+                
+                <div class="artist-card dream-card p-6 rounded-xl">
+                    <div class="mb-4 aspect-video bg-gradient-to-br from-[#ffe66d] to-[#1a535c] rounded-lg flex items-center justify-center">
+                        <svg class="w-16 h-16 text-white/50" viewBox="0 0 100 100">
+                            <path d="M20,80 C40,40 60,40 80,80" stroke="white" stroke-width="2" fill="none" />
+                            <path d="M20,20 C40,60 60,60 80,20" stroke="white" stroke-width="2" fill="none" />
+                        </svg>
+                    </div>
+                    <h4 class="font-bold text-lg mb-1">Aycoobo</h4>
+                    <p class="text-sm text-white/70 mb-3">哥倫比亞</p>
+                    <p class="text-sm">
+                        這位哥倫比亞藝術家與其父親的作品，以充滿生命力的筆觸描繪了亞馬遜的樹木、野生動物以及自然與精神世界的連結，提醒觀者生態系統的脆弱與流失。
+                    </p>
+                </div>
+                
+                <div class="artist-card dream-card p-6 rounded-xl">
+                    <div class="mb-4 aspect-video bg-gradient-to-br from-[#1a535c] to-[#ff6b6b] rounded-lg flex items-center justify-center">
+                        <svg class="w-16 h-16 text-white/50" viewBox="0 0 100 100">
+                            <circle cx="50" cy="40" r="15" stroke="white" stroke-width="2" fill="none" />
+                            <path d="M35,60 L65,60 L65,80 L35,80 Z" stroke="white" stroke-width="2" fill="none" />
+                            <path d="M40,40 L30,30 M60,40 L70,30" stroke="white" stroke-width="2" fill="none" />
+                        </svg>
+                    </div>
+                    <h4 class="font-bold text-lg mb-1">Yinka Shonibare</h4>
+                    <p class="text-sm text-white/70 mb-3">英國/奈及利亞</p>
+                    <p class="text-sm">
+                        他的雕塑作品《Refugee Astronaut》描繪了一位身穿蠟染布太空服的太空人，背著行囊，象徵著在陌生土地上的異鄉人。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- National Pavilions -->
+        <section id="pavilions" class="mb-20">
+            <h2 class="text-3xl font-bold mb-8">國家館亮點</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-12">
+                <div class="dream-card p-8 rounded-xl relative overflow-hidden">
+                    <div class="relative z-10">
+                        <h3 class="text-2xl font-bold mb-4 text-[#ffe66d]">金獅獎國家館</h3>
+                        <div class="flex items-center mb-6">
+                            <div class="w-16 h-16 rounded-full bg-gradient-to-br from-[#ffe66d] to-[#ff6b6b] flex items-center justify-center mr-4">
+                                <span class="text-2xl">🇦🇺</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg">澳洲館</h4>
+                                <p class="text-sm">
+                                    原住民藝術家 Archie Moore 榮獲最佳國家館金獅獎，這是澳洲首次獲此殊榮。
+                                </p>
+                            </div>
+                        </div>
+                        <div class="surreal-border p-4 rounded-lg">
+                            <p class="italic text-sm">
+                                "Moore的作品探討了澳洲原住民的歷史與身份，以及殖民主義對原住民文化的影響。他的裝置作品透過個人與集體記憶的交織，重新審視澳洲的歷史敘事。"
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Surreal element -->
+                    <div class="absolute -bottom-20 -right-20 w-60 h-60 rounded-full bg-[#ffe66d]/10 blur-xl"></div>
+                </div>
+                
+                <div class="dream-card p-8 rounded-xl relative overflow-hidden">
+                    <div class="relative z-10">
+                        <h3 class="text-2xl font-bold mb-4 text-[#4ecdc4]">首次參展國家</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="dream-card p-4 rounded-lg flex items-center">
+                                <span class="text-2xl mr-3">🇧🇯</span>
+                                <span>貝南</span>
+                            </div>
+                            <div class="dream-card p-4 rounded-lg flex items-center">
+                                <span class="text-2xl mr-3">🇪🇹</span>
+                                <span>衣索比亞</span>
+                            </div>
+                            <div class="dream-card p-4 rounded-lg flex items-center">
+                                <span class="text-2xl mr-3">🇹🇿</span>
+                                <span>坦尚尼亞</span>
+                            </div>
+                            <div class="dream-card p-4 rounded-lg flex items-center">
+                                <span class="text-2xl mr-3">🇹🇱</span>
+                                <span>東帝汶</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Surreal element -->
+                    <div class="absolute -top-20 -left-20 w-60 h-60 rounded-full bg-[#4ecdc4]/10 blur-xl"></div>
+                </div>
+            </div>
+            
+            <!-- Featured Pavilions -->
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="artist-card dream-card p-6 rounded-xl">
+                    <div class="mb-4 aspect-video bg-gradient-to-br from-[#1a535c] to-[#4ecdc4] rounded-lg flex items-center justify-center">
+                        <span class="text-4xl">🇮🇹</span>
+                    </div>
+                    <h4 class="font-bold text-lg mb-1">義大利館</h4>
+                    <p class="text-sm">
+                        由藝術家馬西莫·巴托里尼 (Massimo Bartolini) 代表，其沉浸式聲音與環境裝置作品《Due qui / To hear》探討了在全球背景下的歸屬感與自我意識。
+                    </p>
+                </div>
+                
+                <div class="artist-card dream-card p-6 rounded-xl">
+                    <div class="mb-4 aspect-video bg-gradient-to-br from-[#ff6b6b] to-[#ffe66d] rounded-lg flex items-center justify-center">
+                        <span class="text-4xl">🇨🇳</span>
+                    </div>
+                    <h4 class="font-bold text-lg mb-1">中國館</h4>
+                    <p class="text-sm">
+                        主題為「美美與共：集」，由王小松和姜俊共同策劃，展出7位當代藝術家的作品，並結合「中國歷代繪畫大系」的圖像文獻，傳遞「海納百川」與「和合共生」的文化價值。
+                    </p>
+                </div>
+                
+                <div class="artist-card dream-card p-6 rounded-xl">
+                    <div class="mb-4 aspect-video bg-gradient-to-br from-[#4ecdc4] to-[#ffe66d] rounded-lg flex items-center justify-center">
+                        <span class="text-4xl">🇹🇼</span>
+                    </div>
+                    <h4 class="font-bold text-lg mb-1">台灣館</h4>
+                    <p class="text-sm">
+                        由藝術家袁廣鳴代表，展覽名為「日常戰爭」，透過其近十年的影像作品，探討在衝突與脆弱已成常態的時代中，對家園的渴望與探問。
+                    </p>
+                </div>
+                
+                <div class="artist-card dream-card p-6 rounded-xl">
+                    <div class="mb-4 aspect-video bg-gradient-to-br from-[#ffe66d] to-[#1a535c] rounded-lg flex items-center justify-center">
+                        <span class="text-4xl">🇩🇪</span>
+                    </div>
+                    <h4 class="font-bold text-lg mb-1">德國館</h4>
+                    <p class="text-sm">
+                        由耶爾·巴塔納 (Yael Bartana) 和埃爾桑·蒙塔格 (Ersan Mondtag) 代表，展覽主題為「界閾」(Thresholds)，從移民視角探討邊界與過渡的概念。蒙塔格的作品涉及石棉致死的議題，而巴塔納則構想了一個逃往外太空的科幻裝置。
+                    </p>
+                </div>
+                
+                <div class="artist-card dream-card p-6 rounded-xl">
+                    <div class="mb-4 aspect-video bg-gradient-to-br from-[#1a535c] to-[#ff6b6b] rounded-lg flex items-center justify-center">
+                        <span class="text-4xl">🇳🇬</span>
+                    </div>
+                    <h4 class="font-bold text-lg mb-1">尼日利亞館</h4>
+                    <p class="text-sm">
+                        展覽「Nigeria Imaginary」匯集了八位離散藝術家的作品，探討身份的多重性以及歷史如何塑造當代尼日利亞。
+                    </p>
+                </div>
+                
+                <div class="artist-card dream-card p-6 rounded-xl">
+                    <div class="mb-4 aspect-video bg-gradient-to-br from-[#ff6b6b] to-[#4ecdc4] rounded-lg flex items-center justify-center">
+                        <span class="text-4xl">🇻🇦</span>
+                    </div>
+                    <h4 class="font-bold text-lg mb-1">教廷館</h4>
+                    <p class="text-sm">
+                        本屆教廷館選址特殊，設於威尼斯朱代卡島的女子監獄，展覽名為《With my eyes》，由藝術家 Sonia Gomes 等人參展。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="mt-20 py-8 border-t border-white/10 text-center">
+            <div class="mb-6">
+                <div class="text-2xl font-bold text-white mb-2">
+                    <span class="text-[#ff6b6b]">Biennale</span> <span class="text-[#4ecdc4]">Arte</span> <span class="text-[#ffe66d]">2024</span>
+                </div>
+                <p class="text-white/70">處處都是外人 | Stranieri Ovunque – Foreigners Everywhere</p>
+            </div>
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="#overview" class="text-white/70 hover:text-white transition-colors">總覽</a>
+                <a href="#theme" class="text-white/70 hover:text-white transition-colors">主題</a>
+                <a href="#structure" class="text-white/70 hover:text-white transition-colors">展覽結構</a>
+                <a href="#artists" class="text-white/70 hover:text-white transition-colors">焦點藝術家</a>
+                <a href="#pavilions" class="text-white/70 hover:text-white transition-colors">國家館</a>
+            </div>
+            <p class="text-white/50 text-sm">© 2024 第60屆威尼斯國際美術雙年展</p>
+        </footer>
+    </div>
+
+    <script>
+        // Parallax effect for floating elements
+        document.addEventListener('mousemove', (e) => {
+            const parallaxElements = document.querySelectorAll('.parallax');
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+            
+            parallaxElements.forEach(element => {
+                const speed = element.getAttribute('data-speed') || 0.05;
+                const x = (window.innerWidth / 2 - mouseX) * speed;
+                const y = (window.innerHeight / 2 - mouseY) * speed;
+                
+                element.style.transform = `translateX(${x}px) translateY(${y}px)`;
+            });
+        });
+        
+        // Add parallax class to certain elements
+        document.querySelectorAll('.surreal-shape').forEach(shape => {
+            shape.classList.add('parallax');
+            shape.setAttribute('data-speed', (Math.random() * 0.05 + 0.02).toFixed(3));
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'952fa5dda714828b',t:'MTc1MDQ2ODQ1NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
