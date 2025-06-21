@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>從拉斐爾到梵谷：英國國家藝廊珍藏展</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Serif+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #8B3A3A;
+            --secondary-color: #D4AF37;
+            --bg-color: #F8F3E9;
+            --text-color: #3A2921;
+            --accent-color: #5B7065;
+        }
+        
+        body {
+            font-family: 'Noto Serif TC', 'Cormorant Garamond', serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+        
+        .renaissance-border {
+            border: 12px solid transparent;
+            border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath fill='none' stroke='%23D4AF37' stroke-width='2' d='M10,10 C30,20 70,20 90,10 C80,30 80,70 90,90 C70,80 30,80 10,90 C20,70 20,30 10,10 Z'/%3E%3Cpath fill='none' stroke='%238B3A3A' stroke-width='1' d='M20,20 C40,25 60,25 80,20 C75,40 75,60 80,80 C60,75 40,75 20,80 C25,60 25,40 20,20 Z'/%3E%3C/svg%3E") 12;
+        }
+        
+        .renaissance-title {
+            font-family: 'Cormorant Garamond', 'Noto Serif TC', serif;
+            color: var(--primary-color);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            letter-spacing: 0.05em;
+        }
+        
+        .renaissance-subtitle {
+            color: var(--accent-color);
+            font-weight: 600;
+            border-bottom: 2px solid var(--secondary-color);
+            display: inline-block;
+        }
+        
+        .artwork-frame {
+            border: 8px solid #D4AF37;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15), inset 0 0 0 2px #8B3A3A;
+            padding: 4px;
+            background-color: #F8F3E9;
+        }
+        
+        .artwork-caption {
+            font-style: italic;
+            font-size: 0.9rem;
+            color: #5B7065;
+        }
+        
+        .ornament {
+            color: var(--secondary-color);
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+        }
+        
+        .table-row:nth-child(odd) {
+            background-color: rgba(139, 58, 58, 0.05);
+        }
+        
+        .table-row:hover {
+            background-color: rgba(139, 58, 58, 0.1);
+        }
+        
+        .highlight-text {
+            background: linear-gradient(transparent 70%, rgba(212, 175, 55, 0.3) 100%);
+            padding: 0 2px;
+        }
+        
+        .section-divider {
+            height: 20px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='20' viewBox='0 0 100 20'%3E%3Cpath fill='none' stroke='%23D4AF37' stroke-width='1' d='M0,10 C20,5 40,15 50,10 C60,15 80,5 100,10'/%3E%3C/svg%3E");
+            background-repeat: repeat-x;
+            margin: 2rem 0;
+        }
+        
+        /* Raphael-inspired decorative elements */
+        .raphael-column {
+            position: relative;
+        }
+        
+        .raphael-column::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='20' viewBox='0 0 100 20'%3E%3Cpath fill='%23D4AF37' d='M0,20 L100,20 L100,15 C80,5 20,5 0,15 L0,20 Z'/%3E%3C/svg%3E");
+            background-repeat: repeat-x;
+        }
+        
+        .raphael-column::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='20' viewBox='0 0 100 20'%3E%3Cpath fill='%23D4AF37' d='M0,0 L100,0 L100,5 C80,15 20,15 0,5 L0,0 Z'/%3E%3C/svg%3E");
+            background-repeat: repeat-x;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .renaissance-border {
+                border-width: 8px;
+            }
+            
+            .artwork-frame {
+                border-width: 6px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="relative py-16 bg-gradient-to-b from-[#8B3A3A] to-[#5B7065] text-white overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+                <pattern id="pattern-circles" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse" patternContentUnits="userSpaceOnUse">
+                    <circle cx="10" cy="10" r="1.5" fill="#D4AF37" />
+                    <circle cx="25" cy="25" r="1" fill="#D4AF37" />
+                    <circle cx="40" cy="10" r="1.5" fill="#D4AF37" />
+                    <circle cx="10" cy="40" r="1" fill="#D4AF37" />
+                    <circle cx="40" cy="40" r="1.5" fill="#D4AF37" />
+                </pattern>
+                <rect x="0" y="0" width="100%" height="100%" fill="url(#pattern-circles)" />
+            </svg>
+        </div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-5xl mx-auto text-center">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 renaissance-title text-[#F8F3E9]">從拉斐爾到梵谷</h1>
+                <p class="text-2xl md:text-3xl font-medium mb-6 text-[#D4AF37]">英國國家藝廊珍藏展</p>
+                <div class="w-32 h-1 bg-[#D4AF37] mx-auto mb-8"></div>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto">
+                    英國國家藝廊成立200週年，首次在臺灣舉辦的特展，匯集50位西洋藝術大師的52件國寶級畫作，呈現橫跨400年的西方藝術史精華。
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-12">
+        <!-- 總覽 -->
+        <section class="max-w-4xl mx-auto mb-16 renaissance-border p-8 bg-white">
+            <h2 class="text-3xl font-bold mb-6 renaissance-title text-center">總覽</h2>
+            <p class="mb-4">
+                《從拉斐爾到梵谷：英國國家藝廊珍藏展》是英國國家藝廊（The National Gallery, London）為慶祝其成立200週年，首次在臺灣舉辦的特展。此次展覽由臺南奇美博物館與英國國家藝廊共同主辦，匯集了50位西洋藝術大師的52件國寶級畫作，呈現了橫跨400年的西方藝術史精華。
+            </p>
+            <p class="mb-4">
+                展覽自2024年5月2日至9月1日於奇美博物館特展廳展出，被譽為<span class="highlight-text">臺灣史上最高規格的西洋畫展</span>，引發了空前的觀展熱潮。展出作品總保值估計超過百億新台幣，涵蓋文藝復興、巴洛克、壯遊及印象派等多個重要時期，其中包括拉斐爾、林布蘭、梵谷、莫內等大師的真跡。
+            </p>
+            
+            <div class="mt-8">
+                <div class="artwork-frame">
+                    <img src="https://photos.smugmug.com/photos/i-LKqVSDJ/0/FQRhSJvj3zLtcLtcPwGXcK8BNFxgqB3scM3xzrscj/XL/i-LKqVSDJ-XL.jpg" alt="位於倫敦特拉法加廣場的英國國家藝廊" class="w-full h-auto">
+                </div>
+                <p class="artwork-caption text-center mt-2">位於倫敦特拉法加廣場的英國國家藝廊</p>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- 展覽背景與里程碑意義 -->
+        <section class="max-w-4xl mx-auto mb-16">
+            <h2 class="text-3xl font-bold mb-6 renaissance-title">展覽背景與里程碑意義</h2>
+            <div class="bg-white p-8 shadow-lg">
+                <p class="mb-4">
+                    此次特展是英國國家藝廊成立200年來首次將其珍貴館藏引進臺灣，也是其亞洲巡迴的最終站，先前已於上海、首爾及香港展出並引起轟動。展覽的促成源於奇美博物館與英國國家藝廊共享「為大眾而存在」的立館精神，雙方共同致力於推動國際藝術交流。
+                </p>
+                <p>
+                    奇美博物館憑藉其豐富的國際策展履約能力、世界級的建築安全與文物保存條件（如恆溫恆濕、防盜、防震措施），從眾多競爭者中脫穎而出，成為英國國家藝廊在臺灣的唯一指定合作夥伴。此次合作不僅是臺南400紀念活動的一大亮點，也象徵著臺英文化交流的重要里程碑。
+                </p>
+            </div>
+        </section>
+
+        <!-- 展覽資訊 -->
+        <section class="max-w-4xl mx-auto mb-16 raphael-column pt-8 pb-8">
+            <h2 class="text-3xl font-bold mb-6 renaissance-title text-center">展覽資訊</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full border-collapse">
+                    <tbody>
+                        <tr class="table-row">
+                            <td class="py-3 px-4 font-semibold border-b border-[#D4AF37]">展覽名稱</td>
+                            <td class="py-3 px-4 border-b border-[#D4AF37]">從拉斐爾到梵谷：英國國家藝廊珍藏展</td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="py-3 px-4 font-semibold border-b border-[#D4AF37]">展覽地點</td>
+                            <td class="py-3 px-4 border-b border-[#D4AF37]">奇美博物館 一樓特展廳 (臺南市仁德區文華路二段66號)</td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="py-3 px-4 font-semibold border-b border-[#D4AF37]">展覽日期</td>
+                            <td class="py-3 px-4 border-b border-[#D4AF37]">2024年5月2日至2024年9月1日</td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="py-3 px-4 font-semibold border-b border-[#D4AF37]">開放時間</td>
+                            <td class="py-3 px-4 border-b border-[#D4AF37]">週一至週四 09:30-17:30；週五至週日 09:30-20:00 (週末延長開放)</td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="py-3 px-4 font-semibold border-b border-[#D4AF37]">票務資訊</td>
+                            <td class="py-3 px-4 border-b border-[#D4AF37]">採預約日期、時段入場。全票550元，優惠票450元。早鳥票曾於3分鐘內售罄。</td>
+                        </tr>
+                        <tr class="table-row">
+                            <td class="py-3 px-4 font-semibold">導覽服務</td>
+                            <td class="py-3 px-4">提供專人定時導覽（華語，需現場報名）及個人語音導覽機租借服務。</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- 策展脈絡與四大單元 -->
+        <section class="max-w-4xl mx-auto mb-16">
+            <h2 class="text-3xl font-bold mb-8 renaissance-title text-center">策展脈絡與四大單元</h2>
+            <p class="mb-8 text-center italic text-lg">
+                展覽以時間軸與地理區域為切點，精心規劃了四大單元，引導觀眾穿越400年的西洋藝術史，清晰地感受繪畫風格的演進。
+            </p>
+            
+            <!-- Unit 1 -->
+            <div class="mb-12 bg-white p-6 shadow-lg">
+                <h3 class="text-2xl font-semibold mb-4 renaissance-subtitle">1. 人文的甦醒｜歐洲文藝復興繪畫</h3>
+                <div class="md:flex items-start gap-6">
+                    <div class="md:w-1/2 mb-4 md:mb-0">
+                        <p>
+                            此區聚焦於14至16世紀的文藝復興時期，藝術從以神為中心轉向以人為本。展出作品包括拉斐爾充滿和諧感的《聖母子與施洗者約翰》，以及波提切利、貝里尼等大師之作，展現了當時對人性的探索與情感的流露。
+                        </p>
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="artwork-frame">
+                            <img src="https://www.chimeimuseum.org/uploads/photos/shares/65cf16aee19c5.jpg" alt="拉斐爾，《聖母子與施洗者約翰 （加瓦聖母）》（局部），約1510–1511" class="w-full h-auto">
+                        </div>
+                        <p class="artwork-caption text-center mt-2">拉斐爾，《聖母子與施洗者約翰 （加瓦聖母）》（局部），約1510–1511</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Unit 2 -->
+            <div class="mb-12 bg-white p-6 shadow-lg">
+                <h3 class="text-2xl font-semibold mb-4 renaissance-subtitle">2. 從王室到平民｜巴洛克繪畫</h3>
+                <div class="md:flex items-start gap-6">
+                    <div class="md:w-1/2 mb-4 md:mb-0">
+                        <div class="artwork-frame">
+                            <img src="https://www.chimeimuseum.org/uploads/photos/shares/65cf16be2914f.jpg" alt="卡拉瓦喬，《被蜥蜴咬傷的男孩》（局部），約1594-1595" class="w-full h-auto">
+                        </div>
+                        <p class="artwork-caption text-center mt-2">卡拉瓦喬，《被蜥蜴咬傷的男孩》（局部），約1594-1595</p>
+                    </div>
+                    <div class="md:w-1/2">
+                        <p>
+                            17世紀的巴洛克藝術強調動態、戲劇性與情感張力。此區展出了卡拉瓦喬精準捕捉瞬間驚恐的《被蜥蜴咬傷的男孩》，以及林布蘭在逝世前坦然面對自我的《63歲自畫像》，呈現了從宮廷到民間的多元生活樣貌。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Unit 3 -->
+            <div class="mb-12 bg-white p-6 shadow-lg">
+                <h3 class="text-2xl font-semibold mb-4 renaissance-subtitle">3. 探索與創造｜壯遊風潮</h3>
+                <p class="mb-4">
+                    18世紀英國貴族盛行前往歐洲大陸的「壯遊」（Grand Tour），促進了文化交流與藝術創作。此區展出了勞倫斯爵士筆下流露純真與憂鬱氣質的《查爾斯．威廉．蘭姆頓肖像（紅衣男孩）》，以及哥雅、透納等畫家的作品。
+                </p>
+            </div>
+            
+            <!-- Unit 4 -->
+            <div class="mb-12 bg-white p-6 shadow-lg">
+                <h3 class="text-2xl font-semibold mb-4 renaissance-subtitle">4. 光線與色彩｜印象派繪畫</h3>
+                <div class="md:flex items-start gap-6">
+                    <div class="md:w-1/2 mb-4 md:mb-0">
+                        <p>
+                            19世紀的印象派革命性地改變了繪畫的樣貌，著重於捕捉光影的瞬間變化。此區匯集了多位印象派及後印象派大師的傑作，包括梵谷充滿生命力的《長草地與蝴蝶》、莫內的《鳶尾花》、高更臨摹塞尚的作品《窗前的果盆和啤酒杯》等，為展覽帶來絢爛的結尾。
+                        </p>
+                    </div>
+                    <div class="md:w-1/2">
+                        <div class="artwork-frame">
+                            <img src="https://www.chimeimuseum.org/uploads/photos/shares/65cf170086824.jpg" alt="文森．梵谷，《長草地與蝴蝶》（局部），1890" class="w-full h-auto">
+                        </div>
+                        <p class="artwork-caption text-center mt-2">文森．梵谷，《長草地與蝴蝶》（局部），1890</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- 焦點作品賞析 -->
+        <section class="max-w-4xl mx-auto mb-16">
+            <h2 class="text-3xl font-bold mb-8 renaissance-title text-center">焦點作品賞析</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 shadow-lg">
+                    <h3 class="text-xl font-semibold mb-3 text-[#8B3A3A]">梵谷《長草地與蝴蝶》</h3>
+                    <p>
+                        此畫為梵谷逝世前於療養院創作的作品之一，運用鮮明色彩與充滿動感的筆觸，描繪出生意盎然的草地景象，畫中還藏有數隻蝴蝶，展現了旺盛的生命力。
+                    </p>
+                </div>
+                
+                <div class="bg-white p-6 shadow-lg">
+                    <h3 class="text-xl font-semibold mb-3 text-[#8B3A3A]">林布蘭《63歲自畫像》</h3>
+                    <p>
+                        這是林布蘭離世前最後的自畫像之一，他以厚重的顏料堆疊出臉上的皺紋與歲月痕跡，毫不掩飾地直視衰老與死亡，情感真摯，極具震撼力。
+                    </p>
+                </div>
+                
+                <div class="bg-white p-6 shadow-lg">
+                    <h3 class="text-xl font-semibold mb-3 text-[#8B3A3A]">拉斐爾《聖母子與施洗者約翰》</h3>
+                    <p>
+                        此畫又名《加瓦聖母》，是文藝復興時期「理想美」的典範。畫中人物配置構成穩定的金字塔形，表情靜謐和諧，展現了神聖與人性母愛的完美結合。
+                    </p>
+                </div>
+                
+                <div class="bg-white p-6 shadow-lg">
+                    <h3 class="text-xl font-semibold mb-3 text-[#8B3A3A]">卡拉瓦喬《被蜥蜴咬傷的男孩》</h3>
+                    <p>
+                        作品充滿戲劇張力，精準捕捉了男孩被蜥蜴咬到手指瞬間的痛苦表情與誇張的肢體動作。強烈的光影對比（chiaroscuro）是卡拉瓦喬的標誌性風格，深刻影響了後世的巴洛克繪畫。
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mt-10">
+                <div class="artwork-frame">
+                    <img src="https://photos.smugmug.com/photos/i-2ntBXFn/1/CThz6fvSDhLsTxQLzxL6LR9BkQqSGHdpFJrPHT6ZD/XL/i-2ntBXFn-XL.jpg" alt="展覽現場一景，觀眾正在欣賞畫作" class="w-full h-auto">
+                </div>
+                <p class="artwork-caption text-center mt-2">展覽現場一景，觀眾正在欣賞畫作</p>
+            </div>
+        </section>
+
+        <!-- 公眾迴響與評價 -->
+        <section class="max-w-4xl mx-auto mb-16 renaissance-border p-8 bg-white">
+            <h2 class="text-3xl font-bold mb-6 renaissance-title text-center">公眾迴響與評價</h2>
+            
+            <div class="flex items-center justify-center mb-6">
+                <span class="ornament">❦</span>
+                <div class="h-px bg-[#D4AF37] flex-grow"></div>
+                <span class="ornament">❦</span>
+            </div>
+            
+            <p class="mb-4">
+                此次特展獲得了壓倒性的好評，許多參觀者，包括自認對藝術不了解的民眾，都表示深受畫作真跡的「溫度」與細節所感動。展覽的成功不僅體現在踴躍的購票人潮上，更在於其親民的票價策略成功地將藝術推廣至更廣泛的群眾，實踐了藝術文化向下扎根的理念。
+            </p>
+            
+            <p>
+                許多評論認為，能在臺灣親眼見證橫跨400年的西洋藝術史精華，是一次<span class="highlight-text">千載難逢的體驗</span>，展覽的策劃與展場設計也備受讚譽。
+            </p>
+            
+            <div class="flex items-center justify-center mt-6">
+                <span class="ornament">❦</span>
+                <div class="h-px bg-[#D4AF37] flex-grow"></div>
+                <span class="ornament">❦</span>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#3A2921] text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h3 class="text-2xl font-bold mb-4 text-[#D4AF37]">從拉斐爾到梵谷：英國國家藝廊珍藏展</h3>
+                <p class="mb-2">奇美博物館 | 2024年5月2日至9月1日</p>
+                <p class="mb-6">臺南市仁德區文華路二段66號</p>
+                <p class="text-sm opacity-70">© 2024 奇美博物館 & 英國國家藝廊. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple scroll animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            
+            const fadeInOnScroll = function() {
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (sectionTop < windowHeight * 0.85) {
+                        section.style.opacity = '1';
+                        section.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+            
+            // Initial styles
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            });
+            
+            // Run once on load
+            fadeInOnScroll();
+            
+            // Add scroll event
+            window.addEventListener('scroll', fadeInOnScroll);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'952f86cc43036b60',t:'MTc1MDQ2NzE4MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>藝術展覽歷史資訊彙整</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Serif TC', 'Noto Serif JP', serif;
+            background-color: #f8f3e6;
+            background-image: url("data:image/svg+xml,<svg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'><g fill='none' fill-rule='evenodd'><g fill='%23d2c7b0' fill-opacity='0.2'><path d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/></g></g></svg>");
+            color: #333;
+        }
+        
+        .ukiyo-e-border {
+            border: 8px solid transparent;
+            border-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='75' height='75'><g fill='none' stroke='%23a17c5b' stroke-width='2'><path d='M1 1h73v73H1z'/><path d='M8 8h59v59H8z'/></g></svg>") 30 stretch;
+        }
+        
+        .ukiyo-e-wave {
+            background-image: url("data:image/svg+xml,<svg width='100' height='20' viewBox='0 0 100 20' xmlns='http://www.w3.org/2000/svg'><path d='M21.184 20c.357-.13.72-.264 1.088-.402l1.768-.661C33.64 15.347 39.647 14 50 14c10.271 0 15.362 1.222 24.629 4.928.955.383 1.869.74 2.75 1.072h6.225c-2.51-.73-5.139-1.691-8.233-2.928C65.888 13.278 60.562 12 50 12c-10.626 0-16.855 1.397-26.66 5.063l-1.767.662c-2.475.923-4.66 1.674-6.724 2.275h6.335zm0-20C13.258 2.892 8.077 4 0 4V2c5.744 0 9.951-.574 14.85-2h6.334zM77.38 0C85.239 2.966 90.502 4 100 4V2c-6.842 0-11.386-.542-16.396-2h-6.225zM0 14c8.44 0 13.718-1.21 22.272-4.402l1.768-.661C33.64 5.347 39.647 4 50 4c10.271 0 15.362 1.222 24.629 4.928C84.112 12.722 89.438 14 100 14v-2c-10.271 0-15.362-1.222-24.629-4.928C65.888 3.278 60.562 2 50 2 39.374 2 33.145 3.397 23.34 7.063l-1.767.662C13.223 10.84 8.163 12 0 12v2z' fill='%23a17c5b' fill-opacity='0.2' fill-rule='evenodd'/></svg>");
+        }
+        
+        .ukiyo-e-mountain {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ukiyo-e-mountain::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'><path fill='%23a17c5b' fill-opacity='0.2' d='M0,224L48,213.3C96,203,192,181,288,181.3C384,181,480,203,576,202.7C672,203,768,181,864,181.3C960,181,1056,203,1152,208C1248,213,1344,203,1392,197.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'></path></svg>");
+            background-size: cover;
+            z-index: 0;
+            opacity: 0.8;
+        }
+        
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .ukiyo-e-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+            background-color: #a17c5b;
+            color: #f8f3e6;
+            border: 2px solid #8a6d4b;
+        }
+        
+        .ukiyo-e-btn:hover {
+            background-color: #8a6d4b;
+        }
+        
+        .vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 99;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .ukiyo-e-pattern {
+            background-image: url("data:image/svg+xml,<svg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'><g fill='none' fill-rule='evenodd'><g fill='%23a17c5b' fill-opacity='0.15'><path d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /></g></g></svg>");
+        }
+        
+        .ukiyo-e-stamp {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background-color: #d64545;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: rotate(15deg);
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+        
+        .ukiyo-e-stamp::before {
+            content: '藝';
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 頁面標題區 -->
+    <header class="relative py-12 px-4 mb-8 overflow-hidden ukiyo-e-mountain">
+        <div class="max-w-6xl mx-auto relative z-10">
+            <div class="ukiyo-e-border bg-white p-8">
+                <h1 class="text-4xl md:text-6xl font-bold text-center mb-4 text-gray-800">藝術展覽歷史資訊彙整</h1>
+                <p class="text-xl md:text-2xl text-center mt-4 text-gray-600">沒錢沒空去看展，線上AI幫你看</p>
+                
+                <!-- 浮世繪風格裝飾 -->
+                <div class="ukiyo-e-wave h-8 mt-6"></div>
+            </div>
+            
+            <!-- 浮世繪印章 -->
+            <div class="ukiyo-e-stamp top-4 right-4"></div>
+        </div>
+    </header>
+
+    <div class="max-w-6xl mx-auto px-4 pb-16">
+        <!-- 文章卡片區 -->
+        <main class="w-full">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 文章卡片 -->
+                <div class="h-auto">
+                    <a href="1.html" class="block h-full" >
+                        <div class="card ukiyo-e-border bg-white p-6 relative h-full flex flex-col">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-3">從拉斐爾到梵谷：英國國家藝廊珍藏展</h2>
+                            <p class="text-gray-600 mb-4 flex-grow">英國國家藝廊成立200週年，首次在臺灣舉辦的特展...</p>
+                            
+                            <!-- 底部資訊區域 -->
+                            <div class="mt-auto pt-4">
+                                <div class="flex justify-between items-center mb-3">
+                                    <span class="text-gray-500 text-sm">地點：奇美博物館</span>
+                                    <span class="text-gray-500 text-sm">2024/5/2</span>
+                                </div>
+                                <div class="flex justify-center">
+                                    <span class="ukiyo-e-btn px-4 py-2 font-medium rounded">閱讀更多</span>
+                                </div>
+                            </div>
+                            
+                            <!-- 浮世繪風格裝飾 -->
+                            <div class="absolute top-0 left-0 w-full h-1 bg-amber-700"></div>
+                            <div class="absolute bottom-0 right-0 w-20 h-20 ukiyo-e-pattern opacity-30 pointer-events-none"></div>
+                            <div class="ukiyo-e-wave h-4 w-full absolute bottom-0 left-0 pointer-events-none"></div>
+                        </div>
+                    </a>
+                </div>                                
+            </div>
+        </main>
+    </div>
+
+    <!-- 回到頂部按鈕 -->
+    <button id="back-to-top" class="back-to-top ukiyo-e-border bg-white p-3 rounded-full shadow-lg" aria-label="回到頂部">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-amber-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />         </svg>
+    </button>
+
+    <footer class="bg-amber-50 text-gray-700 py-8 px-4 mt-8 ukiyo-e-wave">
+        <div class="max-w-6xl mx-auto">
+            <div class="ukiyo-e-border bg-white p-6">
+                <div class="flex justify-center items-center">
+                    <div class="text-center">
+                        <h2 class="text-2xl font-bold text-gray-800 mb-2">藝術展覽歷史資訊彙整</h2>
+                        <p class="text-sm">探索更多藝術家與展覽資訊</p>
+                    </div>
+                </div>
+                <div class="mt-8 pt-6 border-t border-gray-200 flex justify-center">
+                    <p class="text-sm">© 2025 DUNK | 版權所有</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 回到頂部功能
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        // 監聽滾動事件
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+        
+        // 點擊回到頂部
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</body>
+</html>
