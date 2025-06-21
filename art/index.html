@@ -108,6 +108,25 @@
             font-weight: bold;
             font-size: 24px;
         }
+		.disclaimer-container {
+			word-break: break-all;
+			line-break: anywhere;
+			white-space: normal;
+			max-width: 100%;
+			text-align: center;
+		}
+
+		.disclaimer-container p {
+			margin-bottom: 0.25rem;
+			word-wrap: break-word;
+		}
+		.mt-8.pt-6.border-t.border-gray-200.flex.justify-center p {
+			word-break: break-all;
+			line-break: anywhere;
+			max-width: 100%;
+		}
+
+
     </style>
 </head>
 <body>
@@ -132,6 +151,30 @@
         <main class="w-full">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- 文章卡片 -->
+				<div class="h-auto">
+                    <a href="3.html" class="block h-full" >
+                        <div class="card ukiyo-e-border bg-white p-6 relative h-full flex flex-col">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-3">巴塞爾藝術展</h2>
+                            <p class="text-gray-600 mb-4 flex-grow">全球四大展會的藝術盛宴...</p>
+                            
+                            <!-- 底部資訊區域 -->
+                            <div class="mt-auto pt-4">
+                                <div class="flex justify-between items-center mb-3">
+                                    <span class="text-gray-500 text-sm">地點：香港會議展覽中心、瑞士巴塞爾展覽中心、法國巴黎大皇宮、美國邁阿密海灘會議中心</span>
+                                    <span class="text-gray-500 text-sm">2024/3/28</span>
+                                </div>
+                                <div class="flex justify-center">
+                                    <span class="ukiyo-e-btn px-4 py-2 font-medium rounded">閱讀更多</span>
+                                </div>
+                            </div>
+                            
+                            <!-- 浮世繪風格裝飾 -->
+                            <div class="absolute top-0 left-0 w-full h-1 bg-amber-700"></div>
+                            <div class="absolute bottom-0 right-0 w-20 h-20 ukiyo-e-pattern opacity-30 pointer-events-none"></div>
+                            <div class="ukiyo-e-wave h-4 w-full absolute bottom-0 left-0 pointer-events-none"></div>
+                        </div>
+                    </a>
+                </div>
 				<div class="h-auto">
                     <a href="2.html" class="block h-full" >
                         <div class="card ukiyo-e-border bg-white p-6 relative h-full flex flex-col">
@@ -199,8 +242,13 @@
                     </div>
                 </div>
                 <div class="mt-8 pt-6 border-t border-gray-200 flex justify-center">
-                    <p class="text-sm">© 2025 DUNK | 版權所有</p>
-                </div>
+					<div class="text-center">
+						<p class="text-sm">免責申明：基於公開資料，僅供參考，不構成建議</p>
+						<p class="text-sm">資料來源：網頁公開資訊</p>
+						<p class="text-sm">© DUNK | 版權所有</p>
+					</div>
+				</div>
+
             </div>
         </div>
     </footer>

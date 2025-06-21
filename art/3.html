@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>巴塞爾藝術展 2024</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --color-primary: #e63946;
+            --color-secondary: #457b9d;
+            --color-accent: #f1c40f;
+            --color-dark: #1d3557;
+            --color-light: #f1faee;
+        }
+        
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #121212;
+            color: var(--color-light);
+            overflow-x: hidden;
+        }
+        
+        .abstract-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.2;
+        }
+        
+        .brush-stroke {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            mix-blend-mode: screen;
+            animation: float 15s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        
+        .color-block {
+            position: relative;
+            border-radius: 2px;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+        
+        .color-block:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+        
+        .color-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1), transparent);
+            z-index: 1;
+        }
+        
+        .abstract-line {
+            position: absolute;
+            height: 3px;
+            background-color: var(--color-accent);
+            transform-origin: left;
+            animation: draw 2s forwards ease-out;
+        }
+        
+        @keyframes draw {
+            0% { transform: scaleX(0); }
+            100% { transform: scaleX(1); }
+        }
+        
+        .city-tab {
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        
+        .city-tab::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background-color: var(--color-accent);
+            transition: width 0.3s ease;
+        }
+        
+        .city-tab.active::after,
+        .city-tab:hover::after {
+            width: 100%;
+        }
+        
+        .city-tab.active {
+            color: var(--color-accent);
+            font-weight: 700;
+        }
+        
+        .city-content {
+            display: none;
+            animation: fadeIn 0.8s forwards;
+        }
+        
+        .city-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .table-row {
+            transition: all 0.3s ease;
+        }
+        
+        .table-row:hover {
+            background-color: rgba(255,255,255,0.05);
+        }
+        
+        .paint-splash {
+            position: absolute;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.7;
+        }
+        
+        .scroll-indicator {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--color-accent);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .scroll-indicator:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Abstract Background -->
+    <div class="abstract-bg">
+        <div class="brush-stroke" style="width: 300px; height: 300px; background-color: #e63946; top: 10%; left: 5%; animation-delay: 0s;"></div>
+        <div class="brush-stroke" style="width: 400px; height: 400px; background-color: #457b9d; top: 50%; left: 70%; animation-delay: 2s;"></div>
+        <div class="brush-stroke" style="width: 250px; height: 250px; background-color: #f1c40f; top: 80%; left: 20%; animation-delay: 4s;"></div>
+        <div class="brush-stroke" style="width: 350px; height: 350px; background-color: #1d3557; top: 30%; left: 40%; animation-delay: 6s;"></div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="relative py-16 px-6 md:px-12 lg:px-24">
+        <div class="paint-splash" style="top: 10%; left: 5%; width: 150px; height: 150px;">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#e63946" d="M42.8,-65.5C54.9,-56.5,63.6,-43.4,69.4,-29.2C75.2,-15,78.1,0.3,74.8,14.2C71.5,28.1,62,40.6,49.9,49.9C37.8,59.2,23.1,65.3,7.7,69.1C-7.7,72.9,-23.8,74.4,-37.2,68.7C-50.6,63,-61.3,50.1,-68.5,35.6C-75.7,21.1,-79.3,5,-76.8,-10.1C-74.3,-25.2,-65.7,-39.3,-53.6,-48.3C-41.5,-57.3,-26,-61.2,-11.2,-62.4C3.6,-63.6,17.9,-62.1,30.7,-74.5C43.5,-86.9,54.8,-113.3,42.8,-65.5Z" transform="translate(100 100)" />
+            </svg>
+        </div>
+        <div class="paint-splash" style="top: 60%; right: 10%; width: 200px; height: 200px;">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#457b9d" d="M47.7,-79.1C62.9,-71.9,77.1,-60.8,83.9,-46.2C90.7,-31.5,90.1,-13.3,85.6,2.6C81.1,18.5,72.8,32.1,62.7,43.5C52.6,54.9,40.8,64.1,27.4,70.1C14,76.1,-1,78.9,-15.3,76.3C-29.6,73.7,-43.2,65.7,-54.4,54.9C-65.6,44.1,-74.4,30.5,-78.9,15.1C-83.4,-0.3,-83.6,-17.5,-77.9,-32.2C-72.2,-46.9,-60.6,-59.1,-46.5,-66.7C-32.4,-74.3,-16.2,-77.3,0.2,-77.7C16.7,-78.1,33.4,-75.9,47.7,-79.1Z" transform="translate(100 100)" />
+            </svg>
+        </div>
+        <h1 class="text-5xl md:text-7xl font-bold mb-6 relative">
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-yellow-500 to-blue-500">巴塞爾藝術展 2024</span>
+            <div class="abstract-line" style="width: 100px; bottom: -10px; left: 0;"></div>
+        </h1>
+        <p class="text-xl md:text-2xl max-w-4xl leading-relaxed">全球四大展會的藝術盛宴</p>
+    </header>
+
+    <!-- Overview Section -->
+    <section class="relative py-12 px-6 md:px-12 lg:px-24">
+        <div class="paint-splash" style="top: 30%; left: 20%; width: 180px; height: 180px;">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#f1c40f" d="M48.2,-75.2C63.9,-69.1,79.2,-59.2,87.4,-45.1C95.7,-31,96.9,-12.7,93.2,3.7C89.5,20.1,80.9,34.6,70.1,47.1C59.3,59.6,46.3,70.1,31.7,76.2C17.1,82.3,0.9,84,-14.4,81.1C-29.7,78.2,-44.1,70.7,-56.2,60.1C-68.3,49.5,-78.1,35.8,-83.3,20.2C-88.5,4.6,-89.1,-12.9,-83.5,-27.7C-77.9,-42.5,-66.1,-54.6,-52.1,-61.5C-38.1,-68.4,-21.9,-70.1,-5.4,-72.1C11.1,-74.1,22.2,-76.5,33.3,-81.3C44.4,-86.1,55.5,-93.3,48.2,-75.2Z" transform="translate(100 100)" />
+            </svg>
+        </div>
+        <h2 class="text-3xl md:text-4xl font-bold mb-8 relative inline-block">
+            總覽
+            <div class="abstract-line" style="width: 60px; bottom: -5px; left: 0;"></div>
+        </h2>
+        <div class="color-block bg-gradient-to-br from-gray-900 to-gray-800 p-6 md:p-8 rounded-lg mb-12">
+            <p class="text-lg leading-relaxed">
+                2024年，巴塞爾藝術展在全球四個主要城市舉辦了年度盛會，分別是香港、巴塞爾、巴黎和邁阿密海灘，每一站都展示了其獨特的定位與活力。香港展會於三月全面回歸，鞏固了其作為亞洲藝術市場樞紐的地位。六月的巴塞爾展會迎來了新任總監，並透過擴展的城市項目，將藝術體驗延伸至展廳之外。十月的巴黎展會不僅更名為「Art Basel Paris」，更首次進駐翻新後的大皇宮，象徵著其在法國首都的全新篇章。最後，十二月的邁阿密海灘展會同樣由新總監領軍，以其自2008年以來最大規模的新晉藝廊陣容，為美洲藝術市場注入了新的動力。整體而言，2024年是巴塞爾藝術展充滿變革與創新的一年，透過領導層的更新、展區的擴展及新項目的推出，持續引領全球藝術市場的發展。
+            </p>
+        </div>
+    </section>
+
+    <!-- Comparison Table Section -->
+    <section class="relative py-12 px-6 md:px-12 lg:px-24">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8 relative inline-block">
+            2024年巴塞爾藝術展四大展會比較
+            <div class="abstract-line" style="width: 100px; bottom: -5px; left: 0;"></div>
+        </h2>
+        <div class="overflow-x-auto">
+            <table class="w-full color-block bg-gradient-to-br from-gray-900 to-gray-800 rounded-lg">
+                <thead>
+                    <tr class="border-b border-gray-700">
+                        <th class="p-4 text-left">特點</th>
+                        <th class="p-4 text-left text-red-400">巴塞爾藝術展香港展會</th>
+                        <th class="p-4 text-left text-blue-400">巴塞爾藝術展巴塞爾展會</th>
+                        <th class="p-4 text-left text-yellow-400">巴塞爾藝術展巴黎展會</th>
+                        <th class="p-4 text-left text-green-400">巴塞爾藝術展邁阿密海灘展會</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="table-row border-b border-gray-700">
+                        <td class="p-4 font-medium">日期</td>
+                        <td class="p-4">3月28日至30日</td>
+                        <td class="p-4">6月13日至16日</td>
+                        <td class="p-4">10月18日至20日</td>
+                        <td class="p-4">12月6日至8日</td>
+                    </tr>
+                    <tr class="table-row border-b border-gray-700">
+                        <td class="p-4 font-medium">地點</td>
+                        <td class="p-4">香港會議展覽中心</td>
+                        <td class="p-4">瑞士巴塞爾展覽中心<br>(Messe Basel)</td>
+                        <td class="p-4">法國巴黎大皇宮<br>(Grand Palais)</td>
+                        <td class="p-4">美國邁阿密海灘會議中心<br>(MBCC)</td>
+                    </tr>
+                    <tr class="table-row border-b border-gray-700">
+                        <td class="p-4 font-medium">參展藝廊</td>
+                        <td class="p-4">243間</td>
+                        <td class="p-4">285間</td>
+                        <td class="p-4">195間</td>
+                        <td class="p-4">286間</td>
+                    </tr>
+                    <tr class="table-row">
+                        <td class="p-4 font-medium">主要特色</td>
+                        <td class="p-4">全面回歸，聚焦亞太地區藝術</td>
+                        <td class="p-4">新總監Maike Cruse上任，擴大城市藝術項目</td>
+                        <td class="p-4">更名為Art Basel Paris，首次進駐翻新後的大皇宮</td>
+                        <td class="p-4">新總監Bridget Finn上任，迎來十多年來最多的新參展商</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- City Details Section -->
+    <section class="relative py-12 px-6 md:px-12 lg:px-24">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8 relative inline-block">
+            各地展會詳情
+            <div class="abstract-line" style="width: 80px; bottom: -5px; left: 0;"></div>
+        </h2>
+        
+        <!-- City Tabs -->
+        <div class="flex flex-wrap gap-4 mb-8">
+            <div class="city-tab active px-6 py-3 text-lg" data-city="hongkong">香港</div>
+            <div class="city-tab px-6 py-3 text-lg" data-city="basel">巴塞爾</div>
+            <div class="city-tab px-6 py-3 text-lg" data-city="paris">巴黎</div>
+            <div class="city-tab px-6 py-3 text-lg" data-city="miami">邁阿密海灘</div>
+        </div>
+        
+        <!-- City Content -->
+        <div class="city-content active" id="hongkong">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="md:col-span-2">
+                    <div class="color-block bg-gradient-to-br from-red-900 to-red-800 p-6 md:p-8 rounded-lg h-full">
+                        <h3 class="text-2xl font-bold mb-4">巴塞爾藝術展香港展會2024</h3>
+                        <p class="mb-4">2024年的香港展會於3月28日至30日在香港會議展覽中心舉行，貴賓預展則於3月26日及27日進行。本屆展會全面回歸，匯聚了來自40個國家及地區的243間頂尖藝廊，其中半數在亞洲及亞太地區設有展覽空間，深入呈現了區內多元的藝術視野。</p>
+                        <p>展會不僅在會展中心內舉辦，更聯動全港，推出豐富的藝術項目。展會分為「藝聚空間」、「藝廊薈萃」、「亞洲視野」、「藝術探新」等多個展區，為觀眾帶來了從歷史素材到前瞻作品的全面體驗。</p>
+                    </div>
+                </div>
+                <div class="md:col-span-1">
+                    <div class="color-block bg-gradient-to-br from-red-800 to-red-700 p-6 md:p-8 rounded-lg h-full flex items-center justify-center">
+                        <svg class="w-full h-auto" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="#e63946" d="M47.7,-79.1C62.9,-71.9,77.1,-60.8,83.9,-46.2C90.7,-31.5,90.1,-13.3,85.6,2.6C81.1,18.5,72.8,32.1,62.7,43.5C52.6,54.9,40.8,64.1,27.4,70.1C14,76.1,-1,78.9,-15.3,76.3C-29.6,73.7,-43.2,65.7,-54.4,54.9C-65.6,44.1,-74.4,30.5,-78.9,15.1C-83.4,-0.3,-83.6,-17.5,-77.9,-32.2C-72.2,-46.9,-60.6,-59.1,-46.5,-66.7C-32.4,-74.3,-16.2,-77.3,0.2,-77.7C16.7,-78.1,33.4,-75.9,47.7,-79.1Z" transform="translate(100 100)" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="city-content" id="basel">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="md:col-span-1">
+                    <div class="color-block bg-gradient-to-br from-blue-800 to-blue-700 p-6 md:p-8 rounded-lg h-full flex items-center justify-center">
+                        <svg class="w-full h-auto" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="#457b9d" d="M48.2,-75.2C63.9,-69.1,79.2,-59.2,87.4,-45.1C95.7,-31,96.9,-12.7,93.2,3.7C89.5,20.1,80.9,34.6,70.1,47.1C59.3,59.6,46.3,70.1,31.7,76.2C17.1,82.3,0.9,84,-14.4,81.1C-29.7,78.2,-44.1,70.7,-56.2,60.1C-68.3,49.5,-78.1,35.8,-83.3,20.2C-88.5,4.6,-89.1,-12.9,-83.5,-27.7C-77.9,-42.5,-66.1,-54.6,-52.1,-61.5C-38.1,-68.4,-21.9,-70.1,-5.4,-72.1C11.1,-74.1,22.2,-76.5,33.3,-81.3C44.4,-86.1,55.5,-93.3,48.2,-75.2Z" transform="translate(100 100)" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="md:col-span-2">
+                    <div class="color-block bg-gradient-to-br from-blue-900 to-blue-800 p-6 md:p-8 rounded-lg h-full">
+                        <h3 class="text-2xl font-bold mb-4">巴塞爾藝術展巴塞爾展會2024</h3>
+                        <p class="mb-4">作為巴塞爾藝術展的旗艦展會，2024年巴塞爾展會於6月13日至16日在瑞士Messe Basel舉行，由新任總監Maike Cruse首次主理。本屆展會共有285間國際藝廊參展，呈獻了世界級的藝術佳作。</p>
+                        <h4 class="text-xl font-semibold mb-2">展會亮點</h4>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>意象無限 (Unlimited): 專為大型藝術品而設的展區，由Giovanni Carmine策劃。</li>
+                            <li>城藝之旅 (Parcours): 首次由紐約Swiss Institute總監Stefanie Hessler策劃，展區移師至連接展廳與萊茵河的Clarastrasse大街，探索貿易、全球化與生態等議題。</li>
+                            <li>Messeplatz廣場項目: 重現了生態先驅藝術家艾格尼絲．丹尼斯（Agnes Denes）於1982年創作的經典麥田裝置藝術。</li>
+                            <li>梅里安酒店 (Merian) 項目: 首次推出的新項目，全天候舉行講座、表演等公眾藝術活動。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="city-content" id="paris">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="md:col-span-2">
+                    <div class="color-block bg-gradient-to-br from-yellow-900 to-yellow-800 p-6 md:p-8 rounded-lg h-full">
+                        <h3 class="text-2xl font-bold mb-4">巴塞爾藝術展巴黎展會2024</h3>
+                        <p class="mb-4">2024年的巴黎展會迎來了重大革新，於10月18日至20日舉行。展會不僅正式更名為「Art Basel Paris」，更歷史性地進駐剛完成翻修的標誌性建築——巴黎大皇宮。本屆展會匯聚了來自42個國家及地區的195間藝廊，其中包括65間在法國設有展覽空間的藝廊。</p>
+                        <h4 class="text-xl font-semibold mb-2">展會創新</h4>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>全新場地: 成為大皇宮翻新後舉辦的首個大型展會。</li>
+                            <li>全新展區 (Premise): 推出名為「Premise」的新展區，呈獻九個獨特的策展項目，旨在促進對藝術史更具包容性的定義。</li>
+                            <li>全新活動 (Oh La La!): 鼓勵藝廊在展會後半段（10月18日至19日）展出鮮見的作品，為參觀者帶來驚喜。</li>
+                            <li>對話 (Conversations): 講座項目首次移師至大皇宮對面的小皇宮舉行。</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="md:col-span-1">
+                    <div class="color-block bg-gradient-to-br from-yellow-800 to-yellow-700 p-6 md:p-8 rounded-lg h-full flex items-center justify-center">
+                        <svg class="w-full h-auto" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="#f1c40f" d="M42.8,-65.5C54.9,-56.5,63.6,-43.4,69.4,-29.2C75.2,-15,78.1,0.3,74.8,14.2C71.5,28.1,62,40.6,49.9,49.9C37.8,59.2,23.1,65.3,7.7,69.1C-7.7,72.9,-23.8,74.4,-37.2,68.7C-50.6,63,-61.3,50.1,-68.5,35.6C-75.7,21.1,-79.3,5,-76.8,-10.1C-74.3,-25.2,-65.7,-39.3,-53.6,-48.3C-41.5,-57.3,-26,-61.2,-11.2,-62.4C3.6,-63.6,17.9,-62.1,30.7,-74.5C43.5,-86.9,54.8,-113.3,42.8,-65.5Z" transform="translate(100 100)" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="city-content" id="miami">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="md:col-span-1">
+                    <div class="color-block bg-gradient-to-br from-green-800 to-green-700 p-6 md:p-8 rounded-lg h-full flex items-center justify-center">
+                        <svg class="w-full h-auto" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="#2a9d8f" d="M47.7,-79.1C62.9,-71.9,77.1,-60.8,83.9,-46.2C90.7,-31.5,90.1,-13.3,85.6,2.6C81.1,18.5,72.8,32.1,62.7,43.5C52.6,54.9,40.8,64.1,27.4,70.1C14,76.1,-1,78.9,-15.3,76.3C-29.6,73.7,-43.2,65.7,-54.4,54.9C-65.6,44.1,-74.4,30.5,-78.9,15.1C-83.4,-0.3,-83.6,-17.5,-77.9,-32.2C-72.2,-46.9,-60.6,-59.1,-46.5,-66.7C-32.4,-74.3,-16.2,-77.3,0.2,-77.7C16.7,-78.1,33.4,-75.9,47.7,-79.1Z" transform="translate(100 100)" />
+                        </svg>
+                    </div>
+                </div>
+                <div class="md:col-span-2">
+                    <div class="color-block bg-gradient-to-br from-green-900 to-green-800 p-6 md:p-8 rounded-lg h-full">
+                        <h3 class="text-2xl font-bold mb-4">巴塞爾藝術展邁阿密海灘展會2024</h3>
+                        <p class="mb-4">作為美洲首屈一指的藝術展會，2024年邁阿密海灘展會於12月6日至8日在邁阿密海灘會議中心舉行，由新任總監Bridget Finn首次領導。本屆展會迎來了286間世界級藝廊，其中近三分之二來自美洲地區，體現了其對該區域藝術聲音的承諾。</p>
+                        <h4 class="text-xl font-semibold mb-2">展會亮點</h4>
+                        <ul class="list-disc pl-5 space-y-2">
+                            <li>新晉藝廊陣容: 迎來了34間首次參展的藝廊，是自2008年以來規模最大的一次，這得益於展會為中小型藝廊推出的全新入門級展位選項。</li>
+                            <li>美洲焦點: 展會突顯其作為北美與南美藝術交匯點的獨特地位，參展藝廊遍及美國、加拿大、墨西哥、巴西、阿根廷等多個美洲國家。</li>
+                            <li>重塑的Meridians展區: 為紀念該展區成立五周年，本屆「Meridians」展區由Yasmil Raymond首次策劃，並在新的地點展出17個大型藝術項目。</li>
+                            <li>對話 (Conversations): 講座項目首次由Kimberly Bradley策劃，並以伊朗著名藝術家Shirin Neshat的講座作為開幕活動。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" id="scrollTop">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </div>
+
+    <script>
+        // City Tabs Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const cityTabs = document.querySelectorAll('.city-tab');
+            const cityContents = document.querySelectorAll('.city-content');
+            
+            cityTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const city = tab.getAttribute('data-city');
+                    
+                    // Remove active class from all tabs and contents
+                    cityTabs.forEach(t => t.classList.remove('active'));
+                    cityContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to selected tab and content
+                    tab.classList.add('active');
+                    document.getElementById(city).classList.add('active');
+                });
+            });
+            
+            // Scroll to top functionality
+            const scrollTopBtn = document.getElementById('scrollTop');
+            scrollTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Show/hide scroll button based on scroll position
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    scrollTopBtn.style.opacity = '1';
+                } else {
+                    scrollTopBtn.style.opacity = '0';
+                }
+            });
+            
+            // Create paint splash effect on mouse move
+            document.addEventListener('mousemove', function(e) {
+                // Limit the frequency of splash creation
+                if (Math.random() > 0.98) {
+                    createPaintSplash(e.clientX, e.clientY);
+                }
+            });
+            
+            function createPaintSplash(x, y) {
+                const colors = ['#e63946', '#457b9d', '#f1c40f', '#2a9d8f'];
+                const splash = document.createElement('div');
+                splash.classList.add('paint-splash');
+                
+                const size = Math.random() * 50 + 20;
+                splash.style.width = `${size}px`;
+                splash.style.height = `${size}px`;
+                splash.style.left = `${x - size/2}px`;
+                splash.style.top = `${y + window.scrollY - size/2}px`;
+                
+                const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                svg.setAttribute('viewBox', '0 0 200 200');
+                
+                const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+                path.setAttribute('fill', colors[Math.floor(Math.random() * colors.length)]);
+                
+                // Random blob shape
+                const d = generateBlobPath();
+                path.setAttribute('d', d);
+                path.setAttribute('transform', 'translate(100 100)');
+                
+                svg.appendChild(path);
+                splash.appendChild(svg);
+                document.body.appendChild(splash);
+                
+                // Animate and remove
+                setTimeout(() => {
+                    splash.style.opacity = '0';
+                    setTimeout(() => {
+                        document.body.removeChild(splash);
+                    }, 500);
+                }, 1000);
+            }
+            
+            function generateBlobPath() {
+                const complexity = 5;
+                let path = 'M';
+                
+                for (let i = 0; i < complexity; i++) {
+                    const angle = (i / complexity) * Math.PI * 2;
+                    const radius = 30 + Math.random() * 20;
+                    const x = Math.cos(angle) * radius;
+                    const y = Math.sin(angle) * radius;
+                    
+                    if (i === 0) {
+                        path += `${x},${y}`;
+                    } else {
+                        const cp1x = Math.cos(angle - Math.PI/6) * radius * 1.2;
+                        const cp1y = Math.sin(angle - Math.PI/6) * radius * 1.2;
+                        const cp2x = Math.cos(angle - Math.PI/12) * radius * 1.2;
+                        const cp2y = Math.sin(angle - Math.PI/12) * radius * 1.2;
+                        
+                        path += ` C${cp1x},${cp1y} ${cp2x},${cp2y} ${x},${y}`;
+                    }
+                }
+                
+                path += 'Z';
+                return path;
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'952fdc8b84bf6a96',t:'MTc1MDQ3MDY5NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
