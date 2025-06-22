@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025巴塞爾藝術展全面指南</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #ffeb3b;
+            overflow-x: hidden;
+        }
+        
+        .pop-art-bg {
+            background-image: radial-gradient(#ff4081 2px, transparent 2px), 
+                             radial-gradient(#00bcd4 2px, transparent 2px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+            animation: bgMove 60s linear infinite;
+        }
+        
+        @keyframes bgMove {
+            0% { background-position: 0 0, 20px 20px; }
+            100% { background-position: 1000px 1000px, 1020px 1020px; }
+        }
+        
+        .pop-art-border {
+            border: 8px solid #000;
+            box-shadow: 15px 15px 0 #ff4081;
+        }
+        
+        .pop-art-title {
+            text-shadow: 5px 5px 0 #ff4081, 10px 10px 0 #00bcd4;
+        }
+        
+        .pop-art-subtitle {
+            text-shadow: 3px 3px 0 #ff4081;
+        }
+        
+        .pop-art-image {
+            border: 5px solid #000;
+            transform: rotate(-2deg);
+            transition: transform 0.3s ease;
+        }
+        
+        .pop-art-image:hover {
+            transform: rotate(0deg) scale(1.03);
+        }
+        
+        .pop-art-card {
+            background-color: white;
+            border: 5px solid #000;
+            transform: rotate(1deg);
+            transition: transform 0.3s ease;
+        }
+        
+        .pop-art-card:hover {
+            transform: rotate(0deg) scale(1.02);
+        }
+        
+        .pop-art-dot {
+            background-image: radial-gradient(#ff4081 3px, transparent 3px);
+            background-size: 15px 15px;
+        }
+        
+        .comic-bubble {
+            position: relative;
+            background: white;
+            border: 5px solid black;
+            border-radius: 30px;
+            padding: 20px;
+        }
+        
+        .comic-bubble:after {
+            content: '';
+            position: absolute;
+            bottom: -25px;
+            left: 50px;
+            width: 30px;
+            height: 30px;
+            background: white;
+            border-right: 5px solid black;
+            border-bottom: 5px solid black;
+            transform: rotate(45deg);
+        }
+        
+        .halftone {
+            background-image: radial-gradient(#000 2px, transparent 2px);
+            background-size: 10px 10px;
+        }
+        
+        .city-pattern {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background-image: repeating-linear-gradient(90deg, #000, #000 10px, transparent 10px, transparent 30px);
+            z-index: -1;
+        }
+        
+        .ben-day-dots {
+            position: relative;
+        }
+        
+        .ben-day-dots::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: radial-gradient(#ff4081 2px, transparent 2px);
+            background-size: 10px 10px;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        
+        .exhibition-card {
+            transition: all 0.3s ease;
+        }
+        
+        .exhibition-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .pop-art-button {
+            background-color: #ff4081;
+            color: white;
+            font-weight: bold;
+            padding: 12px 24px;
+            border: 3px solid black;
+            transform: rotate(-2deg);
+            transition: all 0.2s ease;
+            box-shadow: 5px 5px 0 black;
+        }
+        
+        .pop-art-button:hover {
+            transform: rotate(0deg) translateY(-5px);
+            box-shadow: 8px 8px 0 black;
+        }
+        
+        .comic-pattern {
+            background-image: 
+                linear-gradient(45deg, #ff4081 25%, transparent 25%), 
+                linear-gradient(-45deg, #ff4081 25%, transparent 25%), 
+                linear-gradient(45deg, transparent 75%, #ff4081 75%), 
+                linear-gradient(-45deg, transparent 75%, #ff4081 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+        }
+        
+        .award-badge {
+            position: relative;
+            background: #FFD700;
+            color: black;
+            border: 4px solid black;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            transform: rotate(-15deg);
+            box-shadow: 5px 5px 0 rgba(0,0,0,0.5);
+            z-index: 10;
+        }
+        
+        .award-badge::before {
+            content: "★";
+            position: absolute;
+            top: -15px;
+            font-size: 24px;
+        }
+        
+        .zigzag-border {
+            position: relative;
+        }
+        
+        .zigzag-border::before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: 
+                linear-gradient(45deg, transparent 33.333%, #000 33.333%, #000 66.667%, transparent 66.667%),
+                linear-gradient(-45deg, transparent 33.333%, #000 33.333%, #000 66.667%, transparent 66.667%);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="pop-art-bg py-8 relative overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-8">
+                <img src="https://r2cdn.perplexity.ai/pplx-full-logo-primary-dark%402x.png" class="logo w-32 bg-white p-2 border-4 border-black" width="120"/>
+                <div class="comic-bubble hidden md:block">
+                    <p class="font-bold text-xl">藝術盛會！不容錯過！</p>
+                </div>
+            </div>
+            
+            <div class="text-center mb-12">
+                <h1 class="text-5xl md:text-7xl font-black mb-4 pop-art-title">2025巴塞爾藝術展</h1>
+                <h2 class="text-3xl md:text-4xl font-bold pop-art-subtitle">全面指南</h2>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <div class="pop-art-button">香港展會</div>
+                <div class="pop-art-button">瑞士巴塞爾展會</div>
+                <div class="pop-art-button">巴黎展會</div>
+                <div class="pop-art-button">邁阿密海灘展會</div>
+            </div>
+        </div>
+        
+        <!-- Decorative elements -->
+        <div class="absolute top-10 right-10 w-20 h-20 rounded-full bg-yellow-300 border-4 border-black z-0"></div>
+        <div class="absolute bottom-10 left-10 w-16 h-16 rounded-full bg-cyan-400 border-4 border-black z-0"></div>
+        <div class="absolute top-40 left-5 w-12 h-12 rounded-full bg-green-400 border-4 border-black z-0"></div>
+    </header>
+
+    <!-- Introduction Section -->
+    <section class="py-12 px-4 bg-white">
+        <div class="container mx-auto">
+            <div class="pop-art-border bg-white p-8 mb-12">
+                <p class="text-xl mb-6">2025年，巴塞爾藝術展再次以其無與倫比的規模與影響力，鞏固其作為全球當代藝術市場領先盛會的地位。這項盛事將於世界四大藝術重鎮盛大舉行，彙聚頂尖藝廊、藝術家與收藏家，共同打造藝術界年度盛典。</p>
+                
+                <div class="pop-art-image mx-auto mb-6 max-w-3xl">
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1750555286/pplx_project_search_images/776a13cb8d587f552039fe9462ce9f2f7c0f7632.jpg" alt="An aerial view of an Art Basel exhibition hall" class="w-full">
+                    <p class="text-sm italic mt-2">An aerial view of an Art Basel exhibition hall, featuring various art booths and visitors exploring the displays, including the 'Discoveries' sector.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exhibition Schedule Section -->
+    <section class="py-12 bg-cyan-400">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-black mb-12 text-center pop-art-subtitle">全球巡展時間表</h2>
+            <p class="text-xl mb-8 text-center bg-white p-4 border-4 border-black">巴塞爾藝術展作為國際藝術市場的風向標，2025年將繼續在全球四大城市舉辦展覽，為藝術愛好者提供無與倫比的視覺饗宴。</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <!-- Hong Kong Exhibition -->
+                <div class="exhibition-card pop-art-card bg-white p-6 relative overflow-hidden">
+                    <div class="halftone absolute top-0 right-0 w-32 h-32 opacity-20"></div>
+                    <h3 class="text-3xl font-bold mb-4">香港展會</h3>
+                    <ul class="mb-4 space-y-2">
+                        <li><strong>展期：</strong>2025年3月28日至30日</li>
+                        <li><strong>地點：</strong>香港會議展覽中心</li>
+                        <li><strong>VIP預展日：</strong>3月26日至27日</li>
+                        <li><strong>參展藝廊：</strong>來自42個國家和地區的240間頂尖藝廊</li>
+                    </ul>
+                    <p>香港展會特別強調亞太地區的藝術多樣性，逾半數參展藝廊來自亞太地區，彰顯其作為亞洲藝術樞紐的重要地位。</p>
+                </div>
+                
+                <!-- Basel Exhibition -->
+                <div class="exhibition-card pop-art-card bg-white p-6 relative overflow-hidden">
+                    <div class="halftone absolute top-0 right-0 w-32 h-32 opacity-20"></div>
+                    <h3 class="text-3xl font-bold mb-4">瑞士巴塞爾展會</h3>
+                    <ul class="mb-4 space-y-2">
+                        <li><strong>展期：</strong>2025年6月19日至22日</li>
+                        <li><strong>地點：</strong>巴塞爾展覽中心(Messe Basel)</li>
+                        <li><strong>VIP預展日：</strong>6月17日至18日</li>
+                        <li><strong>參展藝廊：</strong>來自42個國家和地區的289間頂尖藝廊</li>
+                    </ul>
+                    <p>作為巴塞爾藝術展的創始地和旗艦展會，瑞士巴塞爾展會被公認為全球藝術市場最重要的年度盛事，匯聚現代與當代藝術的精髓。</p>
+                </div>
+                
+                <!-- Paris Exhibition -->
+                <div class="exhibition-card pop-art-card bg-white p-6 relative overflow-hidden">
+                    <div class="halftone absolute top-0 right-0 w-32 h-32 opacity-20"></div>
+                    <h3 class="text-3xl font-bold mb-4">巴黎展會</h3>
+                    <ul class="mb-4 space-y-2">
+                        <li><strong>展期：</strong>2025年10月24日至26日</li>
+                        <li><strong>地點：</strong>巴黎大皇宮(Grand Palais)</li>
+                        <li><strong>VIP預展日：</strong>10月22日至23日</li>
+                        <li><strong>參展藝廊：</strong>來自40個國家和地區的203間頂尖藝廊</li>
+                    </ul>
+                    <p>這是巴黎展會在大皇宮舉辦的第二屆，三分之一以上的參展藝廊擁有巴黎據點，凸顯法國在全球藝術市場中的關鍵地位。</p>
+                </div>
+                
+                <!-- Miami Beach Exhibition -->
+                <div class="exhibition-card pop-art-card bg-white p-6 relative overflow-hidden">
+                    <div class="halftone absolute top-0 right-0 w-32 h-32 opacity-20"></div>
+                    <h3 class="text-3xl font-bold mb-4">邁阿密海灘展會</h3>
+                    <ul class="mb-4 space-y-2">
+                        <li><strong>展期：</strong>2025年12月5日至7日</li>
+                        <li><strong>地點：</strong>邁阿密海灘會議中心</li>
+                        <li><strong>VIP預展日：</strong>12月4日</li>
+                        <li><strong>邁阿密藝術周：</strong>2025年12月1日至7日</li>
+                    </ul>
+                    <p>邁阿密展會作為北美最具規模的國際當代藝術博覽會，每年吸引超過8萬名參觀者，已成為大邁阿密地區文化日曆上最璀璨的社交盛事。</p>
+                </div>
+            </div>
+            
+            <div class="pop-art-image mx-auto max-w-3xl">
+                <img src="https://pplx-res.cloudinary.com/image/upload/v1750555286/pplx_project_search_images/972de1016afabab95e75582dcffa03b040604cd1.jpg" alt="The exterior of the Miami Beach Convention Center" class="w-full">
+                <p class="text-sm italic mt-2 bg-white p-2">The exterior of the Miami Beach Convention Center, a common venue for Art Basel events, under a clear blue sky.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exhibition Highlights Section -->
+    <section class="py-12 bg-pink-500 relative">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-black mb-12 text-center pop-art-subtitle text-white">2025年重點展覽與特色活動</h2>
+            
+            <div class="bg-white pop-art-border p-8 mb-12">
+                <h3 class="text-3xl font-bold mb-6">巴塞爾展會亮點</h3>
+                
+                <!-- Basel Art Award -->
+                <div class="mb-12 relative">
+                    <div class="award-badge absolute -top-10 -right-10">
+                        <span>藝術獎</span>
+                    </div>
+                    <h4 class="text-2xl font-bold mb-4 bg-yellow-300 inline-block px-4 py-1 transform -rotate-2 border-2 border-black">巴塞爾藝術獎頒獎典禮</h4>
+                    <p class="mb-4">2025年巴塞爾藝術展將與BOSS合作，頒發首屆巴塞爾藝術獎，表彰36位在當代藝術領域具有開創性影響力的藝術家、策展人和文化創新者。頒獎典禮將於6月20日在巴塞爾舉行，面向公眾免費開放。</p>
+                </div>
+                
+                <!-- Katharina Grosse Installation -->
+                <div class="mb-12">
+                    <h4 class="text-2xl font-bold mb-4 bg-yellow-300 inline-block px-4 py-1 transform -rotate-2 border-2 border-black">Katharina Grosse的「CHOIR」藝術裝置</h4>
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/2">
+                            <p class="mb-4">德國知名藝術家Katharina Grosse將為2025年巴塞爾藝術展打造一件震撼人心的現場特定裝置藝術。這件名為「CHOIR」的作品將透過工業噴槍將巴塞爾展覽中心的Messeplatz廣場及其周圍建築物轉化為一片色彩鮮艷的環境，形成沉浸式的視覺體驗。</p>
+                        </div>
+                        <div class="md:w-1/2">
+                            <div class="pop-art-image">
+                                <img src="https://pplx-res.cloudinary.com/image/upload/v1750555286/pplx_project_search_images/829efb544822fe3ddec560b700bbc8554cca3d9a.jpg" alt="A vibrant, immersive art installation by Katharina Grosse" class="w-full">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Unlimited Section -->
+                <div class="mb-12">
+                    <h4 class="text-2xl font-bold mb-4 bg-cyan-400 inline-block px-4 py-1 transform -rotate-2 border-2 border-black">Unlimited板塊</h4>
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/2">
+                            <div class="pop-art-image">
+                                <img src="https://pplx-res.cloudinary.com/image/upload/v1750555286/pplx_project_search_images/2994ee2b0e52f161ac9c855df5d205670b7f0c9b.jpg" alt="Art installation featuring vibrant pink and white patterns" class="w-full">
+                            </div>
+                        </div>
+                        <div class="md:w-1/2">
+                            <p class="mb-4">由Kunst Halle Sankt Gallen館長Giovanni Carmine策劃的Unlimited板塊，將展示67件超大型藝術裝置，這些作品超越了傳統展位的限制，包括巨型雕塑、全景壁畫、綜合攝影系列、視頻投影和現場表演。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Parcours Section -->
+                <div>
+                    <h4 class="text-2xl font-bold mb-4 bg-green-400 inline-block px-4 py-1 transform -rotate-2 border-2 border-black">Parcours公共藝術展區</h4>
+                    <p class="mb-4">由紐約瑞士學院(Swiss Institute)館長Stefanie Hessler策劃的Parcours板塊，以「Second Nature」(第二自然)為主題。這個展區將在巴塞爾市區展示20多件特定場域的公共藝術作品，探索自然與人工、原創與重複、習慣與意外之間日益模糊的界限。</p>
+                </div>
+            </div>
+            
+            <!-- Hong Kong Exhibition Highlights -->
+            <div class="bg-white pop-art-border p-8 mb-12">
+                <h3 class="text-3xl font-bold mb-6">香港展會亮點</h3>
+                
+                <!-- MGM Art Prize -->
+                <div class="mb-12">
+                    <h4 class="text-2xl font-bold mb-4 bg-yellow-300 inline-block px-4 py-1 transform -rotate-2 border-2 border-black">MGM藝術探新獎</h4>
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <div class="md:w-1/2">
+                            <p class="mb-4">2025年香港展會首次設立「美高梅藝術探新獎」(MGM Discoveries Art Prize)，旨在表彰「藝術探新」(Discoveries)展區中展出的新興藝術家。韓國藝術家申敏(Shin Min)憑藉作品《Ew! There is hair in the food!!》獲得首屆獎項，獎金5萬美元。</p>
+                        </div>
+                        <div class="md:w-1/2">
+                            <div class="pop-art-image">
+                                <img src="https://pplx-res.cloudinary.com/image/upload/v1750555287/pplx_project_search_images/2e8268b1c7bda8f4bd028c6c17c0dc4706560105.jpg" alt="A visitor observes a large, textured sculpture" class="w-full">
+                                <p class="text-sm italic mt-2">A visitor wearing headphones observes a large, textured sculpture at an art exhibition.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Para Site Film Project -->
+                <div>
+                    <h4 class="text-2xl font-bold mb-4 bg-cyan-400 inline-block px-4 py-1 transform -rotate-2 border-2 border-black">Para Site電影項目</h4>
+                    <p class="mb-4">香港獨立藝術機構Para Site將首次與巴塞爾藝術展合作，策劃公共電影放映計劃。名為「In Space, It's Always Night」的系列節目將展映來自30位藝術家的作品，焦點作品是葡萄牙導演Isadora Neves Marques的《Vampires in Space》。</p>
+                </div>
+            </div>
+            
+            <!-- Paris Exhibition Features -->
+            <div class="bg-white pop-art-border p-8 mb-12">
+                <h3 class="text-3xl font-bold mb-6">巴黎展會特色</h3>
+                <p class="mb-4">巴黎展會的Galeries板塊將匯集當代與現代藝術領域的頂尖畫廊，包括九家首次參展的畫廊。Emergence板塊將聚焦16位新興藝術家的個展，Premise板塊則將呈現10個概念性強的展示，部分包括歷史性作品。</p>
+            </div>
+            
+            <!-- Miami Beach Exhibition Features -->
+            <div class="bg-white pop-art-border p-8 mb-12">
+                <h3 class="text-3xl font-bold mb-6">邁阿密海灘展會特色</h3>
+                <p class="mb-4">邁阿密展會不僅限於會議中心內的主展，整個邁阿密藝術周期間，城市各處將舉行衛星展、公共藝術項目、畫廊開幕活動以及精彩派對。展會的Meridians、Nova、Positions等板塊各自聚焦不同類型的藝術作品與創作者。</p>
+            </div>
+            
+            <div class="pop-art-image mx-auto max-w-3xl">
+                <img src="https://pplx-res.cloudinary.com/image/upload/v1750555286/pplx_project_search_images/fdcd6d3681079a60174139de14819d8603250343.jpg" alt="Visitors viewing contemporary sculptures and abstract paintings" class="w-full">
+                <p class="text-sm italic mt-2 bg-white p-2">Visitors viewing contemporary sculptures and abstract paintings at an art exhibition.</p>
+            </div>
+        </div>
+        
+        <!-- Decorative elements -->
+        <div class="absolute top-20 left-10 w-24 h-24 comic-pattern rounded-full border-4 border-black"></div>
+        <div class="absolute bottom-20 right-10 w-32 h-32 comic-pattern rounded-full border-4 border-black"></div>
+    </section>
+
+    <!-- Visitor Information Section -->
+    <section class="py-12 bg-yellow-300">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-black mb-12 text-center pop-art-subtitle">參展資訊與訪客指南</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <!-- Tickets & Entry Information -->
+                <div class="pop-art-card bg-white p-6">
+                    <h3 class="text-3xl font-bold mb-6">門票與入場資訊</h3>
+                    
+                    <!-- Basel Tickets -->
+                    <div class="mb-8">
+                        <h4 class="text-xl font-bold mb-2 bg-cyan-400 inline-block px-2 py-1 transform -rotate-1 border-2 border-black">瑞士巴塞爾展會</h4>
+                        <ul class="space-y-2 mb-4">
+                            <li><strong>日票：</strong>65瑞郎(約72美元)</li>
+                            <li><strong>永久通行證：</strong>120瑞郎(約133美元)</li>
+                            <li><strong>學生與長者優惠票：</strong>40瑞郎(約44美元)</li>
+                            <li><strong>開放時間：</strong>上午11時至下午7時</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Hong Kong Tickets -->
+                    <div class="mb-8">
+                        <h4 class="text-xl font-bold mb-2 bg-pink-400 inline-block px-2 py-1 transform -rotate-1 border-2 border-black">香港展會</h4>
+                        <ul class="space-y-2 mb-4">
+                            <li><strong>雙日票(週五和週六)：</strong>1,180港元</li>
+                            <li><strong>單日票：</strong>400至730港元不等</li>
+                            <li><strong>頂級VIP套票：</strong>12,800港元</li>
+                            <li><strong>開放時間：</strong>週五、週六下午2時至晚上8時；週日中午12時至下午6時</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Miami Beach Tickets -->
+                    <div>
+                        <h4 class="text-xl font-bold mb-2 bg-green-400 inline-block px-2 py-1 transform -rotate-1 border-2 border-black">邁阿密海灘展會</h4>
+                        <ul class="space-y-2">
+                            <li><strong>普通入場券：</strong>約85美元</li>
+                            <li><strong>優先入場券：</strong>約120美元</li>
+                            <li><strong>VIP套票：</strong>650美元起</li>
+                            <li><strong>開放時間：</strong>上午11時至下午6時</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Transportation & Accommodation -->
+                <div class="pop-art-card bg-white p-6">
+                    <h3 class="text-3xl font-bold mb-6">交通與住宿建議</h3>
+                    
+                    <!-- Basel Transportation -->
+                    <div class="mb-8">
+                        <h4 class="text-xl font-bold mb-2 bg-cyan-400 inline-block px-2 py-1 transform -rotate-1 border-2 border-black">瑞士巴塞爾</h4>
+                        <p class="mb-4">瑞士聯邦鐵路(SBB)提供前往巴塞爾藝術展的特別優惠，乘坐公共交通前往展會可獲門票10%折扣。展會期間巴塞爾市內交通繁忙，建議使用公共交通工具或預訂專車服務。</p>
+                    </div>
+                    
+                    <!-- Hong Kong Transportation -->
+                    <div class="mb-8">
+                        <h4 class="text-xl font-bold mb-2 bg-pink-400 inline-block px-2 py-1 transform -rotate-1 border-2 border-black">香港</h4>
+                        <p class="mb-4">香港會議展覽中心位於灣仔，交通便利，可乘坐地鐵或巴士抵達。建議提前預訂酒店，展會期間香港酒店房價通常會上漲。</p>
+                    </div>
+                    
+                    <!-- Miami Beach Transportation -->
+                    <div>
+                        <h4 class="text-xl font-bold mb-2 bg-green-400 inline-block px-2 py-1 transform -rotate-1 border-2 border-black">邁阿密海灘</h4>
+                        <p class="mb-4">專家建議避免於邁阿密藝術周期間自駕，可選擇使用共乘服務、酒店接駁車或公共交通。展會期間邁阿密的酒店房價較高，建議提前數月預訂。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pop-art-image mx-auto max-w-3xl mb-12">
+                <img src="https://pplx-res.cloudinary.com/image/upload/v1750555287/pplx_project_search_images/e8ad9d7d1b8d39cd1f008f1542a5d7a992e2ef31.jpg" alt="Katharina Grosse's colorful and immersive art installation" class="w-full">
+                <p class="text-sm italic mt-2 bg-white p-2">Katharina Grosse's colorful and immersive "The Bedroom" art installation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Art Market Trends Section -->
+    <section class="py-12 bg-cyan-400">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-black mb-12 text-center pop-art-subtitle">2025年藝術市場趨勢與展望</h2>
+            
+            <div class="bg-white pop-art-border p-8 mb-12">
+                <p class="text-xl mb-6">根據《Art Basel與UBS全球藝術市場報告2025》的分析，儘管2024年全球藝術品銷售總額下降12%至575億美元，但交易量增長了3%，表明市場仍然具有活力。</p>
+                
+                <h3 class="text-2xl font-bold mb-4">主要趨勢</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="pop-art-card p-4 bg-yellow-100">
+                        <h4 class="text-xl font-bold mb-2">更多元的買家活動</h4>
+                        <p>高端市場雖有所收縮，但低價位市場表現強勁，年營業額低於25萬美元的小型畫廊報告銷售額增長17%。</p>
+                    </div>
+                    
+                    <div class="pop-art-card p-4 bg-pink-100">
+                        <h4 class="text-xl font-bold mb-2">新買家增加</h4>
+                        <p>2024年，畫廊報告44%的買家是新客戶，首次購買者的銷售份額增加到38%，比2023年增加5個百分點。</p>
+                    </div>
+                    
+                    <div class="pop-art-card p-4 bg-green-100">
+                        <h4 class="text-xl font-bold mb-2">藝術博覽會重要性提升</h4>
+                        <p>31%的畫廊將藝術博覽會視為新買家的首選來源，比2023年增加1%，再次確認了面對面互動在推動銷售和吸引收藏家方面的重要性。</p>
+                    </div>
+                    
+                    <div class="pop-art-card p-4 bg-blue-100">
+                        <h4 class="text-xl font-bold mb-2">女性藝術家地位提升</h4>
+                        <p>畫廊中女性藝術家的比例上升到41%，比2018年增加6%，越來越多的女性藝術家顯著貢獻畫廊營業額。</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pop-art-image mx-auto max-w-3xl">
+                <img src="https://pplx-res.cloudinary.com/image/upload/v1750555286/pplx_project_search_images/87e0a3ec8c1d5a6b9708db39365f99ab8abb8a03.jpg" alt="A vibrant, large-scale art installation" class="w-full">
+                <p class="text-sm italic mt-2 bg-white p-2">A vibrant, large-scale art installation featuring draped, colorful fabric forms displayed within an arched exhibition hall.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="py-12 bg-pink-500">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-black mb-12 text-center pop-art-subtitle text-white">藝術展覽精選</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <div class="pop-art-card p-4 ben-day-dots">
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1750555286/pplx_project_search_images/129d5d06e4f45604c48b0340dc33c1822c1f3714.jpg" alt="An interior view of an art exhibition hall" class="w-full h-64 object-cover mb-4">
+                    <h3 class="text-xl font-bold">藝術展覽廳內景</h3>
+                    <p class="text-sm">展示各種繪畫和裝裱作品的藝術展覽廳內景。</p>
+                </div>
+                
+                <div class="pop-art-card p-4 ben-day-dots">
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1750555286/pplx_project_search_images/fdcd6d3681079a60174139de14819d8603250343.jpg" alt="Visitors viewing contemporary sculptures" class="w-full h-64 object-cover mb-4">
+                    <h3 class="text-xl font-bold">參觀者欣賞當代雕塑</h3>
+                    <p class="text-sm">參觀者在藝術展覽中欣賞當代雕塑和抽象畫作。</p>
+                </div>
+                
+                <div class="pop-art-card p-4 ben-day-dots">
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1750555286/pplx_project_search_images/829efb544822fe3ddec560b700bbc8554cca3d9a.jpg" alt="A vibrant art installation" class="w-full h-64 object-cover mb-4">
+                    <h3 class="text-xl font-bold">Katharina Grosse裝置藝術</h3>
+                    <p class="text-sm">一位參觀者欣賞Katharina Grosse的鮮豔沉浸式藝術裝置。</p>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <button class="pop-art-button text-xl">查看更多藝術作品</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusion Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="pop-art-border bg-white p-8">
+                <h2 class="text-3xl font-bold mb-6 text-center">結語</h2>
+                <p class="text-xl">2025年巴塞爾藝術展憑藉其包容性與多樣性的藝術視角、跨越多個大洲的展會布局以及對新興藝術與藝術家的支持，再次彰顯其作為全球藝術市場領導者的地位。無論您是資深收藏家、藝術專業人士還是藝術愛好者，巴塞爾藝術展都將為您提供一場豐富多彩的藝術盛宴，展示當代藝術的無限可能性與創新潛力。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">關於巴塞爾藝術展</h3>
+                    <p>巴塞爾藝術展成立於1970年，是全球最具影響力的國際當代藝術博覽會，每年在巴塞爾、香港、巴黎和邁阿密海灘舉行。</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">聯絡我們</h3>
+                    <p>電子郵件：info@artbasel.com</p>
+                    <p>電話：+41 58 206 20 20</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">關注我們</h3>
+                    <div class="flex gap-4">
+                        <div class="w-10 h-10 bg-white text-black flex items-center justify-center font-bold rounded-full">FB</div>
+                        <div class="w-10 h-10 bg-white text-black flex items-center justify-center font-bold rounded-full">IG</div>
+                        <div class="w-10 h-10 bg-white text-black flex items-center justify-center font-bold rounded-full">TW</div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 text-center">
+                <p>© 2025 巴塞爾藝術展. 版權所有.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add interactive elements
+        document.querySelectorAll('.pop-art-button').forEach(button => {
+            button.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95) rotate(-1deg)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 200);
+            });
+        });
+        
+        // Add scroll animation
+        window.addEventListener('scroll', function() {
+            const cards = document.querySelectorAll('.exhibition-card, .pop-art-card');
+            cards.forEach(card => {
+                const cardPosition = card.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (cardPosition < screenPosition) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                } else {
+                    card.style.opacity = '0.5';
+                    card.style.transform = 'translateY(20px)';
+                }
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'953815340066072c',t:'MTc1MDU1NjkwMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
