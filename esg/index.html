@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
@@ -172,6 +170,49 @@
             flex-grow: 1;
         }
 
+        /* 回到頂端按鈕樣式 */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-green), var(--accent-green));
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(46, 125, 50, 0.4);
+            background: linear-gradient(135deg, var(--accent-green), var(--primary-green));
+        }
+
+        .back-to-top.show {
+            display: flex;
+            animation: fadeInUp 0.3s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* 頁腳 */
         .esg-footer {
             background-color: var(--text-dark);
@@ -200,6 +241,14 @@
             .blog-grid {
                 grid-template-columns: 1fr;
             }
+
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
@@ -220,10 +269,10 @@
 
             <!-- 文章卡片列表 -->
             <div class="blog-grid">
-				<a href="4.html" class="blog-card">
+                <a href="4.html" class="blog-card">
                     <div class="blog-image">
                         <div class="blog-image-placeholder">
-                            <i class="fas fa-tree"></i>
+                            <i class="fas fa-university"></i>
                         </div>
                         <span class="blog-category">專家專欄</span>
                     </div>
@@ -238,10 +287,10 @@
                         </p>
                     </div>
                 </a>
-				<a href="3.html" class="blog-card">
+                <a href="3.html" class="blog-card">
                     <div class="blog-image">
                         <div class="blog-image-placeholder">
-                            <i class="fas fa-tree"></i>
+                            <i class="fas fa-balance-scale"></i>
                         </div>
                         <span class="blog-category">專家專欄</span>
                     </div>
@@ -256,10 +305,10 @@
                         </p>
                     </div>
                 </a>
-				<a href="2.html" class="blog-card">
+                <a href="2.html" class="blog-card">
                     <div class="blog-image">
                         <div class="blog-image-placeholder">
-                            <i class="fas fa-tree"></i>
+                            <i class="fas fa-chart-line"></i>
                         </div>
                         <span class="blog-category">專家專欄</span>
                     </div>
@@ -268,7 +317,7 @@
                             <i class="far fa-calendar-alt"></i>
                             2025年6月27日
                         </div>
-                        <h3 class="blog-title">GRI兩項全新標準說明</h3>
+                        <h3 class="blog-title"> GRI兩項全新標準說明</h3>
                         <p class="blog-excerpt">
                             GRI（全球報告倡議組織）剛剛發布了...
                         </p>
@@ -277,7 +326,7 @@
                 <a href="1.html" class="blog-card">
                     <div class="blog-image">
                         <div class="blog-image-placeholder">
-                            <i class="fas fa-tree"></i>
+                            <i class="fas fa-chart-bar"></i>
                         </div>
                         <span class="blog-category">專家專欄</span>
                     </div>
@@ -296,11 +345,42 @@
         </div>
     </section>
 
+    <!-- 回到頂端按鈕 -->
+    <button class="back-to-top" id="backToTop" title="回到頂端">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
     <!-- 頁腳 -->
     <footer class="esg-footer">
         <div class="footer-content">
             <p class="copyright">© DUNK | 版權所有</p>
         </div>
     </footer>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9537ea15a05aa361',t:'MTc1MDU1NTEzNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+
+    <script>
+        // 回到頂端功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const backToTopButton = document.getElementById('backToTop');
+            
+            // 監聽滾動事件
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('show');
+                } else {
+                    backToTopButton.classList.remove('show');
+                }
+            });
+            
+            // 點擊回到頂端
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+    
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9537ea15a05aa361',t:'MTc1MDU1NTEzNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+</body>
 </html>
