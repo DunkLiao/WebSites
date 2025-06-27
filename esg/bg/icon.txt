@@ -1,0 +1,73 @@
+<!-- 環境相關 -->
+<i class="fas fa-leaf"></i>          <!-- 葉子 -->
+<i class="fas fa-seedling"></i>      <!-- 幼苗 -->
+<i class="fas fa-globe"></i>         <!-- 地球 -->
+<i class="fas fa-recycle"></i>       <!-- 回收 -->
+<i class="fas fa-solar-panel"></i>   <!-- 太陽能板 -->
+<i class="fas fa-wind"></i>          <!-- 風 -->
+
+<!-- 社會責任相關 -->
+<i class="fas fa-users"></i>         <!-- 用戶群 -->
+<i class="fas fa-handshake"></i>     <!-- 握手 -->
+<i class="fas fa-heart"></i>         <!-- 愛心 -->
+<i class="fas fa-hands-helping"></i> <!-- 互助 -->
+
+<!-- 治理相關 -->
+<i class="fas fa-balance-scale"></i> <!-- 天秤 -->
+<i class="fas fa-shield-alt"></i>    <!-- 盾牌 -->
+<i class="fas fa-chart-line"></i>    <!-- 圖表 -->
+<i class="fas fa-building"></i>      <!-- 建築物 -->
+
+<!-- 金融相關 -->
+<i class="fas fa-coins"></i>         <!-- 硬幣 -->
+<i class="fas fa-chart-bar"></i>     <!-- 長條圖 -->
+<i class="fas fa-piggy-bank"></i>    <!-- 存錢筒 -->
+<i class="fas fa-university"></i>    <!-- 銀行 -->
+
+<!-- 環境相關 -->
+<i class="fas fa-leaf"></i>
+<i class="fas fa-seedling"></i>
+<i class="fas fa-globe"></i>
+<i class="fas fa-recycle"></i>
+
+<!-- 數據分析相關 -->
+<i class="fas fa-chart-line"></i>
+<i class="fas fa-chart-bar"></i>
+<i class="fas fa-analytics"></i>
+
+<!-- 商業相關 -->
+<i class="fas fa-handshake"></i>
+<i class="fas fa-building"></i>
+<i class="fas fa-users"></i>
+
+
+
+推薦的 ESG 相關圖示類別
+
+環境 (Environmental) 相關圖示：
+fa-leaf - 葉子圖示
+fa-tree - 樹木圖示
+fa-recycle - 回收圖示
+fa-solar-panel - 太陽能板圖示
+fa-wind - 風力圖示
+fa-water - 水滴圖示
+fa-earth-americas - 地球圖示
+fa-seedling - 幼苗圖示
+fa-lightbulb - 燈泡圖示（節能概念）
+
+社會 (Social) 相關圖示：
+fa-users - 用戶群組圖示
+fa-handshake - 握手圖示
+fa-heart - 愛心圖示
+fa-hands-helping - 互助圖示
+fa-balance-scale - 天平圖示（公平正義）
+fa-graduation-cap - 畢業帽圖示（教育）
+fa-home - 房屋圖示（社區）
+
+治理 (Governance) 相關圖示：
+fa-shield-alt - 盾牌圖示（保護/安全）
+fa-chart-line - 趨勢圖示
+fa-clipboard-check - 檢查清單圖示
+fa-gavel - 法槌圖示（法治）
+fa-eye - 眼睛圖示（透明度）
+fa-lock - 鎖頭圖示（安全）
