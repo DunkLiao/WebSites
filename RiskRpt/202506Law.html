@@ -1,0 +1,564 @@
+html
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025年6月法令遵循法規異動彙整</title>
+    <style>
+        /* 基本樣式設定 */
+        :root {
+            --primary-color: #9A0036;
+            --secondary-color: #EEBAC0;
+            --accent-color: #941C61;
+            --background-color: #FFFFFF;
+            --light-gray: #F5F5F5;
+            --dark-gray: #333333;
+            --gold: #D4AF37;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: '微軟正黑體', 'Arial', sans-serif;
+        }
+        
+        body {
+            background-color: var(--background-color);
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+        
+        /* 頁首設計 */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            font-size: 1rem;
+            display: block;
+            margin-top: 5px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        /* 主要內容區 */
+        .main-container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        
+        .page-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .update-date {
+            text-align: right;
+            margin-bottom: 20px;
+            font-style: italic;
+            color: var(--dark-gray);
+        }
+        
+        /* 卡片設計 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 20px;
+            font-weight: 600;
+        }
+        
+        .card-body {
+            padding: 20px;
+        }
+        
+        .card-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .card-content {
+            margin-bottom: 15px;
+        }
+        
+        .card-footer {
+            padding: 15px 20px;
+            background-color: var(--light-gray);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .card-date {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .card-link {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: var(--accent-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+        
+        .card-link:hover {
+            background-color: var(--primary-color);
+        }
+        
+        /* 標籤設計 */
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 15px;
+            gap: 8px;
+        }
+        
+        .tag {
+            background-color: var(--secondary-color);
+            color: var(--dark-gray);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        /* 分隔線 */
+        .divider {
+            height: 1px;
+            background-color: #e0e0e0;
+            margin: 30px 0;
+        }
+        
+        /* 搜尋區塊 */
+        .search-section {
+            background-color: var(--light-gray);
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+        
+        .search-container {
+            display: flex;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px 0 0 4px;
+            font-size: 1rem;
+        }
+        
+        .search-button {
+            background-color: var(--gold);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .search-button:hover {
+            background-color: #b8960c;
+        }
+        
+        /* 頁腳設計 */
+        footer {
+            background-color: var(--dark-gray);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .footer-links {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: var(--secondary-color);
+            margin: 0 10px;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 頁首 -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>金融法規更新資訊平台</h1>
+                <span>最新金融政策與法規變動一站掌握</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">首頁</a></li>
+                    <li><a href="#">法規分類</a></li>
+                    <li><a href="#">最新動態</a></li>
+                    <li><a href="#">關於我們</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- 主要內容區 -->
+    <div class="main-container">
+        <h2 class="page-title">2025年6月法令遵循法規異動彙整</h2>
+        <p class="update-date">最後更新日期：2025年7月7日</p>               
+        
+        <!-- 法規卡片區 -->
+        <div class="card-grid">
+            <!-- 微型創業鳳凰貸款要點 -->
+            <div class="card">
+                <div class="card-header">勞動部法規異動</div>
+                <div class="card-body">
+                    <h3 class="card-title">微型創業鳳凰貸款要點</h3>
+                    <div class="card-content">
+                        <p>勞動部修正「微型創業鳳凰貸款要點」第22點與第23點，針對貸款人因災害或重大社會經濟事件受影響時，提供暫緩繳付貸款本息及展延貸款還款期限最長六個月的彈性應變措施。</p>
+                        <div class="tags">
+                            <span class="tag">微型創業</span>
+                            <span class="tag">鳳凰貸款</span>
+                            <span class="tag">災害救助</span>
+                            <span class="tag">貸款展延</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-date">生效日期：114年6月23日</span>
+                    <a href="https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg031115/ch08/type2/gov82/num27/Eg.htm" class="card-link" target="_blank">查看原文</a>
+                </div>
+            </div>
+            
+            <!-- 就業保險失業者創業協助辦法 -->
+            <div class="card">
+                <div class="card-header">勞動部法規異動</div>
+                <div class="card-body">
+                    <h3 class="card-title">就業保險失業者創業協助辦法</h3>
+                    <div class="card-content">
+                        <p>勞動部修正「就業保險失業者創業協助辦法」第二十六條，針對貸款人因災害或重大社會經濟事件受影響時，提供貸款緩繳與展延機制，並由政府補貼利息，協助受影響者度過困難時期。</p>
+                        <div class="tags">
+                            <span class="tag">就業保險</span>
+                            <span class="tag">失業者</span>
+                            <span class="tag">創業協助</span>
+                            <span class="tag">利息補貼</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-date">生效日期：114年6月11日</span>
+                    <a href="https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg031107/ch08/type1/gov82/num38/Eg.htm" class="card-link" target="_blank">查看原文</a>
+                </div>
+            </div>
+            
+            <!-- 交通部觀光署獎勵及推動觀光相關補助與獎助要點 -->
+            <div class="card">
+                <div class="card-header">交通部法規異動</div>
+                <div class="card-body">
+                    <h3 class="card-title">觀光署獎勵及推動觀光相關補助與獎助要點</h3>
+                    <div class="card-content">
+                        <p>交通部觀光署修正五項觀光補助與獎助要點，主要針對原屬「交通部觀光局」名義之要點進行名稱與內容修正，統一更名為「交通部觀光署」，反映組織改制後的行政名稱更新。</p>
+                        <div class="tags">
+                            <span class="tag">交通部觀光署</span>
+                            <span class="tag">觀光補助</span>
+                            <span class="tag">教育旅行</span>
+                            <span class="tag">行政改制</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-date">生效日期：114年6月20日</span>
+                    <a href="https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg031114/ch06/type2/gov50/num20/Eg.htm" class="card-link" target="_blank">查看原文</a>
+                </div>
+            </div>
+            
+            <!-- 失業中高齡者及高齡者創業貸款及利息補貼要點 -->
+            <div class="card">
+                <div class="card-header">勞動部法規異動</div>
+                <div class="card-body">
+                    <h3 class="card-title">失業中高齡者及高齡者創業貸款及利息補貼要點</h3>
+                    <div class="card-content">
+                        <p>勞動部修正「失業中高齡者及高齡者創業貸款及利息補貼要點」第十九點，針對貸款人因災害或重大社會經濟事件受影響時，新增緩繳與展延機制，並明定利息補貼與申請條件。</p>
+                        <div class="tags">
+                            <span class="tag">中高齡創業</span>
+                            <span class="tag">失業貸款</span>
+                            <span class="tag">利息補貼</span>
+                            <span class="tag">災害救助</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-date">生效日期：114年6月20日</span>
+                    <a href="https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg031114/ch08/type2/gov82/num33/Eg.htm" class="card-link" target="_blank">查看原文</a>
+                </div>
+            </div>
+            
+            <!-- 小額終老保險商品相關規範 -->
+            <div class="card">
+                <div class="card-header">金管會法規異動</div>
+                <div class="card-body">
+                    <h3 class="card-title">小額終老保險商品相關規範</h3>
+                    <div class="card-content">
+                        <p>金融監督管理委員會發布公告，依據《保險法》第123條之一第2項規定，明定符合「小額終老保險商品相關規範」條件之人壽保險契約，其解約金債權不得作為扣押或強制執行的標的。</p>
+                        <div class="tags">
+                            <span class="tag">小額終老保險</span>
+                            <span class="tag">人壽保險</span>
+                            <span class="tag">解約金債權</span>
+                            <span class="tag">扣押禁止</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-date">生效日期：114年6月20日</span>
+                    <a href="https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg031114/ch04/type1/gov36/num7/Eg.htm" class="card-link" target="_blank">查看原文</a>
+                </div>
+            </div>
+            
+            <!-- 保險業招攬及核保理賠辦法相關規定之執行指引 -->
+            <div class="card">
+                <div class="card-header">金管會法規異動</div>
+                <div class="card-body">
+                    <h3 class="card-title">保險業招攬及核保理賠辦法相關規定之執行指引</h3>
+                    <div class="card-content">
+                        <p>金融監督管理委員會發布命令，要求保險業者強化內部制度，防範業務員或合作通路透過「分散拆單」方式，規避保險契約解約金債權被扣押或強制執行的法律規定。</p>
+                        <div class="tags">
+                            <span class="tag">保險業</span>
+                            <span class="tag">解約金債權</span>
+                            <span class="tag">分散拆單</span>
+                            <span class="tag">內部控管</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-date">生效日期：114年6月20日</span>
+                    <a href="https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg031114/ch04/type2/gov36/num10/Eg.htm" class="card-link" target="_blank">查看原文</a>
+                </div>
+            </div>
+            
+            <!-- 金融業申請進駐地方資產管理專區試辦業務作業原則 -->
+            <div class="card">
+                <div class="card-header">中央銀行法規異動</div>
+                <div class="card-body">
+                    <h3 class="card-title">金融業申請進駐地方資產管理專區試辦業務作業原則</h3>
+                    <div class="card-content">
+                        <p>中央銀行發布命令，針對外匯指定銀行於「地方資產管理專區」內試辦特定外幣貸款業務，明定其可排除適用部分《銀行業辦理外匯業務作業規範》之限制，並規範試辦期間的申報義務。</p>
+                        <div class="tags">
+                            <span class="tag">外匯指定銀行</span>
+                            <span class="tag">資產管理專區</span>
+                            <span class="tag">外幣貸款</span>
+                            <span class="tag">試辦業務</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-date">生效日期：114年6月20日</span>
+                    <a href="https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg031114/ch04/type2/gov32/num9/Eg.htm" class="card-link" target="_blank">查看原文</a>
+                </div>
+            </div>
+            
+            <!-- 金融消費者保護法第四條第二項授權規定 -->
+            <div class="card">
+                <div class="card-header">金管會法規草案</div>
+                <div class="card-body">
+                    <h3 class="card-title">金融消費者保護法第四條第二項授權規定</h3>
+                    <div class="card-content">
+                        <p>金融監督管理委員會預告訂定《金融消費者保護法》第四條第二項之授權規定，並同時廢止原109年10月16日發布之相關命令。此草案為配合重大政策推動，預告期為7日。</p>
+                        <div class="tags">
+                            <span class="tag">金融消費者保護法</span>
+                            <span class="tag">授權規定</span>
+                            <span class="tag">草案預告</span>
+                            <span class="tag">法規廢止</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-date">預告日期：114年6月20日</span>
+                    <a href="https://gazette.nat.gov.tw/EG_FileManager/eguploadpub/eg031114/ch04/type3/gov36/num11/Eg.htm" class="card-link" target="_blank">查看原文</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 分隔線 -->
+        <div class="divider"></div>
+        
+        <!-- 法規分類區塊 -->
+        <h2 class="page-title">依主管機關分類</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-header">勞動部</div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <p>勞動部近期修正多項創業貸款相關法規，針對受災害或重大社會經濟事件影響的貸款人，提供貸款緩繳與展延機制，強化社會安全網。</p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-date">共3項法規異動</span>
+                    <a href="#" class="card-link">查看詳情</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">金融監督管理委員會</div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <p>金管會近期修正保險相關法規，加強對小額終老保險的保障，並防範規避扣押保護規定的行為，同時預告金融消費者保護法相關授權規定草案。</p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-date">共3項法規異動</span>
+                    <a href="#" class="card-link">查看詳情</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">交通部</div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <p>交通部觀光署修正多項觀光補助與獎助要點，主要針對原屬「交通部觀光局」名義之要點進行名稱與內容修正，統一更名為「交通部觀光署」。</p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-date">共1項法規異動</span>
+                    <a href="#" class="card-link">查看詳情</a>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">中央銀行</div>
+                <div class="card-body">
+                    <div class="card-content">
+                        <p>中央銀行針對外匯指定銀行於「地方資產管理專區」內試辦特定外幣貸款業務，明定其可排除適用部分《銀行業辦理外匯業務作業規範》之限制。</p>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <span class="card-date">共1項法規異動</span>
+                    <a href="#" class="card-link">查看詳情</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 頁腳 -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">關於我們</a>
+                <a href="#">聯絡資訊</a>
+                <a href="#">使用條款</a>
+                <a href="#">隱私政策</a>
+            </div>
+            <p>免責申明：基於公開資料，僅供參考，不構成建議</p>
+            <p>資料來源：網頁公開資訊</p>
+            <p>版權所有： © Dunk</p>
+        </div>
+    </footer>
+</body>
+</html>
