@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>零藝術博覽會</title>
+    <style>
+        .audio-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        
+        audio {
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        .audio-info {
+            margin-bottom: 15px;
+        }
+        
+        .audio-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .audio-description {
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="audio-container">
+        <div class="audio-info">
+            <div class="audio-title">零藝術博覽會</div>
+            <div class="audio-description"></div>
+        </div>                
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/YRd0wxLkaL0?si=qxR2mVorCXGJTzUj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+</body>
+</html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>零藝術博覽會</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background: linear-gradient(135deg, #fef3e2 0%, #fde8cc 50%, #f9d5a7 100%);
+        }
+        
+        .storybook-card {
+            background: linear-gradient(145deg, #ffffff 0%, #fef9f3 100%);
+            border: 3px solid #f4a261;
+            border-radius: 25px;
+            box-shadow: 0 8px 25px rgba(244, 162, 97, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .storybook-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(244, 162, 97, 0.3);
+        }
+        
+        .cute-button {
+            background: linear-gradient(45deg, #e76f51, #f4a261);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            padding: 12px 30px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(231, 111, 81, 0.3);
+        }
+        
+        .cute-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(231, 111, 81, 0.4);
+        }
+        
+        .illustration {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            background: linear-gradient(135deg, #fef3e2, #f4a261);
+            border-radius: 50%;
+            border: 3px solid #e76f51;
+            margin-bottom: 1rem;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+            background: #e76f51;
+            border-radius: 50%;
+            border: 3px solid #ffffff;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 0.4rem;
+            top: 1.5rem;
+            width: 2px;
+            height: calc(100% + 1rem);
+            background: linear-gradient(to bottom, #f4a261, transparent);
+        }
+        
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        
+        .floating-element {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .section-divider {
+            background: linear-gradient(90deg, transparent, #f4a261, transparent);
+            height: 2px;
+            margin: 3rem 0;
+        }
+        
+        .artwork-card {
+            background: linear-gradient(145deg, #fff8f0 0%, #fef2e8 100%);
+            border: 2px solid #f4a261;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .artwork-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(244, 162, 97, 0.2);
+        }
+        
+        .media-badge {
+            background: linear-gradient(45deg, #e76f51, #f4a261);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .price-tag {
+            background: linear-gradient(45deg, #2d5a27, #4a7c59);
+            color: white;
+            padding: 6px 15px;
+            border-radius: 25px;
+            font-weight: 600;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- 頁首 -->
+    <header class="text-center py-12 px-4">
+        <div class="floating-element">
+            <div class="illustration mx-auto mb-6" style="width: 120px; height: 120px; font-size: 4rem;">
+                🎨
+            </div>
+        </div>
+        <h1 class="text-5xl font-bold text-amber-800 mb-4">零藝術博覽會</h1>
+        <p class="text-xl text-amber-700 font-medium">Zero Art Fair</p>
+        <p class="text-lg text-amber-600 mt-2">一個充滿愛與創新的藝術故事</p>
+    </header>
+
+    <div class="max-w-6xl mx-auto px-4 pb-12">
+        <!-- 展覽概述 -->
+        <section class="mb-16">
+            <div class="storybook-card p-8">
+                <div class="text-center mb-8">
+                    <div class="illustration">🌟</div>
+                    <h2 class="text-3xl font-bold text-amber-800 mb-4">展覽概述</h2>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="space-y-4">
+                        <div class="bg-orange-50 p-6 rounded-2xl border-2 border-orange-200">
+                            <h3 class="text-xl font-semibold text-orange-800 mb-3 flex items-center">
+                                📅 展覽時間
+                            </h3>
+                            <p class="text-orange-700">2025年7月8日至7月12日</p>
+                            <p class="text-orange-600 text-sm">每天上午11點至下午5點</p>
+                        </div>
+                        
+                        <div class="bg-pink-50 p-6 rounded-2xl border-2 border-pink-200">
+                            <h3 class="text-xl font-semibold text-pink-800 mb-3 flex items-center">
+                                📍 展覽地點
+                            </h3>
+                            <p class="text-pink-700">The FLAG Art Foundation</p>
+                            <p class="text-pink-600 text-sm">紐約市西25街545號9樓</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-yellow-50 p-6 rounded-2xl border-2 border-yellow-200">
+                        <h3 class="text-xl font-semibold text-yellow-800 mb-3 flex items-center">
+                            💡 創新理念
+                        </h3>
+                        <p class="text-yellow-700 leading-relaxed">
+                            挑戰傳統藝術市場的「藝術商品化」問題，讓藝術品能進入更多人的生活，
+                            同時保障藝術家的權益。我們相信藝術是豐富的而非稀缺的！
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- 核心理念 -->
+        <section class="mb-16">
+            <div class="storybook-card p-8">
+                <div class="text-center mb-8">
+                    <div class="illustration">💝</div>
+                    <h2 class="text-3xl font-bold text-amber-800 mb-4">核心理念與創新價值</h2>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div class="space-y-6">
+                        <div class="bg-gradient-to-r from-red-50 to-orange-50 p-6 rounded-2xl border-2 border-red-200">
+                            <div class="flex items-center mb-3">
+                                <span class="text-2xl mr-3">🎯</span>
+                                <h3 class="text-lg font-semibold text-red-800">挑戰藝術商品化</h3>
+                            </div>
+                            <p class="text-red-700 text-sm">揭示精緻藝術是豐富的而非稀缺的真相</p>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-2xl border-2 border-blue-200">
+                            <div class="flex items-center mb-3">
+                                <span class="text-2xl mr-3">🤝</span>
+                                <h3 class="text-lg font-semibold text-blue-800">藝術民主化</h3>
+                            </div>
+                            <p class="text-blue-700 text-sm">讓更多人能以低成本甚至免費的方式擁有藝術品</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-2xl border-2 border-green-200">
+                            <div class="flex items-center mb-3">
+                                <span class="text-2xl mr-3">📋</span>
+                                <h3 class="text-lg font-semibold text-green-800">獨特合約機制</h3>
+                            </div>
+                            <p class="text-green-700 text-sm">確保藝術家在作品未來轉售中獲得持續收益</p>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-2xl border-2 border-purple-200">
+                            <div class="flex items-center mb-3">
+                                <span class="text-2xl mr-3">🏠</span>
+                                <h3 class="text-lg font-semibold text-purple-800">充滿愛的家園</h3>
+                            </div>
+                            <p class="text-purple-700 text-sm">為被忽視的藝術品提供溫暖的歸宿</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-amber-50 p-6 rounded-2xl border-2 border-amber-200 text-center">
+                    <p class="text-amber-800 font-medium text-lg leading-relaxed">
+                        「當前的藝術市場利用虛假稀缺性來為少數藝術家的作品制定高價，
+                        這導致大量優秀的藝術品無法進入流通。我們要改變這個現狀！」
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- 運作模式 -->
+        <section class="mb-16">
+            <div class="storybook-card p-8">
+                <div class="text-center mb-8">
+                    <div class="illustration">⚙️</div>
+                    <h2 class="text-3xl font-bold text-amber-800 mb-4">雙階段展覽結構</h2>
+                </div>
+                
+                <div class="space-y-8">
+                    <div class="timeline-item">
+                        <div class="bg-gradient-to-r from-cyan-50 to-blue-50 p-6 rounded-2xl border-2 border-cyan-200">
+                            <div class="flex items-center mb-4">
+                                <span class="text-3xl mr-4">👥</span>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-cyan-800">公眾預展期</h3>
+                                    <p class="text-cyan-600">7月8日至7月10日</p>
+                                </div>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="space-y-2">
+                                    <p class="text-cyan-700"><strong>入場方式：</strong>免費開放，無需預約</p>
+                                    <p class="text-cyan-700"><strong>活動內容：</strong>欣賞並以零售價格購買藝術品</p>
+                                </div>
+                                <div class="space-y-2">
+                                    <p class="text-cyan-700"><strong>特別活動：</strong>7月10日晚上5-7點閉幕招待會</p>
+                                    <p class="text-cyan-700"><strong>目的：</strong>提供傳統商業化選擇</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="bg-gradient-to-r from-emerald-50 to-green-50 p-6 rounded-2xl border-2 border-emerald-200">
+                            <div class="flex items-center mb-4">
+                                <span class="text-3xl mr-4">🎪</span>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-emerald-800">藝術博覽會期</h3>
+                                    <p class="text-emerald-600">7月11日至7月12日</p>
+                                </div>
+                            </div>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="space-y-2">
+                                    <p class="text-emerald-700"><strong>入場方式：</strong>需提前註冊並獲得免費定時門票</p>
+                                    <p class="text-emerald-700"><strong>活動內容：</strong>通過簽署特殊合約免費獲得藝術品</p>
+                                </div>
+                                <div class="space-y-2">
+                                    <p class="text-emerald-700"><strong>創新特色：</strong>「Store-to-Own」合約機制</p>
+                                    <p class="text-emerald-700"><strong>目的：</strong>實現藝術品免費轉讓</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Store-to-Own 合約 -->
+        <section class="mb-16">
+            <div class="storybook-card p-8">
+                <div class="text-center mb-8">
+                    <div class="illustration">📜</div>
+                    <h2 class="text-3xl font-bold text-amber-800 mb-4">「Store-to-Own」合約機制</h2>
+                    <p class="text-amber-600">為藝術家提供持續權益保障的創新合約</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div class="bg-indigo-50 p-6 rounded-2xl border-2 border-indigo-200">
+                            <div class="flex items-center mb-3">
+                                <span class="text-2xl mr-3">⏰</span>
+                                <h3 class="text-lg font-semibold text-indigo-800">五年歸屬期</h3>
+                            </div>
+                            <p class="text-indigo-700 text-sm mb-2">收藏者可免費獲得藝術品</p>
+                            <p class="text-indigo-600 text-sm">所有權將在五年後正式轉移</p>
+                        </div>
+                        
+                        <div class="bg-rose-50 p-6 rounded-2xl border-2 border-rose-200">
+                            <div class="flex items-center mb-3">
+                                <span class="text-2xl mr-3">🛡️</span>
+                                <h3 class="text-lg font-semibold text-rose-800">藝術家權益</h3>
+                            </div>
+                            <p class="text-rose-700 text-sm mb-2">期間內仍可出售或借出作品參展</p>
+                            <p class="text-rose-600 text-sm">保留完整的創作者權利</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-yellow-50 to-orange-50 p-6 rounded-2xl border-2 border-yellow-200">
+                        <h3 class="text-lg font-semibold text-yellow-800 mb-4 flex items-center">
+                            <span class="text-2xl mr-3">💰</span>
+                            收益分配機制
+                        </h3>
+                        <div class="space-y-3">
+                            <div class="bg-white p-3 rounded-lg border border-yellow-300">
+                                <p class="text-yellow-800 font-medium">首次出售</p>
+                                <p class="text-yellow-700 text-sm">藝術家獲得售價的 50%</p>
+                            </div>
+                            <div class="bg-white p-3 rounded-lg border border-yellow-300">
+                                <p class="text-yellow-800 font-medium">後續轉售</p>
+                                <p class="text-yellow-700 text-sm">藝術家享有 10% 永久版稅</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 bg-teal-50 p-6 rounded-2xl border-2 border-teal-200 text-center">
+                    <p class="text-teal-800 font-medium">
+                        這一機制旨在為藝術家提供更強的經濟保障，並促進藝術市場的透明化
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- 分層准入制度 -->
+        <section class="mb-16">
+            <div class="storybook-card p-8">
+                <div class="text-center mb-8">
+                    <div class="illustration">🎭</div>
+                    <h2 class="text-3xl font-bold text-amber-800 mb-4">分層准入制度</h2>
+                    <p class="text-amber-600">確保不同經濟背景的參觀者都能參與</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-gradient-to-b from-green-50 to-emerald-50 p-6 rounded-2xl border-2 border-green-200 text-center">
+                        <div class="text-4xl mb-4">🤲</div>
+                        <h3 class="text-lg font-semibold text-green-800 mb-3">助人者</h3>
+                        <p class="text-green-700 text-sm">有能力幫助他人與藝術共同生活的人</p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-b from-blue-50 to-cyan-50 p-6 rounded-2xl border-2 border-blue-200 text-center">
+                        <div class="text-4xl mb-4">🎨</div>
+                        <h3 class="text-lg font-semibold text-blue-800 mb-3">愛好者</h3>
+                        <p class="text-blue-700 text-sm">有時能夠為自己購買藝術品的人</p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-b from-purple-50 to-pink-50 p-6 rounded-2xl border-2 border-purple-200 text-center">
+                        <div class="text-4xl mb-4">🌟</div>
+                        <h3 class="text-lg font-semibold text-purple-800 mb-3">受助者</h3>
+                        <p class="text-purple-700 text-sm">需要幫助才能與藝術共同生活的人</p>
+                    </div>
+                </div>
+                
+                <div class="mt-8 bg-pink-50 p-6 rounded-2xl border-2 border-pink-200 text-center">
+                    <p class="text-pink-800 font-medium text-lg">
+                        博覽會將優先考慮那些需要幫助才能擁有藝術品的參觀者，
+                        並為這一群體保留大部分的門票
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- 創辦人介紹 -->
+        <section class="mb-16">
+            <div class="storybook-card p-8">
+                <div class="text-center mb-8">
+                    <div class="illustration">👨‍🎨</div>
+                    <h2 class="text-3xl font-bold text-amber-800 mb-4">創辦人與策展團隊</h2>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-gradient-to-br from-violet-50 to-purple-50 p-6 rounded-2xl border-2 border-violet-200">
+                        <div class="text-center mb-4">
+                            <div class="w-16 h-16 bg-violet-200 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <span class="text-2xl">👩‍🎨</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-violet-800">Jennifer Dalton</h3>
+                            <p class="text-violet-600 text-sm">共同創辦人</p>
+                        </div>
+                        <p class="text-violet-700 text-sm text-center">
+                            居住於布魯克林的藝術家，長期致力於檢視和批判藝術世界的體系結構
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-orange-50 to-red-50 p-6 rounded-2xl border-2 border-orange-200">
+                        <div class="text-center mb-4">
+                            <div class="w-16 h-16 bg-orange-200 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <span class="text-2xl">👨‍🎨</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-orange-800">William Powhida</h3>
+                            <p class="text-orange-600 text-sm">共同創辦人</p>
+                        </div>
+                        <p class="text-orange-700 text-sm text-center">
+                            以對當代藝術市場的批判性作品聞名，專注於藝術市場的階級問題
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-amber-50 p-6 rounded-2xl border-2 border-amber-200">
+                    <h3 class="text-lg font-semibold text-amber-800 mb-4 text-center">創辦動機</h3>
+                    <p class="text-amber-700 text-center leading-relaxed">
+                        兩人都面臨著創作作品多於銷售作品的現實，這導致了昂貴且不可持續的儲存問題。
+                        他們認為當前藝術市場利用虛假稀缺性制定高價，卻忽視了大量優秀藝術品的流通與展示。
+                    </p>
+                </div>
+                
+                <div class="mt-8">
+                    <h3 class="text-xl font-bold text-amber-800 mb-4 text-center">2025年策展委員會</h3>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="bg-white p-4 rounded-xl border-2 border-gray-200 text-center">
+                            <div class="text-2xl mb-2">🎯</div>
+                            <p class="text-gray-800 font-medium text-sm">Folasade Ologundudu</p>
+                            <p class="text-gray-600 text-xs">知名策展人</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl border-2 border-gray-200 text-center">
+                            <div class="text-2xl mb-2">📚</div>
+                            <p class="text-gray-800 font-medium text-sm">Sara Reisman</p>
+                            <p class="text-gray-600 text-xs">策展人、教育工作者</p>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl border-2 border-gray-200 text-center">
+                            <div class="text-2xl mb-2">🏛️</div>
+                            <p class="text-gray-800 font-medium text-sm">Jonathan Rider</p>
+                            <p class="text-gray-600 text-xs">FLAG基金會總監</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- 展品列表與媒材細節 -->
+        <section class="mb-16">
+            <div class="storybook-card p-8">
+                <div class="text-center mb-8">
+                    <div class="illustration">🖼️</div>
+                    <h2 class="text-3xl font-bold text-amber-800 mb-4">展品列表與媒材細節</h2>
+                    <p class="text-amber-600">近90位藝術家的精彩作品</p>
+                </div>
+                
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-amber-800 mb-6 text-center">代表性作品</h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="artwork-card p-5">
+                            <div class="text-center mb-4">
+                                <div class="text-3xl mb-2">🎨</div>
+                                <h4 class="font-bold text-gray-800">Half full?</h4>
+                                <p class="text-gray-600 text-sm">2003年</p>
+                            </div>
+                            <div class="space-y-2 mb-4">
+                                <span class="media-badge">彩色鉛筆、石墨、粉彩</span>
+                            </div>
+                            <div class="text-center">
+                                <span class="price-tag">$2,400</span>
+                            </div>
+                        </div>
+                        
+                        <div class="artwork-card p-5">
+                            <div class="text-center mb-4">
+                                <div class="text-3xl mb-2">✍️</div>
+                                <h4 class="font-bold text-gray-800">The truth is...</h4>
+                                <p class="text-gray-600 text-sm">1997年</p>
+                            </div>
+                            <div class="space-y-2 mb-4">
+                                <span class="media-badge">壓克力、鉛筆、電腦文字</span>
+                            </div>
+                            <div class="text-center">
+                                <span class="price-tag">$4,200</span>
+                            </div>
+                        </div>
+                        
+                        <div class="artwork-card p-5">
+                            <div class="text-center mb-4">
+                                <div class="text-3xl mb-2">🌌</div>
+                                <h4 class="font-bold text-gray-800">Meteorite History</h4>
+                                <p class="text-gray-600 text-sm">2018年</p>
+                            </div>
+                            <div class="space-y-2 mb-4">
+                                <span class="media-badge">油彩與冷蠟</span>
+                            </div>
+                            <div class="text-center">
+                                <span class="price-tag">$1,200</span>
+                            </div>
+                        </div>
+                        
+                        <div class="artwork-card p-5">
+                            <div class="text-center mb-4">
+                                <div class="text-3xl mb-2">🗻</div>
+                                <h4 class="font-bold text-gray-800">Rock Beacon</h4>
+                                <p class="text-gray-600 text-sm">油畫作品</p>
+                            </div>
+                            <div class="space-y-2 mb-4">
+                                <span class="media-badge">油畫</span>
+                            </div>
+                            <div class="text-center">
+                                <span class="price-tag">$1,000</span>
+                            </div>
+                        </div>
+                        
+                        <div class="artwork-card p-5">
+                            <div class="text-center mb-4">
+                                <div class="text-3xl mb-2">🌊</div>
+                                <h4 class="font-bold text-gray-800">Cold Coast</h4>
+                                <p class="text-gray-600 text-sm">2019年</p>
+                            </div>
+                            <div class="space-y-2 mb-4">
+                                <span class="media-badge">油畫</span>
+                            </div>
+                            <div class="text-center">
+                                <span class="price-tag bg-gray-500">詢價</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-green-50 p-6 rounded-2xl border-2 border-green-200">
+                        <h3 class="text-lg font-semibold text-green-800 mb-4 flex items-center">
+                            <span class="text-2xl mr-3">✅</span>
+                            接受的作品類型
+                        </h3>
+                        <ul class="space-y-2 text-green-700">
+                            <li>• 展覽就緒的2D和3D作品</li>
+                            <li>• 攝影作品和紙本作品（需裝框）</li>
+                            <li>• 3D作品（需考慮尺寸與可運輸性）</li>
+                            <li>• 曾展出過的作品（優先考慮）</li>
+                            <li>• 創作超過五年的作品（鼓勵提交）</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-red-50 p-6 rounded-2xl border-2 border-red-200">
+                        <h3 class="text-lg font-semibold text-red-800 mb-4 flex items-center">
+                            <span class="text-2xl mr-3">❌</span>
+                            不接受的作品類型
+                        </h3>
+                        <ul class="space-y-2 text-red-700">
+                            <li>• 影像作品</li>
+                            <li>• 數位藝術作品</li>
+                            <li>• 需要特殊技術設備的作品</li>
+                            <li>• 過於大型或難以運輸的作品</li>
+                        </ul>
+                        <div class="mt-4 p-3 bg-red-100 rounded-lg">
+                            <p class="text-red-800 text-sm font-medium">
+                                提交規範：每位藝術家最多可提交5件作品，
+                                被選中後必須承諾至少提供2件作品參展
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- 媒體與專業評論 -->
+        <section class="mb-16">
+            <div class="storybook-card p-8">
+                <div class="text-center mb-8">
+                    <div class="illustration">📰</div>
+                    <h2 class="text-3xl font-bold text-amber-800 mb-4">媒體與專業評論</h2>
+                    <p class="text-amber-600">國際媒體的廣泛關注與認可</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-2xl border-2 border-blue-200">
+                        <div class="text-center mb-4">
+                            <div class="text-3xl mb-2">📊</div>
+                            <h3 class="text-lg font-bold text-blue-800">華爾街日報</h3>
+                        </div>
+                        <p class="text-blue-700 text-sm text-center">
+                            「Zero Art Fair, Where the Work Is Free」
+                            深入探討0美元藝術品和獨特合約模式
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-2xl border-2 border-purple-200">
+                        <div class="text-center mb-4">
+                            <div class="text-3xl mb-2">📰</div>
+                            <h3 class="text-lg font-bold text-purple-800">紐約時報</h3>
+                        </div>
+                        <p class="text-purple-700 text-sm text-center">
+                            描述為「不尋常的藝術博覽會」，
+                            特別關注其創新的展覽安排
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-2xl border-2 border-green-200">
+                        <div class="text-center mb-4">
+                            <div class="text-3xl mb-2">👁️</div>
+                            <h3 class="text-lg font-bold text-green-800">Observer</h3>
+                        </div>
+                        <p class="text-green-700 text-sm text-center">
+                            重點介紹ZAF「挑戰藝術商品化概念」
+                            的獨特性和創新價值
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold text-amber-800 mb-4 text-center">藝術專業媒體評論</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-orange-50 p-6 rounded-2xl border-2 border-orange-200">
+                            <h4 class="font-bold text-orange-800 mb-3">🎨 Artnet News</h4>
+                            <p class="text-orange-700 text-sm">
+                                詳盡分析展覽如何通過創新合約機制，讓更多人接觸藝術品
+                            </p>
+                        </div>
+                        <div class="bg-teal-50 p-6 rounded-2xl border-2 border-teal-200">
+                            <h4 class="font-bold text-teal-800 mb-3">🌍 Ocula</h4>
+                            <p class="text-teal-700 text-sm">
+                                強調展覽如何為被市場忽視的藝術品提供「充滿愛的家園」
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-amber-50 p-6 rounded-2xl border-2 border-amber-200">
+                    <h3 class="text-lg font-semibold text-amber-800 mb-4 text-center">學術與專業認可</h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="text-center">
+                            <div class="text-2xl mb-2">🎓</div>
+                            <p class="text-amber-700 font-medium">視覺藝術學院 (SVA)</p>
+                            <p class="text-amber-600 text-sm">在《Visual Arts Journal》中認可此項目</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-2xl mb-2">🎙️</div>
+                            <p class="text-amber-700 font-medium">專業訪談</p>
+                            <p class="text-amber-600 text-sm">多次接受Art Problems Podcast等專業訪談</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- 觀眾評價與社群迴響 -->
+        <section class="mb-16">
+            <div class="storybook-card p-8">
+                <div class="text-center mb-8">
+                    <div class="illustration">👥</div>
+                    <h2 class="text-3xl font-bold text-amber-800 mb-4">觀眾評價與社群迴響</h2>
+                    <p class="text-amber-600">2024年首屆展覽的驚人成果</p>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-gradient-to-br from-emerald-50 to-green-50 p-6 rounded-2xl border-2 border-emerald-200 text-center">
+                        <div class="text-4xl mb-3">🎯</div>
+                        <h3 class="text-2xl font-bold text-emerald-800">178件</h3>
+                        <p class="text-emerald-700 font-medium">藝術品成功轉移</p>
+                        <p class="text-emerald-600 text-sm">通過合約給新收藏者</p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-blue-50 to-cyan-50 p-6 rounded-2xl border-2 border-blue-200 text-center">
+                        <div class="text-4xl mb-3">💰</div>
+                        <h3 class="text-2xl font-bold text-blue-800">$536,913</h3>
+                        <p class="text-blue-700 font-medium">潛在零售價值</p>
+                        <p class="text-blue-600 text-sm">免費轉移的藝術品總值</p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-2xl border-2 border-purple-200 text-center">
+                        <div class="text-4xl mb-3">⚡</div>
+                        <h3 class="text-2xl font-bold text-purple-800">提前售罄</h3>
+                        <p class="text-purple-700 font-medium">第二天就結束</p>
+                        <p class="text-purple-600 text-sm">原定三天的活動</p>
+                    </div>
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="bg-gradient-to-r from-yellow-50 to-orange-50 p-6 rounded-2xl border-2 border-yellow-200">
+                        <h3 class="text-lg font-semibold text-yellow-800 mb-3 flex items-center">
+                            <span class="text-2xl mr-3">🌟</span>
+                            藝術民主化的實現
+                        </h3>
+                        <p class="text-yellow-700">
+                            ZAF成功挑戰了「藝術稀缺性」的概念，讓觀眾普遍認為藝術變得更加可及。
+                            許多參觀者表示，這種模式讓他們第一次有機會成為藝術收藏者。
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-r from-rose-50 to-pink-50 p-6 rounded-2xl border-2 border-rose-200">
+                        <h3 class="text-lg font-semibold text-rose-800 mb-3 flex items-center">
+                            <span class="text-2xl mr-3">🏠</span>
+                            與藝術共同生活
+                        </h3>
+                        <p class="text-rose-700">
+                            「參觀畫廊欣賞藝術品是一回事，但在家中與藝術品共同生活則完全是另一回事。」
+                            這一理念提升了觀眾的參與感，讓藝術成為日常生活的組成部分。
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-r from-indigo-50 to-purple-50 p-6 rounded-2xl border-2 border-indigo-200">
+                        <h3 class="text-lg font-semibold text-indigo-800 mb-3 flex items-center">
+                            <span class="text-2xl mr-3">🔄</span>
+                            慷慨循環的建立
+                        </h3>
+                        <p class="text-indigo-700">
+                            ZAF創造了一個「慷慨的良性循環」，不僅解決了藝術家的儲存問題，
+                            也為無法負擔原創藝術品的人群提供了機會，形成了獨特的社會效應。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- 未來發展展望 -->
+        <section class="mb-16">
+            <div class="storybook-card p-8">
+                <div class="text-center mb-8">
+                    <div class="illustration">🚀</div>
+                    <h2 class="text-3xl font-bold text-amber-800 mb-4">未來發展展望</h2>
+                    <p class="text-amber-600">持續創新與擴展的美好願景</p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div class="bg-gradient-to-br from-cyan-50 to-blue-50 p-6 rounded-2xl border-2 border-cyan-200">
+                            <div class="flex items-center mb-3">
+                                <span class="text-2xl mr-3">🎨</span>
+                                <h3 class="text-lg font-semibold text-cyan-800">擴大藝術範圍</h3>
+                            </div>
+                            <p class="text-cyan-700 text-sm">
+                                吸引更多藝術家參與，涵蓋更多元的藝術形式，
+                                包括影像和數位藝術等新媒體創作
+                            </p>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-emerald-50 to-green-50 p-6 rounded-2xl border-2 border-emerald-200">
+                            <div class="flex items-center mb-3">
+                                <span class="text-2xl mr-3">📋</span>
+                                <h3 class="text-lg font-semibold text-emerald-800">完善合約機制</h3>
+                            </div>
+                            <p class="text-emerald-700 text-sm">
+                                在版權和藝術家權益保護方面持續改進，
+                                確保合約的執行力和透明度
+                            </p>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-2xl border-2 border-purple-200">
+                            <div class="flex items-center mb-3">
+                                <span class="text-2xl mr-3">🌍</span>
+                                <h3 class="text-lg font-semibold text-purple-800">國際合作</h3>
+                            </div>
+                            <p class="text-purple-700 text-sm">
+                                將理念和模式推廣到全球範圍，
+                                與國際藝術機構建立合作關係
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-gradient-to-br from-orange-50 to-red-50 p-6 rounded-2xl border-2 border-orange-200">
+                            <div class="flex items-center mb-3">
+                                <span class="text-2xl mr-3">🎓</span>
+                                <h3 class="text-lg font-semibold text-orange-800">教育推廣</h3>
+                            </div>
+                            <p class="text-orange-700 text-sm">
+                                舉辦講座、工作坊和社區活動，
+                                推動藝術教育和文化普及
+                            </p>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-yellow-50 to-amber-50 p-6 rounded-2xl border-2 border-yellow-200">
+                            <div class="flex items-center mb-3">
+                                <span class="text-2xl mr-3">💡</span>
+                                <h3 class="text-lg font-semibold text-yellow-800">可持續發展</h3>
+                            </div>
+                            <p class="text-yellow-700 text-sm">
+                                在保持非營利性質的同時，探索多元的資金來源，
+                                實現長期的財務可持續性
+                            </p>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-teal-50 to-cyan-50 p-6 rounded-2xl border-2 border-teal-200">
+                            <div class="flex items-center mb-3">
+                                <span class="text-2xl mr-3">🤝</span>
+                                <h3 class="text-lg font-semibold text-teal-800">社區參與</h3>
+                            </div>
+                            <p class="text-teal-700 text-sm">
+                                加強與當地社區的連結，
+                                讓更多人能夠參與這個藝術革命
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-8 bg-gradient-to-r from-indigo-50 to-purple-50 p-6 rounded-2xl border-2 border-indigo-200 text-center">
+                    <p class="text-indigo-800 font-medium text-lg leading-relaxed">
+                        零藝術博覽會代表了藝術界對傳統市場結構的大膽質疑和創新嘗試。
+                        通過將藝術品的所有權與其價值分離，這個模式不僅解決了藝術家的儲存負擔，
+                        也為更多人提供了接觸高質量藝術品的機會。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 行動呼籲 -->
+        <section class="text-center">
+            <div class="storybook-card p-8">
+                <div class="illustration mx-auto mb-6">🌈</div>
+                <h2 class="text-3xl font-bold text-amber-800 mb-4">加入我們的藝術革命</h2>
+                <p class="text-amber-700 text-lg mb-8 leading-relaxed">
+                    零藝術博覽會不只是一個展覽，更是一個充滿愛與希望的藝術運動。
+                    讓我們一起創造一個更公平、更溫暖的藝術世界！
+                </p>
+                <div class="space-y-4">
+                    <button class="cute-button text-lg px-8 py-4">
+                        🎫 立即註冊參與
+                    </button>
+                    <p class="text-amber-600 text-sm">
+                        記住，藝術是豐富的，愛也是豐富的 💕
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 浮動裝飾元素 -->
+    <div class="fixed top-20 left-10 floating-element opacity-20 text-4xl">🎨</div>
+    <div class="fixed top-40 right-20 floating-element opacity-20 text-3xl" style="animation-delay: 1s;">🌟</div>
+    <div class="fixed bottom-20 left-20 floating-element opacity-20 text-3xl" style="animation-delay: 2s;">💝</div>
+    <div class="fixed bottom-40 right-10 floating-element opacity-20 text-4xl" style="animation-delay: 0.5s;">🎪</div>
+
+    <script>
+        // 添加互動效果
+        document.querySelectorAll('.storybook-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // 按鈕點擊效果
+        document.querySelectorAll('.cute-button').forEach(button => {
+            button.addEventListener('click', function() {
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = 'scale(1)';
+                    alert('感謝您的興趣！零藝術博覽會期待與您相見 🎨✨');
+                }, 150);
+            });
+        });
+
+        // 滾動動畫效果
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.storybook-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // 作品卡片懸停效果
+        document.querySelectorAll('.artwork-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-5px) scale(1.03)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'95d8e8bdb7a58460',t:'MTc1MjI0MzI4Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
