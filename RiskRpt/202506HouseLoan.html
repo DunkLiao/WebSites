@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>臺灣銀行業房貸逾期放款及比率分析</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/preline@3.0.1/dist/preline.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e'
+                        },
+                        gray: {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans TC', '-apple-system', 'BlinkMacSystemFont', 'sans-serif']
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-in-out',
+                        'slide-up': 'slideUp 0.8s ease-out',
+                        'float': 'float 6s ease-in-out infinite'
+                    }
+                }
+            }
+        }
+
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        }
+
+        // 初始化主題
+        if (localStorage.getItem('theme') === 'dark' || 
+            (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+    </script><style>
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .glass-morphism {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .dark .glass-morphism {
+            background: rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .hover-lift {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .dark .hover-lift:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+        }</style>
+<script src="https://felo.ai/js/webpageIframe.js"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style></head>
+<body class="bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 min-h-screen transition-colors duration-300">
+    <!-- 導航欄 -->
+    <nav class="sticky top-0 z-50 glass-morphism">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <i class="fas fa-chart-line text-2xl text-primary-600 dark:text-primary-400"></i>
+                    <h1 class="text-lg font-bold text-gray-900 dark:text-white">房貸逾期分析</h1>
+                </div>
+                <button onclick="toggleTheme()" class="p-2 rounded-lg bg-white/80 dark:bg-gray-800/80 hover:bg-white dark:hover:bg-gray-700 transition-colors">
+                    <i class="fas fa-moon dark:hidden text-gray-600"></i>
+                    <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主標題區域 -->
+    <header class="relative overflow-hidden py-16 px-4">
+        <div class="absolute inset-0 bg-gradient-to-r from-primary-600/10 to-blue-600/10 transform -skew-y-1"></div>
+        <div class="relative max-w-4xl mx-auto text-center animate-fade-in">
+            <div class="inline-flex items-center bg-red-100 dark:bg-red-900/50 text-red-800 dark:text-red-300 px-4 py-2 rounded-full text-sm font-medium mb-6">
+                <i class="fas fa-exclamation-triangle mr-2"></i>
+                風險警示
+            </div>
+            <h1 class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+                臺灣銀行業
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-600 to-orange-600">
+                    房貸逾期放款
+                </span>
+                分析報告
+            </h1>
+            <p class="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed">
+                深度分析2024-2025年國銀房貸逾期放款趨勢，揭示連續10個月攀升背後的關鍵因素
+            </p>
+            <div class="flex flex-wrap justify-center items-center gap-6 text-sm text-gray-500 dark:text-gray-400">
+                <div class="flex items-center">
+                    <i class="fas fa-calendar-alt mr-2"></i>
+                    更新時間：2025年7月
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-database mr-2"></i>
+                    數據來源：金管會
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 關鍵數據概覽 -->
+    <section class="py-16 px-4">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
+                最新數據概覽（2025年5月）
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="hover-lift bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="p-3 bg-red-100 dark:bg-red-900/50 rounded-xl">
+                            <i class="fas fa-exclamation-triangle text-red-600 dark:text-red-400 text-2xl"></i>
+                        </div>
+                        <span class="text-red-500 text-sm font-semibold bg-red-50 dark:bg-red-900/30 px-2 py-1 rounded">45個月新高</span>
+                    </div>
+                    <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">逾期放款餘額</h3>
+                    <p class="text-3xl font-bold text-gray-900 dark:text-white mb-1">87.86億元</p>
+                    <p class="text-sm text-red-500 dark:text-red-400"><i class="fas fa-arrow-up mr-1"></i>連續10月攀升</p>
+                </div>
+
+                <div class="hover-lift bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="p-3 bg-orange-100 dark:bg-orange-900/50 rounded-xl">
+                            <i class="fas fa-percentage text-orange-600 dark:text-orange-400 text-2xl"></i>
+                        </div>
+                        <span class="text-orange-500 text-sm font-semibold bg-orange-50 dark:bg-orange-900/30 px-2 py-1 rounded">33個月高點</span>
+                    </div>
+                    <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">逾期放款比率</h3>
+                    <p class="text-3xl font-bold text-gray-900 dark:text-white mb-1">0.08%</p>
+                    <p class="text-sm text-orange-500 dark:text-orange-400"><i class="fas fa-equals mr-1"></i>連續2月持平</p>
+                </div>
+
+                <div class="hover-lift bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="p-3 bg-blue-100 dark:bg-blue-900/50 rounded-xl">
+                            <i class="fas fa-home text-blue-600 dark:text-blue-400 text-2xl"></i>
+                        </div>
+                        <span class="text-blue-500 text-sm font-semibold bg-blue-50 dark:bg-blue-900/30 px-2 py-1 rounded">17個月低點</span>
+                    </div>
+                    <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">房貸總餘額</h3>
+                    <p class="text-3xl font-bold text-gray-900 dark:text-white mb-1">11.2兆元</p>
+                    <p class="text-sm text-blue-500 dark:text-blue-400"><i class="fas fa-arrow-down mr-1"></i>年增率7.97%</p>
+                </div>
+
+                <div class="hover-lift bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg border border-gray-200 dark:border-gray-700">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="p-3 bg-green-100 dark:bg-green-900/50 rounded-xl">
+                            <i class="fas fa-shield-alt text-green-600 dark:text-green-400 text-2xl"></i>
+                        </div>
+                        <span class="text-green-500 text-sm font-semibold bg-green-50 dark:bg-green-900/30 px-2 py-1 rounded">可控範圍</span>
+                    </div>
+                    <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">風險評估</h3>
+                    <p class="text-3xl font-bold text-gray-900 dark:text-white mb-1">穩定</p>
+                    <p class="text-sm text-green-500 dark:text-green-400"><i class="fas fa-check mr-1"></i>金管會監控中</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 趨勢圖表 -->
+    <section class="py-16 px-4 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">逾期放款趨勢圖表
+            </h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- 逾期放款餘額趨勢 -->
+                <div class="bg-gray-50 dark:bg-gray-700 rounded-2xl p-6 hover-lift">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-6flex items-center">
+                        <i class="fas fa-chart-line mr-3text-red-500"></i>
+                        逾期放款餘額變化
+                    </h3>
+                    <div id="overdueAmountChart" style="height: 300px;"></div>
+                </div>
+
+                <!-- 逾期放款比率趨勢 -->
+                <div class="bg-gray-50 dark:bg-gray-700 rounded-2xl p-6 hover-lift">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-6 flex items-center">
+                        <i class="fas fa-chart-area mr-3 text-orange-500"></i>
+                        逾期放款比率變化
+                    </h3>
+                    <div id="overdueRatioChart" style="height: 300px;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 成因分析 -->
+    <section class="py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
+                逾期攀升成因分析
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 央行政策影響 -->
+                <div class="hover-lift bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-red-100 dark:bg-red-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-university text-red-600 dark:text-red-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">央行政策影響</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <p class="text-gray-600 dark:text-gray-300">2022年起連續升息6次，加重利息負擔</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <p class="text-gray-600 dark:text-gray-300">實施第七波選擇性信用管制</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-red-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <p class="text-gray-600 dark:text-gray-300">限制寬限期、提高審核標準</p>
+                        </div></div>
+                </div>
+
+                <!-- 市場環境變化 -->
+                <div class="hover-lift bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-orange-100 dark:bg-orange-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-chart-line-down text-orange-600 dark:text-orange-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">市場環境變化</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <p class="text-gray-600 dark:text-gray-300">房市交易急凍，買氣不振</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <p class="text-gray-600 dark:text-gray-300">轉貸續命機制失靈</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <p class="text-gray-600 dark:text-gray-300">單筆房貸額度提高</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 借款人結構 -->
+                <div class="hover-lift bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg border border-gray-200 dark:border-gray-700">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-users text-blue-600 dark:text-blue-400 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">借款人結構</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <p class="text-gray-600 dark:text-gray-300">50%中小企業負責人經營困難</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <p class="text-gray-600 dark:text-gray-300">30%投資客無法順利轉貸</p>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <p class="text-gray-600 dark:text-gray-300">20%一般自然人受經濟壓力</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 借款人結構圓餅圖 -->
+    <section class="py-16 px-4 bg-white dark:bg-gray-800">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
+                借款人違約結構分析
+            </h2>
+            <div class="bg-gray-50 dark:bg-gray-700 rounded-2xl p-8 hover-lift">
+                <div id="borrowerStructureChart" style="height: 400px;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 風險評估時間線 -->
+    <section class="py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
+                風險發展時間線
+            </h2>
+            <div class="relative">
+                <!-- 時間線 -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-red-500 to-orange-500"></div>
+                
+                <!-- 時間點 -->
+                <div class="space-y-12">
+                    <!-- 2022 年 -->
+                    <div class="relative flex items-center animate-slide-up">
+                        <div class="flex-1 pr-8 text-right">
+                            <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover-lift">
+                                <h3 class="font-bold text-gray-900 dark:text-white mb-2">2022年起</h3>
+                                <p class="text-gray-600 dark:text-gray-300">央行開始連續升息6次</p>
+                                <p class="text-sm text-red-500 mt-2">利息負擔加重</p>
+                            </div>
+                        </div>
+                        <div class="w-4 h-4 bg-red-500 rounded-full border-4 border-white dark:border-gray-800 relative z-10"></div><div class="flex-1 pl-8"></div>
+                    </div>
+
+                    <!-- 2024年8月 -->
+                    <div class="relative flex items-center animate-slide-up">
+                        <div class="flex-1 pr-8"></div>
+                        <div class="w-4 h-4 bg-orange-500 rounded-full border-4 border-white dark:border-gray-800 relative z-10"></div>
+                        <div class="flex-1 pl-8">
+                            <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover-lift">
+                                <h3 class="font-bold text-gray-900 dark:text-white mb-2">2024年8月</h3>
+                                <p class="text-gray-600 dark:text-gray-300">房貸逾期開始明顯攀升</p>
+                                <p class="text-sm text-orange-500 mt-2">從64億元開始走升</p>
+                            </div>
+                        </div></div>
+
+                    <!-- 2025年2月 -->
+                    <div class="relative flex items-center animate-slide-up">
+                        <div class="flex-1 pr-8 text-right">
+                            <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover-lift">
+                                <h3 class="font-bold text-gray-900 dark:text-white mb-2">2025年2月</h3>
+                                <p class="text-gray-600 dark:text-gray-300">逾期放款達79.48億元</p>
+                                <p class="text-sm text-red-500 mt-2">連續7個月上升</p>
+                            </div>
+                        </div>
+                        <div class="w-4 h-4 bg-red-600 rounded-full border-4 border-white dark:border-gray-800 relative z-10"></div>
+                        <div class="flex-1 pl-8"></div>
+                    </div>
+
+                    <!-- 2025年5月 -->
+                    <div class="relative flex items-center animate-slide-up">
+                        <div class="flex-1 pr-8"></div>
+                        <div class="w-4 h-4 bg-red-700 rounded-full border-4 border-white dark:border-gray-800 relative z-10 animate-pulse"></div>
+                        <div class="flex-1 pl-8">
+                            <div class="bg-gradient-to-r from-red-50 to-red-100 dark:from-red-900/50 dark:to-red-800/50 rounded-xl p-6 shadow-lg hover-lift border-2 border-red-200 dark:border-red-700">
+                                <h3 class="font-bold text-gray-900 dark:text-white mb-2">2025年5月</h3>
+                                <p class="text-gray-600 dark:text-gray-300">逾期放款達87.86億元</p>
+                                <p class="text-sm text-red-600 font-semibold mt-2">45個月新高！</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 風險警示與建議 -->
+    <section class="py-16 px-4 bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center bg-red-100 dark:bg-red-900/50 text-red-800 dark:text-red-300 px-6 py-3 rounded-full text-base font-medium mb-6">
+                    <i class="fas fa-exclamation-triangle mr-3 text-xl"></i>
+                    風險警示
+                </div>
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                    未來風險評估與建議
+                </h2>
+            </div><div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- 短期風險 -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover-lift">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-red-100 dark:bg-red-900/50 rounded-xl flex items-center justify-center mr-4">
+                            <i class="fas fa-clock text-red-600 dark:text-red-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">短期風險</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-chevron-right text-red-500 mt-1 text-xs"></i>
+                            <span class="text-gray-600 dark:text-gray-300">金融市場動盪成為最後一根稻草</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-chevron-right text-red-500 mt-1 text-xs"></i>
+                            <span class="text-gray-600 dark:text-gray-300">4月股災及房市買氣重摔</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-chevron-right text-red-500 mt-1 text-xs"></i>
+                            <span class="text-gray-600 dark:text-gray-300">央行年底前不會鬆綁信用管制</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- 潛在未爆彈 -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover-lift">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-orange-100 dark:bg-orange-900/50 rounded-xl flex items-center justify-center mr-4">
+                            <i class="fas fa-bomb text-orange-600 dark:text-orange-400 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">潛在未爆彈</h3>
+                    </div>
+                    <ul class="space-y-3">
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-chevron-right text-orange-500 mt-1 text-xs"></i>
+                            <span class="text-gray-600 dark:text-gray-300">建融風險：中小建商資金斷鏈</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-chevron-right text-orange-500 mt-1 text-xs"></i>
+                            <span class="text-gray-600 dark:text-gray-300">連鎖效應：建案銷售轉差</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-chevron-right text-orange-500 mt-1 text-xs"></i>
+                            <span class="text-gray-600 dark:text-gray-300">建商倒帳潮可能引發</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 監管回應 -->
+            <div class="mt-8 bg-blue-50 dark:bg-blue-900/20 rounded-2xl p-8 border border-blue-200 dark:border-blue-800">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/50 rounded-xl flex items-center justify-center mr-4">
+                        <i class="fas fa-shield-alt text-blue-600 dark:text-blue-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">監管機關回應</h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-4">
+                        <h4 class="font-medium text-gray-900 dark:text-white mb-2">金管會立場</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">逾放比0.08%仍在可控範圍</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-4">
+                        <h4 class="font-medium text-gray-900 dark:text-white mb-2">銀行策略</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">優先催收避免法拍程序</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-4">
+                        <h4 class="font-medium text-gray-900 dark:text-white mb-2">政策方向</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">持續監控強化授信管理</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 結論 -->
+    <section class="py-16 px-4 bg-white dark:bg-gray-800">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">
+                分析結論
+            </h2>
+            <div class="bg-gradient-to-r from-gray-50 to-blue-50 dark:from-gray-700 dark:to-blue-900/30 rounded-2xl p-8 hover-lift">
+                <div class="prose prose-lg max-w-none text-gray-700 dark:text-gray-300">
+                    <p class="text-xl leading-relaxed mb-6">
+                雖然逾放比率仍維持相對低檔，但<strong class="text-red-600 dark:text-red-400">連續10個月攀升</strong>的趨勢值得密切關注。
+                        在央行持續緊縮政策、經濟環境不確定性增加的背景下，<strong class="text-orange-600 dark:text-orange-400">房貸違約風險正逐步升溫</strong>。
+                    </p>
+                    <p class="text-lg leading-relaxed">
+                        建議相關機構應<strong class="text-blue-600 dark:text-blue-400">加強風險監控</strong>，
+                        並密切觀察後續發展，特別是中小建商的建融風險變化。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <script>
+        // 初始化圖表
+        document.addEventListener('DOMContentLoaded', function() {
+            //逾期放款餘額趨勢圖
+            const overdueAmountChart = echarts.init(document.getElementById('overdueAmountChart'));
+            const overdueAmountOption = {
+                tooltip: {
+                    trigger: 'axis',
+                    formatter: function(params) {
+                        return params[0].name + '<br/>' + 
+                               params[0].seriesName + ': ' + params[0].value + '億元';
+                    }
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['2024/08', '2024/11', '2025/02', '2025/03', '2025/04', '2025/05'],
+                    axisLabel: {
+                        color: document.documentElement.classList.contains('dark') ? '#9CA3AF' : '#6B7280'
+                    }
+                },
+                yAxis: {
+                    type: 'value',
+                    name: '億元',
+                    axisLabel: {
+                        color: document.documentElement.classList.contains('dark') ? '#9CA3AF' : '#6B7280'
+                    }
+                },
+                series: [{
+                    name: '逾期放款餘額',
+                    data: [64, 70, 79.48, 82.3, 84.4, 87.86],
+                    type: 'line',
+                    smooth: true,
+                    lineStyle: {
+                        color: '#EF4444',
+                        width: 3
+                    },
+                    itemStyle: {
+                        color: '#EF4444'
+                    },
+                    areaStyle: {
+                        color: {
+                            type: 'linear',
+                            x: 0,
+                            y: 0,
+                            x2: 0,
+                            y2: 1,
+                            colorStops: [{
+                                offset: 0, color: 'rgba(239, 68, 68, 0.3)'
+                            }, {
+                                offset: 1, color: 'rgba(239, 68, 68, 0.1)'
+                            }]
+                        }
+                    }
+                }],
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                }
+            };
+            overdueAmountChart.setOption(overdueAmountOption);
+
+            // 逾期放款比率趨勢圖
+            const overdueRatioChart = echarts.init(document.getElementById('overdueRatioChart'));
+            const overdueRatioOption = {
+                tooltip: {
+                    trigger: 'axis',
+                    formatter: function(params) {
+                        return params[0].name + '<br/>' + 
+                               params[0].seriesName + ': ' + params[0].value + '%';
+                    }
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['2024/08', '2024/11', '2025/02', '2025/03', '2025/04', '2025/05'],
+                    axisLabel: {
+                        color: document.documentElement.classList.contains('dark') ? '#9CA3AF' : '#6B7280'
+                    }
+                },
+                yAxis: {
+                    type: 'value',
+                    name: '%',
+                    min: 0.05,
+                    max: 0.09,
+                    axisLabel: {
+                        color: document.documentElement.classList.contains('dark') ? '#9CA3AF' : '#6B7280'
+                    }
+                },
+                series: [{
+                    name: '逾期放款比率',
+                    data: [0.06, 0.065, 0.07, 0.07, 0.08, 0.08],
+                    type: 'line',
+                    smooth: true,
+                    lineStyle: {
+                        color: '#F59E0B',
+                        width: 3
+                    },
+                    itemStyle: {
+                        color: '#F59E0B'
+                    },
+                    areaStyle: {
+                        color: {
+                            type: 'linear',
+                            x: 0,
+                            y: 0,
+                            x2: 0,
+                            y2: 1,
+                            colorStops: [{
+                                offset: 0, color: 'rgba(245, 158, 11, 0.3)'
+                            }, {
+                                offset: 1, color: 'rgba(245, 158, 11, 0.1)'
+                            }]
+                        }
+                    }
+                }],
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                }
+            };
+            overdueRatioChart.setOption(overdueRatioOption);
+
+            // 借款人結構圓餅圖
+            const borrowerChart = echarts.init(document.getElementById('borrowerStructureChart'));
+            const borrowerOption = {
+                title: {
+                    text: '房貸違約借款人結構',
+                    left: 'center',
+                    textStyle: {
+                        color: document.documentElement.classList.contains('dark') ? '#F9FAFB' : '#1F2937',
+                        fontSize: 18
+                    }
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b}: {c}% ({d}%)'
+                },
+                legend: {
+                    orient: 'horizontal',
+                    bottom: '5%',
+                    textStyle: {
+                        color: document.documentElement.classList.contains('dark') ? '#9CA3AF' : '#6B7280'
+                    }
+                },
+                series: [{
+                    name: '借款人類型',
+                    type: 'pie',
+                    radius: ['40%', '70%'],
+                    center: ['50%', '45%'],
+                    avoidLabelOverlap: false,
+                    label: {
+                        show: false,
+                        position: 'center'
+                    },
+                    emphasis: {
+                        label: {
+                            show: true,
+                            fontSize: '16',
+                            fontWeight: 'bold'
+                        }
+                    },
+                    labelLine: {
+                        show: false
+                    },
+                    data: [
+                        {value: 50, name: '中小企業負責人', itemStyle: {color: '#EF4444'}},
+                        {value: 30, name: '投資客', itemStyle: {color: '#F59E0B'}},
+                        {value: 20, name: '一般自然人', itemStyle: {color: '#3B82F6'}}
+                    ]
+                }]
+            };
+            borrowerChart.setOption(borrowerOption);
+
+            // 主題切換時更新圖表
+            const originalToggleTheme = window.toggleTheme;
+            window.toggleTheme = function() {
+                originalToggleTheme();
+                setTimeout(() => {
+                    overdueAmountChart.dispose();
+                    overdueRatioChart.dispose();
+                    borrowerChart.dispose();
+                    
+                    const newOverdueAmountChart = echarts.init(document.getElementById('overdueAmountChart'));
+                    const newOverdueRatioChart = echarts.init(document.getElementById('overdueRatioChart'));
+                    const newBorrowerChart = echarts.init(document.getElementById('borrowerStructureChart'));
+                    
+                    // 更新顏色
+                    const isDark = document.documentElement.classList.contains('dark');
+                    const textColor = isDark ? '#9CA3AF' : '#6B7280';
+                    const titleColor = isDark ? '#F9FAFB' : '#1F2937';    overdueAmountOption.xAxis.axisLabel.color = textColor;
+                    overdueAmountOption.yAxis.axisLabel.color = textColor;
+                    overdueRatioOption.xAxis.axisLabel.color = textColor;
+                    overdueRatioOption.yAxis.axisLabel.color = textColor;
+                    borrowerOption.title.textStyle.color = titleColor;
+                    borrowerOption.legend.textStyle.color = textColor;
+                    
+                    newOverdueAmountChart.setOption(overdueAmountOption);
+                    newOverdueRatioChart.setOption(overdueRatioOption);
+                    newBorrowerChart.setOption(borrowerOption);
+                }, 100);
+            };
+
+            // 響應式調整
+            window.addEventListener('resize', function() {
+                overdueAmountChart.resize();
+                overdueRatioChart.resize();
+                borrowerChart.resize();
+            });
+        });
+
+        // 滾動動畫
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-slide-up');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.hover-lift').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"rayId":"95dc763baa14648c","serverTiming":{"name":{"cfExtPri":true,"cfEdge":true,"cfOrigin":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"version":"2025.6.2","token":"411a3f34bb35430c8f79d9497eb73354"}' crossorigin="anonymous"></script>
+</body>
+</html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>臺灣銀行業房貸逾期放款深度分析</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#9A0036',
+                        secondary: '#941C61',
+                        accent: '#EEBAC0',
+                        highlight: '#FF8C00'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .hover-lift:hover {
+            transform: translateY(-2px);
+            transition: transform 0.2s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Header -->
+    <header class="bg-primary text-white py-6 shadow-lg">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl md:text-4xl font-bold text-center">臺灣銀行業房貸逾期放款深度分析</h1>            
+        </div>
+    </header>
+
+    <!-- Executive Summary -->
+    <section class="container mx-auto px-4 py-8">
+        <div class="bg-white rounded-lg card-shadow p-6 mb-8">
+            <h2 class="text-2xl font-bold text-primary mb-4 border-b-2 border-accent pb-2">📊 執行摘要</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <div class="bg-red-50 border-l-4 border-primary p-4 rounded">
+                        <h3 class="font-semibold text-primary mb-2">關鍵數據</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li>• 逾期放款餘額：<span class="font-bold text-highlight">87.86億元</span></li>
+                            <li>• 連續上升：<span class="font-bold">10個月</span></li>
+                            <li>• 創下：<span class="font-bold">45個月新高</span></li>
+                            <li>• 逾放比率：<span class="font-bold">0.08%</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div class="bg-orange-50 border-l-4 border-highlight p-4 rounded">
+                        <h3 class="font-semibold text-highlight mb-2">主要風險因素</h3>
+                        <ul class="space-y-2 text-sm">
+                            <li>• 央行連續升息壓力</li>
+                            <li>• 不動產市場交易降溫</li>
+                            <li>• 中小企業主還款困難</li>
+                            <li>• 「量縮質變」結構性風險</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-6 p-4 bg-blue-50 rounded-lg">
+                <p class="text-gray-700 leading-relaxed">
+                    儘管逾放比率維持在0.08%的低水準，但逾放金額的快速增長和房貸總餘額年增率的下滑，顯示出「量縮質變」的結構性風險正在累積。
+                    中華信評的壓力測試顯示臺灣銀行業擁有充足的資本緩衝，應能應對中等程度的房市波動。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Findings -->
+    <section class="container mx-auto px-4 py-8">
+        <h2 class="text-2xl font-bold text-primary mb-6 text-center">🔍 主要發現與分析</h2>
+        
+        <!-- Trend Analysis -->
+        <div class="grid lg:grid-cols-2 gap-8 mb-8">
+            <div class="bg-white rounded-lg card-shadow p-6 hover-lift">
+                <h3 class="text-xl font-semibold text-secondary mb-4">📈 房貸逾期放款趨勢</h3>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center p-3 bg-red-50 rounded">
+                        <span class="font-medium">逾放餘額</span>
+                        <span class="text-highlight font-bold">87.86億元 ↗</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 bg-green-50 rounded">
+                        <span class="font-medium">逾放比率</span>
+                        <span class="text-green-600 font-bold">0.08% (穩定)</span>
+                    </div>
+                    <div class="flex justify-between items-center p-3 bg-yellow-50 rounded">
+                        <span class="font-medium">房貸總餘額</span>
+                        <span class="text-yellow-600 font-bold">11.2兆元</span>
+                    </div>
+                </div>
+                <div class="mt-4 p-3 bg-orange-100 rounded-lg">
+                    <p class="text-sm text-orange-800">
+                        <strong>⚠️ 警訊：</strong>「量縮質變」趨勢 - 房貸總餘額年增率連續8個月下滑，但壞帳加速攀升
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg card-shadow p-6 hover-lift">
+                <h3 class="text-xl font-semibold text-secondary mb-4">🏙️ 各都會區逾放率比較</h3>
+                <div class="space-y-3">
+                    <div class="flex justify-between items-center p-2 border-b">
+                        <span>台北市</span>
+                        <span class="font-bold text-red-600">0.10%</span>
+                    </div>
+                    <div class="flex justify-between items-center p-2 border-b">
+                        <span>台南市</span>
+                        <span class="font-bold text-orange-600">0.08%</span>
+                    </div>
+                    <div class="flex justify-between items-center p-2 border-b">
+                        <span>高雄市</span>
+                        <span class="font-bold text-orange-600">0.08%</span>
+                    </div>
+                    <div class="flex justify-between items-center p-2 border-b">
+                        <span>新北市</span>
+                        <span class="font-bold text-yellow-600">0.07%</span>
+                    </div>
+                    <div class="flex justify-between items-center p-2 border-b">
+                        <span>桃園市</span>
+                        <span class="font-bold text-green-600">0.05%</span>
+                    </div>
+                    <div class="flex justify-between items-center p-2 border-b">
+                        <span>台中市</span>
+                        <span class="font-bold text-green-600">0.05%</span>
+                    </div>
+                    <div class="flex justify-between items-center p-2 border-b">
+                        <span>新竹市</span>
+                        <span class="font-bold text-green-700">0.03%</span>
+                    </div>
+                    <div class="flex justify-between items-center p-2">
+                        <span>新竹縣</span>
+                        <span class="font-bold text-green-700">0.02%</span>
+                    </div>
+                </div>
+                <div class="mt-4 p-3 bg-blue-100 rounded-lg">
+                    <p class="text-sm text-blue-800">
+                        <strong>💡 觀察：</strong>南二都投資客比例較高需關注，新竹地區風險最低
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Risk Factors -->
+        <div class="bg-white rounded-lg card-shadow p-6 mb-8">
+            <h3 class="text-xl font-semibold text-secondary mb-4">⚠️ 風險來源與成因探討</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="bg-red-50 p-4 rounded-lg text-center hover-lift">
+                    <div class="text-2xl mb-2">📈</div>
+                    <h4 class="font-semibold text-primary mb-2">利率壓力</h4>
+                    <p class="text-sm text-gray-600">央行連續升息，房貸利率超過3%</p>
+                </div>
+                <div class="bg-orange-50 p-4 rounded-lg text-center hover-lift">
+                    <div class="text-2xl mb-2">🏠</div>
+                    <h4 class="font-semibold text-highlight mb-2">交屋潮效應</h4>
+                    <p class="text-sm text-gray-600">寬限期到期，本金開始攤還</p>
+                </div>
+                <div class="bg-yellow-50 p-4 rounded-lg text-center hover-lift">
+                    <div class="text-2xl mb-2">📉</div>
+                    <h4 class="font-semibold text-yellow-600 mb-2">市場降溫</h4>
+                    <p class="text-sm text-gray-600">不動產交易量急凍</p>
+                </div>
+                <div class="bg-blue-50 p-4 rounded-lg text-center hover-lift">
+                    <div class="text-2xl mb-2">🏢</div>
+                    <h4 class="font-semibold text-blue-600 mb-2">企業困境</h4>
+                    <p class="text-sm text-gray-600">中小企業主還款能力下降</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bank Response -->
+        <div class="bg-white rounded-lg card-shadow p-6 mb-8">
+            <h3 class="text-xl font-semibold text-secondary mb-4">🏦 銀行業應對策略與風險評估</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-green-50 p-4 rounded-lg">
+                    <h4 class="font-semibold text-green-700 mb-3">✅ 資本緩衝充足</h4>
+                    <ul class="text-sm space-y-2">
+                        <li>• 損失準備金：1.5%</li>
+                        <li>• 備抵呆帳覆蓋率：861.42%</li>
+                        <li>• 壓力測試通過</li>
+                    </ul>
+                </div>
+                <div class="bg-blue-50 p-4 rounded-lg">
+                    <h4 class="font-semibold text-blue-700 mb-3">📊 風險控管措施</h4>
+                    <ul class="text-sm space-y-2">
+                        <li>• 加強貸後管理</li>
+                        <li>• 大數據預警模型</li>
+                        <li>• 提前介入協商</li>
+                    </ul>
+                </div>
+                <div class="bg-purple-50 p-4 rounded-lg">
+                    <h4 class="font-semibold text-purple-700 mb-3">🎯 監管立場</h4>
+                    <ul class="text-sm space-y-2">
+                        <li>• 風險仍在可控範圍</li>
+                        <li>• 持續密切監控</li>
+                        <li>• 無系統性風險</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="container mx-auto px-4 py-8">
+        <h2 class="text-2xl font-bold text-primary mb-6 text-center">❓ 常見問題</h2>
+        <div class="space-y-4">
+            <div class="bg-white rounded-lg card-shadow p-6 hover-lift">
+                <button class="w-full text-left flex justify-between items-center" onclick="toggleFAQ(1)">
+                    <h3 class="text-lg font-semibold text-secondary">什麼是「房貸逾期放款」？台灣目前的趨勢如何？</h3>
+                    <span class="text-primary text-xl" id="icon1">+</span>
+                </button>
+                <div class="mt-4 hidden" id="faq1">
+                    <p class="text-gray-700 leading-relaxed">
+                        「房貸逾期放款」指的是貸款本金逾期超過90天未清償或未進行重組的貸款。截至2025年5月底，台灣國銀房貸逾期放款餘額已連續10個月上升，達到87.8億元，創下近四年新高。雖然逾放比率仍維持在0.07%至0.08%的相對低點，但「量縮質變」的趨勢值得關注。
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg card-shadow p-6 hover-lift">
+                <button class="w-full text-left flex justify-between items-center" onclick="toggleFAQ(2)">
+                    <h3 class="text-lg font-semibold text-secondary">造成房貸逾期放款增加的主要原因有哪些？</h3>
+                    <span class="text-primary text-xl" id="icon2">+</span>
+                </button>
+                <div class="mt-4 hidden" id="faq2">
+                    <p class="text-gray-700 leading-relaxed">
+                        主要原因包括：1) 央行連續升息導致利率壓力增大；2) 史上最大交屋潮與寬限期到期效應；3) 整體經濟環境動盪影響中小企業主還款能力；4) 不動產市場交易降溫；5) 單筆貸款金額擴大效應。這些因素疊加造成了當前的逾放增長趨勢。
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg card-shadow p-6 hover-lift">
+                <button class="w-full text-left flex justify-between items-center" onclick="toggleFAQ(3)">
+                    <h3 class="text-lg font-semibold text-secondary">各都會區的違約率表現如何？哪些地區需特別關注？</h3>
+                    <span class="text-primary text-xl" id="icon3">+</span>
+                </button>
+                <div class="mt-4 hidden" id="faq3">
+                    <p class="text-gray-700 leading-relaxed">
+                        台北市違約率最高為0.10%，南二都（台南、高雄）為0.08%需特別關注，因投資客比例較高。新竹地區風險最低，新竹縣僅0.02%、新竹市0.03%，主要因竹科客購買力強。整體而言，各地區違約率仍屬穩健範圍。
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg card-shadow p-6 hover-lift">
+                <button class="w-full text-left flex justify-between items-center" onclick="toggleFAQ(4)">
+                    <h3 class="text-lg font-semibold text-secondary">台灣金融監管機構（金管會）如何看待當前的房貸逾期放款狀況？</h3>
+                    <span class="text-primary text-xl" id="icon4">+</span>
+                </button>
+                <div class="mt-4 hidden" id="faq4">
+                    <p class="text-gray-700 leading-relaxed">
+                        金管會作為金融市場的主要監管者，正密切關注房貸逾放的發展，但目前認為風險仍在可控範圍。金管會銀行局官員多次表示，儘管房貸逾放金額增加，但逾放比率至今仍穩定維持在低水平，銀行對不動產風險的控管能力穩定，尚未觀察到異常現象或系統性信用風險問題。金管會將持續督促銀行提升資產品質，並強化風險管理。
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg card-shadow p-6 hover-lift">
+                <button class="w-full text-left flex justify-between items-center" onclick="toggleFAQ(5)">
+                    <h3 class="text-lg font-semibold text-secondary">台灣銀行業是否有足夠的能力應對潛在的房貸市場波動和逾期增加？</h3>
+                    <span class="text-primary text-xl" id="icon5">+</span>
+                </button>
+                <div class="mt-4 hidden" id="faq5">
+                    <div class="text-gray-700 leading-relaxed space-y-3">
+                        <p>是的，從目前來看，台灣銀行業擁有充足的資本緩衝與較高的損失準備金，應能應對中等程度的房市波動與逾放增加：</p>
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-blue-700 mb-2">🔍 中華信評壓力測試</h4>
+                            <p class="text-sm">模擬房貸逾放率升至2%、土建融逾放率升至6%的情況，結果顯示台灣銀行業的資本與獲利水準應仍可免於受到重大衝擊。</p>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-green-700 mb-2">💰 充足的損失準備</h4>
+                            <p class="text-sm">主管機關要求銀行對房貸與不動產放款提列1.5%的備抵呆帳，高於其他放款的1%一般準備金。</p>
+                        </div>
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-purple-700 mb-2">📊 高備抵呆帳覆蓋率</h4>
+                            <p class="text-sm">截至2025年5月底，本國銀行的備抵呆帳覆蓋率高達861.42%，顯示整體提列情形穩健。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg card-shadow p-6 hover-lift">
+                <button class="w-full text-left flex justify-between items-center" onclick="toggleFAQ(6)">
+                    <h3 class="text-lg font-semibold text-secondary">對於銀行、借款人和監理機構，有什麼具體的行動建議來緩解房貸風險？</h3>
+                    <span class="text-primary text-xl" id="icon6">+</span>
+                </button>
+                <div class="mt-4 hidden" id="faq6">
+                    <div class="text-gray-700 leading-relaxed">
+                        <p class="mb-4">為了穩健維護市場信心，各方可協同制定風險緩釋策略：</p>
+                        <div class="grid md:grid-cols-3 gap-4">
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-blue-700 mb-2">🏦 銀行端</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>• 加強高槓桿族群貸後管理</li>
+                                    <li>• 運用大數據預警模型</li>
+                                    <li>• 採取催收程序避免轉銷呆帳</li>
+                                </ul>
+                            </div>
+                            <div class="bg-green-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-green-700 mb-2">👥 借款人端</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>• 優先償還高利率貸款</li>
+                                    <li>• 考慮轉貸降低壓力</li>
+                                    <li>• 提前規劃現金流</li>
+                                </ul>
+                            </div>
+                            <div class="bg-purple-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-purple-700 mb-2">🏛️ 監理機構</h4>
+                                <ul class="text-sm space-y-1">
+                                    <li>• 持續關注逾放率波動</li>
+                                    <li>• 適時調整信用管制措施</li>
+                                    <li>• 防範群體性違約風險</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg card-shadow p-6 hover-lift">
+                <button class="w-full text-left flex justify-between items-center" onclick="toggleFAQ(7)">
+                    <h3 class="text-lg font-semibold text-secondary">銀行業者對於未來的房貸逾放趨勢有何擔憂？</h3>
+                    <span class="text-primary text-xl" id="icon7">+</span>
+                </button>
+                <div class="mt-4 hidden" id="faq7">
+                    <div class="text-gray-700 leading-relaxed space-y-3">
+                        <p>儘管目前風險可控，銀行業者仍有以下擔憂：</p>
+                        <div class="bg-red-50 border-l-4 border-red-400 p-4">
+                            <h4 class="font-semibold text-red-700 mb-2">⚠️ 主要擔憂</h4>
+                            <ul class="text-sm space-y-1">
+                                <li>• 若經濟情勢未能改善，逾放潮恐將持續</li>
+                                <li>• 可能突破2021年的高點</li>
+                                <li>• 建案銷售不佳引發建商資金斷鏈</li>
+                                <li>• 建築融資壞帳增加風險</li>
+                            </ul>
+                        </div>
+                        <div class="bg-orange-50 border-l-4 border-orange-400 p-4">
+                            <h4 class="font-semibold text-orange-700 mb-2">🔍 結構性風險警示</h4>
+                            <p class="text-sm">銀行圈已對「量縮質變」的結構性風險提出警示，擔憂逾放水位持續飆高，進而影響銀行放貸政策並衝擊整體金融穩定。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg card-shadow p-6 hover-lift">
+                <button class="w-full text-left flex justify-between items-center" onclick="toggleFAQ(8)">
+                    <h3 class="text-lg font-semibold text-secondary">未來房貸市場的門檻和交易動能可能會有什麼變化？</h3>
+                    <span class="text-primary text-xl" id="icon8">+</span>
+                </button>
+                <div class="mt-4 hidden" id="faq8">
+                    <div class="text-gray-700 leading-relaxed">
+                        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded">
+                            <h4 class="font-semibold text-yellow-700 mb-2">📈 市場預期變化</h4>
+                            <p class="text-sm mb-3">在利率高檔與銀行風險意識升溫的雙重壓力下，未來房貸市場將面臨以下變化：</p>
+                            <ul class="text-sm space-y-2">
+                                <li>• <strong>門檻提高：</strong>民眾取得房貸的門檻可能進一步提高</li>
+                                <li>• <strong>交易動能下降：</strong>對房市交易動能構成持續壓力</li>
+                                <li>• <strong>市場挑戰：</strong>房貸市場將面臨更多挑戰</li>
+                                <li>• <strong>審核趨嚴：</strong>銀行放貸政策將更加謹慎</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Action Recommendations -->
+    <section class="container mx-auto px-4 py-8">
+        <div class="bg-gradient-to-r from-primary to-secondary text-white rounded-lg p-6 mb-8">
+            <h2 class="text-2xl font-bold mb-6 text-center">💡 行動建議</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white bg-opacity-10 p-4 rounded-lg">
+                    <h3 class="font-semibold mb-3">🏦 銀行端</h3>
+                    <ul class="text-sm space-y-2">
+                        <li>• 加強高槓桿族群貸後管理</li>
+                        <li>• 運用大數據預警模型</li>
+                        <li>• 提前介入協商機制</li>
+                    </ul>
+                </div>
+                <div class="bg-white bg-opacity-10 p-4 rounded-lg">
+                    <h3 class="font-semibold mb-3">👥 借款人端</h3>
+                    <ul class="text-sm space-y-2">
+                        <li>• 優先償還高利率貸款</li>
+                        <li>• 考慮轉貸降低壓力</li>
+                        <li>• 提前規劃現金流</li>
+                    </ul>
+                </div>
+                <div class="bg-white bg-opacity-10 p-4 rounded-lg">
+                    <h3 class="font-semibold mb-3">🏛️ 監理機構</h3>
+                    <ul class="text-sm space-y-2">
+                        <li>• 持續關注逾放率波動</li>
+                        <li>• 適時調整信用管制</li>
+                        <li>• 防範群體性違約風險</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <div class="border-t border-gray-600 pt-4">
+                <p class="text-sm text-gray-300 mb-2">
+                    <strong>免責申明：</strong>基於公開資料，僅供參考，不構成建議
+                </p>
+                <p class="text-sm text-gray-300 mb-2">
+                    <strong>資料來源：</strong>網頁公開資訊
+                </p>
+                <p class="text-sm text-gray-400">
+                    版權所有 © Dunk
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleFAQ(num) {
+            const faq = document.getElementById(`faq${num}`);
+            const icon = document.getElementById(`icon${num}`);
+            
+            if (faq.classList.contains('hidden')) {
+                faq.classList.remove('hidden');
+                icon.textContent = '−';
+            } else {
+                faq.classList.add('hidden');
+                icon.textContent = '+';
+            }
+        }
+
+        // Add smooth scrolling for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'95dc90f2d193844b',t:'MTc1MjI4MTYzNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
