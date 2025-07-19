@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>南加州夏日藝術漫步指南</title>
+    <style>
+        .audio-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        
+        audio {
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        .audio-info {
+            margin-bottom: 15px;
+        }
+        
+        .audio-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .audio-description {
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="audio-container">
+        <div class="audio-info">
+            <div class="audio-title">南加州夏日藝術漫步指南</div>
+            <div class="audio-description"></div>
+        </div>                
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/QcEAx4I2BLg?si=4sYlQx_X5zVbIaOe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+</body>
+</html>
+
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>南加州夏季藝術漫步活動簡報</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        
+        .wave-bg {
+            background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 25%, #0369a1 50%, #075985 75%, #0c4a6e 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .wave-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .ocean-card {
+            background: linear-gradient(145deg, rgba(255,255,255,0.95), rgba(240,249,255,0.9));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+        
+        .anchor-icon {
+            animation: sway 3s ease-in-out infinite;
+        }
+        
+        @keyframes sway {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+        
+        .fish-swim {
+            animation: swim 8s linear infinite;
+        }
+        
+        @keyframes swim {
+            0% { transform: translateX(-100px) scaleX(1); }
+            50% { transform: translateX(50vw) scaleX(1); }
+            51% { transform: translateX(50vw) scaleX(-1); }
+            100% { transform: translateX(-100px) scaleX(-1); }
+        }
+        
+        .compass-spin {
+            animation: spin 20s linear infinite;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .section-divider {
+            background: linear-gradient(90deg, transparent, #0ea5e9, transparent);
+            height: 2px;
+            margin: 2rem 0;
+        }
+
+        .faq-item {
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer.active {
+            max-height: 1000px;
+        }
+
+        .faq-toggle {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-toggle.active {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-cyan-50 min-h-screen">
+    <!-- 海洋背景裝飾 -->
+    <div class="fixed top-4 right-4 text-6xl opacity-20 fish-swim">🐠</div>
+    <div class="fixed top-20 left-10 text-4xl opacity-30 anchor-icon">⚓</div>
+    <div class="fixed bottom-10 right-20 text-5xl opacity-25 compass-spin">🧭</div>
+    
+    <!-- 標題區域 -->
+    <header class="wave-bg text-white py-16 relative">
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="flex justify-center items-center mb-6">
+                <span class="text-6xl mr-4">🌊</span>
+                <h1 class="text-4xl md:text-6xl font-bold">南加州夏季藝術漫步</h1>
+                <span class="text-6xl ml-4">🎨</span>
+            </div>
+            <p class="text-xl md:text-2xl opacity-90 font-light">探索海岸線上的藝術瑰寶</p>
+            <div class="flex justify-center mt-8 space-x-4">
+                <span class="text-3xl">🐚</span>
+                <span class="text-3xl">⛵</span>
+                <span class="text-3xl">🌺</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+        <!-- 概述區域 -->
+        <section class="ocean-card rounded-2xl p-8 mb-12 shadow-xl">
+            <div class="flex items-center mb-6">
+                <span class="text-4xl mr-4">🏖️</span>
+                <h2 class="text-3xl font-bold text-blue-800">概述</h2>
+            </div>
+            <p class="text-lg leading-relaxed text-gray-700">
+                南加州以其多元的文化背景和豐富的藝術資源聞名，孕育了眾多視覺藝術家和創作者。每年夏季（6-8月），南加州各地舉辦一系列免費且開放大眾的「藝術漫步」（Art Walk）活動，涵蓋洛杉磯都會區、橙縣、英倫帝國（Inland Empire）與聖地牙哥。這些活動不僅是藝術展覽的平台，更是促進社區文化交流、提升藝術可及性、支持當地藝術家，並連結藝術與日常生活、社會議題的重要盛事。
+            </p>
+        </section>
+
+        <!-- 主要主題區域 -->
+        <section class="ocean-card rounded-2xl p-8 mb-12 shadow-xl">
+            <div class="flex items-center mb-8">
+                <span class="text-4xl mr-4">🎭</span>
+                <h2 class="text-3xl font-bold text-blue-800">主要主題與重要概念</h2>
+            </div>
+            
+            <!-- 活動背景與目的 -->
+            <div class="mb-10">
+                <h3 class="text-2xl font-semibold text-blue-700 mb-4 flex items-center">
+                    <span class="text-3xl mr-3">🌟</span>
+                    活動背景與目的
+                </h3>
+                
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-blue-50 p-6 rounded-xl border-l-4 border-blue-400">
+                        <h4 class="font-semibold text-blue-800 mb-3 flex items-center">
+                            <span class="text-2xl mr-2">🎨</span>
+                            藝術文化概述
+                        </h4>
+                        <p class="text-gray-700">南加州的藝術文化深受多種族、多文化的影響，形成獨特的藝術氛圍，活動形式涵蓋繪畫、雕塑、攝影、街頭藝術等，並與當地音樂、舞蹈、美食結合，提供多感官藝術體驗。</p>
+                    </div>
+                    
+                    <div class="bg-cyan-50 p-6 rounded-xl border-l-4 border-cyan-400">
+                        <h4 class="font-semibold text-cyan-800 mb-3 flex items-center">
+                            <span class="text-2xl mr-2">📚</span>
+                            起源與發展
+                        </h4>
+                        <p class="text-gray-700">夏季藝術漫步活動起源於20世紀中期，由藝術家和社區組織為展示作品而創辦，例如拉古納海灘的鋸屑藝術節（Sawdust Art Festival）創始於1965年。</p>
+                    </div>
+                    
+                    <div class="bg-teal-50 p-6 rounded-xl border-l-4 border-teal-400">
+                        <h4 class="font-semibold text-teal-800 mb-3 flex items-center">
+                            <span class="text-2xl mr-2">🎯</span>
+                            活動目的
+                        </h4>
+                        <ul class="text-gray-700 space-y-2">
+                            <li>• 促進社區文化交流</li>
+                            <li>• 提升藝術的可及性</li>
+                            <li>• 支持當地藝術家</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 主要活動區域 -->
+        <section class="ocean-card rounded-2xl p-8 mb-12 shadow-xl">
+            <div class="flex items-center mb-8">
+                <span class="text-4xl mr-4">🗺️</span>
+                <h2 class="text-3xl font-bold text-blue-800">南加州主要夏季藝術漫步活動概覽</h2>
+            </div>
+            
+            <!-- 洛杉磯都會區 -->
+            <div class="mb-10">
+                <h3 class="text-2xl font-semibold text-blue-700 mb-6 flex items-center">
+                    <span class="text-3xl mr-3">🏙️</span>
+                    洛杉磯都會區
+                </h3>
+                
+                <div class="space-y-6">
+                    <div class="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-xl border border-blue-200">
+                        <h4 class="font-bold text-blue-800 text-xl mb-3">Downtown Los Angeles Art Walk</h4>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <p class="text-gray-700 mb-2"><strong>時間：</strong>每月第二個星期四，18:00-22:00</p>
+                                <p class="text-gray-700 mb-2"><strong>地點：</strong>Historic Core與Fashion District</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-700"><strong>特色：</strong>逾30間畫廊開放參觀，並有街頭表演和導覽團</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-r from-cyan-50 to-cyan-100 p-6 rounded-xl border border-cyan-200">
+                        <h4 class="font-bold text-cyan-800 text-xl mb-3">NELA Art Second Saturday Night</h4>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <p class="text-gray-700 mb-2"><strong>時間：</strong>每月第二個星期六，18:00-21:00</p>
+                                <p class="text-gray-700 mb-2"><strong>地點：</strong>高地公園與老鷹岩交界區</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-700"><strong>特色：</strong>64個畫廊與創意空間延長開放</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-r from-teal-50 to-teal-100 p-6 rounded-xl border border-teal-200">
+                        <h4 class="font-bold text-teal-800 text-xl mb-3">Leimert Park Artwalk</h4>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <p class="text-gray-700 mb-2"><strong>時間：</strong>每月最後一個星期日，12:00-20:00</p>
+                                <p class="text-gray-700 mb-2"><strong>地點：</strong>Leimert Park Village</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-700"><strong>特色：</strong>結合視覺藝術、市集、非洲鼓圈與現場音樂</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <!-- 橙縣 -->
+            <div class="mb-10">
+                <h3 class="text-2xl font-semibold text-blue-700 mb-6 flex items-center">
+                    <span class="text-3xl mr-3">🏖️</span>
+                    橙縣（Orange County）
+                </h3>
+                
+                <div class="space-y-6">
+                    <div class="bg-gradient-to-r from-orange-50 to-amber-50 p-6 rounded-xl border border-orange-200">
+                        <h4 class="font-bold text-orange-800 text-xl mb-3">Sawdust Art Festival</h4>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <p class="text-gray-700 mb-2"><strong>時間：</strong>2025年即日起至9月1日，每天10:00-22:00</p>
+                                <p class="text-gray-700 mb-2"><strong>地點：</strong>935 Laguna Canyon Road</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-700"><strong>展品：</strong>玻璃製品、繪畫、珠寶設計、衝浪藝術、陶瓷、服裝紡織品</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-r from-pink-50 to-rose-50 p-6 rounded-xl border border-pink-200">
+                        <h4 class="font-bold text-pink-800 text-xl mb-3">Laguna Art-A-Fair</h4>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <p class="text-gray-700 mb-2"><strong>時間：</strong>2025年即日起至9月1日</p>
+                                <p class="text-gray-700 mb-2"><strong>票價：</strong>成人$7-9，12歲以下免費</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-700"><strong>特色：</strong>國際藝術家參與，提供藝術工作坊</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-divider"></div>
+
+            <!-- 聖地牙哥 -->
+            <div class="mb-10">
+                <h3 class="text-2xl font-semibold text-blue-700 mb-6 flex items-center">
+                    <span class="text-3xl mr-3">🌴</span>
+                    聖地牙哥（San Diego）
+                </h3>
+                
+                <div class="space-y-6">
+                    <div class="bg-gradient-to-r from-purple-50 to-indigo-50 p-6 rounded-xl border border-purple-200">
+                        <h4 class="font-bold text-purple-800 text-xl mb-3">ArtWalk San Diego – Liberty Station</h4>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <p class="text-gray-700 mb-2"><strong>時間：</strong>2025年8月1-3日，週末10:00-18:00</p>
+                                <p class="text-gray-700 mb-2"><strong>地點：</strong>Ingram Plaza, ARTS DISTRICT Liberty Station</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-700"><strong>特色：</strong>250位藝術家作品、預覽派對、現場音樂與美食</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-xl border border-green-200">
+                        <h4 class="font-bold text-green-800 text-xl mb-3">Little Italy ArtWalk Summer Series</h4>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div>
+                                <p class="text-gray-700 mb-2"><strong>時間：</strong>6-7月週日11:00-17:00</p>
+                                <p class="text-gray-700 mb-2"><strong>地點：</strong>Piazza della Famiglia, W. Date St</p>
+                            </div>
+                            <div>
+                                <p class="text-gray-700"><strong>特色：</strong>20-30位當地藝術家精選展售</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 策展人與藝術家背景 -->
+        <section class="ocean-card rounded-2xl p-8 mb-12 shadow-xl">
+            <div class="flex items-center mb-8">
+                <span class="text-4xl mr-4">👥</span>
+                <h2 class="text-3xl font-bold text-blue-800">策展人與藝術家背景</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-semibold text-blue-700 mb-4 flex items-center">
+                        <span class="text-3xl mr-3">🎨</span>
+                        策展人理念
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-blue-800 mb-2">鋸屑藝術節</h4>
+                            <p class="text-gray-700 text-sm">強調藝術的本地性、社區參與及支持自學成才的藝術家</p>
+                        </div>
+                        <div class="bg-cyan-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-cyan-800 mb-2">拉古納藝術博覽會</h4>
+                            <p class="text-gray-700 text-sm">提升藝術的多樣性和國際視野，注重創新性與技術性</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-semibold text-blue-700 mb-4 flex items-center">
+                        <span class="text-3xl mr-3">🎭</span>
+                        參展藝術家背景
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex items-center bg-teal-50 p-3 rounded-lg">
+                            <span class="text-2xl mr-3">🌟</span>
+                            <span class="text-gray-700">自學成才的藝術家</span>
+                        </div>
+                        <div class="flex items-center bg-emerald-50 p-3 rounded-lg">
+                            <span class="text-2xl mr-3">🎓</span>
+                            <span class="text-gray-700">當地藝術學校的專業創作者</span>
+                        </div>
+                        <div class="flex items-center bg-blue-50 p-3 rounded-lg">
+                            <span class="text-2xl mr-3">🌍</span>
+                            <span class="text-gray-700">國際藝術家</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 活動主題與策展理念 -->
+        <section class="ocean-card rounded-2xl p-8 mb-12 shadow-xl">
+            <div class="flex items-center mb-8">
+                <span class="text-4xl mr-4">💡</span>
+                <h2 class="text-3xl font-bold text-blue-800">活動主題與策展理念</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl">
+                    <div class="text-3xl mb-3">🤝</div>
+                    <h3 class="font-semibold text-blue-800 mb-3">社區參與與文化多樣性</h3>
+                    <p class="text-gray-700 text-sm">藝術作品反映當地文化特色，促進不同年齡層和文化背景的居民交流</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-cyan-50 to-cyan-100 p-6 rounded-xl">
+                    <div class="text-3xl mb-3">🏠</div>
+                    <h3 class="font-semibold text-cyan-800 mb-3">藝術與生活的結合</h3>
+                    <p class="text-gray-700 text-sm">將藝術融入日常生活，結合美食與音樂，提供多感官體驗</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-teal-50 to-teal-100 p-6 rounded-xl">
+                    <div class="text-3xl mb-3">🌱</div>
+                    <h3 class="font-semibold text-teal-800 mb-3">環境與可持續性</h3>
+                    <p class="text-gray-700 text-sm">展示環境相關藝術作品，使用可持續材料，提高環保意識</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-xl">
+                    <div class="text-3xl mb-3">🚀</div>
+                    <h3 class="font-semibold text-purple-800 mb-3">藝術的實驗性與創新</h3>
+                    <p class="text-gray-700 text-sm">鼓勵創新與實驗，展示前衛作品，挑戰傳統藝術形式</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-pink-50 to-pink-100 p-6 rounded-xl">
+                    <div class="text-3xl mb-3">💬</div>
+                    <h3 class="font-semibold text-pink-800 mb-3">藝術與社會議題的對話</h3>
+                    <p class="text-gray-700 text-sm">作品反映移民、種族平等等社會議題，促進公眾思考</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 展品列表與媒材細節 -->
+        <section class="ocean-card rounded-2xl p-8 mb-12 shadow-xl">
+            <div class="flex items-center mb-8">
+                <span class="text-4xl mr-4">🎨</span>
+                <h2 class="text-3xl font-bold text-blue-800">展品列表與媒材細節</h2>
+            </div>
+            
+            <div class="space-y-6">
+                <div class="bg-gradient-to-r from-amber-50 to-orange-50 p-6 rounded-xl border border-amber-200">
+                    <h3 class="font-bold text-amber-800 text-xl mb-4 flex items-center">
+                        <span class="text-2xl mr-2">🪚</span>
+                        鋸屑藝術節
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <h4 class="font-semibold text-amber-700 mb-2">展品類型</h4>
+                            <ul class="text-gray-700 text-sm space-y-1">
+                                <li>• 玻璃製品（吹製、熔融、雕刻）</li>
+                                <li>• 陶瓷（手作、輪製、雕刻）</li>
+                                <li>• 繪畫（油畫、水彩、丙烯畫）</li>
+                                <li>• 珠寶設計</li>
+                                <li>• 衝浪藝術和服裝設計</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-amber-700 mb-2">主要媒材</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">玻璃</span>
+                                <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">陶土</span>
+                                <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">油畫</span>
+                                <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">水彩</span>
+                                <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">木材</span>
+                                <span class="bg-amber-100 text-amber-800 px-3 py-1 rounded-full text-sm">金屬</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-xl border border-blue-200">
+                    <h3 class="font-bold text-blue-800 text-xl mb-4 flex items-center">
+                        <span class="text-2xl mr-2">🏛️</span>
+                        拉古納藝術博覽會
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <h4 class="font-semibold text-blue-700 mb-2">展品類型</h4>
+                            <ul class="text-gray-700 text-sm space-y-1">
+                                <li>• 水彩畫、油畫</li>
+                                <li>• 雕刻（木雕、石雕、金屬雕塑）</li>
+                                <li>• 攝影（黑白、彩色）</li>
+                                <li>• 珠寶設計</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-blue-700 mb-2">主要媒材</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">畫布</span>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">木材</span>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">金屬</span>
+                                <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">混合媒材</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 媒體評論與觀眾回響 -->
+        <section class="ocean-card rounded-2xl p-8 mb-12 shadow-xl">
+            <div class="flex items-center mb-8">
+                <span class="text-4xl mr-4">📰</span>
+                <h2 class="text-3xl font-bold text-blue-800">媒體與專業評論</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-semibold text-blue-700 mb-4 flex items-center">
+                        <span class="text-3xl mr-3">📺</span>
+                        媒體報導
+                    </h3>
+                    <div class="bg-blue-50 p-6 rounded-xl">
+                        <p class="text-gray-700">媒體廣泛關注活動的多樣性與吸引力，認為其成功在於滿足不同背景和興趣觀眾的需求。同時，高度肯定活動在促進社區參與方面的重要作用，並為藝術家提供寶貴的曝光機會。</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-semibold text-blue-700 mb-4 flex items-center">
+                        <span class="text-3xl mr-3">🎯</span>
+                        專業評論
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="bg-cyan-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-cyan-800 mb-2">藝術的社會影響</h4>
+                            <p class="text-gray-700 text-sm">藝術漫步活動不僅是展示平台，更是社會對話空間</p>
+                        </div>
+                        <div class="bg-teal-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-teal-800 mb-2">藝術的可及性</h4>
+                            <p class="text-gray-700 text-sm">透過免費入場、家庭友好的互動專區顯著提升藝術可及性</p>
+                        </div>
+                        <div class="bg-emerald-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-emerald-800 mb-2">藝術與經濟的結合</h4>
+                            <p class="text-gray-700 text-sm">對當地經濟有顯著貢獻，實現文化與經濟雙贏</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 觀眾評價與社群迴響 -->
+        <section class="ocean-card rounded-2xl p-8 mb-12 shadow-xl">
+            <div class="flex items-center mb-8">
+                <span class="text-4xl mr-4">💬</span>
+                <h2 class="text-3xl font-bold text-blue-800">觀眾評價與社群迴響</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-semibold text-blue-700 mb-4 flex items-center">
+                        <span class="text-3xl mr-3">⭐</span>
+                        觀眾評價
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
+                            <h4 class="font-semibold text-yellow-800 mb-2">文化氛圍</h4>
+                            <p class="text-gray-700 text-sm">參與者普遍讚揚活動的濃厚文化氛圍</p>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
+                            <h4 class="font-semibold text-green-800 mb-2">社交互動</h4>
+                            <p class="text-gray-700 text-sm">豐富的社交互動機會，如與藝術家交流</p>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
+                            <h4 class="font-semibold text-blue-800 mb-2">活動組織</h4>
+                            <p class="text-gray-700 text-sm">周到便捷的活動組織，如免費電車服務</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-semibold text-blue-700 mb-4 flex items-center">
+                        <span class="text-3xl mr-3">📱</span>
+                        社群迴響
+                    </h3>
+                    <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl">
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <span class="text-2xl mr-3">📺</span>
+                                <span>活動在媒體上獲得廣泛報導，提升知名度</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-2xl mr-3">💭</span>
+                                <span>在社交媒體上引發熱烈討論，參與者積極分享體驗</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-2xl mr-3">🤝</span>
+                                <span>促進文化認同，讓參與者感受到身處文化社群的歸屬感</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 結論與未來展望 -->
+        <section class="ocean-card rounded-2xl p-8 mb-12 shadow-xl">
+            <div class="flex items-center mb-8">
+                <span class="text-4xl mr-4">🔮</span>
+                <h2 class="text-3xl font-bold text-blue-800">結論與未來展望</h2>
+            </div>
+            
+            <div class="mb-8">
+                <p class="text-lg leading-relaxed text-gray-700 mb-6">
+                    南加州夏季藝術漫步活動在促進當地藝術文化、提升社區凝聚力、以及推動經濟發展方面取得了顯著成效。未來，這些活動可望透過以下方式進一步發展：
+                </p>
+                
+                <div class="grid md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl">
+                        <div class="text-3xl mb-3">📈</div>
+                        <h3 class="font-semibold text-blue-800 mb-3">擴展活動規模與影響力</h3>
+                        <p class="text-gray-700 text-sm">增加展覽空間和活動內容，吸引更多國內外遊客及藝術家</p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-cyan-50 to-cyan-100 p-6 rounded-xl">
+                        <div class="text-3xl mb-3">🗣️</div>
+                        <h3 class="font-semibold text-cyan-800 mb-3">加強藝術與社會議題的結合</h3>
+                        <p class="text-gray-700 text-sm">增加反映當前社會議題的作品，促進更深層次的社會對話</p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-teal-50 to-teal-100 p-6 rounded-xl">
+                        <div class="text-3xl mb-3">🌍</div>
+                        <h3 class="font-semibold text-teal-800 mb-3">提升國際知名度</h3>
+                        <p class="text-gray-700 text-sm">吸引更多國際藝術家和遊客參與，並透過國際媒體報導提升全球影響力</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-emerald-50 to-green-50 p-6 rounded-xl border-l-4 border-emerald-400">
+                    <p class="text-gray-700 leading-relaxed">
+                        總體而言，南加州夏季藝術漫步活動不僅豐富了地區的文化生活，也為藝術家提供了展示平台，並在社區發展和經濟活力中扮演著日益重要的角色。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 常見問題 -->
+        <section class="ocean-card rounded-2xl p-8 mb-12 shadow-xl">
+            <div class="flex items-center mb-8">
+                <span class="text-4xl mr-4">❓</span>
+                <h2 class="text-3xl font-bold text-blue-800">南加州夏季藝術漫步活動常見問題</h2>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="faq-item bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl border border-blue-200">
+                    <button class="w-full p-6 text-left flex justify-between items-center" onclick="toggleFAQ(1)">
+                        <h3 class="text-lg font-semibold text-blue-800">1. 南加州夏季藝術漫步活動的背景與起源為何？</h3>
+                        <span class="faq-toggle text-2xl text-blue-600" id="toggle-1">▼</span>
+                    </button>
+                    <div class="faq-answer px-6 pb-6" id="answer-1">
+                        <p class="text-gray-700 leading-relaxed">
+                            南加州以其多元文化背景和豐富藝術資源聞名，融合了多種族、多文化的影響，形成獨特的藝術氛圍，不僅是電影、音樂和設計的中心，也孕育了眾多視覺藝術家。夏季藝術漫步活動起源於20世紀中期，最初是一些藝術家和社區組織為當地藝術家提供展示平台的小型展覽。隨著時間推移，這些活動逐漸發展成為大型社區文化盛事，例如拉古納海灘的鋸屑藝術節（Sawdust Art Festival）於1965年由當地藝術家創辦，旨在展示創作並吸引觀眾。如今，這些藝術漫步活動已成為多元化的文化平台，吸引來自世界各地的藝術家和觀眾，不僅展示當地藝術創作，也促進國際藝術交流，並為當地經濟和文化發展做出重要貢獻。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="faq-item bg-gradient-to-r from-cyan-50 to-cyan-100 rounded-xl border border-cyan-200">
+                    <button class="w-full p-6 text-left flex justify-between items-center" onclick="toggleFAQ(2)">
+                        <h3 class="text-lg font-semibold text-cyan-800">2. 這些藝術漫步活動的主要目的為何？</h3>
+                        <span class="faq-toggle text-2xl text-cyan-600" id="toggle-2">▼</span>
+                    </button>
+                    <div class="faq-answer px-6 pb-6" id="answer-2">
+                        <div class="text-gray-700 leading-relaxed space-y-4">
+                            <p><strong>南加州夏季藝術漫步活動主要有三大目的：</strong></p>
+                            <div class="space-y-3">
+                                <div class="bg-white p-4 rounded-lg">
+                                    <h4 class="font-semibold text-cyan-800 mb-2">促進社區文化交流</h4>
+                                    <p class="text-sm">活動旨在促進社區內部及不同社區之間的文化交流，為當地居民提供共同參與的平台，透過藝術作品了解彼此的文化背景和價值觀。例如，聖佩德羅藝術漫步每月舉辦一次，吸引大量居民和遊客，透過畫廊開放夜和現場音樂表演，促進社區凝聚力。</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg">
+                                    <h4 class="font-semibold text-cyan-800 mb-2">提升藝術的可及性</h4>
+                                    <p class="text-sm">活動致力於提升藝術的可及性，讓更多人能夠接觸和欣賞藝術。這些活動通常免費入場，並面向所有年齡層的觀眾，例如奧申賽德藝術漫步設有家庭友好的互動活動。此外，活動提供藝術工作坊和現場表演，讓參觀者親身體驗藝術創作過程，激發對藝術的興趣。</p>
+                                </div>
+                                <div class="bg-white p-4 rounded-lg">
+                                    <h4 class="font-semibold text-cyan-800 mb-2">支持當地藝術家與創作者</h4>
+                                    <p class="text-sm">活動為藝術家提供展示和銷售作品的平台，幫助他們建立與觀眾的聯繫。例如，鋸屑藝術節每年吸引超過20萬名遊客，為當地藝術家帶來可觀的收入和曝光機會。活動也邀請藝術家參與策展和教育活動，進一步支持其職業發展。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="faq-item bg-gradient-to-r from-teal-50 to-teal-100 rounded-xl border border-teal-200">
+                    <button class="w-full p-6 text-left flex justify-between items-center" onclick="toggleFAQ(3)">
+                        <h3 class="text-lg font-semibold text-teal-800">3. 南加州有哪些著名的夏季藝術漫步活動，它們各具什麼特色？</h3>
+                        <span class="faq-toggle text-2xl text-teal-600" id="toggle-3">▼</span>
+                    </button>
+                    <div class="faq-answer px-6 pb-6" id="answer-3">
+                        <div class="text-gray-700 leading-relaxed space-y-4">
+                            <p><strong>南加州夏季藝術漫步活動涵蓋洛杉磯都會區、橙縣、英倫帝國與聖地牙哥等多個區域，各具特色：</strong></p>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-white p-4 rounded-lg">
+                                    <h4 class="font-semibold text-teal-800 mb-2">洛杉磯都會區</h4>
+                                    <ul class="text-sm space-y-1">
+                                        <li>• <strong>Downtown Los Angeles Art Walk：</strong>每月第二個星期四18:00-22:00，在Historic Core與Fashion District舉行，有逾30間畫廊開放參觀，並有街頭表演和導覽團。</li>
+                                        <li>• <strong>NELA Art Second Saturday Night：</strong>每月第二個星期六18:00-21:00，在高地公園與老鷹岩交界區舉行，64個畫廊與創意空間延長開放。</li>
+                                        <li>• <strong>Leimert Park Artwalk：</strong>每月最後一個星期日12:00-20:00，在Leimert Park Village舉行，結合視覺藝術、市集、非洲鼓圈與現場音樂。</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded-lg">
+                                    <h4 class="font-semibold text-teal-800 mb-2">橙縣（Orange County）</h4>
+                                    <ul class="text-sm space-y-1">
+                                        <li>• <strong>Coast Village Road Art Walk：</strong>2025年7月17日16:00-19:00，主題為「Beyond the Canvas」，結合現場繪畫示範、音樂表演與精品小吃。</li>
+                                        <li>• <strong>Laguna Beach 夏季藝術節：</strong>包括鋸屑藝術節、Laguna Art-A-Fair、Festival of Arts、Pageant of the Masters等多個活動。</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded-lg">
+                                    <h4 class="font-semibold text-teal-800 mb-2">英倫帝國（Inland Empire）</h4>
+                                    <ul class="text-sm space-y-1">
+                                        <li>• <strong>Temecula Art Walk：</strong>2025年7月11日、8月1日17:00-20:00，在Main St與The Merc舉行，有多元媒材展出、戶外藝術市集與畫廊接待。</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded-lg">
+                                    <h4 class="font-semibold text-teal-800 mb-2">聖地牙哥（San Diego）</h4>
+                                    <ul class="text-sm space-y-1">
+                                        <li>• <strong>ArtWalk San Diego – Liberty Station：</strong>2025年8月1-3日，有250位藝術家作品、預覽派對、現場音樂與美食品嚐。</li>
+                                        <li>• <strong>Little Italy ArtWalk Summer Series：</strong>6-7月週日11:00-17:00，有20-30位當地藝術家精選展售。</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="faq-item bg-gradient-to-r from-purple-50 to-purple-100 rounded-xl border border-purple-200">
+                    <button class="w-full p-6 text-left flex justify-between items-center" onclick="toggleFAQ(4)">
+                        <h3 class="text-lg font-semibold text-purple-800">4. 這些藝術活動的策展理念主要體現在哪些方面？</h3>
+                        <span class="faq-toggle text-2xl text-purple-600" id="toggle-4">▼</span>
+                    </button>
+                    <div class="faq-answer px-6 pb-6" id="answer-4">
+                        <div class="text-gray-700 leading-relaxed space-y-4">
+                            <p><strong>南加州藝術漫步活動的策展理念主要體現在以下幾個方面：</strong></p>
+                            
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="bg-white p-4 rounded-lg">
+                                    <h4 class="font-semibold text-purple-800 mb-2">社區參與與文化多樣性</h4>
+                                    <p class="text-sm">策展人致力於通過藝術作品反映當地文化特色，例如聖佩德羅藝術漫步展示大量以當地歷史、社區故事為主題的街頭藝術和壁畫，展現多元文化背景。</p>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded-lg">
+                                    <h4 class="font-semibold text-purple-800 mb-2">藝術與生活的結合</h4>
+                                    <p class="text-sm">活動旨在將藝術融入日常生活，例如奧申賽德藝術漫步展示大量與日常生活相關的藝術作品，強調藝術的可及性。</p>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded-lg">
+                                    <h4 class="font-semibold text-purple-800 mb-2">環境與可持續性</h4>
+                                    <p class="text-sm">許多策展人選擇展示與環境相關的藝術作品，使用可持續材料製作，如再生木材和環保顏料，以提高公眾對環境保護的意識。</p>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded-lg">
+                                    <h4 class="font-semibold text-purple-800 mb-2">藝術的實驗性與創新</h4>
+                                    <p class="text-sm">活動鼓勵藝術家的創新和實驗，展示大量前衛和實驗性藝術作品，挑戰傳統藝術形式。</p>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded-lg md:col-span-2">
+                                    <h4 class="font-semibold text-purple-800 mb-2">藝術與社會議題的對話</h4>
+                                    <p class="text-sm">許多作品反映當前的社會議題，如移民、種族平等和性別問題，旨在引發觀眾對這些問題的思考。策展人通過選擇特定主題和舉辦藝術家講座、討論會等方式，促進社會對話，讓藝術成為理解和討論複雜社會問題的工具。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="faq-item bg-gradient-to-r from-pink-50 to-pink-100 rounded-xl border border-pink-200">
+                    <button class="w-full p-6 text-left flex justify-between items-center" onclick="toggleFAQ(5)">
+                        <h3 class="text-lg font-semibold text-pink-800">5. 參與南加州夏季藝術漫步活動時，有哪些實用建議？</h3>
+                        <span class="faq-toggle text-2xl text-pink-600" id="toggle-5">▼</span>
+                    </button>
+                    <div class="faq-answer px-6 pb-6" id="answer-5">
+                        <div class="text-gray-700 leading-relaxed space-y-4">
+                            <p><strong>為高效體驗南加州的多元藝術漫步，有以下規劃建議：</strong></p>
+                            
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="bg-white p-4 rounded-lg">
+                                    <h4 class="font-semibold text-pink-800 mb-2 flex items-center">
+                                        <span class="text-xl mr-2">⏰</span>
+                                        時間錯開
+                                    </h4>
+                                    <p class="text-sm">將每區活動按週或日分段參與，例如週四參與洛杉磯活動，週五前往橙縣，週末則安排在聖地牙哥，以避免時間衝突並充分體驗。</p>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded-lg">
+                                    <h4 class="font-semibold text-pink-800 mb-2 flex items-center">
+                                        <span class="text-xl mr-2">🚗</span>
+                                        交通策略
+                                    </h4>
+                                    <p class="text-sm">在洛杉磯和聖地牙哥等大城市建議搭乘大眾運輸工具，例如洛杉磯市中心藝術漫步可於Pershing Square地鐵站下車步行抵達。中距離旅程則租車最彈性。</p>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded-lg">
+                                    <h4 class="font-semibold text-pink-800 mb-2 flex items-center">
+                                        <span class="text-xl mr-2">🎒</span>
+                                        裝備要點
+                                    </h4>
+                                    <p class="text-sm">攜帶輕便雨具（如水壺、遮陽帽）以應對不同天氣，穿著舒適鞋款以便長時間步行，並準備小額現金以備不時之需或購買藝術品。</p>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded-lg">
+                                    <h4 class="font-semibold text-pink-800 mb-2 flex items-center">
+                                        <span class="text-xl mr-2">📱</span>
+                                        社群互動
+                                    </h4>
+                                    <p class="text-sm">密切關注各活動的官方社群平台（如Instagram、Facebook），以掌握臨時演出、抽獎資訊及預約參與特殊活動的機會。</p>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded-lg md:col-span-2">
+                                    <h4 class="font-semibold text-pink-800 mb-2 flex items-center">
+                                        <span class="text-xl mr-2">📋</span>
+                                        提前準備
+                                    </h4>
+                                    <p class="text-sm">部分活動建議提前在官方網站登記免費會員，獲取最新地圖與導覽資訊，或提早報到參加免費手作工作坊，確保能參與所有精彩內容。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="faq-item bg-gradient-to-r from-emerald-50 to-emerald-100 rounded-xl border border-emerald-200">
+                    <button class="w-full p-6 text-left flex justify-between items-center" onclick="toggleFAQ(6)">
+                        <h3 class="text-lg font-semibold text-emerald-800">6. 這些藝術活動對當地藝術文化、社區凝聚力及經濟發展有何影響？</h3>
+                        <span class="faq-toggle text-2xl text-emerald-600" id="toggle-6">▼</span>
+                    </button>
+                    <div class="faq-answer px-6 pb-6" id="answer-6">
+                        <div class="text-gray-700 leading-relaxed space-y-4">
+                            <p><strong>南加州夏季藝術漫步活動對當地社會產生顯著影響：</strong></p>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-white p-4 rounded-lg">
+                                    <h4 class="font-semibold text-emerald-800 mb-2 flex items-center">
+                                        <span class="text-xl mr-2">🎨</span>
+                                        促進當地藝術文化
+                                    </h4>
+                                    <p class="text-sm">這些活動為藝術家提供了重要的展示平台，吸引大量觀眾參與，形成了濃厚的藝術氛圍。活動促進了藝術的多樣性和創新性，例如Mission Fed ArtWalk作為聖地牙哥規模最大、歷史最悠久的戶外藝術節，展示了250多位藝術家的作品，讓更多人接觸到不同形式的藝術。</p>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded-lg">
+                                    <h4 class="font-semibold text-emerald-800 mb-2 flex items-center">
+                                        <span class="text-xl mr-2">🤝</span>
+                                        提升社區凝聚力
+                                    </h4>
+                                    <p class="text-sm">活動以社區參與為核心，鼓勵居民和遊客共同參與，增強了社區的文化認同感。聖佩德羅藝術漫步每月舉辦一次，提供藝術家與觀眾直接交流的機會，促進社區成員之間的聯繫，讓參與者感受到自身是社區文化的一部分。</p>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded-lg">
+                                    <h4 class="font-semibold text-emerald-800 mb-2 flex items-center">
+                                        <span class="text-xl mr-2">💰</span>
+                                        對經濟發展的貢獻
+                                    </h4>
+                                    <p class="text-sm">藝術漫步活動吸引大量遊客，促進了當地商業的發展，特別是餐飲和零售業。Mission Fed ArtWalk每年吸引大量藝術收藏家和遊客，為當地藝術家提供了銷售作品的機會，同時也帶動了周邊商業的繁榮，實現了文化和經濟的雙贏。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 7 -->
+                <div class="faq-item bg-gradient-to-r from-indigo-50 to-indigo-100 rounded-xl border border-indigo-200">
+                    <button class="w-full p-6 text-left flex justify-between items-center" onclick="toggleFAQ(7)">
+                        <h3 class="text-lg font-semibold text-indigo-800">7. 觀眾和媒體對南加州夏季藝術漫步活動的評價如何？</h3>
+                        <span class="faq-toggle text-2xl text-indigo-600" id="toggle-7">▼</span>
+                    </button>
+                    <div class="faq-answer px-6 pb-6" id="answer-7">
+                        <div class="text-gray-700 leading-relaxed space-y-4">
+                            <p><strong>觀眾和媒體普遍對南加州夏季藝術漫步活動給予高度評價：</strong></p>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-white p-4 rounded-lg">
+                                    <h4 class="font-semibold text-indigo-800 mb-2 flex items-center">
+                                        <span class="text-xl mr-2">🎭</span>
+                                        文化氛圍與社交互動
+                                    </h4>
+                                    <p class="text-sm">參觀者普遍認為這些活動文化氛圍濃厚，是探索藝術與文化的熱門選擇，並能深入了解南加州的多元文化。活動提供了豐富的社交互動機會，觀眾可以直接與藝術家交流，了解創作理念，並在藝術氛圍中結識志同道合的朋友。</p>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded-lg">
+                                    <h4 class="font-semibold text-indigo-800 mb-2 flex items-center">
+                                        <span class="text-xl mr-2">🚌</span>
+                                        活動組織與便利性
+                                    </h4>
+                                    <p class="text-sm">觀眾對活動的組織和安排給予高度評價，認為規劃周到、交通指引清晰、現場設施便利。例如，聖佩德羅藝術漫步提供免費紅色電車方便參觀者穿梭於各畫廊之間。</p>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded-lg">
+                                    <h4 class="font-semibold text-indigo-800 mb-2 flex items-center">
+                                        <span class="text-xl mr-2">📺</span>
+                                        媒體廣泛報導
+                                    </h4>
+                                    <p class="text-sm">南加州藝術漫步活動獲得媒體廣泛報導，提升了活動知名度和影響力。媒體強調活動豐富的藝術形式、社區參與的重要性以及對當地經濟的促進作用，特別是餐飲和零售業。</p>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded-lg">
+                                    <h4 class="font-semibold text-indigo-800 mb-2 flex items-center">
+                                        <span class="text-xl mr-2">📱</span>
+                                        社交媒體熱烈迴響
+                                    </h4>
+                                    <p class="text-sm">活動在社交媒體上引發熱烈討論，參與者積極分享照片和體驗，使用專屬標籤互動。社交媒體也成為重要的宣傳工具，官方帳號定期更新展覽資訊和藝術家介紹，吸引更多人參與。</p>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded-lg">
+                                    <h4 class="font-semibold text-indigo-800 mb-2 flex items-center">
+                                        <span class="text-xl mr-2">🏠</span>
+                                        文化認同感提升
+                                    </h4>
+                                    <p class="text-sm">透過這些活動，參觀者對當地文化有更深的理解和認同，感受到自己是文化社群的一部分。多元文化的融合也促進了不同文化之間的交流，增強社區凝聚力和文化自豪感。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ 8 -->
+                <div class="faq-item bg-gradient-to-r from-violet-50 to-violet-100 rounded-xl border border-violet-200">
+                    <button class="w-full p-6 text-left flex justify-between items-center" onclick="toggleFAQ(8)">
+                        <h3 class="text-lg font-semibold text-violet-800">8. 南加州夏季藝術漫步活動未來有什麼展望？</h3>
+                        <span class="faq-toggle text-2xl text-violet-600" id="toggle-8">▼</span>
+                    </button>
+                    <div class="faq-answer px-6 pb-6" id="answer-8">
+                        <div class="text-gray-700 leading-relaxed space-y-4">
+                            <p><strong>南加州夏季藝術漫步活動未來有以下展望：</strong></p>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-white p-4 rounded-lg">
+                                    <h4 class="font-semibold text-violet-800 mb-2 flex items-center">
+                                        <span class="text-xl mr-2">📈</span>
+                                        擴展活動規模與影響力
+                                    </h4>
+                                    <p class="text-sm">活動可以通過增加更多展覽空間和內容，吸引更多國內外遊客和藝術家。例如，Mission Fed ArtWalk未來可考慮擴大規模，聖佩德羅藝術漫步和河濱藝術漫步也可增加參展藝術家的數量和多樣性，進一步提升吸引力。</p>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded-lg">
+                                    <h4 class="font-semibold text-violet-800 mb-2 flex items-center">
+                                        <span class="text-xl mr-2">🗣️</span>
+                                        加強藝術與社會議題的結合
+                                    </h4>
+                                    <p class="text-sm">活動可進一步加強藝術與社會議題的結合，促進社會對話。例如，Mission Fed ArtWalk可增加更多反映當前社會議題的作品，聖佩德羅藝術漫步可邀請藝術家創作與環保、社會公平等相關的作品，提升活動的社會影響力。</p>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded-lg">
+                                    <h4 class="font-semibold text-violet-800 mb-2 flex items-center">
+                                        <span class="text-xl mr-2">🌍</span>
+                                        提升國際知名度
+                                    </h4>
+                                    <p class="text-sm">活動可通過吸引更多國際藝術家和遊客參與，提升國際知名度。例如，Mission Fed ArtWalk可擴展到更多國際藝術家，並通過國際媒體報導，提升全球影響力。拉古納藝術博覽會等活動可與國際藝術機構合作，進一步提升知名度和影響力。</p>
+                                </div>
+                                
+                                <div class="bg-white p-4 rounded-lg">
+                                    <h4 class="font-semibold text-violet-800 mb-2 flex items-center">
+                                        <span class="text-xl mr-2">🎯</span>
+                                        總體展望
+                                    </h4>
+                                    <p class="text-sm">總體而言，南加州夏季藝術漫步活動在促進當地藝術文化、提升社區凝聚力及促進經濟發展方面已取得顯著成效。未來，這些活動將繼續透過擴展規模、加強藝術與社會議題的結合以及提升國際知名度，進一步推動南加州的藝術文化發展。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 頁尾 -->
+    <footer class="wave-bg text-white py-12 mt-16">
+        <div class="container mx-auto px-6 text-center">
+            <div class="flex justify-center items-center mb-6">
+                <span class="text-4xl mr-4">🌊</span>
+                <h3 class="text-2xl font-bold">探索藝術，擁抱海洋</h3>
+                <span class="text-4xl ml-4">🎨</span>
+            </div>
+            <p class="text-lg opacity-90 mb-6">讓藝術如海浪般，在心中激起美麗的漣漪</p>
+            <div class="flex justify-center space-x-6">
+                <span class="text-3xl">🐚</span>
+                <span class="text-3xl">⛵</span>
+                <span class="text-3xl">🌺</span>
+                <span class="text-3xl">🎭</span>
+                <span class="text-3xl">🎨</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleFAQ(num) {
+            const answer = document.getElementById(`answer-${num}`);
+            const toggle = document.getElementById(`toggle-${num}`);
+            
+            if (answer.classList.contains('active')) {
+                answer.classList.remove('active');
+                toggle.classList.remove('active');
+            } else {
+                // 關閉所有其他FAQ
+                for (let i = 1; i <= 8; i++) {
+                    if (i !== num) {
+                        document.getElementById(`answer-${i}`).classList.remove('active');
+                        document.getElementById(`toggle-${i}`).classList.remove('active');
+                    }
+                }
+                
+                answer.classList.add('active');
+                toggle.classList.add('active');
+            }
+        }
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9617d53867894a6c',t:'MTc1MjkwMzA5MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
