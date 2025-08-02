@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>2025年MADhurst藝術節概覽</title>
+    <style>
+        .audio-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        
+        audio {
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        .audio-info {
+            margin-bottom: 15px;
+        }
+        
+        .audio-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .audio-description {
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="audio-container">
+        <div class="audio-info">
+            <div class="audio-title">2025年MADhurst藝術節概覽</div>
+            <div class="audio-description"></div>
+        </div>                
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/XBf2lsZ9_Ps?si=lxz62Ci88dcSf0ZZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+</body>
+</html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025年MADhurst藝術與戲劇節 - 官方簡報</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'festival-purple': '#6B46C1',
+                        'festival-gold': '#F59E0B',
+                        'festival-rose': '#EC4899',
+                        'festival-teal': '#0D9488',
+                        'festival-cream': '#FEF7ED'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+        
+        .font-display { font-family: 'Playfair Display', serif; }
+        .font-body { font-family: 'Inter', sans-serif; }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #6B46C1 0%, #EC4899 50%, #F59E0B 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .section-fade {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .section-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .art-pattern {
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(107, 70, 193, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(236, 72, 153, 0.1) 0%, transparent 50%);
+        }
+    </style>
+</head>
+<body class="font-body bg-festival-cream">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-16 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-10 left-10 w-32 h-32 border-2 border-white rounded-full"></div>
+            <div class="absolute top-32 right-20 w-24 h-24 border-2 border-white transform rotate-45"></div>
+            <div class="absolute bottom-20 left-1/3 w-16 h-16 bg-white rounded-full opacity-30"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center">
+                <h1 class="font-display text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                    MADhurst
+                    <span class="block text-festival-gold">藝術與戲劇節</span>
+                </h1>
+                <div class="bg-white/20 backdrop-blur-sm rounded-2xl p-6 inline-block mb-8">
+                    <p class="text-2xl md:text-3xl font-semibold">2025年8月1日 - 8月31日</p>
+                    <p class="text-lg mt-2 opacity-90">英國西薩塞克斯郡 米德赫斯特</p>
+                </div>
+                <p class="text-xl max-w-3xl mx-auto leading-relaxed opacity-95">
+                    為期一個月的社區藝術慶典，慶祝當地音樂、藝術和戲劇創意
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center flex-wrap gap-4 py-4">
+                <a href="#overview" class="nav-link text-festival-purple hover:text-festival-rose font-medium transition-colors px-2">活動概述</a>
+                <a href="#programs" class="nav-link text-festival-purple hover:text-festival-rose font-medium transition-colors px-2">節目內容</a>
+                <a href="#tickets" class="nav-link text-festival-purple hover:text-festival-rose font-medium transition-colors px-2">票務資訊</a>
+                <a href="#media" class="nav-link text-festival-purple hover:text-festival-rose font-medium transition-colors px-2">媒體回響</a>
+                <a href="#future" class="nav-link text-festival-purple hover:text-festival-rose font-medium transition-colors px-2">未來展望</a>
+                <a href="#curation" class="nav-link text-festival-purple hover:text-festival-rose font-medium transition-colors px-2">策展理念</a>
+                <a href="#artists" class="nav-link text-festival-purple hover:text-festival-rose font-medium transition-colors px-2">藝術家角色</a>
+                <a href="#community" class="nav-link text-festival-purple hover:text-festival-rose font-medium transition-colors px-2">社區凝聚</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-12">
+        
+        <!-- 活動概述 -->
+        <section id="overview" class="section-fade mb-20">
+            <div class="text-center mb-12">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-festival-purple mb-4">活動概述與核心理念</h2>
+                <div class="w-24 h-1 bg-festival-gold mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="art-pattern p-8 rounded-3xl">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <h3 class="font-display text-2xl font-bold text-festival-purple mb-4">節慶期間與地點</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 bg-festival-rose rounded-full mr-3"></div>
+                                <span><strong>時間：</strong>2025年8月1日至8月31日</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 bg-festival-teal rounded-full mr-3"></div>
+                                <span><strong>地點：</strong>米德赫斯特鎮中心及南唐斯國家公園</span>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-3 h-3 bg-festival-gold rounded-full mr-3"></div>
+                                <span><strong>場地：</strong>劇院、畫廊、社區中心、戶外場地</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-display text-2xl font-bold text-festival-purple mb-6">節日宗旨與目標</h3>
+                    <div class="grid gap-4">
+                        <div class="card-hover bg-white p-6 rounded-xl shadow-md border-l-4 border-festival-purple">
+                            <h4 class="font-semibold text-festival-purple mb-2">🤝 促進社區參與</h4>
+                            <p class="text-gray-700">加強社區凝聚力，為居民提供共同慶祝文化的平台</p>
+                        </div>
+                        <div class="card-hover bg-white p-6 rounded-xl shadow-md border-l-4 border-festival-rose">
+                            <h4 class="font-semibold text-festival-rose mb-2">🎨 展示當地藝術家</h4>
+                            <p class="text-gray-700">為音樂、戲劇、視覺藝術領域的藝術家提供展示機會</p>
+                        </div>
+                        <div class="card-hover bg-white p-6 rounded-xl shadow-md border-l-4 border-festival-teal">
+                            <h4 class="font-semibold text-festival-teal mb-2">🌍 推動文化交流</h4>
+                            <p class="text-gray-700">吸引不同背景的參與者，促進文化交流與融合</p>
+                        </div>
+                        <div class="card-hover bg-white p-6 rounded-xl shadow-md border-l-4 border-festival-gold">
+                            <h4 class="font-semibold text-festival-gold mb-2">📚 支持藝術教育</h4>
+                            <p class="text-gray-700">提供學習新技能的機會，激發對藝術的興趣</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-gradient-to-r from-festival-purple to-festival-rose p-8 rounded-3xl text-white">
+                <h3 class="font-display text-2xl font-bold mb-4">核心運作模式：志願者與非營利組織</h3>
+                <p class="text-lg leading-relaxed">
+                    MADhurst藝術與戲劇節由充滿熱情的志願者團隊運作，作為非營利性組織，所有收益均回饋於當地藝術活動，
+                    確保活動的可持續性並強化社區導向特質。
+                </p>
+            </div>
+        </section>
+
+        <!-- 節目內容 -->
+        <section id="programs" class="section-fade mb-20">
+            <div class="text-center mb-12">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-festival-purple mb-4">節目內容與亮點</h2>
+                <div class="w-24 h-1 bg-festival-gold mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <div class="bg-festival-purple p-6 text-white">
+                        <h3 class="font-display text-2xl font-bold mb-2">🎵 音樂演出</h3>
+                        <p>民謠、搖滾、古典音樂</p>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4">由當地音樂家和樂團參與，包括室內場館和戶外空間演出</p>
+                        <div class="bg-festival-cream p-3 rounded-lg">
+                            <strong>亮點：</strong>The Fabulous Fug Band現場演出（8月1日）
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <div class="bg-festival-rose p-6 text-white">
+                        <h3 class="font-display text-2xl font-bold mb-2">🎭 戲劇與表演</h3>
+                        <p>傳統、現代、實驗性戲劇</p>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4">當地劇團和獨立藝術家的戲劇才華展示</p>
+                        <div class="bg-festival-cream p-3 rounded-lg">
+                            <strong>亮點：</strong>Four Forty Theatre莎士比亞雙重演出（8月2日）
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <div class="bg-festival-teal p-6 text-white">
+                        <h3 class="font-display text-2xl font-bold mb-2">🎨 視覺藝術</h3>
+                        <p>當代藝術家展覽與裝置</p>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4">繪畫、雕塑、陶藝等多種形式的視覺藝術作品</p>
+                        <div class="bg-festival-cream p-3 rounded-lg">
+                            <strong>展期：</strong>全月持續展出
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <div class="bg-festival-gold p-6 text-white">
+                        <h3 class="font-display text-2xl font-bold mb-2">🛠️ 工作坊</h3>
+                        <p>插畫、陶藝、即興戲劇</p>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4">提供學習新技能的機會，促進互動交流</p>
+                        <div class="bg-festival-cream p-3 rounded-lg">
+                            <strong>報名：</strong>詳見官網公告
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-hover bg-white rounded-2xl shadow-lg overflow-hidden md:col-span-2">
+                    <div class="bg-gradient-to-r from-festival-purple to-festival-rose p-6 text-white">
+                        <h3 class="font-display text-2xl font-bold mb-2">👨‍👩‍👧‍👦 家庭活動</h3>
+                        <p>戶外親子藝術日、兒童劇場</p>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 mb-4">適合兒童的遊戲和表演，讓整個家庭都能享受節日樂趣</p>
+                        <div class="bg-festival-cream p-3 rounded-lg">
+                            <strong>時間：</strong>週末舉辦，詳見官網日曆
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 票務資訊 -->
+        <section id="tickets" class="section-fade mb-20">
+            <div class="text-center mb-12">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-festival-purple mb-4">票務資訊與行前建議</h2>
+                <div class="w-24 h-1 bg-festival-gold mx-auto"></div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="bg-white p-8 rounded-3xl shadow-lg">
+                    <h3 class="font-display text-2xl font-bold text-festival-purple mb-6">購票方式與優惠</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="border-l-4 border-festival-purple pl-4">
+                            <h4 class="font-semibold text-festival-purple mb-2">🎫 票務平台</h4>
+                            <p class="text-gray-700">官方網站：<a href="https://www.madhurst.co.uk" class="text-festival-teal hover:underline">www.madhurst.co.uk</a></p>
+                            <p class="text-gray-700">購票連結：<a href="https://www.tickettailor.com/events/madhurst" class="text-festival-teal hover:underline">Ticket Tailor</a></p>
+                        </div>
+                        
+                        <div class="border-l-4 border-festival-rose pl-4">
+                            <h4 class="font-semibold text-festival-rose mb-2">🎟️ 票種選擇</h4>
+                            <ul class="text-gray-700 space-y-1">
+                                <li>• 單場次票</li>
+                                <li>• 套票</li>
+                                <li>• 家庭套票</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-festival-gold/10 p-4 rounded-xl">
+                            <h4 class="font-semibold text-festival-gold mb-2">⏰ 早鳥優惠</h4>
+                            <p class="text-gray-700"><strong>8折優惠</strong>（限7月1日至7月20日）</p>
+                        </div>
+                        
+                        <div class="border-l-4 border-festival-teal pl-4">
+                            <h4 class="font-semibold text-festival-teal mb-2">💰 其他優惠</h4>
+                            <ul class="text-gray-700 space-y-1">
+                                <li>• 學生：9折</li>
+                                <li>• 65歲以上長者：9折</li>
+                                <li>• 12歲以下兒童：5折</li>
+                                <li>• 身障人士：依票種享9折或5折</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-festival-purple to-festival-rose p-8 rounded-3xl text-white">
+                    <h3 class="font-display text-2xl font-bold mb-6">行前建議</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-white/20 backdrop-blur-sm p-4 rounded-xl">
+                            <h4 class="font-semibold mb-2">📅 規劃行程</h4>
+                            <p>瀏覽官方「Calendar」頁面，標記感興趣的活動日期</p>
+                        </div>
+                        
+                        <div class="bg-white/20 backdrop-blur-sm p-4 rounded-xl">
+                            <h4 class="font-semibold mb-2">🚌 交通方式</h4>
+                            <p>米德赫斯特鄰近鐵路及巴士路線，建議搭乘公共運輸或共乘</p>
+                        </div>
+                        
+                        <div class="bg-white/20 backdrop-blur-sm p-4 rounded-xl">
+                            <h4 class="font-semibold mb-2">🏨 住宿預訂</h4>
+                            <p>節慶期間住宿需求提升，可考慮預訂當地民宿或英式旅館</p>
+                        </div>
+                        
+                        <div class="bg-festival-gold/30 p-4 rounded-xl border border-festival-gold">
+                            <h4 class="font-semibold mb-2">⚠️ 重要提醒</h4>
+                            <p>熱門活動門票可能迅速售罄，建議提前購票確保參與心儀活動</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 媒體回響 -->
+        <section id="media" class="section-fade mb-20">
+            <div class="text-center mb-12">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-festival-purple mb-4">媒體與社群回響</h2>
+                <div class="w-24 h-1 bg-festival-gold mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-2xl shadow-lg">
+                    <div class="text-center mb-4">
+                        <div class="w-16 h-16 bg-festival-purple rounded-full flex items-center justify-center mx-auto mb-3">
+                            <span class="text-2xl text-white">📰</span>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-festival-purple">媒體報導重點</h3>
+                    </div>
+                    <ul class="text-gray-700 space-y-2">
+                        <li>• 活動多樣性與亮點</li>
+                        <li>• 社區參與的重要性</li>
+                        <li>• 當地藝術家才華展示</li>
+                        <li>• 志願者關鍵角色</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-6 rounded-2xl shadow-lg">
+                    <div class="text-center mb-4">
+                        <div class="w-16 h-16 bg-festival-rose rounded-full flex items-center justify-center mx-auto mb-3">
+                            <span class="text-2xl text-white">🎯</span>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-festival-rose">專業評論方向</h3>
+                    </div>
+                    <ul class="text-gray-700 space-y-2">
+                        <li>• 演出質量分析</li>
+                        <li>• 藝術表現評估</li>
+                        <li>• 活動策劃專業觀點</li>
+                        <li>• 非營利模式成功案例</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-6 rounded-2xl shadow-lg">
+                    <div class="text-center mb-4">
+                        <div class="w-16 h-16 bg-festival-teal rounded-full flex items-center justify-center mx-auto mb-3">
+                            <span class="text-2xl text-white">💬</span>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-festival-teal">觀眾評價</h3>
+                    </div>
+                    <ul class="text-gray-700 space-y-2">
+                        <li>• 活動組織滿意度高</li>
+                        <li>• 內容多樣性獲讚譽</li>
+                        <li>• 家庭友好型設計</li>
+                        <li>• 社區凝聚力提升</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-gradient-to-r from-festival-teal to-festival-purple p-8 rounded-3xl text-white">
+                <h3 class="font-display text-2xl font-bold mb-4 text-center">社群回響亮點</h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white/20 backdrop-blur-sm p-4 rounded-xl">
+                        <h4 class="font-semibold mb-2">🤝 社區凝聚力提升</h4>
+                        <p>志願者參與、多元活動吸引不同背景參與者，收益回饋當地藝術活動</p>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur-sm p-4 rounded-xl">
+                        <h4 class="font-semibold mb-2">🌍 文化交流促進</h4>
+                        <p>展示米德赫斯特文化特色，工作坊提供參與者與藝術家直接交流機會</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 未來展望 -->
+        <section id="future" class="section-fade mb-20">
+            <div class="text-center mb-12">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-festival-purple mb-4">未來展望與建議</h2>
+                <div class="w-24 h-1 bg-festival-gold mx-auto"></div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="space-y-8">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <h3 class="font-display text-2xl font-bold text-festival-purple mb-4">持續發展潛力</h3>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <div class="w-2 h-2 bg-festival-rose rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                <span>吸引更多國內外藝術家參與，提升國際知名度</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-2 h-2 bg-festival-teal rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                <span>探索數位藝術、多媒體裝置等跨媒材表現形式</span>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-2 h-2 bg-festival-gold rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                <span>設計更多針對不同年齡層的活動內容</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <h3 class="font-display text-2xl font-bold text-festival-rose mb-4">策略應用與改進</h3>
+                        <div class="space-y-4">
+                            <div class="border-l-4 border-festival-purple pl-4">
+                                <h4 class="font-semibold text-festival-purple">活動內容調整</h4>
+                                <p class="text-gray-700 text-sm">增加家庭友好型活動、跨文化音樂會和國際藝術展覽</p>
+                            </div>
+                            <div class="border-l-4 border-festival-rose pl-4">
+                                <h4 class="font-semibold text-festival-rose">增強社群參與度</h4>
+                                <p class="text-gray-700 text-sm">透過社群媒體互動、志願者培訓提升參與感</p>
+                            </div>
+                            <div class="border-l-4 border-festival-teal pl-4">
+                                <h4 class="font-semibold text-festival-teal">提升活動影響力</h4>
+                                <p class="text-gray-700 text-sm">邀請國際知名藝術家、加強媒體互動、線上直播</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-br from-festival-gold to-festival-rose p-8 rounded-3xl text-white">
+                    <h3 class="font-display text-2xl font-bold mb-6">重點建議</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-white/20 backdrop-blur-sm p-4 rounded-xl">
+                            <h4 class="font-semibold mb-2">📱 持續關注官方資訊</h4>
+                            <p class="text-sm">關注官方網站和社交媒體平台，獲取最新動態</p>
+                        </div>
+                        
+                        <div class="bg-white/20 backdrop-blur-sm p-4 rounded-xl">
+                            <h4 class="font-semibold mb-2">📢 加強媒體互動</h4>
+                            <p class="text-sm">邀請更多媒體報導，透過社交媒體與參與者即時互動</p>
+                        </div>
+                        
+                        <div class="bg-white/20 backdrop-blur-sm p-4 rounded-xl">
+                            <h4 class="font-semibold mb-2">🎨 推動長期發展</h4>
+                            <p class="text-sm">建立合作夥伴關係，設立專門基金支持當地藝術家</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 策展理念 -->
+        <section id="curation" class="section-fade mb-20">
+            <div class="text-center mb-12">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-festival-purple mb-4">策展理念與特色</h2>
+                <div class="w-24 h-1 bg-festival-gold mx-auto"></div>
+            </div>
+            
+            <div class="bg-gradient-to-br from-festival-purple via-festival-rose to-festival-gold p-12 rounded-3xl text-white mb-12">
+                <div class="max-w-4xl mx-auto">
+                    <h3 class="font-display text-3xl font-bold mb-6 text-center">節慶的策展理念有何特別之處？</h3>
+                    <div class="bg-white/20 backdrop-blur-sm p-8 rounded-2xl">
+                        <p class="text-lg leading-relaxed mb-6">
+                            MADhurst藝術與戲劇節的策展理念深植於「社區導向」的價值觀中，強調社區參與、多樣性與包容性，以及藝術與文化的融合。
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div class="bg-white/20 p-4 rounded-xl">
+                                <h4 class="font-semibold mb-2">🤝 志願者驅動</h4>
+                                <p class="text-sm">完全由來自當地社區的志願者團隊運營，對文化藝術充滿熱情</p>
+                            </div>
+                            <div class="bg-white/20 p-4 rounded-xl">
+                                <h4 class="font-semibold mb-2">🎭 多元包容</h4>
+                                <p class="text-sm">包括「邊緣」活動如酒吧音樂會和藝術工作坊，吸引不同背景參與者</p>
+                            </div>
+                            <div class="bg-white/20 p-4 rounded-xl">
+                                <h4 class="font-semibold mb-2">💰 收益回饋</h4>
+                                <p class="text-sm">將收益回饋當地藝術活動，促進社區凝聚力</p>
+                            </div>
+                            <div class="bg-white/20 p-4 rounded-xl">
+                                <h4 class="font-semibold mb-2">🎨 創意平台</h4>
+                                <p class="text-sm">致力於將節慶打造成展示當地創意的重要平台</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 當地藝術家角色 -->
+        <section id="artists" class="section-fade mb-20">
+            <div class="text-center mb-12">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-festival-purple mb-4">當地藝術家的重要角色</h2>
+                <div class="w-24 h-1 bg-festival-gold mx-auto"></div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="art-pattern p-8 rounded-3xl">
+                    <div class="bg-white p-8 rounded-2xl shadow-lg">
+                        <h3 class="font-display text-2xl font-bold text-festival-rose mb-6">當地藝術家在節慶中扮演什麼角色？</h3>
+                        <p class="text-gray-700 leading-relaxed mb-6">
+                            當地藝術家是MADhurst藝術與戲劇節的一大特色，他們的作品充分體現了米德赫斯特定區的文化特色和藝術氛圍。
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="w-3 h-3 bg-festival-purple rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                <span class="text-gray-700">節慶為當地藝術家提供展示才華的平台</span>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-3 h-3 bg-festival-rose rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                <span class="text-gray-700">通過各類活動促進藝術家與社區的互動</span>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-3 h-3 bg-festival-teal rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                                <span class="text-gray-700">展現對藝術的熱愛和對社區的承諾</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid gap-6">
+                    <div class="card-hover bg-white p-6 rounded-xl shadow-lg border-l-4 border-festival-purple">
+                        <h4 class="font-semibold text-festival-purple mb-3">🎨 多元藝術形式</h4>
+                        <p class="text-gray-700">透過繪畫、雕塑、音樂和戲劇等多種形式，展現藝術創作的豐富性</p>
+                    </div>
+                    
+                    <div class="card-hover bg-white p-6 rounded-xl shadow-lg border-l-4 border-festival-rose">
+                        <h4 class="font-semibold text-festival-rose mb-3">🏛️ 文化特色展現</h4>
+                        <p class="text-gray-700">作品充分體現米德赫斯特地區的文化特色和藝術氛圍</p>
+                    </div>
+                    
+                    <div class="card-hover bg-white p-6 rounded-xl shadow-lg border-l-4 border-festival-teal">
+                        <h4 class="font-semibold text-festival-teal mb-3">🤝 文化交流橋樑</h4>
+                        <p class="text-gray-700">讓不同背景的人們能夠通過藝術找到共同的語言</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 社區凝聚力促進 -->
+        <section id="community" class="section-fade mb-20">
+            <div class="text-center mb-12">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-festival-purple mb-4">社區凝聚力與文化交流</h2>
+                <div class="w-24 h-1 bg-festival-gold mx-auto"></div>
+            </div>
+            
+            <div class="bg-white p-8 rounded-3xl shadow-lg mb-8">
+                <h3 class="font-display text-2xl font-bold text-festival-teal mb-6 text-center">節慶如何促進社區凝聚力與文化交流？</h3>
+                <p class="text-gray-700 leading-relaxed text-center max-w-4xl mx-auto mb-8">
+                    MADhurst藝術與戲劇節通過多種方式成功促進了社區凝聚力與文化交流，創造了一個真正屬於社區的文化平台。
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gradient-to-br from-festival-purple to-festival-rose p-8 rounded-2xl text-white">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl">🤝</span>
+                        </div>
+                        <h4 class="font-display text-xl font-bold">非營利運作模式</h4>
+                    </div>
+                    <p class="text-sm leading-relaxed">
+                        志願者團隊的參與讓社區成員能共同為活動成功貢獻力量，增強了彼此間的聯繫
+                    </p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-festival-teal to-festival-gold p-8 rounded-2xl text-white">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl">🌈</span>
+                        </div>
+                        <h4 class="font-display text-xl font-bold">多樣活動內容</h4>
+                    </div>
+                    <p class="text-sm leading-relaxed">
+                        豐富多樣的活動內容吸引了不同年齡層和背景的參與者，創造了文化交流的平台
+                    </p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-festival-rose to-festival-purple p-8 rounded-2xl text-white">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <span class="text-2xl">💝</span>
+                        </div>
+                        <h4 class="font-display text-xl font-bold">收益回饋社區</h4>
+                    </div>
+                    <p class="text-sm leading-relaxed">
+                        收益回饋當地藝術活動，支持社區文化發展，讓參與者感受到貢獻對社區的積極影響
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 發展方向 -->
+        <section class="section-fade mb-20">
+            <div class="text-center mb-12">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-festival-purple mb-4">未來發展方向</h2>
+                <div class="w-24 h-1 bg-festival-gold mx-auto"></div>
+            </div>
+            
+            <div class="bg-gradient-to-r from-festival-gold via-festival-rose to-festival-teal p-8 rounded-3xl text-white mb-12">
+                <h3 class="font-display text-2xl font-bold mb-4 text-center">未來MADhurst藝術與戲劇節可能有哪些發展方向？</h3>
+                <p class="text-center leading-relaxed max-w-4xl mx-auto">
+                    展望未來，MADhurst藝術與戲劇節有著廣闊的發展潛力，將在多個面向持續創新與成長。
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="space-y-6">
+                    <div class="card-hover bg-white p-6 rounded-2xl shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-festival-purple rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white text-xl">🌍</span>
+                            </div>
+                            <h4 class="font-display text-xl font-bold text-festival-purple">國際化發展</h4>
+                        </div>
+                        <p class="text-gray-700">進一步擴大活動規模和影響力，吸引更多國內外藝術家參與，提升國際知名度</p>
+                    </div>
+                    
+                    <div class="card-hover bg-white p-6 rounded-2xl shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-festival-rose rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white text-xl">💻</span>
+                            </div>
+                            <h4 class="font-display text-xl font-bold text-festival-rose">數位創新</h4>
+                        </div>
+                        <p class="text-gray-700">探索數字藝術和多媒體裝置等跨媒材藝術表現形式，為參與者帶來全新體驗</p>
+                    </div>
+                    
+                    <div class="card-hover bg-white p-6 rounded-2xl shadow-lg">
+                        <div class="flex items-center mb-4">
+                            <div class="w-12 h-12 bg-festival-teal rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white text-xl">👥</span>
+                            </div>
+                            <h4 class="font-display text-xl font-bold text-festival-teal">多元參與</h4>
+                        </div>
+                        <p class="text-gray-700">設計更多針對不同年齡層的活動，如兒童專屬工作坊或老年人文化交流活動</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl shadow-lg">
+                    <h4 class="font-display text-2xl font-bold text-festival-gold mb-6">科技融合創新</h4>
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-festival-purple pl-4">
+                            <h5 class="font-semibold text-festival-purple mb-1">線上展覽</h5>
+                            <p class="text-gray-700 text-sm">引入數字化展覽平台，擴大活動觸及範圍</p>
+                        </div>
+                        <div class="border-l-4 border-festival-rose pl-4">
+                            <h5 class="font-semibold text-festival-rose mb-1">虛擬現實體驗</h5>
+                            <p class="text-gray-700 text-sm">運用VR技術提供沉浸式藝術體驗</p>
+                        </div>
+                        <div class="border-l-4 border-festival-teal pl-4">
+                            <h5 class="font-semibold text-festival-teal mb-1">提升可及性</h5>
+                            <p class="text-gray-700 text-sm">透過數位化元素提升活動的可及性和收入來源</p>
+                        </div>
+                        <div class="border-l-4 border-festival-gold pl-4">
+                            <h5 class="font-semibold text-festival-gold mb-1">持續發展</h5>
+                            <p class="text-gray-700 text-sm">關注官方資訊、加強媒體與社群互動，推動長期發展</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="section-fade mb-20">
+            <div class="text-center mb-12">
+                <h2 class="font-display text-4xl md:text-5xl font-bold text-festival-purple mb-4">常見問題</h2>
+                <div class="w-24 h-1 bg-festival-gold mx-auto"></div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto space-y-6">
+                <div class="faq-item bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <button class="faq-question w-full p-6 text-left bg-festival-purple text-white font-semibold hover:bg-festival-purple/90 transition-colors flex justify-between items-center">
+                        <span>2025年MADhurst藝術與戲劇節的舉辦時間和地點是？</span>
+                        <span class="faq-icon text-2xl">+</span>
+                    </button>
+                    <div class="faq-answer p-6 bg-white hidden">
+                        <p class="text-gray-700 leading-relaxed">
+                            MADhurst藝術與戲劇節將於2025年8月1日至8月31日，為期一個月。活動主要地點位於英國西薩塞克斯郡的米德赫斯特鎮中心及南唐斯國家公園內的多個展演空間，包括當地劇院、藝術畫廊、社區中心以及戶外場地。這種多地點的安排不僅提升了活動的靈活性，也讓參與者能夠更全面地體驗米德赫斯特的文化氛圍。
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <button class="faq-question w-full p-6 text-left bg-festival-rose text-white font-semibold hover:bg-festival-rose/90 transition-colors flex justify-between items-center">
+                        <span>節慶的主要活動內容有哪些？</span>
+                        <span class="faq-icon text-2xl">+</span>
+                    </button>
+                    <div class="faq-answer p-6 bg-white hidden">
+                        <p class="text-gray-700 leading-relaxed">
+                            節慶活動內容分為五大類，每週都有輪替演出或活動，涵蓋音樂演出、戲劇與表演、視覺藝術、工作坊和家庭活動。例如，音樂演出將展示當地音樂家的才華，風格多樣；戲劇表演涵蓋傳統、現代及實驗性戲劇；視覺藝術展覽則展示繪畫、雕塑、陶藝等多種形式的當地藝術作品。此外，還有插畫、陶藝、即興戲劇入門課程等工作坊，以及戶外親子藝術日、兒童劇場等家庭活動。
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <button class="faq-question w-full p-6 text-left bg-festival-teal text-white font-semibold hover:bg-festival-teal/90 transition-colors flex justify-between items-center">
+                        <span>MADhurst藝術與戲劇節的宗旨和核心價值是什麼？</span>
+                        <span class="faq-icon text-2xl">+</span>
+                    </button>
+                    <div class="faq-answer p-6 bg-white hidden">
+                        <p class="text-gray-700 leading-relaxed">
+                            MADhurst藝術與戲劇節的宗旨是慶祝當地創意，並通過音樂、藝術和戲劇等多種形式的活動，展示米德赫斯特及周邊地區的藝術才華。其核心價值在於促進社區參與，作為一個由志願者驅動的非營利組織，所有收益均回饋於當地藝術活動，以此加強社區凝聚力並推動文化交流。此外，節慶也致力於支持藝術教育，提供學習新技能的機會，激發對藝術的興趣。
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <button class="faq-question w-full p-6 text-left bg-festival-gold text-white font-semibold hover:bg-festival-gold/90 transition-colors flex justify-between items-center">
+                        <span>如何購票？是否有優惠？</span>
+                        <span class="faq-icon text-2xl">+</span>
+                    </button>
+                    <div class="faq-answer p-6 bg-white hidden">
+                        <p class="text-gray-700 leading-relaxed">
+                            購票可透過官方網站連結至Ticket Tailor平台。票種包括單場次票、套票和家庭套票。為鼓勵提前購票，節慶提供早鳥優惠，於7月1日至7月20日期間可享8折。此外，學生、65歲以上長者、12歲以下兒童以及身障人士可依身份及票種享有9折或5折的優惠。由於熱門場次常搶手，建議參與者提前購票以確保能參加心儀的活動。
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <button class="faq-question w-full p-6 text-left bg-gradient-to-r from-festival-purple to-festival-rose text-white font-semibold hover:opacity-90 transition-opacity flex justify-between items-center">
+                        <span>節慶的策展理念有何特別之處？</span>
+                        <span class="faq-icon text-2xl">+</span>
+                    </button>
+                    <div class="faq-answer p-6 bg-white hidden">
+                        <p class="text-gray-700 leading-relaxed">
+                            MADhurst藝術與戲劇節的策展理念深植於「社區導向」的價值觀中，強調社區參與、多樣性與包容性，以及藝術與文化的融合。節慶完全由志願者團隊運營，這些志願者大多來自當地社區，對文化藝術充滿熱情，致力於將節慶打造成一個展示當地創意的平台。活動內容多樣，包括「邊緣」活動如酒吧音樂會和藝術工作坊，吸引不同背景的參與者，並將收益回饋當地藝術活動，以此促進社區凝聚力。
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <button class="faq-question w-full p-6 text-left bg-gradient-to-r from-festival-teal to-festival-gold text-white font-semibold hover:opacity-90 transition-opacity flex justify-between items-center">
+                        <span>當地藝術家在節慶中扮演什麼角色？</span>
+                        <span class="faq-icon text-2xl">+</span>
+                    </button>
+                    <div class="faq-answer p-6 bg-white hidden">
+                        <p class="text-gray-700 leading-relaxed">
+                            當地藝術家是MADhurst藝術與戲劇節的一大特色，他們的作品充分體現了米德赫斯特定區的文化特色和藝術氛圍。節慶為當地藝術家提供了展示才華的平台，並通過各類活動促進他們與社區的互動。這些藝術家透過繪畫、雕塑、音樂和戲劇等多種形式，展現了對藝術的熱愛和對社區的承諾，同時也促進了社區的文化交流，讓不同背景的人們能夠通過藝術找到共同的語言。
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <button class="faq-question w-full p-6 text-left bg-gradient-to-r from-festival-rose to-festival-purple text-white font-semibold hover:opacity-90 transition-opacity flex justify-between items-center">
+                        <span>節慶如何促進社區凝聚力與文化交流？</span>
+                        <span class="faq-icon text-2xl">+</span>
+                    </button>
+                    <div class="faq-answer p-6 bg-white hidden">
+                        <p class="text-gray-700 leading-relaxed">
+                            MADhurst藝術與戲劇節通過多種方式成功促進了社區凝聚力與文化交流。首先，其非營利運作模式和志願者團隊的參與，讓社區成員能共同為活動成功貢獻力量，增強了彼此間的聯繫。其次，豐富多樣的活動內容吸引了不同年齡層和背景的參與者，創造了文化交流的平台。此外，節慶的收益回饋當地藝術活動，支持社區文化發展，讓參與者感受到其貢獻對社區的積極影響。
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="faq-item bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <button class="faq-question w-full p-6 text-left bg-gradient-to-r from-festival-gold to-festival-teal text-white font-semibold hover:opacity-90 transition-opacity flex justify-between items-center">
+                        <span>未來MADhurst藝術與戲劇節可能有哪些發展方向？</span>
+                        <span class="faq-icon text-2xl">+</span>
+                    </button>
+                    <div class="faq-answer p-6 bg-white hidden">
+                        <p class="text-gray-700 leading-relaxed">
+                            展望未來，MADhurst藝術與戲劇節有著廣闊的發展潛力。其可以進一步擴大活動規模和影響力，吸引更多國內外藝術家參與，提升國際知名度。在內容方面，可探索更多跨媒材的藝術表現形式，例如數字藝術和多媒體裝置，為參與者帶來全新體驗。同時，設計更多針對不同年齡層的活動，如兒童專屬工作坊或老年人文化交流活動，以擴大參與群體。隨著科技進步，引入線上展覽和虛擬現實體驗等數字化元素，也能提升活動的可及性和收入來源，並持續關注官方資訊、加強媒體與社群互動，共同推動藝術與文化的長期發展。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="font-display text-2xl font-bold text-festival-gold mb-4">MADhurst 2025</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        慶祝當地創意，促進社區凝聚力的藝術與戲劇節慶
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-festival-rose mb-4">重要連結</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><a href="https://www.madhurst.co.uk" class="hover:text-festival-gold transition-colors">官方網站</a></li>
+                        <li><a href="https://www.tickettailor.com/events/madhurst" class="hover:text-festival-gold transition-colors">購票平台</a></li>
+                        <li><a href="#" class="hover:text-festival-gold transition-colors">活動日曆</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-festival-teal mb-4">聯絡資訊</h4>
+                    <div class="text-gray-300 space-y-2">
+                        <p>📍 英國西薩塞克斯郡米德赫斯特</p>
+                        <p>📅 2025年8月1日 - 8月31日</p>
+                        <p>🎭 為期一個月的藝術慶典</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
+                <div class="space-y-2">
+                    <p><strong>免責申明：</strong>基於公開資料，僅供參考，不構成建議</p>
+                    <p><strong>資料來源：</strong>網頁公開資訊</p>
+                    <p><strong>版權所有：</strong>© Dunk</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section-fade').forEach(section => {
+            observer.observe(section);
+        });
+
+        // FAQ functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const icon = this.querySelector('.faq-icon');
+                
+                // Close all other FAQ items
+                document.querySelectorAll('.faq-answer').forEach(otherAnswer => {
+                    if (otherAnswer !== answer) {
+                        otherAnswer.classList.add('hidden');
+                        otherAnswer.previousElementSibling.querySelector('.faq-icon').textContent = '+';
+                    }
+                });
+                
+                // Toggle current FAQ item
+                if (answer.classList.contains('hidden')) {
+                    answer.classList.remove('hidden');
+                    icon.textContent = '−';
+                } else {
+                    answer.classList.add('hidden');
+                    icon.textContent = '+';
+                }
+            });
+        });
+
+        // Active navigation highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('text-festival-rose', 'font-semibold');
+                link.classList.add('text-festival-purple');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.remove('text-festival-purple');
+                    link.classList.add('text-festival-rose', 'font-semibold');
+                }
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9689df7e85ba072c',t:'MTc1NDA5ODg4Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
