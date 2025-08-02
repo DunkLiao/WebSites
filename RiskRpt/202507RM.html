@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025年7月台灣銀行業信用風險事件彙整與報告</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#9A0036',
+                        secondary: '#941C61',
+                        accent: '#EEBAC0',
+                        highlight: '#FF8C00'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        
+        .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-2px);
+            transition: transform 0.3s ease;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #9A0036 0%, #941C61 100%);
+        }
+        
+        .risk-indicator {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .risk-indicator::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .risk-indicator:hover::before {
+            left: 100%;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-8 mb-8">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold mb-4">2025年7月台灣銀行業信用風險事件彙整與報告</h1>
+                <p class="text-xl text-accent">作為您的金融諮詢顧問，為您整理台灣銀行業信用風險的關鍵事件和發展趨勢</p>
+                <div class="mt-6 inline-flex items-center bg-white/10 rounded-full px-6 py-2">
+                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="font-medium">2025年7月 - 轉折點月份</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-6 pb-12">
+        <!-- Executive Summary -->
+        <div class="bg-white rounded-xl card-shadow p-8 mb-8 hover-lift">
+            <div class="flex items-center mb-6">
+                <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center mr-4">
+                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
+                <h2 class="text-2xl font-bold text-primary">執行摘要</h2>
+            </div>
+            <p class="text-lg leading-relaxed text-gray-700">
+                這個月對台灣金融業來說是個轉折點，既有法規上的重大變革，也有風險指標的重要轉向。新巴塞爾協定三正式上路，房貸逾放風險出現轉機，同時監管機關加強內控合規要求。
+            </p>
+        </div>
+
+        <!-- Key Metrics Dashboard -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            <div class="bg-white rounded-xl card-shadow p-6 hover-lift risk-indicator">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="font-semibold text-gray-700">風險性資產增加</h3>
+                    <div class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
+                        <svg class="w-4 h-4 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M5.293 7.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L6.707 7.707a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="text-3xl font-bold text-primary mb-2">1,500億</div>
+                <p class="text-sm text-gray-600">38家本國銀行新增風險性資產</p>
+            </div>
+
+            <div class="bg-white rounded-xl card-shadow p-6 hover-lift risk-indicator">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="font-semibold text-gray-700">房貸逾放餘額</h3>
+                    <div class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                        <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M14.707 12.293a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l2.293-2.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="text-3xl font-bold text-green-600 mb-2">86.37億</div>
+                <p class="text-sm text-gray-600">月減1.49億，終結連續上升</p>
+            </div>
+
+            <div class="bg-white rounded-xl card-shadow p-6 hover-lift risk-indicator">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="font-semibold text-gray-700">最高罰鍰紀錄</h3>
+                    <div class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center">
+                        <svg class="w-4 h-4 text-orange-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="text-3xl font-bold text-highlight mb-2">2,200萬</div>
+                <p class="text-sm text-gray-600">台灣銀行詐團共謀案罰鍰</p>
+            </div>
+        </div>
+
+        <!-- Main Content Sections -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <!-- Left Column -->
+            <div class="space-y-8">
+                <!-- 重大法規變革 -->
+                <div class="bg-white rounded-xl card-shadow p-8 hover-lift">
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm3 1h6v4H7V5zm8 8v2a1 1 0 01-1 1H6a1 1 0 01-1-1v-2h10z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-primary">重大法規變革與實施</h3>
+                    </div>
+                    
+                    <div class="bg-red-50 border-l-4 border-primary p-4 mb-6">
+                        <h4 class="font-bold text-primary mb-2">新巴塞爾協定三正式上路</h4>
+                        <p class="text-sm text-gray-700">2025年7月1日，金管會正式實施市場風險、交易對手信用評價調整（CVA）及證券化曝險的新資本計提規範</p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                            <div>
+                                <p class="font-medium text-gray-800">市場風險規範變化最大</p>
+                                <p class="text-sm text-gray-600">38家本國銀行將增加約1,500億元風險性資產，成為影響最劇烈的項目</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-2 h-2 bg-secondary rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                            <div>
+                                <p class="font-medium text-gray-800">26家銀行資本適足率下滑</p>
+                                <p class="text-sm text-gray-600">其中3家銀行最多下降0.6個百分點</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                            <div>
+                                <p class="font-medium text-gray-800">整體影響相對溫和</p>
+                                <p class="text-sm text-gray-600">全體銀行平均資本適足率僅下降0.04-0.05個百分點</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 房貸逾放風險 -->
+                <div class="bg-white rounded-xl card-shadow p-8 hover-lift">
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 bg-green-600 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-green-600">房貸逾放風險出現轉機</h3>
+                    </div>
+
+                    <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
+                        <h4 class="font-bold text-green-700 mb-2">逾放餘額終結連續上升趨勢</h4>
+                        <p class="text-sm text-gray-700">6月房貸逾期放款出現重要轉折點，終結了連續十個月的上升趨勢</p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                            <div class="text-2xl font-bold text-green-600">86.37億</div>
+                            <div class="text-sm text-gray-600">逾放餘額月減1.49億</div>
+                        </div>
+                        <div class="text-center p-4 bg-gray-50 rounded-lg">
+                            <div class="text-2xl font-bold text-orange-500">0.08%</div>
+                            <div class="text-sm text-gray-600">逾放比率35個月高點</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="space-y-8">
+                <!-- 銀行內控與合規風險 -->
+                <div class="bg-white rounded-xl card-shadow p-8 hover-lift">
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M18 8a6 6 0 01-7.743 5.743L10 14l-1 1-1 1H6v2H2v-4l4.257-4.257A6 6 0 1118 8zm-6-4a1 1 0 100 2 2 2 0 012 2 1 1 0 102 0 4 4 0 00-4-4z" clip-rule="evenodd"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-red-600">銀行內控與合規風險</h3>
+                    </div>
+
+                    <div class="bg-red-50 border-l-4 border-red-500 p-4 mb-6">
+                        <h4 class="font-bold text-red-700 mb-2">重大違規案件處罰</h4>
+                        <p class="text-sm text-gray-700">台灣銀行因夫妻檔行員與詐團共謀案，被金管會重罰2,200萬元</p>
+                    </div>
+
+                    <div class="space-y-4">
+                        <div class="p-4 bg-gray-50 rounded-lg">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium text-gray-800">涉案時間</span>
+                                <span class="text-red-600 font-bold">3年半</span>
+                            </div>
+                            <p class="text-sm text-gray-600">從2021年4月到2024年7月</p>
+                        </div>
+                        <div class="p-4 bg-gray-50 rounded-lg">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="font-medium text-gray-800">不法所得</span>
+                                <span class="text-red-600 font-bold">1.1億元</span>
+                            </div>
+                            <p class="text-sm text-gray-600">被害者179人</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 p-4 bg-orange-50 rounded-lg">
+                        <h5 class="font-bold text-orange-700 mb-2">警示帳戶管制加強</h5>
+                        <ul class="text-sm text-gray-700 space-y-1">
+                            <li>• 3家銀行列入黑名單</li>
+                            <li>• 連續7個月列黑名單將公開業者名稱</li>
+                            <li>• 分級管制措施依違規程度實施</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 整體風險評估 -->
+                <div class="bg-white rounded-xl card-shadow p-8 hover-lift">
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-blue-600">整體風險評估與展望</h3>
+                    </div>
+
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 mb-6">
+                        <h4 class="font-bold text-blue-700 mb-2">銀行體系基本面穩健</h4>
+                        <p class="text-sm text-gray-700">截至5月底的最新統計顯示整體風險可控</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                            <span class="text-gray-700">整體逾放比率</span>
+                            <span class="font-bold text-blue-600">0.16%</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                            <span class="text-gray-700">備抵呆帳覆蓋率</span>
+                            <span class="font-bold text-green-600">861.42%</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                            <span class="text-gray-700">放款總餘額</span>
+                            <span class="font-bold text-primary">42兆9,358億</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 結論與建議 -->
+        <div class="mt-12 bg-white rounded-xl card-shadow p-8 hover-lift">
+            <div class="flex items-center mb-6">
+                <div class="w-12 h-12 gradient-bg rounded-full flex items-center justify-center mr-4">
+                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                    </svg>
+                </div>
+                <h2 class="text-2xl font-bold text-primary">結論與建議</h2>
+            </div>
+
+            <div class="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-lg p-6 mb-6">
+                <p class="text-lg leading-relaxed text-gray-800 mb-4">
+                    2025年7月標誌著台灣銀行業信用風險管理的重要轉折點。雖然新法規增加了合規成本，房貸逾放仍處高位，但整體銀行體系基本面依然穩健。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <div class="flex items-start">
+                        <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                            <span class="text-white font-bold text-sm">1</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 mb-1">積極適應新法規</h4>
+                            <p class="text-sm text-gray-600">調整投資策略，優化資本配置</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                            <span class="text-white font-bold text-sm">2</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 mb-1">強化內控機制</h4>
+                            <p class="text-sm text-gray-600">加強員工管理和異常交易監控</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex items-start">
+                        <div class="w-8 h-8 bg-highlight rounded-full flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                            <span class="text-white font-bold text-sm">3</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 mb-1">審慎風險管理</h4>
+                            <p class="text-sm text-gray-600">特別關注房地產相關授信風險</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center mr-3 mt-1 flex-shrink-0">
+                            <span class="text-white font-bold text-sm">4</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800 mb-1">提升合規能力</h4>
+                            <p class="text-sm text-gray-600">建立更完善的洗錢防制和客戶審查機制</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 p-6 bg-green-50 rounded-lg border-l-4 border-green-500">
+                <p class="text-gray-800 font-medium">
+                    台灣銀行業正在監管趨嚴的環境下穩步前行，雖然面臨挑戰，但通過持續改善風險管理能力，仍能維持穩健發展的軌道。
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-6">
+            <div class="border-t border-gray-700 pt-6">
+                <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+                    <div class="text-center md:text-left">
+                        <p class="text-sm text-gray-400 mb-2">
+                            <strong>免責申明：</strong>基於公開資料，僅供參考，不構成建議
+                        </p>
+                        <p class="text-sm text-gray-400">
+                            <strong>資料來源：</strong>網頁公開資訊
+                        </p>
+                    </div>
+                    <div class="text-center md:text-right">
+                        <p class="text-sm text-gray-400">
+                            <strong>版權所有：</strong>© Dunk
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 添加滾動動畫效果
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // 為所有卡片添加動畫
+        document.querySelectorAll('.hover-lift').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // 數字計數動畫
+        function animateNumber(element, target, duration = 2000) {
+            const start = 0;
+            const increment = target / (duration / 16);
+            let current = start;
+            
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                
+                if (target >= 1000) {
+                    element.textContent = Math.floor(current).toLocaleString();
+                } else {
+                    element.textContent = current.toFixed(2);
+                }
+            }, 16);
+        }
+
+        // 當數字元素進入視窗時開始動畫
+        const numberElements = document.querySelectorAll('.text-3xl.font-bold');
+        const numberObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const text = entry.target.textContent;
+                    const number = parseFloat(text.replace(/[^\d.]/g, ''));
+                    if (!isNaN(number)) {
+                        animateNumber(entry.target, number);
+                        numberObserver.unobserve(entry.target);
+                    }
+                }
+            });
+        });
+
+        numberElements.forEach(el => numberObserver.observe(el));
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9689b7b075cba331',t:'MTc1NDA5NzI1Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

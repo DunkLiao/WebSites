@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025年7月資通安全事件與技術彙整報告</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#9A0036',
+                        secondary: '#941C61',
+                        accent: '#EEBAC0',
+                        warning: '#FF8C00',
+                        gold: '#FFD700'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        
+        .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-2px);
+            transition: transform 0.3s ease;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #9A0036 0%, #941C61 100%);
+        }
+        
+        .section-divider {
+            border-left: 4px solid #9A0036;
+            padding-left: 1rem;
+        }
+        
+        .stats-card {
+            background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+        }
+        
+        .alert-high {
+            background: linear-gradient(135deg, #ff4444 0%, #cc0000 100%);
+        }
+        
+        .alert-medium {
+            background: linear-gradient(135deg, #ff8800 0%, #e67300 100%);
+        }
+        
+        .alert-info {
+            background: linear-gradient(135deg, #0066cc 0%, #004499 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-8 mb-8">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold mb-4">2025年7月資通安全事件與技術彙整報告</h1>
+                <p class="text-xl opacity-90">在數位威脅日益複雜的時代，深入分析重大資安事件與防護策略</p>
+                <div class="mt-6 flex justify-center space-x-4">
+                    <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full text-sm">報告期間：2025年7月</span>
+                    <span class="bg-warning px-4 py-2 rounded-full text-sm text-white">高風險警示</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Executive Summary -->
+    <div class="container mx-auto px-6 mb-12">
+        <div class="bg-white rounded-lg card-shadow p-8 mb-8">
+            <div class="section-divider mb-6">
+                <h2 class="text-2xl font-bold text-primary">執行摘要</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6 mb-6">
+                <div class="stats-card rounded-lg p-6 text-center hover-lift">
+                    <div class="text-3xl font-bold text-primary mb-2">400+</div>
+                    <div class="text-sm text-gray-600">受影響伺服器數量</div>
+                </div>
+                <div class="stats-card rounded-lg p-6 text-center hover-lift">
+                    <div class="text-3xl font-bold text-warning mb-2">56萬+</div>
+                    <div class="text-sm text-gray-600">資料外洩受害者</div>
+                </div>
+                <div class="stats-card rounded-lg p-6 text-center hover-lift">
+                    <div class="text-3xl font-bold text-secondary mb-2">15+</div>
+                    <div class="text-sm text-gray-600">重大資安事件</div>
+                </div>
+            </div>
+            <p class="text-gray-700 leading-relaxed">
+                2025年7月成為全球資通安全史上最為動盪的月份之一。從國家級駭客組織的大規模攻擊，到跨平台勒索軟體的崛起，
+                這個月的資安事件不僅揭示了當前威脅態勢的嚴峻性，更凸顯了企業與政府機構在防護策略上的關鍵缺口。
+            </p>
+        </div>
+    </div>
+
+    <!-- Major Incidents -->
+    <div class="container mx-auto px-6 mb-12">
+        <div class="section-divider mb-8">
+            <h2 class="text-3xl font-bold text-primary">重大資安事件概覽</h2>
+        </div>
+
+        <!-- SharePoint Incident -->
+        <div class="bg-white rounded-lg card-shadow p-8 mb-8 hover-lift">
+            <div class="flex items-start mb-6">
+                <div class="alert-high text-white px-4 py-2 rounded-full text-sm font-semibold mr-4">
+                    極高風險
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-primary mb-2">SharePoint零時差漏洞危機</h3>
+                    <p class="text-gray-600">全球基礎設施的系統性威脅</p>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h4 class="font-semibold text-lg mb-3 text-secondary">事件詳情</h4>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">•</span>
+                            <span>7月18日爆發CVE-2025-53770漏洞攻擊</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">•</span>
+                            <span>中國駭客組織Storm-2603、Linen Typhoon積極利用</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">•</span>
+                            <span>影響全球超過400台伺服器</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-primary mr-2">•</span>
+                            <span>美國能源部國家核安管理署受害</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-3 text-secondary">攻擊手法</h4>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <p class="text-sm text-gray-700 mb-2">
+                            <strong>ToolShell攻擊鏈：</strong>
+                        </p>
+                        <ul class="text-sm text-gray-600 space-y-1">
+                            <li>→ 繞過身分驗證機制</li>
+                            <li>→ 竊取SharePoint加密金鑰</li>
+                            <li>→ 建立持久性後門</li>
+                            <li>→ 部署Warlock勒索軟體</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BERT Ransomware -->
+        <div class="bg-white rounded-lg card-shadow p-8 mb-8 hover-lift">
+            <div class="flex items-start mb-6">
+                <div class="alert-high text-white px-4 py-2 rounded-full text-sm font-semibold mr-4">
+                    極高風險
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-primary mb-2">跨平台勒索軟體新紀元</h3>
+                    <p class="text-gray-600">BERT集團的技術突破</p>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h4 class="font-semibold text-secondary mb-3">技術特徵</h4>
+                    <ul class="text-sm text-gray-700 space-y-2">
+                        <li>• Windows/Linux雙平台攻擊</li>
+                        <li>• 50個執行緒並行加密</li>
+                        <li>• 強制關閉ESXi虛擬機</li>
+                        <li>• 80%程式碼重疊率與REvil</li>
+                    </ul>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h4 class="font-semibold text-secondary mb-3">攻擊範圍</h4>
+                    <ul class="text-sm text-gray-700 space-y-2">
+                        <li>• 亞洲、歐洲、美國</li>
+                        <li>• 醫療產業</li>
+                        <li>• 科技產業</li>
+                        <li>• 活動服務產業</li>
+                    </ul>
+                </div>
+                <div class="bg-gray-50 p-6 rounded-lg">
+                    <h4 class="font-semibold text-secondary mb-3">威脅等級</h4>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold text-primary mb-2">9.5/10</div>
+                        <div class="text-sm text-gray-600">極度危險</div>
+                        <div class="mt-3 bg-primary h-2 rounded-full"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Supply Chain Attack -->
+        <div class="bg-white rounded-lg card-shadow p-8 mb-8 hover-lift">
+            <div class="flex items-start mb-6">
+                <div class="alert-medium text-white px-4 py-2 rounded-full text-sm font-semibold mr-4">
+                    高風險
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-primary mb-2">供應鏈攻擊精密化</h3>
+                    <p class="text-gray-600">NPM生態系統淪陷</p>
+                </div>
+            </div>
+            
+            <div class="bg-gradient-to-r from-red-50 to-pink-50 p-6 rounded-lg mb-6">
+                <h4 class="font-semibold text-lg mb-3 text-primary">受影響套件統計</h4>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm font-medium">is套件</span>
+                            <span class="text-sm text-primary font-bold">280萬次/週</span>
+                        </div>
+                        <div class="bg-primary h-2 rounded-full mb-4"></div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm font-medium">eslint-config-prettier</span>
+                            <span class="text-sm text-primary font-bold">3000萬次/週</span>
+                        </div>
+                        <div class="bg-secondary h-2 rounded-full mb-4"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <h4 class="font-semibold text-secondary mb-3">攻擊時間軸</h4>
+                    <div class="space-y-3">
+                        <div class="flex items-center">
+                            <div class="w-3 h-3 bg-primary rounded-full mr-3"></div>
+                            <span class="text-sm">7月19日 - 釣魚攻擊成功</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-3 h-3 bg-secondary rounded-full mr-3"></div>
+                            <span class="text-sm">同日 - 憑證竊取完成</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-3 h-3 bg-warning rounded-full mr-3"></div>
+                            <span class="text-sm">6小時內 - 惡意版本發佈</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-secondary mb-3">攻擊手法</h4>
+                    <div class="bg-gray-50 p-4 rounded-lg">
+                        <ul class="text-sm text-gray-700 space-y-2">
+                            <li>• 偽造npnjs.com釣魚網域</li>
+                            <li>• 社交工程攻擊維護者</li>
+                            <li>• 竊取發佈憑證</li>
+                            <li>• 協調性大規模攻擊</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Taiwan Incidents -->
+    <div class="container mx-auto px-6 mb-12">
+        <div class="section-divider mb-8">
+            <h2 class="text-3xl font-bold text-primary">台灣資安危機分析</h2>
+        </div>
+
+        <div class="bg-white rounded-lg card-shadow p-8 mb-8">
+            <div class="flex items-start mb-6">
+                <div class="alert-high text-white px-4 py-2 rounded-full text-sm font-semibold mr-4">
+                    國安威脅
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-primary mb-2">醫療體系系統性攻擊</h3>
+                    <p class="text-gray-600">CrazyHunter勒索軟體針對性攻擊</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-6">
+                <div>
+                    <h4 class="font-semibold text-lg mb-4 text-secondary">受害機構時間軸</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-center p-3 bg-red-50 rounded-lg">
+                            <div class="w-4 h-4 bg-primary rounded-full mr-3"></div>
+                            <div>
+                                <div class="font-medium">2月 - 馬偕醫院</div>
+                                <div class="text-sm text-gray-600">首次攻擊事件</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-3 bg-red-50 rounded-lg">
+                            <div class="w-4 h-4 bg-secondary rounded-full mr-3"></div>
+                            <div>
+                                <div class="font-medium">7月 - 彰化基督教醫院</div>
+                                <div class="text-sm text-gray-600">攻擊範圍擴大</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center p-3 bg-red-50 rounded-lg">
+                            <div class="w-4 h-4 bg-warning rounded-full mr-3"></div>
+                            <div>
+                                <div class="font-medium">持續中 - 多家醫學中心</div>
+                                <div class="text-sm text-gray-600">系統性攻擊確認</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-4 text-secondary">攻擊特徵分析</h4>
+                    <div class="space-y-3">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h5 class="font-medium text-primary mb-2">技術手法</h5>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>• 極速滲透與防禦突破</li>
+                                <li>• AI和深度偽造技術</li>
+                                <li>• 弱密碼破解</li>
+                                <li>• Active Directory設定錯誤利用</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h5 class="font-medium text-primary mb-2">攻擊目標</h5>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>• 病患病歷資料</li>
+                                <li>• 醫護人員個資</li>
+                                <li>• 醫療系統加密</li>
+                                <li>• 敏感資料公開威脅</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-red-100 to-pink-100 p-6 rounded-lg">
+                <h4 class="font-semibold text-lg mb-3 text-primary">政府應對措施</h4>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <h5 class="font-medium mb-2">衛生福利部</h5>
+                        <ul class="text-sm text-gray-700 space-y-1">
+                            <li>• 定調為「系統性攻擊」</li>
+                            <li>• 啟動全國醫療機構資安警戒</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-medium mb-2">TWCERT/CC</h5>
+                        <ul class="text-sm text-gray-700 space-y-1">
+                            <li>• 深度技術分析</li>
+                            <li>• 防護建議發佈</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Financial & Luxury Brands -->
+    <div class="container mx-auto px-6 mb-12">
+        <div class="section-divider mb-8">
+            <h2 class="text-3xl font-bold text-primary">金融與奢侈品業資料外洩</h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Louis Vuitton -->
+            <div class="bg-white rounded-lg card-shadow p-6 hover-lift">
+                <div class="flex items-start mb-4">
+                    <div class="alert-medium text-white px-3 py-1 rounded-full text-xs font-semibold mr-3">
+                        高風險
+                    </div>
+                    <h3 class="text-xl font-bold text-primary">Louis Vuitton全球資料外洩</h3>
+                </div>
+                
+                <div class="mb-4">
+                    <h4 class="font-semibold text-secondary mb-3">受影響地區統計</h4>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm">香港</span>
+                                <span class="text-sm font-bold text-primary">41.9萬</span>
+                            </div>
+                            <div class="bg-gray-200 h-2 rounded-full">
+                                <div class="bg-primary h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm">土耳其</span>
+                                <span class="text-sm font-bold text-secondary">14.3萬</span>
+                            </div>
+                            <div class="bg-gray-200 h-2 rounded-full">
+                                <div class="bg-secondary h-2 rounded-full" style="width: 25%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-yellow-50 p-4 rounded-lg">
+                    <h5 class="font-medium text-warning mb-2">連續攻擊警示</h5>
+                    <p class="text-sm text-gray-700">
+                        LVMH集團三個月內第三次遭受攻擊，先前Tiffany & Co.和Christian Dior也發生類似事件，
+                        顯示奢侈品產業已成為駭客重點目標。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Financial Cooperation -->
+            <div class="bg-white rounded-lg card-shadow p-6 hover-lift">
+                <div class="flex items-start mb-4">
+                    <div class="alert-info text-white px-3 py-1 rounded-full text-xs font-semibold mr-3">
+                        正面發展
+                    </div>
+                    <h3 class="text-xl font-bold text-primary">金融業資安聯防新里程</h3>
+                </div>
+                
+                <div class="mb-4">
+                    <h4 class="font-semibold text-secondary mb-3">合作備忘錄重點</h4>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <div class="flex items-center mb-3">
+                            <div class="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
+                            <span class="font-medium">第一金融集團 × 法務部調查局</span>
+                        </div>
+                        <ul class="text-sm text-gray-700 space-y-2">
+                            <li>• 國家資通安全聯防機制</li>
+                            <li>• 威脅情資即時分享</li>
+                            <li>• 資安事件協同應變</li>
+                            <li>• 公私協力防護體系</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <div class="text-2xl font-bold text-green-600 mb-1">7月28日</div>
+                    <div class="text-sm text-gray-600">正式簽署日期</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Technical Analysis -->
+    <div class="container mx-auto px-6 mb-12">
+        <div class="section-divider mb-8">
+            <h2 class="text-3xl font-bold text-primary">技術威脅分析與防護建議</h2>
+        </div>
+
+        <!-- Attack Trends -->
+        <div class="bg-white rounded-lg card-shadow p-8 mb-8">
+            <h3 class="text-2xl font-bold text-primary mb-6">攻擊手法演進趨勢</h3>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="space-y-6">
+                    <div class="border-l-4 border-primary pl-4">
+                        <h4 class="font-semibold text-lg text-secondary mb-2">零時差漏洞武器化加速</h4>
+                        <p class="text-gray-700 text-sm">
+                            從CVE-2025-53770的發現到大規模利用，時間窗口極為縮短，
+                            顯示攻擊者的反應速度和技術能力大幅提升。
+                        </p>
+                    </div>
+                    
+                    <div class="border-l-4 border-secondary pl-4">
+                        <h4 class="font-semibold text-lg text-secondary mb-2">跨平台攻擊能力增強</h4>
+                        <p class="text-gray-700 text-sm">
+                            BERT等新興勒索軟體具備同時攻擊Windows和Linux的能力，
+                            並專門針對虛擬化環境設計攻擊模組。
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="border-l-4 border-warning pl-4">
+                        <h4 class="font-semibold text-lg text-secondary mb-2">供應鏈攻擊精密化</h4>
+                        <p class="text-gray-700 text-sm">
+                            攻擊者運用社交工程技術精準鎖定套件維護者，
+                            並利用高仿真的釣魚網站竊取憑證。
+                        </p>
+                    </div>
+                    
+                    <div class="border-l-4 border-gold pl-4">
+                        <h4 class="font-semibold text-lg text-secondary mb-2">國家級威脅行為者活躍化</h4>
+                        <p class="text-gray-700 text-sm">
+                            中國駭客組織展現出高度組織化的攻擊能力，
+                            能夠協調多個小組同時進行大規模攻擊行動。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Defense Strategies -->
+        <div class="bg-white rounded-lg card-shadow p-8 mb-8">
+            <h3 class="text-2xl font-bold text-primary mb-6">核心防護策略建議</h3>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-lg hover-lift">
+                    <div class="text-2xl mb-3">🛡️</div>
+                    <h4 class="font-semibold text-lg text-primary mb-3">零信任架構部署</h4>
+                    <ul class="text-sm text-gray-700 space-y-2">
+                        <li>• 嚴格身分驗證</li>
+                        <li>• 最小權限原則</li>
+                        <li>• 持續監控驗證</li>
+                        <li>• 網路微分段</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-lg hover-lift">
+                    <div class="text-2xl mb-3">🔗</div>
+                    <h4 class="font-semibold text-lg text-primary mb-3">供應鏈安全管控</h4>
+                    <ul class="text-sm text-gray-700 space-y-2">
+                        <li>• SBOM管理機制</li>
+                        <li>• 第三方套件檢查</li>
+                        <li>• 沙箱測試流程</li>
+                        <li>• 供應商風險評估</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-lg hover-lift">
+                    <div class="text-2xl mb-3">💾</div>
+                    <h4 class="font-semibold text-lg text-primary mb-3">多層次備份策略</h4>
+                    <ul class="text-sm text-gray-700 space-y-2">
+                        <li>• 3-2-1備份策略</li>
+                        <li>• 離線備份儲存</li>
+                        <li>• 定期復原測試</li>
+                        <li>• 快速復原SOP</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gradient-to-br from-yellow-50 to-orange-50 p-6 rounded-lg hover-lift">
+                    <div class="text-2xl mb-3">🤝</div>
+                    <h4 class="font-semibold text-lg text-primary mb-3">威脅情資分享</h4>
+                    <ul class="text-sm text-gray-700 space-y-2">
+                        <li>• 產業聯防機制</li>
+                        <li>• 即時情資交換</li>
+                        <li>• 威脅偵測提升</li>
+                        <li>• 協同應變能力</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gradient-to-br from-red-50 to-pink-50 p-6 rounded-lg hover-lift">
+                    <div class="text-2xl mb-3">🔍</div>
+                    <h4 class="font-semibold text-lg text-primary mb-3">端點防護分析</h4>
+                    <ul class="text-sm text-gray-700 space-y-2">
+                        <li>• AI能力EDR系統</li>
+                        <li>• 異常行為識別</li>
+                        <li>• 自動隔離機制</li>
+                        <li>• 進階威脅偵測</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gradient-to-br from-teal-50 to-cyan-50 p-6 rounded-lg hover-lift">
+                    <div class="text-2xl mb-3">📊</div>
+                    <h4 class="font-semibold text-lg text-primary mb-3">持續監控評估</h4>
+                    <ul class="text-sm text-gray-700 space-y-2">
+                        <li>• 24/7安全監控</li>
+                        <li>• 定期風險評估</li>
+                        <li>• 滲透測試</li>
+                        <li>• 安全意識訓練</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Industry Impact -->
+    <div class="container mx-auto px-6 mb-12">
+        <div class="section-divider mb-8">
+            <h2 class="text-3xl font-bold text-primary">產業衝擊評估與未來展望</h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-6 mb-8">
+            <div class="bg-white rounded-lg card-shadow p-6 hover-lift">
+                <div class="text-center mb-4">
+                    <div class="text-3xl mb-2">🏥</div>
+                    <h3 class="text-xl font-bold text-primary">醫療產業</h3>
+                </div>
+                <div class="space-y-3">
+                    <div class="bg-red-50 p-3 rounded-lg">
+                        <h4 class="font-semibold text-sm text-red-800 mb-1">主要威脅</h4>
+                        <ul class="text-xs text-red-700 space-y-1">
+                            <li>• 系統停擺風險</li>
+                            <li>• 病患資料洩露</li>
+                            <li>• 醫療服務中斷</li>
+                        </ul>
+                    </div>
+                    <div class="bg-blue-50 p-3 rounded-lg">
+                        <h4 class="font-semibold text-sm text-blue-800 mb-1">防護重點</h4>
+                        <ul class="text-xs text-blue-700 space-y-1">
+                            <li>• 病歷系統保護</li>
+                            <li>• 掛號系統安全</li>
+                            <li>• 資安投資增加</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg card-shadow p-6 hover-lift">
+                <div class="text-center mb-4">
+                    <div class="text-3xl mb-2">🏦</div>
+                    <h3 class="text-xl font-bold text-primary">金融產業</h3>
+                </div>
+                <div class="space-y-3">
+                    <div class="bg-red-50 p-3 rounded-lg">
+                        <h4 class="font-semibold text-sm text-red-800 mb-1">主要威脅</h4>
+                        <ul class="text-xs text-red-700 space-y-1">
+                            <li>• 客戶資料洩露</li>
+                            <li>• 交易系統攻擊</li>
+                            <li>• 監管調查壓力</li>
+                        </ul>
+                    </div>
+                    <div class="bg-blue-50 p-3 rounded-lg">
+                        <h4 class="font-semibold text-sm text-blue-800 mb-1">防護重點</h4>
+                        <ul class="text-xs text-blue-700 space-y-1">
+                            <li>• 零信任架構</li>
+                            <li>• 事件應變機制</li>
+                            <li>• 聯防合作強化</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg card-shadow p-6 hover-lift">
+                <div class="text-center mb-4">
+                    <div class="text-3xl mb-2">💻</div>
+                    <h3 class="text-xl font-bold text-primary">科技產業</h3>
+                </div>
+                <div class="space-y-3">
+                    <div class="bg-red-50 p-3 rounded-lg">
+                        <h4 class="font-semibold text-sm text-red-800 mb-1">主要威脅</h4>
+                        <ul class="text-xs text-red-700 space-y-1">
+                            <li>• 供應鏈中斷</li>
+                            <li>• 開發環境感染</li>
+                            <li>• 智財權竊取</li>
+                        </ul>
+                    </div>
+                    <div class="bg-blue-50 p-3 rounded-lg">
+                        <h4 class="font-semibold text-sm text-blue-800 mb-1">防護重點</h4>
+                        <ul class="text-xs text-blue-700 space-y-1">
+                            <li>• 程式碼安全檢查</li>
+                            <li>• 開發流程強化</li>
+                            <li>• 第三方套件管理</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Policy Recommendations -->
+        <div class="bg-white rounded-lg card-shadow p-8">
+            <h3 class="text-2xl font-bold text-primary mb-6">政策建議與展望</h3>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h4 class="font-semibold text-lg text-secondary mb-4">政府層面建議</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="w-2 h-2 bg-primary rounded-full mt-2 mr-3"></div>
+                            <div>
+                                <h5 class="font-medium mb-1">國家級威脅情資平台</h5>
+                                <p class="text-sm text-gray-600">促進公私部門資安協作與情資分享</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-2 h-2 bg-secondary rounded-full mt-2 mr-3"></div>
+                            <div>
+                                <h5 class="font-medium mb-1">關鍵基礎設施支援</h5>
+                                <p class="text-sm text-gray-600">提供技術支援與資安防護資源</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-2 h-2 bg-warning rounded-full mt-2 mr-3"></div>
+                            <div>
+                                <h5 class="font-medium mb-1">資安人才培育</h5>
+                                <p class="text-sm text-gray-600">強化專業人才培訓與認證機制</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold text-lg text-secondary mb-4">國際合作方向</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="w-2 h-2 bg-primary rounded-full mt-2 mr-3"></div>
+                            <div>
+                                <h5 class="font-medium mb-1">全球資安聯防</h5>
+                                <p class="text-sm text-gray-600">積極參與國際資安合作機制</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-2 h-2 bg-secondary rounded-full mt-2 mr-3"></div>
+                            <div>
+                                <h5 class="font-medium mb-1">國家級威脅應對</h5>
+                                <p class="text-sm text-gray-600">強化對國家級攻擊者的聯合防禦</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-2 h-2 bg-warning rounded-full mt-2 mr-3"></div>
+                            <div>
+                                <h5 class="font-medium mb-1">情資分享機制</h5>
+                                <p class="text-sm text-gray-600">建立即時威脅情資交換平台</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conclusion -->
+    <div class="container mx-auto px-6 mb-12">
+        <div class="bg-gradient-to-r from-primary to-secondary text-white rounded-lg p-8">
+            <div class="section-divider border-white mb-6">
+                <h2 class="text-3xl font-bold">結論與展望</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 mb-6">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">關鍵發現</h3>
+                    <ul class="space-y-2 text-sm opacity-90">
+                        <li>• 網路威脅已進入新階段，攻擊者技術能力大幅提升</li>
+                        <li>• 國家級駭客組織展現高度組織化攻擊能力</li>
+                        <li>• 跨平台勒索軟體成為主要威脅</li>
+                        <li>• 供應鏈攻擊手法日趨精密化</li>
+                        <li>• 傳統被動防禦策略已不足應對當前威脅</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">未來方向</h3>
+                    <ul class="space-y-2 text-sm opacity-90">
+                        <li>• 採取更積極、全面的資安策略</li>
+                        <li>• 強化零信任架構部署</li>
+                        <li>• 建立威脅情資即時分享機制</li>
+                        <li>• 推動產業間緊密合作</li>
+                        <li>• 加強公私部門協同努力</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="bg-white bg-opacity-10 p-6 rounded-lg">
+                <p class="text-lg leading-relaxed">
+                    面對未來，我們必須認知到資安不僅是技術問題，更是國家安全和經濟穩定的基石。
+                    每一次的資安事件都是學習的機會，每一項防護措施都是對未來攻擊的預防。
+                    在這個數位化程度不斷提升的時代，資安防護的重要性只會持續增加，
+                    而我們的應對能力也必須隨之進化。
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8 mb-6">
+                <div>
+                    <h4 class="font-semibold text-lg mb-3">免責聲明</h4>
+                    <p class="text-sm text-gray-300">
+                        基於公開資料，僅供參考，不構成建議。
+                        本報告內容僅為資訊分享用途，不代表任何投資或安全建議。
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-3">資料來源</h4>
+                    <p class="text-sm text-gray-300">
+                        網頁公開資訊、國際資安組織報告、
+                        政府機關公告、產業資安事件通報等公開資料彙整。
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-semibold text-lg mb-3">聯絡資訊</h4>
+                    <p class="text-sm text-gray-300">
+                        如有任何疑問或建議，歡迎透過官方管道聯繫。
+                        本報告將持續更新，敬請關注最新版本。
+                    </p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-6 text-center">
+                <p class="text-sm text-gray-400">
+                    版權所有 © 2025 Dunk. 保留所有權利。
+                    本報告受著作權法保護，未經授權不得轉載或商業使用。
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add loading animation for cards
+        const cards = document.querySelectorAll('.hover-lift');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        cards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Interactive statistics counter
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 100;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                element.textContent = Math.floor(current).toLocaleString() + '+';
+            }, 20);
+        }
+
+        // Trigger counter animation when stats are visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statsElements = entry.target.querySelectorAll('.text-3xl');
+                    statsElements.forEach(stat => {
+                        const text = stat.textContent;
+                        if (text.includes('400')) animateCounter(stat, 400);
+                        if (text.includes('56萬')) animateCounter(stat, 560000);
+                        if (text.includes('15')) animateCounter(stat, 15);
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        });
+
+        const statsSection = document.querySelector('.stats-card').parentElement;
+        if (statsSection) {
+            statsObserver.observe(statsSection);
+        }
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9689a12353ff4a60',t:'MTc1NDA5NjMzMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
