@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台灣對美「關稅疊加20%」產業稅率一覽</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#9A0036',
+                        secondary: '#941C61',
+                        accent: '#EEBAC0',
+                        highlight: '#FF8C00',
+                        darkgray: '#333333',
+                        lightgray: '#F5F5F5'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        .card-shadow {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .hover-lift:hover {
+            transform: translateY(-2px);
+            transition: transform 0.3s ease;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #9A0036 0%, #941C61 100%);
+        }
+        .table-hover:hover {
+            background-color: #FFF5F7;
+            transition: background-color 0.2s ease;
+        }
+    </style>
+</head>
+<body class="bg-white text-darkgray">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-8">
+        <div class="container mx-auto px-6">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">台灣對美「關稅疊加20%」產業稅率一覽</h1>
+            <div class="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20">
+                <h2 class="text-xl font-semibold mb-2 text-yellow-300">重點結論</h2>
+                <p class="text-white/90 leading-relaxed">
+                    美國自2025年8月7日起，對我國商品適用「原有最惠國（MFN）關稅稅率」再疊加暫時性20%對等關稅，導致部分傳統產業稅負大幅增加，務必盡早評估成本與調整策略。
+                </p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-8">
+        <!-- 概要 -->
+        <section class="mb-8">
+            <div class="bg-white rounded-lg card-shadow p-6 hover-lift">
+                <h2 class="text-2xl font-bold text-primary mb-4 flex items-center">
+                    <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3">📋</span>
+                    概要
+                </h2>
+                <div class="prose max-w-none text-darkgray leading-relaxed">
+                    <p class="mb-4">
+                        美國政府於2025年8月7日正式對台灣輸美商品實施新一輪「對等關稅」措施，核心內容為在既有的最惠國（MFN）稅率基礎上，再疊加徵收20%的暫時性關稅。此「20%+N」的疊加計算機制，對台灣產業造成廣泛且深遠的衝擊，尤其以傳統產業及部分農漁產品首當其衝。
+                    </p>
+                    <p class="mb-4">
+                        根據分析，工具機產業的關稅從原有的4.7%躍升至24.7%；紡織品、塑橡膠、自行車等產業的稅率也大幅攀升，嚴重壓縮其利潤空間與國際競爭力。原先享有零關稅優惠的蝴蝶蘭、鬼頭刀等農漁產品，則直接面臨20%的新關稅，對相關業者帶來巨大經營壓力。
+                    </p>
+                    <p class="mb-4">
+                        在科技領域，美國雖宣布對半導體課徵高達100%的關稅，但設有豁免條款，承諾或已在美國投資設廠的企業可免除此項重稅。由於台積電等指標性企業已在美佈局，預計可獲得豁免，但此政策仍為半導體供應鏈帶來不確定性。
+                    </p>
+                    <p class="mb-4">
+                        與亞洲鄰近國家相比，台灣20%的疊加稅率高於韓國與日本的15%，使台灣產品在美國市場的價格競爭力面臨嚴峻挑戰。為此，台灣政府已啟動包括金融支持、市場拓銷、產業升級在內的應對方案，並持續與美方進行磋商，爭取更合理的關稅條件。
+                    </p>
+                    <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg">
+                        <p class="text-red-800 font-semibold">
+                            然而，產業界已出現「有單是找死，沒單是等死」的悲觀情緒，凸顯此波關稅衝擊的嚴峻性。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 詳細報告 -->
+        <section class="mb-8">
+            <div class="bg-white rounded-lg card-shadow p-6 hover-lift">
+                <h2 class="text-2xl font-bold text-primary mb-6 flex items-center">
+                    <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3">📊</span>
+                    詳細報告
+                </h2>
+                
+                <!-- 政策詳解 -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold text-secondary mb-4">美國對台「對等關稅」政策詳解</h3>
+                    
+                    <div class="grid md:grid-cols-3 gap-6 mb-6">
+                        <div class="bg-lightgray rounded-lg p-4">
+                            <h4 class="font-bold text-primary mb-2">政策生效時間</h4>
+                            <p class="text-sm text-darkgray">美東時間2025年8月7日起正式實施</p>
+                        </div>
+                        <div class="bg-lightgray rounded-lg p-4">
+                            <h4 class="font-bold text-primary mb-2">疊加機制</h4>
+                            <p class="text-sm text-darkgray">在原有MFN稅率基礎上再加20%</p>
+                        </div>
+                        <div class="bg-lightgray rounded-lg p-4">
+                            <h4 class="font-bold text-primary mb-2">過渡條款</h4>
+                            <p class="text-sm text-darkgray">8月7日前裝船貨物適用10%稅率</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg mb-6">
+                        <p class="text-blue-800">
+                            <strong>重要提醒：</strong>此稅率是在2025年4月5日實施的10%對等關稅基礎上翻倍而來，顯示出政策的升級。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 國際比較 -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold text-secondary mb-4">國際比較與競爭力評估</h3>
+                    
+                    <div class="overflow-x-auto mb-4">
+                        <table class="w-full border-collapse">
+                            <thead>
+                                <tr class="bg-secondary text-white">
+                                    <th class="border border-gray-300 px-4 py-3 text-left font-semibold">國家/地區</th>
+                                    <th class="border border-gray-300 px-4 py-3 text-center font-semibold">對等關稅稅率</th>
+                                    <th class="border border-gray-300 px-4 py-3 text-left font-semibold">備註</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="table-hover border-b">
+                                    <td class="border border-gray-300 px-4 py-3 font-semibold">瑞士</td>
+                                    <td class="border border-gray-300 px-4 py-3 text-center">
+                                        <span class="bg-red-200 text-red-900 px-2 py-1 rounded font-bold">39%</span>
+                                    </td>
+                                    <td class="border border-gray-300 px-4 py-3 text-sm">稅率最高</td>
+                                </tr>
+                                <tr class="table-hover border-b">
+                                    <td class="border border-gray-300 px-4 py-3 font-semibold">印度</td>
+                                    <td class="border border-gray-300 px-4 py-3 text-center">
+                                        <span class="bg-red-100 text-red-800 px-2 py-1 rounded font-bold">25%</span>
+                                    </td>
+                                    <td class="border border-gray-300 px-4 py-3 text-sm">-</td>
+                                </tr>
+                                <tr class="table-hover border-b bg-yellow-50">
+                                    <td class="border border-gray-300 px-4 py-3 font-semibold text-primary">台灣</td>
+                                    <td class="border border-gray-300 px-4 py-3 text-center">
+                                        <span class="bg-red-100 text-red-800 px-2 py-1 rounded font-bold">20%</span>
+                                    </td>
+                                    <td class="border border-gray-300 px-4 py-3 text-sm">與越南相同</td>
+                                </tr>
+                                <tr class="table-hover border-b">
+                                    <td class="border border-gray-300 px-4 py-3 font-semibold">越南</td>
+                                    <td class="border border-gray-300 px-4 py-3 text-center">
+                                        <span class="bg-red-100 text-red-800 px-2 py-1 rounded font-bold">20%</span>
+                                    </td>
+                                    <td class="border border-gray-300 px-4 py-3 text-sm">-</td>
+                                </tr>
+                                <tr class="table-hover border-b">
+                                    <td class="border border-gray-300 px-4 py-3 font-semibold">菲律賓、泰國、印尼</td>
+                                    <td class="border border-gray-300 px-4 py-3 text-center">
+                                        <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded font-bold">19%</span>
+                                    </td>
+                                    <td class="border border-gray-300 px-4 py-3 text-sm">-</td>
+                                </tr>
+                                <tr class="table-hover border-b">
+                                    <td class="border border-gray-300 px-4 py-3 font-semibold">韓國</td>
+                                    <td class="border border-gray-300 px-4 py-3 text-center">
+                                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded font-bold">15%</span>
+                                    </td>
+                                    <td class="border border-gray-300 px-4 py-3 text-sm">稅率顯著低於台灣</td>
+                                </tr>
+                                <tr class="table-hover border-b">
+                                    <td class="border border-gray-300 px-4 py-3 font-semibold">日本</td>
+                                    <td class="border border-gray-300 px-4 py-3 text-center">
+                                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded font-bold">15%</span>
+                                    </td>
+                                    <td class="border border-gray-300 px-4 py-3 text-sm">稅率顯著低於台灣</td>
+                                </tr>
+                                <tr class="table-hover">
+                                    <td class="border border-gray-300 px-4 py-3 font-semibold">歐盟</td>
+                                    <td class="border border-gray-300 px-4 py-3 text-center">
+                                        <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded font-bold">不適用疊加</span>
+                                    </td>
+                                    <td class="border border-gray-300 px-4 py-3 text-sm">與美國達成協議，非疊加計算</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-r-lg">
+                        <p class="text-yellow-800">
+                            <strong>競爭力分析：</strong>台灣的關稅負擔明顯高於主要競爭對手韓國和日本，在相同產品品質與成本結構下，台灣產品進入美國市場的最終價格將高於日韓產品，直接削弱市場競爭力。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 產業困境與政府應對 -->
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold text-secondary mb-4">產業與政府應對策略</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-red-50 rounded-lg p-5">
+                            <h4 class="font-bold text-red-700 mb-3 flex items-center">
+                                <span class="text-red-500 mr-2">⚠️</span>
+                                產業界困境
+                            </h4>
+                            <ul class="text-sm text-red-800 space-y-2">
+                                <li>• 「沒有訂單是等死，接了訂單是找死」</li>
+                                <li>• 微型和小型企業選擇結業</li>
+                                <li>• 產業鏈面臨斷鏈風險</li>
+                                <li>• 呼籲政府提供實質性援助</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-green-50 rounded-lg p-5">
+                            <h4 class="font-bold text-green-700 mb-3 flex items-center">
+                                <span class="text-green-500 mr-2">🛡️</span>
+                                政府支持方案
+                            </h4>
+                            <ul class="text-sm text-green-800 space-y-2">
+                                <li>• 持續與美方磋商談判</li>
+                                <li>• 數千億新台幣財務援助</li>
+                                <li>• 研發轉型補助</li>
+                                <li>• 多元市場拓銷支持</li>
+                                <li>• 安定就業措施</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 計算方式說明 -->
+        <section class="mb-8">
+            <div class="bg-white rounded-lg card-shadow p-6 hover-lift">
+                <h2 class="text-2xl font-bold text-primary mb-4 flex items-center">
+                    <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3">1</span>
+                    計算方式說明
+                </h2>
+                <div class="bg-lightgray rounded-lg p-4 mb-4">
+                    <p class="text-lg font-semibold text-center">
+                        實際適用稅率 = <span class="text-primary">原有MFN稅率</span> + <span class="text-highlight font-bold">20%</span>
+                    </p>
+                </div>
+                <div class="bg-yellow-50 border-l-4 border-highlight p-4 rounded-r-lg">
+                    <p class="text-darkgray">
+                        <strong>例如：</strong>工具機原適用MFN 4.7%，加徵20%後即為 <span class="text-highlight font-bold">24.7%</span>。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 主要產業稅率對照表 -->
+        <section class="mb-8">
+            <div class="bg-white rounded-lg card-shadow p-6 hover-lift">
+                <h2 class="text-2xl font-bold text-primary mb-6 flex items-center">
+                    <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3">2</span>
+                    主要產業稅率對照
+                </h2>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full border-collapse">
+                        <thead>
+                            <tr class="bg-primary text-white">
+                                <th class="border border-gray-300 px-4 py-3 text-left font-semibold">產業類別</th>
+                                <th class="border border-gray-300 px-4 py-3 text-center font-semibold">原MFN稅率</th>
+                                <th class="border border-gray-300 px-4 py-3 text-center font-semibold">疊加後稅率</th>
+                                <th class="border border-gray-300 px-4 py-3 text-left font-semibold">備註</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="table-hover border-b">
+                                <td class="border border-gray-300 px-4 py-3 font-semibold text-primary">工具機</td>
+                                <td class="border border-gray-300 px-4 py-3 text-center">4.7%</td>
+                                <td class="border border-gray-300 px-4 py-3 text-center">
+                                    <span class="bg-red-100 text-red-800 px-2 py-1 rounded font-bold">24.7%</span>
+                                </td>
+                                <td class="border border-gray-300 px-4 py-3 text-sm">台灣兆元級產業，影響最為顯著</td>
+                            </tr>
+                            <tr class="table-hover border-b">
+                                <td class="border border-gray-300 px-4 py-3 font-semibold text-primary">農漁產品</td>
+                                <td class="border border-gray-300 px-4 py-3 text-center">0%</td>
+                                <td class="border border-gray-300 px-4 py-3 text-center">
+                                    <span class="bg-red-100 text-red-800 px-2 py-1 rounded font-bold">20%</span>
+                                </td>
+                                <td class="border border-gray-300 px-4 py-3 text-sm">蝴蝶蘭、鬼頭刀等原本免稅項目</td>
+                            </tr>
+                            <tr class="table-hover border-b">
+                                <td class="border border-gray-300 px-4 py-3 font-semibold text-primary">紡織品</td>
+                                <td class="border border-gray-300 px-4 py-3 text-center">10% – 20%</td>
+                                <td class="border border-gray-300 px-4 py-3 text-center">
+                                    <span class="bg-red-100 text-red-800 px-2 py-1 rounded font-bold">30% – 40%</span>
+                                </td>
+                                <td class="border border-gray-300 px-4 py-3 text-sm">部分布料、成衣成本將大幅上升</td>
+                            </tr>
+                            <tr class="table-hover border-b">
+                                <td class="border border-gray-300 px-4 py-3 font-semibold text-primary">塑橡膠製品</td>
+                                <td class="border border-gray-300 px-4 py-3 text-center">3% – 6%</td>
+                                <td class="border border-gray-300 px-4 py-3 text-center">
+                                    <span class="bg-red-100 text-red-800 px-2 py-1 rounded font-bold">23% – 26%</span>
+                                </td>
+                                <td class="border border-gray-300 px-4 py-3 text-sm">橡膠原料與塑膠成品競爭力承壓</td>
+                            </tr>
+                            <tr class="table-hover border-b">
+                                <td class="border border-gray-300 px-4 py-3 font-semibold text-primary">自行車</td>
+                                <td class="border border-gray-300 px-4 py-3 text-center">5.5% – 11%</td>
+                                <td class="border border-gray-300 px-4 py-3 text-center">
+                                    <span class="bg-red-100 text-red-800 px-2 py-1 rounded font-bold">25.5% – 31%</span>
+                                </td>
+                                <td class="border border-gray-300 px-4 py-3 text-sm">單車產業龍頭須思考價格轉嫁或產地調整</td>
+                            </tr>
+                            <tr class="table-hover">
+                                <td class="border border-gray-300 px-4 py-3 font-semibold text-primary">消費電子</td>
+                                <td class="border border-gray-300 px-4 py-3 text-center">0%</td>
+                                <td class="border border-gray-300 px-4 py-3 text-center">
+                                    <span class="bg-red-100 text-red-800 px-2 py-1 rounded font-bold">20%*</span>
+                                </td>
+                                <td class="border border-gray-300 px-4 py-3 text-sm">半導體有望因承諾或設廠豁免，但其他電子產品受影響</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="mt-4 p-3 bg-yellow-50 rounded-lg border-l-4 border-highlight">
+                    <p class="text-sm text-darkgray">
+                        <strong>*</strong> 半導體關稅另訂100%，但符合條件者可獲豁免；其餘電子產品則按20%計算。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 策略建議 -->
+        <section class="mb-8">
+            <div class="bg-white rounded-lg card-shadow p-6 hover-lift">
+                <h2 class="text-2xl font-bold text-primary mb-6 flex items-center">
+                    <span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center text-sm mr-3">3</span>
+                    策略建議
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-lightgray rounded-lg p-5 hover-lift">
+                        <h3 class="font-bold text-lg text-secondary mb-3 flex items-center">
+                            <span class="text-highlight mr-2">📍</span>
+                            檢視供應鏈布局
+                        </h3>
+                        <p class="text-darkgray leading-relaxed">
+                            優先考量美國本地或其他關稅較低國家設廠，分散單一市場風險。
+                        </p>
+                    </div>
+                    
+                    <div class="bg-lightgray rounded-lg p-5 hover-lift">
+                        <h3 class="font-bold text-lg text-secondary mb-3 flex items-center">
+                            <span class="text-highlight mr-2">💰</span>
+                            成本轉嫁與產品組合
+                        </h3>
+                        <p class="text-darkgray leading-relaxed">
+                            採分級定價、增加附加價值服務，以減緩稅負衝擊。
+                        </p>
+                    </div>
+                    
+                    <div class="bg-lightgray rounded-lg p-5 hover-lift">
+                        <h3 class="font-bold text-lg text-secondary mb-3 flex items-center">
+                            <span class="text-highlight mr-2">🏛️</span>
+                            政府協助方案
+                        </h3>
+                        <p class="text-darkgray leading-relaxed">
+                            關注經濟部及貿易辦推動的補貼、融資或轉型輔導方案。
+                        </p>
+                    </div>
+                    
+                    <div class="bg-lightgray rounded-lg p-5 hover-lift">
+                        <h3 class="font-bold text-lg text-secondary mb-3 flex items-center">
+                            <span class="text-highlight mr-2">🤝</span>
+                            與美方持續談判
+                        </h3>
+                        <p class="text-darkgray leading-relaxed">
+                            組織產業聯盟，透過協商爭取更合理的關稅安排。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 行動呼籲 -->
+        <section class="mb-8">
+            <div class="gradient-bg rounded-lg p-6 text-white text-center">
+                <h3 class="text-xl font-bold mb-3">立即行動建議</h3>
+                <p class="mb-4 text-white/90">
+                    以上一覽可作為產業因應對策的參考依據，建議儘速啟動跨部門評估與行動。
+                </p>                
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-darkgray text-white py-6 mt-12">
+        <div class="container mx-auto px-6">
+            <div class="border-t border-gray-600 pt-4">
+                <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-300">
+                    <div class="mb-2 md:mb-0">
+                        <p><strong>免責申明：</strong>基於公開資料，僅供參考，不構成建議</p>
+                    </div>
+                    <div class="mb-2 md:mb-0">
+                        <p><strong>資料來源：</strong>網頁公開資訊</p>
+                    </div>
+                    <div>
+                        <p><strong>版權所有：</strong>© Dunk</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 添加表格行點擊效果
+        document.querySelectorAll('.table-hover').forEach(row => {
+            row.addEventListener('click', function() {
+                // 移除其他行的選中狀態
+                document.querySelectorAll('.table-hover').forEach(r => r.classList.remove('bg-blue-50'));
+                // 添加當前行的選中狀態
+                this.classList.add('bg-blue-50');
+            });
+        });
+
+        // 下載按鈕功能
+        document.querySelector('button').addEventListener('click', function() {
+            alert('報告下載功能將在實際部署時連接到後端服務');
+        });
+
+        // 添加滾動動畫效果
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // 為所有卡片添加滾動動畫
+        document.querySelectorAll('.hover-lift').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96c333cfb4ca8442',t:'MTc1NDcwMDAyOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
