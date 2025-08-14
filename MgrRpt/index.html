@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>風險監控月報系統 - 企業風險管理與監控報告平台</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft JhengHei', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333333;
+            background-color: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .main-header {
+            background: linear-gradient(135deg, #9A0036, #941C61);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .main-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .main-header .subtitle {
+            color: #EEBAC0;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .update-info {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Navigation Styles */
+        .main-nav {
+            background: white;
+            border-bottom: 2px solid #F5F5F5;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        .nav-item {
+            color: #333333;
+            text-decoration: none;
+            padding: 0.8rem 1.5rem;
+            margin: 0 0.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-item:hover {
+            color: #9A0036;
+            background-color: #F5F5F5;
+            transform: translateY(-2px);
+        }
+
+        /* Month Selector Section */
+        .month-selector-section {
+            background: #F5F5F5;
+            padding: 3rem 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .section-header h2 {
+            color: #333333;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        .year-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .year-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .year-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .year-header {
+            padding: 1.5rem;
+            color: white;
+            text-align: center;
+        }
+
+        .year-header.current-year {
+            background: #9A0036;
+        }
+
+        .year-header.previous-year {
+            background: #941C61;
+        }
+
+        .year-header h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .month-grid {
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .month-btn {
+            background: #F5F5F5;
+            color: #333333;
+            border: 2px solid #EEBAC0;
+            border-radius: 8px;
+            padding: 1rem;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .month-btn:hover {
+            background: #9A0036;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(154, 0, 54, 0.3);
+        }
+
+        .month-btn.current {
+            background: #FF6B35;
+            color: white;
+            border-color: #FF6B35;
+        }
+
+        .month-btn.unavailable {
+            background: #e9ecef;
+            color: #6c757d;
+            border-color: #dee2e6;
+            cursor: not-allowed;
+        }
+
+        .month-btn.unavailable:hover {
+            background: #e9ecef;
+            color: #6c757d;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Risk Dashboard Section */
+        .risk-dashboard {
+            background: white;
+            padding: 4rem 0;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .dashboard-card {
+            background: white;
+            border: 2px solid #F5F5F5;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(154, 0, 54, 0.15);
+        }
+
+        .dashboard-card h3 {
+            color: #9A0036;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #EEBAC0;
+            padding-bottom: 0.5rem;
+        }
+
+        .risk-indicator {
+            background: #FF6B35;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        .risk-indicator span {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .kri-list {
+            margin-top: 1rem;
+        }
+
+        .kri-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #F5F5F5;
+        }
+
+        .kri-item:last-child {
+            border-bottom: none;
+        }
+
+        /* Quick Links Section */
+        .quick-links-section {
+            background: #F5F5F5;
+            padding: 4rem 0;
+        }
+
+        .quick-links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .quick-link-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .quick-link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(154, 0, 54, 0.15);
+        }
+
+        .card-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+        }
+
+        .quick-link-card h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .quick-link-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Footer Styles */
+        .main-footer {
+            background: #333333;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            border-top: 1px solid #555;
+            padding-top: 1rem;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        .footer-content p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-header h1 {
+                font-size: 2rem;
+            }
+
+            .main-header .subtitle {
+                font-size: 1rem;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .nav-item {
+                margin: 0.2rem 0;
+            }
+
+            .year-cards-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .month-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.8rem;
+                padding: 1.5rem;
+            }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .quick-links-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .main-header {
+                padding: 2rem 0;
+            }
+
+            .main-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .month-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .quick-links-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-header h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container">
+            <h1>風險監控月報系統</h1>
+            <p class="subtitle">銀行風險管理與監控報告平台</p>            
+        </div>
+    </header>    
+
+    <!-- Month Selector Section -->
+    <section class="month-selector-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>選擇查詢月份</h2>
+                <p>點選月份查看對應的風險監控報告</p>
+            </div>
+            
+            <div class="year-cards-grid">
+                <!-- 2025年卡片 -->
+                <div class="year-card">
+                    <div class="year-header current-year">
+                        <h3>2025年</h3>
+                    </div>
+                    <div class="month-grid">						
+						<a href="report/2025/01.html" class="month-btn unavailable">1月</a>
+						<a href="report/2025/02.html" class="month-btn unavailable">2月</a>
+						<a href="report/2025/03.html" class="month-btn unavailable">3月</a>
+						<a href="report/2025/04.html" class="month-btn unavailable">4月</a>
+						<a href="report/2025/05.html" class="month-btn unavailable">5月</a>
+						<a href="report/2025/06.html" class="month-btn unavailable">6月</a>
+						<a href="report/2025/07.html" class="month-btn current">7月</a>
+						<a href="report/2025/08.html" class="month-btn unavailable">8月</a>
+						<a href="report/2025/09.html" class="month-btn unavailable">9月</a>
+						<a href="report/2025/10.html" class="month-btn unavailable">10月</a>
+						<a href="report/2025/11.html" class="month-btn unavailable">11月</a>
+						<a href="report/2025/12.html" class="month-btn unavailable">12月</a>
+					</div>
+
+                </div>
+                
+                <!-- 2024年卡片 -->
+                <!--<div class="year-card">
+                    <div class="year-header previous-year">
+                        <h3>2024年</h3>
+                    </div>
+                    <div class="month-grid">
+                        <a href="/report/2024/01" class="month-btn">1月</a>
+                        <a href="/report/2024/02" class="month-btn">2月</a>
+                        <a href="/report/2024/03" class="month-btn">3月</a>
+                        <a href="/report/2024/04" class="month-btn">4月</a>
+                        <a href="/report/2024/05" class="month-btn">5月</a>
+                        <a href="/report/2024/06" class="month-btn">6月</a>
+                        <a href="/report/2024/07" class="month-btn">7月</a>
+                        <a href="/report/2024/08" class="month-btn">8月</a>
+                        <a href="/report/2024/09" class="month-btn">9月</a>
+                        <a href="/report/2024/10" class="month-btn">10月</a>
+                        <a href="/report/2024/11" class="month-btn">11月</a>
+                        <a href="/report/2024/12" class="month-btn">12月</a>
+                    </div>
+                </div>-->
+            </div>
+        </div>
+    </section>    
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>免責申明：基於公開資料，僅供參考，不構成建議</p>
+                <p>資料來源：網頁公開資訊</p>
+                <p>版權所有：© Dunk</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 簡單的互動功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // 為月份按鈕添加點擊效果
+            const monthBtns = document.querySelectorAll('.month-btn:not(.unavailable)');
+            monthBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    // 移除其他按鈕的current類別
+                    monthBtns.forEach(b => b.classList.remove('current'));
+                    // 為當前按鈕添加current類別
+                    this.classList.add('current');
+                });
+            });
+
+            // 為不可用的月份按鈕添加提示
+            const unavailableBtns = document.querySelectorAll('.month-btn.unavailable');
+            unavailableBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    alert('該月份報告尚未發布或不存在');
+                });
+            });
+
+            // 添加載入動畫效果
+            const cards = document.querySelectorAll('.year-card, .dashboard-card, .quick-link-card');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            });
+
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>

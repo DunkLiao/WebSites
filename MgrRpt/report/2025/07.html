@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025年7月風險監控月報</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/preline@3.0.1/dist/preline.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#9A0036',
+                        secondary: '#941C61',
+                        accent: '#EEBAC0',
+                        warning: '#FF8C00',
+                        success: '#22C55E'
+                    },
+                    fontFamily: {
+                        'sans': ['Noto Sans TC', 'sans-serif']
+                    }
+                }
+            },
+            darkMode: 'class'
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #9A0036 0%, #941C61 100%);
+        }
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
+        }
+        .dark .glass-effect {
+            background: rgba(15, 23, 42, 0.9);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(154, 0, 54, 0.1), 0 10px 10px -5px rgba(154, 0, 54, 0.04);
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+<script src="https://felo.ai/js/iframe.js?v=1755178890842"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style></head>
+<body class="bg-gray-50 dark:bg-slate-900 font-sans transition-colors duration-300">
+    <nav class="fixed top-0 w-full z-50 glass-effect border-b border-gray-200 dark:border-gray-700">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <i class="fas fa-shield-alt text-2xl text-primary"></i>
+                <h1 class="text-xl font-bold text-gray-800 dark:text-white">風險監控月報</h1>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button id="darkModeToggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:inline"></i>
+                </button>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#overview" class="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">總覽</a>
+                    <a href="#credit-risk" class="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">信用風險</a>
+                    <a href="#loan-analysis" class="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">放款分析</a>
+                    <a href="#qa" class="text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">問答</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section id="overview" class="pt-20 pb-16 gradient-bg text-white">
+        <div class="container mx-auto px-4 text-center animate-fade-in">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">2025年7月風險監控月報</h2>
+            <p class="text-xl mb-12 max-w-4xl mx-auto opacity-90">
+                本報告綜述了信用風險性資產與放款進出口押匯的最新數據，顯示整體風險性資產持續增長，
+                反映機構在信用風險配置上偏向高風險資產類別，同時呈現政府需求減弱而民間需求相對活躍的趨勢。
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 card-hover">
+                    <div class="flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mx-auto mb-4">
+                        <i class="fas fa-chart-line text-2xl"></i>
+                    </div>
+                    <div class="text-3xl font-bold mb-2">+471.87億</div>
+                    <div class="text-sm opacity-80">信用風險性資產增長</div>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 card-hover">
+                    <div class="flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mx-auto mb-4">
+                        <i class="fas fa-building text-2xl"></i>
+                    </div>
+                    <div class="text-3xl font-bold mb-2">2.29兆</div>
+                    <div class="text-sm opacity-80">風險性資產總額</div>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 card-hover">
+                    <div class="flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mx-auto mb-4">
+                        <i class="fas fa-trending-down text-2xl"></i>
+                    </div>
+                    <div class="text-3xl font-bold mb-2">-362.97億</div>
+                    <div class="text-sm opacity-80">放款總額變化</div>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 card-hover">
+                    <div class="flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mx-auto mb-4">
+                        <i class="fas fa-microchip text-2xl"></i>
+                    </div>
+                    <div class="text-3xl font-bold mb-2">強勁</div>
+                    <div class="text-sm opacity-80">高科技產業表現</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="credit-risk" class="py-16 bg-white dark:bg-slate-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">信用風險性資產分析</h3>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    本期信用風險性資產總計2兆2,913.92億元，較前期增加471.87億元，顯示整體風險性資產顯著增長
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                <div class="bg-gray-50 dark:bg-slate-700 rounded-2xl p-8 card-hover">
+                    <h4 class="text-xl font-semibold text-gray-800 dark:text-white mb-6 flex items-center">
+                        <i class="fas fa-chart-pie text-primary mr-3"></i>
+                        風險性資產變化趨勢
+                    </h4>
+                    <div id="riskAssetChart" class="h-80"></div>
+                </div>
+
+                <div class="bg-gray-50 dark:bg-slate-700 rounded-2xl p-8 card-hover">
+                    <h4 class="text-xl font-semibold text-gray-800 dark:text-white mb-6 flex items-center">
+                        <i class="fas fa-industry text-primary mr-3"></i>
+                        主要驅動因素
+                    </h4>
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between p-4 bg-white dark:bg-slate-600 rounded-xl">
+                            <div>
+                                <div class="font-semibold text-gray-800 dark:text-white">權益證券暴險</div>
+                                <div class="text-sm text-gray-500 dark:text-gray-400">風險性資產增幅最大</div>
+                            </div>
+                            <div class="text-2xl font-bold text-green-600">+257.62億</div>
+                        </div>
+                        <div class="flex items-center justify-between p-4 bg-white dark:bg-slate-600 rounded-xl">
+                            <div>
+                                <div class="font-semibold text-gray-800 dark:text-white">企業曝險</div>
+                                <div class="text-sm text-gray-500 dark:text-gray-400">結構轉向高風險權重</div>
+                            </div>
+                            <div class="text-2xl font-bold text-green-600">+151.87億</div>
+                        </div>
+                        <div class="flex items-center justify-between p-4 bg-white dark:bg-slate-600 rounded-xl">
+                            <div>
+                                <div class="font-semibold text-gray-800 dark:text-white">交易對手信用風險</div>
+                                <div class="text-sm text-gray-500 dark:text-gray-400">衍生性商品活動增加</div>
+                            </div>
+                            <div class="text-2xl font-bold text-green-600">+89.80億</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-orange-50 to-red-50 dark:from-slate-700 dark:to-slate-600 rounded-2xl p-8 mb-8">
+                <h4 class="text-xl font-semibold text-gray-800 dark:text-white mb-6 flex items-center">
+                    <i class="fas fa-microchip text-warning mr-3"></i>
+                    行業別RWA表現分析
+                </h4>
+                <div id="industryChart" class="h-96"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-2xl p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-arrow-up text-green-600 text-2xl mr-3"></i>
+                        <h5 class="text-lg font-semibold text-gray-800 dark:text-white">顯著增長</h5>
+                    </div>
+                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                        <li>• 電子、通訊設備批發業</li>
+                        <li>• 電腦製造業</li>
+                        <li>• 積體電路製造業</li>
+                        <li>• 其他控股業</li>
+                    </ul>
+                </div>
+
+                <div class="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-2xl p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-arrow-down text-red-600 text-2xl mr-3"></i>
+                        <h5 class="text-lg font-semibold text-gray-800 dark:text-white">呈現收縮</h5>
+                    </div>
+                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                        <li>• 不動產開發業</li>
+                        <li>• 用水供應業</li>
+                        <li>• 人造纖維加工絲業</li>
+                        <li>• 玻璃纖維製造業</li>
+                    </ul>
+                </div>
+
+                <div class="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-2xl p-6 card-hover">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-exclamation-triangle text-blue-600 text-2xl mr-3"></i>
+                        <h5 class="text-lg font-semibold text-gray-800 dark:text-white">特別關注</h5>
+                    </div>
+                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-300">
+                        <li>• 證券化暴險大幅減少</li>
+                        <li>• 商用不動產曝險收縮</li>
+                        <li>• 銀行同業拆放縮減</li>
+                        <li>• 主權債務低風險增長</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="loan-analysis" class="py-16 bg-gray-50 dark:bg-slate-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">放款進出口押匯分析</h3>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    本期總計金額為34,325.40億元，較前期減少362.97億元，主要受政府部門放款縮減影響
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-8 card-hover">
+                    <h4 class="text-xl font-semibold text-gray-800 dark:text-white mb-6 flex items-center">
+                        <i class="fas fa-chart-bar text-primary mr-3"></i>
+                        放款變化對比
+                    </h4>
+                    <div id="loanChangeChart" class="h-80"></div>
+                </div>
+
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-8 card-hover">
+                    <h4 class="text-xl font-semibold text-gray-800 dark:text-white mb-6 flex items-center">
+                        <i class="fas fa-balance-scale text-primary mr-3"></i>
+                        部門別變化分析
+                    </h4>
+                    <div class="space-y-6">
+                        <div class="p-4 bg-red-50 dark:bg-red-900/20 rounded-xl border-l-4 border-red-500">
+                            <div class="font-semibold text-gray-800 dark:text-white">中央政府</div>
+                            <div class="text-2xl font-bold text-red-600 mt-1">-577.61億元</div>
+                            <div class="text-sm text-gray-500 dark:text-gray-400 mt-2">月度減幅最大，反映財政政策調整</div>
+                        </div>
+                        
+                        <div class="p-4 bg-green-50 dark:bg-green-900/20 rounded-xl border-l-4 border-green-500">
+                            <div class="font-semibold text-gray-800 dark:text-white">民營企業</div>
+                            <div class="text-2xl font-bold text-green-600 mt-1">+185.60億元</div>
+                            <div class="text-sm text-gray-500 dark:text-gray-400 mt-2">月度逆勢增長，顯示民間活力</div>
+                        </div>
+                        
+                        <div class="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl border-l-4 border-blue-500">
+                            <div class="font-semibold text-gray-800 dark:text-white">私人部門</div>
+                            <div class="text-2xl font-bold text-blue-600 mt-1">+89.25億元</div>
+                            <div class="text-sm text-gray-500 dark:text-gray-400 mt-2">季度增長271.86億元，表現突出</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl p-8">
+                <h4 class="text-xl font-semibold text-gray-800 dark:text-white mb-6 flex items-center">
+                    <i class="fas fa-chart-line text-secondary mr-3"></i>
+                    放款趨勢流程圖
+                </h4>
+                <div id="loanFlow" class="bg-white dark:bg-slate-800 rounded-xl p-6">
+                    <div class="mermaid">
+                        flowchart TD
+                            A["總放款金額<br/>34,325.40億元"] --> B["政府部門<br/>大幅縮減"]
+                            A --> C["民間部門<br/>逆勢增長"]
+                            B --> D["中央政府<br/>-577.61億元"]
+                            B --> E["地方政府<br/>+31.65億元"]
+                            B --> F["公營事業<br/>-175.70億元"]
+                            C --> G["民營企業<br/>+185.60億元"]
+                            C --> H["私人部門<br/>+89.25億元"]
+                            
+                            style A fill:#9A0036,color:#fff
+                            style B fill:#dc2626,color:#fff
+                            style C fill:#16a34a,color:#fff
+                            style D fill:#fca5a5,color:#000
+                            style E fill:#bbf7d0,color:#000
+                            style F fill:#fca5a5,color:#000
+                            style G fill:#bbf7d0,color:#000
+                            style H fill:#bbf7d0,color:#000
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="qa" class="py-16 bg-white dark:bg-slate-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-bold text-gray-800 dark:text-white mb-4">重點問答分析</h3>
+                <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    針對本期報告的關鍵議題進行深入問答分析
+                </p>
+            </div>
+
+            <div class="space-y-6">
+                <div class="bg-gray-50 dark:bg-slate-700 rounded-2xl p-8 card-hover">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">Q1</div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-gray-800 dark:text-white mb-3">本期信用風險性資產的總體變化趨勢為何？</h4>
+                            <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                                截至2025年7月底，信用風險性資產合計數顯著增長，較前期增加471.87億元。這增長速度超越了總帳面金額僅增加278.53億元的幅度，表明資產組合的平均風險權重有所提升，或是風險性較高的資產類別增長更快。此外，交易對手信用風險性資產也大幅增加89.80億元，進一步推升了整體風險性資產規模。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 dark:bg-slate-700 rounded-2xl p-8 card-hover">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">Q2</div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-gray-800 dark:text-white mb-3">哪些暴險類型是導致整體信用風險性資產增加的主要驅動力？</h4>
+                            <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-4">
+                                權益證券暴險和企業（含證券及保險公司）暴險是本期信用風險性資產增長的核心驅動力：
+                            </p>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="bg-white dark:bg-slate-600 rounded-xl p-4">
+                                    <div class="font-semibold text-gray-800 dark:text-white mb-2">權益證券暴險</div>
+                                    <div class="text-sm text-gray-600 dark:text-gray-300">風險性資產增幅最大，達257.62億元，增長幅度甚至超過帳面金額增幅，顯示新增投資風險權重較高</div>
+                                </div>
+                                <div class="bg-white dark:bg-slate-600 rounded-xl p-4">
+                                    <div class="font-semibold text-gray-800 dark:text-white mb-2">企業暴險</div>
+                                    <div class="text-sm text-gray-600 dark:text-gray-300">帳面金額僅微幅增加37.07億元，但風險性資產顯著增加151.87億元，反映結構轉向高風險權重債務</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 dark:bg-slate-700 rounded-2xl p-8 card-hover">
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-bold">Q3</div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-semibold text-gray-800 dark:text-white mb-3">主權國家暴險的變化有何特殊之處，這反映了什麼策略？</h4>
+                            <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                                主權國家暴險的帳面金額增加了397.65億元，為各類暴險中帳面金額增幅之冠。然而，其風險性資產僅微幅增加7.34億元。這種顯著差異表明，機構主要擴大了對信用評級較高、風險權重較低的主權債務的投資，成功地在擴大資產規模的同時，最大限度地降低了對總體風險性資產的影響，體現了在資產擴張中控制風險的策略。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded-2xl p-8">
+                    <h4 class="text-xl font-semibold text-gray-800 dark:text-white mb-6 flex items-center">
+                        <i class="fas fa-lightbulb text-warning mr-3"></i>
+                        結論與重點觀察
+                    </h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h5 class="font-semibold text-gray-800 dark:text-white mb-3">風險性資產增長與結構轉變</h5>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">儘管總帳面金額溫和增長，但風險性資產的增長速度更快，表明機構的風險偏好有所提升，尤其是在權益證券和企業曝險領域。</p>
+                            
+                            <h5 class="font-semibold text-gray-800 dark:text-white mb-3">政府部門放款大幅縮減</h5>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">整體放款餘額下降主要歸因於政府機關，特別是中央政府的大幅縮減，可能反映了政府財政政策的調整。</p>
+                        </div>
+                        <div>
+                            <h5 class="font-semibold text-gray-800 dark:text-white mb-3">民間經濟活動的韌性</h5>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">在政府放款大幅收縮的背景下，私人和民營企業放款逆勢增長，顯示民間部門的經濟活動相對穩定甚至擴張。</p>
+                            
+                            <h5 class="font-semibold text-gray-800 dark:text-white mb-3">高科技產業強勁表現</h5>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">電子、通訊設備、電腦製造、積體電路等高科技相關產業的資產擴張與風險性資產增長顯著，是本期業務發展的亮點。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 dark:bg-slate-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">免責聲明</h4>
+                    <p class="text-gray-300 text-sm">基於公開資料，僅供參考，不構成建議</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">資料來源</h4>
+                    <p class="text-gray-300 text-sm">網頁公開資訊</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">作者資訊</h4>
+                    <p class="text-gray-300 text-sm mb-2">Dunk</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 text-center">
+                <p class="text-gray-400 text-sm">© Dunk. 版權所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (localStorage.getItem('darkMode') === 'true' || (!localStorage.getItem('darkMode') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                document.documentElement.classList.add('dark');
+            }
+
+            document.getElementById('darkModeToggle').addEventListener('click', function() {
+                document.documentElement.classList.toggle('dark');
+                localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+            });
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+
+            mermaid.initialize({
+                theme: document.documentElement.classList.contains('dark') ? 'dark' : 'default',
+                themeVariables: {
+                    primaryColor: '#9A0036',
+                    primaryTextColor: '#ffffff',
+                    primaryBorderColor: '#941C61',
+                    lineColor: '#333333',
+                    sectionBkgColor: '#f9fafb',
+                    altSectionBkgColor: '#ffffff',
+                    gridColor: '#e5e7eb',
+                    tertiaryColor: '#f3f4f6'
+                }
+            });
+
+            const riskAssetChart = echarts.init(document.getElementById('riskAssetChart'));
+            const riskAssetOption = {
+                tooltip: { trigger: 'item' },
+                legend: { top: '5%', left: 'center' },
+                series: [{
+                    name: '風險性資產變化',
+                    type: 'pie',
+                    radius: ['40%', '70%'],
+                    avoidLabelOverlap: false,
+                    itemStyle: {
+                        borderRadius: 10,
+                        borderColor: '#fff',
+                        borderWidth: 2
+                    },
+                    label: { show: false, position: 'center' },
+                    emphasis: {
+                        label: { show: true, fontSize: '20', fontWeight: 'bold' }
+                    },
+                    labelLine: { show: false },
+                    data: [
+                        { value: 257.62, name: '權益證券暴險', itemStyle: { color: '#9A0036' } },
+                        { value: 151.87, name: '企業曝險', itemStyle: { color: '#941C61' } },
+                        { value: 89.80, name: '交易對手信用風險', itemStyle: { color: '#EEBAC0' } },
+                        { value: 7.34, name: '主權國家暴險', itemStyle: { color: '#FF8C00' } },
+                        { value: -95.65, name: '證券化暴險(減少)', itemStyle: { color: '#dc2626' } }
+                    ]
+                }]
+            };
+            riskAssetChart.setOption(riskAssetOption);
+
+            const industryChart = echarts.init(document.getElementById('industryChart'));
+            const industryOption = {
+                tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+                legend: { data: ['帳面金額變化', '風險性資產變化'] },
+                grid: { left: '3%', right: '4%', bottom: '3%', containLabel: true },
+                xAxis: {
+                    type: 'value',
+                    axisLabel: { formatter: '{value}億' }
+                },
+                yAxis: {
+                    type: 'category',
+                    data: ['電子通訊設備批發', '電腦製造', '積體電路製造', '用水供應', '不動產開發', '玻璃纖維製造']
+                },
+                series: [
+                    {
+                        name: '帳面金額變化',
+                        type: 'bar',
+                        data: [101.31, 85.2, 78.5, -48.69, -35.2, -28.1],
+                        itemStyle: { color: '#9A0036' }
+                    },
+                    {
+                        name: '風險性資產變化',
+                        type: 'bar',
+                        data: [101.39, 86.1, 79.2, -47.8, -36.5, -29.3],
+                        itemStyle: { color: '#941C61' }
+                    }
+                ]
+            };
+            industryChart.setOption(industryOption);
+
+            const loanChangeChart = echarts.init(document.getElementById('loanChangeChart'));
+            const loanChangeOption = {
+                tooltip: { trigger: 'axis' },
+                legend: { data: ['月度變化', '季度變化'] },
+                grid: { left: '3%', right: '4%', bottom: '3%', containLabel: true },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: ['中央政府', '地方政府', '公營事業', '民營企業', '私人部門']
+                },
+                yAxis: {
+                    type: 'value',
+                    axisLabel: { formatter: '{value}億' }
+                },
+                series: [
+                    {
+                        name: '月度變化',
+                        type: 'line',
+                        stack: 'Total',
+                        data: [-577.61, 31.65, -175.70, 185.60, 89.25],
+                        itemStyle: { color: '#9A0036' },
+                        areaStyle: { opacity: 0.3 }
+                    },
+                    {
+                        name: '季度變化',
+                        type: 'line',
+                        stack: 'Total',
+                        data: [-1779.60, -207.94, -192.69, -18.61, 271.86],
+                        itemStyle: { color: '#941C61' },
+                        areaStyle: { opacity: 0.3 }
+                    }
+                ]
+            };
+            loanChangeChart.setOption(loanChangeOption);
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-fade-in');
+                    }
+                });
+            });
+
+            document.querySelectorAll('.card-hover').forEach(el => {
+                observer.observe(el);
+            });
+
+            window.addEventListener('resize', () => {
+                riskAssetChart.resize();
+                industryChart.resize();
+                loanChangeChart.resize();
+            });
+        });
+    </script>
+</body>
+</html>
