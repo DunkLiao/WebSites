@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>風險監控月報系統 - 企業風險管理與監控報告平台</title>
+    <title>信用風險監控月報系統 - 企業風險管理與監控報告平台</title>
     <style>
         * {
             margin: 0;
@@ -390,13 +390,392 @@
                 font-size: 1.5rem;
             }
         }
+		
+		/* Dashboard Container Styles */
+        .dashboard-section {
+            padding: 2rem 0;
+            background: white;
+            margin: 1rem 0;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+
+        .dashboard-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 0 2rem;
+        }
+
+        .dashboard-header h2 {
+            color: #9A0036;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            border-bottom: 3px solid #EEBAC0;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+
+        .dashboard-header p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        /* Tableau Container 增強樣式 */
+		.tableau-container {
+			margin: 2rem 0;
+			padding: 1.5rem;
+			background: #f8f9fa;
+			border-radius: 12px;
+			border: 1px solid #e9ecef;
+			box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+		}
+
+		.tableau-title {
+			color: #9A0036;
+			font-size: 1.2rem;
+			font-weight: 600;
+			margin-bottom: 1.5rem;
+			padding-left: 1rem;
+			border-left: 4px solid #9A0036;
+			background: white;
+			padding: 1rem;
+			border-radius: 8px;
+			box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+		}
+
+		.tableau-wrapper {
+			background: white;
+			border-radius: 8px;
+			padding: 1rem;
+			box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+			overflow: hidden;
+		}
+
+		.tableauPlaceholder {
+			margin: 0;
+			border-radius: 8px;
+			overflow: hidden;
+			background: white;
+			min-height: 600px;
+			position: relative;
+		}
+
+		/* 載入狀態樣式 */
+		.tableau-loading {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 400px;
+			background: #f8f9fa;
+			border: 2px dashed #dee2e6;
+			border-radius: 8px;
+			color: #6c757d;
+		}
+
+		.tableau-loading .spinner {
+			width: 40px;
+			height: 40px;
+			border: 4px solid #f3f3f3;
+			border-top: 4px solid #9A0036;
+			border-radius: 50%;
+			animation: spin 1s linear infinite;
+			margin-bottom: 1rem;
+		}
+
+		@keyframes spin {
+			0% { transform: rotate(0deg); }
+			100% { transform: rotate(360deg); }
+		}
+
+		
+		/* Responsive Design */
+        @media (max-width: 1200px) {
+            .dashboard-grid.three-column {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-header h1 {
+                font-size: 1.8rem;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .dashboard-grid.two-column,
+            .dashboard-grid.three-column {
+                grid-template-columns: 1fr;
+            }
+
+            .tableau-container {
+                padding: 0.5rem;
+            }
+
+            .dashboard-header h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .main-header {
+                padding: 1.5rem 0;
+            }
+
+            .dashboard-section {
+                margin: 0.5rem 0;
+                padding: 1rem 0;
+            }
+        }
+		
+		/* 回到頁首按鈕樣式 */
+		.back-to-top {
+			position: fixed;
+			bottom: 30px;
+			right: 30px;
+			width: 50px;
+			height: 50px;
+			background: linear-gradient(135deg, #9A0036, #941C61);
+			color: white;
+			border: none;
+			border-radius: 50%;
+			cursor: pointer;
+			font-size: 20px;
+			box-shadow: 0 4px 15px rgba(154, 0, 54, 0.3);
+			transition: all 0.3s ease;
+			z-index: 1000;
+			opacity: 0;
+			visibility: hidden;
+			transform: translateY(20px);
+		}
+
+		.back-to-top.show {
+			opacity: 1;
+			visibility: visible;
+			transform: translateY(0);
+		}
+
+		.back-to-top:hover {
+			background: linear-gradient(135deg, #B8003F, #A91C6A);
+			transform: translateY(-3px);
+			box-shadow: 0 6px 20px rgba(154, 0, 54, 0.4);
+		}
+
+		.back-to-top:active {
+			transform: translateY(-1px);
+		}
+
+		/* 按鈕內的箭頭圖示 */
+		.back-to-top::before {
+			content: '↑';
+			font-size: 24px;
+			font-weight: bold;
+			line-height: 1;
+		}
+
+		/* 響應式設計 */
+		@media (max-width: 768px) {
+			.back-to-top {
+				bottom: 20px;
+				right: 20px;
+				width: 45px;
+				height: 45px;
+				font-size: 18px;
+			}
+			
+			.back-to-top::before {
+				font-size: 20px;
+			}
+		}
+
+		@media (max-width: 480px) {
+			.back-to-top {
+				bottom: 15px;
+				right: 15px;
+				width: 40px;
+				height: 40px;
+				font-size: 16px;
+			}
+			
+			.back-to-top::before {
+				font-size: 18px;
+			}
+		}
+		
+		/* 確保容器有足夠的高度 */
+		.tableau-container {
+			width: 100%;
+			min-height: 800px; /* 設定最小高度 */
+			height: auto;
+			overflow: visible; /* 允許內容溢出顯示 */
+		}
+
+		.tableauPlaceholder {
+			width: 100% !important;
+			height: 100% !important;
+			min-height: 600px;
+			position: relative;
+		}
+
+		/* 確保HTML和body有完整高度 */
+		html, body {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+		}
+
+
     </style>
+	<script type='text/javascript'>
+	// 等待DOM完全載入
+	document.addEventListener('DOMContentLoaded', function() {
+		// 延遲初始化，確保容器準備就緒
+		setTimeout(function() {
+			initializeTableauDashboard();
+		}, 1000);
+	});
+
+	function initializeTableauDashboard() {
+		var divElement = document.getElementById('viz1749951826806');
+		if (!divElement) {
+			console.error('找不到Tableau容器');
+			return;
+		}
+		
+		var vizElement = divElement.getElementsByTagName('object')[0];
+		if (!vizElement) {
+			console.error('找不到Tableau object元素');
+			return;
+		}
+		
+		// 獲取父容器的實際尺寸
+		var parentContainer = divElement.closest('.tableau-container');
+		var containerWidth = parentContainer ? parentContainer.offsetWidth : window.innerWidth;
+		
+		// 根據容器寺寸動態調整
+		if (containerWidth > 1200) {
+			vizElement.style.width = '100%';
+			vizElement.style.height = '800px';
+			divElement.style.height = '800px';
+		} else if (containerWidth > 800) {
+			vizElement.style.width = '100%';
+			vizElement.style.height = '700px';
+			divElement.style.height = '700px';
+		} else if (containerWidth > 500) {
+			vizElement.style.width = '100%';
+			vizElement.style.height = '600px';
+			divElement.style.height = '600px';
+		} else {
+			vizElement.style.width = '100%';
+			vizElement.style.height = '900px'; // 手機版需要更高
+			divElement.style.height = '900px';
+		}
+		
+		// 載入Tableau API
+		loadTableauAPI(vizElement);
+	}
+
+	function loadTableauAPI(vizElement) {
+		// 檢查是否已載入API
+		if (window.tableauApiLoaded) {
+			return;
+		}
+		
+		var scriptElement = document.createElement('script');
+		scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+		
+		scriptElement.onload = function() {
+			console.log('Tableau API載入成功');
+			window.tableauApiLoaded = true;
+			
+			// API載入後再次調整尺寸
+			setTimeout(function() {
+				adjustTableauSize();
+			}, 2000);
+		};
+		
+		scriptElement.onerror = function() {
+			console.error('Tableau API載入失敗');
+			showErrorMessage();
+		};
+		
+		vizElement.parentNode.insertBefore(scriptElement, vizElement);
+	}
+
+	// 調整Tableau尺寸的函數
+	function adjustTableauSize() {
+		var viz = document.getElementById('viz1749951826806');
+		if (viz) {
+			// 強制重新計算尺寸
+			viz.style.height = 'auto';
+			setTimeout(function() {
+				var container = viz.closest('.tableau-container');
+				if (container) {
+					var newHeight = Math.max(600, container.offsetWidth * 0.6);
+					viz.style.height = newHeight + 'px';
+				}
+			}, 100);
+		}
+	}
+
+	// 視窗大小改變時重新調整
+	window.addEventListener('resize', function() {
+		clearTimeout(window.resizeTimeout);
+		window.resizeTimeout = setTimeout(function() {
+			adjustTableauSize();
+		}, 300);
+	});
+
+	// 錯誤處理
+	function showErrorMessage() {
+		var container = document.getElementById('viz1749951826806');
+		if (container) {
+			container.innerHTML = `
+				<div style="
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					justify-content: center;
+					height: 400px;
+					background: #f8f9fa;
+					border: 2px dashed #dee2e6;
+					border-radius: 8px;
+					color: #6c757d;
+					text-align: center;
+					padding: 2rem;
+				">
+					<div style="color: #dc3545; font-size: 1.2rem; font-weight: bold; margin-bottom: 1rem;">
+						⚠️ 儀表板載入失敗
+					</div>
+					<p>請檢查網路連線或重新整理頁面</p>
+					<button onclick="location.reload()" style="
+						background: #9A0036;
+						color: white;
+						border: none;
+						padding: 0.5rem 1rem;
+						border-radius: 4px;
+						cursor: pointer;
+						margin-top: 1rem;
+					">重新載入</button>
+				</div>
+			`;
+		}
+	}
+	</script>
+
 </head>
 <body>
     <!-- Header -->
     <header class="main-header">
         <div class="container">
-            <h1>風險監控月報系統</h1>
+            <h1>信用風險監控月報系統</h1>
             <p class="subtitle">銀行風險管理與監控報告平台</p>            
         </div>
     </header>    
@@ -454,7 +833,29 @@
                 </div>-->
             </div>
         </div>
-    </section>    
+    </section>
+	
+	<!-- Credit Risk Dashboard Section -->
+	<section id="credit-risk" class="dashboard-section">
+		<div class="container">
+			<div class="dashboard-header">
+				<h2>信用風險監控儀表板</h2>
+				<p>信用風險指標與放款組合分析</p>
+			</div>
+			<div class="tableau-title">整體風險概況</div>			
+		</div>
+		<div class='tableauPlaceholder' id='viz1748067699604' style='position: relative' align='center'><noscript><a href='#'><img alt='帳面與RWA分析儀表板 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;BI&#47;BIS_17480652188010&#47;RWA&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='BIS_17480652188010&#47;RWA' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;BI&#47;BIS_17480652188010&#47;RWA&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1748067699604');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1300px';vizElement.style.height='927px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1300px';vizElement.style.height='927px';} else { vizElement.style.width='100%';vizElement.style.height='2127px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+		<div class='tableauPlaceholder' id='viz1748354596024' style='position: relative' align='center'><noscript><a href='#'><img alt='儀表板 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;BI&#47;BIS_17483543269440&#47;sheet10&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='BIS_17483543269440&#47;sheet10' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;BI&#47;BIS_17483543269440&#47;sheet10&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1748354596024');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1300px';vizElement.style.height='927px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1300px';vizElement.style.height='927px';} else { vizElement.style.width='100%';vizElement.style.height='2777px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+		<div class='tableauPlaceholder' id='viz1749567656121' style='position: relative' align='center'><noscript><a href='#'><img alt='儀表板 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;BI&#47;BIS_17495673948140&#47;sheet5&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='BIS_17495673948140&#47;sheet5' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;BI&#47;BIS_17495673948140&#47;sheet5&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1749567656121');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1300px';vizElement.style.height='927px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1300px';vizElement.style.height='927px';} else { vizElement.style.width='100%';vizElement.style.height='1727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+		<br/>
+		<div class="container">
+			<div class="tableau-title">放款組合趨勢</div>
+		</div>
+		<div class='tableauPlaceholder' id='viz1749738214792' style='position: relative' align='center'><noscript><a href='#'><img alt='儀表板 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_17497380033300&#47;sheet7&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_17497380033300&#47;sheet7' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_17497380033300&#47;sheet7&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1749738214792');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1300px';vizElement.style.height='927px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1300px';vizElement.style.height='927px';} else { vizElement.style.width='100%';vizElement.style.height='2127px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>		
+		<div class='tableauPlaceholder' id='viz1747445423209' style='position: relative' align='center'><noscript><a href='#'><img alt='逾期放款分析儀表板 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_17473569606270&#47;sheet5&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_17473569606270&#47;sheet5' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_17473569606270&#47;sheet5&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1747445423209');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1300px';vizElement.style.height='927px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1300px';vizElement.style.height='927px';} else { vizElement.style.width='100%';vizElement.style.height='1677px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+		<div class='tableauPlaceholder' id='viz1747842466064' style='position: relative' align='center'><noscript><a href='#'><img alt='本行承作各建築業集團授信限額表 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_17478412803020&#47;sheet6&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='_17478412803020&#47;sheet6' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;_1&#47;_17478412803020&#47;sheet6&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1747842466064');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1300px';vizElement.style.height='927px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1300px';vizElement.style.height='927px';} else { vizElement.style.width='100%';vizElement.style.height='2077px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>		
+	</section>
+
 
     <!-- Footer -->
     <footer class="main-footer">
@@ -509,5 +910,138 @@
             });
         });
     </script>
+	
+	<script type='text/javascript'>
+		document.addEventListener('DOMContentLoaded', function() {
+			// 等待頁面完全載入後初始化Tableau
+			setTimeout(function() {
+				initializeTableauViz();
+			}, 500);
+		});
+
+		function initializeTableauViz() {
+			var divElement = document.getElementById('viz1749951826806');
+			
+			if (!divElement) {
+				console.error('Tableau容器未找到');
+				return;
+			}
+			
+			var vizElement = divElement.getElementsByTagName('object')[0];
+			
+			if (!vizElement) {
+				console.error('Tableau object未找到');
+				return;
+			}
+			
+			// 響應式尺寸設定
+			var containerWidth = divElement.parentElement.offsetWidth;
+			
+			if (containerWidth > 1200) {
+				vizElement.style.width = '100%';
+				vizElement.style.height = '700px';
+			} else if (containerWidth > 800) {
+				vizElement.style.width = '100%';
+				vizElement.style.height = '600px';
+			} else if (containerWidth > 500) {
+				vizElement.style.width = '100%';
+				vizElement.style.height = '500px';
+			} else {
+				vizElement.style.width = '100%';
+				vizElement.style.height = '800px';
+			}
+			
+			// 載入Tableau API
+			if (!document.querySelector('script[src*="viz_v1.js"]')) {
+				var scriptElement = document.createElement('script');
+				scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+				scriptElement.onload = function() {
+					console.log('Tableau API載入成功');
+				};
+				scriptElement.onerror = function() {
+					console.error('Tableau API載入失敗');
+					showTableauError();
+				};
+				vizElement.parentNode.insertBefore(scriptElement, vizElement);
+			}
+		}
+
+		// 錯誤處理函數
+		function showTableauError() {
+			var divElement = document.getElementById('viz1749951826806');
+			if (divElement) {
+				divElement.innerHTML = `
+					<div class="tableau-loading">
+						<div style="color: #dc3545; font-size: 1.1rem; font-weight: bold;">
+							⚠️ Tableau儀表板載入失敗
+						</div>
+						<p style="margin-top: 1rem; text-align: center;">
+							請檢查網路連線或聯繫系統管理員
+						</p>
+					</div>
+				`;
+			}
+		}
+
+		// 視窗大小改變時重新調整
+		window.addEventListener('resize', function() {
+			setTimeout(function() {
+				initializeTableauViz();
+			}, 300);
+		});
+	</script>
+	
+	<!-- 回到頁首按鈕 -->
+	<button id="backToTop" class="back-to-top" title="回到頁首" aria-label="回到頁首"></button>
+
+	<!-- 在頁面底部，</body>標籤前添加JavaScript -->
+	<script>
+	// 回到頁首功能
+	document.addEventListener('DOMContentLoaded', function() {
+		const backToTopButton = document.getElementById('backToTop');
+		
+		// 節流函數，避免頻繁觸發scroll事件
+		function throttle(func, limit) {
+			let inThrottle;
+			return function() {
+				const args = arguments;
+				const context = this;
+				if (!inThrottle) {
+					func.apply(context, args);
+					inThrottle = true;
+					setTimeout(() => inThrottle = false, limit);
+				}
+			}
+		}
+		
+		// 檢查是否顯示回到頁首按鈕
+		function checkScrollPosition() {
+			if (window.pageYOffset > 300) {
+				backToTopButton.classList.add('show');
+			} else {
+				backToTopButton.classList.remove('show');
+			}
+		}
+		
+		// 平滑滾動到頁首
+		function scrollToTop() {
+			window.scrollTo({
+				top: 0,
+				behavior: 'smooth'
+			});
+		}
+		
+		// 監聽滾動事件（使用節流）
+		window.addEventListener('scroll', throttle(checkScrollPosition, 100));
+		
+		// 點擊按鈕回到頁首
+		backToTopButton.addEventListener('click', scrollToTop);
+		
+		// 初始檢查
+		checkScrollPosition();
+	});
+	</script>
+
+
 </body>
 </html>
