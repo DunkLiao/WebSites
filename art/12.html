@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>北京首屆世界人形機器人運動會</title>
+    <style>
+        .audio-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        
+        audio {
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        .audio-info {
+            margin-bottom: 15px;
+        }
+        
+        .audio-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .audio-description {
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="audio-container">
+        <div class="audio-info">
+            <div class="audio-title">北京首屆世界人形機器人運動會</div>
+            <div class="audio-description"></div>
+        </div>                
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/UdDAlS6sNS4?si=dr7ouUnkTNtgoKfo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+</body>
+</html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>北京首屆世界人形機器人運動會 - 科技與體育的歷史性結合</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #06b6d4 100%);
+        }
+        
+        .tech-card {
+            background: linear-gradient(145deg, #f8fafc, #e2e8f0);
+            border: 1px solid #cbd5e1;
+            transition: all 0.3s ease;
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .robot-icon {
+            background: linear-gradient(45deg, #3b82f6, #06b6d4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .section-divider {
+            background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+            height: 2px;
+        }
+        
+        .stats-counter {
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            color: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .stats-counter:hover {
+            transform: scale(1.05);
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+            border-left: 3px solid #3b82f6;
+            margin-bottom: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 0;
+            width: 14px;
+            height: 14px;
+            background: #3b82f6;
+            border-radius: 50%;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, #eff6ff, #dbeafe);
+            border-left: 4px solid #3b82f6;
+            padding: 1.5rem;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .nav-link {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: #3b82f6;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 50%;
+            background: #3b82f6;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+            left: 0;
+        }
+        
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #3b82f6;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-to-top:hover {
+            background: #1e40af;
+            transform: translateY(-3px);
+        }
+        
+        .faq-item {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .faq-question:hover {
+            background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+        }
+        
+        .faq-answer {
+            padding: 1.5rem;
+            display: none;
+            background: white;
+        }
+        
+        .faq-answer.active {
+            display: block;
+        }
+        
+        .faq-toggle {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-toggle.active {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 導航欄 -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold robot-icon">🤖</span>
+                    <span class="ml-2 text-xl font-semibold text-gray-800">機器人運動會</span>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#overview" class="nav-link text-gray-700 hover:text-blue-600 font-medium">活動概述</a>
+                    <a href="#events" class="nav-link text-gray-700 hover:text-blue-600 font-medium">賽事亮點</a>
+                    <a href="#robots" class="nav-link text-gray-700 hover:text-blue-600 font-medium">參賽機器人</a>
+                    <a href="#significance" class="nav-link text-gray-700 hover:text-blue-600 font-medium">戰略意義</a>
+                    <a href="#response" class="nav-link text-gray-700 hover:text-blue-600 font-medium">媒體回響</a>
+                    <a href="#faq" class="nav-link text-gray-700 hover:text-blue-600 font-medium">常見問題</a>
+                    <a href="#conclusion" class="nav-link text-gray-700 hover:text-blue-600 font-medium">未來意義</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄區塊 -->
+    <section class="gradient-bg text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-5xl md:text-6xl font-bold mb-6">
+                北京首屆世界人形機器人運動會
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 opacity-90">
+                科技與體育的歷史性結合
+            </p>
+            <div class="text-lg mb-8">
+                <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full mr-4">📅 2025年8月14-17日</span>
+                <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full">📍 國家速滑館「冰絲帶」</span>
+            </div>
+            <div class="text-2xl font-semibold mb-8">
+                主題：「智競向未來」
+            </div>
+        </div>
+    </section>
+
+    <!-- 統計數據 -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div class="stats-counter">
+                    <div class="text-3xl font-bold mb-2">16</div>
+                    <div class="text-sm">參賽國家</div>
+                </div>
+                <div class="stats-counter">
+                    <div class="text-3xl font-bold mb-2">280</div>
+                    <div class="text-sm">參賽隊伍</div>
+                </div>
+                <div class="stats-counter">
+                    <div class="text-3xl font-bold mb-2">500+</div>
+                    <div class="text-sm">參賽機器人</div>
+                </div>
+                <div class="stats-counter">
+                    <div class="text-3xl font-bold mb-2">487</div>
+                    <div class="text-sm">比賽場次</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 活動概述 -->
+    <section id="overview" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">活動概述與重要性</h2>
+            <div class="section-divider mb-12"></div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="tech-card p-8 rounded-xl">
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-600">🏆 規模宏大</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        吸引了來自16個國家的280支隊伍參賽，共有超過500台人形機器人在26個項目、487場比賽中展開激烈競爭。
+                    </p>
+                </div>
+                
+                <div class="tech-card p-8 rounded-xl">
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-600">🏟️ 場地改造</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        「冰絲帶」場館經過全面改造，田徑賽道寬度擴展至2.1米，地板採用三層特殊防護設計，並設有專門的訓練基地。
+                    </p>
+                </div>
+            </div>
+            
+            <div class="highlight-box mt-12">
+                <h3 class="text-xl font-semibold mb-3 text-blue-800">創新與結合</h3>
+                <p class="text-gray-700">
+                    活動由北京市政府與中央廣播電視總台聯合主辦，強調人工智慧技術與體育精神的結合，以及科技與人文的深度融合。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 賽事設計與亮點 -->
+    <section id="events" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">賽事設計與亮點</h2>
+            <div class="section-divider mb-12"></div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="tech-card p-6 rounded-xl text-center">
+                    <div class="text-4xl mb-4">🏃‍♂️</div>
+                    <h3 class="text-lg font-semibold mb-2 text-blue-600">競技賽</h3>
+                    <p class="text-sm text-gray-600">田徑、足球、拳擊、搏擊、乒乓球</p>
+                </div>
+                
+                <div class="tech-card p-6 rounded-xl text-center">
+                    <div class="text-4xl mb-4">💃</div>
+                    <h3 class="text-lg font-semibold mb-2 text-blue-600">表演賽</h3>
+                    <p class="text-sm text-gray-600">群體舞蹈、武術、單機舞蹈、自由體操</p>
+                </div>
+                
+                <div class="tech-card p-6 rounded-xl text-center">
+                    <div class="text-4xl mb-4">🏭</div>
+                    <h3 class="text-lg font-semibold mb-2 text-blue-600">場景賽</h3>
+                    <p class="text-sm text-gray-600">工業搬運、醫藥分揀、酒店服務</p>
+                </div>
+                
+                <div class="tech-card p-6 rounded-xl text-center">
+                    <div class="text-4xl mb-4">🥊</div>
+                    <h3 class="text-lg font-semibold mb-2 text-blue-600">外圍賽</h3>
+                    <p class="text-sm text-gray-600">自由搏擊、籃球、乒乓球</p>
+                </div>
+            </div>
+            
+            <div class="highlight-box">
+                <h4 class="text-xl font-semibold mb-3 text-blue-800">🏅 首金誕生</h4>
+                <p class="text-gray-700">
+                    宇樹科技子公司靈翌科技在1500米田徑賽中跑出6分34秒的成績奪得首金，而亞軍「天工」機器人是唯一全程自主、無人工遙控完成比賽的機器人。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 參賽機器人 -->
+    <section id="robots" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">參賽機器人與技術細節</h2>
+            <div class="section-divider mb-12"></div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="tech-card p-8 rounded-xl">
+                    <div class="text-5xl mb-4 text-center">⚽</div>
+                    <h3 class="text-xl font-semibold mb-4 text-blue-600">T1人形機器人</h3>
+                    <p class="text-gray-700 mb-4">由Booster Robotics公司研發，專為足球訓練與比賽設計。T1機器人具備卓越的運動能力和智能決策功能，能在足球場上進行實時戰術分析與動作執行。</p>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>• 實時戰術分析與動作執行</li>
+                        <li>• 根據場上情況進行站位調整</li>
+                        <li>• 高度的靈活性與適應性</li>
+                        <li>• 專業足球訓練與比賽設計</li>
+                    </ul>
+                </div>
+                
+                <div class="tech-card p-8 rounded-xl">
+                    <div class="text-5xl mb-4 text-center">🏃</div>
+                    <h3 class="text-xl font-semibold mb-4 text-blue-600">H1機器人</h3>
+                    <p class="text-gray-700 mb-4">由宇樹科技研發，專為田徑項目設計，並在本次運動會中取得卓越成績，於400公尺和1500公尺田徑項目中分別奪得金牌。</p>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>• 400米和1500米雙金牌得主</li>
+                        <li>• 先進的動力系統與運動控制</li>
+                        <li>• 高強度比賽中保持穩定速度</li>
+                        <li>• 高度的環境適應能力</li>
+                    </ul>
+                </div>
+                
+                <div class="tech-card p-8 rounded-xl">
+                    <div class="text-5xl mb-4 text-center">🎹</div>
+                    <h3 class="text-xl font-semibold mb-4 text-blue-600">Linkerbot鋼琴機器人</h3>
+                    <p class="text-gray-700 mb-4">由靈心巧手團隊研發，在開幕式上與鋼琴表演家段俊共同演奏，展示了人形機器人在音樂演奏與人機協作方面的潛力。</p>
+                    <ul class="text-sm text-gray-600 space-y-1">
+                        <li>• 高自由度的靈巧手設計</li>
+                        <li>• 精準的鋼琴演奏能力</li>
+                        <li>• 與人類表演者協作演出</li>
+                        <li>• 音樂演奏領域的技術突破</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 戰略意義 -->
+    <section id="significance" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">戰略意義與未來展望</h2>
+            <div class="section-divider mb-12"></div>
+            
+            <div class="grid md:grid-cols-2 gap-12 mb-12">
+                <div class="tech-card p-8 rounded-xl">
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-600">🇨🇳 中國的機器人帝國野心</h3>
+                    <p class="text-gray-700 mb-4">
+                        中國政府已將人形機器人列為國家戰略重點，計劃未來20年投入1兆人民幣推動發展。
+                    </p>
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <p class="text-sm text-blue-800 font-medium">
+                            摩根士丹利報告：中國企業已占據全球人形機器人供應鏈63%的份額
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="tech-card p-8 rounded-xl">
+                    <h3 class="text-2xl font-semibold mb-4 text-blue-600">🔬 技術展示與驗證平台</h3>
+                    <p class="text-gray-700 mb-4">
+                        為參賽企業提供真實場景下的技術驗證平台，在複雜情況下展現感知、控制、決策等核心能力。
+                    </p>
+                    <div class="bg-green-50 p-4 rounded-lg">
+                        <p class="text-sm text-green-800 font-medium">
+                            技術缺陷會被迅速放大，成為改進方向
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-gradient-to-r from-blue-600 to-cyan-600 text-white p-8 rounded-xl mb-8">
+                <h3 class="text-2xl font-bold mb-6">📈 廣闊市場前景</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold mb-2">7兆美元</div>
+                        <div class="text-sm opacity-90">2050年市場規模預測</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold mb-2">6.48億</div>
+                        <div class="text-sm opacity-90">全球機器人數量預測</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold mb-2">1萬台</div>
+                        <div class="text-sm opacity-90">中國今年產量突破</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 媒體回響 -->
+    <section id="response" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">媒體與觀眾回響</h2>
+            <div class="section-divider mb-12"></div>
+            
+            <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+                <div class="tech-card p-8 rounded-xl">
+                    <div class="text-5xl mb-4 text-center">📺</div>
+                    <h3 class="text-xl font-semibold mb-4 text-blue-600">媒體報導</h3>
+                    <p class="text-gray-700 mb-4">媒體普遍讚揚開幕式的創意和多樣性，尤其是機器人與人類表演者的合作，以及服飾走秀節目《天工霓裳》中傳統文化與未來設計的融合。</p>
+                </div>
+                
+                <div class="tech-card p-8 rounded-xl">
+                    <div class="text-5xl mb-4 text-center">🎓</div>
+                    <h3 class="text-xl font-semibold mb-4 text-blue-600">專業評論</h3>
+                    <p class="text-gray-700 mb-4">專家認為這是推動人形機器人技術發展的重要平台，展示了人工智慧在智能決策和運動協作方面的最新成果。</p>
+                </div>
+                
+                <div class="tech-card p-8 rounded-xl">
+                    <div class="text-5xl mb-4 text-center">👨‍👩‍👧‍👦</div>
+                    <h3 class="text-xl font-semibold mb-4 text-blue-600">觀眾評價</h3>
+                    <p class="text-gray-700 mb-4">開幕式表演以其創新性、科技感和人機協作贏得觀眾讚譽。比賽中機器人出糗的場景增加了趣味性，吸引了大量家庭觀眾。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 常見問題 -->
+    <section id="faq" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">常見問題</h2>
+            <div class="section-divider mb-12"></div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-semibold text-gray-800 flex-1">什麼是首屆世界人形機器人運動會？</h3>
+                        <svg class="faq-toggle w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-700 leading-relaxed">
+                            首屆世界人形機器人運動會於2025年8月14日至17日在北京國家速滑館「冰絲帶」舉行。這是一場全球首次以人形機器人為主題的綜合性體育賽事，由北京市政府與中央廣播電視總台聯合主辦。運動會旨在展示人工智慧技術與體育精神的結合，推動人形機器人技術及相關產業的發展。共有來自16個國家，280支隊伍的500多台機器人參加了26個項目、487場比賽，涵蓋了競技賽、表演賽、場景賽和外圍賽等四大類別。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-semibold text-gray-800 flex-1">運動會的舉辦地點「冰絲帶」有何特別之處？</h3>
+                        <svg class="faq-toggle w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            本次運動會的場地選在北京國家速滑館「冰絲帶」，這座場館曾是2022年冬季奧運會的速滑比賽場地。為了適應人形機器人的比賽需求，場館進行了全面改造。
+                        </p>
+                        <ul class="text-gray-700 space-y-2">
+                            <li>• 田徑賽道的寬度從傳統的1.22公尺擴展至2.1公尺，以便機器人更好地識別跑道並進行操作</li>
+                            <li>• 場館地板採用了三層特殊防護設計，包括防火地毯、PE材質減震板和地膠</li>
+                            <li>• 自由搏擊場地也從高台改為平地，並採用可拆卸圍繩設計</li>
+                            <li>• 設置了「熊貓眼」人形機器人賽訓基地，配備48套高清動作捕捉設備</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-semibold text-gray-800 flex-1">本次運動會的主題和策展理念是什麼？</h3>
+                        <svg class="faq-toggle w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            首屆世界人形機器人運動會以「智競向未來」為主題，核心在於強調科技與人文的深度融合，並展現人工智慧與體育精神的碰撞。策展理念主要圍繞以下幾點：
+                        </p>
+                        <ul class="text-gray-700 space-y-3">
+                            <li><strong>科技與人文的融合：</strong> 透過機器人樂隊演奏中國傳統音樂、機器人與真人舞者共同演繹《秦俑魂》、機器人模特走「未來時裝秀」等表演，展現科技與文化的交融之美。</li>
+                            <li><strong>公平競爭與開放創新：</strong> 鼓勵參賽團隊在公平的規則下以創新技術突破運動極限，並探索人機共生的可能性。</li>
+                            <li><strong>跨學科協作：</strong> 強調技術、藝術與設計的融合，展示人形機器人在多場景中的應用潛力。</li>
+                            <li><strong>展示未來的可能性：</strong> 透過場景賽展示機器人在實際生活中的應用潛力，引導觀眾思考智慧化時代的未來生活方式。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-semibold text-gray-800 flex-1">開幕式有哪些令人印象深刻的亮點表演？</h3>
+                        <svg class="faq-toggle w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            開幕式以「智競向未來」為主題，融合了科技與人文元素，展現了人形機器人與人類的協作能力，亮點包括：
+                        </p>
+                        <ul class="text-gray-700 space-y-3">
+                            <li><strong>人機協作表演：</strong> Linkerbot鋼琴機器人與鋼琴表演家段俊共同演奏開場節目《歡迎來到碳基生命的世界》，展現了人機協作的藝術魅力。</li>
+                            <li><strong>中國文化與科技融合：</strong> 節目《智韻和鳴》透過機器人樂隊的演奏，結合戲曲、武術等中國傳統文化元素。服飾走秀節目《天工霓裳》將非遺技藝與未來設計完美融合。</li>
+                            <li><strong>武術、走秀和舞蹈表演：</strong> 機器人表演武術、走秀和舞蹈，其中真人舞者與機器人共同演繹的《秦俑魂》節目，展現了人機協作的美感。</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-semibold text-gray-800 flex-1">哪些機器人在本次運動會中表現突出？</h3>
+                        <svg class="faq-toggle w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-700 leading-relaxed mb-4">本次運動會有多款機器人表現亮眼：</p>
+                        <div class="space-y-4">
+                            <div class="bg-blue-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-blue-800 mb-2">T1人形機器人</h4>
+                                <p class="text-sm text-blue-700">由Booster Robotics公司研發，專為足球訓練與比賽設計，具備卓越的運動能力和智能決策功能。</p>
+                            </div>
+                            <div class="bg-green-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-green-800 mb-2">H1機器人</h4>
+                                <p class="text-sm text-green-700">由宇樹科技研發，在400公尺和1500公尺田徑項目中分別奪得金牌，展現了先進的動力系統與運動控制技術。</p>
+                            </div>
+                            <div class="bg-purple-50 p-4 rounded-lg">
+                                <h4 class="font-semibold text-purple-800 mb-2">Linkerbot鋼琴機器人</h4>
+                                <p class="text-sm text-purple-700">由靈心巧手團隊研發，在開幕式上與鋼琴表演家段俊共同演奏，展示了人形機器人在音樂演奏與人機協作方面的潛力。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-semibold text-gray-800 flex-1">運動會吸引了哪些參賽隊伍和技術背景？</h3>
+                        <svg class="faq-toggle w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            本次運動會吸引了來自16個國家，包括美國、德國、日本、荷蘭、巴西等地的280支隊伍參賽。這些隊伍涵蓋了全球頂尖的高校（如中國的清華大學、北京大學、上海交通大學）、知名企業（如宇樹科技、天工）以及研究機構。
+                        </p>
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            參賽機器人廣泛應用了輕量化高強度材料（如碳纖維複合材料和鈦合金），極大提升了機器人的耐用性與運動性能。此外，先進的動作捕捉技術，如OptiTrack系統，能提供亞毫米級精度的運動數據分析，為參賽隊伍提供全面的技術支持。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-semibold text-gray-800 flex-1">媒體和觀眾對本次運動會有何評價？</h3>
+                        <svg class="faq-toggle w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-semibold text-blue-800 mb-2">媒體報導</h4>
+                                <p class="text-gray-700 text-sm">媒體普遍讚揚開幕式的創意和多樣性，尤其是機器人與人類表演者的合作。比賽期間，機器人的一些「趣味瞬間」反而讓比賽更具娛樂性。</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-green-800 mb-2">專業評論</h4>
+                                <p class="text-gray-700 text-sm">專家認為這是推動人形機器人技術發展的重要平台，展示了人工智慧在智能決策和運動協作方面的最新成果。學術界與產業界的緊密合作被認為對技術創新具有積極意義。</p>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-purple-800 mb-2">觀眾評價與社群迴響</h4>
+                                <p class="text-gray-700 text-sm">開幕式表演以其創新性、科技感和人機協作贏得觀眾讚譽。社交媒體上，網友們熱烈討論機器人技術的進步和未來應用潛力。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        <h3 class="text-lg font-semibold text-gray-800 flex-1">本次運動會的成功舉辦對未來有何意義？</h3>
+                        <svg class="faq-toggle w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </div>
+                    <div class="faq-answer">
+                        <p class="text-gray-700 leading-relaxed mb-4">
+                            首屆世界人形機器人運動會的成功舉辦，為未來人形機器人技術的發展和應用提供了重要啟示：
+                        </p>
+                        <ul class="text-gray-700 space-y-3">
+                            <li><strong>技術突破與應用拓展：</strong> 運動會全面展示了人形機器人在智能決策、運動協作及多場景應用中的技術突破，為未來在醫療、教育、服務業等領域的應用提供基礎。</li>
+                            <li><strong>跨學科合作的範例：</strong> 活動充分展現了技術、藝術與設計的深度融合，預示著未來跨學科合作將進一步推動技術發展。</li>
+                            <li><strong>激發公眾興趣與人才培養：</strong> 大量家庭觀眾的參與表明這不僅是科技盛會，更是教育平台，有助於普及人工智慧技術，激發年輕一代對科技的興趣。</li>
+                            <li><strong>促進國際合作：</strong> 運動會作為國際性平台，促進了各國參賽隊伍的技術交流與合作，為全球科技界共同探索人機共生奠定基礎。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 結論 -->
+    <section id="conclusion" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-800">結論與啟示</h2>
+            <div class="section-divider mb-12"></div>
+            
+            <div class="bg-gradient-to-br from-blue-50 via-cyan-50 to-blue-50 p-8 rounded-xl">
+                <h3 class="text-2xl font-bold mb-8 text-blue-800 text-center">運動會成功舉辦對未來的重要意義</h3>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-white p-6 rounded-lg">
+                        <h4 class="text-lg font-semibold mb-4 text-blue-700">🔬 技術突破與應用拓展</h4>
+                        <p class="text-gray-700 text-sm mb-3">運動會全面展示了人形機器人在智能決策、運動協作及多場景應用中的技術突破。</p>
+                        <p class="text-gray-600 text-sm">這些實踐經驗和數據將為未來機器人在醫療、教育、服務業及家庭等更廣泛領域的應用提供堅實基礎。</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg">
+                        <h4 class="text-lg font-semibold mb-4 text-blue-700">🤝 跨學科合作範例</h4>
+                        <p class="text-gray-700 text-sm mb-3">活動充分展現了技術、藝術與設計的深度融合。</p>
+                        <p class="text-gray-600 text-sm">預示著未來跨學科合作將進一步推動人形機器人技術發展，並為更多創新應用場景提供可能性。</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg">
+                        <h4 class="text-lg font-semibold mb-4 text-blue-700">👨‍🎓 激發公眾興趣與人才培養</h4>
+                        <p class="text-gray-700 text-sm mb-3">大量家庭觀眾的參與表明這不僅是科技盛會，更是教育平台。</p>
+                        <p class="text-gray-600 text-sm">有助於普及人工智慧技術，激發年輕一代對科技的興趣，為培養下一代科技人才注入動力。</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-lg">
+                        <h4 class="text-lg font-semibold mb-4 text-blue-700">🌍 促進國際合作</h4>
+                        <p class="text-gray-700 text-sm mb-3">運動會作為國際性平台，促進了各國參賽隊伍的技術交流與合作。</p>
+                        <p class="text-gray-600 text-sm">為全球科技界共同探索人機共生、推動人工智慧與機器人技術發展奠定基礎。</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-blue-600 to-cyan-600 text-white p-6 rounded-lg text-center">
+                    <p class="text-lg font-medium mb-2">
+                        首屆世界人形機器人運動會的成功舉辦
+                    </p>
+                    <p class="text-base opacity-90">
+                        不僅是一場科技盛會，更是對未來智慧化時代的一次預演，展示了中國在引領全球機器人技術發展方面的雄心壯志，為未來人形機器人技術的發展和應用提供了重要啟示。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁腳 -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="border-t border-gray-700 pt-6">
+                <div class="text-center space-y-2 text-sm text-gray-400">
+                    <p><strong>免責申明：</strong>基於公開資料，僅供參考，不構成建議</p>
+                    <p><strong>資料來源：</strong>網頁公開資訊</p>
+                    <p><strong>版權所有：</strong>© Dunk</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 回到頂部按鈕 -->
+    <div class="scroll-to-top" id="scrollToTop">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </div>
+
+    <script>
+        // 平滑滾動
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 回到頂部按鈕
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // 統計數字動畫
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stats-counter .text-3xl');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.textContent.replace(/\D/g, ''));
+                const increment = target / 50;
+                let current = 0;
+                
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target) {
+                        counter.textContent = counter.textContent.replace(/\d+/, target);
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = counter.textContent.replace(/\d+/, Math.floor(current));
+                    }
+                }, 30);
+            });
+        }
+
+        // 當統計區域進入視窗時觸發動畫
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        const statsSection = document.querySelector('.stats-counter').parentElement.parentElement;
+        observer.observe(statsSection);
+
+        // FAQ 切換功能
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const toggle = element.querySelector('.faq-toggle');
+            
+            // 關閉其他已打開的FAQ
+            document.querySelectorAll('.faq-answer.active').forEach(activeAnswer => {
+                if (activeAnswer !== answer) {
+                    activeAnswer.classList.remove('active');
+                    activeAnswer.previousElementSibling.querySelector('.faq-toggle').classList.remove('active');
+                }
+            });
+            
+            // 切換當前FAQ
+            answer.classList.toggle('active');
+            toggle.classList.toggle('active');
+        }
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96fcabbe65c2a9bf',t:'MTc1NTMwMjYzMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
