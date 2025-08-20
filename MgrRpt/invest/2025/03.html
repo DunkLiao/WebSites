@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中國城投企業信用風險事件概覽</title>
+    <style>
+        /* 字體與基本設定 */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft JhengHei", "PingFang TC", "Noto Sans TC", sans-serif;
+            background-color: #F5F5F5; /* 淺灰色背景 */
+            color: #333333; /* 深灰色文字 */
+            margin: 0;
+            padding: 24px;
+        }
+
+        /* 主容器 */
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        /* 標題 */
+        h1 {
+            color: #9A0036; /* 主色調：紅色 */
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 24px;
+            border-bottom: 3px solid #9A0036;
+            padding-bottom: 16px;
+        }
+
+        h2 {
+            color: #941C61; /* 輔助色：紫紅色 */
+            font-size: 1.8em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #EEBAC0; /* 輔助色：粉紅 */
+        }
+        
+        h3 {
+            color: #333333;
+            font-size: 1.4em;
+            margin-top: 24px;
+        }
+
+        /* 卡片式設計 */
+        .card {
+            background-color: #FFFFFF; /* 白色背景 */
+            border: 1px solid #E0E0E0;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        /* 網格佈局 */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        /* 主要結論卡片 */
+        .conclusion-card {
+            background-color: #FFF9F2;
+            border-left: 5px solid #E67E22; /* 強調色：橙色 */
+        }
+
+        .conclusion-card strong {
+            color: #D35400; /* 強調色：深橙色 */
+            font-weight: 600;
+        }
+
+        /* 列表樣式 */
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+        ul li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: #9A0036; /* 主色調：紅色 */
+            font-size: 1.5em;
+            line-height: 1;
+        }
+        
+        /* 表格樣式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            text-align: left;
+            padding: 12px 16px;
+            border-bottom: 1px solid #EEE;
+            vertical-align: top;
+        }
+        th {
+            background-color: #F8F8F8;
+            font-weight: 600;
+            color: #333333;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+        
+        /* 事實查核報告專用樣式 */
+        .fact-check-section h2 {
+            color: #16A085; /* 使用不同的顏色區分查核報告 */
+            border-bottom-color: #A3E4D7;
+        }
+        .fact-check-card {
+            border-left: 5px solid #1ABC9C;
+        }
+        .fact-check-table .status-verified { background-color: #E8F8F5; }
+        .fact-check-table .status-partial { background-color: #FEF9E7; }
+
+        /* 頁腳 */
+        .footer {
+            text-align: center;
+            margin-top: 48px;
+            padding: 24px;
+            background-color: #333333;
+            color: #F5F5F5;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+
+        /* 響應式設計 */
+        @media (max-width: 768px) {
+            body { padding: 16px; }
+            h1 { font-size: 2em; }
+            h2 { font-size: 1.5em; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>中國城投企業信用風險事件概覽</h1>
+        </header>
+
+        <main>
+            <section class="card conclusion-card">
+                <h3>主要結論：</h3>
+                <p>中國城投企業的信用風險<strong>集中在非標債務與商業票據違約</strong>，且多數重大事件集中於財政較弱的三、四線城市。對投資人而言，應重點關注城投公司非標債務比重、到期結構與地方政府財政支持力度，並及早佈局風險緩釋措施。</p>
+            </section>
+
+            <div class="grid-container">
+                <div class="card">
+                    <h2>一、非標債務違約頻發</h2>
+                    <p>2018–2023年間，城投公司以「理財產品、資產管理計畫、定向融資計畫」等形式發行的非標債務，因資訊披露不足，成為信用事件高發區。</p>
+                    <ul>
+                        <li>2022年以來，城投非標違約及商業承兌票據逾期達73件，年增顯著，市場對隱性債務擔憂提升。</li>
+                        <li>遵義道橋建設（貴州）：發行155.94億元人民幣銀行貸款重組，展期20年、頭10年僅付息，反映土地財政收入下滑導致流動性枯竭。</li>
+                        <li>上海交通大學研究指出，非標違約事件會顯著推升城投企業公開債券融資成本，並在同城集團內部產生風險傳染效應。</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h2>二、商業票據逾期潮</h2>
+                    <p>商業票據具有短期、高頻特性；在資金鏈緊張時，違約風險最先爆發：</p>
+                    <ul>
+                        <li>截至2024年6月底，全國發生3次以上逾期且帶餘額的城投商票承兌人共1,397家，佔樣本高達逾半數，其中遵義道橋建設累計逾期3.19億元人民幣。</li>
+                        <li>2023年全年，共79家城投企業商票逾期，違約餘額逾32億元人民幣，仍有28家未完成兌付，前三名省份為山東（19家）、貴州（12家）、雲南（10家）。</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>三、信用評級觀點下調</h2>
+                <p>國際評級機構密切關注城投平台的債務結構與地方政府支持承諾：</p>
+                <ul>
+                    <li>穆迪於2023年12月將22家城投平台評級展望由「穩定」降至「負面」，另有26家列入降級觀察，因其帶息債務與負債規模偏高、流動性偏緊。</li>
+                    <li>惠譽2025年報告指出，短期內城投再融資風險可控，但非標債務違約情況增多，對信用環境構成壓力。</li>
+                </ul>
+            </div>
+            
+            <div class="card">
+                <h2>四、案例解析：典型城投信用事件</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>事件類型</th>
+                            <th>公司/地區</th>
+                            <th>規模與處理</th>
+                            <th>成因要素</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>非標違約</td>
+                            <td>遵義道橋建設（貴州）</td>
+                            <td>155.94億重組展期20年</td>
+                            <td>土地出讓收入大幅下滑</td>
+                        </tr>
+                        <tr>
+                            <td>非標違約</td>
+                            <td>昆明市城建投資開發（雲南）</td>
+                            <td>有息債務3577.5億，債務率550%</td>
+                            <td>政府財源減弱、土地財政熄火</td>
+                        </tr>
+                        <tr>
+                            <td>商票逾期</td>
+                            <td>1397家城投商票承兌企業</td>
+                            <td>累計逾期金額上百億人民幣</td>
+                            <td>資金鏈緊張、短期到期壓力</td>
+                        </tr>
+                        <tr>
+                            <td>信用展望下調</td>
+                            <td>22家穆迪覆蓋城投平台</td>
+                            <td>評級展望由「穩定」→「負面」</td>
+                            <td>流動性緊張、宏觀經濟增長放緩</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="card">
+                <h2>五、投資與風控建議</h2>
+                <div class="grid-container">
+                    <div>
+                        <h3>1. 重點審視非標債務比重與結構</h3>
+                        <ul>
+                            <li>非標佔比高於10%者，違約風險顯著提升。</li>
+                            <li>關注城投發布的資管計畫與收益權產品條款。</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>2. 跟蹤商票到期節奏與償付能力</h3>
+                        <ul>
+                            <li>定期檢視上海票據交易所逾期名單。</li>
+                            <li>掌握地方政府財政報表，評估背後支持。</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>3. 參考信用評級與政府支持動向</h3>
+                        <ul>
+                            <li>關注穆迪、惠譽等機構評級展望及列表。</li>
+                            <li>跟蹤置換債發行進度與規模。</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>4. 配置流動性緩衝與多元化投資</h3>
+                        <ul>
+                            <li>控制單一城投產品比重，分散風險。</li>
+                            <li>設立流動性儲備應對突發事件。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 事實查核報告區塊 -->
+            <section class="fact-check-section">
+                <h2>事實查核報告</h2>
+                <div class="card fact-check-card">
+                    <h3>整體評估</h3>
+                    <p>綜合來看，中國城投企業的信用風險呈現出複雜且分化的局面。在宏觀層面，得益於中國政府的「一攬子化債」政策，系統性的、大規模的公開債券違約風險在短期內得到了有效控制。然而，在微觀層面，風險並未消除，而是更多地以非標準化債務（如信託產品、商票等）逾期或違約的形式，在經濟和財政實力較弱的地區暴露出來。</p>
+                    <p>展望未來，市場普遍預期城投的信用風險將進一步「分化」。財政實力強的地區的核心平台將繼續獲得市場和政策的支持，而弱區域的邊緣平台將面臨更大的信用壓力。解決城投的長期債務問題和實現市場化轉型，依然是中國經濟面臨的一項重大挑戰。</p>
+                </div>
+                
+                <div class="card">
+                    <h3>驗證結果</h3>
+                    <table class="fact-check-table">
+                        <thead>
+                            <tr>
+                                <th>聲明</th>
+                                <th>狀態</th>
+                                <th>關鍵證據</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="status-partial">
+                                <td>城投企業整體信用風險短期可控但仍有壓力</td>
+                                <td><strong>部分準確</strong></td>
+                                <td>政府化債政策降低了短期再融資風險，但到期債務規模巨大，償付壓力依然存在。</td>
+                            </tr>
+                            <tr class="status-verified">
+                                <td>債務違約主要發生在非標領域且有區域性</td>
+                                <td><strong>已驗證</strong></td>
+                                <td>近期違約事件多為信託等非標產品，且集中在洛陽等特定區域。</td>
+                            </tr>
+                            <tr class="status-verified">
+                                <td>風險源於地方財力弱化與再融資困難等</td>
+                                <td><strong>已驗證</strong></td>
+                                <td>風險來源包括地方政府土地財政下滑、平台自身借新還舊困難及資產回報率低。</td>
+                            </tr>
+                            <tr class="status-verified">
+                                <td>未來風險將持續分化，長期挑戰仍在</td>
+                                <td><strong>已驗證</strong></td>
+                                <td>市場普遍預期不同區域和資質的城投信用將加速分化，政策雖緩解短期問題但長期挑戰未解。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+
+    <footer class="footer">
+        <p>免責申明：基於公開資料，僅供參考，不構成建議</p>
+        <p>資料來源：網頁公開資訊</p>
+        <p>版權所有： © Dunk</p>
+    </footer>
+
+</body>
+</html>
