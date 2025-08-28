@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>Louvre Couture：藝術與時尚的矚目之作</title>
+    <style>
+        .audio-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        
+        audio {
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        .audio-info {
+            margin-bottom: 15px;
+        }
+        
+        .audio-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .audio-description {
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="audio-container">
+        <div class="audio-info">
+            <div class="audio-title">Louvre Couture：藝術與時尚的矚目之作</div>
+            <div class="audio-description"></div>
+        </div>                
+		<iframe src="https://1drv.ms/u/c/c4f04c89690b805c/IQSItZSsLhCWTavjJ6xec5M8AUSpuC3BiNKZXt0Y31OK-yI" width="600" height="120" frameborder="0" scrolling="no"></iframe>        
+    </div>
+</body>
+</html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Louvre Couture：藝術與時尚的矚目之作</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Noto Serif TC', serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #d4af37 0%, #ffd700 30%, #b8860b 70%, #8b7355 100%);
+        }
+        
+        .section-bg {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+        
+        .accent-gold {
+            color: #d4af37;
+        }
+        
+        .border-gold {
+            border-color: #d4af37;
+        }
+        
+        .bg-gold {
+            background-color: #d4af37;
+        }
+        
+        .hover-gold:hover {
+            background-color: #b8860b;
+        }
+        
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+        }
+        
+        .brand-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            border: 2px solid #d4af37;
+        }
+        
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: #d4af37;
+            border-radius: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 1.2rem;
+            width: 2px;
+            height: calc(100% - 1rem);
+            background: linear-gradient(to bottom, #d4af37, transparent);
+        }
+        
+        .timeline-item:last-child::after {
+            display: none;
+        }
+        
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .nav-sticky {
+            backdrop-filter: blur(15px);
+            background: rgba(26, 26, 46, 0.9);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- 導航欄 -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-gold rounded-full flex items-center justify-center">
+                        <span class="text-white font-bold text-sm">LC</span>
+                    </div>
+                    <h1 class="text-white font-semibold text-lg">Louvre Couture</h1>
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#overview" class="text-white hover:text-yellow-300 transition-colors">展覽概述</a>
+                    <a href="#themes" class="text-white hover:text-yellow-300 transition-colors">核心主題</a>
+                    <a href="#highlights" class="text-white hover:text-yellow-300 transition-colors">主要亮點</a>
+                    <a href="#visit" class="text-white hover:text-yellow-300 transition-colors">參觀資訊</a>
+                    <a href="#faq" class="text-white hover:text-yellow-300 transition-colors">常見問題</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄區塊 -->
+    <section class="hero-gradient min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-black bg-opacity-20"></div>
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+            <div class="floating-element">
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 text-shadow" style="font-family: 'Playfair Display', serif;">
+                    Louvre Couture
+                </h1>
+                <h2 class="text-2xl md:text-3xl text-white mb-8 text-shadow font-light">
+                    藝術與時尚的矚目之作
+                </h2>
+                <p class="text-xl text-white mb-8 leading-relaxed text-shadow">
+                    羅浮宮231年歷史中首度聚焦「時尚」的特展<br>
+                    探索時尚與藝術之間深厚的聯繫
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <div class="bg-white bg-opacity-20 backdrop-blur-md rounded-lg px-6 py-3 text-white">
+                        <span class="font-semibold">展期：</span> 2025年1月24日 - 8月24日
+                    </div>
+                    <div class="bg-white bg-opacity-20 backdrop-blur-md rounded-lg px-6 py-3 text-white">
+                        <span class="font-semibold">地點：</span> 羅浮宮裝飾藝術部門
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 裝飾性SVG元素 -->
+        <div class="absolute top-20 left-10 opacity-20">
+            <svg width="100" height="100" viewBox="0 0 100 100" fill="none">
+                <path d="M50 10 L90 90 L10 90 Z" stroke="white" stroke-width="2" fill="rgba(255,255,255,0.1)"/>
+            </svg>
+        </div>
+        <div class="absolute bottom-20 right-10 opacity-20">
+            <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                <circle cx="40" cy="40" r="35" stroke="white" stroke-width="2" fill="rgba(255,255,255,0.1)"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- 展覽概述 -->
+    <section id="overview" class="py-20 relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="section-bg rounded-3xl p-8 md:p-12 fade-in">
+                <h2 class="text-4xl font-bold accent-gold mb-8 text-center" style="font-family: 'Playfair Display', serif;">展覽概述</h2>
+                
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <p class="text-lg leading-relaxed mb-6 text-gray-700">
+                            《Louvre Couture：藝術與時尚的矚目之作》是羅浮宮自1793年開館以來，231年歷史中首度聚焦「時尚」的特展。這項展覽的目標是探索時尚與藝術之間深厚的聯繫，並重新詮釋羅浮宮的裝飾藝術藏品。
+                        </p>
+                        
+                        <div class="bg-gradient-to-r from-yellow-50 to-amber-50 border-l-4 border-gold p-6 rounded-r-lg mb-6">
+                            <p class="text-gray-800 italic">
+                                「羅浮宮舉辦這個展覽的目的，並非要建立自身的時裝收藏，而是希望透過時裝設計的視角，讓觀眾重新認識羅浮宮的文物，並感受到時尚作為藝術表達的重要性。」
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="timeline-item">
+                            <h3 class="font-semibold text-lg accent-gold mb-2">展覽規模</h3>
+                            <p class="text-gray-700">佔地約9,000平方公尺，位於一樓黎塞留館</p>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <h3 class="font-semibold text-lg accent-gold mb-2">開放時間</h3>
+                            <p class="text-gray-700">週一、三、四、六、日 9:00-18:00<br>週三、週五延長至 21:00</p>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <h3 class="font-semibold text-lg accent-gold mb-2">門票價格</h3>
+                            <p class="text-gray-700">成人 22歐元</p>
+                        </div>
+                        
+                        <div class="timeline-item">
+                            <h3 class="font-semibold text-lg accent-gold mb-2">參觀人數</h3>
+                            <p class="text-gray-700">已吸引超過105萬名觀眾，成為羅浮宮歷史上第二受歡迎的展覽</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 核心主題 -->
+    <section id="themes" class="py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="section-bg rounded-3xl p-8 md:p-12">
+                <h2 class="text-4xl font-bold accent-gold mb-12 text-center" style="font-family: 'Playfair Display', serif;">核心主題與策展理念</h2>
+                
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="card-hover bg-white rounded-xl p-6 border-2 border-gold shadow-lg">
+                        <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="white">
+                                <path d="M16 2L20 12H30L22 18L26 28L16 22L6 28L10 18L2 12H12L16 2Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold accent-gold mb-3 text-center">時尚與藝術的交融</h3>
+                        <p class="text-gray-700 text-center">展示高級訂製服如何與羅浮宮的歷史文物進行深度對話，橫跨拜占庭至19世紀的歷史時期</p>
+                    </div>
+                    
+                    <div class="card-hover bg-white rounded-xl p-6 border-2 border-gold shadow-lg">
+                        <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="white">
+                                <circle cx="16" cy="16" r="12" stroke="white" stroke-width="2" fill="none"/>
+                                <path d="M16 8V16L22 22" stroke="white" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold accent-gold mb-3 text-center">跨時代對話</h3>
+                        <p class="text-gray-700 text-center">約100件1960年代至今的高級訂製服與羅浮宮裝飾藝術品並排展出，形成跨越時空的視覺對話</p>
+                    </div>
+                    
+                    <div class="card-hover bg-white rounded-xl p-6 border-2 border-gold shadow-lg">
+                        <div class="w-16 h-16 bg-gold rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="white">
+                                <rect x="4" y="8" width="24" height="16" rx="2" stroke="white" stroke-width="2" fill="none"/>
+                                <path d="M8 12H24M8 16H20M8 20H16" stroke="white" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold accent-gold mb-3 text-center">藏品重新詮釋</h3>
+                        <p class="text-gray-700 text-center">透過時尚視角重新詮釋羅浮宮藏品，讓觀眾以全新方式欣賞博物館收藏</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-amber-50 to-yellow-50 rounded-xl p-8">
+                    <h3 class="text-2xl font-semibold accent-gold mb-6">策展人理念</h3>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <p class="text-gray-700 mb-4">
+                                策展人Olivier Gabet強調：「時尚不僅是一種流行文化，更是一種重要的藝術表達形式，能夠反映不同時代的文化特徵與審美價值。」
+                            </p>
+                            <p class="text-gray-700">
+                                展覽旨在「改變人們對博物館的刻板印象。博物館不只是一個靜態的藝術展示空間，更是充滿創造力與想像力的場所。」
+                            </p>
+                        </div>
+                        <div class="bg-white rounded-lg p-6 border border-gold">
+                            <h4 class="font-semibold accent-gold mb-3">靈感溯源範例</h4>
+                            <ul class="space-y-2 text-sm text-gray-700">
+                                <li>• Karl Lagerfeld為Chanel設計的刺繡 ← 18世紀Vernis Martin矮櫃</li>
+                                <li>• Dries Van Noten的印花 ← 中世紀掛毯</li>
+                                <li>• Alexander McQueen的「犰狳鞋」 ← 16世紀動物大圓盤</li>
+                                <li>• Dolce & Gabbana服裝 ← 拜占庭黃金馬賽克藝術</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要亮點 -->
+    <section id="highlights" class="py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="section-bg rounded-3xl p-8 md:p-12">
+                <h2 class="text-4xl font-bold accent-gold mb-12 text-center" style="font-family: 'Playfair Display', serif;">主要亮點與參展品牌</h2>
+                
+                <div class="mb-12">
+                    <h3 class="text-2xl font-semibold accent-gold mb-8 text-center">45個頂級時尚品牌 × 約100件高訂作品</h3>
+                    
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="brand-card rounded-xl p-6 card-hover">
+                            <h4 class="font-bold text-lg accent-gold mb-3">Chanel</h4>
+                            <p class="text-sm text-gray-700 mb-2">Karl Lagerfeld 1996年刺繡薄紗晚禮服</p>
+                            <p class="text-xs text-gray-600">靈感源自18世紀漆面五斗櫃</p>
+                        </div>
+                        
+                        <div class="brand-card rounded-xl p-6 card-hover">
+                            <h4 class="font-bold text-lg accent-gold mb-3">Dior</h4>
+                            <p class="text-sm text-gray-700 mb-2">John Galliano 2004年天鵝絨高級訂製禮服</p>
+                            <p class="text-xs text-gray-600">摩爾紋刺繡和水貂毛細節</p>
+                        </div>
+                        
+                        <div class="brand-card rounded-xl p-6 card-hover">
+                            <h4 class="font-bold text-lg accent-gold mb-3">Balenciaga</h4>
+                            <p class="text-sm text-gray-700 mb-2">Demna Gvasalia 2023年盔甲禮服</p>
+                            <p class="text-xs text-gray-600">結合3D列印技術</p>
+                        </div>
+                        
+                        <div class="brand-card rounded-xl p-6 card-hover">
+                            <h4 class="font-bold text-lg accent-gold mb-3">Alexander McQueen</h4>
+                            <p class="text-sm text-gray-700 mb-2">2010年「柏拉圖的亞特蘭提斯」系列</p>
+                            <p class="text-xs text-gray-600">著名的「犰狳鞋」</p>
+                        </div>
+                        
+                        <div class="brand-card rounded-xl p-6 card-hover">
+                            <h4 class="font-bold text-lg accent-gold mb-3">郭培</h4>
+                            <p class="text-sm text-gray-700 mb-2">中國傳統文化為靈感</p>
+                            <p class="text-xs text-gray-600">金線刺繡和龍鳳圖案</p>
+                        </div>
+                        
+                        <div class="brand-card rounded-xl p-6 card-hover">
+                            <h4 class="font-bold text-lg accent-gold mb-3">Louis Vuitton</h4>
+                            <p class="text-sm text-gray-700 mb-2">現代設計與奢華感</p>
+                            <p class="text-xs text-gray-600">當代時尚美學</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-yellow-50 to-amber-50 rounded-xl p-8">
+                    <h3 class="text-2xl font-semibold accent-gold mb-6">按歷史時期分區展陳</h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="bg-white rounded-lg p-6 border border-gold">
+                            <h4 class="font-semibold accent-gold mb-3">拜占庭與中世紀</h4>
+                            <p class="text-sm text-gray-700">黃金、象牙、寶石工藝品與Dolce & Gabbana現代設計呼應</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-6 border border-gold">
+                            <h4 class="font-semibold accent-gold mb-3">文藝復興</h4>
+                            <p class="text-sm text-gray-700">華麗琺瑯、掛毯、盔甲與Balenciaga盔甲禮服對話</p>
+                        </div>
+                        <div class="bg-white rounded-lg p-6 border border-gold">
+                            <h4 class="font-semibold accent-gold mb-3">19世紀至今</h4>
+                            <p class="text-sm text-gray-700">拿破崙三世公寓區域的奢華服裝與宮殿裝飾相呼應</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 參觀策略 -->
+    <section id="visit" class="py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="section-bg rounded-3xl p-8 md:p-12">
+                <h2 class="text-4xl font-bold accent-gold mb-12 text-center" style="font-family: 'Playfair Display', serif;">參觀策略</h2>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <div class="bg-gradient-to-r from-amber-50 to-yellow-50 rounded-xl p-6 border border-gold">
+                            <h3 class="font-semibold text-lg accent-gold mb-4 flex items-center">
+                                <span class="w-8 h-8 bg-gold text-white rounded-full flex items-center justify-center text-sm mr-3">1</span>
+                                提前線上購票
+                            </h3>
+                            <p class="text-gray-700">避免現場排隊，可選擇夜間場次（週三、週五18:00以後），體驗更寧靜的展廳氛圍</p>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-amber-50 to-yellow-50 rounded-xl p-6 border border-gold">
+                            <h3 class="font-semibold text-lg accent-gold mb-4 flex items-center">
+                                <span class="w-8 h-8 bg-gold text-white rounded-full flex items-center justify-center text-sm mr-3">2</span>
+                                跟隨「時代軸線」路線
+                            </h3>
+                            <p class="text-gray-700">從古老工藝（拜占庭、中世紀）→文藝復興→18-19世紀工藝→當代高訂，感受時尚回應藝術的奇妙對話</p>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-amber-50 to-yellow-50 rounded-xl p-6 border border-gold">
+                            <h3 class="font-semibold text-lg accent-gold mb-4 flex items-center">
+                                <span class="w-8 h-8 bg-gold text-white rounded-full flex items-center justify-center text-sm mr-3">3</span>
+                                下載博物館導覽App
+                            </h3>
+                            <p class="text-gray-700">提供語音導覽與展品詳解，透過互動地圖輕鬆掌握位置，節省尋找路線的時間</p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-gradient-to-r from-amber-50 to-yellow-50 rounded-xl p-6 border border-gold">
+                            <h3 class="font-semibold text-lg accent-gold mb-4 flex items-center">
+                                <span class="w-8 h-8 bg-gold text-white rounded-full flex items-center justify-center text-sm mr-3">4</span>
+                                安排2-3小時深度參觀
+                            </h3>
+                            <p class="text-gray-700">全展場約9,000平方公尺，建議預留充足時間，並在晚間延長時段再回訪重點展區</p>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-amber-50 to-yellow-50 rounded-xl p-6 border border-gold">
+                            <h3 class="font-semibold text-lg accent-gold mb-4 flex items-center">
+                                <span class="w-8 h-8 bg-gold text-white rounded-full flex items-center justify-center text-sm mr-3">5</span>
+                                行前準備
+                            </h3>
+                            <ul class="text-gray-700 space-y-1 text-sm">
+                                <li>• 穿著舒適鞋子</li>
+                                <li>• 攜帶筆記本或拍照設備</li>
+                                <li>• 安排附近行程（杜樂麗花園、咖啡廳）</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-white rounded-xl p-6 border-2 border-gold shadow-lg">
+                            <h3 class="font-semibold text-lg accent-gold mb-3">展覽成就</h3>
+                            <div class="flex items-center justify-between">
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold accent-gold">105萬+</div>
+                                    <div class="text-sm text-gray-600">參觀人數</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold accent-gold">#2</div>
+                                    <div class="text-sm text-gray-600">羅浮宮最受歡迎展覽</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-2xl font-bold accent-gold">45</div>
+                                    <div class="text-sm text-gray-600">頂級品牌</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 常見問題 -->
+    <section id="faq" class="py-20">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="section-bg rounded-3xl p-8 md:p-12">
+                <h2 class="text-4xl font-bold accent-gold mb-12 text-center" style="font-family: 'Playfair Display', serif;">常見問題</h2>
+                
+                <div class="space-y-6">
+                    <!-- FAQ 1 -->
+                    <div class="faq-item bg-white rounded-xl border border-gold overflow-hidden">
+                        <button class="faq-question w-full text-left p-6 flex justify-between items-center hover:bg-yellow-50 transition-colors">
+                            <h3 class="text-lg font-semibold accent-gold pr-4">「羅浮宮時尚：藝術與時尚對話」展覽是什麼？</h3>
+                            <svg class="faq-icon w-6 h-6 text-gold transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer hidden p-6 pt-0 text-gray-700 leading-relaxed">
+                            <p>「羅浮宮時尚（Louvre Couture）」是羅浮宮開館231年以來，首度聚焦「時尚」的特展。展覽主題為「藝術與時尚的矚目之作」，旨在探討時尚與藝術之間的深厚聯繫，並透過高級訂製服的視角，重新詮釋羅浮宮豐富的裝飾藝術藏品。</p>
+                            <p class="mt-3">展覽將1960年代至今的頂級高級訂製服及配飾與館藏的歷史文物並排展出，創造一場跨越時空的文化對話，讓觀眾感受創意如何橫跨數百年，為現代服裝注入藝術靈魂。</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 2 -->
+                    <div class="faq-item bg-white rounded-xl border border-gold overflow-hidden">
+                        <button class="faq-question w-full text-left p-6 flex justify-between items-center hover:bg-yellow-50 transition-colors">
+                            <h3 class="text-lg font-semibold accent-gold pr-4">展覽的策展理念與核心目標為何？</h3>
+                            <svg class="faq-icon w-6 h-6 text-gold transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer hidden p-6 pt-0 text-gray-700 leading-relaxed">
+                            <p>展覽的策展人Olivier Gabet，同時也是羅浮宮裝飾藝術部門的主任，其策展理念核心在於促進「跨時代的文化交流」。他認為，時尚不僅是流行文化的一部分，更是重要的藝術表達形式，能夠反映社會變遷和文化演進。</p>
+                            <div class="mt-4 space-y-2">
+                                <p><strong class="accent-gold">重新定義時尚地位：</strong>展示時尚如何作為文化交流的橋樑，連結不同時代和背景的藝術形式</p>
+                                <p><strong class="accent-gold">吸引新一代觀眾：</strong>改變人們對博物館的刻板印象，讓羅浮宮成為充滿創造力與想像力的場所</p>
+                                <p><strong class="accent-gold">探索深層連結：</strong>透過時尚設計師如何從羅浮宮藏品中汲取靈感，呈現兩者的交匯</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 3 -->
+                    <div class="faq-item bg-white rounded-xl border border-gold overflow-hidden">
+                        <button class="faq-question w-full text-left p-6 flex justify-between items-center hover:bg-yellow-50 transition-colors">
+                            <h3 class="text-lg font-semibold accent-gold pr-4">展覽有哪些主要的亮點和特色？</h3>
+                            <svg class="faq-icon w-6 h-6 text-gold transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer hidden p-6 pt-0 text-gray-700 leading-relaxed">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="font-semibold accent-gold mb-2">頂級陣容</h4>
+                                    <p class="text-sm mb-4">約100件來自45個頂級時尚品牌的高級訂製服和配飾，涵蓋1960年代至今</p>
+                                    
+                                    <h4 class="font-semibold accent-gold mb-2">跨歷史分區</h4>
+                                    <p class="text-sm">根據拜占庭、中世紀、文藝復興至19世紀的歷史時期分區展示</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold accent-gold mb-2">靈感對話</h4>
+                                    <p class="text-sm mb-4">許多高訂設計直接受羅浮宮藏品啟發，如Lagerfeld的刺繡源自18世紀矮櫃</p>
+                                    
+                                    <h4 class="font-semibold accent-gold mb-2">創新展示</h4>
+                                    <p class="text-sm">利用鏡面效果延伸視覺空間，讓觀眾細緻欣賞工藝細節</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 4 -->
+                    <div class="faq-item bg-white rounded-xl border border-gold overflow-hidden">
+                        <button class="faq-question w-full text-left p-6 flex justify-between items-center hover:bg-yellow-50 transition-colors">
+                            <h3 class="text-lg font-semibold accent-gold pr-4">哪些知名品牌和設計師的作品特別受矚目？</h3>
+                            <svg class="faq-icon w-6 h-6 text-gold transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer hidden p-6 pt-0 text-gray-700 leading-relaxed">
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="space-y-3">
+                                    <div class="bg-yellow-50 p-3 rounded-lg">
+                                        <h4 class="font-semibold accent-gold">Chanel</h4>
+                                        <p class="text-sm">Karl Lagerfeld刺繡薄紗晚禮服，靈感來自18世紀藍白漆面五斗櫃</p>
+                                    </div>
+                                    <div class="bg-yellow-50 p-3 rounded-lg">
+                                        <h4 class="font-semibold accent-gold">Dior</h4>
+                                        <p class="text-sm">John Galliano天鵝絨高級訂製禮服，摩爾紋刺繡和水貂毛細節</p>
+                                    </div>
+                                    <div class="bg-yellow-50 p-3 rounded-lg">
+                                        <h4 class="font-semibold accent-gold">Alexander McQueen</h4>
+                                        <p class="text-sm">著名的「犰狳鞋」，與16世紀動物大圓盤形成呼應</p>
+                                    </div>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="bg-yellow-50 p-3 rounded-lg">
+                                        <h4 class="font-semibold accent-gold">Balenciaga</h4>
+                                        <p class="text-sm">Demna Gvasalia盔甲禮服，結合3D列印技術</p>
+                                    </div>
+                                    <div class="bg-yellow-50 p-3 rounded-lg">
+                                        <h4 class="font-semibold accent-gold">郭培</h4>
+                                        <p class="text-sm">中國設計師，作品以中國風格和精緻工藝著稱</p>
+                                    </div>
+                                    <div class="bg-yellow-50 p-3 rounded-lg">
+                                        <h4 class="font-semibold accent-gold">Louis Vuitton</h4>
+                                        <p class="text-sm">現代設計和奢華感，與羅浮宮藏品形成視覺對比</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 5 -->
+                    <div class="faq-item bg-white rounded-xl border border-gold overflow-hidden">
+                        <button class="faq-question w-full text-left p-6 flex justify-between items-center hover:bg-yellow-50 transition-colors">
+                            <h3 class="text-lg font-semibold accent-gold pr-4">展覽為何能吸引超過百萬觀眾，成為羅浮宮史上第二受歡迎的特展？</h3>
+                            <svg class="faq-icon w-6 h-6 text-gold transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer hidden p-6 pt-0 text-gray-700 leading-relaxed">
+                            <div class="space-y-4">
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-6 h-6 bg-gold rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <span class="text-white text-xs font-bold">1</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold accent-gold">獨特的跨界融合</h4>
+                                        <p class="text-sm">羅浮宮首次以時尚為主題，打破傳統博物館界限，為觀眾帶來前所未有的視角</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-6 h-6 bg-gold rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <span class="text-white text-xs font-bold">2</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold accent-gold">豐富的視覺盛宴</h4>
+                                        <p class="text-sm">45個頂級品牌約100件精美作品，配合鏡面和燈光效果，提供極具美感的視覺體驗</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <div class="w-6 h-6 bg-gold rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                        <span class="text-white text-xs font-bold">3</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-semibold accent-gold">社交媒體傳播</h4>
+                                        <p class="text-sm">高度視覺吸引力的展品成為社交媒體熱門內容，病毒式傳播提升知名度</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 6 -->
+                    <div class="faq-item bg-white rounded-xl border border-gold overflow-hidden">
+                        <button class="faq-question w-full text-left p-6 flex justify-between items-center hover:bg-yellow-50 transition-colors">
+                            <h3 class="text-lg font-semibold accent-gold pr-4">參觀「羅浮宮時尚」展覽有什麼實用建議？</h3>
+                            <svg class="faq-icon w-6 h-6 text-gold transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer hidden p-6 pt-0 text-gray-700 leading-relaxed">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="font-semibold accent-gold mb-3">參觀準備</h4>
+                                    <ul class="space-y-2 text-sm">
+                                        <li class="flex items-center"><span class="w-2 h-2 bg-gold rounded-full mr-2"></span>提前線上購票避免排隊</li>
+                                        <li class="flex items-center"><span class="w-2 h-2 bg-gold rounded-full mr-2"></span>選擇夜間場次（週三、五18:00後）</li>
+                                        <li class="flex items-center"><span class="w-2 h-2 bg-gold rounded-full mr-2"></span>下載羅浮宮官方導覽App</li>
+                                        <li class="flex items-center"><span class="w-2 h-2 bg-gold rounded-full mr-2"></span>預留2-3小時深度參觀</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold accent-gold mb-3">參觀路線</h4>
+                                    <div class="text-sm space-y-2">
+                                        <p><strong>建議路線：</strong>跟隨「時代軸線」</p>
+                                        <p>拜占庭、中世紀 → 文藝復興 → 18-19世紀工藝 → 當代高訂</p>
+                                        <p class="mt-3"><strong>貼心提醒：</strong>穿著舒適鞋子，攜帶筆記本或拍照設備</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 7 -->
+                    <div class="faq-item bg-white rounded-xl border border-gold overflow-hidden">
+                        <button class="faq-question w-full text-left p-6 flex justify-between items-center hover:bg-yellow-50 transition-colors">
+                            <h3 class="text-lg font-semibold accent-gold pr-4">展覽對羅浮宮和時尚界的文化影響是什麼？</h3>
+                            <svg class="faq-icon w-6 h-6 text-gold transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer hidden p-6 pt-0 text-gray-700 leading-relaxed">
+                            <div class="space-y-4">
+                                <div class="bg-gradient-to-r from-yellow-50 to-amber-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold accent-gold mb-2">提升時尚文化地位</h4>
+                                    <p class="text-sm">高級訂製服被重新定義為重要的藝術表達形式，提升了時尚在藝術界的學術地位</p>
+                                </div>
+                                <div class="bg-gradient-to-r from-yellow-50 to-amber-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold accent-gold mb-2">改變博物館形象</h4>
+                                    <p class="text-sm">打破羅浮宮傳統、靜態的形象，展現博物館擁抱當代文化的決心</p>
+                                </div>
+                                <div class="bg-gradient-to-r from-yellow-50 to-amber-50 p-4 rounded-lg">
+                                    <h4 class="font-semibold accent-gold mb-2">跨界策展範例</h4>
+                                    <p class="text-sm">為其他博物館和文化機構提供寶貴經驗，鼓勵更多元的策展方式</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ 8 -->
+                    <div class="faq-item bg-white rounded-xl border border-gold overflow-hidden">
+                        <button class="faq-question w-full text-left p-6 flex justify-between items-center hover:bg-yellow-50 transition-colors">
+                            <h3 class="text-lg font-semibold accent-gold pr-4">展覽期間有哪些特別活動或附加價值？</h3>
+                            <svg class="faq-icon w-6 h-6 text-gold transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div class="faq-answer hidden p-6 pt-0 text-gray-700 leading-relaxed">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div class="space-y-4">
+                                    <div class="border-l-4 border-gold pl-4">
+                                        <h4 class="font-semibold accent-gold">慈善晚宴</h4>
+                                        <p class="text-sm">「Le Grand Dîner du Louvre」吸引時尚界名流，成為巴黎時裝週重要組成部分</p>
+                                    </div>
+                                    <div class="border-l-4 border-gold pl-4">
+                                        <h4 class="font-semibold accent-gold">夜間場次體驗</h4>
+                                        <p class="text-sm">週三、週五延長至21:00，享受安靜、人潮較少的獨特觀展體驗</p>
+                                    </div>
+                                </div>
+                                <div class="space-y-4">
+                                    <div class="border-l-4 border-gold pl-4">
+                                        <h4 class="font-semibold accent-gold">語音導覽服務</h4>
+                                        <p class="text-sm">官方App提供詳細導覽和互動地圖，深入了解展品背後的故事</p>
+                                    </div>
+                                    <div class="border-l-4 border-gold pl-4">
+                                        <h4 class="font-semibold accent-gold">周邊景點結合</h4>
+                                        <p class="text-sm">可安排杜樂麗花園漫步或附近咖啡廳休憩，延續藝術氣息</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 結論 -->
+    <section class="py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="section-bg rounded-3xl p-8 md:p-12">
+                <h2 class="text-3xl font-bold accent-gold mb-8" style="font-family: 'Playfair Display', serif;">展覽意義</h2>
+                <p class="text-lg text-gray-700 leading-relaxed mb-8">
+                    《Louvre Couture》展覽是一場成功的跨界創新，它不僅重新定義了時尚在博物館語境中的文化地位，也為羅浮宮吸引了新一代的多元觀眾。展覽證明了跨界合作的潛力、策展理念的重要性以及數位化和社群媒體在現代展覽中的影響力。
+                </p>
+                <div class="bg-gradient-to-r from-yellow-50 to-amber-50 border-l-4 border-gold p-6 rounded-r-lg">
+                    <p class="text-gray-800 italic text-lg">
+                        它不僅是一場時尚秀，更是一次「藝術圖書館」與現代裁縫刀法的對話，感受創意如何跨越400多年的時間洪流，為現代服裝注入藝術靈魂。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁腳 -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="border-t border-gray-700 pt-8">
+                <div class="grid md:grid-cols-3 gap-8 text-sm">
+                    <div>
+                        <h3 class="font-semibold mb-2 accent-gold">免責申明</h3>
+                        <p class="text-gray-400">基於公開資料，僅供參考，不構成建議</p>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold mb-2 accent-gold">資料來源</h3>
+                        <p class="text-gray-400">網頁公開資訊</p>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold mb-2 accent-gold">版權所有</h3>
+                        <p class="text-gray-400">© Dunk</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 導航欄滾動效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('nav-sticky');
+            } else {
+                navbar.classList.remove('nav-sticky');
+            }
+        });
+
+        // 平滑滾動
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 滾動動畫
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.section-bg').forEach(section => {
+            observer.observe(section);
+        });
+
+        // 卡片懸停效果增強
+        document.querySelectorAll('.card-hover').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-8px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // FAQ 互動功能
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const faqItem = this.closest('.faq-item');
+                const answer = faqItem.querySelector('.faq-answer');
+                const icon = this.querySelector('.faq-icon');
+                
+                // 切換答案顯示/隱藏
+                if (answer.classList.contains('hidden')) {
+                    answer.classList.remove('hidden');
+                    icon.style.transform = 'rotate(180deg)';
+                    faqItem.classList.add('bg-yellow-50');
+                } else {
+                    answer.classList.add('hidden');
+                    icon.style.transform = 'rotate(0deg)';
+                    faqItem.classList.remove('bg-yellow-50');
+                }
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9764967e357449f7',t:'MTc1NjM5MjI3OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
