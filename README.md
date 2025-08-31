@@ -7,5 +7,3 @@
 [信用風險監控月報](/WebSites/MgrRpt/ "信用風險監控月報")
 
 [藝術展覽歷史資訊彙整](/WebSites/art/ "藝術展覽歷史資訊彙整")
-
-[DW](/WebSites/DW.zip "DW")
