@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025年8月資通安全事件與技術彙整報告</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#9A0036',
+                        secondary: '#941C61',
+                        accent: '#EEBAC0',
+                        warning: '#FF8C00',
+                        gold: '#FFD700'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        
+        .card-shadow {
+            box-shadow: 0 2px 8px rgba(154, 0, 54, 0.1);
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(154, 0, 54, 0.15);
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #9A0036 0%, #941C61 100%);
+        }
+        
+        .table-hover:hover {
+            background-color: #FEF7F7;
+        }
+        
+        .alert-high {
+            border-left: 4px solid #FF4444;
+        }
+        
+        .alert-medium {
+            border-left: 4px solid #FF8C00;
+        }
+        
+        .alert-info {
+            border-left: 4px solid #4A90E2;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-8 mb-8">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold mb-4">2025年8月資通安全事件與技術彙整報告</h1>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 mt-6">
+                    <h2 class="text-xl font-semibold mb-3 text-gold">主要結論</h2>
+                    <p class="text-lg leading-relaxed">
+                        2025年8月資安攻擊手法日趨多元，從第三方平臺（如Salesforce）入手的社交工程攻擊大幅增加，同時多項「零時差漏洞」被駭客組織快速利用。建議企業採取「全面更新＋強化使用者防詐騙訓練＋部署新興輕量加密標準」三大行動，以守護關鍵系統與資料。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-6 pb-20">
+        <!-- 全球重大資安事件回顧 -->
+        <section class="mb-12">
+            <div class="bg-white rounded-lg card-shadow hover-lift transition-all duration-300 p-8">
+                <h2 class="text-2xl font-bold text-primary mb-6 border-b-2 border-accent pb-3">
+                    <span class="bg-primary text-white px-3 py-1 rounded-full text-lg mr-3">一</span>
+                    全球重大資安事件回顧
+                </h2>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full border-collapse">
+                        <thead>
+                            <tr class="bg-gray-100">
+                                <th class="border border-gray-300 px-4 py-3 text-left font-semibold">時間</th>
+                                <th class="border border-gray-300 px-4 py-3 text-left font-semibold">事件名稱</th>
+                                <th class="border border-gray-300 px-4 py-3 text-left font-semibold">受害企業／產業</th>
+                                <th class="border border-gray-300 px-4 py-3 text-left font-semibold">攻擊手法</th>
+                                <th class="border border-gray-300 px-4 py-3 text-left font-semibold">資料外洩或影響</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="table-hover transition-colors duration-200">
+                                <td class="border border-gray-300 px-4 py-3">8月初</td>
+                                <td class="border border-gray-300 px-4 py-3 font-medium">ShinyHunters Salesforce 語音網釣攻擊</td>
+                                <td class="border border-gray-300 px-4 py-3">Google、Pandora、Chanel 等</td>
+                                <td class="border border-gray-300 px-4 py-3">駭客以假冒 IT 人員語音網釣，盜取 Salesforce 憑證</td>
+                                <td class="border border-gray-300 px-4 py-3 text-red-600">企業客戶聯絡資訊、潛在客戶資料大規模外洩</td>
+                            </tr>
+                            <tr class="table-hover transition-colors duration-200">
+                                <td class="border border-gray-300 px-4 py-3">8月6日</td>
+                                <td class="border border-gray-300 px-4 py-3 font-medium">Pandora 珠寶資料外洩</td>
+                                <td class="border border-gray-300 px-4 py-3">Pandora A/S</td>
+                                <td class="border border-gray-300 px-4 py-3">同上</td>
+                                <td class="border border-gray-300 px-4 py-3 text-red-600">客戶姓名、電子郵件、電話、生日等資訊</td>
+                            </tr>
+                            <tr class="table-hover transition-colors duration-200">
+                                <td class="border border-gray-300 px-4 py-3">8月1日</td>
+                                <td class="border border-gray-300 px-4 py-3 font-medium">Chanel 美國客戶資料侵害</td>
+                                <td class="border border-gray-300 px-4 py-3">Chanel</td>
+                                <td class="border border-gray-300 px-4 py-3">同上</td>
+                                <td class="border border-gray-300 px-4 py-3 text-red-600">客戶姓名、地址、電話等</td>
+                            </tr>
+                            <tr class="table-hover transition-colors duration-200">
+                                <td class="border border-gray-300 px-4 py-3">全月持續</td>
+                                <td class="border border-gray-300 px-4 py-3 font-medium">大量第三方平臺掃描與滲透</td>
+                                <td class="border border-gray-300 px-4 py-3">微軟 RDP、N-able N-central…</td>
+                                <td class="border border-gray-300 px-4 py-3">自動化掃描、零時差漏洞利用</td>
+                                <td class="border border-gray-300 px-4 py-3 text-red-600">多項遠端管理服務遭大規模掃描與攻擊</td>
+                            </tr>
+                            <tr class="table-hover transition-colors duration-200">
+                                <td class="border border-gray-300 px-4 py-3">8月中</td>
+                                <td class="border border-gray-300 px-4 py-3 font-medium">Microsoft SharePoint 漏洞被利用</td>
+                                <td class="border border-gray-300 px-4 py-3">加拿大國會</td>
+                                <td class="border border-gray-300 px-4 py-3">CVE-2025-53770</td>
+                                <td class="border border-gray-300 px-4 py-3 text-red-600">內部網路遭橫向移動</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 台灣在地資安警訊 -->
+        <section class="mb-12">
+            <div class="bg-white rounded-lg card-shadow hover-lift transition-all duration-300 p-8">
+                <h2 class="text-2xl font-bold text-primary mb-6 border-b-2 border-accent pb-3">
+                    <span class="bg-primary text-white px-3 py-1 rounded-full text-lg mr-3">二</span>
+                    台灣在地資安警訊
+                </h2>
+                
+                <div class="space-y-6">
+                    <div class="alert-high bg-red-50 p-6 rounded-lg">
+                        <h3 class="text-lg font-semibold text-red-800 mb-3">1. DevMan 勒索軟體攻擊</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            2025年8月4日，有駭客組織聲稱同日攻擊4家上市櫃台灣企業，掌握資料量介於200 GB至960 GB不等，勒索金額高達新台幣3千萬至1.8億元。
+                        </p>
+                    </div>
+                    
+                    <div class="alert-medium bg-orange-50 p-6 rounded-lg">
+                        <h3 class="text-lg font-semibold text-orange-800 mb-3">2. UAT-7237 組織入侵網站主機代管商</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            8月20日，中國駭客組織 UAT-7237 入侵台灣某主機代管業者，利用 SAP NetWeaver 兩項高危漏洞（CVE-2025-31324、CVE-2025-42999）開發複合攻擊工具，連續對反序列化漏洞發動攻擊。
+                        </p>
+                    </div>
+                    
+                    <div class="alert-info bg-blue-50 p-6 rounded-lg">
+                        <h3 class="text-lg font-semibold text-blue-800 mb-3">3. 中央存保詐騙事件</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            有不法分子假冒「中央存款保險公司」名義，誘導民眾提供信用卡資料，詐騙政府普發現金1萬元。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 關鍵零時差漏洞與攻擊趨勢 -->
+        <section class="mb-12">
+            <div class="bg-white rounded-lg card-shadow hover-lift transition-all duration-300 p-8">
+                <h2 class="text-2xl font-bold text-primary mb-6 border-b-2 border-accent pb-3">
+                    <span class="bg-primary text-white px-3 py-1 rounded-full text-lg mr-3">三</span>
+                    關鍵零時差漏洞與攻擊趨勢
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-gradient-to-br from-red-50 to-red-100 p-6 rounded-lg border border-red-200">
+                        <h3 class="text-lg font-semibold text-red-800 mb-3">🔴 WinRAR 零時差漏洞（CVE-2025-8088）</h3>
+                        <p class="text-gray-700 text-sm leading-relaxed">
+                            被俄羅斯 RomCom 組織利用，鎖定金融、製造、國防等產業部署 SnipBot、RustyClaw、Mythic 類惡意程式。
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-orange-50 to-orange-100 p-6 rounded-lg border border-orange-200">
+                        <h3 class="text-lg font-semibold text-orange-800 mb-3">🟠 N-able N-central 遠端監控平臺漏洞</h3>
+                        <p class="text-gray-700 text-sm leading-relaxed">
+                            CVE-2025-8875、8876 - CISA 正式警告攻擊者大舉利用，促請相關企業立即更新。
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 p-6 rounded-lg border border-yellow-200">
+                        <h3 class="text-lg font-semibold text-yellow-800 mb-3">🟡 SonicWall SSL VPN 漏洞</h3>
+                        <p class="text-gray-700 text-sm leading-relaxed">
+                            CVE-2024-40766 - 駭客利用尚未重置密碼的遷移用戶憑證，對 SonicOS 第7代設備進行橫向移動攻擊。
+                        </p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-lg border border-purple-200">
+                        <h3 class="text-lg font-semibold text-purple-800 mb-3">🟣 SAP NetWeaver 零時差漏洞</h3>
+                        <p class="text-gray-700 text-sm leading-relaxed">
+                            CVE-2025-31324與CVE-2025-42999串連組合攻擊工具，滲透企業 ERP 系統。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 新興技術發展與防禦建議 -->
+        <section class="mb-12">
+            <div class="bg-white rounded-lg card-shadow hover-lift transition-all duration-300 p-8">
+                <h2 class="text-2xl font-bold text-primary mb-6 border-b-2 border-accent pb-3">
+                    <span class="bg-primary text-white px-3 py-1 rounded-full text-lg mr-3">四</span>
+                    新興技術發展與防禦建議
+                </h2>
+                
+                <div class="space-y-8">
+                    <!-- 輕量加密標準推動 -->
+                    <div class="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-lg border-l-4 border-green-500">
+                        <h3 class="text-xl font-semibold text-green-800 mb-4">1. 輕量加密標準推動</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-start">
+                                <span class="text-green-600 mr-2">•</span>
+                                <span><strong>NIST SP 800-232</strong> 正式發布，規範 IoT 裝置輕量加密演算法（Ascon-AEAD128、Ascon-Hash256…），適用於資源受限環境。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-gold mr-2">💡</span>
+                                <span><strong>建議</strong>：對所有物聯網設備及嵌入式系統儘速評估並導入 Ascon 系列標準。</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- AI 驅動的攻防競賽 -->
+                    <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-6 rounded-lg border-l-4 border-blue-500">
+                        <h3 class="text-xl font-semibold text-blue-800 mb-4">2. AI 驅動的攻防競賽</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-start">
+                                <span class="text-blue-600 mr-2">•</span>
+                                <span><strong>語音網釣（Vishing）</strong>：駭客結合 AI 變聲與社交工程，大幅提高成功率。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-blue-600 mr-2">•</span>
+                                <span><strong>AI 瀏覽器攻擊面</strong>：整合 AI 代理程式的瀏覽器可能被誘導至假冒電商網站自動完成下單。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-gold mr-2">💡</span>
+                                <span><strong>建議</strong>：加強員工「AI欺騙」防詐意識訓練，並於瀏覽器或網路閘道層面部署行為異常偵測。</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 多層防禦與持續監測 -->
+                    <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg border-l-4 border-purple-500">
+                        <h3 class="text-xl font-semibold text-purple-800 mb-4">3. 多層防禦與持續監測</h3>
+                        <ul class="space-y-2 text-gray-700">
+                            <li class="flex items-start">
+                                <span class="text-purple-600 mr-2">•</span>
+                                <span><strong>全面例行更新</strong>：8月例行更新中，微軟修補17項重大漏洞、SAP 發布高風險9.9分漏洞補丁，請企業優先排程更新。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-purple-600 mr-2">•</span>
+                                <span><strong>假冒官方釣魚防範</strong>：中央存保詐騙提醒需對官方通知管道做多重驗證。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-gold mr-2">💡</span>
+                                <span><strong>建議</strong>：實施「補丁管理＋權限最小化＋多因素驗證」策略，並定期進行滲透測試與威脅獵捕。</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 行動方案與落地策略 -->
+        <section class="mb-12">
+            <div class="bg-white rounded-lg card-shadow hover-lift transition-all duration-300 p-8">
+                <h2 class="text-2xl font-bold text-primary mb-6 border-b-2 border-accent pb-3">
+                    <span class="bg-primary text-white px-3 py-1 rounded-full text-lg mr-3">五</span>
+                    行動方案與落地策略
+                </h2>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-gradient-to-br from-red-50 to-pink-50 p-6 rounded-lg border border-red-200">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3">1</div>
+                            <h3 class="text-lg font-semibold text-red-800">立即更新並驗證</h3>
+                        </div>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li>• 部署微軟、SAP、N-able、WinRAR、SonicWall 等最新補丁</li>
+                            <li>• 對更新後系統進行重啟與功能驗證</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-lg border border-blue-200">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-blue-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3">2</div>
+                            <h3 class="text-lg font-semibold text-blue-800">員工資安意識強化</h3>
+                        </div>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li>• 標準化「語音與電郵網釣」防範流程，並納入新興 AI 攻擊情境演練</li>
+                            <li>• 定期發送模擬釣魚測試，追蹤點閱率與風險指標</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-green-50 to-emerald-50 p-6 rounded-lg border border-green-200">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-green-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3">3</div>
+                            <h3 class="text-lg font-semibold text-green-800">技術防禦升級</h3>
+                        </div>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li>• 導入 NIST SP 800-232 規範的輕量加密，保護 IoT 與邊緣裝置通訊</li>
+                            <li>• 部署 AI 驅動的行為分析系統，及時攔截異常瀏覽器與遠端連線行為</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-lg border border-purple-200">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-purple-600 text-white rounded-full w-8 h-8 flex items-center justify-center font-bold mr-3">4</div>
+                            <h3 class="text-lg font-semibold text-purple-800">持續威脅情報分享</h3>
+                        </div>
+                        <ul class="space-y-2 text-sm text-gray-700">
+                            <li>• 訂閱 CISA、MITRE ATT&CK、各大資安週報，並與供應鏈夥伴交流最新攻擊技術</li>
+                            <li>• 建立內部威脅情報小組，定期召開「紅藍對抗」演練，強化防禦實力</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 結語 -->
+        <section class="mb-12">
+            <div class="gradient-bg text-white rounded-lg p-8 text-center">
+                <h2 class="text-2xl font-bold mb-4 text-gold">結語</h2>
+                <p class="text-lg leading-relaxed">
+                    面對8月多起高複雜度攻擊，企業須以「快速修補＋強化認知＋部署新技術」三軸並行，才能有效降低風險。未來隨著 AI 與供應鏈攻擊的持續演進，唯有將資安防禦深度整合於企業文化及技術架構中，才能真正固若金湯。
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-16">
+        <div class="container mx-auto px-6">
+            <div class="border-t border-gray-600 pt-6">
+                <div class="grid md:grid-cols-3 gap-6 text-sm">
+                    <div>
+                        <h4 class="font-semibold mb-2 text-gold">免責申明</h4>
+                        <p class="text-gray-300">基於公開資料，僅供參考，不構成建議</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-2 text-gold">資料來源</h4>
+                        <p class="text-gray-300">網頁公開資訊</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-2 text-gold">版權所有</h4>
+                        <p class="text-gray-300">© Dunk</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 添加平滑滾動效果
+        document.addEventListener('DOMContentLoaded', function() {
+            // 為所有卡片添加進入動畫
+            const cards = document.querySelectorAll('.hover-lift');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'977d23e6438d8082',t:'MTc1NjY0OTcyOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
