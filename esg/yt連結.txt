@@ -1,0 +1,23 @@
+		.video-container {
+			width: 100%;
+			max-width: 560px;
+			margin: 0 auto;
+		}
+
+		.video-container iframe {
+			width: 100%;
+			aspect-ratio: 16 / 9;
+			height: auto;
+		}
+		
+<div class="video-container">
+    <iframe width="560" height="315" 
+            src="https://www.youtube.com/embed/bOs66kL3p8A?si=aFLDdsTigRTbycY2" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            referrerpolicy="strict-origin-when-cross-origin" 
+            allowfullscreen>
+    </iframe>
+</div>
+		
