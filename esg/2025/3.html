@@ -1,0 +1,1452 @@
+<!DOCTYPE html><html lang="zh-TW" class="scroll-smooth dark" data-theme="dark"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TCFD轉換IFRS S2功能需求完整指南</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/preline@2.3.0/dist/preline.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+	
+	<script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans TC', 'system-ui', 'sans-serif'],
+                    },
+                    colors: {
+                        'esg-primary': '#2d5016',
+                        'esg-secondary': '#1a4d3a',
+                        'esg-accent': '#ff6b35',
+                        'esg-light': '#e8f5e8',
+                        'esg-link': '#1e3a8a',
+                    }
+                }
+            }
+        }
+    </script>
+	
+    <style>
+        .esg-header {
+            font-family: 'Noto Sans TC', sans-serif;
+            color: #2d5016;
+        }
+        .esg-footer {
+            background-color: #1a4d3a;
+            color: #ffffff;
+        }
+        :root {
+            --esg-primary: #2d5016;
+            --esg-primary-dark: #1a4d3a;
+            --esg-secondary: #e8f5e8;
+            --esg-accent: #ff6b35;
+            --esg-link: #0066cc;
+            --esg-text: #333333;
+            --esg-bg: #ffffff;
+        }
+        [data-theme="dark"] {
+            --esg-primary: #4ade80;
+            --esg-primary-dark: #22c55e;
+            --esg-secondary: #1f2937;
+            --esg-accent: #fb7185;
+            --esg-link: #60a5fa;
+            --esg-text: #f3f4f6;
+            --esg-bg: #111827;
+        }
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #2d5016 0%, #1a4d3a 100%);
+        }
+        .card-shadow {
+            box-shadow: 0 10px 25px rgba(45, 80, 22, 0.1);
+        }
+        .hero-pattern {
+            background-image: radial-gradient(circle at 25% 25%, rgba(45, 80, 22, 0.1) 0%, transparent 50%),
+                              radial-gradient(circle at 75% 75%, rgba(26, 77, 58, 0.1) 0%, transparent 50%);
+        }
+		.video-container {
+			width: 100%;
+			max-width: 560px;
+			margin: 0 auto;
+		}
+
+		.video-container iframe {
+			width: 100%;
+			aspect-ratio: 16 / 9;
+			height: auto;
+		}
+    </style>
+<script src="https://felo.ai/js/iframe.js?v=1757210414495"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style><style id="felo-iframe-styles">html,body{margin:0 !important;padding:0 !important;}</style><style data-id="immersive-translate-input-injected-css">.immersive-translate-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2147483647;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.immersive-translate-attach-loading::after {
+  content: " ";
+
+  --loading-color: #f78fb6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+  position: relative;
+  color: white;
+  left: -100px;
+  box-sizing: border-box;
+  animation: immersiveTranslateShadowRolling 1.5s linear infinite;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-2000%, -50%);
+  z-index: 100;
+}
+
+.immersive-translate-loading-spinner {
+  vertical-align: middle !important;
+  width: 10px !important;
+  height: 10px !important;
+  display: inline-block !important;
+  margin: 0 4px !important;
+  border: 2px rgba(221, 244, 255, 0.6) solid !important;
+  border-top: 2px rgba(0, 0, 0, 0.375) solid !important;
+  border-left: 2px rgba(0, 0, 0, 0.375) solid !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  -webkit-animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+  animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+}
+
+@-webkit-keyframes immersive-translate-loading-animation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+
+@keyframes immersive-translate-loading-animation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.immersive-translate-input-loading {
+  --loading-color: #f78fb6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+  position: relative;
+  color: white;
+  left: -100px;
+  box-sizing: border-box;
+  animation: immersiveTranslateShadowRolling 1.5s linear infinite;
+}
+
+@keyframes immersiveTranslateShadowRolling {
+  0% {
+    box-shadow: 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  12% {
+    box-shadow: 100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  25% {
+    box-shadow: 110px 0 var(--loading-color), 100px 0 var(--loading-color),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  36% {
+    box-shadow: 120px 0 var(--loading-color), 110px 0 var(--loading-color),
+      100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  50% {
+    box-shadow: 130px 0 var(--loading-color), 120px 0 var(--loading-color),
+      110px 0 var(--loading-color), 100px 0 var(--loading-color);
+  }
+
+  62% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color),
+      120px 0 var(--loading-color), 110px 0 var(--loading-color);
+  }
+
+  75% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      130px 0 var(--loading-color), 120px 0 var(--loading-color);
+  }
+
+  87% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color);
+  }
+
+  100% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0);
+  }
+}
+
+.immersive-translate-toast {
+  display: flex;
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  right: 0;
+  top: 1%;
+  width: fit-content;
+  padding: 12px 20px;
+  margin: auto;
+  overflow: auto;
+  background: #fef6f9;
+  box-shadow: 0px 4px 10px 0px rgba(0, 10, 30, 0.06);
+  font-size: 15px;
+  border-radius: 8px;
+  color: #333;
+}
+
+.immersive-translate-toast-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.immersive-translate-toast-hidden {
+  margin: 0 20px 0 72px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.immersive-translate-toast-close {
+  color: #666666;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-toast {
+    top: 0;
+    padding: 12px 0px 0 10px;
+  }
+  .immersive-translate-toast-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .immersive-translate-toast-hidden {
+    margin: 10px auto;
+  }
+}
+
+.immersive-translate-dialog {
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  top: 0;
+  display: flex;
+  width: 300px;
+  flex-direction: column;
+  align-items: center;
+  font-size: 15px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: fit-content;
+  border-radius: 20px;
+  background-color: #fff;
+}
+
+.immersive-translate-modal {
+  display: none;
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  font-size: 15px;
+}
+
+.immersive-translate-modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 40px 24px 24px;
+  border-radius: 12px;
+  width: 350px;
+  font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",
+    "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-modal-content {
+    margin: 25% auto !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .immersive-translate-modal-content {
+    width: 80vw !important;
+    margin: 20vh auto !important;
+    padding: 20px 12px 12px !important;
+  }
+
+  .immersive-translate-modal-title {
+    font-size: 14px !important;
+  }
+
+  .immersive-translate-modal-body {
+    font-size: 13px !important;
+    max-height: 60vh !important;
+  }
+
+  .immersive-translate-btn {
+    font-size: 13px !important;
+    padding: 8px 16px !important;
+    margin: 0 4px !important;
+  }
+
+  .immersive-translate-modal-footer {
+    gap: 6px !important;
+    margin-top: 16px !important;
+  }
+}
+
+.immersive-translate-modal .immersive-translate-modal-content-in-input {
+  max-width: 500px;
+}
+.immersive-translate-modal-content-in-input .immersive-translate-modal-body {
+  text-align: left;
+  max-height: unset;
+}
+
+.immersive-translate-modal-title {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333333;
+}
+
+.immersive-translate-modal-body {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333333;
+  margin-top: 24px;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-modal-body {
+    max-height: 250px;
+    overflow-y: auto;
+  }
+}
+
+.immersive-translate-close {
+  color: #666666;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.immersive-translate-close:hover,
+.immersive-translate-close:focus {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.immersive-translate-modal-footer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.immersive-translate-btn {
+  width: fit-content;
+  color: #fff;
+  background-color: #ea4c89;
+  border: none;
+  font-size: 14px;
+  margin: 0 8px;
+  padding: 9px 30px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.immersive-translate-btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.immersive-translate-btn:hover {
+  background-color: #f082ac;
+}
+.immersive-translate-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.immersive-translate-btn:disabled:hover {
+  background-color: #ea4c89;
+}
+
+.immersive-translate-link-btn {
+  background-color: transparent;
+  color: #ea4c89;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  line-height: 30px;
+}
+
+.immersive-translate-cancel-btn {
+  /* gray color */
+  background-color: rgb(89, 107, 120);
+}
+
+.immersive-translate-cancel-btn:hover {
+  background-color: hsl(205, 20%, 32%);
+}
+
+.immersive-translate-action-btn {
+  background-color: transparent;
+  color: #ea4c89;
+  border: 1px solid #ea4c89;
+}
+
+.immersive-translate-btn svg {
+  margin-right: 5px;
+}
+
+.immersive-translate-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #ea4c89;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+.immersive-translate-primary-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #ea4c89;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+.immersive-translate-modal input[type="radio"] {
+  margin: 0 6px;
+  cursor: pointer;
+}
+
+.immersive-translate-modal label {
+  cursor: pointer;
+}
+
+.immersive-translate-close-action {
+  position: absolute;
+  top: 2px;
+  right: 0px;
+  cursor: pointer;
+}
+
+.imt-image-status {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 16px !important;
+}
+.imt-image-status img,
+.imt-image-status svg,
+.imt-img-loading {
+  width: 28px !important;
+  height: 28px !important;
+  margin: 0 0 8px 0 !important;
+  min-height: 28px !important;
+  min-width: 28px !important;
+  position: relative !important;
+}
+.imt-img-loading {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAtFBMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////oK74hAAAAPHRSTlMABBMIDyQXHwyBfFdDMSw+OjXCb+5RG51IvV/k0rOqlGRM6KKMhdvNyZBz9MaupmxpWyj437iYd/yJVNZeuUC7AAACt0lEQVRIx53T2XKiUBCA4QYOiyCbiAsuuGBcYtxiYtT3f6/pbqoYHVFO5r+iivpo6DpAWYpqeoFfr9f90DsYAuRSWkFnPO50OgR9PwiCUFcl2GEcx+N/YBh6pvKaefHlUgZd1zVe0NbYcQjGBfzrPE8Xz8aF+71D8gG6DHFPpc4a7xFiCDuhaWgKgGIJQ3d5IMGDrpS4S5KgpIm+en9f6PlAhKby4JwEIxlYJV9h5k5nee9GoxHJ2IDSNB0dwdad1NAxDJ/uXDHYmebdk4PdbkS58CIVHdYSUHTYYRWOJblWSyu2lmy3KNFVJNBhxcuGW4YBVCbYGRZwIooipHsNqjM4FbgOQqQqSKQQU9V8xmi1QlgHqQQ6DDBvRUVCDirs+EzGDGOQTCATgtYTnbCVLgsVgRE0T1QE0qHCFAht2z6dLvJQs3Lo2FQoDxWNUiBhaP4eRgwNkI+dAjVOA/kUrIDwf3CG8NfNOE0eiFotSuo+rBiq8tD9oY4Qzc6YJw99hl1wzpQvD7ef2M8QgnOGJfJw+EltQc+oX2yn907QB22WZcvlUpd143dqQu+8pCJZuGE4xCuPXJqqcs5sNpsI93Rmzym1k4Npk+oD1SH3/a3LOK/JpUBpWfqNySxWzCfNCUITuDG5dtuphrUJ1myeIE9bIsPiKrfqTai5WZxbhtNphYx6GEIHihyGFTI69lje/rxajdh0s0msZ0zYxyPLhYCb1CyHm9Qsd2H37Y3lugVwL9kNh8Ot8cha6fUNQ8nuXi5z9/ExsAO4zQrb/ev1yrCB7lGyQzgYDGuxq1toDN/JGvN+HyWNHKB7zEoK+PX11e12G431erGYzwmytAWU56fkMHY5JJnDRR2eZji3AwtIcrEV8Cojat/BdQ7XOwGV1e1hDjGGjXbdArm8uJZtCH5MbcctVX8A1WpqumJHwckAAAAASUVORK5CYII=");
+  background-size: 28px 28px;
+  animation: image-loading-rotate 1s linear infinite !important;
+}
+
+.imt-image-status span {
+  color: var(--bg-2, #fff) !important;
+  font-size: 14px !important;
+  line-height: 14px !important;
+  font-weight: 500 !important;
+  font-family: "PingFang SC", Arial, sans-serif !important;
+}
+
+@keyframes image-loading-rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+</style></head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300" contenteditable="false" spellcheck="false">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-leaf text-2xl" style="color: var(--esg-primary);"></i>
+                    <span class="text-xl font-bold esg-header">IFRS S2 轉換指南</span>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <a href="#overview" class="text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors">概覽</a>
+                    <a href="#pillars" class="text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors">四大支柱</a>
+                    <a href="#requirements" class="text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors">新要求</a>
+                    <a href="#systems" class="text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors">系統功能</a>
+                    <a href="#industry" class="text-gray-700 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 transition-colors">產業建議</a>
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:inline"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 gradient-bg hero-pattern min-h-screen flex items-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left">
+                    <h1 class="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+                        TCFD轉換<br>
+                        <span class="text-green-300">IFRS S2</span><br>
+                        完整指南
+                    </h1>
+                    <p class="text-xl lg:text-2xl text-green-100 mb-8 leading-relaxed">
+                        從自願性揭露邁向強制性標準，深度整合氣候議題至財務報告邏輯，強化量化分析與價值鏈審視
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="#overview" class="inline-flex items-center px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white rounded-lg font-semibold transition-colors">
+                            <i class="fas fa-chart-line mr-2"></i>
+                            開始了解
+                        </a>
+                        <a href="#requirements" class="inline-flex items-center px-8 py-4 bg-transparent border-2 border-white text-white hover:bg-white hover:text-green-800 rounded-lg font-semibold transition-colors">
+                            <i class="fas fa-download mr-2"></i>
+                            查看新要求
+                        </a>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="relative z-10">
+                        <img src="https://api.felo.ai/images/s/bu5bFhGlaw" alt="TCFD to IFRS S2 Mapping" class="w-full h-auto rounded-2xl shadow-2xl">
+                    </div>
+                    <div class="absolute -top-8 -right-8 w-32 h-32 bg-green-300/20 rounded-full blur-xl"></div>
+                    <div class="absolute -bottom-8 -left-8 w-40 h-40 bg-orange-300/20 rounded-full blur-xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold esg-header mb-6">轉換概覽</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    IFRS S2標準在TCFD基礎上大幅強化氣候風險揭露要求，強調財務影響量化分析與價值鏈全面審視
+                </p>
+            </div>
+
+            <!-- Key Statistics -->
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 card-shadow text-center">
+                    <div class="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-building text-2xl text-green-600 dark:text-green-400"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">2026年</h3>
+                    <p class="text-gray-600 dark:text-gray-300">台灣強制適用時間</p>
+                </div>
+                <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 card-shadow text-center">
+                    <div class="w-16 h-16 bg-orange-100 dark:bg-orange-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-percentage text-2xl text-orange-600 dark:text-orange-400"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold text-orange-600 dark:text-orange-400 mb-2">30-40%</h3>
+                    <p class="text-gray-600 dark:text-gray-300">善用現有基礎可節省成本</p>
+                </div>
+                <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 card-shadow text-center">
+                    <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-globe text-2xl text-blue-600 dark:text-blue-400"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">全球性</h3>
+                    <p class="text-gray-600 dark:text-gray-300">強制性標準</p>
+                </div>
+            </div>
+
+            <!-- Core Changes -->
+            <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 lg:p-12 card-shadow">
+                <h3 class="text-2xl font-bold esg-header mb-8">核心轉變</h3>
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-4 flex items-center">
+                            <i class="fas fa-arrow-right text-green-600 dark:text-green-400 mr-3"></i>
+                            從自願性到強制性
+                        </h4>
+                        <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                TCFD的自願性建議轉向IFRS S2的全球強制性標準
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                氣候議題從永續報告深度整合至財務報告邏輯
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                強調資訊的可比性、可驗證性與財務報表連結
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-4 flex items-center">
+                            <i class="fas fa-chart-bar text-orange-600 dark:text-orange-400 mr-3"></i>
+                            量化與範疇擴展
+                        </h4>
+                        <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                更嚴格的量化分析要求
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                對整體價值鏈的全面審視（特別是範疇三碳排放）
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-3"></i>
+                                強制性的行業特定指標揭露
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Four Pillars Comparison -->
+    <section id="pillars" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold esg-header mb-6">四大支柱對比分析</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    IFRS S2在保留TCFD四大支柱架構基礎上，顯著提升揭露的深度和廣度
+                </p>
+            </div>
+
+            <!-- Comparison Chart -->
+            <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 lg:p-12 card-shadow mb-12">
+                <img src="https://api.felo.ai/images/s/7id8xyTcZT" alt="TCFD to IFRS S2 Transition Framework" class="w-full h-auto rounded-xl">
+            </div>
+
+            <!-- Pillars Details -->
+            <div class="space-y-8">
+                <!-- Governance -->
+                <div class="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl p-8 lg:p-12">
+                    <div class="grid lg:grid-cols-3 gap-8">
+                        <div class="lg:col-span-1">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-users text-white text-xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-green-800 dark:text-green-300">治理 Governance</h3>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300">董事會監督與管理階層角色</p>
+                        </div>
+                        <div class="lg:col-span-2">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-3">TCFD要求</h4>
+                                    <p class="text-gray-600 dark:text-gray-300 text-sm">描述董事會監督氣候風險機會</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-3">IFRS S2強化</h4>
+                                    <ul class="text-gray-600 dark:text-gray-300 text-sm space-y-1">
+                                        <li>• 治理職責、技能要求明確化</li>
+                                        <li>• 薪酬連結機制詳細說明</li>
+                                        <li>• 問責機制與能力建設要求</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Strategy -->
+                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl p-8 lg:p-12">
+                    <div class="grid lg:grid-cols-3 gap-8">
+                        <div class="lg:col-span-1">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-chess text-white text-xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-blue-800 dark:text-blue-300">策略 Strategy</h3>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300">氣候影響業務策略分析</p>
+                        </div>
+                        <div class="lg:col-span-2">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-3">TCFD要求</h4>
+                                    <p class="text-gray-600 dark:text-gray-300 text-sm">描述氣候影響業務策略</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-3">IFRS S2強化</h4>
+                                    <ul class="text-gray-600 dark:text-gray-300 text-sm space-y-1">
+                                        <li>• 轉型計畫強制性要求</li>
+                                        <li>• 財務量化分析</li>
+                                        <li>• 1.5°C情境分析要求</li>
+                                        <li>• 價值鏈全面分析</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Risk Management -->
+                <div class="bg-gradient-to-r from-orange-50 to-red-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl p-8 lg:p-12">
+                    <div class="grid lg:grid-cols-3 gap-8">
+                        <div class="lg:col-span-1">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-shield-alt text-white text-xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-orange-800 dark:text-orange-300">風險管理 Risk Management</h3>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300">識別評估管理氣候風險</p>
+                        </div>
+                        <div class="lg:col-span-2">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-3">TCFD要求</h4>
+                                    <p class="text-gray-600 dark:text-gray-300 text-sm">識別評估管理氣候風險</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-3">IFRS S2強化</h4>
+                                    <ul class="text-gray-600 dark:text-gray-300 text-sm space-y-1">
+                                        <li>• 風險參數詳細說明</li>
+                                        <li>• 機會管理流程</li>
+                                        <li>• 整合ERM框架證明</li>
+                                        <li>• 監控強化要求</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Metrics & Targets -->
+                <div class="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-gray-800 dark:to-gray-700 rounded-2xl p-8 lg:p-12">
+                    <div class="grid lg:grid-cols-3 gap-8">
+                        <div class="lg:col-span-1">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mr-4">
+                                    <i class="fas fa-chart-line text-white text-xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-purple-800 dark:text-purple-300">指標與目標 Metrics &amp; Targets</h3>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300">溫室氣體排放相關指標</p>
+                        </div>
+                        <div class="lg:col-span-2">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-3">TCFD要求</h4>
+                                    <p class="text-gray-600 dark:text-gray-300 text-sm">溫室氣體排放相關指標</p>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 dark:text-gray-200 mb-3">IFRS S2強化</h4>
+                                    <ul class="text-gray-600 dark:text-gray-300 text-sm space-y-1">
+                                        <li>• 強制Scope1-3排放揭露</li>
+                                        <li>• 行業特定指標(SASB)</li>
+                                        <li>• 內部碳定價要求</li>
+                                        <li>• 跨行業指標標準化</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Requirements -->
+    <section id="requirements" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold esg-header mb-6">IFRS S2新增關鍵要求</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    為滿足IFRS S2的嚴格標準，企業需建立新的數據收集與分析能力
+                </p>
+            </div>
+
+            <!-- Carbon Emissions Scope -->
+            <div class="mb-16">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-3xl font-bold esg-header mb-6">碳排放範疇擴展</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <span class="text-white font-bold text-sm">1</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 dark:text-gray-200">範疇一：直接排放</h4>
+                                    <p class="text-gray-600 dark:text-gray-300 text-sm">企業自有設備與營運活動的直接溫室氣體排放</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <span class="text-white font-bold text-sm">2</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 dark:text-gray-200">範疇二：間接排放</h4>
+                                    <p class="text-gray-600 dark:text-gray-300 text-sm">企業購買電力、熱能或蒸汽產生的間接排放</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <span class="text-white font-bold text-sm">3</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800 dark:text-gray-200">範疇三：價值鏈排放（強制化）</h4>
+                                    <p class="text-gray-600 dark:text-gray-300 text-sm">上下游價值鏈活動產生的間接排放，金融業需計算融資排放量</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="https://api.felo.ai/images/s/1BFanGZPDZ" alt="Scope 1, 2, 3 Emissions Diagram" class="w-full h-auto rounded-xl shadow-lg">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Industry Specific Topics -->
+            <div class="grid lg:grid-cols-3 gap-8 mb-16">
+                <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 card-shadow">
+                    <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-microchip text-2xl text-blue-600 dark:text-blue-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4">電子製造業</h3>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-300 text-sm">
+                        <li>• 能源效率管理</li>
+                        <li>• 有害物質管理</li>
+                        <li>• 產品生命週期評估</li>
+                        <li>• 供應鏈碳足跡</li>
+                    </ul>
+                </div>
+                <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 card-shadow">
+                    <div class="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-university text-2xl text-green-600 dark:text-green-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4">金融業</h3>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-300 text-sm">
+                        <li>• 融資排放計算</li>
+                        <li>• 氣候風險壓力測試</li>
+                        <li>• 投資組合碳足跡</li>
+                        <li>• ESG評級整合</li>
+                    </ul>
+                </div>
+                <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 card-shadow">
+                    <div class="w-16 h-16 bg-orange-100 dark:bg-orange-900 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-industry text-2xl text-orange-600 dark:text-orange-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 dark:text-gray-200 mb-4">鋼鐵水泥</h3>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-300 text-sm">
+                        <li>• 製程排放管理</li>
+                        <li>• 替代燃料使用</li>
+                        <li>• 循環經濟指標</li>
+                        <li>• 低碳技術投資</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Financial Impact Analysis -->
+            <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 lg:p-12 card-shadow">
+                <h3 class="text-2xl font-bold esg-header mb-8">財務影響量化分析</h3>
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-4">核心要求</h4>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6">
+                            將氣候風險轉化為具體的財務數字，量化氣候事件對收入、營運成本、資產減損、資本支出的影響
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <i class="fas fa-dollar-sign text-green-600 dark:text-green-400 mr-3"></i>
+                                <span class="text-gray-700 dark:text-gray-300">收入影響分析</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-chart-line text-blue-600 dark:text-blue-400 mr-3"></i>
+                                <span class="text-gray-700 dark:text-gray-300">營運成本變化</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-exclamation-triangle text-orange-600 dark:text-orange-400 mr-3"></i>
+                                <span class="text-gray-700 dark:text-gray-300">資產減損評估</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-building text-purple-600 dark:text-purple-400 mr-3"></i>
+                                <span class="text-gray-700 dark:text-gray-300">資本支出規劃</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-4">功能需求</h4>
+                        <div class="space-y-4">
+                            <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
+                                <h5 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">風險與財務帳戶映射</h5>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm">系統需能將辨識出的氣候風險與具體的財務會計科目建立關聯</p>
+                            </div>
+                            <div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
+                                <h5 class="font-semibold text-gray-800 dark:text-gray-200 mb-2">參數化模型</h5>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm">建立模型，輸入碳價等參數，自動試算對利潤的影響</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Functions -->
+    <section id="systems" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold esg-header mb-6">系統功能模組建議</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    建構整合性的氣候風險暨永續資訊管理平台，支援企業從TCFD過渡至IFRS S2
+                </p>
+            </div>
+
+            <!-- System Architecture -->
+            <div class="mb-16">
+                <div class="mermaid bg-white dark:bg-gray-900 rounded-2xl p-8 card-shadow" data-processed="true"><svg aria-roledescription="flowchart-v2" role="graphics-document document" viewBox="-8 -8 963.3055419921875 411" style="max-width: 963.3055419921875px;" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="100%" id="mermaid-1757210414273"><style>#mermaid-1757210414273{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#ccc;}#mermaid-1757210414273 .error-icon{fill:#a44141;}#mermaid-1757210414273 .error-text{fill:#ddd;stroke:#ddd;}#mermaid-1757210414273 .edge-thickness-normal{stroke-width:2px;}#mermaid-1757210414273 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-1757210414273 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-1757210414273 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-1757210414273 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-1757210414273 .marker{fill:#6b7280;stroke:#6b7280;}#mermaid-1757210414273 .marker.cross{stroke:#6b7280;}#mermaid-1757210414273 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaid-1757210414273 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#ccc;}#mermaid-1757210414273 .cluster-label text{fill:#F9FFFE;}#mermaid-1757210414273 .cluster-label span,#mermaid-1757210414273 p{color:#F9FFFE;}#mermaid-1757210414273 .label text,#mermaid-1757210414273 span,#mermaid-1757210414273 p{fill:#ccc;color:#ccc;}#mermaid-1757210414273 .node rect,#mermaid-1757210414273 .node circle,#mermaid-1757210414273 .node ellipse,#mermaid-1757210414273 .node polygon,#mermaid-1757210414273 .node path{fill:#1f2020;stroke:#81B1DB;stroke-width:1px;}#mermaid-1757210414273 .flowchart-label text{text-anchor:middle;}#mermaid-1757210414273 .node .label{text-align:center;}#mermaid-1757210414273 .node.clickable{cursor:pointer;}#mermaid-1757210414273 .arrowheadPath{fill:lightgrey;}#mermaid-1757210414273 .edgePath .path{stroke:#6b7280;stroke-width:2.0px;}#mermaid-1757210414273 .flowchart-link{stroke:#6b7280;fill:none;}#mermaid-1757210414273 .edgeLabel{background-color:hsl(0, 0%, 34.4117647059%);text-align:center;}#mermaid-1757210414273 .edgeLabel rect{opacity:0.5;background-color:hsl(0, 0%, 34.4117647059%);fill:hsl(0, 0%, 34.4117647059%);}#mermaid-1757210414273 .labelBkg{background-color:rgba(87.75, 87.75, 87.75, 0.5);}#mermaid-1757210414273 .cluster rect{fill:hsl(180, 1.5873015873%, 28.3529411765%);stroke:rgba(255, 255, 255, 0.25);stroke-width:1px;}#mermaid-1757210414273 .cluster text{fill:#F9FFFE;}#mermaid-1757210414273 .cluster span,#mermaid-1757210414273 p{color:#F9FFFE;}#mermaid-1757210414273 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:#374151;border:1px solid rgba(255, 255, 255, 0.25);border-radius:2px;pointer-events:none;z-index:100;}#mermaid-1757210414273 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#ccc;}#mermaid-1757210414273 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}</style><g><marker orient="auto" markerHeight="12" markerWidth="12" markerUnits="userSpaceOnUse" refY="5" refX="6" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1757210414273_flowchart-pointEnd"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 0 L 10 5 L 0 10 z"></path></marker><marker orient="auto" markerHeight="12" markerWidth="12" markerUnits="userSpaceOnUse" refY="5" refX="4.5" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1757210414273_flowchart-pointStart"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 5 L 10 10 L 10 0 z"></path></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5" refX="11" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1757210414273_flowchart-circleEnd"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5" refX="-1" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1757210414273_flowchart-circleStart"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5.2" refX="12" viewBox="0 0 11 11" class="marker cross flowchart" id="mermaid-1757210414273_flowchart-crossEnd"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5.2" refX="-1" viewBox="0 0 11 11" class="marker cross flowchart" id="mermaid-1757210414273_flowchart-crossStart"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path marker-end="url(#mermaid-1757210414273_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-A LE-B" id="L-A-B-0" d="M255.806,128L255.806,132.167C255.806,136.333,255.806,144.667,299.348,155.004C342.89,165.342,429.974,177.683,473.516,183.854L517.058,190.025"></path><path marker-end="url(#mermaid-1757210414273_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-B LE-C" id="L-B-C-0" d="M569.806,217L569.806,221.167C569.806,225.333,569.806,233.667,569.806,241.117C569.806,248.567,569.806,255.133,569.806,258.417L569.806,261.7"></path><path marker-end="url(#mermaid-1757210414273_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-A1 LE-A" id="L-A1-A-0" d="M36.903,39L36.903,43.167C36.903,47.333,36.903,55.667,64.604,65.465C92.306,75.263,147.709,86.525,175.41,92.157L203.112,97.788"></path><path marker-end="url(#mermaid-1757210414273_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-A2 LE-A" id="L-A2-A-0" d="M179.306,39L179.306,43.167C179.306,47.333,179.306,55.667,185.705,63.556C192.104,71.445,204.903,78.89,211.302,82.613L217.702,86.335"></path><path marker-end="url(#mermaid-1757210414273_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-A3 LE-A" id="L-A3-A-0" d="M332.306,39L332.306,43.167C332.306,47.333,332.306,55.667,325.906,63.556C319.507,71.445,306.708,78.89,300.309,82.613L293.909,86.335"></path><path marker-end="url(#mermaid-1757210414273_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-A4 LE-A" id="L-A4-A-0" d="M485.306,39L485.306,43.167C485.306,47.333,485.306,55.667,455.839,65.547C426.373,75.427,367.441,86.854,337.975,92.567L308.509,98.281"></path><path marker-end="url(#mermaid-1757210414273_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-B1 LE-B" id="L-B1-B-0" d="M408.806,128L408.806,132.167C408.806,136.333,408.806,144.667,426.871,153.827C444.936,162.986,481.067,172.973,499.132,177.966L517.197,182.959"></path><path marker-end="url(#mermaid-1757210414273_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-B2 LE-B" id="L-B2-B-0" d="M569.806,128L569.806,132.167C569.806,136.333,569.806,144.667,569.806,152.117C569.806,159.567,569.806,166.133,569.806,169.417L569.806,172.7"></path><path marker-end="url(#mermaid-1757210414273_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-B3 LE-B" id="L-B3-B-0" d="M730.806,128L730.806,132.167C730.806,136.333,730.806,144.667,712.74,153.827C694.675,162.986,658.545,172.973,640.479,177.966L622.414,182.959"></path><path marker-end="url(#mermaid-1757210414273_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-B4 LE-B" id="L-B4-B-0" d="M891.806,128L891.806,132.167C891.806,136.333,891.806,144.667,846.931,155.035C802.056,165.403,712.306,177.807,667.431,184.008L622.556,190.21"></path><path marker-end="url(#mermaid-1757210414273_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-C LE-C1" id="L-C-C1-0" d="M522.306,300.253L504.606,305.377C486.907,310.502,451.509,320.751,433.81,329.159C416.111,337.567,416.111,344.133,416.111,347.417L416.111,350.7"></path><path marker-end="url(#mermaid-1757210414273_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-C LE-C2" id="L-C-C2-0" d="M570.11,306L570.175,310.167C570.24,314.333,570.37,322.667,570.435,330.117C570.5,337.567,570.5,344.133,570.5,347.417L570.5,350.7"></path><path marker-end="url(#mermaid-1757210414273_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-C LE-C3" id="L-C-C3-0" d="M617.306,300.253L635.005,305.377C652.704,310.502,688.102,320.751,705.801,329.159C723.5,337.567,723.5,344.133,723.5,347.417L723.5,350.7"></path></g><g class="edgeLabels"><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g></g><g class="nodes"><g transform="translate(255.80555725097656, 108.5)" id="flowchart-A-0" class="node default default flowchart-label"><rect height="39" width="95" y="-19.5" x="-47.5" ry="0" rx="0" style="fill:#e8f5e8;" class="basic label-container"></rect><g transform="translate(-40, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="80"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">數據收集層</span></div></foreignObject></g></g><g transform="translate(569.8055572509766, 197.5)" id="flowchart-B-1" class="node default default flowchart-label"><rect height="39" width="95" y="-19.5" x="-47.5" ry="0" rx="0" style="fill:#fff2e8;" class="basic label-container"></rect><g transform="translate(-40, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="80"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">分析處理層</span></div></foreignObject></g></g><g transform="translate(569.8055572509766, 286.5)" id="flowchart-C-3" class="node default default flowchart-label"><rect height="39" width="95" y="-19.5" x="-47.5" ry="0" rx="0" style="fill:#e8f0ff;" class="basic label-container"></rect><g transform="translate(-40, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="80"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">報告產出層</span></div></foreignObject></g></g><g transform="translate(36.90277862548828, 19.5)" id="flowchart-A1-4" class="node default default flowchart-label"><rect height="39" width="73.80555725097656" y="-19.5" x="-36.90277862548828" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-29.40277862548828, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="58.80555725097656"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">ERP系統</span></div></foreignObject></g></g><g transform="translate(179.30555725097656, 19.5)" id="flowchart-A2-6" class="node default default flowchart-label"><rect height="39" width="111" y="-19.5" x="-55.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-48, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="96"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">能源管理系統</span></div></foreignObject></g></g><g transform="translate(332.30555725097656, 19.5)" id="flowchart-A3-8" class="node default default flowchart-label"><rect height="39" width="95" y="-19.5" x="-47.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-40, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="80"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">供應鏈系統</span></div></foreignObject></g></g><g transform="translate(485.30555725097656, 19.5)" id="flowchart-A4-10" class="node default default flowchart-label"><rect height="39" width="111" y="-19.5" x="-55.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-48, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="96"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">外部氣候數據</span></div></foreignObject></g></g><g transform="translate(408.80555725097656, 108.5)" id="flowchart-B1-12" class="node default default flowchart-label"><rect height="39" width="111" y="-19.5" x="-55.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-48, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="96"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">碳排計算引擎</span></div></foreignObject></g></g><g transform="translate(569.8055572509766, 108.5)" id="flowchart-B2-14" class="node default default flowchart-label"><rect height="39" width="111" y="-19.5" x="-55.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-48, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="96"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">風險評估模型</span></div></foreignObject></g></g><g transform="translate(730.8055572509766, 108.5)" id="flowchart-B3-16" class="node default default flowchart-label"><rect height="39" width="111" y="-19.5" x="-55.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-48, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="96"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">情境分析工具</span></div></foreignObject></g></g><g transform="translate(891.8055572509766, 108.5)" id="flowchart-B4-18" class="node default default flowchart-label"><rect height="39" width="111" y="-19.5" x="-55.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-48, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="96"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">財務影響模擬</span></div></foreignObject></g></g><g transform="translate(416.1111125946045, 375.5)" id="flowchart-C1-21" class="node default default flowchart-label"><rect height="39" width="97.77777862548828" y="-19.5" x="-48.88888931274414" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-41.38888931274414, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="82.77777862548828"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">IFRS S2報告</span></div></foreignObject></g></g><g transform="translate(570.5000019073486, 375.5)" id="flowchart-C2-23" class="node default default flowchart-label"><rect height="39" width="111" y="-19.5" x="-55.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-48, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="96"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">儀表板視覺化</span></div></foreignObject></g></g><g transform="translate(723.5000019073486, 375.5)" id="flowchart-C3-25" class="node default default flowchart-label"><rect height="39" width="95" y="-19.5" x="-47.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-40, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="80"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">第三方驗證</span></div></foreignObject></g></g></g></g></g></svg></div>
+            </div>
+
+            <!-- Core Modules -->
+            <div class="grid lg:grid-cols-2 gap-8 mb-16">
+                <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 card-shadow">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-green-600 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-database text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-gray-200">數據整合與治理平台</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        作為單一事實來源，集中管理來自各系統的資料，建立數據品質檢核規則與稽核軌跡
+                    </p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>ERP、財務系統整合</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>供應商數據收集</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>外部氣候數據接入</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 card-shadow">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-calculator text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-gray-200">碳盤查與計算模組</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        自動化溫室氣體盤查流程，支援GHG Protocol及PCAF等國際標準
+                    </p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>多種排放因子資料庫</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>PCAF方法學支援</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>數據品質評估</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 card-shadow">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-orange-600 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-exclamation-triangle text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-gray-200">風險與機會識別模組</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        建立動態的氣候風險與機會資料庫，透過地圖工具進行疊加分析
+                    </p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>風險清單動態更新</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>地理資訊系統整合</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>重大性評估工具</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 card-shadow">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center mr-4">
+                            <i class="fas fa-chart-area text-white text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-gray-200">情境分析與模擬器</h3>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        整合國際主流情境，模擬不同變數下對企業財務績效的長期影響
+                    </p>
+                    <div class="space-y-2">
+                        <div class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>IEA、NGFS情境整合</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>1.5°C巴黎協定情境</span>
+                        </div>
+                        <div class="flex items-center text-sm text-gray-600 dark:text-gray-300">
+                            <i class="fas fa-check text-green-500 mr-2"></i>
+                            <span>韌性評估報告</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Implementation Timeline -->
+            <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 lg:p-12 card-shadow">
+                <h3 class="text-2xl font-bold esg-header mb-8">實施時程與成本優化</h3>
+                <img src="https://api.felo.ai/images/s/ctb6jbyOGJ" alt="Implementation Timeline and Cost Optimization" class="w-full h-auto rounded-xl mb-8">
+                <div class="grid lg:grid-cols-3 gap-8">
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">階段化實施</h4>
+                        <ul class="space-y-2 text-gray-600 dark:text-gray-300 text-sm">
+                            <li>• 善用現有TCFD基礎</li>
+                            <li>• 預估節省30-40%初期投資</li>
+                            <li>• 優先處理重大風險</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">共享資源策略</h4>
+                        <ul class="space-y-2 text-gray-600 dark:text-gray-300 text-sm">
+                            <li>• 產業聯盟合作</li>
+                            <li>• 共享驗證機構</li>
+                            <li>• TWSE輔導計畫</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">自動化效益</h4>
+                        <ul class="space-y-2 text-gray-600 dark:text-gray-300 text-sm">
+                            <li>• ERP自動拋轉數據</li>
+                            <li>• IoT設備監控</li>
+                            <li>• 供應商平台整合</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry Recommendations -->
+    <section id="industry" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl lg:text-5xl font-bold esg-header mb-6">產業別落地建議</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    針對台灣主要產業提供具體的IFRS S2實施策略與解決方案
+                </p>
+            </div>
+
+            <!-- Industry Comparison Table -->
+            <div class="overflow-x-auto mb-12">
+                <div class="bg-white dark:bg-gray-900 rounded-2xl card-shadow">
+                    <table class="w-full">
+                        <thead class="bg-green-50 dark:bg-gray-800">
+                            <tr>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-gray-800 dark:text-gray-200">產業類別</th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-gray-800 dark:text-gray-200">主要挑戰</th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-gray-800 dark:text-gray-200">建議解決方案</th>
+                                <th class="px-6 py-4 text-left text-sm font-semibold text-gray-800 dark:text-gray-200">IFRS S2重點</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                            <tr>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-microchip text-blue-600 dark:text-blue-400 mr-2"></i>
+                                        <span class="font-medium text-gray-800 dark:text-gray-200">電子半導體</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-300">複雜供應鏈、Scope 3排放追蹤、用電密集</td>
+                                <td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-300">供應鏈碳管理平台、RE100倡議參與、智慧用電管理</td>
+                                <td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-300">供應鏈碳足跡、再生能源轉換計劃</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-cogs text-orange-600 dark:text-orange-400 mr-2"></i>
+                                        <span class="font-medium text-gray-800 dark:text-gray-200">傳統製造</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-300">設備老舊、轉型成本高、技術能力不足</td>
+                                <td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-300">漸進式設備更新、政府補助申請、專業諮詢服務</td>
+                                <td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-300">能源效率改善、製程優化規劃</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-university text-green-600 dark:text-green-400 mr-2"></i>
+                                        <span class="font-medium text-gray-800 dark:text-gray-200">金融服務</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-300">融資排放計算複雜、投資組合碳足跡規範</td>
+                                <td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-300">PCAF方法學、ESG評級系統、氣候情境壓力測試</td>
+                                <td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-300">融資排放揭露與規範、金融服務韌性測試</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-industry text-red-600 dark:text-red-400 mr-2"></i>
+                                        <span class="font-medium text-gray-800 dark:text-gray-200">鋼鐵水泥</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-300">高碳排產業、技術轉型困難、成本壓力大</td>
+                                <td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-300">低碳技術研發、碳捕捉應用、循環經濟模式</td>
+                                <td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-300">轉型計畫詳細說明、減碳技術投資</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4">
+                                    <div class="flex items-center">
+                                        <i class="fas fa-truck text-purple-600 dark:text-purple-400 mr-2"></i>
+                                        <span class="font-medium text-gray-800 dark:text-gray-200">運輸物流</span>
+                                    </div>
+                                </td>
+                                <td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-300">運輸排放計算、客戶數據取得困難</td>
+                                <td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-300">智慧物流系統、電動車隊轉換、路線優化</td>
+                                <td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-300">運輸效率指標、替代能源使用計劃</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Taiwan Specific Solutions -->
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 card-shadow">
+                    <h3 class="text-2xl font-bold esg-header mb-6">台灣政府資源運用</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-hand-holding-usd text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 dark:text-gray-200">經濟部淨零轉型補助</h4>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm">申請節能減碳相關設備與技術升級補助</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-chart-line text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 dark:text-gray-200">金管會永續金融行動方案</h4>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm">參與綠色金融發展與氣候風險管理輔導</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-orange-600 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-robot text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 dark:text-gray-200">工業局智慧製造升級資源</h4>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm">導入IoT設備進行能源監控與效率提升</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 card-shadow">
+                    <h3 class="text-2xl font-bold esg-header mb-6">立即行動建議</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <span class="text-white font-bold text-sm">1</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 dark:text-gray-200">成立轉換專案小組</h4>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm">指定專責人員，建立跨部門協作機制</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <span class="text-white font-bold text-sm">2</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 dark:text-gray-200">完成差異分析</h4>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm">詳細比對現有TCFD報告與IFRS S2要求</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center mr-4 mt-1">
+                                <span class="text-white font-bold text-sm">3</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-gray-800 dark:text-gray-200">制定實施時程</h4>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm">配合2026年台灣強制適用時間點</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusion -->
+    <section class="py-20 gradient-bg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl lg:text-5xl font-bold text-white mb-8">結論與展望</h2>
+            <p class="text-xl text-green-100 mb-8 max-w-4xl mx-auto leading-relaxed">
+                TCFD轉換IFRS S2是台灣企業永續發展的重要里程碑。透過系統化規劃、階段性實施和善用本土資源，不僅能有效控制轉換成本，更能提升企業氣候韌性和競爭優勢。
+            </p>
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-white mb-2">高階承諾</div>
+                    <p class="text-green-100">董事會層級的策略支持</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-white mb-2">專業能力</div>
+                    <p class="text-green-100">持續投資人才培育</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-white mb-2">系統整合</div>
+                    <p class="text-green-100">確保資料品質和流程順暢</p>
+                </div>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-8 max-w-4xl mx-auto">
+                <p class="text-green-100 text-lg mb-6">
+                    建議企業立即啟動評估和準備工作，搶占永續發展先機。每個人都可以參與並影響可持續發展的未來。
+                </p>
+                <a href="#overview" class="inline-flex items-center px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white rounded-lg font-semibold transition-colors">
+                    <i class="fas fa-rocket mr-2"></i>
+                    立即開始行動
+                </a>
+            </div>
+        </div>
+    </section>
+	
+	<div class="video-container">
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/iok_hW4ytoE?si=2mWtyGRODq6VDD2s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+	</div>
+
+    <!-- Footer -->
+    <footer class="esg-footer py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-leaf text-2xl text-white mr-3"></i>
+                        <span class="text-xl font-bold text-white">IFRS S2 轉換指南</span>
+                    </div>
+                    <p class="text-gray-300 mb-4">
+                        基於最新國際準則，協助企業順利從TCFD架構轉換到IFRS S2標準
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">重要聲明</h4>
+                    <p class="text-gray-300 text-sm mb-2">
+                        <strong>免責聲明：</strong>基於公開資料，僅供參考，不構成建議
+                    </p>
+                    <p class="text-gray-300 text-sm mb-2">
+                        <strong>資料來源：</strong>網頁公開資訊
+                    </p>
+                    <p class="text-gray-300 text-sm">
+                        <strong>版權所有：</strong>© 2025 Dunk
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-gray-600 pt-8 text-center">
+                <p class="text-gray-300">© 2025 Dunk. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+	
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or default to 'light' mode
+        const currentTheme = localStorage.getItem('theme') || 
+            (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+        if (currentTheme === 'dark') {
+            html.classList.add('dark');
+            html.setAttribute('data-theme', 'dark');
+        }
+
+        themeToggle.addEventListener('click', function() {
+            html.classList.toggle('dark');
+            
+            const isDark = html.classList.contains('dark');
+            html.setAttribute('data-theme', isDark ? 'dark' : 'light');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            
+            // Reinitialize Mermaid charts with new theme
+            if (typeof mermaid !== 'undefined') {
+                mermaid.initialize({
+                    startOnLoad: true,
+                    theme: isDark ? 'dark' : 'default',
+                    themeVariables: {
+                        primaryColor: isDark ? '#4ade80' : '#2d5016',
+                        primaryTextColor: isDark ? '#f3f4f6' : '#333333',
+                        primaryBorderColor: isDark ? '#22c55e' : '#1a4d3a',
+                        lineColor: isDark ? '#6b7280' : '#4b5563',
+                        secondaryColor: isDark ? '#1f2937' : '#e8f5e8',
+                        tertiaryColor: isDark ? '#374151' : '#f3f4f6'
+                    }
+                });
+                
+                // Re-render all mermaid diagrams
+                const mermaidElements = document.querySelectorAll('.mermaid');
+                mermaidElements.forEach((element, index) => {
+                    const graphDefinition = element.textContent;
+                    element.innerHTML = '';
+                    element.setAttribute('id', 'mermaid-' + index);
+                    mermaid.render('mermaid-graph-' + index, graphDefinition, (svgCode) => {
+                        element.innerHTML = svgCode;
+                    });
+                });
+            }
+        });
+
+        // Initialize Mermaid
+        document.addEventListener('DOMContentLoaded', function() {
+            const isDark = html.classList.contains('dark');
+            
+            mermaid.initialize({
+                startOnLoad: true,
+                theme: isDark ? 'dark' : 'default',
+                themeVariables: {
+                    primaryColor: isDark ? '#4ade80' : '#2d5016',
+                    primaryTextColor: isDark ? '#f3f4f6' : '#333333',
+                    primaryBorderColor: isDark ? '#22c55e' : '#1a4d3a',
+                    lineColor: isDark ? '#6b7280' : '#4b5563',
+                    secondaryColor: isDark ? '#1f2937' : '#e8f5e8',
+                    tertiaryColor: isDark ? '#374151' : '#f3f4f6'
+                }
+            });
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Add scroll effects
+            window.addEventListener('scroll', function() {
+                const nav = document.querySelector('nav');
+                if (window.scrollY > 100) {
+                    nav.classList.add('backdrop-blur-lg');
+                } else {
+                    nav.classList.remove('backdrop-blur-lg');
+                }
+            });
+        });
+    </script>
+
+<div class="mermaidTooltip" style="opacity: 0;"></div></body></html>
