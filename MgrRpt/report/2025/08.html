@@ -1,0 +1,1364 @@
+
+<!DOCTYPE html><html lang="zh-TW" class="dark"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025年8月信用風險報告 - 綜合分析</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/preline@2.3.0/dist/preline.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #9A0036 0%, #941C61 50%, #EEBAC0 100%);
+        }
+        
+        .glassmorphism {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .dark .glassmorphism {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .dark .card-hover:hover {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+        }
+        
+        .number-highlight {
+            background: linear-gradient(45deg, #9A0036, #941C61);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .metric-card {
+            background: linear-gradient(135deg, rgba(154, 0, 54, 0.05) 0%, rgba(148, 28, 97, 0.05) 100%);
+            border-left: 4px solid #9A0036;
+        }
+        
+        .dark .metric-card {
+            background: linear-gradient(135deg, rgba(154, 0, 54, 0.2) 0%, rgba(148, 28, 97, 0.2) 100%);
+        }
+        
+        .scroll-fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .scroll-fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+<script src="https://felo.ai/js/iframe.js?v=1757421675408"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style><style data-id="immersive-translate-input-injected-css">.immersive-translate-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2147483647;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.immersive-translate-attach-loading::after {
+  content: " ";
+
+  --loading-color: #f78fb6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+  position: relative;
+  color: white;
+  left: -100px;
+  box-sizing: border-box;
+  animation: immersiveTranslateShadowRolling 1.5s linear infinite;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-2000%, -50%);
+  z-index: 100;
+}
+
+.immersive-translate-loading-spinner {
+  vertical-align: middle !important;
+  width: 10px !important;
+  height: 10px !important;
+  display: inline-block !important;
+  margin: 0 4px !important;
+  border: 2px rgba(221, 244, 255, 0.6) solid !important;
+  border-top: 2px rgba(0, 0, 0, 0.375) solid !important;
+  border-left: 2px rgba(0, 0, 0, 0.375) solid !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  -webkit-animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+  animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+}
+
+@-webkit-keyframes immersive-translate-loading-animation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+
+@keyframes immersive-translate-loading-animation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.immersive-translate-input-loading {
+  --loading-color: #f78fb6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+  position: relative;
+  color: white;
+  left: -100px;
+  box-sizing: border-box;
+  animation: immersiveTranslateShadowRolling 1.5s linear infinite;
+}
+
+@keyframes immersiveTranslateShadowRolling {
+  0% {
+    box-shadow: 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  12% {
+    box-shadow: 100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  25% {
+    box-shadow: 110px 0 var(--loading-color), 100px 0 var(--loading-color),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  36% {
+    box-shadow: 120px 0 var(--loading-color), 110px 0 var(--loading-color),
+      100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  50% {
+    box-shadow: 130px 0 var(--loading-color), 120px 0 var(--loading-color),
+      110px 0 var(--loading-color), 100px 0 var(--loading-color);
+  }
+
+  62% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color),
+      120px 0 var(--loading-color), 110px 0 var(--loading-color);
+  }
+
+  75% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      130px 0 var(--loading-color), 120px 0 var(--loading-color);
+  }
+
+  87% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color);
+  }
+
+  100% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0);
+  }
+}
+
+.immersive-translate-toast {
+  display: flex;
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  right: 0;
+  top: 1%;
+  width: fit-content;
+  padding: 12px 20px;
+  margin: auto;
+  overflow: auto;
+  background: #fef6f9;
+  box-shadow: 0px 4px 10px 0px rgba(0, 10, 30, 0.06);
+  font-size: 15px;
+  border-radius: 8px;
+  color: #333;
+}
+
+.immersive-translate-toast-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.immersive-translate-toast-hidden {
+  margin: 0 20px 0 72px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.immersive-translate-toast-close {
+  color: #666666;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-toast {
+    top: 0;
+    padding: 12px 0px 0 10px;
+  }
+  .immersive-translate-toast-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .immersive-translate-toast-hidden {
+    margin: 10px auto;
+  }
+}
+
+.immersive-translate-dialog {
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  top: 0;
+  display: flex;
+  width: 300px;
+  flex-direction: column;
+  align-items: center;
+  font-size: 15px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: fit-content;
+  border-radius: 20px;
+  background-color: #fff;
+}
+
+.immersive-translate-modal {
+  display: none;
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  font-size: 15px;
+}
+
+.immersive-translate-modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 40px 24px 24px;
+  border-radius: 12px;
+  width: 350px;
+  font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",
+    "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-modal-content {
+    margin: 25% auto !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .immersive-translate-modal-content {
+    width: 80vw !important;
+    margin: 20vh auto !important;
+    padding: 20px 12px 12px !important;
+  }
+
+  .immersive-translate-modal-title {
+    font-size: 14px !important;
+  }
+
+  .immersive-translate-modal-body {
+    font-size: 13px !important;
+    max-height: 60vh !important;
+  }
+
+  .immersive-translate-btn {
+    font-size: 13px !important;
+    padding: 8px 16px !important;
+    margin: 0 4px !important;
+  }
+
+  .immersive-translate-modal-footer {
+    gap: 6px !important;
+    margin-top: 16px !important;
+  }
+}
+
+.immersive-translate-modal .immersive-translate-modal-content-in-input {
+  max-width: 500px;
+}
+.immersive-translate-modal-content-in-input .immersive-translate-modal-body {
+  text-align: left;
+  max-height: unset;
+}
+
+.immersive-translate-modal-title {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333333;
+}
+
+.immersive-translate-modal-body {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333333;
+  margin-top: 24px;
+  word-break: break-all;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-modal-body {
+    max-height: 250px;
+    overflow-y: auto;
+  }
+}
+
+.immersive-translate-close {
+  color: #666666;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.immersive-translate-close:hover,
+.immersive-translate-close:focus {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.immersive-translate-modal-footer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.immersive-translate-btn {
+  width: fit-content;
+  color: #fff;
+  background-color: #ea4c89;
+  border: none;
+  font-size: 14px;
+  margin: 0 8px;
+  padding: 9px 30px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.immersive-translate-btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.immersive-translate-btn:hover {
+  background-color: #f082ac;
+}
+.immersive-translate-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.immersive-translate-btn:disabled:hover {
+  background-color: #ea4c89;
+}
+
+.immersive-translate-link-btn {
+  background-color: transparent;
+  color: #ea4c89;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  line-height: 30px;
+}
+
+.immersive-translate-cancel-btn {
+  /* gray color */
+  background-color: rgb(89, 107, 120);
+}
+
+.immersive-translate-cancel-btn:hover {
+  background-color: hsl(205, 20%, 32%);
+}
+
+.immersive-translate-action-btn {
+  background-color: transparent;
+  color: #ea4c89;
+  border: 1px solid #ea4c89;
+}
+
+.immersive-translate-btn svg {
+  margin-right: 5px;
+}
+
+.immersive-translate-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #ea4c89;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+.immersive-translate-primary-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #ea4c89;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+.immersive-translate-modal input[type="radio"] {
+  margin: 0 6px;
+  cursor: pointer;
+}
+
+.immersive-translate-modal label {
+  cursor: pointer;
+}
+
+.immersive-translate-close-action {
+  position: absolute;
+  top: 2px;
+  right: 0px;
+  cursor: pointer;
+}
+
+.imt-image-status {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 16px !important;
+}
+.imt-image-status img,
+.imt-image-status svg,
+.imt-img-loading {
+  width: 28px !important;
+  height: 28px !important;
+  margin: 0 0 8px 0 !important;
+  min-height: 28px !important;
+  min-width: 28px !important;
+  position: relative !important;
+}
+.imt-img-loading {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAtFBMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////oK74hAAAAPHRSTlMABBMIDyQXHwyBfFdDMSw+OjXCb+5RG51IvV/k0rOqlGRM6KKMhdvNyZBz9MaupmxpWyj437iYd/yJVNZeuUC7AAACt0lEQVRIx53T2XKiUBCA4QYOiyCbiAsuuGBcYtxiYtT3f6/pbqoYHVFO5r+iivpo6DpAWYpqeoFfr9f90DsYAuRSWkFnPO50OgR9PwiCUFcl2GEcx+N/YBh6pvKaefHlUgZd1zVe0NbYcQjGBfzrPE8Xz8aF+71D8gG6DHFPpc4a7xFiCDuhaWgKgGIJQ3d5IMGDrpS4S5KgpIm+en9f6PlAhKby4JwEIxlYJV9h5k5nee9GoxHJ2IDSNB0dwdad1NAxDJ/uXDHYmebdk4PdbkS58CIVHdYSUHTYYRWOJblWSyu2lmy3KNFVJNBhxcuGW4YBVCbYGRZwIooipHsNqjM4FbgOQqQqSKQQU9V8xmi1QlgHqQQ6DDBvRUVCDirs+EzGDGOQTCATgtYTnbCVLgsVgRE0T1QE0qHCFAht2z6dLvJQs3Lo2FQoDxWNUiBhaP4eRgwNkI+dAjVOA/kUrIDwf3CG8NfNOE0eiFotSuo+rBiq8tD9oY4Qzc6YJw99hl1wzpQvD7ef2M8QgnOGJfJw+EltQc+oX2yn907QB22WZcvlUpd143dqQu+8pCJZuGE4xCuPXJqqcs5sNpsI93Rmzym1k4Npk+oD1SH3/a3LOK/JpUBpWfqNySxWzCfNCUITuDG5dtuphrUJ1myeIE9bIsPiKrfqTai5WZxbhtNphYx6GEIHihyGFTI69lje/rxajdh0s0msZ0zYxyPLhYCb1CyHm9Qsd2H37Y3lugVwL9kNh8Ot8cha6fUNQ8nuXi5z9/ExsAO4zQrb/ev1yrCB7lGyQzgYDGuxq1toDN/JGvN+HyWNHKB7zEoK+PX11e12G431erGYzwmytAWU56fkMHY5JJnDRR2eZji3AwtIcrEV8Cojat/BdQ7XOwGV1e1hDjGGjXbdArm8uJZtCH5MbcctVX8A1WpqumJHwckAAAAASUVORK5CYII=");
+  background-size: 28px 28px;
+  animation: image-loading-rotate 1s linear infinite !important;
+}
+
+.imt-image-status span {
+  color: var(--bg-2, #fff) !important;
+  font-size: 14px !important;
+  line-height: 14px !important;
+  font-weight: 500 !important;
+  font-family: "PingFang SC", Arial, sans-serif !important;
+}
+
+.imt-primary-button {
+  display: flex;
+  padding: 12px 80px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  background: #ea4c89;
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  border: none;
+  cursor: pointer;
+}
+
+.imt-retry-text {
+  color: #999;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  cursor: pointer;
+}
+
+.imt-action-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.imt-modal-content-text {
+  text-align: left;
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+@keyframes image-loading-rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.imt-linear-gradient-text {
+  background: linear-gradient(90deg, #00a6ff 0%, #c369ff 52.4%, #ff4590 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.imt-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imt-linear-black-btn {
+  border-radius: 50px;
+  background: linear-gradient(66deg, #222 19%, #696969 94.25%);
+  height: 48px;
+  width: 100%;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+}
+</style><style id="felo-iframe-styles">html,body{margin:0 !important;padding:0 !important;}</style></head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300" contenteditable="false" spellcheck="false">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200/50 dark:border-gray-700/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-4">
+                    <div class="w-8 h-8 bg-gradient-to-br from-red-600 to-pink-600 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-chart-line text-white text-sm"></i>
+                    </div>
+                    <h1 class="text-xl font-bold text-gray-900 dark:text-white">信用風險報告</h1>
+                </div>
+                
+                <div class="flex items-center space-x-6">
+                    <a href="#overview" class="text-gray-600 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 transition-colors">總覽</a>
+                    <a href="#analysis" class="text-gray-600 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 transition-colors">深度分析</a>
+                    <a href="#insights" class="text-gray-600 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 transition-colors">重要見解</a>
+                    <a href="#faq" class="text-gray-600 dark:text-gray-300 hover:text-red-600 dark:hover:text-red-400 transition-colors">常見問題</a>
+                    
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                        <i class="fas fa-sun dark:hidden"></i>
+                        <i class="fas fa-moon hidden dark:inline"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 gradient-bg"></div>
+        
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <svg class="w-full h-full" viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+                        <path d="M 50 0 L 0 0 0 50" fill="none" stroke="white" stroke-width="1"></path>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)"></rect>
+            </svg>
+        </div>
+        
+        <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="glassmorphism rounded-3xl p-12 md:p-16">
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+                    2025年8月
+                    <br>
+                    <span class="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">信用風險報告</span>
+                </h1>
+                
+                <p class="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
+                    綜合分析信用風險帳面金額、風險性資產及其變動趨勢
+                    <br>
+                    深入探討資產組合結構性變化的影響
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                    <div class="glassmorphism rounded-2xl p-6">
+                        <div class="text-3xl font-bold text-yellow-400 mb-2">7兆2,349億</div>
+                        <div class="text-white/80">信用風險帳面金額</div>
+                    </div>
+                    <div class="glassmorphism rounded-2xl p-6">
+                        <div class="text-3xl font-bold text-orange-400 mb-2">2兆3,136億</div>
+                        <div class="text-white/80">風險性資產額</div>
+                    </div>
+                    <div class="glassmorphism rounded-2xl p-6">
+                        <div class="text-3xl font-bold text-red-400 mb-2">+222億</div>
+                        <div class="text-white/80">RWA月度增長</div>
+                    </div>
+                </div>
+                
+                <div class="text-sm text-white/70">
+                    報告期間：2025年8月31日 vs 2025年7月31日 | 2025年8月31日 vs 2025年5月31日
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/60 animate-bounce">
+            <i class="fas fa-chevron-down text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- Main Insights -->
+    <section id="overview" class="py-24 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-fade-in visible">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">主要主題與重要見解</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-red-600 to-pink-600 mx-auto mb-8"></div>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                    本報告綜合分析了在2025年8月底的信用風險帳面金額、風險性資產（RWA）及其月度和季度變動，並深入探討了放款及進出口押匯對象與用途別的資金流向。
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+                <div class="metric-card p-8 rounded-2xl card-hover scroll-fade-in visible">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-xl flex items-center justify-center mr-4">
+                            <i class="fas fa-chart-line text-red-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold">關鍵發現</h3>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                        主要觀察到資產組合的結構性變化導致整體風險性資產增加，儘管總帳面金額略有下降。
+                    </p>
+                    <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-xl">
+                        <p class="text-red-700 dark:text-red-300 font-medium">
+                            銀行業、不動產及交易對手信用風險是推動RWA上升的主要驅動力
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="metric-card p-8 rounded-2xl card-hover scroll-fade-in visible">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center mr-4">
+                            <i class="fas fa-university text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold">政府部門動向</h3>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                        政府部門的支出則呈現顯著緊縮，與私人部門的活力形成鮮明對比。
+                    </p>
+                    <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-xl">
+                        <p class="text-blue-700 dark:text-blue-300 font-medium">
+                            中央政府減少1,150.79億元，為主要緊縮驅動力
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Visualization Section -->
+    <section id="analysis" class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-fade-in visible">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">總體信用風險概況</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-red-600 to-pink-600 mx-auto mb-8"></div>
+            </div>
+
+            <!-- Key Metrics Dashboard -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 card-hover scroll-fade-in visible">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-minus text-red-600"></i>
+                        </div>
+                        <div class="text-red-600 text-sm font-medium">月度變化</div>
+                    </div>
+                    <div class="number-highlight text-3xl font-bold mb-2">-105.92億</div>
+                    <div class="text-gray-600 dark:text-gray-400 text-sm">帳面金額變動</div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 card-hover scroll-fade-in visible">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-plus text-green-600"></i>
+                        </div>
+                        <div class="text-green-600 text-sm font-medium">月度變化</div>
+                    </div>
+                    <div class="number-highlight text-3xl font-bold mb-2">+222.39億</div>
+                    <div class="text-gray-600 dark:text-gray-400 text-sm">風險性資產變動</div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 card-hover scroll-fade-in visible">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-chart-bar text-blue-600"></i>
+                        </div>
+                        <div class="text-blue-600 text-sm font-medium">當前總額</div>
+                    </div>
+                    <div class="number-highlight text-3xl font-bold mb-2">7兆2,349億</div>
+                    <div class="text-gray-600 dark:text-gray-400 text-sm">信用風險帳面金額</div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 card-hover scroll-fade-in visible">
+                    <div class="flex items-center justify-between mb-4">
+                        <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-exclamation-triangle text-purple-600"></i>
+                        </div>
+                        <div class="text-purple-600 text-sm font-medium">當前總額</div>
+                    </div>
+                    <div class="number-highlight text-3xl font-bold mb-2">2兆3,136億</div>
+                    <div class="text-gray-600 dark:text-gray-400 text-sm">風險性資產額</div>
+                </div>
+            </div>
+
+            <!-- Risk Asset Changes Chart -->
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-8 mb-16 scroll-fade-in visible">
+                <h3 class="text-2xl font-bold mb-6 flex items-center">
+                    <i class="fas fa-chart-bar text-red-600 mr-3"></i>
+                    各曝險類型RWA變動分析
+                </h3>
+                <div id="riskChart" class="h-96" _echarts_instance_="ec_1757421673817" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" data-chart-option="{&quot;darkMode&quot;:true,&quot;color&quot;:[&quot;#4992ff&quot;,&quot;#7cffb2&quot;,&quot;#fddd60&quot;,&quot;#ff6e76&quot;,&quot;#58d9f9&quot;,&quot;#05c091&quot;,&quot;#ff8a45&quot;,&quot;#8d48e3&quot;,&quot;#dd79ff&quot;],&quot;backgroundColor&quot;:&quot;#100C2A&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;,&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;timeAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;logAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;valueAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;categoryAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;},&quot;show&quot;:false},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;line&quot;:{&quot;symbol&quot;:&quot;circle&quot;},&quot;graph&quot;:{&quot;color&quot;:[&quot;#4992ff&quot;,&quot;#7cffb2&quot;,&quot;#fddd60&quot;,&quot;#ff6e76&quot;,&quot;#58d9f9&quot;,&quot;#05c091&quot;,&quot;#ff8a45&quot;,&quot;#8d48e3&quot;,&quot;#dd79ff&quot;]},&quot;gauge&quot;:{&quot;title&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;},&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:[[1,&quot;rgba(207,212,219,0.2)&quot;]]}},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;},&quot;detail&quot;:{&quot;color&quot;:&quot;#EEF1FA&quot;}},&quot;candlestick&quot;:{&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#f64e56&quot;,&quot;color0&quot;:&quot;#54ea92&quot;,&quot;borderColor&quot;:&quot;#f64e56&quot;,&quot;borderColor0&quot;:&quot;#54ea92&quot;}},&quot;colorBy&quot;:&quot;series&quot;,&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;axisPointer&quot;:[{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#817f91&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#817f91&quot;},&quot;label&quot;:{&quot;color&quot;:&quot;#fff&quot;,&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[{&quot;trigger&quot;:&quot;axis&quot;,&quot;axisPointer&quot;:{&quot;type&quot;:&quot;shadow&quot;,&quot;axis&quot;:&quot;auto&quot;,&quot;animation&quot;:&quot;auto&quot;,&quot;animationDurationUpdate&quot;:200,&quot;animationEasingUpdate&quot;:&quot;exponentialOut&quot;,&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#999&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;,&quot;textStyle&quot;:{}}},&quot;z&quot;:60,&quot;show&quot;:true,&quot;showContent&quot;:true,&quot;triggerOn&quot;:&quot;mousemove|click&quot;,&quot;alwaysShowContent&quot;:false,&quot;displayMode&quot;:&quot;single&quot;,&quot;renderMode&quot;:&quot;auto&quot;,&quot;confine&quot;:null,&quot;showDelay&quot;:0,&quot;hideDelay&quot;:100,&quot;transitionDuration&quot;:0.4,&quot;enterable&quot;:false,&quot;backgroundColor&quot;:&quot;#fff&quot;,&quot;shadowBlur&quot;:10,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, .2)&quot;,&quot;shadowOffsetX&quot;:1,&quot;shadowOffsetY&quot;:2,&quot;borderRadius&quot;:4,&quot;borderWidth&quot;:1,&quot;padding&quot;:null,&quot;extraCssText&quot;:&quot;&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;fontSize&quot;:14}}],&quot;yAxis&quot;:[{&quot;type&quot;:&quot;value&quot;,&quot;name&quot;:&quot;金額(億元)&quot;,&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:&quot;auto&quot;,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:true},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]},&quot;show&quot;:false},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;,&quot;width&quot;:1},&quot;show&quot;:false},&quot;boundaryGap&quot;:[0,0],&quot;axisTick&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;splitNumber&quot;:5,&quot;minorTick&quot;:{&quot;show&quot;:false,&quot;splitNumber&quot;:5,&quot;length&quot;:3,&quot;lineStyle&quot;:{}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{},&quot;axisLabel&quot;:{&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;offset&quot;:0}],&quot;xAxis&quot;:[{&quot;type&quot;:&quot;category&quot;,&quot;data&quot;:[&quot;銀行曝險&quot;,&quot;不動產&quot;,&quot;交易對手&quot;,&quot;主權國家&quot;,&quot;企業&quot;,&quot;零售曝險&quot;],&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:true,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:false},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]},&quot;show&quot;:false},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}},&quot;boundaryGap&quot;:true,&quot;deduplication&quot;:null,&quot;axisTick&quot;:{&quot;alignWithLabel&quot;:false,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;axisLabel&quot;:{&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{&quot;status&quot;:&quot;hide&quot;,&quot;value&quot;:5,&quot;seriesDataIndices&quot;:[{&quot;seriesIndex&quot;:0,&quot;dataIndexInside&quot;:5,&quot;dataIndex&quot;:5},{&quot;seriesIndex&quot;:1,&quot;dataIndexInside&quot;:5,&quot;dataIndex&quot;:5}]},&quot;offset&quot;:0}],&quot;grid&quot;:[{&quot;left&quot;:&quot;3%&quot;,&quot;right&quot;:&quot;4%&quot;,&quot;bottom&quot;:&quot;3%&quot;,&quot;containLabel&quot;:true,&quot;show&quot;:false,&quot;z&quot;:0,&quot;top&quot;:60,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#ccc&quot;}],&quot;series&quot;:[{&quot;name&quot;:&quot;帳面金額變動&quot;,&quot;type&quot;:&quot;bar&quot;,&quot;data&quot;:[407.61,149.58,0,-464.18,-210.69,-45.23],&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#9A0036&quot;},&quot;z&quot;:2,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;barMinHeight&quot;:0,&quot;barMinAngle&quot;:0,&quot;large&quot;:false,&quot;largeThreshold&quot;:400,&quot;progressive&quot;:3000,&quot;progressiveChunkMode&quot;:&quot;mod&quot;,&quot;clip&quot;:true,&quot;roundCap&quot;:false,&quot;showBackground&quot;:false,&quot;backgroundStyle&quot;:{&quot;color&quot;:&quot;rgba(180, 180, 180, 0.2)&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderType&quot;:&quot;solid&quot;,&quot;borderRadius&quot;:0,&quot;shadowBlur&quot;:0,&quot;shadowColor&quot;:null,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:0,&quot;opacity&quot;:1},&quot;select&quot;:{&quot;itemStyle&quot;:{&quot;borderColor&quot;:&quot;#212121&quot;}},&quot;realtimeSort&quot;:false,&quot;label&quot;:{},&quot;emphasis&quot;:{&quot;label&quot;:{}}},{&quot;name&quot;:&quot;RWA變動&quot;,&quot;type&quot;:&quot;bar&quot;,&quot;data&quot;:[86.71,62.66,87.62,-2.57,0.73,-12.89],&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#941C61&quot;},&quot;z&quot;:2,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;barMinHeight&quot;:0,&quot;barMinAngle&quot;:0,&quot;large&quot;:false,&quot;largeThreshold&quot;:400,&quot;progressive&quot;:3000,&quot;progressiveChunkMode&quot;:&quot;mod&quot;,&quot;clip&quot;:true,&quot;roundCap&quot;:false,&quot;showBackground&quot;:false,&quot;backgroundStyle&quot;:{&quot;color&quot;:&quot;rgba(180, 180, 180, 0.2)&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderType&quot;:&quot;solid&quot;,&quot;borderRadius&quot;:0,&quot;shadowBlur&quot;:0,&quot;shadowColor&quot;:null,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:0,&quot;opacity&quot;:1},&quot;select&quot;:{&quot;itemStyle&quot;:{&quot;borderColor&quot;:&quot;#212121&quot;}},&quot;realtimeSort&quot;:false,&quot;label&quot;:{},&quot;emphasis&quot;:{&quot;label&quot;:{}}}],&quot;visualMap&quot;:[],&quot;legend&quot;:[{&quot;data&quot;:[&quot;帳面金額變動&quot;,&quot;RWA變動&quot;],&quot;textStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;},&quot;z&quot;:4,&quot;show&quot;:true,&quot;orient&quot;:&quot;horizontal&quot;,&quot;left&quot;:&quot;center&quot;,&quot;top&quot;:0,&quot;align&quot;:&quot;auto&quot;,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderColor&quot;:&quot;#ccc&quot;,&quot;borderRadius&quot;:0,&quot;borderWidth&quot;:0,&quot;padding&quot;:5,&quot;itemGap&quot;:10,&quot;itemWidth&quot;:25,&quot;itemHeight&quot;:14,&quot;symbolRotate&quot;:&quot;inherit&quot;,&quot;symbolKeepAspect&quot;:true,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderWidth&quot;:&quot;auto&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;inherit&quot;,&quot;opacity&quot;:&quot;inherit&quot;,&quot;borderColor&quot;:&quot;inherit&quot;,&quot;borderWidth&quot;:&quot;auto&quot;,&quot;borderCap&quot;:&quot;inherit&quot;,&quot;borderJoin&quot;:&quot;inherit&quot;,&quot;borderDashOffset&quot;:&quot;inherit&quot;,&quot;borderMiterLimit&quot;:&quot;inherit&quot;},&quot;lineStyle&quot;:{&quot;width&quot;:&quot;auto&quot;,&quot;color&quot;:&quot;inherit&quot;,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveWidth&quot;:2,&quot;opacity&quot;:&quot;inherit&quot;,&quot;type&quot;:&quot;inherit&quot;,&quot;cap&quot;:&quot;inherit&quot;,&quot;join&quot;:&quot;inherit&quot;,&quot;dashOffset&quot;:&quot;inherit&quot;,&quot;miterLimit&quot;:&quot;inherit&quot;},&quot;selectedMode&quot;:true,&quot;selector&quot;:false,&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;borderRadius&quot;:10,&quot;padding&quot;:[3,5,3,5],&quot;fontSize&quot;:12,&quot;fontFamily&quot;:&quot;sans-serif&quot;,&quot;color&quot;:&quot;#666&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#666&quot;},&quot;emphasis&quot;:{&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;color&quot;:&quot;#eee&quot;,&quot;backgroundColor&quot;:&quot;#666&quot;}},&quot;selectorPosition&quot;:&quot;auto&quot;,&quot;selectorItemGap&quot;:7,&quot;selectorButtonGap&quot;:10,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;selected&quot;:{}}],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 1021px; height: 384px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas data-zr-dom-id="zr_0" width="1148" height="432" style="position: absolute; left: 0px; top: 0px; width: 1021px; height: 384px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class="" style="position: absolute; display: block; border-style: solid; white-space: nowrap; z-index: 9999999; box-shadow: rgba(0, 0, 0, 0.2) 1px 2px 10px; background-color: rgb(255, 255, 255); border-width: 1px; border-radius: 4px; color: rgb(102, 102, 102); font: 14px / 21px &quot;Microsoft YaHei&quot;; padding: 10px; top: 0px; left: 0px; transform: translate3d(743px, 134px, 0px); border-color: rgb(255, 255, 255); pointer-events: none; visibility: hidden; opacity: 0;"><div style="margin: 0px 0 0;line-height:1;"><div style="margin: 0px 0 0;line-height:1;"><div style="font-size:14px;color:#666;font-weight:400;line-height:1;">零售曝險</div><div style="margin: 10px 0 0;line-height:1;"><div style="margin: 0px 0 0;line-height:1;"><div style="margin: 0px 0 0;line-height:1;"><span style="display:inline-block;margin-right:4px;border-radius:10px;width:10px;height:10px;background-color:#9A0036;"></span><span style="font-size:14px;color:#666;font-weight:400;margin-left:2px">帳面金額變動</span><span style="float:right;margin-left:20px;font-size:14px;color:#666;font-weight:900">-45.23</span><div style="clear:both"></div></div><div style="clear:both"></div></div><div style="margin: 10px 0 0;line-height:1;"><div style="margin: 0px 0 0;line-height:1;"><span style="display:inline-block;margin-right:4px;border-radius:10px;width:10px;height:10px;background-color:#941C61;"></span><span style="font-size:14px;color:#666;font-weight:400;margin-left:2px">RWA變動</span><span style="float:right;margin-left:20px;font-size:14px;color:#666;font-weight:900">-12.89</span><div style="clear:both"></div></div><div style="clear:both"></div></div><div style="clear:both"></div></div><div style="clear:both"></div></div><div style="clear:both"></div></div></div></div>
+            </div>
+
+            <!-- Sector Analysis -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-8 scroll-fade-in visible">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-building text-blue-600 mr-3"></i>
+                        銀行曝險分析
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
+                            <span class="font-medium">帳面金額增加</span>
+                            <span class="text-2xl font-bold text-blue-600">+407.61億</span>
+                        </div>
+                        <div class="flex justify-between items-center p-4 bg-green-50 dark:bg-green-900/20 rounded-xl">
+                            <span class="font-medium">風險性資產增加</span>
+                            <span class="text-2xl font-bold text-green-600">+86.71億</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mt-4">
+                            是所有個別曝險類型中增幅最大者，反映機構對銀行部門的曝險及其相應的信用風險敞口顯著擴大。
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-8 scroll-fade-in visible">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-home text-orange-600 mr-3"></i>
+                        不動產曝險分析
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center p-4 bg-orange-50 dark:bg-orange-900/20 rounded-xl">
+                            <span class="font-medium">帳面金額增加</span>
+                            <span class="text-2xl font-bold text-orange-600">+149.58億</span>
+                        </div>
+                        <div class="flex justify-between items-center p-4 bg-red-50 dark:bg-red-900/20 rounded-xl">
+                            <span class="font-medium">風險性資產增加</span>
+                            <span class="text-2xl font-bold text-red-600">+62.66億</span>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm mt-4">
+                            相較於其帳面金額的增幅，風險性資產的增幅比例顯得較高（約41.9%），暗示不動產暴險的平均風險權重較高。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loan Analysis -->
+    <section class="py-24 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-fade-in visible">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">放款及進出口押匯分析</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-red-600 to-pink-600 mx-auto mb-8"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+                <!-- Monthly Comparison -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-8 scroll-fade-in visible">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-calendar-alt text-blue-600 mr-3"></i>
+                        月度比較 (8月 vs 7月)
+                    </h3>
+                    <div id="monthlyChart" class="h-80 mb-6" _echarts_instance_="ec_1757421673818" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" data-chart-option="{&quot;darkMode&quot;:true,&quot;color&quot;:[&quot;#4992ff&quot;,&quot;#7cffb2&quot;,&quot;#fddd60&quot;,&quot;#ff6e76&quot;,&quot;#58d9f9&quot;,&quot;#05c091&quot;,&quot;#ff8a45&quot;,&quot;#8d48e3&quot;,&quot;#dd79ff&quot;],&quot;backgroundColor&quot;:&quot;#100C2A&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;,&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;timeAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;logAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;valueAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;categoryAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;},&quot;show&quot;:false},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;line&quot;:{&quot;symbol&quot;:&quot;circle&quot;},&quot;graph&quot;:{&quot;color&quot;:[&quot;#4992ff&quot;,&quot;#7cffb2&quot;,&quot;#fddd60&quot;,&quot;#ff6e76&quot;,&quot;#58d9f9&quot;,&quot;#05c091&quot;,&quot;#ff8a45&quot;,&quot;#8d48e3&quot;,&quot;#dd79ff&quot;]},&quot;gauge&quot;:{&quot;title&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;},&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:[[1,&quot;rgba(207,212,219,0.2)&quot;]]}},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;},&quot;detail&quot;:{&quot;color&quot;:&quot;#EEF1FA&quot;}},&quot;candlestick&quot;:{&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#f64e56&quot;,&quot;color0&quot;:&quot;#54ea92&quot;,&quot;borderColor&quot;:&quot;#f64e56&quot;,&quot;borderColor0&quot;:&quot;#54ea92&quot;}},&quot;colorBy&quot;:&quot;series&quot;,&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;axisPointer&quot;:[{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#817f91&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#817f91&quot;},&quot;label&quot;:{&quot;color&quot;:&quot;#fff&quot;,&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[{&quot;trigger&quot;:&quot;item&quot;,&quot;formatter&quot;:&quot;{b}: {c}億 ({d}%)&quot;,&quot;z&quot;:60,&quot;show&quot;:true,&quot;showContent&quot;:true,&quot;triggerOn&quot;:&quot;mousemove|click&quot;,&quot;alwaysShowContent&quot;:false,&quot;displayMode&quot;:&quot;single&quot;,&quot;renderMode&quot;:&quot;auto&quot;,&quot;confine&quot;:null,&quot;showDelay&quot;:0,&quot;hideDelay&quot;:100,&quot;transitionDuration&quot;:0.4,&quot;enterable&quot;:false,&quot;backgroundColor&quot;:&quot;#fff&quot;,&quot;shadowBlur&quot;:10,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, .2)&quot;,&quot;shadowOffsetX&quot;:1,&quot;shadowOffsetY&quot;:2,&quot;borderRadius&quot;:4,&quot;borderWidth&quot;:1,&quot;padding&quot;:null,&quot;extraCssText&quot;:&quot;&quot;,&quot;axisPointer&quot;:{&quot;type&quot;:&quot;line&quot;,&quot;axis&quot;:&quot;auto&quot;,&quot;animation&quot;:&quot;auto&quot;,&quot;animationDurationUpdate&quot;:200,&quot;animationEasingUpdate&quot;:&quot;exponentialOut&quot;,&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#999&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;,&quot;textStyle&quot;:{}}},&quot;textStyle&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;fontSize&quot;:14}}],&quot;series&quot;:[{&quot;name&quot;:&quot;月度變動&quot;,&quot;type&quot;:&quot;pie&quot;,&quot;radius&quot;:&quot;50%&quot;,&quot;data&quot;:[{&quot;value&quot;:247.81,&quot;name&quot;:&quot;公營事業(-)&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#DC2626&quot;}},{&quot;value&quot;:139.06,&quot;name&quot;:&quot;政府機關(-)&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#EF4444&quot;}},{&quot;value&quot;:71.5,&quot;name&quot;:&quot;私人(+)&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#10B981&quot;}},{&quot;value&quot;:82.26,&quot;name&quot;:&quot;其他(-)&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#6B7280&quot;}}],&quot;emphasis&quot;:{&quot;itemStyle&quot;:{&quot;shadowBlur&quot;:10,&quot;shadowOffsetX&quot;:0,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, 0.5)&quot;},&quot;scale&quot;:true,&quot;scaleSize&quot;:5,&quot;label&quot;:{&quot;show&quot;:true},&quot;labelLine&quot;:{&quot;show&quot;:true}},&quot;z&quot;:2,&quot;legendHoverLink&quot;:true,&quot;colorBy&quot;:&quot;data&quot;,&quot;center&quot;:[&quot;50%&quot;,&quot;50%&quot;],&quot;clockwise&quot;:true,&quot;startAngle&quot;:90,&quot;minAngle&quot;:0,&quot;minShowLabelAngle&quot;:0,&quot;selectedOffset&quot;:10,&quot;percentPrecision&quot;:2,&quot;stillShowZeroSum&quot;:true,&quot;left&quot;:0,&quot;top&quot;:0,&quot;right&quot;:0,&quot;bottom&quot;:0,&quot;width&quot;:null,&quot;height&quot;:null,&quot;label&quot;:{&quot;rotate&quot;:0,&quot;show&quot;:true,&quot;overflow&quot;:&quot;truncate&quot;,&quot;position&quot;:&quot;outer&quot;,&quot;alignTo&quot;:&quot;none&quot;,&quot;edgeDistance&quot;:&quot;25%&quot;,&quot;bleedMargin&quot;:10,&quot;distanceToLabelLine&quot;:5},&quot;labelLine&quot;:{&quot;show&quot;:true,&quot;length&quot;:15,&quot;length2&quot;:15,&quot;smooth&quot;:false,&quot;minTurnAngle&quot;:90,&quot;maxSurfaceAngle&quot;:90,&quot;lineStyle&quot;:{&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;}},&quot;itemStyle&quot;:{&quot;borderWidth&quot;:1,&quot;borderJoin&quot;:&quot;round&quot;},&quot;showEmptyCircle&quot;:true,&quot;emptyCircleStyle&quot;:{&quot;color&quot;:&quot;lightgray&quot;,&quot;opacity&quot;:1},&quot;labelLayout&quot;:{&quot;hideOverlap&quot;:true},&quot;avoidLabelOverlap&quot;:true,&quot;animationType&quot;:&quot;expansion&quot;,&quot;animationDuration&quot;:1000,&quot;animationTypeUpdate&quot;:&quot;transition&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;}],&quot;visualMap&quot;:[],&quot;legend&quot;:[{&quot;orient&quot;:&quot;vertical&quot;,&quot;left&quot;:&quot;left&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;},&quot;z&quot;:4,&quot;show&quot;:true,&quot;top&quot;:0,&quot;align&quot;:&quot;auto&quot;,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderColor&quot;:&quot;#ccc&quot;,&quot;borderRadius&quot;:0,&quot;borderWidth&quot;:0,&quot;padding&quot;:5,&quot;itemGap&quot;:10,&quot;itemWidth&quot;:25,&quot;itemHeight&quot;:14,&quot;symbolRotate&quot;:&quot;inherit&quot;,&quot;symbolKeepAspect&quot;:true,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderWidth&quot;:&quot;auto&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;inherit&quot;,&quot;opacity&quot;:&quot;inherit&quot;,&quot;borderColor&quot;:&quot;inherit&quot;,&quot;borderWidth&quot;:&quot;auto&quot;,&quot;borderCap&quot;:&quot;inherit&quot;,&quot;borderJoin&quot;:&quot;inherit&quot;,&quot;borderDashOffset&quot;:&quot;inherit&quot;,&quot;borderMiterLimit&quot;:&quot;inherit&quot;},&quot;lineStyle&quot;:{&quot;width&quot;:&quot;auto&quot;,&quot;color&quot;:&quot;inherit&quot;,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveWidth&quot;:2,&quot;opacity&quot;:&quot;inherit&quot;,&quot;type&quot;:&quot;inherit&quot;,&quot;cap&quot;:&quot;inherit&quot;,&quot;join&quot;:&quot;inherit&quot;,&quot;dashOffset&quot;:&quot;inherit&quot;,&quot;miterLimit&quot;:&quot;inherit&quot;},&quot;selectedMode&quot;:true,&quot;selector&quot;:false,&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;borderRadius&quot;:10,&quot;padding&quot;:[3,5,3,5],&quot;fontSize&quot;:12,&quot;fontFamily&quot;:&quot;sans-serif&quot;,&quot;color&quot;:&quot;#666&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#666&quot;},&quot;emphasis&quot;:{&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;color&quot;:&quot;#eee&quot;,&quot;backgroundColor&quot;:&quot;#666&quot;}},&quot;selectorPosition&quot;:&quot;auto&quot;,&quot;selectorItemGap&quot;:7,&quot;selectorButtonGap&quot;:10,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;right&quot;:null,&quot;selected&quot;:{}}],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 462px; height: 320px; padding: 0px; margin: 0px; border-width: 0px;"><canvas data-zr-dom-id="zr_0" width="519" height="360" style="position: absolute; left: 0px; top: 0px; width: 462px; height: 320px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class=""></div></div>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center p-3 bg-red-50 dark:bg-red-900/20 rounded-lg">
+                            <span class="text-sm font-medium">總體變化</span>
+                            <span class="text-lg font-bold text-red-600">-327.63億</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                            <span class="text-sm font-medium">私人部門</span>
+                            <span class="text-lg font-bold text-green-600">+71.50億</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quarterly Comparison -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-8 scroll-fade-in visible">
+                    <h3 class="text-2xl font-bold mb-6 flex items-center">
+                        <i class="fas fa-calendar text-purple-600 mr-3"></i>
+                        季度比較 (8月 vs 5月)
+                    </h3>
+                    <div id="quarterlyChart" class="h-80 mb-6" _echarts_instance_="ec_1757421673819" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" data-chart-option="{&quot;darkMode&quot;:true,&quot;color&quot;:[&quot;#4992ff&quot;,&quot;#7cffb2&quot;,&quot;#fddd60&quot;,&quot;#ff6e76&quot;,&quot;#58d9f9&quot;,&quot;#05c091&quot;,&quot;#ff8a45&quot;,&quot;#8d48e3&quot;,&quot;#dd79ff&quot;],&quot;backgroundColor&quot;:&quot;#100C2A&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;,&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;timeAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;logAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;valueAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;categoryAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;},&quot;show&quot;:false},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;line&quot;:{&quot;symbol&quot;:&quot;circle&quot;},&quot;graph&quot;:{&quot;color&quot;:[&quot;#4992ff&quot;,&quot;#7cffb2&quot;,&quot;#fddd60&quot;,&quot;#ff6e76&quot;,&quot;#58d9f9&quot;,&quot;#05c091&quot;,&quot;#ff8a45&quot;,&quot;#8d48e3&quot;,&quot;#dd79ff&quot;]},&quot;gauge&quot;:{&quot;title&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;},&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:[[1,&quot;rgba(207,212,219,0.2)&quot;]]}},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;},&quot;detail&quot;:{&quot;color&quot;:&quot;#EEF1FA&quot;}},&quot;candlestick&quot;:{&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#f64e56&quot;,&quot;color0&quot;:&quot;#54ea92&quot;,&quot;borderColor&quot;:&quot;#f64e56&quot;,&quot;borderColor0&quot;:&quot;#54ea92&quot;}},&quot;colorBy&quot;:&quot;series&quot;,&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;axisPointer&quot;:[{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#817f91&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#817f91&quot;},&quot;label&quot;:{&quot;color&quot;:&quot;#fff&quot;,&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[{&quot;trigger&quot;:&quot;axis&quot;,&quot;axisPointer&quot;:{&quot;type&quot;:&quot;shadow&quot;,&quot;axis&quot;:&quot;auto&quot;,&quot;animation&quot;:&quot;auto&quot;,&quot;animationDurationUpdate&quot;:200,&quot;animationEasingUpdate&quot;:&quot;exponentialOut&quot;,&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#999&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;,&quot;textStyle&quot;:{}}},&quot;z&quot;:60,&quot;show&quot;:true,&quot;showContent&quot;:true,&quot;triggerOn&quot;:&quot;mousemove|click&quot;,&quot;alwaysShowContent&quot;:false,&quot;displayMode&quot;:&quot;single&quot;,&quot;renderMode&quot;:&quot;auto&quot;,&quot;confine&quot;:null,&quot;showDelay&quot;:0,&quot;hideDelay&quot;:100,&quot;transitionDuration&quot;:0.4,&quot;enterable&quot;:false,&quot;backgroundColor&quot;:&quot;#fff&quot;,&quot;shadowBlur&quot;:10,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, .2)&quot;,&quot;shadowOffsetX&quot;:1,&quot;shadowOffsetY&quot;:2,&quot;borderRadius&quot;:4,&quot;borderWidth&quot;:1,&quot;padding&quot;:null,&quot;extraCssText&quot;:&quot;&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;fontSize&quot;:14}}],&quot;yAxis&quot;:[{&quot;type&quot;:&quot;value&quot;,&quot;name&quot;:&quot;金額(億元)&quot;,&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:&quot;auto&quot;,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:true},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]},&quot;show&quot;:false},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;,&quot;width&quot;:1},&quot;show&quot;:false},&quot;boundaryGap&quot;:[0,0],&quot;axisTick&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;splitNumber&quot;:5,&quot;minorTick&quot;:{&quot;show&quot;:false,&quot;splitNumber&quot;:5,&quot;length&quot;:3,&quot;lineStyle&quot;:{}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{},&quot;axisLabel&quot;:{&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;offset&quot;:0}],&quot;xAxis&quot;:[{&quot;type&quot;:&quot;category&quot;,&quot;data&quot;:[&quot;中央政府&quot;,&quot;地方政府&quot;,&quot;公營事業&quot;,&quot;民營企業&quot;,&quot;私人&quot;],&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:true,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:false},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]},&quot;show&quot;:false},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}},&quot;boundaryGap&quot;:true,&quot;deduplication&quot;:null,&quot;axisTick&quot;:{&quot;alignWithLabel&quot;:false,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;axisLabel&quot;:{&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{&quot;status&quot;:&quot;hide&quot;,&quot;value&quot;:4,&quot;seriesDataIndices&quot;:[{&quot;seriesIndex&quot;:0,&quot;dataIndexInside&quot;:4,&quot;dataIndex&quot;:4}]},&quot;offset&quot;:0}],&quot;grid&quot;:[{&quot;left&quot;:&quot;3%&quot;,&quot;right&quot;:&quot;4%&quot;,&quot;bottom&quot;:&quot;3%&quot;,&quot;containLabel&quot;:true,&quot;show&quot;:false,&quot;z&quot;:0,&quot;top&quot;:60,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#ccc&quot;}],&quot;series&quot;:[{&quot;name&quot;:&quot;季度變動&quot;,&quot;type&quot;:&quot;bar&quot;,&quot;data&quot;:[-1150.79,-193.98,-235.11,121.79,237.75],&quot;itemStyle&quot;:{},&quot;z&quot;:2,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;barMinHeight&quot;:0,&quot;barMinAngle&quot;:0,&quot;large&quot;:false,&quot;largeThreshold&quot;:400,&quot;progressive&quot;:3000,&quot;progressiveChunkMode&quot;:&quot;mod&quot;,&quot;clip&quot;:true,&quot;roundCap&quot;:false,&quot;showBackground&quot;:false,&quot;backgroundStyle&quot;:{&quot;color&quot;:&quot;rgba(180, 180, 180, 0.2)&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderType&quot;:&quot;solid&quot;,&quot;borderRadius&quot;:0,&quot;shadowBlur&quot;:0,&quot;shadowColor&quot;:null,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:0,&quot;opacity&quot;:1},&quot;select&quot;:{&quot;itemStyle&quot;:{&quot;borderColor&quot;:&quot;#212121&quot;}},&quot;realtimeSort&quot;:false,&quot;label&quot;:{},&quot;emphasis&quot;:{&quot;label&quot;:{}}}],&quot;visualMap&quot;:[],&quot;legend&quot;:[],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 462px; height: 320px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas data-zr-dom-id="zr_0" width="519" height="360" style="position: absolute; left: 0px; top: 0px; width: 462px; height: 320px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class="" style="position: absolute; display: block; border-style: solid; white-space: nowrap; z-index: 9999999; box-shadow: rgba(0, 0, 0, 0.2) 1px 2px 10px; transition: opacity 0.2s cubic-bezier(0.23, 1, 0.32, 1), visibility 0.2s cubic-bezier(0.23, 1, 0.32, 1), transform 0.4s cubic-bezier(0.23, 1, 0.32, 1); background-color: rgb(255, 255, 255); border-width: 1px; border-radius: 4px; color: rgb(102, 102, 102); font: 14px / 21px &quot;Microsoft YaHei&quot;; padding: 10px; top: 0px; left: 0px; transform: translate3d(215px, 168px, 0px); border-color: rgb(255, 255, 255); pointer-events: none; visibility: hidden; opacity: 0;"><div style="margin: 0px 0 0;line-height:1;"><div style="margin: 0px 0 0;line-height:1;"><div style="font-size:14px;color:#666;font-weight:400;line-height:1;">私人</div><div style="margin: 10px 0 0;line-height:1;"><div style="margin: 0px 0 0;line-height:1;"><div style="margin: 0px 0 0;line-height:1;"><span style="display:inline-block;margin-right:4px;border-radius:10px;width:10px;height:10px;background-color:#10B981;"></span><span style="font-size:14px;color:#666;font-weight:400;margin-left:2px">季度變動</span><span style="float:right;margin-left:20px;font-size:14px;color:#666;font-weight:900">237.75</span><div style="clear:both"></div></div><div style="clear:both"></div></div><div style="clear:both"></div></div><div style="clear:both"></div></div><div style="clear:both"></div></div></div></div>
+                    <div class="space-y-3">
+                        <div class="flex justify-between items-center p-3 bg-red-50 dark:bg-red-900/20 rounded-lg">
+                            <span class="text-sm font-medium">總體變化</span>
+                            <span class="text-lg font-bold text-red-600">-1,257.09億</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-orange-50 dark:bg-orange-900/20 rounded-lg">
+                            <span class="text-sm font-medium">中央政府</span>
+                            <span class="text-lg font-bold text-orange-600">-1,150.79億</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry Analysis -->
+    <section id="insights" class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-fade-in visible">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">RWA依行業別變動分析</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-red-600 to-pink-600 mx-auto mb-8"></div>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-8 mb-16 scroll-fade-in visible">
+                <h3 class="text-2xl font-bold mb-6 flex items-center">
+                    <i class="fas fa-industry text-green-600 mr-3"></i>
+                    主要行業RWA變動
+                </h3>
+                <div id="industryChart" class="h-96" _echarts_instance_="ec_1757421673820" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" data-chart-option="{&quot;darkMode&quot;:true,&quot;color&quot;:[&quot;#4992ff&quot;,&quot;#7cffb2&quot;,&quot;#fddd60&quot;,&quot;#ff6e76&quot;,&quot;#58d9f9&quot;,&quot;#05c091&quot;,&quot;#ff8a45&quot;,&quot;#8d48e3&quot;,&quot;#dd79ff&quot;],&quot;backgroundColor&quot;:&quot;#100C2A&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;,&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;timeAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;logAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;valueAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;categoryAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;},&quot;show&quot;:false},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;line&quot;:{&quot;symbol&quot;:&quot;circle&quot;},&quot;graph&quot;:{&quot;color&quot;:[&quot;#4992ff&quot;,&quot;#7cffb2&quot;,&quot;#fddd60&quot;,&quot;#ff6e76&quot;,&quot;#58d9f9&quot;,&quot;#05c091&quot;,&quot;#ff8a45&quot;,&quot;#8d48e3&quot;,&quot;#dd79ff&quot;]},&quot;gauge&quot;:{&quot;title&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;},&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:[[1,&quot;rgba(207,212,219,0.2)&quot;]]}},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;},&quot;detail&quot;:{&quot;color&quot;:&quot;#EEF1FA&quot;}},&quot;candlestick&quot;:{&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#f64e56&quot;,&quot;color0&quot;:&quot;#54ea92&quot;,&quot;borderColor&quot;:&quot;#f64e56&quot;,&quot;borderColor0&quot;:&quot;#54ea92&quot;}},&quot;colorBy&quot;:&quot;series&quot;,&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;axisPointer&quot;:[{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#817f91&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#817f91&quot;},&quot;label&quot;:{&quot;color&quot;:&quot;#fff&quot;,&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[{&quot;trigger&quot;:&quot;axis&quot;,&quot;axisPointer&quot;:{&quot;type&quot;:&quot;shadow&quot;,&quot;axis&quot;:&quot;auto&quot;,&quot;animation&quot;:&quot;auto&quot;,&quot;animationDurationUpdate&quot;:200,&quot;animationEasingUpdate&quot;:&quot;exponentialOut&quot;,&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#999&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;,&quot;textStyle&quot;:{}}},&quot;z&quot;:60,&quot;show&quot;:true,&quot;showContent&quot;:true,&quot;triggerOn&quot;:&quot;mousemove|click&quot;,&quot;alwaysShowContent&quot;:false,&quot;displayMode&quot;:&quot;single&quot;,&quot;renderMode&quot;:&quot;auto&quot;,&quot;confine&quot;:null,&quot;showDelay&quot;:0,&quot;hideDelay&quot;:100,&quot;transitionDuration&quot;:0.4,&quot;enterable&quot;:false,&quot;backgroundColor&quot;:&quot;#fff&quot;,&quot;shadowBlur&quot;:10,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, .2)&quot;,&quot;shadowOffsetX&quot;:1,&quot;shadowOffsetY&quot;:2,&quot;borderRadius&quot;:4,&quot;borderWidth&quot;:1,&quot;padding&quot;:null,&quot;extraCssText&quot;:&quot;&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;fontSize&quot;:14}}],&quot;yAxis&quot;:[{&quot;type&quot;:&quot;value&quot;,&quot;name&quot;:&quot;金額(億元)&quot;,&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:&quot;auto&quot;,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:true},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]},&quot;show&quot;:false},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;,&quot;width&quot;:1},&quot;show&quot;:false},&quot;boundaryGap&quot;:[0,0],&quot;axisTick&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;splitNumber&quot;:5,&quot;minorTick&quot;:{&quot;show&quot;:false,&quot;splitNumber&quot;:5,&quot;length&quot;:3,&quot;lineStyle&quot;:{}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{},&quot;axisLabel&quot;:{&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;offset&quot;:0}],&quot;xAxis&quot;:[{&quot;type&quot;:&quot;category&quot;,&quot;data&quot;:[&quot;政府機關&quot;,&quot;不動產開發&quot;,&quot;電線電纜&quot;,&quot;電子零組件&quot;,&quot;機電設備&quot;,&quot;石油煤製品&quot;,&quot;電腦製造&quot;],&quot;axisLabel&quot;:{&quot;rotate&quot;:45,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:true,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:false},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]},&quot;show&quot;:false},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}},&quot;boundaryGap&quot;:true,&quot;deduplication&quot;:null,&quot;axisTick&quot;:{&quot;alignWithLabel&quot;:false,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{&quot;status&quot;:&quot;hide&quot;,&quot;value&quot;:5,&quot;seriesDataIndices&quot;:[{&quot;seriesIndex&quot;:0,&quot;dataIndexInside&quot;:5,&quot;dataIndex&quot;:5},{&quot;seriesIndex&quot;:1,&quot;dataIndexInside&quot;:5,&quot;dataIndex&quot;:5}]},&quot;offset&quot;:0}],&quot;grid&quot;:[{&quot;left&quot;:&quot;3%&quot;,&quot;right&quot;:&quot;4%&quot;,&quot;bottom&quot;:&quot;15%&quot;,&quot;containLabel&quot;:true,&quot;show&quot;:false,&quot;z&quot;:0,&quot;top&quot;:60,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#ccc&quot;}],&quot;series&quot;:[{&quot;name&quot;:&quot;帳面金額變動&quot;,&quot;type&quot;:&quot;bar&quot;,&quot;data&quot;:[-388.28,-45.67,6.56,34.21,18.92,-24.55,-37.38],&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#3B82F6&quot;},&quot;z&quot;:2,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;barMinHeight&quot;:0,&quot;barMinAngle&quot;:0,&quot;large&quot;:false,&quot;largeThreshold&quot;:400,&quot;progressive&quot;:3000,&quot;progressiveChunkMode&quot;:&quot;mod&quot;,&quot;clip&quot;:true,&quot;roundCap&quot;:false,&quot;showBackground&quot;:false,&quot;backgroundStyle&quot;:{&quot;color&quot;:&quot;rgba(180, 180, 180, 0.2)&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderType&quot;:&quot;solid&quot;,&quot;borderRadius&quot;:0,&quot;shadowBlur&quot;:0,&quot;shadowColor&quot;:null,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:0,&quot;opacity&quot;:1},&quot;select&quot;:{&quot;itemStyle&quot;:{&quot;borderColor&quot;:&quot;#212121&quot;}},&quot;realtimeSort&quot;:false,&quot;label&quot;:{},&quot;emphasis&quot;:{&quot;label&quot;:{}}},{&quot;name&quot;:&quot;RWA變動&quot;,&quot;type&quot;:&quot;bar&quot;,&quot;data&quot;:[-22.03,-71.88,24.41,22.53,21.98,20.26,-37.44],&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#EF4444&quot;},&quot;z&quot;:2,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;barMinHeight&quot;:0,&quot;barMinAngle&quot;:0,&quot;large&quot;:false,&quot;largeThreshold&quot;:400,&quot;progressive&quot;:3000,&quot;progressiveChunkMode&quot;:&quot;mod&quot;,&quot;clip&quot;:true,&quot;roundCap&quot;:false,&quot;showBackground&quot;:false,&quot;backgroundStyle&quot;:{&quot;color&quot;:&quot;rgba(180, 180, 180, 0.2)&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderType&quot;:&quot;solid&quot;,&quot;borderRadius&quot;:0,&quot;shadowBlur&quot;:0,&quot;shadowColor&quot;:null,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:0,&quot;opacity&quot;:1},&quot;select&quot;:{&quot;itemStyle&quot;:{&quot;borderColor&quot;:&quot;#212121&quot;}},&quot;realtimeSort&quot;:false,&quot;label&quot;:{},&quot;emphasis&quot;:{&quot;label&quot;:{}}}],&quot;visualMap&quot;:[],&quot;legend&quot;:[{&quot;data&quot;:[&quot;帳面金額變動&quot;,&quot;RWA變動&quot;],&quot;textStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;},&quot;z&quot;:4,&quot;show&quot;:true,&quot;orient&quot;:&quot;horizontal&quot;,&quot;left&quot;:&quot;center&quot;,&quot;top&quot;:0,&quot;align&quot;:&quot;auto&quot;,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderColor&quot;:&quot;#ccc&quot;,&quot;borderRadius&quot;:0,&quot;borderWidth&quot;:0,&quot;padding&quot;:5,&quot;itemGap&quot;:10,&quot;itemWidth&quot;:25,&quot;itemHeight&quot;:14,&quot;symbolRotate&quot;:&quot;inherit&quot;,&quot;symbolKeepAspect&quot;:true,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderWidth&quot;:&quot;auto&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;inherit&quot;,&quot;opacity&quot;:&quot;inherit&quot;,&quot;borderColor&quot;:&quot;inherit&quot;,&quot;borderWidth&quot;:&quot;auto&quot;,&quot;borderCap&quot;:&quot;inherit&quot;,&quot;borderJoin&quot;:&quot;inherit&quot;,&quot;borderDashOffset&quot;:&quot;inherit&quot;,&quot;borderMiterLimit&quot;:&quot;inherit&quot;},&quot;lineStyle&quot;:{&quot;width&quot;:&quot;auto&quot;,&quot;color&quot;:&quot;inherit&quot;,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveWidth&quot;:2,&quot;opacity&quot;:&quot;inherit&quot;,&quot;type&quot;:&quot;inherit&quot;,&quot;cap&quot;:&quot;inherit&quot;,&quot;join&quot;:&quot;inherit&quot;,&quot;dashOffset&quot;:&quot;inherit&quot;,&quot;miterLimit&quot;:&quot;inherit&quot;},&quot;selectedMode&quot;:true,&quot;selector&quot;:false,&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;borderRadius&quot;:10,&quot;padding&quot;:[3,5,3,5],&quot;fontSize&quot;:12,&quot;fontFamily&quot;:&quot;sans-serif&quot;,&quot;color&quot;:&quot;#666&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#666&quot;},&quot;emphasis&quot;:{&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;color&quot;:&quot;#eee&quot;,&quot;backgroundColor&quot;:&quot;#666&quot;}},&quot;selectorPosition&quot;:&quot;auto&quot;,&quot;selectorItemGap&quot;:7,&quot;selectorButtonGap&quot;:10,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;selected&quot;:{}}],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 1021px; height: 384px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas data-zr-dom-id="zr_0" width="1148" height="432" style="position: absolute; left: 0px; top: 0px; width: 1021px; height: 384px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class="" style="position: absolute; display: block; border-style: solid; white-space: nowrap; z-index: 9999999; box-shadow: rgba(0, 0, 0, 0.2) 1px 2px 10px; transition: opacity 0.2s cubic-bezier(0.23, 1, 0.32, 1), visibility 0.2s cubic-bezier(0.23, 1, 0.32, 1), transform 0.4s cubic-bezier(0.23, 1, 0.32, 1); background-color: rgb(255, 255, 255); border-width: 1px; border-radius: 4px; color: rgb(102, 102, 102); font: 14px / 21px &quot;Microsoft YaHei&quot;; padding: 10px; top: 0px; left: 0px; transform: translate3d(788px, 269px, 0px); border-color: rgb(255, 255, 255); pointer-events: none; visibility: hidden; opacity: 0;"><div style="margin: 0px 0 0;line-height:1;"><div style="margin: 0px 0 0;line-height:1;"><div style="font-size:14px;color:#666;font-weight:400;line-height:1;">石油煤製品</div><div style="margin: 10px 0 0;line-height:1;"><div style="margin: 0px 0 0;line-height:1;"><div style="margin: 0px 0 0;line-height:1;"><span style="display:inline-block;margin-right:4px;border-radius:10px;width:10px;height:10px;background-color:#3B82F6;"></span><span style="font-size:14px;color:#666;font-weight:400;margin-left:2px">帳面金額變動</span><span style="float:right;margin-left:20px;font-size:14px;color:#666;font-weight:900">-24.55</span><div style="clear:both"></div></div><div style="clear:both"></div></div><div style="margin: 10px 0 0;line-height:1;"><div style="margin: 0px 0 0;line-height:1;"><span style="display:inline-block;margin-right:4px;border-radius:10px;width:10px;height:10px;background-color:#EF4444;"></span><span style="font-size:14px;color:#666;font-weight:400;margin-left:2px">RWA變動</span><span style="float:right;margin-left:20px;font-size:14px;color:#666;font-weight:900">20.26</span><div style="clear:both"></div></div><div style="clear:both"></div></div><div style="clear:both"></div></div><div style="clear:both"></div></div><div style="clear:both"></div></div></div></div>
+            </div>
+
+            <!-- Key Industry Insights -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-6 card-hover scroll-fade-in visible">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-red-100 dark:bg-red-900/30 rounded-xl flex items-center justify-center mr-4">
+                            <i class="fas fa-university text-red-600"></i>
+                        </div>
+                        <h4 class="text-lg font-bold">政府機關</h4>
+                    </div>
+                    <div class="text-2xl font-bold text-red-600 mb-2">-388.28億</div>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">
+                        帳面金額減少幅度最大，顯示公共部門有顯著的資產調整
+                    </p>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-6 card-hover scroll-fade-in visible">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-xl flex items-center justify-center mr-4">
+                            <i class="fas fa-building text-green-600"></i>
+                        </div>
+                        <h4 class="text-lg font-bold">不動產開發業</h4>
+                    </div>
+                    <div class="text-2xl font-bold text-green-600 mb-2">-71.88億</div>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">
+                        風險性資產下降幅度最大，風險敞口得到有效收縮
+                    </p>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 p-6 card-hover scroll-fade-in visible">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-xl flex items-center justify-center mr-4">
+                            <i class="fas fa-microchip text-orange-600"></i>
+                        </div>
+                        <h4 class="text-lg font-bold">電子資通訊</h4>
+                    </div>
+                    <div class="text-2xl font-bold text-orange-600 mb-2">兩極化</div>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">
+                        半導體封測業增長，電腦製造業下滑，呈現分化趨勢
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-24 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-fade-in visible">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">常見問題</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-red-600 to-pink-600 mx-auto mb-8"></div>
+            </div>
+
+            <div class="max-w-4xl mx-auto space-y-6">
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden scroll-fade-in visible">
+                    <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+                        <h3 class="text-xl font-bold text-red-600">1. 本期信用風險性資產總計與帳面金額的總體趨勢為何？</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            儘管信用風險標準法下的總帳面金額呈現微幅下降（減少105.92億元），但整體信用風險性資產總計卻顯著增加（增加222.39億元）。這種背離現象表明即使總曝險規模略有縮減，但由於資產組合內部的結構性變化，導致整體需要提列的風險性資產反而大幅上升。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden scroll-fade-in visible">
+                    <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+                        <h3 class="text-xl font-bold text-red-600">2. 哪些類別是信用風險性資產上升的主要驅動因素？</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            銀行（含多邊開發銀行及集中結算交易對手）、不動產和交易對手信用風險等類型的風險性資產皆有顯著增長。特別是銀行暴險增加了86.71億元，以及交易對手信用風險性資產增加了87.62億元，是推動整體風險性資產上升的主要驅動因素。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden scroll-fade-in visible">
+                    <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+                        <h3 class="text-xl font-bold text-red-600">3. 主權國家暴險的帳面金額與風險性資產有何特殊變化？</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            主權國家暴險的帳面金額顯著下降，降幅達464.18億元，為所有類別之最。然而，其風險性資產僅微幅減少2.57億元。這顯示主權國家暴險的風險權重普遍較低，因此帳面金額的大幅調整對整體風險權重資產的影響相對有限。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden scroll-fade-in visible">
+                    <div class="p-6 border-b border-gray-200 dark:border-gray-700">
+                        <h3 class="text-xl font-bold text-red-600">4. 不動產暴險的風險性資產增長主要來自哪些方面？</h3>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            不動產暴險的帳面金額增加了149.58億元，而風險性資產則大幅增加了62.66億元。其中，住宅用不動產暴險、商用不動產暴險，以及土地收購、開發及建築暴險（ADC）的風險性資產均有顯著增加。特別值得注意的是，不動產暴險的「表內逾期放款」項目風險性資產減少65.82億元，顯示機構積極處置不良資產。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Summary -->
+    <section class="py-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-br from-red-600 via-pink-600 to-purple-600 rounded-3xl p-12 text-white scroll-fade-in visible">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">總結</h2>
+                    <div class="w-24 h-1 bg-white mx-auto mb-8"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6">核心發現</h3>
+                        <ul class="space-y-4 text-lg">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-yellow-400 mr-3 mt-1"></i>
+                                金融機構的總體信用風險性資產呈現增長趨勢
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-yellow-400 mr-3 mt-1"></i>
+                                資產組合結構發生變化，高風險權重資產佔比提升
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-yellow-400 mr-3 mt-1"></i>
+                                政府部門支出明顯緊縮，私人部門保持活力
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-yellow-400 mr-3 mt-1"></i>
+                                部分傳統產業出現風險性資產與帳面金額變動方向的背離
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="glassmorphism rounded-2xl p-8">
+                        <h3 class="text-2xl font-bold mb-6 text-center">關鍵指標總覽</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-yellow-400 mb-2">+222億</div>
+                                <div class="text-sm opacity-90">RWA增長</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-orange-400 mb-2">-106億</div>
+                                <div class="text-sm opacity-90">帳面金額變動</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-green-400 mb-2">+87億</div>
+                                <div class="text-sm opacity-90">交易對手風險</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-pink-400 mb-2">+87億</div>
+                                <div class="text-sm opacity-90">銀行曝險</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 dark:bg-black text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-br from-red-600 to-pink-600 rounded-lg flex items-center justify-center">
+                            <i class="fas fa-chart-line text-white"></i>
+                        </div>
+                        <span class="text-xl font-bold">信用風險報告</span>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed">
+                        專業的金融風險分析報告，提供深入的數據洞察和趨勢分析。
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">免責申明</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        基於公開資料，僅供參考，不構成建議。所有數據分析結果僅反映報告期間的狀況，不代表未來趨勢。
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">資料來源</h4>
+                    <p class="text-gray-400 text-sm mb-4">網頁公開資訊</p>
+                    <p class="text-gray-400 text-sm">
+                        本報告遵循專業的金融風險分析標準，確保數據的準確性和分析的客觀性。
+                    </p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm">
+                        © 2025 Dunk. 版權所有。
+                    </p>
+                    <p class="text-gray-400 text-sm mt-4 md:mt-0">
+                        作者：廖冠智
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const isDark = localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        
+        if (isDark) {
+            document.documentElement.classList.add('dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+            updateChartThemes();
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Chart Instances
+        let riskChart, monthlyChart, quarterlyChart, industryChart;
+
+        // Initialize Charts
+        function initCharts() {
+            const isDarkMode = document.documentElement.classList.contains('dark');
+            
+            // Risk Asset Changes Chart
+            riskChart = echarts.init(document.getElementById('riskChart'), isDarkMode ? 'dark' : null);
+            const riskOption = {
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: { type: 'shadow' }
+                },
+                legend: {
+                    data: ['帳面金額變動', 'RWA變動']
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['銀行曝險', '不動產', '交易對手', '主權國家', '企業', '零售曝險']
+                },
+                yAxis: {
+                    type: 'value',
+                    name: '金額(億元)'
+                },
+                series: [
+                    {
+                        name: '帳面金額變動',
+                        type: 'bar',
+                        data: [407.61, 149.58, 0, -464.18, -210.69, -45.23],
+                        itemStyle: { color: '#9A0036' }
+                    },
+                    {
+                        name: 'RWA變動',
+                        type: 'bar',
+                        data: [86.71, 62.66, 87.62, -2.57, 0.73, -12.89],
+                        itemStyle: { color: '#941C61' }
+                    }
+                ]
+            };
+            riskChart.setOption(riskOption);
+
+            // Monthly Chart
+            monthlyChart = echarts.init(document.getElementById('monthlyChart'), isDarkMode ? 'dark' : null);
+            const monthlyOption = {
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{b}: {c}億 ({d}%)'
+                },
+                legend: {
+                    orient: 'vertical',
+                    left: 'left'
+                },
+                series: [
+                    {
+                        name: '月度變動',
+                        type: 'pie',
+                        radius: '50%',
+                        data: [
+                            { value: 247.81, name: '公營事業(-)', itemStyle: { color: '#DC2626' } },
+                            { value: 139.06, name: '政府機關(-)', itemStyle: { color: '#EF4444' } },
+                            { value: 71.50, name: '私人(+)', itemStyle: { color: '#10B981' } },
+                            { value: 82.26, name: '其他(-)', itemStyle: { color: '#6B7280' } }
+                        ],
+                        emphasis: {
+                            itemStyle: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    }
+                ]
+            };
+            monthlyChart.setOption(monthlyOption);
+
+            // Quarterly Chart
+            quarterlyChart = echarts.init(document.getElementById('quarterlyChart'), isDarkMode ? 'dark' : null);
+            const quarterlyOption = {
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: { type: 'shadow' }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['中央政府', '地方政府', '公營事業', '民營企業', '私人']
+                },
+                yAxis: {
+                    type: 'value',
+                    name: '金額(億元)'
+                },
+                series: [
+                    {
+                        name: '季度變動',
+                        type: 'bar',
+                        data: [-1150.79, -193.98, -235.11, 121.79, 237.75],
+                        itemStyle: {
+                            color: function(params) {
+                                return params.value < 0 ? '#DC2626' : '#10B981';
+                            }
+                        }
+                    }
+                ]
+            };
+            quarterlyChart.setOption(quarterlyOption);
+
+            // Industry Chart
+            industryChart = echarts.init(document.getElementById('industryChart'), isDarkMode ? 'dark' : null);
+            const industryOption = {
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: { type: 'shadow' }
+                },
+                legend: {
+                    data: ['帳面金額變動', 'RWA變動']
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '15%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['政府機關', '不動產開發', '電線電纜', '電子零組件', '機電設備', '石油煤製品', '電腦製造'],
+                    axisLabel: {
+                        rotate: 45
+                    }
+                },
+                yAxis: {
+                    type: 'value',
+                    name: '金額(億元)'
+                },
+                series: [
+                    {
+                        name: '帳面金額變動',
+                        type: 'bar',
+                        data: [-388.28, -45.67, 6.56, 34.21, 18.92, -24.55, -37.38],
+                        itemStyle: { color: '#3B82F6' }
+                    },
+                    {
+                        name: 'RWA變動',
+                        type: 'bar',
+                        data: [-22.03, -71.88, 24.41, 22.53, 21.98, 20.26, -37.44],
+                        itemStyle: { color: '#EF4444' }
+                    }
+                ]
+            };
+            industryChart.setOption(industryOption);
+        }
+
+        function updateChartThemes() {
+            const isDarkMode = document.documentElement.classList.contains('dark');
+            
+            if (riskChart) {
+                riskChart.dispose();
+                riskChart = echarts.init(document.getElementById('riskChart'), isDarkMode ? 'dark' : null);
+            }
+            if (monthlyChart) {
+                monthlyChart.dispose();
+                monthlyChart = echarts.init(document.getElementById('monthlyChart'), isDarkMode ? 'dark' : null);
+            }
+            if (quarterlyChart) {
+                quarterlyChart.dispose();
+                quarterlyChart = echarts.init(document.getElementById('quarterlyChart'), isDarkMode ? 'dark' : null);
+            }
+            if (industryChart) {
+                industryChart.dispose();
+                industryChart = echarts.init(document.getElementById('industryChart'), isDarkMode ? 'dark' : null);
+            }
+            
+            initCharts();
+        }
+
+        // Initialize charts when page loads
+        window.addEventListener('load', initCharts);
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            if (riskChart) riskChart.resize();
+            if (monthlyChart) monthlyChart.resize();
+            if (quarterlyChart) quarterlyChart.resize();
+            if (industryChart) industryChart.resize();
+        });
+    </script>
+
+</body></html>
