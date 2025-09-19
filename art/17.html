@@ -1,0 +1,796 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FiFest 2025 | 義大利Massafra市音樂節</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/preline@2.3.0/dist/preline.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif']
+                    },
+                    colors: {
+                        'primary': {
+                            50: '#fef7ee',
+                            100: '#fdecd6',
+                            200: '#fad5ad',
+                            300: '#f6b879',
+                            400: '#f19143',
+                            500: '#ed7a1f',
+                            600: '#de5f15',
+                            700: '#b84714',
+                            800: '#923918',
+                            900: '#753016'
+                        },
+                        'secondary': {
+                            50: '#f8fafc',
+                            100: '#f1f5f9',
+                            200: '#e2e8f0',
+                            300: '#cbd5e1',
+                            400: '#94a3b8',
+                            500: '#64748b',
+                            600: '#475569',
+                            700: '#334155',
+                            800: '#1e293b',
+                            900: '#0f172a'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #ed7a1f 0%, #de5f15 50%, #b84714 100%);
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .dark .glass-effect {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .floating-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+<script src="https://felo.ai/js/iframe.js?v=1758239858126"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style></head>
+<body class="font-sans bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-200">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-music text-2xl text-primary-500"></i>
+                    <span class="font-bold text-xl">FiFest 2025</span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="hover:text-primary-500 transition-colors">關於音樂節</a>
+                    <a href="#artists" class="hover:text-primary-500 transition-colors">藝術家</a>
+                    <a href="#schedule" class="hover:text-primary-500 transition-colors">活動日程</a>
+                    <a href="#charity" class="hover:text-primary-500 transition-colors">慈善目的</a>
+                    <a href="#tickets" class="hover:text-primary-500 transition-colors">票務資訊</a>
+                </div>
+                
+                <button onclick="toggleDarkMode()" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:inline"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://api.felo.ai/images/s/hiLaZcf88F" alt="Massafra城市景觀" class="w-full h-full object-cover">
+            <div class="absolute inset-0 hero-gradient opacity-90"></div>
+        </div>
+        
+        <!-- Floating Elements -->
+        <div class="absolute inset-0 z-10">
+            <div class="floating-animation absolute top-20 left-10 w-20 h-20 bg-white/10 rounded-full"></div>
+            <div class="floating-animation absolute top-40 right-20 w-16 h-16 bg-white/10 rounded-full" style="animation-delay: -2s;"></div>
+            <div class="floating-animation absolute bottom-40 left-1/4 w-12 h-12 bg-white/10 rounded-full" style="animation-delay: -4s;"></div>
+        </div>
+        
+        <!-- Content -->
+        <div class="relative z-20 text-center px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
+            <div class="space-y-8">
+                <h1 class="text-5xl sm:text-6xl lg:text-7xl font-serif font-bold text-white leading-tight">
+                    FiFest 2025
+                    <span class="block text-3xl sm:text-4xl lg:text-5xl font-sans font-light opacity-90 mt-4">
+                        愛與音樂的慈善盛會
+                    </span>
+                </h1>
+                
+                <p class="text-xl sm:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
+                    2025年9月19-21日 • 義大利Massafra市<br>
+                    紀念Simone Mellone，支持兒童腫瘤學部門
+                </p>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8">
+                    <a href="#tickets" class="glass-effect text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white/20 transition-all duration-300 flex items-center space-x-2">
+                        <i class="fas fa-ticket-alt"></i>
+                        <span>購買門票</span>
+                    </a>
+                    <a href="#about" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-primary-600 transition-all duration-300 flex items-center space-x-2">
+                        <i class="fas fa-info-circle"></i>
+                        <span>了解更多</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+            <div class="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+                <div class="w-1 h-3 bg-white rounded-full mt-2 animate-bounce"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="fade-in-up">
+                    <h2 class="text-4xl lg:text-5xl font-serif font-bold mb-8 text-gray-900 dark:text-white">
+                        音樂節簡介
+                    </h2>
+                    <div class="space-y-6 text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                        <p>
+                            FiFest音樂節的創立源於一個深具情感意義的背景。該音樂節旨在紀念一位因癌症去世的年輕人<strong>Simone Mellone</strong>，並以此為契機，將音樂與藝術結合，傳遞慈善與社會責任的理念。
+                        </p>
+                        <p>
+                            FiFest的宗旨不僅在於提供高品質的音樂與藝術體驗，更重要的是通過活動籌集資金，支持Taranto的<strong>Nadia Toffa兒童腫瘤學部門</strong>，為癌症兒童提供幫助。
+                        </p>
+                        <p>
+                            2025年將迎來FiFest的第三屆，活動融合了音樂、戲劇、街頭藝術與社區參與，成為義大利文化日曆中的重要事件。
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="fade-in-up">
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="bg-white dark:bg-gray-700 p-6 rounded-2xl shadow-lg text-center">
+                            <div class="text-3xl font-bold text-primary-500 mb-2">3</div>
+                            <div class="text-gray-600 dark:text-gray-300">天活動</div>
+                        </div>
+                        <div class="bg-white dark:bg-gray-700 p-6 rounded-2xl shadow-lg text-center">
+                            <div class="text-3xl font-bold text-primary-500 mb-2">4+</div>
+                            <div class="text-gray-600 dark:text-gray-300">知名藝術家</div>
+                        </div>
+                        <div class="bg-white dark:bg-gray-700 p-6 rounded-2xl shadow-lg text-center">
+                            <div class="text-3xl font-bold text-primary-500 mb-2">€500</div>
+                            <div class="text-gray-600 dark:text-gray-300">比賽獎金</div>
+                        </div>
+                        <div class="bg-white dark:bg-gray-700 p-6 rounded-2xl shadow-lg text-center">
+                            <div class="text-3xl font-bold text-primary-500 mb-2">100%</div>
+                            <div class="text-gray-600 dark:text-gray-300">慈善捐贈</div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <img src="https://api.felo.ai/images/s/kmesvvUSkJ" alt="Massafra古城風貌" class="w-full rounded-2xl shadow-lg">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artists Section -->
+    <section id="artists" class="py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-4xl lg:text-5xl font-serif font-bold mb-6">藝術家陣容</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                    匯聚義大利頂尖饒舌與城市音樂藝術家，為您帶來震撼的音樂體驗
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="fade-in-up bg-gradient-to-br from-primary-400 to-primary-600 rounded-2xl p-8 text-white text-center transform hover:scale-105 transition-all duration-300">
+                    <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-crown text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Kid Yugi</h3>
+                    <p class="opacity-90 mb-4">活動代言人</p>
+                    <p class="text-sm opacity-80">Massafra本地出生的饒舌歌手，音樂節的核心人物</p>
+                </div>
+                
+                <div class="fade-in-up bg-white dark:bg-gray-800 rounded-2xl p-8 text-center shadow-lg border border-gray-200 dark:border-gray-700 transform hover:scale-105 transition-all duration-300">
+                    <div class="w-20 h-20 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-microphone text-3xl text-primary-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Ernia</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">饒舌藝術家</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-500">義大利音樂界享有盛譽的知名藝術家</p>
+                </div>
+                
+                <div class="fade-in-up bg-white dark:bg-gray-800 rounded-2xl p-8 text-center shadow-lg border border-gray-200 dark:border-gray-700 transform hover:scale-105 transition-all duration-300">
+                    <div class="w-20 h-20 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-music text-3xl text-primary-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Lazza</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">城市音樂</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-500">多樣化音樂風格的代表藝術家</p>
+                </div>
+                
+                <div class="fade-in-up bg-white dark:bg-gray-800 rounded-2xl p-8 text-center shadow-lg border border-gray-200 dark:border-gray-700 transform hover:scale-105 transition-all duration-300">
+                    <div class="w-20 h-20 bg-primary-100 dark:bg-primary-900 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-headphones text-3xl text-primary-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-2">Tedua</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">饒舌歌手</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-500">為觀眾帶來豐富的聽覺享受</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="schedule" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-4xl lg:text-5xl font-serif font-bold mb-6">活動日程</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400">三天精彩活動，每天都有不同主題</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Day 1 -->
+                <div class="fade-in-up bg-white dark:bg-gray-700 rounded-2xl overflow-hidden shadow-lg">
+                    <div class="bg-gradient-to-r from-blue-500 to-blue-600 p-6 text-white">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold">19</div>
+                            <div class="text-sm opacity-90">九月 星期五</div>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4">開幕日</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-2 h-2 bg-blue-500 rounded-full mt-3"></div>
+                                <div>
+                                    <div class="font-semibold">《7 Minuti》劇場表演</div>
+                                    <div class="text-sm text-gray-600 dark:text-gray-400">為音樂節拉開序幕的戲劇演出</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-2 h-2 bg-blue-500 rounded-full mt-3"></div>
+                                <div>
+                                    <div class="font-semibold">開幕典禮</div>
+                                    <div class="text-sm text-gray-600 dark:text-gray-400">官方歡迎儀式與介紹</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Day 2 -->
+                <div class="fade-in-up bg-white dark:bg-gray-700 rounded-2xl overflow-hidden shadow-lg">
+                    <div class="bg-gradient-to-r from-primary-500 to-primary-600 p-6 text-white">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold">20</div>
+                            <div class="text-sm opacity-90">九月 星期六</div>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4">大型音樂會</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-2 h-2 bg-primary-500 rounded-full mt-3"></div>
+                                <div>
+                                    <div class="font-semibold">Kid Yugi 主場演出</div>
+                                    <div class="text-sm text-gray-600 dark:text-gray-400">活動代言人的精彩表演</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-2 h-2 bg-primary-500 rounded-full mt-3"></div>
+                                <div>
+                                    <div class="font-semibold">Ernia、Lazza、Tedua</div>
+                                    <div class="text-sm text-gray-600 dark:text-gray-400">知名藝術家聯合演出</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Day 3 -->
+                <div class="fade-in-up bg-white dark:bg-gray-700 rounded-2xl overflow-hidden shadow-lg">
+                    <div class="bg-gradient-to-r from-green-500 to-green-600 p-6 text-white">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold">21</div>
+                            <div class="text-sm opacity-90">九月 星期日</div>
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold mb-4">藝術活動</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <div class="w-2 h-2 bg-green-500 rounded-full mt-3"></div>
+                                <div>
+                                    <div class="font-semibold">刺青展覽</div>
+                                    <div class="text-sm text-gray-600 dark:text-gray-400">當地藝術家創作展示</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-2 h-2 bg-green-500 rounded-full mt-3"></div>
+                                <div>
+                                    <div class="font-semibold">街頭藝術活動</div>
+                                    <div class="text-sm text-gray-600 dark:text-gray-400">現場創作與互動體驗</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <div class="w-2 h-2 bg-green-500 rounded-full mt-3"></div>
+                                <div>
+                                    <div class="font-semibold">自由風格比賽</div>
+                                    <div class="text-sm text-gray-600 dark:text-gray-400">500歐元獎金等你來挑戰</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Charity Section -->
+    <section id="charity" class="py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="fade-in-up">
+                    <img src="https://api.felo.ai/images/s/ivdmApaY2B" alt="慈善音樂會海報設計" class="w-full rounded-2xl shadow-lg">
+                </div>
+                
+                <div class="fade-in-up">
+                    <h2 class="text-4xl lg:text-5xl font-serif font-bold mb-8">慈善目的</h2>
+                    <div class="space-y-6 text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                        <div class="bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 p-6 rounded">
+                            <h3 class="font-bold text-xl mb-3 text-red-700 dark:text-red-300">紀念Simone Mellone</h3>
+                            <p>
+                                FiFest的設立是為了紀念因癌症去世的年輕人Simone Mellone，這一背景賦予了音樂節更深的情感意義。活動不僅是對Simone的追憶，更是一種對生命的反思與對抗疾病的呼籲。
+                            </p>
+                        </div>
+                        
+                        <div class="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 p-6 rounded">
+                            <h3 class="font-bold text-xl mb-3 text-blue-700 dark:text-blue-300">支持兒童腫瘤學</h3>
+                            <p>
+                                音樂節的所有收益將100%捐贈給<strong>Taranto的Nadia Toffa兒童腫瘤學部門</strong>，為癌症兒童提供實際的醫療支持和幫助。
+                            </p>
+                        </div>
+                        
+                        <div class="bg-green-50 dark:bg-green-900/20 border-l-4 border-green-500 p-6 rounded">
+                            <h3 class="font-bold text-xl mb-3 text-green-700 dark:text-green-300">社會責任</h3>
+                            <p>
+                                通過音樂與藝術的力量，FiFest提高公眾對癌症的認識，促進社區凝聚力，並呼籲社會對兒童癌症問題的關注與支持。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Art Gallery Section -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-4xl lg:text-5xl font-serif font-bold mb-6">藝術展覽</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400">街頭藝術與刺青展示，展現多元文化創意</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="fade-in-up">
+                    <img src="https://api.felo.ai/images/s/69FArGZzIL" alt="義大利街頭藝術節" class="w-full h-64 object-cover rounded-2xl shadow-lg">
+                    <div class="mt-4">
+                        <h3 class="text-xl font-bold mb-2">街頭藝術</h3>
+                        <p class="text-gray-600 dark:text-gray-400">現場創作與互動體驗，展示當地藝術家的創意</p>
+                    </div>
+                </div>
+                
+                <div class="fade-in-up">
+                    <img src="https://api.felo.ai/images/s/gyRFLaSxy0" alt="街頭藝術壁畫" class="w-full h-64 object-cover rounded-2xl shadow-lg">
+                    <div class="mt-4">
+                        <h3 class="text-xl font-bold mb-2">大型壁畫</h3>
+                        <p class="text-gray-600 dark:text-gray-400">藝術家現場創作大型壁畫作品</p>
+                    </div>
+                </div>
+                
+                <div class="fade-in-up">
+                    <img src="https://api.felo.ai/images/s/3CB6Efu48b" alt="互動藝術創作" class="w-full h-64 object-cover rounded-2xl shadow-lg">
+                    <div class="mt-4">
+                        <h3 class="text-xl font-bold mb-2">刺青展示</h3>
+                        <p class="text-gray-600 dark:text-gray-400">專業刺青師現場展示與互動服務</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Organizers Section -->
+    <section class="py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-4xl lg:text-5xl font-serif font-bold mb-6">策展團隊</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400">專業的策展團隊致力於慈善與音樂的完美結合</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="fade-in-up">
+                    <div class="bg-gradient-to-br from-primary-50 to-primary-100 dark:from-primary-900/20 dark:to-primary-800/20 p-8 rounded-2xl">
+                        <h3 class="text-2xl font-bold mb-4">ROOTS協會</h3>
+                        <p class="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+                            ROOTS協會是FiFest音樂節的主辦單位，專注於慈善活動，特別是與癌症相關的醫療支持。協會的使命是通過文化與藝術活動，為需要幫助的群體提供支持，並提高公眾對相關問題的認識。
+                        </p>
+                        
+                        <div class="border-l-4 border-primary-500 pl-6">
+                            <h4 class="font-bold text-lg mb-2">Giovanni Giasi (Ginko)</h4>
+                            <p class="text-gray-600 dark:text-gray-400 mb-2">協會主席 / 主要策展人</p>
+                            <p class="text-sm text-gray-500 dark:text-gray-500">
+                                同時也是Massafra當地藝術家Kid Yugi的巡演經理，在音樂界擁有豐富經驗，其對社區的承諾使FiFest成為具有深遠意義的慈善活動。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in-up">
+                    <div class="space-y-6">
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-users text-blue-600 dark:text-blue-400"></i>
+                                </div>
+                                <h4 class="font-bold text-lg">社區參與</h4>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400">強調社區參與與凝聚力，將不同背景的人們聚集在一起</p>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <div class="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-palette text-green-600 dark:text-green-400"></i>
+                                </div>
+                                <h4 class="font-bold text-lg">多元文化</h4>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400">展現豐富的文化多樣性，促進不同藝術形式的交流</p>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <div class="w-12 h-12 bg-red-100 dark:bg-red-900 rounded-full flex items-center justify-center">
+                                    <i class="fas fa-heart text-red-600 dark:text-red-400"></i>
+                                </div>
+                                <h4 class="font-bold text-lg">慈善理念</h4>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-400">通過音樂與藝術的力量，為慈善目標努力並促進社會變革</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tickets Section -->
+    <section id="tickets" class="py-20 bg-gradient-to-br from-primary-500 to-primary-700 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-4xl lg:text-5xl font-serif font-bold mb-6">票務資訊</h2>
+                <p class="text-xl opacity-90">支持慈善，享受音樂，從購票開始</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="fade-in-up bg-white/10 backdrop-blur-md rounded-2xl p-8 text-center border border-white/20">
+                    <div class="text-4xl font-bold mb-4">€46</div>
+                    <div class="text-xl font-semibold mb-6">起價票券</div>
+                    <ul class="space-y-3 mb-8 text-left">
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-green-400"></i>
+                            <span>三天活動通票</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-green-400"></i>
+                            <span>音樂會入場</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-green-400"></i>
+                            <span>藝術展覽參觀</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="block w-full bg-white text-primary-600 font-bold py-3 rounded-full hover:bg-gray-100 transition-colors">
+                        立即購買
+                    </a>
+                </div>
+                
+                <div class="fade-in-up bg-white/20 backdrop-blur-md rounded-2xl p-8 text-center border-2 border-white/40 transform scale-105">
+                    <div class="bg-yellow-400 text-gray-900 text-sm font-bold px-3 py-1 rounded-full inline-block mb-4">推薦</div>
+                    <div class="text-4xl font-bold mb-4">價格詳詢</div>
+                    <div class="text-xl font-semibold mb-6">VIP票券</div>
+                    <ul class="space-y-3 mb-8 text-left">
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-green-400"></i>
+                            <span>所有基礎權益</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-green-400"></i>
+                            <span>VIP觀演區域</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-green-400"></i>
+                            <span>藝術家見面會</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-green-400"></i>
+                            <span>專屬紀念品</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="block w-full bg-yellow-400 text-gray-900 font-bold py-3 rounded-full hover:bg-yellow-300 transition-colors">
+                        諮詢購買
+                    </a>
+                </div>
+                
+                <div class="fade-in-up bg-white/10 backdrop-blur-md rounded-2xl p-8 text-center border border-white/20">
+                    <div class="text-4xl font-bold mb-4">免費</div>
+                    <div class="text-xl font-semibold mb-6">志工參與</div>
+                    <ul class="space-y-3 mb-8 text-left">
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-green-400"></i>
+                            <span>免費入場</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-green-400"></i>
+                            <span>志工證書</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-green-400"></i>
+                            <span>慈善參與體驗</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-green-400"></i>
+                            <span>工作餐食</span>
+                        </li>
+                    </ul>
+                    <a href="#" class="block w-full bg-white text-primary-600 font-bold py-3 rounded-full hover:bg-gray-100 transition-colors">
+                        申請志工
+                    </a>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12 fade-in-up">
+                <p class="text-lg opacity-90 mb-4">
+                    <strong>購票方式：</strong>可透過相關票務網站購買門票
+                </p>
+                <p class="opacity-80">
+                    所有收益將100%捐贈給Taranto的Nadia Toffa兒童腫瘤學部門
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-4xl lg:text-5xl font-serif font-bold mb-6">活動地點</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-400">義大利南部的歷史文化小城</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="fade-in-up">
+                    <h3 class="text-3xl font-bold mb-6">Massafra市 Via Potenza表演區</h3>
+                    <div class="space-y-4 text-lg text-gray-700 dark:text-gray-300">
+                        <p>
+                            Massafra是位於義大利南部的一個以文化與歷史遺產聞名的小城鎮。Via Potenza表演區不僅是當地居民熟悉的文化活動中心，也因其便利的地理位置和適合大型活動的設施而被選為音樂節的舉辦地。
+                        </p>
+                        <p>
+                            該表演區能夠容納大量觀眾，並提供足夠的空間來舉辦多樣化的活動，包括音樂會、藝術展覽和互動活動。
+                        </p>
+                    </div>
+                    
+                    <div class="mt-8 space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-map-marker-alt text-primary-500"></i>
+                            <span>Via Potenza, Massafra, 義大利</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-calendar text-primary-500"></i>
+                            <span>2025年9月19-21日</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-users text-primary-500"></i>
+                            <span>大型表演區，可容納眾多觀眾</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in-up">
+                    <img src="https://api.felo.ai/images/s/ao58aN8W8s" alt="Massafra城市風景" class="w-full rounded-2xl shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center space-x-2 mb-6">
+                        <i class="fas fa-music text-2xl text-primary-500"></i>
+                        <span class="font-bold text-xl">FiFest 2025</span>
+                    </div>
+                    <p class="text-gray-400 mb-6 leading-relaxed">
+                        紀念Simone Mellone，支持兒童腫瘤學部門的慈善音樂節。通過音樂與藝術的力量，為需要幫助的癌症兒童提供支持。
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary-500 transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary-500 transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-primary-500 transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-lg mb-4">快速連結</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">關於音樂節</a></li>
+                        <li><a href="#artists" class="text-gray-400 hover:text-white transition-colors">藝術家</a></li>
+                        <li><a href="#schedule" class="text-gray-400 hover:text-white transition-colors">活動日程</a></li>
+                        <li><a href="#charity" class="text-gray-400 hover:text-white transition-colors">慈善目的</a></li>
+                        <li><a href="#tickets" class="text-gray-400 hover:text-white transition-colors">票務資訊</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-lg mb-4">聯絡資訊</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>
+                            <i class="fas fa-map-marker-alt mr-2"></i>
+                            Via Potenza, Massafra, 義大利
+                        </li>
+                        <li>
+                            <i class="fas fa-calendar mr-2"></i>
+                            2025年9月19-21日
+                        </li>
+                        <li>
+                            <i class="fas fa-heart mr-2"></i>
+                            ROOTS協會主辦
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <div class="mb-4">
+                    <p class="mb-2">免責申明：基於公開資料，僅供參考，不構成建議</p>
+                    <p class="mb-2">資料來源：網頁公開資訊</p>
+                </div>
+                <p>&copy; 2025 Dunk. 版權所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark mode toggle
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('darkMode', document.documentElement.classList.contains('dark'));
+        }
+
+        // Initialize dark mode from localStorage or system preference
+        function initDarkMode() {
+            const savedMode = localStorage.getItem('darkMode');
+            const systemDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedMode === 'true' || (savedMode === null && systemDarkMode)) {
+                document.documentElement.classList.add('dark');
+            }
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.fade-in-up');
+            const windowHeight = window.innerHeight;
+
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initDarkMode();
+            animateOnScroll();
+        });
+
+        // Animate on scroll
+        window.addEventListener('scroll', animateOnScroll);
+
+        // System dark mode change listener
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+            if (localStorage.getItem('darkMode') === null) {
+                if (e.matches) {
+                    document.documentElement.classList.add('dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
