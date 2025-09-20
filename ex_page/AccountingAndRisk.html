@@ -1,0 +1,2508 @@
+
+<!DOCTYPE html><html lang="zh-TW" class="scroll-smooth dark"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>銀行會計科目與信用風險關聯性分析</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/preline@2.3.0/dist/preline.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        
+    
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #9A0036 0%, #941C61 50%, #EEBAC0 100%);
+        }
+        .glass-effect {
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
+<script src="https://felo.ai/js/iframe.js?v=1758365475752"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style><style id="felo-iframe-styles">html,body{margin:0 !important;padding:0 !important;}</style><style data-id="immersive-translate-input-injected-css">.immersive-translate-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2147483647;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.immersive-translate-attach-loading::after {
+  content: " ";
+
+  --loading-color: #f78fb6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+  position: relative;
+  color: white;
+  left: -100px;
+  box-sizing: border-box;
+  animation: immersiveTranslateShadowRolling 1.5s linear infinite;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-2000%, -50%);
+  z-index: 100;
+}
+
+.immersive-translate-loading-spinner {
+  vertical-align: middle !important;
+  width: 10px !important;
+  height: 10px !important;
+  display: inline-block !important;
+  margin: 0 4px !important;
+  border: 2px rgba(221, 244, 255, 0.6) solid !important;
+  border-top: 2px rgba(0, 0, 0, 0.375) solid !important;
+  border-left: 2px rgba(0, 0, 0, 0.375) solid !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  -webkit-animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+  animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+}
+
+@-webkit-keyframes immersive-translate-loading-animation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+
+@keyframes immersive-translate-loading-animation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.immersive-translate-input-loading {
+  --loading-color: #f78fb6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+  position: relative;
+  color: white;
+  left: -100px;
+  box-sizing: border-box;
+  animation: immersiveTranslateShadowRolling 1.5s linear infinite;
+}
+
+@keyframes immersiveTranslateShadowRolling {
+  0% {
+    box-shadow: 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  12% {
+    box-shadow: 100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  25% {
+    box-shadow: 110px 0 var(--loading-color), 100px 0 var(--loading-color),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  36% {
+    box-shadow: 120px 0 var(--loading-color), 110px 0 var(--loading-color),
+      100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  50% {
+    box-shadow: 130px 0 var(--loading-color), 120px 0 var(--loading-color),
+      110px 0 var(--loading-color), 100px 0 var(--loading-color);
+  }
+
+  62% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color),
+      120px 0 var(--loading-color), 110px 0 var(--loading-color);
+  }
+
+  75% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      130px 0 var(--loading-color), 120px 0 var(--loading-color);
+  }
+
+  87% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color);
+  }
+
+  100% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0);
+  }
+}
+
+.immersive-translate-toast {
+  display: flex;
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  right: 0;
+  top: 1%;
+  width: fit-content;
+  padding: 12px 20px;
+  margin: auto;
+  overflow: auto;
+  background: #fef6f9;
+  box-shadow: 0px 4px 10px 0px rgba(0, 10, 30, 0.06);
+  font-size: 15px;
+  border-radius: 8px;
+  color: #333;
+}
+
+.immersive-translate-toast-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.immersive-translate-toast-hidden {
+  margin: 0 20px 0 72px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.immersive-translate-toast-close {
+  color: #666666;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-toast {
+    top: 0;
+    padding: 12px 0px 0 10px;
+  }
+  .immersive-translate-toast-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .immersive-translate-toast-hidden {
+    margin: 10px auto;
+  }
+}
+
+.immersive-translate-dialog {
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  top: 0;
+  display: flex;
+  width: 300px;
+  flex-direction: column;
+  align-items: center;
+  font-size: 15px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: fit-content;
+  border-radius: 20px;
+  background-color: #fff;
+}
+
+.immersive-translate-modal {
+  display: none;
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  font-size: 15px;
+}
+
+.immersive-translate-modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 40px 24px 24px;
+  border-radius: 12px;
+  width: 350px;
+  font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",
+    "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-modal-content {
+    margin: 25% auto !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .immersive-translate-modal-content {
+    width: 80vw !important;
+    margin: 20vh auto !important;
+    padding: 20px 12px 12px !important;
+  }
+
+  .immersive-translate-modal-title {
+    font-size: 14px !important;
+  }
+
+  .immersive-translate-modal-body {
+    font-size: 13px !important;
+    max-height: 60vh !important;
+  }
+
+  .immersive-translate-btn {
+    font-size: 13px !important;
+    padding: 8px 16px !important;
+    margin: 0 4px !important;
+  }
+
+  .immersive-translate-modal-footer {
+    gap: 6px !important;
+    margin-top: 16px !important;
+  }
+}
+
+.immersive-translate-modal .immersive-translate-modal-content-in-input {
+  max-width: 500px;
+}
+.immersive-translate-modal-content-in-input .immersive-translate-modal-body {
+  text-align: left;
+  max-height: unset;
+}
+
+.immersive-translate-modal-title {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333333;
+}
+
+.immersive-translate-modal-body {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333333;
+  margin-top: 24px;
+  word-break: break-all;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-modal-body {
+    max-height: 250px;
+    overflow-y: auto;
+  }
+}
+
+.immersive-translate-close {
+  color: #666666;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.immersive-translate-close:hover,
+.immersive-translate-close:focus {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.immersive-translate-modal-footer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.immersive-translate-btn {
+  width: fit-content;
+  color: #fff;
+  background-color: #ea4c89;
+  border: none;
+  font-size: 14px;
+  margin: 0 8px;
+  padding: 9px 30px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.immersive-translate-btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.immersive-translate-btn:hover {
+  background-color: #f082ac;
+}
+.immersive-translate-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.immersive-translate-btn:disabled:hover {
+  background-color: #ea4c89;
+}
+
+.immersive-translate-link-btn {
+  background-color: transparent;
+  color: #ea4c89;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  line-height: 30px;
+}
+
+.immersive-translate-cancel-btn {
+  /* gray color */
+  background-color: rgb(89, 107, 120);
+}
+
+.immersive-translate-cancel-btn:hover {
+  background-color: hsl(205, 20%, 32%);
+}
+
+.immersive-translate-action-btn {
+  background-color: transparent;
+  color: #ea4c89;
+  border: 1px solid #ea4c89;
+}
+
+.immersive-translate-btn svg {
+  margin-right: 5px;
+}
+
+.immersive-translate-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #ea4c89;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+.immersive-translate-primary-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #ea4c89;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+.immersive-translate-modal input[type="radio"] {
+  margin: 0 6px;
+  cursor: pointer;
+}
+
+.immersive-translate-modal label {
+  cursor: pointer;
+}
+
+.immersive-translate-close-action {
+  position: absolute;
+  top: 2px;
+  right: 0px;
+  cursor: pointer;
+}
+
+.imt-image-status {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 16px !important;
+}
+.imt-image-status img,
+.imt-image-status svg,
+.imt-img-loading {
+  width: 28px !important;
+  height: 28px !important;
+  margin: 0 0 8px 0 !important;
+  min-height: 28px !important;
+  min-width: 28px !important;
+  position: relative !important;
+}
+.imt-img-loading {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAtFBMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////oK74hAAAAPHRSTlMABBMIDyQXHwyBfFdDMSw+OjXCb+5RG51IvV/k0rOqlGRM6KKMhdvNyZBz9MaupmxpWyj437iYd/yJVNZeuUC7AAACt0lEQVRIx53T2XKiUBCA4QYOiyCbiAsuuGBcYtxiYtT3f6/pbqoYHVFO5r+iivpo6DpAWYpqeoFfr9f90DsYAuRSWkFnPO50OgR9PwiCUFcl2GEcx+N/YBh6pvKaefHlUgZd1zVe0NbYcQjGBfzrPE8Xz8aF+71D8gG6DHFPpc4a7xFiCDuhaWgKgGIJQ3d5IMGDrpS4S5KgpIm+en9f6PlAhKby4JwEIxlYJV9h5k5nee9GoxHJ2IDSNB0dwdad1NAxDJ/uXDHYmebdk4PdbkS58CIVHdYSUHTYYRWOJblWSyu2lmy3KNFVJNBhxcuGW4YBVCbYGRZwIooipHsNqjM4FbgOQqQqSKQQU9V8xmi1QlgHqQQ6DDBvRUVCDirs+EzGDGOQTCATgtYTnbCVLgsVgRE0T1QE0qHCFAht2z6dLvJQs3Lo2FQoDxWNUiBhaP4eRgwNkI+dAjVOA/kUrIDwf3CG8NfNOE0eiFotSuo+rBiq8tD9oY4Qzc6YJw99hl1wzpQvD7ef2M8QgnOGJfJw+EltQc+oX2yn907QB22WZcvlUpd143dqQu+8pCJZuGE4xCuPXJqqcs5sNpsI93Rmzym1k4Npk+oD1SH3/a3LOK/JpUBpWfqNySxWzCfNCUITuDG5dtuphrUJ1myeIE9bIsPiKrfqTai5WZxbhtNphYx6GEIHihyGFTI69lje/rxajdh0s0msZ0zYxyPLhYCb1CyHm9Qsd2H37Y3lugVwL9kNh8Ot8cha6fUNQ8nuXi5z9/ExsAO4zQrb/ev1yrCB7lGyQzgYDGuxq1toDN/JGvN+HyWNHKB7zEoK+PX11e12G431erGYzwmytAWU56fkMHY5JJnDRR2eZji3AwtIcrEV8Cojat/BdQ7XOwGV1e1hDjGGjXbdArm8uJZtCH5MbcctVX8A1WpqumJHwckAAAAASUVORK5CYII=");
+  background-size: 28px 28px;
+  animation: image-loading-rotate 1s linear infinite !important;
+}
+
+.imt-image-status span {
+  color: var(--bg-2, #fff) !important;
+  font-size: 14px !important;
+  line-height: 14px !important;
+  font-weight: 500 !important;
+  font-family: "PingFang SC", Arial, sans-serif !important;
+}
+
+.imt-primary-button {
+  display: flex;
+  padding: 12px 80px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  background: #ea4c89;
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  border: none;
+  cursor: pointer;
+}
+
+.imt-retry-text {
+  color: #999;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  cursor: pointer;
+}
+
+.imt-action-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.imt-modal-content-text {
+  text-align: left;
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+@keyframes image-loading-rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.imt-linear-gradient-text {
+  background: linear-gradient(90deg, #00a6ff 0%, #c369ff 52.4%, #ff4590 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.imt-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imt-linear-black-btn {
+  border-radius: 50px;
+  background: linear-gradient(66deg, #222 19%, #696969 94.25%);
+  height: 48px;
+  width: 100%;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+}
+</style></head>
+
+<body class="font-noto bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300" contenteditable="false" spellcheck="false">
+    <nav class="fixed top-0 w-full z-50 glass-effect bg-white/80 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <div class="w-8 h-8 bg-gradient-to-br from-brand-red to-brand-purple rounded-lg flex items-center justify-center">
+                        <i class="fas fa-chart-line text-white text-sm"></i>
+                    </div>
+                    <span class="text-xl font-bold bg-gradient-to-r from-brand-red to-brand-purple bg-clip-text text-transparent">
+                        銀行風險管理
+                    </span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#overview" class="hover:text-brand-red transition-colors duration-200">總覽</a>
+                    <a href="#risk-definition" class="hover:text-brand-red transition-colors duration-200">風險定義</a>
+                    <a href="#accounting-indicators" class="hover:text-brand-red transition-colors duration-200">會計指標</a>
+                    <a href="#financial-analysis" class="hover:text-brand-red transition-colors duration-200">財務分析</a>
+                    <a href="#ifrs9" class="hover:text-brand-red transition-colors duration-200">IFRS 9</a>
+                    <a href="#basel" class="hover:text-brand-red transition-colors duration-200">巴塞爾協定</a>
+                </div>
+                
+                <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
+                    <i class="fas fa-sun text-yellow-500 dark:hidden"></i>
+                    <i class="fas fa-moon text-blue-400 hidden dark:block"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="pt-16">
+        <section class="min-h-screen flex items-center relative overflow-hidden">
+            <div class="gradient-bg absolute inset-0 opacity-10"></div>
+            <div class="absolute inset-0 bg-gradient-to-br from-transparent via-brand-pink/20 to-transparent"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-8">
+                        <div class="space-y-6">
+                            <div class="inline-flex items-center px-4 py-2 bg-brand-pink/20 text-brand-red rounded-full text-sm font-medium">
+                                <i class="fas fa-shield-alt mr-2"></i>
+                                專業風險管理分析
+                            </div>
+                            
+                            <h1 class="text-5xl lg:text-7xl font-bold leading-tight">
+                                銀行會計科目與
+                                <span class="bg-gradient-to-r from-brand-red to-brand-purple bg-clip-text text-transparent">
+                                    信用風險
+                                </span>
+                                關聯性
+                            </h1>
+                            
+                            <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed">
+                                深入探討銀行會計科目與信用風險之間的密不可分聯繫，透過財務報表科目識別、衡量、監控及管理信用風險的核心框架，提供現代銀行業風險管理的關鍵洞察。
+                            </p>
+                        </div>
+                        
+                        <div class="flex flex-wrap gap-4">
+                            <div class="flex items-center space-x-2 bg-white dark:bg-gray-800 px-4 py-2 rounded-lg shadow-md">
+                                <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                                <span class="text-sm font-medium">不良貸款率 60%</span>
+                            </div>
+                            <div class="flex items-center space-x-2 bg-white dark:bg-gray-800 px-4 py-2 rounded-lg shadow-md">
+                                <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                                <span class="text-sm font-medium">資本充足率</span>
+                            </div>
+                            <div class="flex items-center space-x-2 bg-white dark:bg-gray-800 px-4 py-2 rounded-lg shadow-md">
+                                <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                                <span class="text-sm font-medium">淨利差管理</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="relative">
+                        <div class="animate-float">
+                            <img src="https://api.felo.ai/images/s/bX9GFmKLdx" alt="銀行風險管理架構圖" class="w-full h-auto rounded-2xl shadow-2xl">
+                        </div>
+                        
+                        <div class="absolute -bottom-6 -left-6 w-24 h-24 bg-gradient-to-br from-brand-red to-brand-purple rounded-full opacity-20 animate-pulse"></div>
+                        <div class="absolute -top-6 -right-6 w-16 h-16 bg-gradient-to-br from-brand-purple to-brand-pink rounded-full opacity-30 animate-pulse" style="animation-delay: 1s;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="overview" class="py-20 bg-gray-50 dark:bg-gray-800/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-6">總覽概要</h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                        銀行會計科目與信用風險之間存在密不可分的內在聯繫，是識別、衡量、監控及管理信用風險的核心基礎
+                    </p>
+                </div>
+                
+                <div class="grid lg:grid-cols-3 gap-8 mb-16">
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <div class="w-16 h-16 bg-gradient-to-br from-brand-red to-brand-purple rounded-xl flex items-center justify-center mb-6">
+                            <i class="fas fa-chart-bar text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">關鍵量化指標</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            不良貸款率（NPLR）、資本充足率（CAR）、淨利差（NIM）及存貸比等財務比率，已成為評估銀行信用風險水平的關鍵量化指標。
+                        </p>
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center">
+                                <span class="text-sm">NPLR 重要性</span>
+                                <span class="text-sm font-bold text-brand-red">最直接</span>
+                            </div>
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-gradient-to-r from-brand-red to-brand-purple h-2 rounded-full" style="width: 95%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fas fa-balance-scale text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">會計準則演進</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            國際財務報導準則（IFRS）的實施，對金融工具的分類與計量產生深遠影響，要求銀行更精確地透過會計科目反映風險暴露。
+                        </p>
+                        <div class="flex items-center space-x-2 text-sm text-blue-600 dark:text-blue-400">
+                            <i class="fas fa-arrow-trend-up"></i>
+                            <span>透明度提升</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fas fa-cogs text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">風險管理框架</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            會計資訊是構建現代信用風險管理框架的基石，支撐巴塞爾協議下的內部評等法（IRB）及統計預警模型。
+                        </p>
+                        <div class="flex items-center space-x-2 text-sm text-green-600 dark:text-green-400">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>管理基礎</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-bold mb-6 text-center">銀行會計科目與信用風險關聯性架構</h3>
+                    <img src="https://api.felo.ai/images/s/hF8XyfglMg" alt="銀行會計科目與信用風險的關聯性架構" class="w-full h-auto rounded-xl">
+                </div>
+            </div>
+        </section>
+
+        <section id="risk-definition" class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-6">信用風險的定義與重要性</h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                        信用風險是銀行業最核心的風險，佔所有風險比重高達60%，是導致銀行經營失敗和金融危機的首要原因
+                    </p>
+                </div>
+                
+                <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+                    <div class="space-y-8">
+                        <div class="bg-gradient-to-r from-red-50 to-pink-50 dark:from-red-900/20 dark:to-pink-900/20 p-8 rounded-2xl">
+                            <h3 class="text-2xl font-bold mb-4 text-red-800 dark:text-red-200">
+                                <i class="fas fa-exclamation-triangle mr-3"></i>
+                                狹義信用風險：違約風險
+                            </h3>
+                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                                債務人未能如期償還債務而導致違約，給債權人帶來損失的風險，即違約風險。這是最直接且最常見的信用風險形式，當借款人因財務困難無法償還貸款時，銀行不僅會損失利息收入，還可能面臨資本侵蝕的風險。
+                            </p>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 p-8 rounded-2xl">
+                            <h3 class="text-2xl font-bold mb-4 text-blue-800 dark:text-blue-200">
+                                <i class="fas fa-brain mr-3"></i>
+                                廣義信用風險：償債意願與能力
+                            </h3>
+                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                                同時考慮債務人的償債意願與償債能力，任何因這兩方面因素導致的合約不履行，均構成信用風險。還包括信用價差風險，即由於借款人信用品質變化而導致的市場價值波動。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="relative">
+                            <div class="absolute inset-0 bg-gradient-to-br from-brand-red/20 to-brand-purple/20 rounded-2xl transform rotate-3"></div>
+                            <div class="relative bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl">
+                                <h4 class="text-xl font-bold mb-6 text-center">信用風險核心統計</h4>
+                                <div id="riskStatChart" class="h-80" _echarts_instance_="ec_1758365474565" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" data-chart-option="{&quot;darkMode&quot;:true,&quot;color&quot;:[&quot;#4992ff&quot;,&quot;#7cffb2&quot;,&quot;#fddd60&quot;,&quot;#ff6e76&quot;,&quot;#58d9f9&quot;,&quot;#05c091&quot;,&quot;#ff8a45&quot;,&quot;#8d48e3&quot;,&quot;#dd79ff&quot;],&quot;backgroundColor&quot;:&quot;#100C2A&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;,&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;timeAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;logAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;valueAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;categoryAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;},&quot;show&quot;:false},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;line&quot;:{&quot;symbol&quot;:&quot;circle&quot;},&quot;graph&quot;:{&quot;color&quot;:[&quot;#4992ff&quot;,&quot;#7cffb2&quot;,&quot;#fddd60&quot;,&quot;#ff6e76&quot;,&quot;#58d9f9&quot;,&quot;#05c091&quot;,&quot;#ff8a45&quot;,&quot;#8d48e3&quot;,&quot;#dd79ff&quot;]},&quot;gauge&quot;:{&quot;title&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;},&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:[[1,&quot;rgba(207,212,219,0.2)&quot;]]}},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;},&quot;detail&quot;:{&quot;color&quot;:&quot;#EEF1FA&quot;}},&quot;candlestick&quot;:{&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#f64e56&quot;,&quot;color0&quot;:&quot;#54ea92&quot;,&quot;borderColor&quot;:&quot;#f64e56&quot;,&quot;borderColor0&quot;:&quot;#54ea92&quot;}},&quot;colorBy&quot;:&quot;series&quot;,&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;axisPointer&quot;:[{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#817f91&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#817f91&quot;},&quot;label&quot;:{&quot;color&quot;:&quot;#fff&quot;,&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[{&quot;trigger&quot;:&quot;item&quot;,&quot;formatter&quot;:&quot;{a} &lt;br/&gt;{b}: {c}% ({d}%)&quot;,&quot;z&quot;:60,&quot;show&quot;:true,&quot;showContent&quot;:true,&quot;triggerOn&quot;:&quot;mousemove|click&quot;,&quot;alwaysShowContent&quot;:false,&quot;displayMode&quot;:&quot;single&quot;,&quot;renderMode&quot;:&quot;auto&quot;,&quot;confine&quot;:null,&quot;showDelay&quot;:0,&quot;hideDelay&quot;:100,&quot;transitionDuration&quot;:0.4,&quot;enterable&quot;:false,&quot;backgroundColor&quot;:&quot;#fff&quot;,&quot;shadowBlur&quot;:10,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, .2)&quot;,&quot;shadowOffsetX&quot;:1,&quot;shadowOffsetY&quot;:2,&quot;borderRadius&quot;:4,&quot;borderWidth&quot;:1,&quot;padding&quot;:null,&quot;extraCssText&quot;:&quot;&quot;,&quot;axisPointer&quot;:{&quot;type&quot;:&quot;line&quot;,&quot;axis&quot;:&quot;auto&quot;,&quot;animation&quot;:&quot;auto&quot;,&quot;animationDurationUpdate&quot;:200,&quot;animationEasingUpdate&quot;:&quot;exponentialOut&quot;,&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#999&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;,&quot;textStyle&quot;:{}}},&quot;textStyle&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;fontSize&quot;:14}}],&quot;grid&quot;:[{&quot;left&quot;:&quot;3%&quot;,&quot;right&quot;:&quot;4%&quot;,&quot;bottom&quot;:&quot;3%&quot;,&quot;containLabel&quot;:true,&quot;show&quot;:false,&quot;z&quot;:0,&quot;top&quot;:60,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#ccc&quot;}],&quot;series&quot;:[{&quot;name&quot;:&quot;風險分布&quot;,&quot;type&quot;:&quot;pie&quot;,&quot;radius&quot;:[&quot;40%&quot;,&quot;70%&quot;],&quot;avoidLabelOverlap&quot;:false,&quot;label&quot;:{&quot;show&quot;:true,&quot;position&quot;:&quot;outside&quot;,&quot;formatter&quot;:&quot;{b}: {c}%&quot;,&quot;color&quot;:&quot;#fff&quot;,&quot;rotate&quot;:0,&quot;overflow&quot;:&quot;truncate&quot;,&quot;alignTo&quot;:&quot;none&quot;,&quot;edgeDistance&quot;:&quot;25%&quot;,&quot;bleedMargin&quot;:10,&quot;distanceToLabelLine&quot;:5},&quot;emphasis&quot;:{&quot;label&quot;:{&quot;show&quot;:true,&quot;fontSize&quot;:&quot;16&quot;,&quot;fontWeight&quot;:&quot;bold&quot;},&quot;scale&quot;:true,&quot;scaleSize&quot;:5,&quot;labelLine&quot;:{&quot;show&quot;:true}},&quot;data&quot;:[{&quot;value&quot;:60,&quot;name&quot;:&quot;信用風險&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#9A0036&quot;}},{&quot;value&quot;:20,&quot;name&quot;:&quot;市場風險&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#941C61&quot;}},{&quot;value&quot;:15,&quot;name&quot;:&quot;作業風險&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#EEBAC0&quot;}},{&quot;value&quot;:5,&quot;name&quot;:&quot;其他風險&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#f39c12&quot;}}],&quot;z&quot;:2,&quot;legendHoverLink&quot;:true,&quot;colorBy&quot;:&quot;data&quot;,&quot;center&quot;:[&quot;50%&quot;,&quot;50%&quot;],&quot;clockwise&quot;:true,&quot;startAngle&quot;:90,&quot;minAngle&quot;:0,&quot;minShowLabelAngle&quot;:0,&quot;selectedOffset&quot;:10,&quot;percentPrecision&quot;:2,&quot;stillShowZeroSum&quot;:true,&quot;left&quot;:0,&quot;top&quot;:0,&quot;right&quot;:0,&quot;bottom&quot;:0,&quot;width&quot;:null,&quot;height&quot;:null,&quot;labelLine&quot;:{&quot;show&quot;:true,&quot;length&quot;:15,&quot;length2&quot;:15,&quot;smooth&quot;:false,&quot;minTurnAngle&quot;:90,&quot;maxSurfaceAngle&quot;:90,&quot;lineStyle&quot;:{&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;}},&quot;itemStyle&quot;:{&quot;borderWidth&quot;:1,&quot;borderJoin&quot;:&quot;round&quot;},&quot;showEmptyCircle&quot;:true,&quot;emptyCircleStyle&quot;:{&quot;color&quot;:&quot;lightgray&quot;,&quot;opacity&quot;:1},&quot;labelLayout&quot;:{&quot;hideOverlap&quot;:true},&quot;animationType&quot;:&quot;expansion&quot;,&quot;animationDuration&quot;:1000,&quot;animationTypeUpdate&quot;:&quot;transition&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;}],&quot;visualMap&quot;:[],&quot;legend&quot;:[{&quot;orient&quot;:&quot;vertical&quot;,&quot;left&quot;:10,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#fff&quot;},&quot;z&quot;:4,&quot;show&quot;:true,&quot;top&quot;:0,&quot;align&quot;:&quot;auto&quot;,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderColor&quot;:&quot;#ccc&quot;,&quot;borderRadius&quot;:0,&quot;borderWidth&quot;:0,&quot;padding&quot;:5,&quot;itemGap&quot;:10,&quot;itemWidth&quot;:25,&quot;itemHeight&quot;:14,&quot;symbolRotate&quot;:&quot;inherit&quot;,&quot;symbolKeepAspect&quot;:true,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderWidth&quot;:&quot;auto&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;inherit&quot;,&quot;opacity&quot;:&quot;inherit&quot;,&quot;borderColor&quot;:&quot;inherit&quot;,&quot;borderWidth&quot;:&quot;auto&quot;,&quot;borderCap&quot;:&quot;inherit&quot;,&quot;borderJoin&quot;:&quot;inherit&quot;,&quot;borderDashOffset&quot;:&quot;inherit&quot;,&quot;borderMiterLimit&quot;:&quot;inherit&quot;},&quot;lineStyle&quot;:{&quot;width&quot;:&quot;auto&quot;,&quot;color&quot;:&quot;inherit&quot;,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveWidth&quot;:2,&quot;opacity&quot;:&quot;inherit&quot;,&quot;type&quot;:&quot;inherit&quot;,&quot;cap&quot;:&quot;inherit&quot;,&quot;join&quot;:&quot;inherit&quot;,&quot;dashOffset&quot;:&quot;inherit&quot;,&quot;miterLimit&quot;:&quot;inherit&quot;},&quot;selectedMode&quot;:true,&quot;selector&quot;:false,&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;borderRadius&quot;:10,&quot;padding&quot;:[3,5,3,5],&quot;fontSize&quot;:12,&quot;fontFamily&quot;:&quot;sans-serif&quot;,&quot;color&quot;:&quot;#666&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#666&quot;},&quot;emphasis&quot;:{&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;color&quot;:&quot;#eee&quot;,&quot;backgroundColor&quot;:&quot;#666&quot;}},&quot;selectorPosition&quot;:&quot;auto&quot;,&quot;selectorItemGap&quot;:7,&quot;selectorButtonGap&quot;:10,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;right&quot;:null,&quot;selected&quot;:{}}],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 456px; height: 320px; padding: 0px; margin: 0px; border-width: 0px;"><canvas data-zr-dom-id="zr_0" width="513" height="360" style="position: absolute; left: 0px; top: 0px; width: 456px; height: 320px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class=""></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold mb-4 text-center">
+                        <i class="fas fa-university mr-3 text-yellow-600"></i>
+                        信用風險在銀行業的核心地位
+                    </h3>
+                    <div class="grid md:grid-cols-3 gap-6 mt-8">
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-red-600 mb-2">60%</div>
+                            <p class="text-gray-700 dark:text-gray-300">佔所有風險比重</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-orange-600 mb-2">#1</div>
+                            <p class="text-gray-700 dark:text-gray-300">銀行失敗主因</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-4xl font-bold text-yellow-600 mb-2">核心</div>
+                            <p class="text-gray-700 dark:text-gray-300">業務模式風險</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="accounting-indicators" class="py-20 bg-gray-50 dark:bg-gray-800/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-6">會計科目作為信用風險的關鍵度量指標</h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto">
+                        銀行財務報表中的會計科目及其衍生出的財務比率，為量化評估信用風險提供了基礎
+                    </p>
+                </div>
+                
+                <div class="mb-16">
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg mb-8">
+                        <h3 class="text-3xl font-bold mb-6 text-center">
+                            <span class="bg-gradient-to-r from-brand-red to-brand-purple bg-clip-text text-transparent">
+                                不良貸款率 (NPLR)
+                            </span>
+                            - 最直接的信用風險指標
+                        </h3>
+                        
+                        <div class="grid lg:grid-cols-2 gap-8 items-center">
+                            <div>
+                                <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
+                                    不良貸款率是衡量銀行信用風險最首要、最直接的指標。根據資產的風險程度，貸款通常被劃分為正常、關注、次級、可疑、損失五類，其中後三類合稱為不良資產。
+                                </p>
+                                
+                                <div class="space-y-4">
+                                    <div class="flex items-center justify-between p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                                        <span class="font-medium">正常</span>
+                                        <div class="flex items-center">
+                                            <div class="w-3 h-3 bg-green-500 rounded-full mr-2"></div>
+                                            <span class="text-sm">良好資產</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+                                        <span class="font-medium">關注</span>
+                                        <div class="flex items-center">
+                                            <div class="w-3 h-3 bg-yellow-500 rounded-full mr-2"></div>
+                                            <span class="text-sm">需關注</span>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center justify-between p-4 bg-red-50 dark:bg-red-900/20 rounded-lg">
+                                        <span class="font-medium">次級、可疑、損失</span>
+                                        <div class="flex items-center">
+                                            <div class="w-3 h-3 bg-red-500 rounded-full mr-2"></div>
+                                            <span class="text-sm font-bold">不良資產</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div id="nplrChart" class="h-80" _echarts_instance_="ec_1758365474566" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" data-chart-option="{&quot;darkMode&quot;:true,&quot;color&quot;:[&quot;#4992ff&quot;,&quot;#7cffb2&quot;,&quot;#fddd60&quot;,&quot;#ff6e76&quot;,&quot;#58d9f9&quot;,&quot;#05c091&quot;,&quot;#ff8a45&quot;,&quot;#8d48e3&quot;,&quot;#dd79ff&quot;],&quot;backgroundColor&quot;:&quot;#100C2A&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;,&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;timeAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;logAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;valueAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;categoryAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;},&quot;show&quot;:false},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;line&quot;:{&quot;symbol&quot;:&quot;circle&quot;},&quot;graph&quot;:{&quot;color&quot;:[&quot;#4992ff&quot;,&quot;#7cffb2&quot;,&quot;#fddd60&quot;,&quot;#ff6e76&quot;,&quot;#58d9f9&quot;,&quot;#05c091&quot;,&quot;#ff8a45&quot;,&quot;#8d48e3&quot;,&quot;#dd79ff&quot;]},&quot;gauge&quot;:{&quot;title&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;},&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:[[1,&quot;rgba(207,212,219,0.2)&quot;]]}},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;},&quot;detail&quot;:{&quot;color&quot;:&quot;#EEF1FA&quot;}},&quot;candlestick&quot;:{&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#f64e56&quot;,&quot;color0&quot;:&quot;#54ea92&quot;,&quot;borderColor&quot;:&quot;#f64e56&quot;,&quot;borderColor0&quot;:&quot;#54ea92&quot;}},&quot;colorBy&quot;:&quot;series&quot;,&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;axisPointer&quot;:[{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#817f91&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#817f91&quot;},&quot;label&quot;:{&quot;color&quot;:&quot;#fff&quot;,&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[{&quot;trigger&quot;:&quot;axis&quot;,&quot;axisPointer&quot;:{&quot;type&quot;:&quot;cross&quot;,&quot;axis&quot;:&quot;auto&quot;,&quot;animation&quot;:&quot;auto&quot;,&quot;animationDurationUpdate&quot;:200,&quot;animationEasingUpdate&quot;:&quot;exponentialOut&quot;,&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#999&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;,&quot;textStyle&quot;:{}}},&quot;z&quot;:60,&quot;show&quot;:true,&quot;showContent&quot;:true,&quot;triggerOn&quot;:&quot;mousemove|click&quot;,&quot;alwaysShowContent&quot;:false,&quot;displayMode&quot;:&quot;single&quot;,&quot;renderMode&quot;:&quot;auto&quot;,&quot;confine&quot;:null,&quot;showDelay&quot;:0,&quot;hideDelay&quot;:100,&quot;transitionDuration&quot;:0.4,&quot;enterable&quot;:false,&quot;backgroundColor&quot;:&quot;#fff&quot;,&quot;shadowBlur&quot;:10,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, .2)&quot;,&quot;shadowOffsetX&quot;:1,&quot;shadowOffsetY&quot;:2,&quot;borderRadius&quot;:4,&quot;borderWidth&quot;:1,&quot;padding&quot;:null,&quot;extraCssText&quot;:&quot;&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;fontSize&quot;:14}}],&quot;yAxis&quot;:[{&quot;type&quot;:&quot;value&quot;,&quot;name&quot;:&quot;NPLR (%)&quot;,&quot;position&quot;:&quot;left&quot;,&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#fff&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;nameTextStyle&quot;:{&quot;color&quot;:&quot;#fff&quot;},&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:&quot;auto&quot;,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:true},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]},&quot;show&quot;:false},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;,&quot;width&quot;:1},&quot;show&quot;:false},&quot;boundaryGap&quot;:[0,0],&quot;axisTick&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;splitNumber&quot;:5,&quot;minorTick&quot;:{&quot;show&quot;:false,&quot;splitNumber&quot;:5,&quot;length&quot;:3,&quot;lineStyle&quot;:{}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{&quot;status&quot;:&quot;hide&quot;,&quot;value&quot;:0.5},&quot;offset&quot;:0},{&quot;type&quot;:&quot;value&quot;,&quot;name&quot;:&quot;CAR (%)&quot;,&quot;position&quot;:&quot;right&quot;,&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#fff&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;nameTextStyle&quot;:{&quot;color&quot;:&quot;#fff&quot;},&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:&quot;auto&quot;,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:true},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]},&quot;show&quot;:false},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;,&quot;width&quot;:1},&quot;show&quot;:false},&quot;boundaryGap&quot;:[0,0],&quot;axisTick&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;splitNumber&quot;:5,&quot;minorTick&quot;:{&quot;show&quot;:false,&quot;splitNumber&quot;:5,&quot;length&quot;:3,&quot;lineStyle&quot;:{}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{&quot;status&quot;:&quot;hide&quot;,&quot;value&quot;:18},&quot;offset&quot;:0}],&quot;xAxis&quot;:[{&quot;type&quot;:&quot;category&quot;,&quot;data&quot;:[&quot;2019&quot;,&quot;2020&quot;,&quot;2021&quot;,&quot;2022&quot;,&quot;2023&quot;],&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#fff&quot;,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:true,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:false},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]},&quot;show&quot;:false},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}},&quot;boundaryGap&quot;:true,&quot;deduplication&quot;:null,&quot;axisTick&quot;:{&quot;alignWithLabel&quot;:false,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{&quot;status&quot;:&quot;hide&quot;,&quot;value&quot;:4},&quot;offset&quot;:0}],&quot;grid&quot;:[{&quot;left&quot;:&quot;3%&quot;,&quot;right&quot;:&quot;4%&quot;,&quot;bottom&quot;:&quot;3%&quot;,&quot;containLabel&quot;:true,&quot;show&quot;:false,&quot;z&quot;:0,&quot;top&quot;:60,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#ccc&quot;}],&quot;series&quot;:[{&quot;name&quot;:&quot;不良貸款率&quot;,&quot;type&quot;:&quot;line&quot;,&quot;yAxisIndex&quot;:0,&quot;data&quot;:[0.28,0.35,0.42,0.38,0.33],&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#9A0036&quot;},&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#9A0036&quot;,&quot;width&quot;:2,&quot;type&quot;:&quot;solid&quot;},&quot;symbol&quot;:&quot;circle&quot;,&quot;symbolSize&quot;:8,&quot;label&quot;:{&quot;show&quot;:true,&quot;position&quot;:&quot;top&quot;,&quot;formatter&quot;:&quot;{c}%&quot;,&quot;color&quot;:&quot;#fff&quot;},&quot;z&quot;:3,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;clip&quot;:true,&quot;endLabel&quot;:{&quot;show&quot;:false,&quot;valueAnimation&quot;:true,&quot;distance&quot;:8},&quot;emphasis&quot;:{&quot;scale&quot;:true,&quot;label&quot;:{&quot;show&quot;:true}},&quot;step&quot;:false,&quot;smooth&quot;:false,&quot;smoothMonotone&quot;:null,&quot;symbolRotate&quot;:null,&quot;showSymbol&quot;:true,&quot;showAllSymbol&quot;:&quot;auto&quot;,&quot;connectNulls&quot;:false,&quot;sampling&quot;:&quot;none&quot;,&quot;animationEasing&quot;:&quot;linear&quot;,&quot;progressive&quot;:0,&quot;hoverLayerThreshold&quot;:null,&quot;universalTransition&quot;:{&quot;divideShape&quot;:&quot;clone&quot;},&quot;triggerLineEvent&quot;:false},{&quot;name&quot;:&quot;資本充足率&quot;,&quot;type&quot;:&quot;bar&quot;,&quot;yAxisIndex&quot;:1,&quot;data&quot;:[14.2,14.8,15.1,14.9,15.3],&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#941C61&quot;},&quot;label&quot;:{&quot;show&quot;:true,&quot;position&quot;:&quot;top&quot;,&quot;formatter&quot;:&quot;{c}%&quot;,&quot;color&quot;:&quot;#fff&quot;},&quot;z&quot;:2,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;barMinHeight&quot;:0,&quot;barMinAngle&quot;:0,&quot;large&quot;:false,&quot;largeThreshold&quot;:400,&quot;progressive&quot;:3000,&quot;progressiveChunkMode&quot;:&quot;mod&quot;,&quot;clip&quot;:true,&quot;roundCap&quot;:false,&quot;showBackground&quot;:false,&quot;backgroundStyle&quot;:{&quot;color&quot;:&quot;rgba(180, 180, 180, 0.2)&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderType&quot;:&quot;solid&quot;,&quot;borderRadius&quot;:0,&quot;shadowBlur&quot;:0,&quot;shadowColor&quot;:null,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:0,&quot;opacity&quot;:1},&quot;select&quot;:{&quot;itemStyle&quot;:{&quot;borderColor&quot;:&quot;#212121&quot;}},&quot;realtimeSort&quot;:false,&quot;emphasis&quot;:{&quot;label&quot;:{&quot;show&quot;:true}}}],&quot;visualMap&quot;:[],&quot;legend&quot;:[{&quot;data&quot;:[&quot;不良貸款率&quot;,&quot;資本充足率&quot;],&quot;textStyle&quot;:{&quot;color&quot;:&quot;#fff&quot;},&quot;z&quot;:4,&quot;show&quot;:true,&quot;orient&quot;:&quot;horizontal&quot;,&quot;left&quot;:&quot;center&quot;,&quot;top&quot;:0,&quot;align&quot;:&quot;auto&quot;,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderColor&quot;:&quot;#ccc&quot;,&quot;borderRadius&quot;:0,&quot;borderWidth&quot;:0,&quot;padding&quot;:5,&quot;itemGap&quot;:10,&quot;itemWidth&quot;:25,&quot;itemHeight&quot;:14,&quot;symbolRotate&quot;:&quot;inherit&quot;,&quot;symbolKeepAspect&quot;:true,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderWidth&quot;:&quot;auto&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;inherit&quot;,&quot;opacity&quot;:&quot;inherit&quot;,&quot;borderColor&quot;:&quot;inherit&quot;,&quot;borderWidth&quot;:&quot;auto&quot;,&quot;borderCap&quot;:&quot;inherit&quot;,&quot;borderJoin&quot;:&quot;inherit&quot;,&quot;borderDashOffset&quot;:&quot;inherit&quot;,&quot;borderMiterLimit&quot;:&quot;inherit&quot;},&quot;lineStyle&quot;:{&quot;width&quot;:&quot;auto&quot;,&quot;color&quot;:&quot;inherit&quot;,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveWidth&quot;:2,&quot;opacity&quot;:&quot;inherit&quot;,&quot;type&quot;:&quot;inherit&quot;,&quot;cap&quot;:&quot;inherit&quot;,&quot;join&quot;:&quot;inherit&quot;,&quot;dashOffset&quot;:&quot;inherit&quot;,&quot;miterLimit&quot;:&quot;inherit&quot;},&quot;selectedMode&quot;:true,&quot;selector&quot;:false,&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;borderRadius&quot;:10,&quot;padding&quot;:[3,5,3,5],&quot;fontSize&quot;:12,&quot;fontFamily&quot;:&quot;sans-serif&quot;,&quot;color&quot;:&quot;#666&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#666&quot;},&quot;emphasis&quot;:{&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;color&quot;:&quot;#eee&quot;,&quot;backgroundColor&quot;:&quot;#666&quot;}},&quot;selectorPosition&quot;:&quot;auto&quot;,&quot;selectorItemGap&quot;:7,&quot;selectorButtonGap&quot;:10,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;selected&quot;:{}}],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 496px; height: 320px; padding: 0px; margin: 0px; border-width: 0px;"><canvas data-zr-dom-id="zr_0" width="558" height="360" style="position: absolute; left: 0px; top: 0px; width: 496px; height: 320px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class=""></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-bold mb-8 text-center">影響信用風險的關鍵會計指標</h3>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead>
+                                <tr class="border-b-2 border-gray-200 dark:border-gray-700">
+                                    <th class="text-left py-4 px-4 font-bold">財務指標</th>
+                                    <th class="text-left py-4 px-4 font-bold">會計科目構成</th>
+                                    <th class="text-left py-4 px-4 font-bold">與信用風險的關聯性</th>
+                                </tr>
+                            </thead>
+                            <tbody class="space-y-4">
+                                <tr class="border-b border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                                    <td class="py-6 px-4">
+                                        <div class="font-bold text-lg text-brand-red">資本充足率 (CAR)</div>
+                                    </td>
+                                    <td class="py-6 px-4">
+                                        <div class="bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg">
+                                            <code class="text-sm">合格自有資本 ÷ 信用風險加權風險性資產總額</code>
+                                        </div>
+                                    </td>
+                                    <td class="py-6 px-4">
+                                        <p class="text-gray-600 dark:text-gray-300">
+                                            CAR是確保銀行穩健經營和抵禦風險能力的重要指標。理論上，較高的CAR意味著銀行有更強的損失吸收能力，應與信用風險呈負相關。但也有研究指出，資本過於充足可能激勵銀行從事更高風險的放款活動。
+                                        </p>
+                                    </td>
+                                </tr>
+                                
+                                <tr class="border-b border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                                    <td class="py-6 px-4">
+                                        <div class="font-bold text-lg text-green-600">淨利差 (NIM)</div>
+                                    </td>
+                                    <td class="py-6 px-4">
+                                        <div class="bg-green-50 dark:bg-green-900/20 p-3 rounded-lg">
+                                            <code class="text-sm">(利息收入 - 利息費用) ÷ 平均生利資產</code>
+                                        </div>
+                                    </td>
+                                    <td class="py-6 px-4">
+                                        <p class="text-gray-600 dark:text-gray-300">
+                                            NIM衡量銀行核心獲利能力。較高的NIM通常代表較佳的經營效率和盈利水平，能為抵禦潛在損失提供緩衝，因此普遍認為與信用風險呈負相關。
+                                        </p>
+                                    </td>
+                                </tr>
+                                
+                                <tr class="border-b border-gray-100 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                                    <td class="py-6 px-4">
+                                        <div class="font-bold text-lg text-purple-600">存貸比</div>
+                                    </td>
+                                    <td class="py-6 px-4">
+                                        <div class="bg-purple-50 dark:bg-purple-900/20 p-3 rounded-lg">
+                                            <code class="text-sm">貸款總額 ÷ 存款總額</code>
+                                        </div>
+                                    </td>
+                                    <td class="py-6 px-4">
+                                        <p class="text-gray-600 dark:text-gray-300">
+                                            該比率反映銀行的流動性狀況與資產運用效率。過高的存貸比雖然可能提升盈利，但會增加銀行的流動性壓力與支付危機風險，進而可能引發信用危機。
+                                        </p>
+                                    </td>
+                                </tr>
+                                
+                                <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                                    <td class="py-6 px-4">
+                                        <div class="font-bold text-lg text-orange-600">獲利指標 (ROA)</div>
+                                    </td>
+                                    <td class="py-6 px-4">
+                                        <div class="bg-orange-50 dark:bg-orange-900/20 p-3 rounded-lg">
+                                            <code class="text-sm">稅後淨利 ÷ 平均總資產</code>
+                                        </div>
+                                    </td>
+                                    <td class="py-6 px-4">
+                                        <p class="text-gray-600 dark:text-gray-300">
+                                            較高的獲利能力意味著銀行經營狀況良好，有更強的內生能力來吸收信用損失，通常與信用風險呈現負相關。
+                                        </p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="financial-analysis" class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-6">財務報表科目在信用風險分析中的應用</h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto">
+                        對銀行資產負債表和損益表的深入剖析，是理解其信用風險來源、結構與管理策略的基礎
+                    </p>
+                </div>
+                
+                <div class="grid lg:grid-cols-2 gap-12 mb-16">
+                    <div class="space-y-8">
+                        <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
+                            <h3 class="text-2xl font-bold mb-6 text-brand-red">
+                                <i class="fas fa-building-columns mr-3"></i>
+                                資產負債表分析
+                            </h3>
+                            
+                            <div class="space-y-6">
+                                <div>
+                                    <h4 class="text-lg font-bold mb-3 text-red-600">資產端：信用風險的主要來源</h4>
+                                    <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
+                                        <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                                            <li class="flex items-start">
+                                                <i class="fas fa-circle text-red-500 text-xs mt-2 mr-3"></i>
+                                                <span><strong>放款及應收款：</strong>信用風險的主要暴露點，直接承受借款人違約風險</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-circle text-red-500 text-xs mt-2 mr-3"></i>
+                                                <span><strong>債權證券投資：</strong>需搭配完善的信用評估機制</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-circle text-red-500 text-xs mt-2 mr-3"></i>
+                                                <span><strong>表外項目：</strong>信用狀、保證、承諾等業務同樣具有信用風險暴露</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <h4 class="text-lg font-bold mb-3 text-blue-600">負債端：資金來源與穩定性</h4>
+                                    <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                                        <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                                            <li class="flex items-start">
+                                                <i class="fas fa-circle text-blue-500 text-xs mt-2 mr-3"></i>
+                                                <span><strong>客戶存款：</strong>銀行主要資金來源，穩定性影響流動性風險</span>
+                                            </li>
+                                            <li class="flex items-start">
+                                                <i class="fas fa-circle text-blue-500 text-xs mt-2 mr-3"></i>
+                                                <span><strong>負債結構：</strong>成本與到期期限匹配影響間接信用風險</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-8">
+                        <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
+                            <h3 class="text-2xl font-bold mb-6 text-green-600">
+                                <i class="fas fa-chart-line mr-3"></i>
+                                損益表分析
+                            </h3>
+                            
+                            <div class="space-y-6">
+                                <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                                    <h4 class="text-lg font-bold mb-2 text-green-700 dark:text-green-300">利息淨收益</h4>
+                                    <p class="text-gray-700 dark:text-gray-300 text-sm">
+                                        主要收入來源，反映資產規模、定價能力和淨利差管理效率
+                                    </p>
+                                </div>
+                                
+                                <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                                    <h4 class="text-lg font-bold mb-2 text-blue-700 dark:text-blue-300">手續費及佣金淨收益</h4>
+                                    <p class="text-gray-700 dark:text-gray-300 text-sm">
+                                        表示業務多樣化程度，有助於分散過度依賴放款業務的風險
+                                    </p>
+                                </div>
+                                
+                                <div class="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg">
+                                    <h4 class="text-lg font-bold mb-2 text-red-700 dark:text-red-300">備抵呆帳費用</h4>
+                                    <p class="text-gray-700 dark:text-gray-300 text-sm">
+                                        直接反映銀行對預期信用損失的判斷與提列政策
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-bold mb-6 text-center">財務報表科目與信用風險關聯圖解</h3>
+                    <div class="mermaid" data-processed="true"><svg aria-roledescription="flowchart-v2" role="graphics-document document" viewBox="-8 -8 1178 500" style="max-width: 1178px;" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="100%" id="mermaid-1758365475435"><style style="pointer-events: none;">#mermaid-1758365475435{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#ccc;}#mermaid-1758365475435 .error-icon{fill:#a44141;}#mermaid-1758365475435 .error-text{fill:#ddd;stroke:#ddd;}#mermaid-1758365475435 .edge-thickness-normal{stroke-width:2px;}#mermaid-1758365475435 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-1758365475435 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-1758365475435 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-1758365475435 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-1758365475435 .marker{fill:#941C61;stroke:#941C61;}#mermaid-1758365475435 .marker.cross{stroke:#941C61;}#mermaid-1758365475435 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaid-1758365475435 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#ccc;}#mermaid-1758365475435 .cluster-label text{fill:#F9FFFE;}#mermaid-1758365475435 .cluster-label span,#mermaid-1758365475435 p{color:#F9FFFE;}#mermaid-1758365475435 .label text,#mermaid-1758365475435 span,#mermaid-1758365475435 p{fill:#ccc;color:#ccc;}#mermaid-1758365475435 .node rect,#mermaid-1758365475435 .node circle,#mermaid-1758365475435 .node ellipse,#mermaid-1758365475435 .node polygon,#mermaid-1758365475435 .node path{fill:#1f2020;stroke:#81B1DB;stroke-width:1px;}#mermaid-1758365475435 .flowchart-label text{text-anchor:middle;}#mermaid-1758365475435 .node .label{text-align:center;}#mermaid-1758365475435 .node.clickable{cursor:pointer;}#mermaid-1758365475435 .arrowheadPath{fill:lightgrey;}#mermaid-1758365475435 .edgePath .path{stroke:#941C61;stroke-width:2.0px;}#mermaid-1758365475435 .flowchart-link{stroke:#941C61;fill:none;}#mermaid-1758365475435 .edgeLabel{background-color:hsl(0, 0%, 34.4117647059%);text-align:center;}#mermaid-1758365475435 .edgeLabel rect{opacity:0.5;background-color:hsl(0, 0%, 34.4117647059%);fill:hsl(0, 0%, 34.4117647059%);}#mermaid-1758365475435 .labelBkg{background-color:rgba(87.75, 87.75, 87.75, 0.5);}#mermaid-1758365475435 .cluster rect{fill:hsl(180, 1.5873015873%, 28.3529411765%);stroke:rgba(255, 255, 255, 0.25);stroke-width:1px;}#mermaid-1758365475435 .cluster text{fill:#F9FFFE;}#mermaid-1758365475435 .cluster span,#mermaid-1758365475435 p{color:#F9FFFE;}#mermaid-1758365475435 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(20, 1.5873015873%, 12.3529411765%);border:1px solid rgba(255, 255, 255, 0.25);border-radius:2px;pointer-events:none;z-index:100;}#mermaid-1758365475435 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#ccc;}#mermaid-1758365475435 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}</style><g style="pointer-events: none;"><marker orient="auto" markerHeight="12" markerWidth="12" markerUnits="userSpaceOnUse" refY="5" refX="6" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1758365475435_flowchart-pointEnd" style="pointer-events: none;"><path style="stroke-width: 1; stroke-dasharray: 1, 0; pointer-events: none;" class="arrowMarkerPath" d="M 0 0 L 10 5 L 0 10 z"></path></marker><marker orient="auto" markerHeight="12" markerWidth="12" markerUnits="userSpaceOnUse" refY="5" refX="4.5" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1758365475435_flowchart-pointStart" style="pointer-events: none;"><path style="stroke-width: 1; stroke-dasharray: 1, 0; pointer-events: none;" class="arrowMarkerPath" d="M 0 5 L 10 10 L 10 0 z"></path></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5" refX="11" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1758365475435_flowchart-circleEnd" style="pointer-events: none;"><circle style="stroke-width: 1; stroke-dasharray: 1, 0; pointer-events: none;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5" refX="-1" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1758365475435_flowchart-circleStart" style="pointer-events: none;"><circle style="stroke-width: 1; stroke-dasharray: 1, 0; pointer-events: none;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5.2" refX="12" viewBox="0 0 11 11" class="marker cross flowchart" id="mermaid-1758365475435_flowchart-crossEnd" style="pointer-events: none;"><path style="stroke-width: 2; stroke-dasharray: 1, 0; pointer-events: none;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5.2" refX="-1" viewBox="0 0 11 11" class="marker cross flowchart" id="mermaid-1758365475435_flowchart-crossStart" style="pointer-events: none;"><path style="stroke-width: 2; stroke-dasharray: 1, 0; pointer-events: none;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><g class="root" style="pointer-events: none;"><g class="clusters" style="pointer-events: none;"></g><g class="edgePaths" style="pointer-events: none;"><path marker-end="url(#mermaid-1758365475435_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-A LE-B" id="L-A-B-0" d="M527.5,35.642L511.25,40.368C495,45.095,462.5,54.547,446.25,62.557C430,70.567,430,77.133,430,80.417L430,83.7"></path><path marker-end="url(#mermaid-1758365475435_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-A LE-C" id="L-A-C-0" d="M638.5,26.239L690.333,32.532C742.167,38.826,845.833,51.413,897.667,65.123C949.5,78.833,949.5,93.667,949.5,108.5C949.5,123.333,949.5,138.167,949.5,148.867C949.5,159.567,949.5,166.133,949.5,169.417L949.5,172.7"></path><path marker-end="url(#mermaid-1758365475435_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-B LE-D" id="L-B-D-0" d="M382.5,118.4L354.833,124.167C327.167,129.934,271.833,141.467,244.167,150.517C216.5,159.567,216.5,166.133,216.5,169.417L216.5,172.7"></path><path marker-end="url(#mermaid-1758365475435_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-B LE-E" id="L-B-E-0" d="M477.5,123.929L492.417,128.774C507.333,133.619,537.167,143.31,552.083,151.438C567,159.567,567,166.133,567,169.417L567,172.7"></path><path marker-end="url(#mermaid-1758365475435_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-D LE-F" id="L-D-F-0" d="M185,206.207L163.417,212.172C141.833,218.138,98.667,230.069,77.083,239.318C55.5,248.567,55.5,255.133,55.5,258.417L55.5,261.7"></path><path marker-end="url(#mermaid-1758365475435_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-D LE-G" id="L-D-G-0" d="M216.5,217L216.5,221.167C216.5,225.333,216.5,233.667,216.5,241.117C216.5,248.567,216.5,255.133,216.5,258.417L216.5,261.7"></path><path marker-end="url(#mermaid-1758365475435_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-D LE-H" id="L-D-H-0" d="M248,207.167L266.917,212.973C285.833,218.778,323.667,230.389,342.583,239.478C361.5,248.567,361.5,255.133,361.5,258.417L361.5,261.7"></path><path marker-end="url(#mermaid-1758365475435_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-E LE-I" id="L-E-I-0" d="M535.5,215.824L528,220.186C520.5,224.549,505.5,233.275,498,240.921C490.5,248.567,490.5,255.133,490.5,258.417L490.5,261.7"></path><path marker-end="url(#mermaid-1758365475435_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-E LE-J" id="L-E-J-0" d="M598.5,215.824L606,220.186C613.5,224.549,628.5,233.275,636,240.921C643.5,248.567,643.5,255.133,643.5,258.417L643.5,261.7"></path><path marker-end="url(#mermaid-1758365475435_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-C LE-K" id="L-C-K-0" d="M918,207.167L899.083,212.973C880.167,218.778,842.333,230.389,823.417,239.478C804.5,248.567,804.5,255.133,804.5,258.417L804.5,261.7"></path><path marker-end="url(#mermaid-1758365475435_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-C LE-L" id="L-C-L-0" d="M949.5,217L949.5,221.167C949.5,225.333,949.5,233.667,949.5,241.117C949.5,248.567,949.5,255.133,949.5,258.417L949.5,261.7"></path><path marker-end="url(#mermaid-1758365475435_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-C LE-M" id="L-C-M-0" d="M981,206.428L1001.917,212.357C1022.833,218.286,1064.667,230.143,1085.583,239.355C1106.5,248.567,1106.5,255.133,1106.5,258.417L1106.5,261.7"></path><path marker-end="url(#mermaid-1758365475435_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-F LE-N" id="L-F-N-0" d="M55.5,306L55.5,310.167C55.5,314.333,55.5,322.667,69.723,330.765C83.947,338.863,112.394,346.725,126.617,350.657L140.841,354.588"></path><path marker-end="url(#mermaid-1758365475435_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-G LE-N" id="L-G-N-0" d="M216.5,306L216.5,310.167C216.5,314.333,216.5,322.667,216.5,330.117C216.5,337.567,216.5,344.133,216.5,347.417L216.5,350.7"></path><path marker-end="url(#mermaid-1758365475435_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-H LE-N" id="L-H-N-0" d="M361.5,306L361.5,310.167C361.5,314.333,361.5,322.667,348.768,330.741C336.035,338.815,310.571,346.63,297.838,350.538L285.106,354.445"></path><path marker-end="url(#mermaid-1758365475435_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-I LE-O" id="L-I-O-0" d="M490.5,306L490.5,310.167C490.5,314.333,490.5,322.667,496.899,330.556C503.299,338.445,516.097,345.89,522.497,349.613L528.896,353.335"></path><path marker-end="url(#mermaid-1758365475435_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-J LE-O" id="L-J-O-0" d="M643.5,306L643.5,310.167C643.5,314.333,643.5,322.667,637.101,330.556C630.701,338.445,617.903,345.89,611.503,349.613L605.104,353.335"></path><path marker-end="url(#mermaid-1758365475435_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-K LE-P" id="L-K-P-0" d="M804.5,306L804.5,310.167C804.5,314.333,804.5,322.667,810.536,330.538C816.571,338.409,828.642,345.818,834.678,349.523L840.713,353.227"></path><path marker-end="url(#mermaid-1758365475435_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-L LE-P" id="L-L-P-0" d="M949.5,306L949.5,310.167C949.5,314.333,949.5,322.667,943.464,330.538C937.429,338.409,925.358,345.818,919.322,349.523L913.287,353.227"></path><path marker-end="url(#mermaid-1758365475435_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-M LE-Q" id="L-M-Q-0" d="M1106.5,306L1106.5,310.167C1106.5,314.333,1106.5,322.667,1106.5,330.117C1106.5,337.567,1106.5,344.133,1106.5,347.417L1106.5,350.7"></path><path marker-end="url(#mermaid-1758365475435_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-N LE-R" id="L-N-R-0" d="M216.5,395L216.5,399.167C216.5,403.333,216.5,411.667,290.287,422.355C364.074,433.043,511.647,446.085,585.434,452.607L659.221,459.128"></path><path marker-end="url(#mermaid-1758365475435_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-O LE-R" id="L-O-R-0" d="M567,395L567,399.167C567,403.333,567,411.667,582.402,420.313C597.804,428.959,628.607,437.918,644.009,442.398L659.411,446.878"></path><path marker-end="url(#mermaid-1758365475435_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-P LE-R" id="L-P-R-0" d="M877,395L877,399.167C877,403.333,877,411.667,860.933,420.387C844.866,429.108,812.733,438.216,796.666,442.77L780.599,447.324"></path><path marker-end="url(#mermaid-1758365475435_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-Q LE-R" id="L-Q-R-0" d="M1106.5,395L1106.5,399.167C1106.5,403.333,1106.5,411.667,1052.211,422.084C997.922,432.501,889.343,445.002,835.054,451.253L780.765,457.504"></path></g><g class="edgeLabels" style="pointer-events: none;"><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g></g><g class="nodes" style="pointer-events: none;"><g transform="translate(583, 19.5)" id="flowchart-A-0" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="111" y="-19.5" x="-55.5" ry="0" rx="0" style="pointer-events: none;" class="basic label-container"></rect><g transform="translate(-48, -12)" style="pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="96" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="pointer-events: none;">銀行財務報表</span></div></foreignObject></g></g><g transform="translate(430, 108.5)" id="flowchart-B-1" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="95" y="-19.5" x="-47.5" ry="0" rx="0" style="pointer-events: none;" class="basic label-container"></rect><g transform="translate(-40, -12)" style="pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="80" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="pointer-events: none;">資產負債表</span></div></foreignObject></g></g><g transform="translate(949.5, 197.5)" id="flowchart-C-3" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="63" y="-19.5" x="-31.5" ry="0" rx="0" style="pointer-events: none;" class="basic label-container"></rect><g transform="translate(-24, -12)" style="pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="48" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="pointer-events: none;">損益表</span></div></foreignObject></g></g><g transform="translate(216.5, 197.5)" id="flowchart-D-5" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="63" y="-19.5" x="-31.5" ry="0" rx="0" style="pointer-events: none;" class="basic label-container"></rect><g transform="translate(-24, -12)" style="pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="48" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="pointer-events: none;">資產端</span></div></foreignObject></g></g><g transform="translate(567, 197.5)" id="flowchart-E-7" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="63" y="-19.5" x="-31.5" ry="0" rx="0" style="pointer-events: none;" class="basic label-container"></rect><g transform="translate(-24, -12)" style="pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="48" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="pointer-events: none;">負債端</span></div></foreignObject></g></g><g transform="translate(55.5, 286.5)" id="flowchart-F-9" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="111" y="-19.5" x="-55.5" ry="0" rx="0" style="pointer-events: none;" class="basic label-container"></rect><g transform="translate(-48, -12)" style="pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="96" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="pointer-events: none;">放款及應收款</span></div></foreignObject></g></g><g transform="translate(216.5, 286.5)" id="flowchart-G-11" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="111" y="-19.5" x="-55.5" ry="0" rx="0" style="pointer-events: none;" class="basic label-container"></rect><g transform="translate(-48, -12)" style="pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="96" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="pointer-events: none;">債權證券投資</span></div></foreignObject></g></g><g transform="translate(361.5, 286.5)" id="flowchart-H-13" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="79" y="-19.5" x="-39.5" ry="0" rx="0" style="pointer-events: none;" class="basic label-container"></rect><g transform="translate(-32, -12)" style="pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="64" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="pointer-events: none;">表外項目</span></div></foreignObject></g></g><g transform="translate(490.5, 286.5)" id="flowchart-I-15" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="79" y="-19.5" x="-39.5" ry="0" rx="0" style="pointer-events: none;" class="basic label-container"></rect><g transform="translate(-32, -12)" style="pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="64" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="pointer-events: none;">客戶存款</span></div></foreignObject></g></g><g transform="translate(643.5, 286.5)" id="flowchart-J-17" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="127" y="-19.5" x="-63.5" ry="0" rx="0" style="pointer-events: none;" class="basic label-container"></rect><g transform="translate(-56, -12)" style="pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="112" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="pointer-events: none;">負債結構穩定性</span></div></foreignObject></g></g><g transform="translate(804.5, 286.5)" id="flowchart-K-19" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="95" y="-19.5" x="-47.5" ry="0" rx="0" style="pointer-events: none;" class="basic label-container"></rect><g transform="translate(-40, -12)" style="pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="80" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="pointer-events: none;">利息淨收益</span></div></foreignObject></g></g><g transform="translate(949.5, 286.5)" id="flowchart-L-21" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="95" y="-19.5" x="-47.5" ry="0" rx="0" style="pointer-events: none;" class="basic label-container"></rect><g transform="translate(-40, -12)" style="pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="80" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="pointer-events: none;">手續費收益</span></div></foreignObject></g></g><g transform="translate(1106.5, 286.5)" id="flowchart-M-23" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="111" y="-19.5" x="-55.5" ry="0" rx="0" style="pointer-events: none;" class="basic label-container"></rect><g transform="translate(-48, -12)" style="pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="96" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="pointer-events: none;">備抵呆帳費用</span></div></foreignObject></g></g><g transform="translate(216.5, 375.5)" id="flowchart-N-25" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="143" y="-19.5" x="-71.5" ry="0" rx="0" style="pointer-events: none;" class="basic label-container"></rect><g transform="translate(-64, -12)" style="pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="128" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="pointer-events: none;">信用風險主要來源</span></div></foreignObject></g></g><g transform="translate(567, 375.5)" id="flowchart-O-31" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="95" y="-19.5" x="-47.5" ry="0" rx="0" style="pointer-events: none;" class="basic label-container"></rect><g transform="translate(-40, -12)" style="pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="80" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="pointer-events: none;">流動性風險</span></div></foreignObject></g></g><g transform="translate(877, 375.5)" id="flowchart-P-35" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="111" y="-19.5" x="-55.5" ry="0" rx="0" style="pointer-events: none;" class="basic label-container"></rect><g transform="translate(-48, -12)" style="pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="96" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="pointer-events: none;">獲利能力指標</span></div></foreignObject></g></g><g transform="translate(1106.5, 375.5)" id="flowchart-Q-39" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="111" y="-19.5" x="-55.5" ry="0" rx="0" style="pointer-events: none;" class="basic label-container"></rect><g transform="translate(-48, -12)" style="pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="96" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="pointer-events: none;">預期信用損失</span></div></foreignObject></g></g><g transform="translate(720, 464.5)" id="flowchart-R-41" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="111" y="-19.5" x="-55.5" ry="0" rx="0" style="pointer-events: none;" class="basic label-container"></rect><g transform="translate(-48, -12)" style="pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="96" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="pointer-events: none;">信用風險評估</span></div></foreignObject></g></g></g></g></g></svg></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="ifrs9" class="py-20 bg-gray-50 dark:bg-gray-800/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-6">IFRS 9 預期信用損失模式</h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto">
+                        IFRS 9 改變了傳統的「已發生損失」模式，採用「預期信用損失」概念，對銀行會計科目產生重大影響
+                    </p>
+                </div>
+                
+                <div class="mb-12">
+                    <img src="https://api.felo.ai/images/s/4Pumdq0F4L" alt="IFRS 9 預期信用損失三階段模式與會計處理對應關係" class="w-full h-auto rounded-2xl shadow-lg">
+                </div>
+                
+                <div class="grid lg:grid-cols-3 gap-8 mb-16">
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
+                        <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-6">
+                            <span class="text-white text-2xl font-bold">第1階段</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">12個月預期信用損失</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            金融工具原始認列後信用風險未顯著增加時，按12個月預期信用損失提列備抵損失。
+                        </p>
+                        <div class="bg-green-50 dark:bg-green-900/20 p-3 rounded-lg">
+                            <span class="text-sm font-medium text-green-700 dark:text-green-300">信用風險：正常</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
+                        <div class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center mb-6">
+                            <span class="text-white text-2xl font-bold">第2階段</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">存續期間預期信用損失</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            信用風險已顯著增加但未發生減損時，需按存續期間預期信用損失提列備抵損失。
+                        </p>
+                        <div class="bg-yellow-50 dark:bg-yellow-900/20 p-3 rounded-lg">
+                            <span class="text-sm font-medium text-yellow-700 dark:text-yellow-300">信用風險：顯著增加</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
+                        <div class="w-16 h-16 bg-gradient-to-br from-red-500 to-pink-500 rounded-xl flex items-center justify-center mb-6">
+                            <span class="text-white text-2xl font-bold">第3階段</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">信用減損資產</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-4">
+                            已發生信用減損的金融工具，除了按存續期間預期信用損失提列備抵外，利息收入計算基礎改為淨帳面價值。
+                        </p>
+                        <div class="bg-red-50 dark:bg-red-900/20 p-3 rounded-lg">
+                            <span class="text-sm font-medium text-red-700 dark:text-red-300">信用風險：已減損</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-bold mb-6">IFRS 9 對銀行會計處理的關鍵影響</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-lg font-bold mb-4 text-blue-600">
+                                <i class="fas fa-calculator mr-2"></i>
+                                預期信用損失模型建立
+                            </h4>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                銀行需要建立預期信用損失計算模型，結合歷史資料、現況分析及未來經濟預測來估算預期信用損失。這要求會計部門與風險管理部門密切配合。
+                            </p>
+                            <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                                <ul class="space-y-2 text-sm">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-blue-500 mr-2"></i>
+                                        歷史資料分析
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-blue-500 mr-2"></i>
+                                        現況評估
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-blue-500 mr-2"></i>
+                                        未來經濟預測
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-lg font-bold mb-4 text-green-600">
+                                <i class="fas fa-file-invoice mr-2"></i>
+                                會計處理簡化措施
+                            </h4>
+                            <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                簡化實務處理允許一般應收帳款直接按存續期間預期信用損失提列，簡化了會計處理程序。
+                            </p>
+                            <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                                <ul class="space-y-2 text-sm">
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        直接損失估計
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        程序簡化
+                                    </li>
+                                    <li class="flex items-center">
+                                        <i class="fas fa-check text-green-500 mr-2"></i>
+                                        合理性確保
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="basel" class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-6">巴塞爾協定對銀行會計科目的影響</h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto">
+                        巴塞爾協定要求銀行維持最低8%的資本適足率，其中核心資本率至少4%，直接影響銀行會計科目分類處理
+                    </p>
+                </div>
+                
+                <div class="mb-12">
+                    <img src="https://api.felo.ai/images/s/8PW8qAtEhE" alt="巴塞爾協定對銀行會計科目影響的綜合分析" class="w-full h-auto rounded-2xl shadow-lg">
+                </div>
+                
+                <div class="grid lg:grid-cols-2 gap-12 mb-16">
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
+                        <h3 class="text-2xl font-bold mb-6 text-brand-red">
+                            <i class="fas fa-formula mr-3"></i>
+                            資本適足率計算公式
+                        </h3>
+                        
+                        <div class="bg-gray-50 dark:bg-gray-700 p-6 rounded-xl mb-6">
+                            <div class="text-center">
+                                <div class="text-sm text-gray-600 dark:text-gray-300 mb-2">資本適足率 =</div>
+                                <div class="text-lg font-bold border-b-2 border-gray-300 pb-2 mb-2">合格資本</div>
+                                <div class="text-sm">
+                                    <span class="block">信用風險資產 + 市場風險×12.5 + 作業風險×12.5</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center p-3 bg-red-50 dark:bg-red-900/20 rounded-lg">
+                                <span class="font-medium">最低資本適足率</span>
+                                <span class="font-bold text-red-600">8%</span>
+                            </div>
+                            <div class="flex justify-between items-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                                <span class="font-medium">核心資本率</span>
+                                <span class="font-bold text-blue-600">4%</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
+                        <h3 class="text-2xl font-bold mb-6 text-blue-600">
+                            <i class="fas fa-weight mr-3"></i>
+                            風險權重分類
+                        </h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                                <div>
+                                    <div class="font-medium">主權國家債權</div>
+                                    <div class="text-sm text-gray-600 dark:text-gray-300">政府債券等</div>
+                                </div>
+                                <div class="text-2xl font-bold text-green-600">0%</div>
+                            </div>
+                            
+                            <div class="flex justify-between items-center p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                                <div>
+                                    <div class="font-medium">銀行同業債權</div>
+                                    <div class="text-sm text-gray-600 dark:text-gray-300">同業拆借等</div>
+                                </div>
+                                <div class="text-2xl font-bold text-blue-600">20%</div>
+                            </div>
+                            
+                            <div class="flex justify-between items-center p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+                                <div>
+                                    <div class="font-medium">一般企業債權</div>
+                                    <div class="text-sm text-gray-600 dark:text-gray-300">企業放款等</div>
+                                </div>
+                                <div class="text-2xl font-bold text-yellow-600">100%</div>
+                            </div>
+                            
+                            <div class="flex justify-between items-center p-4 bg-red-50 dark:bg-red-900/20 rounded-lg">
+                                <div>
+                                    <div class="font-medium">逾期放款</div>
+                                    <div class="text-sm text-gray-600 dark:text-gray-300">不良資產</div>
+                                </div>
+                                <div class="text-2xl font-bold text-red-600">150%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg mb-16">
+                    <h3 class="text-2xl font-bold mb-6 text-center">內部評等法 (IRB)</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-lg font-bold mb-4 text-purple-600">基本要求</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-purple-500 mt-1 mr-3"></i>
+                                    <span>符合條件的銀行可採用內部評等法</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-purple-500 mt-1 mr-3"></i>
+                                    <span>利用自行開發的信用風險模型</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check text-purple-500 mt-1 mr-3"></i>
+                                    <span>計算資本需求更精確</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-lg font-bold mb-4 text-green-600">會計系統要求</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-database text-green-500 mt-1 mr-3"></i>
+                                    <span>提供準確的歷史違約資料</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-chart-bar text-green-500 mt-1 mr-3"></i>
+                                    <span>完整的損失資料記錄</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-sync text-green-500 mt-1 mr-3"></i>
+                                    <span>持續的資料品質管控</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gradient-to-r from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 rounded-2xl p-8">
+                    <h3 class="text-2xl font-bold mb-6 text-center">銀行信用風險管理組織架構</h3>
+                    
+                    <div class="grid md:grid-cols-4 gap-6">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-users text-white text-xl"></i>
+                            </div>
+                            <h4 class="font-bold mb-2">董事會</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">核定信用風險管理策略和政策</p>
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-exclamation-triangle text-white text-xl"></i>
+                            </div>
+                            <h4 class="font-bold mb-2">風險委員會</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">審議風險相關議題</p>
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-clipboard-check text-white text-xl"></i>
+                            </div>
+                            <h4 class="font-bold mb-2">授信部門</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">執行授信審核和管理</p>
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <i class="fas fa-calculator text-white text-xl"></i>
+                            </div>
+                            <h4 class="font-bold mb-2">會計部門</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">確保風險資訊正確反映</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-gray-50 dark:bg-gray-800/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold mb-6">現代銀行風險管理關鍵措施</h2>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto">
+                        建立完善的風險管理機制，確保會計處理能夠準確反映風險狀況
+                    </p>
+                </div>
+                
+                <div class="grid lg:grid-cols-3 gap-8 mb-16">
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fas fa-shield-alt text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">政策制度管控</h3>
+                        <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-blue-500 text-xs mt-2 mr-3"></i>
+                                確保備抵呆帳提列政策符合監理要求
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-blue-500 text-xs mt-2 mr-3"></i>
+                                建立完整的客戶信用資料庫
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-blue-500 text-xs mt-2 mr-3"></i>
+                                定期更新客戶財務狀況
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fas fa-sync text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">跨部門協作機制</h3>
+                        <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-green-500 text-xs mt-2 mr-3"></i>
+                                建立風險管理與會計部門定期會議
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-green-500 text-xs mt-2 mr-3"></i>
+                                確保風險資訊及時反映在會計處理
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-green-500 text-xs mt-2 mr-3"></i>
+                                建立整合資訊系統平台
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-6">
+                            <i class="fas fa-chart-line text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">模型驗證與優化</h3>
+                        <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-purple-500 text-xs mt-2 mr-3"></i>
+                                定期驗證信用風險模型有效性
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-purple-500 text-xs mt-2 mr-3"></i>
+                                據此調整會計估計
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-circle text-purple-500 text-xs mt-2 mr-3"></i>
+                                持續改進風險管控措施
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
+                    <h3 class="text-2xl font-bold mb-8 text-center">風險管理成功要素</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-lg font-bold mb-4 text-brand-red">核心要素</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-center p-3 bg-red-50 dark:bg-red-900/20 rounded-lg">
+                                    <i class="fas fa-star text-red-500 mr-3"></i>
+                                    <span>完善的內部評等制度</span>
+                                </div>
+                                <div class="flex items-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                                    <i class="fas fa-database text-blue-500 mr-3"></i>
+                                    <span>可靠的資料品質管控</span>
+                                </div>
+                                <div class="flex items-center p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                                    <i class="fas fa-users text-green-500 mr-3"></i>
+                                    <span>跨部門的協作機制</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-lg font-bold mb-4 text-brand-purple">持續改進</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-center p-3 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+                                    <i class="fas fa-cog text-purple-500 mr-3"></i>
+                                    <span>持續的模型優化</span>
+                                </div>
+                                <div class="flex items-center p-3 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+                                    <i class="fas fa-check-circle text-yellow-500 mr-3"></i>
+                                    <span>驗證程序標準化</span>
+                                </div>
+                                <div class="flex items-center p-3 bg-orange-50 dark:bg-orange-900/20 rounded-lg">
+                                    <i class="fas fa-balance-scale text-orange-500 mr-3"></i>
+                                    <span>風險與報酬最佳平衡</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+	<div align='center'>
+		<div class='tableauPlaceholder' id='viz1758293535573' style='position: relative' align='center'><noscript><a href='#'><img alt='儀表板 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;AC&#47;AC_M015_24&#47;sheet6&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='AC_M015_24&#47;sheet6' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;AC&#47;AC_M015_24&#47;sheet6&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1758293535573');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1300px';vizElement.style.height='927px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1300px';vizElement.style.height='927px';} else { vizElement.style.width='100%';vizElement.style.height='2127px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+		<div class='tableauPlaceholder' id='viz1758334620864' style='position: relative' align='center'><noscript><a href='#'><img alt='儀表板 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;AC&#47;AC_M077_05&#47;sheet5&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='AC_M077_05&#47;sheet5' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;AC&#47;AC_M077_05&#47;sheet5&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='zh-TW' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1758334620864');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1300px';vizElement.style.height='927px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1300px';vizElement.style.height='927px';} else { vizElement.style.width='100%';vizElement.style.height='1627px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>	
+	</div>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <div class="flex items-center justify-center space-x-3 mb-6">
+                    <div class="w-8 h-8 bg-gradient-to-br from-brand-red to-brand-purple rounded-lg flex items-center justify-center">
+                        <i class="fas fa-chart-line text-white text-sm"></i>
+                    </div>
+                    <span class="text-xl font-bold">銀行風險管理分析</span>
+                </div>
+                
+                <div class="border-t border-gray-700 pt-6">
+                    <p class="text-gray-400 text-sm mb-2">
+                        免責申明：基於公開資料，僅供參考，不構成建議
+                    </p>
+                    <p class="text-gray-400 text-sm mb-2">
+                        資料來源：網頁公開資訊
+                    </p>
+                    <p class="text-gray-500 text-sm">
+                        版權所有 © 2025 Dunk
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        // Check for saved theme preference or default to system preference
+        const savedTheme = localStorage.getItem('theme');
+        const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        const currentTheme = savedTheme || systemTheme;
+        
+        if (currentTheme === 'dark') {
+            html.classList.add('dark');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            const isDark = html.classList.contains('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            
+            // Reinitialize charts with new theme
+            initializeCharts();
+        });
+
+        // Initialize Mermaid
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: html.classList.contains('dark') ? 'dark' : 'default',
+            themeVariables: {
+                primaryColor: '#9A0036',
+                primaryTextColor: html.classList.contains('dark') ? '#fff' : '#333',
+                primaryBorderColor: '#941C61',
+                lineColor: '#941C61'
+            }
+        });
+
+        // Chart instances
+        let riskStatChart = null;
+        let nplrChart = null;
+
+        function initializeCharts() {
+            const isDark = html.classList.contains('dark');
+            const theme = isDark ? 'dark' : null;
+            
+            // Dispose existing charts
+            if (riskStatChart) {
+                riskStatChart.dispose();
+            }
+            if (nplrChart) {
+                nplrChart.dispose();
+            }
+            
+            // Risk Statistics Chart
+            const riskStatEl = document.getElementById('riskStatChart');
+            riskStatChart = echarts.init(riskStatEl, theme);
+            
+            const riskStatOption = {
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b}: {c}% ({d}%)'
+                },
+                legend: {
+                    orient: 'vertical',
+                    left: 10,
+                    textStyle: {
+                        color: isDark ? '#fff' : '#333'
+                    }
+                },
+                series: [
+                    {
+                        name: '風險分布',
+                        type: 'pie',
+                        radius: ['40%', '70%'],
+                        avoidLabelOverlap: false,
+                        label: {
+                            show: true,
+                            position: 'outside',
+                            formatter: '{b}: {c}%',
+                            color: isDark ? '#fff' : '#333'
+                        },
+                        emphasis: {
+                            label: {
+                                show: true,
+                                fontSize: '16',
+                                fontWeight: 'bold'
+                            }
+                        },
+                        data: [
+                            {value: 60, name: '信用風險', itemStyle: {color: '#9A0036'}},
+                            {value: 20, name: '市場風險', itemStyle: {color: '#941C61'}},
+                            {value: 15, name: '作業風險', itemStyle: {color: '#EEBAC0'}},
+                            {value: 5, name: '其他風險', itemStyle: {color: '#f39c12'}}
+                        ]
+                    }
+                ],
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                }
+            };
+            
+            riskStatChart.setOption(riskStatOption);
+            
+            // NPLR Chart
+            const nplrEl = document.getElementById('nplrChart');
+            nplrChart = echarts.init(nplrEl, theme);
+            
+            const nplrOption = {
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'cross'
+                    }
+                },
+                legend: {
+                    data: ['不良貸款率', '資本充足率'],
+                    textStyle: {
+                        color: isDark ? '#fff' : '#333'
+                    }
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['2019', '2020', '2021', '2022', '2023'],
+                    axisLabel: {
+                        color: isDark ? '#fff' : '#333'
+                    }
+                },
+                yAxis: [
+                    {
+                        type: 'value',
+                        name: 'NPLR (%)',
+                        position: 'left',
+                        axisLabel: {
+                            color: isDark ? '#fff' : '#333'
+                        },
+                        nameTextStyle: {
+                            color: isDark ? '#fff' : '#333'
+                        }
+                    },
+                    {
+                        type: 'value',
+                        name: 'CAR (%)',
+                        position: 'right',
+                        axisLabel: {
+                            color: isDark ? '#fff' : '#333'
+                        },
+                        nameTextStyle: {
+                            color: isDark ? '#fff' : '#333'
+                        }
+                    }
+                ],
+                series: [
+                    {
+                        name: '不良貸款率',
+                        type: 'line',
+                        yAxisIndex: 0,
+                        data: [0.28, 0.35, 0.42, 0.38, 0.33],
+                        itemStyle: {color: '#9A0036'},
+                        lineStyle: {color: '#9A0036'},
+                        symbol: 'circle',
+                        symbolSize: 8,
+                        label: {
+                            show: true,
+                            position: 'top',
+                            formatter: '{c}%',
+                            color: isDark ? '#fff' : '#333'
+                        }
+                    },
+                    {
+                        name: '資本充足率',
+                        type: 'bar',
+                        yAxisIndex: 1,
+                        data: [14.2, 14.8, 15.1, 14.9, 15.3],
+                        itemStyle: {color: '#941C61'},
+                        label: {
+                            show: true,
+                            position: 'top',
+                            formatter: '{c}%',
+                            color: isDark ? '#fff' : '#333'
+                        }
+                    }
+                ],
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                }
+            };
+            
+            nplrChart.setOption(nplrOption);
+        }
+
+        // Initialize charts when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeCharts();
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (riskStatChart) riskStatChart.resize();
+                if (nplrChart) nplrChart.resize();
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+
+<div class="mermaidTooltip" style="opacity: 0;"></div></body></html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>銀行會計資訊於現代信用風險管理之應用白皮書</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#9A0036',
+                        secondary: '#941C61',
+                        accent: '#EEBAC0',
+                        gold: '#F59E0B',
+                        darkGray: '#333333'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #9A0036 0%, #941C61 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .section-divider {
+            border-left: 4px solid #9A0036;
+            padding-left: 1rem;
+        }
+        
+        .progress-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, #9A0036, #F59E0B);
+            z-index: 1000;
+            transition: width 0.3s ease;
+        }
+        
+        .table-responsive {
+            overflow-x: auto;
+        }
+        
+        .stage-card {
+            background: linear-gradient(135deg, rgba(154, 0, 54, 0.1) 0%, rgba(148, 28, 97, 0.1) 100%);
+            border: 1px solid rgba(154, 0, 54, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-stack {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-darkGray">
+    <!-- Progress Indicator -->
+    <div class="progress-indicator" id="progressBar"></div>
+    
+    <!-- Header -->
+    <header class="gradient-bg text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
+                        <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4zM18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h1 class="text-xl font-bold">信用風險管理白皮書</h1>
+                        <p class="text-accent text-sm">銀行會計資訊應用指南</p>
+                    </div>
+                </div>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#introduction" class="hover:text-accent transition-colors">引言</a>
+                    <a href="#nature" class="hover:text-accent transition-colors">風險本質</a>
+                    <a href="#analysis" class="hover:text-accent transition-colors">財報分析</a>
+                    <a href="#integration" class="hover:text-accent transition-colors">數據整合</a>
+                    <a href="#governance" class="hover:text-accent transition-colors">治理實務</a>
+                    <a href="#conclusion" class="hover:text-accent transition-colors">結論</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-8">
+        <!-- Title Section -->
+        <section class="text-center mb-12">
+            <div class="bg-white rounded-lg shadow-lg p-8 card-hover">
+                <h1 class="text-4xl font-bold text-primary mb-4">銀行會計資訊於現代信用風險管理之應用白皮書</h1>
+                <div class="w-24 h-1 bg-gradient-to-r from-primary to-gold mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                    探討會計資訊在現代信用風險管理框架中的核心作用，為金融專業人士提供完整的策略與實務指引
+                </p>
+            </div>
+        </section>
+
+        <!-- Section 1: Introduction -->
+        <section id="introduction" class="mb-12">
+            <div class="bg-white rounded-lg shadow-lg p-8 card-hover">
+                <div class="section-divider mb-6">
+                    <h2 class="text-2xl font-bold text-primary mb-2">1. 引言：奠定風險管理的資訊基石</h2>
+                </div>
+                
+                <div class="grid md:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-gradient-to-br from-primary to-secondary text-white p-6 rounded-lg">
+                        <div class="text-3xl font-bold mb-2">60%</div>
+                        <div class="text-accent">信用風險佔銀行所有風險比重</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-secondary to-gold text-white p-6 rounded-lg">
+                        <div class="text-3xl font-bold mb-2">核心</div>
+                        <div class="text-accent">最具挑戰性的風險類型</div>
+                    </div>
+                    <div class="bg-gradient-to-br from-gold to-primary text-white p-6 rounded-lg">
+                        <div class="text-3xl font-bold mb-2">基石</div>
+                        <div class="text-accent">銀行業永續發展根本</div>
+                    </div>
+                </div>
+
+                <div class="prose max-w-none text-gray-700 leading-relaxed">
+                    <p class="mb-4">
+                        在現代金融體系中，信用風險是銀行業最核心、最具挑戰性的風險類型。根據巴塞爾金融監理委員會的調查，信用風險佔銀行所有風險的比重高達60%，其管理的成敗不僅直接關係到單一銀行的穩健經營，更深刻影響整體金融體系的穩定。
+                    </p>
+                    <p class="mb-4">
+                        會計資訊，作為記錄銀行財務狀況與經營成果的通用語言，早已超越了傳統的簿記功能。它不僅是事後評估的依據，更是現代信用風險識別、衡量、監控與管理的根本前提。
+                    </p>
+                    <div class="bg-accent bg-opacity-20 border-l-4 border-primary p-4 rounded-r-lg">
+                        <p class="font-semibold text-primary mb-2">白皮書目標</p>
+                        <p>為金融專業人士提供一套完整的策略與實務指引，以強化其風險洞察力與決策品質。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Nature of Credit Risk -->
+        <section id="nature" class="mb-12">
+            <div class="bg-white rounded-lg shadow-lg p-8 card-hover">
+                <div class="section-divider mb-6">
+                    <h2 class="text-2xl font-bold text-primary mb-2">2. 信用風險的本質與會計資訊的角色</h2>
+                </div>
+
+                <!-- Risk Definition Cards -->
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div class="border border-gray-200 rounded-lg p-6 hover:border-primary transition-colors">
+                        <h3 class="text-lg font-semibold text-secondary mb-3 flex items-center">
+                            <span class="w-2 h-2 bg-primary rounded-full mr-3"></span>
+                            狹義的信用風險
+                        </h3>
+                        <p class="text-gray-600 mb-2"><strong>違約風險 (Default Risk)</strong></p>
+                        <p class="text-sm text-gray-500">債務人未能按照合約約定，如期履行其償還本金與利息的義務，從而給債權人帶來潛在損失的可能性。</p>
+                    </div>
+                    <div class="border border-gray-200 rounded-lg p-6 hover:border-primary transition-colors">
+                        <h3 class="text-lg font-semibold text-secondary mb-3 flex items-center">
+                            <span class="w-2 h-2 bg-secondary rounded-full mr-3"></span>
+                            廣義的信用風險
+                        </h3>
+                        <p class="text-gray-600 mb-2"><strong>償債能力 + 償債意願</strong></p>
+                        <p class="text-sm text-gray-500">涵蓋債務人的客觀「償債能力」與主觀的「償債意願」，任何因這兩方面因素導致的合約不履行。</p>
+                    </div>
+                </div>
+
+                <!-- Key Points -->
+                <div class="bg-gray-50 rounded-lg p-6 mb-6">
+                    <h3 class="text-lg font-semibold text-primary mb-4">信用風險在銀行業的核心地位</h3>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                            </div>
+                            <p class="font-semibold text-sm">商業模式核心</p>
+                            <p class="text-xs text-gray-500">存貸利差經營</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-secondary bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <svg class="w-8 h-8 text-secondary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 6.75h.007v.008H12V6.75z"/>
+                                </svg>
+                            </div>
+                            <p class="font-semibold text-sm">主要風險來源</p>
+                            <p class="text-xs text-gray-500">佔總風險60%</p>
+                        </div>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-gold bg-opacity-10 rounded-full flex items-center justify-center mx-auto mb-3">
+                                <svg class="w-8 h-8 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"/>
+                                </svg>
+                            </div>
+                            <p class="font-semibold text-sm">生存基石</p>
+                            <p class="text-xs text-gray-500">穩健經營關鍵</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gradient-to-r from-primary to-secondary text-white rounded-lg p-6">
+                    <h3 class="text-lg font-semibold mb-3">會計資訊：風險量化的基石</h3>
+                    <p class="text-accent mb-3">
+                        會計資訊是將抽象風險轉化為具體、可衡量指標的基礎。銀行的財務報表是識別、衡量、監控及管理信用風險的核心工具。
+                    </p>
+                    <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                        <p class="text-sm">
+                            <strong>不良貸款率 (NPLR)</strong> 被公認為衡量銀行信用風險最直接、最重要的指標，直觀地反映了銀行資產品質的惡化程度。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Financial Statement Analysis -->
+        <section id="analysis" class="mb-12">
+            <div class="bg-white rounded-lg shadow-lg p-8 card-hover">
+                <div class="section-divider mb-6">
+                    <h2 class="text-2xl font-bold text-primary mb-2">3. 解讀財務報表：洞悉信用風險的關鍵訊號</h2>
+                </div>
+
+                <!-- Balance Sheet Analysis -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold text-secondary mb-4">3.1 資產負債表分析：繪製風險暴露地圖</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="border-l-4 border-primary bg-gray-50 p-6 rounded-r-lg">
+                            <h4 class="font-semibold text-primary mb-3">資產端—風險的主要來源</h4>
+                            <ul class="space-y-2 text-sm text-gray-600">
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                    <span><strong>放款及應收款</strong> - 核心風險載體</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                    <span><strong>債權證券投資</strong> - 重要風險來源</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                    <span><strong>表外項目</strong> - 隱藏風險暴露</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="border-l-4 border-secondary bg-gray-50 p-6 rounded-r-lg">
+                            <h4 class="font-semibold text-secondary mb-3">負債端—資金的穩定性</h4>
+                            <ul class="space-y-2 text-sm text-gray-600">
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-secondary rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                    <span><strong>客戶存款</strong> - 主要資金來源</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-secondary rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                    <span><strong>資金穩定性</strong> - 風險承擔能力</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="w-2 h-2 bg-secondary rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                    <span><strong>期限匹配</strong> - 流動性管理</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Income Statement Analysis -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold text-secondary mb-4">3.2 損益表分析：衡量獲利能力與風險偏好</h3>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="bg-gradient-to-br from-primary to-secondary text-white p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">利息淨收益</h4>
+                            <p class="text-xs text-accent">反映資產定價能力與利差管理水平</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-secondary to-gold text-white p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">手續費淨收益</h4>
+                            <p class="text-xs text-accent">代表業務多元化程度</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-gold to-primary text-white p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2">備抵呆帳費用</h4>
+                            <p class="text-xs text-accent">管理層風險預判的壓力測試</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Financial Ratios Table -->
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-secondary mb-4">3.3 關鍵財務比率：信用風險的儀表板</h3>
+                    <div class="table-responsive">
+                        <table class="w-full border-collapse bg-white rounded-lg overflow-hidden shadow-sm">
+                            <thead class="gradient-bg text-white">
+                                <tr>
+                                    <th class="px-4 py-3 text-left font-semibold">財務指標</th>
+                                    <th class="px-4 py-3 text-left font-semibold">會計科目構成與定義</th>
+                                    <th class="px-4 py-3 text-left font-semibold">與信用風險的關聯性分析</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="px-4 py-4 font-semibold text-primary">不良貸款率 (NPLR)</td>
+                                    <td class="px-4 py-4 text-sm text-gray-600">(不良貸款總額 / 總貸款額)</td>
+                                    <td class="px-4 py-4 text-sm text-gray-700">衡量信用風險最直接、最重要的首要指標。NPLR越高，意味著銀行資產品質嚴重惡化，潛在損失巨大。</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="px-4 py-4 font-semibold text-primary">資本充足率 (CAR)</td>
+                                    <td class="px-4 py-4 text-sm text-gray-600">(合格自有資本 / 風險加權資產總額)</td>
+                                    <td class="px-4 py-4 text-sm text-gray-700">衡量銀行吸收損失的核心能力。理論上CAR越高，抵禦風險能力越強。但過高的CAR也可能激勵銀行從事更高風險的放款活動。</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="px-4 py-4 font-semibold text-primary">淨利差 (NIM)</td>
+                                    <td class="px-4 py-4 text-sm text-gray-600">(利息淨收益 / 平均生利資產)</td>
+                                    <td class="px-4 py-4 text-sm text-gray-700">反映銀行的核心獲利能力。較高的NIM能為抵禦潛在的信用損失提供更厚的利潤緩衝墊。</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="px-4 py-4 font-semibold text-primary">存貸比</td>
+                                    <td class="px-4 py-4 text-sm text-gray-600">(總貸款額 / 總存款額)</td>
+                                    <td class="px-4 py-4 text-sm text-gray-700">反映銀行的流動性狀況。過高的存貸比意味著流動性緩衝不足，可能將流動性風險轉化為實質的信用損失。</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50 transition-colors">
+                                    <td class="px-4 py-4 font-semibold text-primary">獲利能力指標 (ROA)</td>
+                                    <td class="px-4 py-4 text-sm text-gray-600">(稅後淨利 / 平均總資產)</td>
+                                    <td class="px-4 py-4 text-sm text-gray-700">衡量銀行的整體經營績效。較高的ROA意味著銀行有更強的內生能力來吸收和消化信用損失。</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="bg-gold bg-opacity-10 border border-gold rounded-lg p-6">
+                    <div class="flex items-start">
+                        <svg class="w-6 h-6 text-gold mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <div>
+                            <h4 class="font-semibold text-gold mb-2">關鍵洞察</h4>
+                            <p class="text-sm text-gray-700">
+                                僅僅理解靜態的財務報表是不夠的。現代風險管理更強調前瞻性與動態性，下一章將探討如何將這些寶貴的會計數據整合到動態的現代風險管理框架之中。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Data Integration -->
+        <section id="integration" class="mb-12">
+            <div class="bg-white rounded-lg shadow-lg p-8 card-hover">
+                <div class="section-divider mb-6">
+                    <h2 class="text-2xl font-bold text-primary mb-2">4. 整合會計數據：驅動現代風險管理框架</h2>
+                </div>
+
+                <div class="bg-accent bg-opacity-20 border-l-4 border-primary p-6 rounded-r-lg mb-8">
+                    <p class="text-gray-700 leading-relaxed">
+                        現代信用風險管理已從被動的「事後報告」轉向主動的「事前預測」與「事中控制」。在這一轉變中，會計資訊扮演了「數據燃料」的關鍵角色，驅動著各種風險計量模型、監管法規遵循及內部績效考核機制的運行。
+                    </p>
+                </div>
+
+                <!-- Risk Models -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold text-secondary mb-4">4.1 驅動風險計量模型</h3>
+                    <p class="text-gray-700 mb-6">會計報表中的歷史數據是建立量化風險模型的基礎，其中最典型的應用包括：</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="border border-gray-200 rounded-lg p-6 hover:border-primary transition-colors">
+                            <h4 class="font-semibold text-primary mb-3 flex items-center">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                財務預警模型
+                            </h4>
+                            <p class="text-sm text-gray-600 mb-3">
+                                這類模型（如 Logit 或 Probit 模型）廣泛運用一系列歷史財務比率（例如：銀行借款/總資產、淨值/負債總額等）作為解釋變數，來預測企業在未來發生財務危機的可能性。
+                            </p>
+                            <div class="bg-primary bg-opacity-10 p-3 rounded">
+                                <p class="text-xs text-primary font-medium">為銀行提供寶貴的預警時間，以便及時採取風險緩釋措施</p>
+                            </div>
+                        </div>
+                        
+                        <div class="border border-gray-200 rounded-lg p-6 hover:border-secondary transition-colors">
+                            <h4 class="font-semibold text-secondary mb-3 flex items-center">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                                </svg>
+                                內部評等法 (IRB)
+                            </h4>
+                            <p class="text-sm text-gray-600 mb-3">
+                                根據巴塞爾協定的監管要求，符合條件的銀行可採用IRB法來計算資本需求。此方法要求銀行自行估計三大風險成分：
+                            </p>
+                            <div class="space-y-2">
+                                <div class="flex items-center text-xs">
+                                    <span class="w-2 h-2 bg-secondary rounded-full mr-2"></span>
+                                    <span><strong>PD</strong> - 違約機率</span>
+                                </div>
+                                <div class="flex items-center text-xs">
+                                    <span class="w-2 h-2 bg-secondary rounded-full mr-2"></span>
+                                    <span><strong>LGD</strong> - 違約損失率</span>
+                                </div>
+                                <div class="flex items-center text-xs">
+                                    <span class="w-2 h-2 bg-secondary rounded-full mr-2"></span>
+                                    <span><strong>EAD</strong> - 違約暴露額</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IFRS 9 Section -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold text-secondary mb-4">4.2 IFRS 9的衝擊：從「已發生損失」到「預期信用損失(ECL)」</h3>
+                    <p class="text-gray-700 mb-6">
+                        國際財務報導準則第九號（IFRS 9）的實施，從根本上改變了銀行備抵呆帳的提列方式，從過去的「已發生損失模式」轉變為更具前瞻性的「預期信用損失（ECL）」模式。這一轉變對會計處理產生了重大影響，具體分為三個階段：
+                    </p>
+                    
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div class="stage-card p-6 rounded-lg">
+                            <div class="flex items-center mb-4">
+                                <div class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">1</div>
+                                <h4 class="font-semibold text-primary">第一階段</h4>
+                            </div>
+                            <p class="text-sm text-gray-600">
+                                對於信用風險自原始認列後未顯著增加的金融工具，銀行需按其<strong>未來12個月的預期信用損失</strong>提列備抵。
+                            </p>
+                        </div>
+                        
+                        <div class="stage-card p-6 rounded-lg">
+                            <div class="flex items-center mb-4">
+                                <div class="w-8 h-8 bg-secondary text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">2</div>
+                                <h4 class="font-semibold text-secondary">第二階段</h4>
+                            </div>
+                            <p class="text-sm text-gray-600">
+                                對於信用風險已顯著增加、但尚未發生信用減損的金融工具，銀行必須按其<strong>整個存續期間的預期信用損失</strong>提列備抵。
+                            </p>
+                        </div>
+                        
+                        <div class="stage-card p-6 rounded-lg">
+                            <div class="flex items-center mb-4">
+                                <div class="w-8 h-8 bg-gold text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">3</div>
+                                <h4 class="font-semibold text-gold">第三階段</h4>
+                            </div>
+                            <p class="text-sm text-gray-600">
+                                對於已發生信用減損的金融工具，銀行不僅需按存續期間預期信用損失提列備抵，其利息收入的計算基礎也改為<strong>淨帳面價值</strong>（即扣除備抵後的餘額）。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Basel Accord Section -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold text-secondary mb-4">4.3 遵循巴塞爾協定：資本適足性的會計意涵</h3>
+                    <div class="bg-gray-50 rounded-lg p-6 mb-6">
+                        <p class="text-gray-700 mb-4">
+                            IFRS 9與巴塞爾協定是現代風險管理的兩大支柱，二者相輔相成。IFRS 9的「預期信用損失」模型為會計處理提供了前瞻性的基礎，而巴塞爾協定則在此基礎上，對銀行的資本充足性提出了嚴格的監管要求。
+                        </p>
+                        <div class="bg-white rounded-lg p-4 border-l-4 border-primary">
+                            <p class="text-sm text-gray-600">
+                                巴塞爾協定的核心要求銀行維持最低<strong>8%的資本適足率（CAR）</strong>，確保有足夠資本吸收非預期損失。銀行在採用內部評等法（IRB）計算資本時，所需估計的違約機率（PD）、違約損失率（LGD）等核心參數，正是計算IFRS 9預期信用損失（ECL）時所需的關鍵輸入。
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="text-center p-4 bg-gradient-to-br from-primary to-secondary text-white rounded-lg">
+                            <div class="text-2xl font-bold mb-2">0%</div>
+                            <div class="text-xs text-accent">主權國家債權風險權重</div>
+                        </div>
+                        <div class="text-center p-4 bg-gradient-to-br from-secondary to-gold text-white rounded-lg">
+                            <div class="text-2xl font-bold mb-2">100%</div>
+                            <div class="text-xs text-accent">一般企業債權風險權重</div>
+                        </div>
+                        <div class="text-center p-4 bg-gradient-to-br from-gold to-primary text-white rounded-lg">
+                            <div class="text-2xl font-bold mb-2">150%</div>
+                            <div class="text-xs text-accent">逾期放款風險權重</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RAROC Section -->
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-secondary mb-4">4.4 風險調整後績效考核 (RAROC)</h3>
+                    <div class="bg-gradient-to-r from-primary to-secondary text-white rounded-lg p-6">
+                        <div class="mb-4">
+                            <p class="text-accent mb-2">
+                                如果說巴塞爾協定的資本充足率（CAR）回答了監管者關心的問題：「銀行是否有足夠的資本來抵禦風險？」
+                            </p>
+                            <p class="text-accent">
+                                那麼風險調整後資本回報率（RAROC）則回答了管理者更關心的戰略問題：「我們是否從承擔風險的資本中，賺取了足夠的回報？」
+                            </p>
+                        </div>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <p class="text-sm">
+                                <strong>風險調整後資本回報率（Risk-Adjusted Return on Capital, RAROC）</strong> 是一種將風險納入績效評估的先進指標。它在傳統會計利潤的基礎上，扣除了預期損失，並以經濟資本（而非帳面資本）作為分母。其計算根植於會計科目數據，並對其進行了精細的風險調整，從而更公允地評價各業務單位的真實貢獻。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gold bg-opacity-10 border border-gold rounded-lg p-6">
+                    <div class="flex items-start">
+                        <svg class="w-6 h-6 text-gold mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
+                        </svg>
+                        <div>
+                            <h4 class="font-semibold text-gold mb-2">實踐轉化</h4>
+                            <p class="text-sm text-gray-700">
+                                有效的框架與模型必須有穩健的治理結構與實務操作來支撐。下一章節，我們將探討如何將這些理論與模型付諸實踐，建構一個穩健的風險管理體系。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Governance -->
+        <section id="governance" class="mb-12">
+            <div class="bg-white rounded-lg shadow-lg p-8 card-hover">
+                <div class="section-divider mb-6">
+                    <h2 class="text-2xl font-bold text-primary mb-2">5. 治理與實務：建構穩健的風險管理體系</h2>
+                </div>
+
+                <div class="bg-accent bg-opacity-20 border-l-4 border-primary p-6 rounded-r-lg mb-8">
+                    <p class="text-gray-700 leading-relaxed">
+                        理論框架與計量模型的成功落地，最終有賴於完善的組織治理、高效的跨部門協作與系統化的作業流程。一個穩健的信用風險管理體系，是將理論轉化為實踐的保障。本章節將提供建構此體系的關鍵實務指引。
+                    </p>
+                </div>
+
+                <!-- Audit and Internal Control -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold text-secondary mb-4">5.1 審計與內控的監督角色</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="border-l-4 border-primary bg-gray-50 p-6 rounded-r-lg">
+                            <h4 class="font-semibold text-primary mb-3">內部控制</h4>
+                            <p class="text-sm text-gray-600 mb-3">
+                                內部控制與外部審計是風險管理的兩道重要防線。尤其在信用風險領域，其監督作用至關重要。
+                            </p>
+                            <div class="bg-primary bg-opacity-10 p-3 rounded">
+                                <p class="text-xs text-primary">第一道防線：日常風險監控與管理</p>
+                            </div>
+                        </div>
+                        <div class="border-l-4 border-secondary bg-gray-50 p-6 rounded-r-lg">
+                            <h4 class="font-semibold text-secondary mb-3">外部審計</h4>
+                            <p class="text-sm text-gray-600 mb-3">
+                                研究明確指出，由具備產業專業性的會計師事務所進行外部審計，能夠顯著提升審計品質，並有效降低銀行的不良放款與逾期放款比率。
+                            </p>
+                            <div class="bg-secondary bg-opacity-10 p-3 rounded">
+                                <p class="text-xs text-secondary">專業、獨立的第三方驗證價值</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cross-functional Collaboration -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold text-secondary mb-4">5.2 從職能孤島到整合中樞：重塑風險與會計的協作模式</h3>
+                    <div class="bg-gradient-to-r from-primary to-secondary text-white rounded-lg p-6 mb-6">
+                        <p class="text-accent mb-4">
+                            在現代風險管理框架下，風險管理部門與會計部門不能再是孤立的職能單位，必須打破傳統壁壘，成為協同作戰的整合中樞。
+                        </p>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4">
+                            <h4 class="font-semibold mb-2">常態化跨部門協作機制</h4>
+                            <p class="text-sm">兩者之間應建立常態化的跨部門協作機制，例如定期召開聯席會議</p>
+                        </div>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="border border-gray-200 rounded-lg p-6 hover:border-primary transition-colors">
+                            <div class="flex items-center mb-3">
+                                <svg class="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <h4 class="font-semibold text-primary">風險評估整合</h4>
+                            </div>
+                            <p class="text-sm text-gray-600">
+                                確保風險評估的結果（如預期信用損失的估計）能夠及時、準確地反映在會計處理與財務報表上。
+                            </p>
+                        </div>
+                        <div class="border border-gray-200 rounded-lg p-6 hover:border-secondary transition-colors">
+                            <div class="flex items-center mb-3">
+                                <svg class="w-5 h-5 text-secondary mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4z"/>
+                                </svg>
+                                <h4 class="font-semibold text-secondary">數據一致性</h4>
+                            </div>
+                            <p class="text-sm text-gray-600">
+                                確保授信審批系統、核心會計系統與風險管理系統之間的數據來源一致、口徑統一，避免因數據差異導致決策失誤。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Best Practices -->
+                <div class="mb-6">
+                    <h3 class="text-xl font-semibold text-secondary mb-4">5.3 最佳實務建議</h3>
+                    <p class="text-gray-700 mb-6">為將信用風險管理落到實處，建議銀行採納以下最佳實務：</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                            <div class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">1</div>
+                            <div>
+                                <h4 class="font-semibold text-primary mb-2">建立完善的內控制度</h4>
+                                <p class="text-sm text-gray-600">定期檢視並優化備抵呆帳的提列政策與流程，確保其不僅符合最新的會計準則（如IFRS 9），也滿足監理機關的嚴格要求。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                            <div class="w-8 h-8 bg-secondary text-white rounded-full flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">2</div>
+                            <div>
+                                <h4 class="font-semibold text-secondary mb-2">強化資料品質管控</h4>
+                                <p class="text-sm text-gray-600">建立完整、標準化的客戶信用資料庫，並建立定期更新機制，確保輸入風險模型的數據是準確、即時且全面的。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                            <div class="w-8 h-8 bg-gold text-white rounded-full flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">3</div>
+                            <div>
+                                <h4 class="font-semibold text-gold mb-2">定期進行模型驗證</h4>
+                                <p class="text-sm text-gray-600">對所有信用風險計量模型（如內部評等模型、預警模型）進行定期的回溯測試與壓力測試，驗證其有效性，並根據驗證結果對模型參數與會計估計進行必要調整。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                            <div class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">4</div>
+                            <div>
+                                <h4 class="font-semibold text-primary mb-2">建立定期報告機制</h4>
+                                <p class="text-sm text-gray-600">向高階管理層和董事會定期報告關鍵風險指標，包括逾期放款比率變化、備抵呆帳覆蓋率及產業集中度風險等，以利於及時決策。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                            <div class="w-8 h-8 bg-secondary text-white rounded-full flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">5</div>
+                            <div>
+                                <h4 class="font-semibold text-secondary mb-2">系統整合與資料管理</h4>
+                                <p class="text-sm text-gray-600">積極推動授信系統、會計系統、風險管理系統的整合，確保數據在不同職能部門間的一致性與即時性。</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                            <div class="w-8 h-8 bg-gold text-white rounded-full flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">6</div>
+                            <div>
+                                <h4 class="font-semibold text-gold mb-2">提升資訊揭露透明度</h4>
+                                <p class="text-sm text-gray-600">遵循巴塞爾協定第三支柱（Pillar 3）的市場紀律要求，在年度報告或官方網站設立風險管理專區，充分揭露資本適足性、風險暴露狀況及管理策略等資訊。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-primary bg-opacity-10 border border-primary rounded-lg p-6">
+                    <div class="flex items-start">
+                        <svg class="w-6 h-6 text-primary mt-1 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                        </svg>
+                        <div>
+                            <h4 class="font-semibold text-primary mb-2">核心競爭力轉化</h4>
+                            <p class="text-sm text-gray-700">
+                                透過上述治理與實務的強化，銀行才能將先進的風險管理理念真正轉化為日常營運中的核心競爭力。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Conclusion -->
+        <section id="conclusion" class="mb-12">
+            <div class="bg-white rounded-lg shadow-lg p-8 card-hover">
+                <div class="section-divider mb-6">
+                    <h2 class="text-2xl font-bold text-primary mb-2">6. 結論與未來展望</h2>
+                </div>
+
+                <div class="prose max-w-none text-gray-700 leading-relaxed mb-8">
+                    <p class="mb-6">
+                        本白皮書全面闡述了銀行會計資訊在現代信用風險管理中不可或缺的核心地位。我們可以看到，會計科目早已不是靜態的記錄工具，而是動態的風險管理基石。它貫穿於風險的識別、量化、模型建構、會計處理及監管遵循的全過程，為銀行在複雜的金融環境中穩健前行提供了根本的資訊支撐。
+                    </p>
+                </div>
+
+                <!-- Strategic Pillars -->
+                <div class="mb-8">
+                    <h3 class="text-xl font-semibold text-secondary mb-4">戰略性支柱</h3>
+                    <p class="text-gray-700 mb-6">總結而言，一個成功的、由會計資訊驅動的信用風險管理體系，其成功並非偶然，而是建立在以下幾個戰略性支柱之上：</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-gradient-to-br from-primary to-secondary text-white p-6 rounded-lg">
+                            <div class="flex items-center mb-3">
+                                <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                <h4 class="font-semibold">戰略性資產</h4>
+                            </div>
+                            <p class="text-accent text-sm">將內部評等制度從合規工具提升為能夠主動指導授信策略與定價的決策引擎。</p>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-secondary to-gold text-white p-6 rounded-lg">
+                            <div class="flex items-center mb-3">
+                                <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4z"/>
+                                </svg>
+                                <h4 class="font-semibold">數據即命脈</h4>
+                            </div>
+                            <p class="text-accent text-sm">建立嚴格的資料品質管控流程，確保所有決策與模型都建立在準確、一致的數據基礎之上。</p>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-gold to-primary text-white p-6 rounded-lg">
+                            <div class="flex items-center mb-3">
+                                <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z"/>
+                                </svg>
+                                <h4 class="font-semibold">組織協同力</h4>
+                            </div>
+                            <p class="text-accent text-sm">打破風險與會計部門的職能壁壘，建立無縫的資訊流動與協同決策機制。</p>
+                        </div>
+                        
+                        <div class="bg-gradient-to-br from-primary to-gold text-white p-6 rounded-lg">
+                            <div class="flex items-center mb-3">
+                                <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zM14 6a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2V8a2 2 0 012-2h6zM4 14a2 2 0 002 2h8a2 2 0 002-2v-2H4v2z"/>
+                                </svg>
+                                <h4 class="font-semibold">動態進化能力</h4>
+                            </div>
+                            <p class="text-accent text-sm">對風險模型進行持續的驗證與校準，確保其在不斷變化的市場環境中始終保持預測的有效性。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Future Outlook -->
+                <div class="bg-gradient-to-r from-primary to-secondary text-white rounded-lg p-8">
+                    <h3 class="text-xl font-semibold mb-4 flex items-center">
+                        <svg class="w-6 h-6 mr-3" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+                            <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/>
+                        </svg>
+                        未來展望
+                    </h3>
+                    <div class="space-y-4 text-accent">
+                        <p>
+                            展望未來，隨著金融市場的快速變化、金融科技的迭代演進與全球監管要求的日益提高，銀行信用風險管理將更加依賴數據驅動的決策。
+                        </p>
+                        <p>
+                            會計與風險管理的深度整合，已不再是一種選擇，而是實現風險與報酬最佳平衡、為股東與社會創造長期價值的必然路徑。
+                        </p>
+                        <div class="bg-white bg-opacity-20 rounded-lg p-4 mt-6">
+                            <p class="font-semibold text-white">
+                                唯有善用會計資訊這一寶貴資產，銀行才能真正駕馭風險，贏得未來。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="text-center mb-12">
+            <div class="gradient-bg text-white rounded-lg p-8 card-hover">
+                <h2 class="text-2xl font-bold mb-4">深化您的風險管理專業知識</h2>
+                <p class="text-accent mb-6 max-w-2xl mx-auto">
+                    持續關注金融科技發展與監管變化，提升數據驅動決策能力，為您的機構創造長期價值
+                </p>
+                <button class="bg-gold hover:bg-yellow-600 text-white font-semibold px-8 py-3 rounded-lg transition-colors shadow-lg hover:shadow-xl">
+                    探索更多專業資源
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-darkGray text-white py-8">
+        <div class="container mx-auto px-6">
+            <div class="border-t border-gray-600 pt-6 text-center">
+                <div class="space-y-2 text-sm text-gray-400">
+                    <p><strong>免責申明：</strong>基於公開資料，僅供參考，不構成建議</p>
+                    <p><strong>資料來源：</strong>網頁公開資訊</p>
+                    <p><strong>版權所有：</strong>© Dunk</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Progress bar functionality
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById('progressBar').style.width = scrolled + '%';
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all card elements
+        document.querySelectorAll('.card-hover').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9820ddc751aaa9a7',t:'MTc1ODM2NjUyMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
+
+ead>
