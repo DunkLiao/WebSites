@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>從吃塑膠的黴菌到巴格達的森林城市：4個正在重塑我們未來的驚人永續趨勢</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/preline@2.3.0/dist/preline.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'forest-green': '#2d5016',
+                        'dark-green': '#1a4d3a',
+                        'light-green': '#e8f5e8',
+                        'professional-blue': '#0066cc',
+                        'navy-blue': '#1e3a8a',
+                        'accent-orange': '#ff6b35'
+                    },
+                    fontFamily: {
+                        'sans': ['Noto Sans TC', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+<script src="https://felo.ai/js/iframe.js?v=1758897730347"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style></head>
+<body class="font-sans bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm z-50 border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-leaf text-forest-green dark:text-green-400 text-xl"></i>
+                    <span class="font-bold text-lg text-forest-green dark:text-green-400">永續週報</span>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <a href="#introduction" class="text-gray-700 dark:text-gray-300 hover:text-forest-green dark:hover:text-green-400 transition-colors">引言</a>
+                    <a href="#baghdad" class="text-gray-700 dark:text-gray-300 hover:text-forest-green dark:hover:text-green-400 transition-colors">巴格達森林</a>
+                    <a href="#fungi" class="text-gray-700 dark:text-gray-300 hover:text-forest-green dark:hover:text-green-400 transition-colors">塑膠分解</a>
+                    <a href="#packaging" class="text-gray-700 dark:text-gray-300 hover:text-forest-green dark:hover:text-green-400 transition-colors">海藻包裝</a>
+                    <a href="#factories" class="text-gray-700 dark:text-gray-300 hover:text-forest-green dark:hover:text-green-400 transition-colors">永續工廠</a>
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                        <i class="fas fa-sun dark:hidden"></i>
+                        <i class="fas fa-moon hidden dark:inline"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-24 pb-16 min-h-screen flex items-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-light-green via-white to-green-50 dark:from-gray-900 dark:via-gray-800 dark:to-green-900/20"></div>
+        <div class="absolute top-20 right-10 w-64 h-64 bg-forest-green/10 dark:bg-green-400/10 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-20 left-10 w-96 h-96 bg-green-200/20 dark:bg-green-600/10 rounded-full blur-3xl"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-8">
+                <div class="inline-flex items-center px-4 py-2 bg-forest-green/10 dark:bg-green-400/10 rounded-full text-forest-green dark:text-green-400 text-sm font-medium">
+                    <i class="fas fa-calendar-alt mr-2"></i>
+                    2025年9月26日 永續週報
+                </div>
+                
+                <h1 class="text-5xl lg:text-6xl font-bold leading-tight">
+                    從<span class="text-forest-green dark:text-green-400">吃塑膠的黴菌</span>到<span class="text-forest-green dark:text-green-400">巴格達的森林城市</span>
+                </h1>
+                
+                <p class="text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
+                    4個正在重塑我們未來的驚人永續趨勢：廢墟重生、生物創新、材料革命，永續發展正顛覆傳統商業模式
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#introduction" class="inline-flex items-center px-6 py-3 bg-forest-green hover:bg-dark-green text-white rounded-lg font-medium transition-colors">
+                        <i class="fas fa-arrow-down mr-2"></i>
+                        開始探索
+                    </a>
+                    <div class="flex items-center text-gray-600 dark:text-gray-400">
+                        <i class="fas fa-clock mr-2"></i>
+                        <span>約15分鐘閱讀</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="relative">
+                <img src="https://api.felo.ai/images/s/g9ngDAr3Bq" alt="ESG永續發展概念圖" class="w-full h-auto rounded-2xl shadow-2xl">
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section id="introduction" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-6 text-forest-green dark:text-green-400">重新想像可能性</h2>
+                <div class="w-24 h-1 bg-forest-green dark:bg-green-400 mx-auto mb-8"></div>
+            </div>
+            
+            <div class="prose prose-lg dark:prose-invert max-w-none">
+                <p class="text-xl leading-relaxed text-gray-700 dark:text-gray-300 mb-8">
+                    永續發展的新聞時常讓人感到壓力沉重，但若我們撥開頭條的迷霧，會發現一些真正令人驚訝、顛覆直覺且充滿希望的創新正在世界各地悄然發生。這些想法不僅僅是微小的改進，而是從根本上改變遊戲規則的解決方案。
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-8 my-12">
+                    <div class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg">
+                        <img src="https://api.felo.ai/images/s/mouViomWiX" alt="循環經濟示意圖" class="w-full h-48 object-cover rounded-lg mb-6">
+                        <h3 class="text-xl font-bold mb-4 text-forest-green dark:text-green-400">循環經濟新思維</h3>
+                        <p class="text-gray-600 dark:text-gray-400">從廢料中創造價值，重新定義資源利用方式</p>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg">
+                        <img src="https://api.felo.ai/images/s/4HYPvlVipQ" alt="塑膠回收統計" class="w-full h-48 object-cover rounded-lg mb-6">
+                        <h3 class="text-xl font-bold mb-4 text-forest-green dark:text-green-400">生物技術突破</h3>
+                        <p class="text-gray-600 dark:text-gray-400">利用自然力量解決人造材料帶來的環境挑戰</p>
+                    </div>
+                </div>
+                
+                <p class="text-lg text-gray-700 dark:text-gray-300">
+                    本文將帶您探索四個正在重塑我們未來的驚人永續趨勢：一座從廢墟中重生的城市、一種能解決塑膠危機的生物、顛覆傳統印象的超高效工廠，以及一個聰明到不可思議的食品包裝。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Baghdad Section -->
+    <section id="baghdad" class="py-20">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-forest-green dark:bg-green-400 rounded-full flex items-center justify-center text-white dark:text-gray-900 font-bold text-xl">1</div>
+                        <h2 class="text-4xl font-bold text-forest-green dark:text-green-400">廢墟之上，奇蹟綻放</h2>
+                    </div>
+                    
+                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-200">
+                        巴格達正將4500萬噸垃圾場變為城市森林
+                    </h3>
+                    
+                    <div class="bg-light-green dark:bg-green-900/30 p-6 rounded-xl border-l-4 border-forest-green dark:border-green-400">
+                        <p class="text-lg font-medium text-gray-800 dark:text-gray-200">
+                            將底格里斯河沿岸一片曾堆積4500萬噸廢棄物的土地，轉變為結合商業、住宅與休閒功能的城市森林區。
+                        </p>
+                    </div>
+                    
+                    <div class="prose dark:prose-invert">
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            首先，讓我們將目光投向伊拉克首都巴格達。這裡一處曾是軍事營地的土地，後來淪為一個面積達26平方公里、堆積了驚人4500萬噸廢棄物的巨大垃圾場。然而，一個宏大的轉型計畫正在此地展開。建築事務所Gensler與Emkanat合作，計畫將這片被污染的土地徹底改造，打造成一個充滿活力的永續城市森林區。
+                        </p>
+                        
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            這個計畫的意義遠不止於種樹。它不僅是土地復育的奇蹟，更是一種深刻的戰略性城市更新。透過大規模植樹與綠色基礎設施的引入，該計畫旨在有效降低城市溫度，對抗日益嚴峻的熱島效應。它證明了即使在經歷過衝突與嚴重污染的地區，永續設計也能成為生態重建與社會復興的催化劑，為全球其他面臨相似挑戰的城市，提供了一個強大且可複製的後衝突生態重建典範。
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="space-y-6">
+                    <img src="https://api.felo.ai/images/s/dC7m7Dt04Q" alt="巴格達永續森林項目" class="w-full rounded-2xl shadow-2xl">
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl text-center shadow-lg">
+                            <div class="text-3xl font-bold text-forest-green dark:text-green-400 mb-2">4500萬</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-400">噸廢棄物</div>
+                        </div>
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl text-center shadow-lg">
+                            <div class="text-3xl font-bold text-forest-green dark:text-green-400 mb-2">26</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-400">平方公里</div>
+                        </div>
+                    </div>
+                    
+                    <img src="https://api.felo.ai/images/s/gtxeBTBdvK" alt="巴格達森林城市規劃圖" class="w-full rounded-xl shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fungi Section -->
+    <section id="fungi" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-6 order-2 lg:order-1">
+                    <img src="https://api.felo.ai/images/s/2BTVr6ACPm" alt="塑膠分解真菌" class="w-full rounded-2xl shadow-2xl">
+                    
+                    <div class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg">
+                        <h4 class="text-lg font-bold mb-4 text-forest-green dark:text-green-400">塑膠污染現況</h4>
+                        <div id="plastic-waste-chart" class="h-64"></div>
+                    </div>
+                    
+                    <img src="https://api.felo.ai/images/s/cPhYoWRmgv" alt="生物反應器系統" class="w-full rounded-xl shadow-lg">
+                </div>
+                
+                <div class="space-y-8 order-1 lg:order-2">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-forest-green dark:bg-green-400 rounded-full flex items-center justify-center text-white dark:text-gray-900 font-bold text-xl">2</div>
+                        <h2 class="text-4xl font-bold text-forest-green dark:text-green-400">塑膠的終結者？</h2>
+                    </div>
+                    
+                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-200">
+                        科學家發現黑黴菌能將廢棄物變為「可食用成分」
+                    </h3>
+                    
+                    <div class="bg-light-green dark:bg-green-900/30 p-6 rounded-xl border-l-4 border-forest-green dark:border-green-400">
+                        <p class="text-lg font-medium text-gray-800 dark:text-gray-200">
+                            該發現有望「改變工業廢棄物轉化方式」，為塑膠污染提供根本性的生物解決方案。
+                        </p>
+                    </div>
+                    
+                    <div class="prose dark:prose-invert">
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            全球塑膠污染是一項持續存在的嚴峻挑戰，每年數百萬噸的塑膠廢棄物對生態系統造成不可逆的破壞。然而，一家德國新創公司帶來了突破性的發現：一種常見的黑色酵母狀真菌，憑藉其卓越的生存能力，竟然擁有分解工業塑膠的獨特潛力。
+                        </p>
+                        
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            更令人驚訝的是，透過一個特殊的生物反應器，這種真菌能將塑膠廢棄物轉化為「可食用成分」。這項發現為解決塑膠危機提供了一個全新的生物學視角。用生物來解決合成材料的問題，本身就是一個顛覆性的想法。儘管「可食用」的最終應用需要通過極其嚴格的安全驗證，但這項技術的潛力是革命性的，它有望從根本上改變我們處理工業廢棄物的方式，將環境負擔轉化為潛在資源。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packaging Section -->
+    <section id="packaging" class="py-20">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-12 h-12 bg-forest-green dark:bg-green-400 rounded-full flex items-center justify-center text-white dark:text-gray-900 font-bold text-xl">3</div>
+                        <h2 class="text-4xl font-bold text-forest-green dark:text-green-400">向一次性塑膠說再見</h2>
+                    </div>
+                    
+                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-200">
+                        用海藻製成的橄欖油滴管2025年問世
+                    </h3>
+                    
+                    <div class="prose dark:prose-invert">
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            在日常生活中，一次性塑膠包裝無處不在，尤其是在食品業。為了解決這個問題，Notpla公司推出了一款極具創意的產品：Notpla Pipette，一個專為橄欖油或其他液體調味品設計的10毫升單次使用滴管，預計將於2025年正式投入市場。
+                        </p>
+                        
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            這款滴管最特別之處在於它的材質——它完全由海藻製成，不含任何塑膠，可以完全生物降解。其設計不僅環保，更兼顧了使用者體驗，具備良好的彈性與紙質手感。這項創新雖然看似微小，卻代表了材料思維的重大轉變。它不僅是一個具體的環保替代方案，更是對日益增長的消費者永續需求的市場回應，證明了便利性與永續發展可以並存，並有望啟發更廣泛的包裝產業進行綠色革新。
+                        </p>
+                    </div>
+                    
+                    <div class="grid grid-cols-3 gap-4 mt-8">
+                        <div class="bg-light-green dark:bg-green-900/30 p-4 rounded-lg text-center">
+                            <i class="fas fa-leaf text-2xl text-forest-green dark:text-green-400 mb-2"></i>
+                            <div class="text-sm font-medium">100%海藻</div>
+                        </div>
+                        <div class="bg-light-green dark:bg-green-900/30 p-4 rounded-lg text-center">
+                            <i class="fas fa-recycle text-2xl text-forest-green dark:text-green-400 mb-2"></i>
+                            <div class="text-sm font-medium">可降解</div>
+                        </div>
+                        <div class="bg-light-green dark:bg-green-900/30 p-4 rounded-lg text-center">
+                            <i class="fas fa-calendar text-2xl text-forest-green dark:text-green-400 mb-2"></i>
+                            <div class="text-sm font-medium">2025年</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="space-y-6">
+                    <img src="https://api.felo.ai/images/s/b6H5lxJzWz" alt="Notpla海藻包裝" class="w-full rounded-2xl shadow-2xl">
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <img src="https://api.felo.ai/images/s/4FDX4tFKBU" alt="Notpla產品" class="w-full h-40 object-cover rounded-xl shadow-lg">
+                        <img src="https://api.felo.ai/images/s/9MVmYn9e4q" alt="海藻紙張" class="w-full h-40 object-cover rounded-xl shadow-lg">
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
+                        <h4 class="text-lg font-bold mb-4 text-forest-green dark:text-green-400">包裝材料革新</h4>
+                        <div id="packaging-innovation-chart" class="h-64"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Factories Section -->
+    <section id="factories" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="flex items-center justify-center space-x-4 mb-8">
+                    <div class="w-12 h-12 bg-forest-green dark:bg-green-400 rounded-full flex items-center justify-center text-white dark:text-gray-900 font-bold text-xl">4</div>
+                    <h2 class="text-4xl font-bold text-forest-green dark:text-green-400">永續等於沒效率？</h2>
+                </div>
+                <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-200 mb-8">
+                    全球頂尖工廠打破迷思：越環保，越賺錢
+                </h3>
+            </div>
+            
+            <div class="prose dark:prose-invert max-w-4xl mx-auto mb-12">
+                <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed text-center">
+                    許多人仍抱持著「永續發展成本高昂且效率低下」的刻板印象。然而，根據《富比士》的一份報導，全球有八家領先工廠正在用實際行動證明，永續策略不僅不會拖累營運，反而能成為提升效率與獲利的核心競爭力。
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-forest-green dark:bg-green-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-bolt text-white dark:text-gray-900 text-2xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-forest-green dark:text-green-400">100%再生能源供電</h4>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 text-center">
+                        部分工廠（如挪威的汽車廠）完全依賴水力發電等再生能源運作，實現了平均每年減少約5萬噸碳排放的驚人成效。
+                    </p>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-forest-green dark:bg-green-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-recycle text-white dark:text-gray-900 text-2xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-forest-green dark:text-green-400">實現近乎零廢棄</h4>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 text-center">
+                        透過優化製程，他們將超過95%的廢棄物轉化為可再利用的資源。
+                    </p>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg">
+                    <div class="text-center mb-6">
+                        <div class="w-16 h-16 bg-forest-green dark:bg-green-400 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-robot text-white dark:text-gray-900 text-2xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-forest-green dark:text-green-400">整合智慧製造</h4>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 text-center">
+                        他們運用AI和數據分析，將能源消耗優化達15%。
+                    </p>
+                </div>
+            </div>
+            
+            <div class="bg-white dark:bg-gray-900 p-8 rounded-xl shadow-lg mb-12">
+                <h4 class="text-2xl font-bold mb-6 text-center text-forest-green dark:text-green-400">永續製造業成長趨勢</h4>
+                <div id="sustainable-manufacturing-chart" class="h-96"></div>
+            </div>
+            
+            <div class="prose dark:prose-invert max-w-4xl mx-auto">
+                <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                    這些案例傳遞了一個強而有力的訊息：在全球化的今天，永續發展已不再是企業的道德選項。面對國際供應鏈的永續要求及碳邊境調整機制（CBAM）等法規壓力，永續性已成為維持市場准入、降低營運風險及提升國際競爭力的核心商業策略。它不再是成本，而是驅動效率、創新與韌性的必要投資。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusion Section -->
+    <section class="py-20">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold mb-8 text-forest-green dark:text-green-400">創新的下一步在哪裡？</h2>
+            
+            <div class="prose prose-lg dark:prose-invert max-w-none mb-12">
+                <p class="text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
+                    從巴格達的戰後重建區、德國的微生物實驗室，到英國的工業設計與全球的工廠車間，這四個案例的共同點在於，最具突破性的永續解決方案，正從我們最意想不到的地方湧現。
+                </p>
+                
+                <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                    這些想法展示了當創造力與危機相遇時所能激發的無限可能。現在的問題，已不再是我們能否透過創新走向永續的未來，而是我們能以多快的速度將這些卓越的解決方案規模化。下一個讓我們驚豔的創新，又會是什麼？
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-8 mt-16">
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-forest-green dark:text-green-400 mb-2">4500萬</div>
+                    <div class="text-sm text-gray-600 dark:text-gray-400">噸廢料變森林</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-forest-green dark:text-green-400 mb-2">100%</div>
+                    <div class="text-sm text-gray-600 dark:text-gray-400">生物降解包裝</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-forest-green dark:text-green-400 mb-2">95%</div>
+                    <div class="text-sm text-gray-600 dark:text-gray-400">廢料再利用</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-bold text-forest-green dark:text-green-400 mb-2">15%</div>
+                    <div class="text-sm text-gray-600 dark:text-gray-400">能源效率提升</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="esg-footer bg-forest-green dark:bg-gray-900 text-white dark:text-gray-300 py-12">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h4 class="text-lg font-bold mb-4">免責聲明</h4>
+                    <p class="text-sm opacity-80">基於公開資料，僅供參考，不構成建議</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">資料來源</h4>
+                    <p class="text-sm opacity-80">網頁公開資訊</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">版權所有</h4>
+                    <p class="text-sm opacity-80">© 2025 Dunk</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/20 pt-8 text-center">
+                <div class="flex items-center justify-center space-x-4 mb-4">
+                    <i class="fas fa-leaf text-xl"></i>
+                    <span class="text-lg font-semibold">永續週報</span>
+                </div>
+                <p class="text-sm opacity-60">探索改變世界的永續創新</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or default to 'light' mode
+        const currentTheme = localStorage.getItem('theme') || 
+            (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+        if (currentTheme === 'dark') {
+            html.classList.add('dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            const theme = html.classList.contains('dark') ? 'dark' : 'light';
+            localStorage.setItem('theme', theme);
+            
+            // Re-initialize charts with new theme
+            initCharts();
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Charts initialization
+        function initCharts() {
+            const isDark = html.classList.contains('dark');
+            const theme = isDark ? 'dark' : null;
+            
+            // Plastic Waste Chart
+            const plasticChart = echarts.getInstanceByDom(document.getElementById('plastic-waste-chart'));
+            if (plasticChart) {
+                plasticChart.dispose();
+            }
+            
+            const plasticChartInstance = echarts.init(document.getElementById('plastic-waste-chart'), theme);
+            const plasticOption = {
+                title: {
+                    text: '全球塑膠廢料處理方式',
+                    textStyle: {
+                        color: isDark ? '#e5e7eb' : '#374151',
+                        fontSize: 14
+                    }
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b}: {c}% ({d}%)'
+                },
+                legend: {
+                    orient: 'vertical',
+                    left: 'left',
+                    textStyle: {
+                        color: isDark ? '#e5e7eb' : '#374151'
+                    }
+                },
+                series: [
+                    {
+                        name: '處理方式',
+                        type: 'pie',
+                        radius: '50%',
+                        data: [
+                            {value: 72, name: '掩埋場', itemStyle: {color: '#ef4444'}},
+                            {value: 14, name: '焚燒', itemStyle: {color: '#f97316'}},
+                            {value: 9, name: '回收利用', itemStyle: {color: '#22c55e'}},
+                            {value: 5, name: '其他', itemStyle: {color: '#6b7280'}}
+                        ],
+                        emphasis: {
+                            itemStyle: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        },
+                        label: {
+                            show: true,
+                            formatter: '{b}: {c}%',
+                            color: isDark ? '#e5e7eb' : '#374151'
+                        }
+                    }
+                ]
+            };
+            plasticChartInstance.setOption(plasticOption);
+
+            // Packaging Innovation Chart
+            const packagingChart = echarts.getInstanceByDom(document.getElementById('packaging-innovation-chart'));
+            if (packagingChart) {
+                packagingChart.dispose();
+            }
+            
+            const packagingChartInstance = echarts.init(document.getElementById('packaging-innovation-chart'), theme);
+            const packagingOption = {
+                title: {
+                    text: '包裝材料環保特性比較',
+                    textStyle: {
+                        color: isDark ? '#e5e7eb' : '#374151',
+                        fontSize: 14
+                    }
+                },
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data: ['塑膠包裝', '紙質包裝', '海藻包裝'],
+                    textStyle: {
+                        color: isDark ? '#e5e7eb' : '#374151'
+                    }
+                },
+                radar: {
+                    indicator: [
+                        { name: '可降解性', max: 100},
+                        { name: '成本效益', max: 100},
+                        { name: '耐用性', max: 100},
+                        { name: '環保程度', max: 100},
+                        { name: '生產成熟度', max: 100}
+                    ],
+                    axisName: {
+                        color: isDark ? '#e5e7eb' : '#374151'
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            color: isDark ? '#374151' : '#e5e7eb'
+                        }
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: isDark ? '#374151' : '#e5e7eb'
+                        }
+                    }
+                },
+                series: [{
+                    name: '包裝特性',
+                    type: 'radar',
+                    data: [
+                        {
+                            value: [10, 90, 85, 20, 95],
+                            name: '塑膠包裝',
+                            itemStyle: {color: '#ef4444'}
+                        },
+                        {
+                            value: [70, 75, 60, 75, 90],
+                            name: '紙質包裝',
+                            itemStyle: {color: '#f59e0b'}
+                        },
+                        {
+                            value: [95, 40, 70, 95, 30],
+                            name: '海藻包裝',
+                            itemStyle: {color: '#22c55e'}
+                        }
+                    ]
+                }]
+            };
+            packagingChartInstance.setOption(packagingOption);
+
+            // Sustainable Manufacturing Chart
+            const manufacturingChart = echarts.getInstanceByDom(document.getElementById('sustainable-manufacturing-chart'));
+            if (manufacturingChart) {
+                manufacturingChart.dispose();
+            }
+            
+            const manufacturingChartInstance = echarts.init(document.getElementById('sustainable-manufacturing-chart'), theme);
+            const manufacturingOption = {
+                title: {
+                    text: '永續製造業投資成長趨勢',
+                    textStyle: {
+                        color: isDark ? '#e5e7eb' : '#374151',
+                        fontSize: 16
+                    }
+                },
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data: ['投資金額(億美元)', '碳排放減少(%)', '能源效率提升(%)'],
+                    textStyle: {
+                        color: isDark ? '#e5e7eb' : '#374151'
+                    }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: ['2020', '2021', '2022', '2023', '2024', '2025(預測)'],
+                    axisLabel: {
+                        color: isDark ? '#e5e7eb' : '#374151'
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: isDark ? '#374151' : '#e5e7eb'
+                        }
+                    }
+                },
+                yAxis: [
+                    {
+                        type: 'value',
+                        name: '投資金額(億美元)',
+                        position: 'left',
+                        axisLabel: {
+                            color: isDark ? '#e5e7eb' : '#374151'
+                        },
+                        axisLine: {
+                            lineStyle: {
+                                color: isDark ? '#374151' : '#e5e7eb'
+                            }
+                        },
+                        splitLine: {
+                            lineStyle: {
+                                color: isDark ? '#374151' : '#e5e7eb'
+                            }
+                        }
+                    },
+                    {
+                        type: 'value',
+                        name: '改善比例(%)',
+                        position: 'right',
+                        max: 100,
+                        axisLabel: {
+                            color: isDark ? '#e5e7eb' : '#374151'
+                        },
+                        axisLine: {
+                            lineStyle: {
+                                color: isDark ? '#374151' : '#e5e7eb'
+                            }
+                        }
+                    }
+                ],
+                series: [
+                    {
+                        name: '投資金額(億美元)',
+                        type: 'line',
+                        yAxisIndex: 0,
+                        data: [120, 180, 250, 350, 480, 620],
+                        itemStyle: {color: '#2d5016'},
+                        areaStyle: {
+                            color: {
+                                type: 'linear',
+                                x: 0, y: 0, x2: 0, y2: 1,
+                                colorStops: [{
+                                    offset: 0, color: 'rgba(45, 80, 22, 0.3)'
+                                }, {
+                                    offset: 1, color: 'rgba(45, 80, 22, 0.1)'
+                                }]
+                            }
+                        }
+                    },
+                    {
+                        name: '碳排放減少(%)',
+                        type: 'line',
+                        yAxisIndex: 1,
+                        data: [5, 12, 18, 28, 35, 45],
+                        itemStyle: {color: '#22c55e'}
+                    },
+                    {
+                        name: '能源效率提升(%)',
+                        type: 'line',
+                        yAxisIndex: 1,
+                        data: [3, 8, 15, 22, 30, 38],
+                        itemStyle: {color: '#0066cc'}
+                    }
+                ]
+            };
+            manufacturingChartInstance.setOption(manufacturingOption);
+
+            // Make charts responsive
+            window.addEventListener('resize', () => {
+                plasticChartInstance.resize();
+                packagingChartInstance.resize();
+                manufacturingChartInstance.resize();
+            });
+        }
+
+        // Initialize charts when page loads
+        window.addEventListener('load', initCharts);
+    </script>
+</body>
+</html>
