@@ -1,0 +1,1234 @@
+
+<!DOCTYPE html><html lang="zh-TW" class="scroll-smooth dark"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>德國酷兒藝術大展：從邊緣到主流的彩虹革命</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/preline@2.3.0/dist/preline.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&amp;family=Playfair+Display:wght@400;500;700&amp;display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Noto Sans TC', 'system-ui', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif']
+                    },
+                    colors: {
+                        pride: {
+                            red: '#e40303',
+                            orange: '#ff8c00',
+                            yellow: '#ffed00',
+                            green: '#008018',
+                            blue: '#004cff',
+                            purple: '#732982'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .pride-gradient {
+            background: linear-gradient(135deg, #e40303 0%, #ff8c00 16.66%, #ffed00 33.33%, #008018 50%, #004cff 66.66%, #732982 83.33%, #e40303 100%);
+        }
+        
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(228, 3, 3, 0.1) 0%, rgba(255, 140, 0, 0.1) 16.66%, rgba(255, 237, 0, 0.1) 33.33%, rgba(0, 128, 24, 0.1) 50%, rgba(0, 76, 255, 0.1) 66.66%, rgba(115, 41, 130, 0.1) 83.33%, rgba(228, 3, 3, 0.1) 100%);
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .dark .glass-effect {
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .timeline-item {
+            position: relative;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(to bottom, #e40303, #ff8c00, #ffed00, #008018, #004cff, #732982);
+        }
+        
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+<script src="https://felo.ai/js/iframe.js?v=1758899331193"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style><style data-id="immersive-translate-input-injected-css">.immersive-translate-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2147483647;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.immersive-translate-attach-loading::after {
+  content: " ";
+
+  --loading-color: #f78fb6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+  position: relative;
+  color: white;
+  left: -100px;
+  box-sizing: border-box;
+  animation: immersiveTranslateShadowRolling 1.5s linear infinite;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-2000%, -50%);
+  z-index: 100;
+}
+
+.immersive-translate-loading-spinner {
+  vertical-align: middle !important;
+  width: 10px !important;
+  height: 10px !important;
+  display: inline-block !important;
+  margin: 0 4px !important;
+  border: 2px rgba(221, 244, 255, 0.6) solid !important;
+  border-top: 2px rgba(0, 0, 0, 0.375) solid !important;
+  border-left: 2px rgba(0, 0, 0, 0.375) solid !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  -webkit-animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+  animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+}
+
+@-webkit-keyframes immersive-translate-loading-animation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+
+@keyframes immersive-translate-loading-animation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.immersive-translate-input-loading {
+  --loading-color: #f78fb6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+  position: relative;
+  color: white;
+  left: -100px;
+  box-sizing: border-box;
+  animation: immersiveTranslateShadowRolling 1.5s linear infinite;
+}
+
+@keyframes immersiveTranslateShadowRolling {
+  0% {
+    box-shadow: 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  12% {
+    box-shadow: 100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  25% {
+    box-shadow: 110px 0 var(--loading-color), 100px 0 var(--loading-color),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  36% {
+    box-shadow: 120px 0 var(--loading-color), 110px 0 var(--loading-color),
+      100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  50% {
+    box-shadow: 130px 0 var(--loading-color), 120px 0 var(--loading-color),
+      110px 0 var(--loading-color), 100px 0 var(--loading-color);
+  }
+
+  62% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color),
+      120px 0 var(--loading-color), 110px 0 var(--loading-color);
+  }
+
+  75% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      130px 0 var(--loading-color), 120px 0 var(--loading-color);
+  }
+
+  87% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color);
+  }
+
+  100% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0);
+  }
+}
+
+.immersive-translate-toast {
+  display: flex;
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  right: 0;
+  top: 1%;
+  width: fit-content;
+  padding: 12px 20px;
+  margin: auto;
+  overflow: auto;
+  background: #fef6f9;
+  box-shadow: 0px 4px 10px 0px rgba(0, 10, 30, 0.06);
+  font-size: 15px;
+  border-radius: 8px;
+  color: #333;
+}
+
+.immersive-translate-toast-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.immersive-translate-toast-hidden {
+  margin: 0 20px 0 72px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.immersive-translate-toast-close {
+  color: #666666;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-toast {
+    top: 0;
+    padding: 12px 0px 0 10px;
+  }
+  .immersive-translate-toast-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .immersive-translate-toast-hidden {
+    margin: 10px auto;
+  }
+}
+
+.immersive-translate-dialog {
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  top: 0;
+  display: flex;
+  width: 300px;
+  flex-direction: column;
+  align-items: center;
+  font-size: 15px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: fit-content;
+  border-radius: 20px;
+  background-color: #fff;
+}
+
+.immersive-translate-modal {
+  display: none;
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  font-size: 15px;
+}
+
+.immersive-translate-modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 40px 24px 24px;
+  border-radius: 12px;
+  width: 350px;
+  font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",
+    "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-modal-content {
+    margin: 25% auto !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .immersive-translate-modal-content {
+    width: 80vw !important;
+    margin: 20vh auto !important;
+    padding: 20px 12px 12px !important;
+  }
+
+  .immersive-translate-modal-title {
+    font-size: 14px !important;
+  }
+
+  .immersive-translate-modal-body {
+    font-size: 13px !important;
+    max-height: 60vh !important;
+  }
+
+  .immersive-translate-btn {
+    font-size: 13px !important;
+    padding: 8px 16px !important;
+    margin: 0 4px !important;
+  }
+
+  .immersive-translate-modal-footer {
+    gap: 6px !important;
+    margin-top: 16px !important;
+  }
+}
+
+.immersive-translate-modal .immersive-translate-modal-content-in-input {
+  max-width: 500px;
+}
+.immersive-translate-modal-content-in-input .immersive-translate-modal-body {
+  text-align: left;
+  max-height: unset;
+}
+
+.immersive-translate-modal-title {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333333;
+}
+
+.immersive-translate-modal-body {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333333;
+  margin-top: 24px;
+  word-break: break-all;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-modal-body {
+    max-height: 250px;
+    overflow-y: auto;
+  }
+}
+
+.immersive-translate-close {
+  color: #666666;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.immersive-translate-close:hover,
+.immersive-translate-close:focus {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.immersive-translate-modal-footer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.immersive-translate-btn {
+  width: fit-content;
+  color: #fff;
+  background-color: #ea4c89;
+  border: none;
+  font-size: 14px;
+  margin: 0 8px;
+  padding: 9px 30px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.immersive-translate-btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.immersive-translate-btn:hover {
+  background-color: #f082ac;
+}
+.immersive-translate-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.immersive-translate-btn:disabled:hover {
+  background-color: #ea4c89;
+}
+
+.immersive-translate-link-btn {
+  background-color: transparent;
+  color: #ea4c89;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  line-height: 30px;
+}
+
+.immersive-translate-cancel-btn {
+  /* gray color */
+  background-color: rgb(89, 107, 120);
+}
+
+.immersive-translate-cancel-btn:hover {
+  background-color: hsl(205, 20%, 32%);
+}
+
+.immersive-translate-action-btn {
+  background-color: transparent;
+  color: #ea4c89;
+  border: 1px solid #ea4c89;
+}
+
+.immersive-translate-btn svg {
+  margin-right: 5px;
+}
+
+.immersive-translate-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #ea4c89;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+.immersive-translate-primary-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #ea4c89;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+.immersive-translate-modal input[type="radio"] {
+  margin: 0 6px;
+  cursor: pointer;
+}
+
+.immersive-translate-modal label {
+  cursor: pointer;
+}
+
+.immersive-translate-close-action {
+  position: absolute;
+  top: 2px;
+  right: 0px;
+  cursor: pointer;
+}
+
+.imt-image-status {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 16px !important;
+}
+.imt-image-status img,
+.imt-image-status svg,
+.imt-img-loading {
+  width: 28px !important;
+  height: 28px !important;
+  margin: 0 0 8px 0 !important;
+  min-height: 28px !important;
+  min-width: 28px !important;
+  position: relative !important;
+}
+.imt-img-loading {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAtFBMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////oK74hAAAAPHRSTlMABBMIDyQXHwyBfFdDMSw+OjXCb+5RG51IvV/k0rOqlGRM6KKMhdvNyZBz9MaupmxpWyj437iYd/yJVNZeuUC7AAACt0lEQVRIx53T2XKiUBCA4QYOiyCbiAsuuGBcYtxiYtT3f6/pbqoYHVFO5r+iivpo6DpAWYpqeoFfr9f90DsYAuRSWkFnPO50OgR9PwiCUFcl2GEcx+N/YBh6pvKaefHlUgZd1zVe0NbYcQjGBfzrPE8Xz8aF+71D8gG6DHFPpc4a7xFiCDuhaWgKgGIJQ3d5IMGDrpS4S5KgpIm+en9f6PlAhKby4JwEIxlYJV9h5k5nee9GoxHJ2IDSNB0dwdad1NAxDJ/uXDHYmebdk4PdbkS58CIVHdYSUHTYYRWOJblWSyu2lmy3KNFVJNBhxcuGW4YBVCbYGRZwIooipHsNqjM4FbgOQqQqSKQQU9V8xmi1QlgHqQQ6DDBvRUVCDirs+EzGDGOQTCATgtYTnbCVLgsVgRE0T1QE0qHCFAht2z6dLvJQs3Lo2FQoDxWNUiBhaP4eRgwNkI+dAjVOA/kUrIDwf3CG8NfNOE0eiFotSuo+rBiq8tD9oY4Qzc6YJw99hl1wzpQvD7ef2M8QgnOGJfJw+EltQc+oX2yn907QB22WZcvlUpd143dqQu+8pCJZuGE4xCuPXJqqcs5sNpsI93Rmzym1k4Npk+oD1SH3/a3LOK/JpUBpWfqNySxWzCfNCUITuDG5dtuphrUJ1myeIE9bIsPiKrfqTai5WZxbhtNphYx6GEIHihyGFTI69lje/rxajdh0s0msZ0zYxyPLhYCb1CyHm9Qsd2H37Y3lugVwL9kNh8Ot8cha6fUNQ8nuXi5z9/ExsAO4zQrb/ev1yrCB7lGyQzgYDGuxq1toDN/JGvN+HyWNHKB7zEoK+PX11e12G431erGYzwmytAWU56fkMHY5JJnDRR2eZji3AwtIcrEV8Cojat/BdQ7XOwGV1e1hDjGGjXbdArm8uJZtCH5MbcctVX8A1WpqumJHwckAAAAASUVORK5CYII=");
+  background-size: 28px 28px;
+  animation: image-loading-rotate 1s linear infinite !important;
+}
+
+.imt-image-status span {
+  color: var(--bg-2, #fff) !important;
+  font-size: 14px !important;
+  line-height: 14px !important;
+  font-weight: 500 !important;
+  font-family: "PingFang SC", Arial, sans-serif !important;
+}
+
+.imt-primary-button {
+  display: flex;
+  padding: 12px 80px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  background: #ea4c89;
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  border: none;
+  cursor: pointer;
+}
+
+.imt-retry-text {
+  color: #999;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  cursor: pointer;
+}
+
+.imt-action-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.imt-modal-content-text {
+  text-align: left;
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+@keyframes image-loading-rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.imt-linear-gradient-text {
+  background: linear-gradient(90deg, #00a6ff 0%, #c369ff 52.4%, #ff4590 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.imt-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imt-linear-black-btn {
+  border-radius: 50px;
+  background: linear-gradient(66deg, #222 19%, #696969 94.25%);
+  height: 48px;
+  width: 100%;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+}
+</style><style id="felo-iframe-styles">html,body{margin:0 !important;padding:0 !important;}</style></head>
+
+<body class="font-sans bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300" contenteditable="false" spellcheck="false">
+    
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 pride-gradient rounded-full"></div>
+                    <span class="text-xl font-bold">酷兒藝術大展</span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#overview" class="hover:text-pride-purple transition-colors">展覽概覽</a>
+                    <a href="#exhibitions" class="hover:text-pride-blue transition-colors">重要展覽</a>
+                    <a href="#artists" class="hover:text-pride-green transition-colors">藝術家作品</a>
+                    <a href="#history" class="hover:text-pride-yellow transition-colors">歷史淵源</a>
+                    <a href="#impact" class="hover:text-pride-orange transition-colors">文化影響</a>
+                </div>
+                
+                <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i class="fas fa-sun dark:hidden"></i>
+                    <i class="fas fa-moon hidden dark:inline"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section class="min-h-screen flex items-center justify-center hero-bg relative overflow-hidden pt-20">
+        <div class="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent dark:from-black/20"></div>
+        
+        <div class="relative z-10 max-w-6xl mx-auto px-6 text-center">
+            <div class="mb-8">
+                <div class="inline-block p-1 pride-gradient rounded-full mb-6">
+                    <div class="bg-white dark:bg-gray-900 rounded-full px-6 py-2">
+                        <span class="text-sm font-medium">2025 德國文化盛事</span>
+                    </div>
+                </div>
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-serif font-bold mb-6 leading-tight">
+                德國酷兒藝術大展
+                <br>
+                <span class="bg-gradient-to-r from-pride-red via-pride-orange to-pride-purple bg-clip-text text-transparent">
+                    從邊緣到主流的彩虹革命
+                </span>
+            </h1>
+            
+            <p class="text-xl md:text-2xl mb-12 text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                2025年是德國酷兒藝術史上具有劃時代意義的一年。從杜塞爾多夫的「酷兒現代主義1900-1950」到柏林地鐵空間的前衛展演，德國正以前所未有的規模向世界展現酷兒藝術的深度與廣度。
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+                <a href="#exhibitions" class="inline-flex items-center px-8 py-4 pride-gradient text-white font-semibold rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+                    <i class="fas fa-palette mr-3"></i>
+                    探索展覽
+                </a>
+                
+                <a href="#timeline" class="inline-flex items-center px-8 py-4 glass-effect text-gray-900 dark:text-white font-semibold rounded-full hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+                    <i class="fas fa-clock mr-3"></i>
+                    歷史時間軸
+                </a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-2xl text-gray-400"></i>
+        </div>
+    </section>
+
+    <section id="timeline" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-serif font-bold mb-6">德國酷兒藝術發展時間軸</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300">從1984年至今的重要里程碑</p>
+            </div>
+            
+            <div class="mb-12">
+                <img src="https://api.felo.ai/images/s/7GfSNFUKQG" alt="德國酷兒藝術展覽發展時間軸：從1984年至今的重要里程碑" class="w-full h-auto rounded-2xl shadow-2xl mx-auto">
+            </div>
+        </div>
+    </section>
+
+    <section id="exhibitions" class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-serif font-bold mb-6">2025年重要展覽盛況</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">歐洲首個專門探討酷兒藝術家對現代主義貢獻的大型展覽，重新書寫藝術史的重要時刻</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 mb-20">
+                <div class="fade-in">
+                    <div class="bg-gradient-to-br from-pride-red/10 to-pride-orange/10 dark:from-pride-red/20 dark:to-pride-orange/20 rounded-3xl p-8 h-full">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-pride-red rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-museum text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold">杜塞爾多夫</h3>
+                                <p class="text-gray-600 dark:text-gray-300">北萊因-威斯特法倫藝術館（K20）</p>
+                            </div>
+                        </div>
+                        
+                        <h4 class="text-3xl font-serif font-bold mb-4">酷兒現代主義1900-1950</h4>
+                        
+                        <div class="space-y-4 mb-6">
+                            <div class="flex items-center text-gray-700 dark:text-gray-300">
+                                <i class="fas fa-calendar mr-3 text-pride-red"></i>
+                                <span>2025年9月27日 - 2026年2月15日</span>
+                            </div>
+                            <div class="flex items-center text-gray-700 dark:text-gray-300">
+                                <i class="fas fa-palette mr-3 text-pride-orange"></i>
+                                <span>34位國際藝術家，130多件作品</span>
+                            </div>
+                            <div class="flex items-center text-gray-700 dark:text-gray-300">
+                                <i class="fas fa-star mr-3 text-pride-yellow"></i>
+                                <span>歐洲首個酷兒現代主義大展</span>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            歐洲首個專門探討酷兒藝術家對現代主義貢獻的大型展覽，涵蓋繪畫、素描、攝影、雕塑和電影等多種媒介。展覽旨在重新審視酷兒藝術在20世紀上半葉的角色及其歷史意義。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="fade-in">
+                    <div class="bg-gradient-to-br from-pride-blue/10 to-pride-purple/10 dark:from-pride-blue/20 dark:to-pride-purple/20 rounded-3xl p-8 h-full">
+                        <div class="flex items-center mb-6">
+                            <div class="w-12 h-12 bg-pride-blue rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-subway text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold">柏林</h3>
+                                <p class="text-gray-600 dark:text-gray-300">地鐵藝術空間</p>
+                            </div>
+                        </div>
+                        
+                        <h4 class="text-3xl font-serif font-bold mb-4">彎曲、閃爍、幻想——繪製酷兒城市</h4>
+                        
+                        <div class="space-y-4 mb-6">
+                            <div class="flex items-center text-gray-700 dark:text-gray-300">
+                                <i class="fas fa-calendar mr-3 text-pride-blue"></i>
+                                <span>2025年6月28日 - 9月20日</span>
+                            </div>
+                            <div class="flex items-center text-gray-700 dark:text-gray-300">
+                                <i class="fas fa-city mr-3 text-pride-purple"></i>
+                                <span>城市地鐵空間展演</span>
+                            </div>
+                            <div class="flex items-center text-gray-700 dark:text-gray-300">
+                                <i class="fas fa-paintbrush mr-3 text-pride-green"></i>
+                                <span>多媒介藝術形式</span>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            將城市地鐵空間轉化為探索酷兒身份與城市生活關係的前衛舞台，透過裝置、行為藝術和混合媒介等多元形式，深入探索柏林城市中的酷兒歷史、身份認同與未來想像。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="artists" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-serif font-bold mb-6">重要藝術家與代表作品</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300">被歷史邊緣化的酷兒藝術家們，如今重新走向藝術史的中心舞台</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="fade-in bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="h-48 bg-gradient-to-br from-pride-red/20 to-pride-orange/20 flex items-center justify-center">
+                        <i class="fas fa-palette text-6xl text-pride-red"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">洛蒂·拉瑟斯坦</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">Lotte Laserstein</p>
+                        <h4 class="font-semibold mb-2">《我與我的模特》(1929-30)</h4>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                            描繪了她與愛人兼模特特勞特·羅澤的親密關係，展現了女性之間的愛情及身份認同的深刻探索。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="fade-in bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="h-48 bg-gradient-to-br from-pride-blue/20 to-pride-purple/20 flex items-center justify-center">
+                        <i class="fas fa-water text-6xl text-pride-blue"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">路德維希·馮·霍夫曼</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">Ludwig von Hofmann</p>
+                        <h4 class="font-semibold mb-2">《泉源》(1913)</h4>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                            描繪三位美麗裸體男子在泉水邊的情景，曾為知名作家托馬斯·曼所收藏，反映了當時的性別及性取向議題。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="fade-in bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="h-48 bg-gradient-to-br from-pride-green/20 to-pride-yellow/20 flex items-center justify-center">
+                        <i class="fas fa-camera text-6xl text-pride-green"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">克勞德·卡亨</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">Claude Cahun</p>
+                        <h4 class="font-semibold mb-2">自拍攝影系列</h4>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                            透過自拍攝影探索性別身份的流動性，挑戰傳統的性別二元論，被視為當代性別理論的先驅之一。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="fade-in bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="h-48 bg-gradient-to-br from-pride-orange/20 to-pride-red/20 flex items-center justify-center">
+                        <i class="fas fa-cut text-6xl text-pride-orange"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">漢娜·霍赫</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">Hannah Höch</p>
+                        <h4 class="font-semibold mb-2">達達主義拼貼作品</h4>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                            達達主義運動的重要成員，透過拼貼藝術質疑傳統的性別角色，她的作品在柏林畫廊的「出門在外」計畫中被重新檢視。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="fade-in bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="h-48 bg-gradient-to-br from-pride-purple/20 to-pride-blue/20 flex items-center justify-center">
+                        <i class="fas fa-film text-6xl text-pride-purple"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">讓·科克托</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">Jean Cocteau</p>
+                        <h4 class="font-semibold mb-2">詩歌與電影創作</h4>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                            法國詩人、劇作家和電影導演，其作品中充滿了酷兒元素和對性別流動性的探索，影響了整個現代主義運動。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="fade-in bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <div class="h-48 bg-gradient-to-br from-pride-yellow/20 to-pride-green/20 flex items-center justify-center">
+                        <i class="fas fa-body text-6xl text-pride-yellow"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">康斯坦丁·哈滕斯坦</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">Constantin Hartenstein</p>
+                        <h4 class="font-semibold mb-2">當代身體實踐</h4>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                            新一代德國酷兒藝術家，探索身體實踐與酷兒性的交集，質疑酷兒身體日益商品化的問題，反映後數位時代的複雜性。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="history" class="py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-serif font-bold mb-6">德國酷兒藝術的歷史淵源</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300">從世界第一個同志博物館到全球酷兒文化的燈塔</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
+                <div class="fade-in">
+                    <img src="https://api.felo.ai/images/s/22rHKK5Ox6" alt="柏林同志博物館入口，德國酷兒藝術展覽和LGBTQ+文化展示的知名場所" class="w-full h-auto rounded-2xl shadow-2xl">
+                </div>
+                
+                <div class="fade-in">
+                    <div class="inline-block p-1 bg-gradient-to-r from-pride-red to-pride-purple rounded-full mb-6">
+                        <div class="bg-white dark:bg-gray-900 rounded-full px-4 py-2">
+                            <span class="text-sm font-medium">1985年成立</span>
+                        </div>
+                    </div>
+                    
+                    <h3 class="text-3xl font-serif font-bold mb-6">柏林同志博物館</h3>
+                    <h4 class="text-xl font-semibold mb-4 text-pride-purple">世界酷兒文化的燈塔</h4>
+                    
+                    <div class="space-y-4 mb-6">
+                        <div class="flex items-start">
+                            <i class="fas fa-globe text-pride-blue mr-3 mt-1"></i>
+                            <span>世界上第一個專門致力於同志歷史的博物館</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-archive text-pride-green mr-3 mt-1"></i>
+                            <span>全球最大的LGBTQ+歷史檔案資料庫</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-book text-pride-orange mr-3 mt-1"></i>
+                            <span>收藏約兩萬冊同性戀相關書籍</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-building text-pride-red mr-3 mt-1"></i>
+                            <span>位於蒂爾加滕區，佔地1600平方米</span>
+                        </div>
+                    </div>
+                    
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                        博物館的創立源於1984年柏林市立博物館舉辦的成功展覽「黃金國：1850-1950年柏林的同性戀男女」，這是德國首次公開展示同志生活研究的展覽。自成立以來，博物館不僅收藏和保存酷兒文化歷史，更積極推動國際交流與教育。
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 rounded-3xl p-8 mb-16 fade-in">
+                <h3 class="text-2xl font-bold mb-6 text-center">從邊緣到中心：發展軌跡</h3>
+                
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-pride-red rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-clock text-white text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">20世紀初</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">德國曾是全球酷兒文化的先鋒地帶，柏林與巴黎並列為歐洲最具自由風氣的都市</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-gray-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-times text-white text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">納粹時期</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">納粹政權的興起徹底摧毀了繁榮的酷兒社群，許多藝術家被迫流亡或慘遭迫害</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-pride-green rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-heart text-white text-2xl"></i>
+                        </div>
+                        <h4 class="font-bold mb-2">戰後重建</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">從廢除歧視性法條到婚姻平權，德國逐步完善酷兒權益保障，為藝術創作提供自由環境</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="impact" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-serif font-bold mb-6">國際影響與文化外交</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300">德國酷兒文化的全球傳播與軟實力展現</p>
+            </div>
+
+            <div class="mb-16 fade-in">
+                <img src="https://api.felo.ai/images/s/6GLXXVetBF" alt="2022年台北當代藝術館「作為酷兒—德國酷兒發展史」展覽海報，展示德國酷兒文化歷史" class="w-full h-auto rounded-2xl shadow-2xl mx-auto">
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12 mb-16">
+                <div class="fade-in">
+                    <h3 class="text-3xl font-serif font-bold mb-6">「作為酷兒」全球巡展</h3>
+                    <h4 class="text-xl font-semibold mb-4 text-pride-blue">德國文化軟實力的體現</h4>
+                    
+                    <div class="space-y-4 mb-6">
+                        <div class="flex items-start">
+                            <i class="fas fa-globe-americas text-pride-red mr-3 mt-1"></i>
+                            <span>自2019年北美首展，已巡迴全球多個城市</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-hands-helping text-pride-green mr-3 mt-1"></i>
+                            <span>歌德學院、柏林同志博物館、德國聯邦政治教育中心聯合策劃</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-calendar text-pride-purple mr-3 mt-1"></i>
+                            <span>2022年10月在台北當代藝術館重要展出</span>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-users text-pride-orange mr-3 mt-1"></i>
+                            <span>16個主題區域，互動式展覽設計</span>
+                        </div>
+                    </div>
+                    
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                        展覽以非線性敘事方式，呈現德國1960年代以來LGBTQ+運動的多元發展歷程，包括重要人物介紹、解放運動發展、愛滋病防治努力、納粹迫害歷史等重要議題。
+                    </p>
+                </div>
+                
+                <div class="fade-in">
+                    <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg">
+                        <h4 class="text-xl font-bold mb-4">當代德國酷兒藝術生態</h4>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <h5 class="font-semibold mb-2 text-pride-blue">多元化展演空間</h5>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">柏林畫廊推動「出門在外」線上計畫，檢視館藏中的酷兒元素，展示南·戈丁、赫伯特·托比亞斯等藝術家作品。</p>
+                            </div>
+                            
+                            <div>
+                                <h5 class="font-semibold mb-2 text-pride-green">跨國合作交流</h5>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">2023年台灣Homopleasure與柏林Dissident組織合作，在柏林舉辦音樂藝術展覽，展現全球酷兒藝術社群的緊密連結。</p>
+                            </div>
+                            
+                            <div>
+                                <h5 class="font-semibold mb-2 text-pride-purple">未來展覽規劃</h5>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">杜伊斯堡萊姆布魯克博物館將於2025年舉辦「酷兒生態」展覽，聚焦藝術家米卡·羅滕貝格的最新作品。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-pride-red/10 via-pride-orange/10 to-pride-purple/10 dark:from-pride-red/20 dark:via-pride-orange/20 dark:to-pride-purple/20 rounded-3xl p-8 fade-in">
+                <h3 class="text-2xl font-bold mb-6 text-center">理論建構與學術研究</h3>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-bold mb-3 text-pride-red">酷兒藝術史的重新書寫</h4>
+                        <p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                            策展人甘斯海默指出：「我們致力於持續關注現代主義的新視角，介紹尚不知名的藝術家，呈現在經典現代主義敘事中不曾出現的趨勢和風格。」
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold mb-3 text-pride-purple">抵抗與韌性的歷史見證</h4>
+                        <p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                            展覽特別重視對歷史創傷與抵抗精神的呈現，設有專門章節探討1933年納粹上台後的酷兒抵抗運動，展現藝術家面對政治迫害時的不同選擇。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-serif font-bold mb-6">展望未來：持續的文化革命</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300">制度化與大眾化並進，全球影響力持續擴大</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <h3 class="text-2xl font-bold mb-6">制度化與大眾化的雙重進程</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-pride-blue rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-university text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">主流藝術機構</h4>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm">國家級美術館開始積極納入酷兒藝術內容，顯示酷兒文化逐步進入主流藝術體系</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-pride-green rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-users text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">社區型藝術空間</h4>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm">獨立組織持續推動草根層面的酷兒文化活動，保持運動的批判精神與創新活力</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-pride-purple rounded-full flex items-center justify-center mr-4 mt-1">
+                                <i class="fas fa-graduation-cap text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">學術化發展</h4>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm">「同志歷史、酷兒歷史可以用博物館的等級、用學術的角度來做展演」</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="fade-in">
+                    <div class="bg-gradient-to-br from-pride-red/10 to-pride-purple/10 dark:from-pride-red/20 dark:to-pride-purple/20 rounded-3xl p-8">
+                        <h3 class="text-2xl font-bold mb-6">全球影響與在地實踐</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="bg-white/50 dark:bg-gray-800/50 rounded-xl p-4">
+                                <h4 class="font-semibold mb-2 text-pride-blue">國際交流方式</h4>
+                                <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-1">
+                                    <li>• 國際巡展推廣</li>
+                                    <li>• 學術交流合作</li>
+                                    <li>• 藝術家駐村計畫</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-white/50 dark:bg-gray-800/50 rounded-xl p-4">
+                                <h4 class="font-semibold mb-2 text-pride-green">文化革命意義</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">
+                                    超越藝術本身，代表著一個更包容、更多元的社會願景，宣告「每一種愛都值得被看見，每一個生命都值得被尊重」
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 dark:bg-black text-white py-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-8">
+                <div class="flex items-center justify-center space-x-2 mb-4">
+                    <div class="w-8 h-8 pride-gradient rounded-full"></div>
+                    <span class="text-xl font-bold">德國酷兒藝術大展</span>
+                </div>
+                <p class="text-gray-400 mb-6">從邊緣到主流的彩虹革命</p>
+                
+                <div class="w-full h-px pride-gradient mb-6"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 text-center md:text-left">
+                <div>
+                    <h4 class="font-semibold mb-3">重要展覽</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li>酷兒現代主義1900-1950</li>
+                        <li>彎曲、閃爍、幻想</li>
+                        <li>作為酷兒全球巡展</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-3">重要機構</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li>柏林同志博物館</li>
+                        <li>北萊因-威斯特法倫藝術館</li>
+                        <li>柏林新造形藝術協會</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-semibold mb-3">文化意義</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li>重新書寫藝術史</li>
+                        <li>促進多元包容</li>
+                        <li>推動社會變革</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8 pt-8 border-t border-gray-800">
+                <p class="text-sm text-gray-400 mb-2">免責申明：基於公開資料，僅供參考，不構成建議</p>
+                <p class="text-sm text-gray-400 mb-2">資料來源：網頁公開資訊</p>
+                <p class="text-sm text-gray-500">版權所有 © 2025 Dunk</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 深色/浅色模式切换
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        // 检查本地存储或系统偏好
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+            html.classList.add('dark');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // 滚动动画
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // 导航栏滚动效果
+        let lastScrollTop = 0;
+        const nav = document.querySelector('nav');
+        
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                nav.style.transform = 'translateY(-100%)';
+            } else {
+                nav.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollTop = scrollTop;
+        });
+    </script>
+
+</body></html>
