@@ -1,0 +1,1345 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>銀行業氣候變遷壓力測試：進階框架、實務作法與資本量化模型分析</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/preline@2.3.0/dist/preline.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #2d5016;
+            --primary-dark: #1a4d3a;
+            --bg-light: #ffffff;
+            --bg-light-alt: #f8f9fa;
+            --text-dark: #333333;
+            --link-color: #0066cc;
+            --link-dark: #1e3a8a;
+            --accent-light: #e8f5e8;
+            --accent-orange: #ff6b35;
+        }
+        
+        body {
+            font-family: 'Noto Sans TC', 'Inter', sans-serif;
+        }
+        
+        .esg-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+        }
+        
+        .esg-footer {
+            background-color: var(--primary-dark);
+            color: white;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary-color), var(--link-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .dark .card-hover:hover {
+            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
+        }
+        
+        .section-divider {
+            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+            height: 1px;
+            margin: 4rem 0;
+        }
+        
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .mermaid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 400px;
+        }
+    </style>
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'esg-primary': '#2d5016',
+                        'esg-dark': '#1a4d3a',
+                        'esg-accent': '#e8f5e8',
+                        'esg-orange': '#ff6b35'
+                    }
+                }
+            }
+        }
+    </script>
+<script src="https://felo.ai/js/iframe.js?v=1759110432358"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style></head>
+
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-effect">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-8">
+                    <a href="#" class="text-xl font-bold gradient-text">ESG永續金融報告</a>
+                    <div class="hidden md:flex space-x-6">
+                        <a href="#introduction" class="hover:text-esg-primary transition-colors">引言</a>
+                        <a href="#framework" class="hover:text-esg-primary transition-colors">基礎框架</a>
+                        <a href="#international" class="hover:text-esg-primary transition-colors">國際實務</a>
+                        <a href="#bis-model" class="hover:text-esg-primary transition-colors">BIS模型</a>
+                        <a href="#taiwan-strategy" class="hover:text-esg-primary transition-colors">台灣策略</a>
+                    </div>
+                </div>
+                <button id="theme-toggle" class="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+                    <i class="fas fa-sun dark:hidden"></i>
+                    <i class="fas fa-moon hidden dark:block"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="esg-header min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <svg viewBox="0 0 1200 800" class="w-full h-full">
+                <defs>
+                    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+                        <path d="M 50 0 L 0 0 0 50" fill="none" stroke="currentColor" stroke-width="1"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)"/>
+            </svg>
+        </div>
+        
+        <div class="container mx-auto px-6 text-center relative z-10">
+            <div class="animate-fade-in">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                    銀行業氣候變遷壓力測試
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 opacity-90 max-w-4xl mx-auto">
+                    進階框架、實務作法與資本量化模型分析
+                </p>
+                <div class="text-lg md:text-xl mb-12 opacity-80 max-w-5xl mx-auto">
+                    <p class="mb-4">從風險識別到策略轉型，引領台灣金融業邁向永續未來</p>
+                    <div class="flex flex-wrap justify-center gap-6 mt-8">
+                        <div class="bg-white/20 rounded-lg px-6 py-3">
+                            <i class="fas fa-chart-line mr-2"></i>
+                            國際監理框架分析
+                        </div>
+                        <div class="bg-white/20 rounded-lg px-6 py-3">
+                            <i class="fas fa-globe mr-2"></i>
+                            NGFS、BIS模型剖析
+                        </div>
+                        <div class="bg-white/20 rounded-lg px-6 py-3">
+                            <i class="fas fa-leaf mr-2"></i>
+                            永續轉型策略建議
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-0 left-0 right-0">
+            <svg viewBox="0 0 1200 120" class="w-full h-20">
+                <path d="M0,96L48,80C96,64,192,32,288,16C384,0,480,0,576,5.3C672,11,768,21,864,42.7C960,64,1056,96,1152,96C1248,96,1344,64,1392,48L1440,32L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z" 
+                      fill="white" class="dark:fill-gray-900"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Key Insights -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="text-center card-hover bg-white dark:bg-gray-700 rounded-2xl p-8 shadow-lg">
+                    <div class="w-16 h-16 bg-esg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-exclamation-triangle text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">全球金融監理新典範</h3>
+                    <p class="text-gray-600 dark:text-gray-300">NGFS與BCBS積極推動氣候壓力測試納入監管框架，從環境議題升級為金融穩定核心風險因子</p>
+                </div>
+                
+                <div class="text-center card-hover bg-white dark:bg-gray-700 rounded-2xl p-8 shadow-lg">
+                    <div class="w-16 h-16 bg-esg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-calculator text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">BIS資本量化突破</h3>
+                    <p class="text-gray-600 dark:text-gray-300">首次提出將實體風險納入巴塞爾IRB框架的量化模型，為氣候風險資本計提提供可行路徑</p>
+                </div>
+                
+                <div class="text-center card-hover bg-white dark:bg-gray-700 rounded-2xl p-8 shadow-lg">
+                    <div class="w-16 h-16 bg-esg-primary rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-seedling text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">轉型金融新商機</h3>
+                    <p class="text-gray-600 dark:text-gray-300">從風險規避轉向積極布局，協助實體經濟淨零轉型過程中發掘龐大永續發展機會</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Data Dashboard -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-6 gradient-text">全球永續金融市場現況</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    全球永續金融市場正經歷前所未有的快速成長，2024年市場規模已達5.87兆美元
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 mb-16">
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl">
+                    <h3 class="text-2xl font-bold mb-6 text-center">永續金融市場成長趨勢</h3>
+                    <div id="marketGrowthChart" class="h-80"></div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl">
+                    <h3 class="text-2xl font-bold mb-6 text-center">氣候金融投資需求</h3>
+                    <div id="investmentNeedChart" class="h-80"></div>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="bg-gradient-to-br from-esg-primary to-esg-dark text-white rounded-2xl p-6 text-center">
+                    <div class="text-3xl font-bold">21.7%</div>
+                    <div class="text-sm opacity-90">年複合成長率</div>
+                </div>
+                <div class="bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-2xl p-6 text-center">
+                    <div class="text-3xl font-bold">$38.19T</div>
+                    <div class="text-sm opacity-90">2034年預計市值</div>
+                </div>
+                <div class="bg-gradient-to-br from-green-600 to-green-800 text-white rounded-2xl p-6 text-center">
+                    <div class="text-3xl font-bold">$4.5T</div>
+                    <div class="text-sm opacity-90">年度投資需求</div>
+                </div>
+                <div class="bg-gradient-to-br from-orange-600 to-red-600 text-white rounded-2xl p-6 text-center">
+                    <div class="text-3xl font-bold">2025</div>
+                    <div class="text-sm opacity-90">台灣IFRS S1/S2</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Section -->
+    <section id="introduction" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl font-bold mb-8 gradient-text">引言：氣候風險納入金融監理之新典範</h2>
+                
+                <div class="bg-white dark:bg-gray-700 rounded-2xl p-8 shadow-xl mb-12">
+                    <p class="text-lg leading-relaxed mb-6">
+                        氣候變遷已從單純的環境議題，演變為直接影響全球金融穩定的核心風險因子。國際監理機構，如綠色金融體系網路 (NGFS) 與巴塞爾銀行監理委員會 (BCBS)，正積極推動將氣候變遷壓力測試納入其監管框架，引領全球金融監理進入一個嶄新的典範。
+                    </p>
+                    
+                    <div class="grid md:grid-cols-2 gap-8 mt-12">
+                        <div>
+                            <h4 class="text-xl font-bold mb-4 text-esg-primary">報告目標</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-esg-primary mt-1 mr-3"></i>
+                                    <span>深入剖析現行氣候壓力測試基礎框架</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-esg-primary mt-1 mr-3"></i>
+                                    <span>比較國際領先進階實務作法</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-esg-primary mt-1 mr-3"></i>
+                                    <span>探討BIS實體風險資本量化模型</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-esg-primary mt-1 mr-3"></i>
+                                    <span>提供台灣銀行業策略意涵分析</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-xl font-bold mb-4 text-esg-primary">目標讀者</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-user-tie text-esg-primary mt-1 mr-3"></i>
+                                    <span>企業決策者</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-leaf text-esg-primary mt-1 mr-3"></i>
+                                    <span>環保人士</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-graduation-cap text-esg-primary mt-1 mr-3"></i>
+                                    <span>學術界專家</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-users text-esg-primary mt-1 mr-3"></i>
+                                    <span>一般大眾</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Framework Analysis -->
+    <section id="framework" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl font-bold mb-8 gradient-text text-center">第一部分：氣候變遷壓力測試之基礎框架</h2>
+                
+                <!-- Traditional vs Climate Stress Testing -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl mb-12">
+                    <h3 class="text-2xl font-bold mb-6">1.1 傳統壓力測試與氣候壓力測試之比較分析</h3>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead class="bg-esg-accent dark:bg-gray-700">
+                                <tr>
+                                    <th class="px-4 py-3 text-left font-semibold">比較項目</th>
+                                    <th class="px-4 py-3 text-left font-semibold">傳統壓力測試</th>
+                                    <th class="px-4 py-3 text-left font-semibold">氣候壓力測試</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 dark:divide-gray-600">
+                                <tr>
+                                    <td class="px-4 py-3 font-medium">執行目的</td>
+                                    <td class="px-4 py-3">評估銀行在經濟大蕭條下資本適足性，確保合規</td>
+                                    <td class="px-4 py-3">提高氣候風險認知與管理能力，識別潛在風險</td>
+                                </tr>
+                                <tr class="bg-gray-50 dark:bg-gray-700">
+                                    <td class="px-4 py-3 font-medium">危害因子</td>
+                                    <td class="px-4 py-3">經濟蕭條導致的總體經濟因子劇變</td>
+                                    <td class="px-4 py-3">氣候變遷造成的轉型衝擊與實體衝擊</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 font-medium">評估期距</td>
+                                    <td class="px-4 py-3">著重未來一年的短期衝擊</td>
+                                    <td class="px-4 py-3">長期評估，以五年為期距至2050年</td>
+                                </tr>
+                                <tr class="bg-gray-50 dark:bg-gray-700">
+                                    <td class="px-4 py-3 font-medium">數據挑戰</td>
+                                    <td class="px-4 py-3">依賴相對充足的歷史數據校準</td>
+                                    <td class="px-4 py-3">嚴重缺乏歷史數據，不確定性高</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Methodology Comparison -->
+                <div class="grid lg:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl">
+                        <h4 class="text-xl font-bold mb-6 text-esg-primary">1.2 執行方法論比較</h4>
+                        
+                        <div class="space-y-6">
+                            <div class="border-l-4 border-blue-500 pl-6">
+                                <h5 class="font-bold text-lg mb-2">由上而下 (Top-down)</h5>
+                                <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                                    <li>• 監管機構主導</li>
+                                    <li>• 統一框架與模型</li>
+                                    <li>• 結果可比較性高</li>
+                                    <li>• 資源需求較低</li>
+                                </ul>
+                                <div class="mt-3 text-sm bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg">
+                                    <strong>國際案例：</strong>歐洲央行 (ECB) 經濟範圍內氣候壓力測試
+                                </div>
+                            </div>
+                            
+                            <div class="border-l-4 border-green-500 pl-6">
+                                <h5 class="font-bold text-lg mb-2">由下而上 (Bottom-up)</h5>
+                                <ul class="space-y-2 text-gray-600 dark:text-gray-300">
+                                    <li>• 金融機構自主執行</li>
+                                    <li>• 內部框架與模型</li>
+                                    <li>• 反映個別機構特性</li>
+                                    <li>• 資源密集型</li>
+                                </ul>
+                                <div class="mt-3 text-sm bg-green-50 dark:bg-green-900/20 p-3 rounded-lg">
+                                    <strong>國際案例：</strong>法國ACPR氣候壓力測試試行專案
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl">
+                        <h4 class="text-xl font-bold mb-6 text-esg-primary">1.3 風險傳導路徑</h4>
+                        
+                        <div class="mermaid">
+                            flowchart TD
+                                A["氣候風險"] --> B["轉型風險"]
+                                A --> C["實體風險"]
+                                B --> D["政策變化"]
+                                B --> E["科技革新"]
+                                B --> F["市場偏好"]
+                                C --> G["慢性風險"]
+                                C --> H["劇烈風險"]
+                                D --> I["個體經濟傳導"]
+                                E --> I
+                                F --> I
+                                G --> I
+                                H --> I
+                                I --> J["財富效應"]
+                                I --> K["收入效應"]
+                                J --> L["金融風險"]
+                                K --> L
+                                L --> M["信用風險"]
+                                L --> N["市場風險"]
+                                L --> O["作業風險"]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- International Framework -->
+    <section id="international" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl font-bold mb-8 gradient-text text-center">第二部分：國際情境框架與進階實務解析</h2>
+                
+                <!-- Scenario Frameworks -->
+                <div class="bg-white dark:bg-gray-700 rounded-2xl p-8 shadow-xl mb-12">
+                    <h3 class="text-2xl font-bold mb-6">2.1 主流情境設定：IPCC、NGFS 與 IEA 框架比較</h3>
+                    
+                    <div class="mb-8">
+                        <img src="https://api.felo.ai/images/s/kpeMIbInhN" alt="氣候壓力測試框架圖" class="w-full rounded-lg shadow-lg">
+                    </div>
+                    
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead class="bg-esg-accent dark:bg-gray-600">
+                                <tr>
+                                    <th class="px-4 py-3 text-left font-semibold">國際聯盟</th>
+                                    <th class="px-4 py-3 text-left font-semibold">目標情境 (達成巴黎協議)</th>
+                                    <th class="px-4 py-3 text-left font-semibold">參考情境</th>
+                                    <th class="px-4 py-3 text-left font-semibold">基準情境</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200 dark:divide-gray-500">
+                                <tr>
+                                    <td class="px-4 py-3 font-medium">IPCC</td>
+                                    <td class="px-4 py-3">RCP 2.6: 可能超過1.5°C，但不超過2°C</td>
+                                    <td class="px-4 py-3">RCP 4.5: 不超過3°C<br>RCP 6.0: 不超過4°C</td>
+                                    <td class="px-4 py-3">RCP 8.5: 可能超過4°C</td>
+                                </tr>
+                                <tr class="bg-gray-50 dark:bg-gray-600">
+                                    <td class="px-4 py-3 font-medium">NGFS</td>
+                                    <td class="px-4 py-3">Orderly: 約1.5°C</td>
+                                    <td class="px-4 py-3">Disorderly: 低於2°C</td>
+                                    <td class="px-4 py-3">Hot house world: 3°C以上</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-4 py-3 font-medium">IEA (BCBS)</td>
+                                    <td class="px-4 py-3">SDS: 遠低於2°C (約1.5°C)</td>
+                                    <td class="px-4 py-3">STEPS: 約2.7°C</td>
+                                    <td class="px-4 py-3">CPS: 2040年前升溫遠超過2°C</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Advanced Methodologies -->
+                <div class="grid lg:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-white dark:bg-gray-700 rounded-2xl p-8 shadow-xl">
+                        <h4 class="text-xl font-bold mb-6 text-esg-primary">2.2 法國ACPR進階作法</h4>
+                        
+                        <div class="space-y-6">
+                            <div class="border-l-4 border-blue-500 pl-6">
+                                <h5 class="font-bold mb-2">動態資產負債表</h5>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm">
+                                    允許銀行在2025年後根據氣候情境動態調整資產負債表，體現長期管理決策與策略調整。
+                                </p>
+                            </div>
+                            
+                            <div class="border-l-4 border-green-500 pl-6">
+                                <h5 class="font-bold mb-2">信用風險年成本</h5>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm">
+                                    計算方式：時間區間內年總撥備 ÷ 時間區間內平均暴險，提供標準化衡量基準。
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <img src="https://api.felo.ai/images/s/ljarh2L4pX" alt="氣候風險財務衝擊圖" class="w-full rounded-lg shadow-lg">
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-700 rounded-2xl p-8 shadow-xl">
+                        <h4 class="text-xl font-bold mb-6 text-esg-primary">2.3 歐洲央行方法論</h4>
+                        
+                        <div class="space-y-6">
+                            <div class="border-l-4 border-purple-500 pl-6">
+                                <h5 class="font-bold mb-2">情境深化處理</h5>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm">
+                                    將NGFS宏觀情境透過NiGEM模型轉換為細緻的財務衝擊因子，如產業產值變化、股價衝擊等。
+                                </p>
+                            </div>
+                            
+                            <div class="border-l-4 border-orange-500 pl-6">
+                                <h5 class="font-bold mb-2">多元信用風險評估</h5>
+                                <ul class="text-gray-600 dark:text-gray-300 text-sm space-y-1">
+                                    <li>• 總經因子直接連結</li>
+                                    <li>• 企業財務資訊分析</li>
+                                    <li>• 個體經濟傳導路徑</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <img src="https://api.felo.ai/images/s/3XbmCHFkGG" alt="綠色金融市場成長圖" class="w-full rounded-lg shadow-lg">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Short-term vs Long-term Scenarios -->
+                <div class="bg-white dark:bg-gray-700 rounded-2xl p-8 shadow-xl">
+                    <h4 class="text-xl font-bold mb-6 text-esg-primary">2.4 短期事件型情境分析趨勢</h4>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h5 class="font-bold text-lg mb-4">長期情境 vs 短期情境</h5>
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-sm">
+                                    <thead class="bg-gray-100 dark:bg-gray-600">
+                                        <tr>
+                                            <th class="px-3 py-2 text-left">維度</th>
+                                            <th class="px-3 py-2 text-left">長期</th>
+                                            <th class="px-3 py-2 text-left">短期</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-xs">
+                                        <tr>
+                                            <td class="px-3 py-2 font-medium">時間尺度</td>
+                                            <td class="px-3 py-2">至2050年</td>
+                                            <td class="px-3 py-2">1-3年</td>
+                                        </tr>
+                                        <tr class="bg-gray-50 dark:bg-gray-600">
+                                            <td class="px-3 py-2 font-medium">評估主軸</td>
+                                            <td class="px-3 py-2">整體平均影響</td>
+                                            <td class="px-3 py-2">瞬間衝擊</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="px-3 py-2 font-medium">結果意涵</td>
+                                            <td class="px-3 py-2">平均預期損失</td>
+                                            <td class="px-3 py-2">確定性損失</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h5 class="font-bold text-lg mb-4">國際短期情境案例</h5>
+                            <div class="space-y-4">
+                                <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                                    <h6 class="font-semibold text-blue-800 dark:text-blue-300">歐洲ECB</h6>
+                                    <ul class="text-sm text-blue-700 dark:text-blue-400 mt-2 space-y-1">
+                                        <li>• 乾旱/熱浪事件</li>
+                                        <li>• 淹水事件</li>
+                                        <li>• 碳定價急遽上升</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                                    <h6 class="font-semibold text-green-800 dark:text-green-300">法國ACPR</h6>
+                                    <p class="text-sm text-green-700 dark:text-green-400 mt-2">
+                                        五年間連串氣候事件（乾旱→洪水→急遽轉型）
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BIS Model Analysis -->
+    <section id="bis-model" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl font-bold mb-8 gradient-text text-center">第三部分：實體風險資本量化：BIS模型深度剖析</h2>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl mb-12">
+                    <h3 class="text-2xl font-bold mb-6">3.1 現行IRB框架於氣候風險評估之侷限性</h3>
+                    
+                    <div class="grid lg:grid-cols-2 gap-8">
+                        <div>
+                            <p class="text-lg leading-relaxed mb-6">
+                                巴塞爾協議的漸進單一風險因子模型(ASRF)在處理氣候風險時面臨顯著挑戰，無法充分捕捉氣候事件的獨特系統性特徵。
+                            </p>
+                            
+                            <div class="bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 p-6 rounded-lg">
+                                <h4 class="font-bold text-red-800 dark:text-red-300 mb-3">核心侷限性</h4>
+                                <p class="text-red-700 dark:text-red-400 text-sm">
+                                    直接調整PD和LGD僅改變個別暴險的平均信用風險預期，但忽略了氣候事件本身就是一個獨立的、新增的「系統性風險因子」，無法反映結構性風險變化。
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div id="riskFactorChart" class="h-80"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BIS Model Innovation -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl mb-12">
+                    <h3 class="text-2xl font-bold mb-6">3.2 BIS模型方法論：引入獨立氣候系統性風險因子</h3>
+                    
+                    <div class="grid lg:grid-cols-3 gap-8">
+                        <div class="lg:col-span-2">
+                            <div class="mermaid mb-8">
+                                flowchart TD
+                                    A["現行ASRF模型"] --> B["經濟系統性因子"]
+                                    C["BIS創新模型"] --> B
+                                    C --> D["氣候實體風險系統性因子"]
+                                    B --> E["條件違約率Cv₀(Q)"]
+                                    D --> F["氣候調整條件違約率Cv(Q)"]
+                                    E --> G["基準資本計提率K₀"]
+                                    F --> H["氣候調整資本計提率K"]
+                                    G --> I["資本需求比較"]
+                                    H --> I
+                            </div>
+                            
+                            <div class="space-y-6">
+                                <div class="border-l-4 border-blue-500 pl-6">
+                                    <h4 class="font-bold text-lg mb-2">核心外生參數</h4>
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                                            <h5 class="font-semibold text-blue-800 dark:text-blue-300">q (氣候事件發生機率)</h5>
+                                            <p class="text-sm text-blue-700 dark:text-blue-400 mt-2">
+                                                超過正常閾值的極端氣候事件發生機率，由監理單位統一設定
+                                            </p>
+                                        </div>
+                                        <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                                            <h5 class="font-semibold text-green-800 dark:text-green-300">α (資產價值下跳幅度)</h5>
+                                            <p class="text-sm text-green-700 dark:text-green-400 mt-2">
+                                                氣候事件對交易對手資產價值造成的系統性衝擊參數
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <h4 class="font-bold text-lg mb-4 text-esg-primary">模型優勢</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-shield-alt text-esg-primary mt-1 mr-3"></i>
+                                    <span class="text-sm">保留IRB框架完整性</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-chart-line text-esg-primary mt-1 mr-3"></i>
+                                    <span class="text-sm">捕捉氣候風險獨特屬性</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-balance-scale text-esg-primary mt-1 mr-3"></i>
+                                    <span class="text-sm">量化系統性尾部風險</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-cogs text-esg-primary mt-1 mr-3"></i>
+                                    <span class="text-sm">監理實務可行性高</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl">
+                    <h3 class="text-2xl font-bold mb-6">3.3 模型應用解析：資本適足率量化影響案例</h3>
+                    
+                    <div class="grid lg:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="font-bold text-lg mb-4">商用不動產抵押貸款案例</h4>
+                            
+                            <div class="space-y-4">
+                                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                                    <h5 class="font-semibold mb-2">基準情境參數</h5>
+                                    <ul class="text-sm space-y-1">
+                                        <li>• 基準違約率 (PD₀): 0.30%</li>
+                                        <li>• 基準違約損失率 (LGD₀): 10%</li>
+                                        <li>• 資產相關係數 (ρ): 0.223</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                                    <h5 class="font-semibold mb-2">氣候相關參數</h5>
+                                    <ul class="text-sm space-y-1">
+                                        <li>• 氣候事件發生機率 (q): 4.8%</li>
+                                        <li>• 氣候壓力後違約率 (PD): 0.39%</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="bg-esg-accent dark:bg-esg-primary/20 p-4 rounded-lg">
+                                    <h5 class="font-semibold mb-2">計算結果</h5>
+                                    <ul class="text-sm space-y-1">
+                                        <li>• 基準條件違約率 (Cv₀): 7.25%</li>
+                                        <li>• 氣候調整條件違約率 (Cv): 7.79%</li>
+                                        <li>• 基準資本計提率 (K₀): 0.695%</li>
+                                        <li>• 氣候調整資本計提率 (K): 0.740%</li>
+                                        <li class="font-bold text-esg-primary">• 資本需求增加: 6.5%</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div id="capitalImpactChart" class="h-80 mb-6"></div>
+                            
+                            <div class="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-500 p-4 rounded-lg">
+                                <h5 class="font-semibold text-yellow-800 dark:text-yellow-300 mb-2">關鍵洞察</h5>
+                                <p class="text-sm text-yellow-700 dark:text-yellow-400">
+                                    即使平均違約率增幅看似不大，但透過BIS模型考慮系統性衝擊後，對非預期損失與資本需求的影響相當顯著。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Taiwan Strategy -->
+    <section id="taiwan-strategy" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl font-bold mb-8 gradient-text text-center">第四部分：對臺灣銀行業之策略意涵與實務建議</h2>
+                
+                <!-- KPIs and KRIs Integration -->
+                <div class="grid lg:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-white dark:bg-gray-700 rounded-2xl p-8 shadow-xl">
+                        <h3 class="text-2xl font-bold mb-6 text-esg-primary">4.1 整合情境分析結果於風險管理指標</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="border-l-4 border-blue-500 pl-6">
+                                <h4 class="font-bold text-lg mb-3">關鍵績效指標 (KPIs)</h4>
+                                <ul class="space-y-2 text-sm">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-leaf text-green-500 mt-1 mr-3"></i>
+                                        <span>資產的排放強度/排放量追蹤</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-coins text-green-500 mt-1 mr-3"></i>
+                                        <span>綠色產品數量與金額</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-arrow-up text-green-500 mt-1 mr-3"></i>
+                                        <span>能源等級進步標的數量</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="border-l-4 border-red-500 pl-6">
+                                <h4 class="font-bold text-lg mb-3">關鍵風險指標 (KRIs)</h4>
+                                <ul class="space-y-2 text-sm">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-exclamation-triangle text-red-500 mt-1 mr-3"></i>
+                                        <span>高風險地區/產業投資組合上限</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-industry text-red-500 mt-1 mr-3"></i>
+                                        <span>高排放企業部位上限</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-seedling text-red-500 mt-1 mr-3"></i>
+                                        <span>低排放部位下限設定</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-700 rounded-2xl p-8 shadow-xl">
+                        <h4 class="text-xl font-bold mb-6 text-esg-primary">4.2 超越風險管理：邁向淨零轉型金融</h4>
+                        
+                        <div class="mb-6">
+                            <img src="https://api.felo.ai/images/s/6VLcmLp4dy" alt="轉型金融潛力圖" class="w-full rounded-lg shadow-lg">
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                                <h5 class="font-semibold text-blue-800 dark:text-blue-300 mb-2">投融資減排 → 減排投融資</h5>
+                                <p class="text-sm text-blue-700 dark:text-blue-400">
+                                    從被動降低投資組合碳排放，轉向主動為實體經濟減碳活動提供融資
+                                </p>
+                            </div>
+                            
+                            <div class="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg">
+                                <h5 class="font-semibold text-green-800 dark:text-green-300 mb-2">預期排放減少量 (EER)</h5>
+                                <p class="text-sm text-green-700 dark:text-green-400">
+                                    量化投融資活動未來為實體經濟帶來的實質減碳貢獻
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Taiwan ESG Regulations -->
+                <div class="bg-white dark:bg-gray-700 rounded-2xl p-8 shadow-xl mb-12">
+                    <h3 class="text-2xl font-bold mb-6">台灣ESG法規發展現況</h3>
+                    
+                    <div class="grid lg:grid-cols-3 gap-8">
+                        <div>
+                            <div class="text-center p-6 bg-esg-accent dark:bg-esg-primary/20 rounded-xl">
+                                <div class="text-3xl font-bold text-esg-primary mb-2">2025</div>
+                                <div class="text-sm">全面採用IFRS S1和S2</div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="text-center p-6 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
+                                <div class="text-3xl font-bold text-blue-600 mb-2">2023</div>
+                                <div class="text-sm">銀行業TCFD揭露要求</div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="text-center p-6 bg-green-50 dark:bg-green-900/20 rounded-xl">
+                                <div class="text-3xl font-bold text-green-600 mb-2">持續</div>
+                                <div class="text-sm">ESG指數與永續金融發展</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-bold text-lg mb-4">台灣綠色金融發展重點</h4>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                    <span class="text-sm">擴大綠色債券發行規模</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                    <span class="text-sm">強化氣候風險揭露要求</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                    <span class="text-sm">推動永續分類標準</span>
+                                </li>
+                            </ul>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                    <span class="text-sm">建立轉型金融框架</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                    <span class="text-sm">完善ESG資訊平台</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                    <span class="text-sm">促進國際合作交流</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusion -->
+    <section class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl font-bold mb-8 gradient-text text-center">結論：從風險識別到策略轉型之演進</h2>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-xl mb-12">
+                    <p class="text-lg leading-relaxed mb-8">
+                        本報告系統性地剖析了銀行業氣候變遷壓力測試的演進軌跡。我們可以看到，它已從初期作為提升風險意識與識別數據缺口的探索性工具，逐步發展為能夠與傳統資本計提框架結合的精密量化模型，並最終成為驅動銀行整體業務策略轉型的核心要素。
+                    </p>
+                    
+                    <h3 class="text-2xl font-bold mb-6 text-esg-primary">三項核心策略建議</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="border-l-4 border-blue-500 pl-6">
+                            <h4 class="font-bold text-lg mb-2">1. 建議持續深化風險分析方法論</h4>
+                            <p class="text-gray-600 dark:text-gray-300">
+                                國際監理趨勢正從長期、總體經濟框架向短期、事件型、更細緻的個體經濟衝擊分析演進。建議國內銀行建立專責團隊，持續深化風險量化能力。
+                            </p>
+                        </div>
+                        
+                        <div class="border-l-4 border-green-500 pl-6">
+                            <h4 class="font-bold text-lg mb-2">2. 建議進行資本量化的前瞻準備</h4>
+                            <p class="text-gray-600 dark:text-gray-300">
+                                BIS模型揭示了將氣候風險納入巴塞爾資本框架的可行路徑。建議國內銀行應及早研究其對自身資本規劃的潛在影響，做好前瞻性準備。
+                            </p>
+                        </div>
+                        
+                        <div class="border-l-4 border-orange-500 pl-6">
+                            <h4 class="font-bold text-lg mb-2">3. 建議推動策略定位的轉變</h4>
+                            <p class="text-gray-600 dark:text-gray-300">
+                                超越單純的風險規避思維，將策略重心轉向推動「轉型金融」。透過協助實體經濟邁向淨零，銀行能在經濟結構轉型中發掘新商機，實現永續成長。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Key Statistics Summary -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                    <div class="text-center p-6 bg-gradient-to-br from-esg-primary to-esg-dark text-white rounded-2xl">
+                        <div class="text-2xl font-bold mb-2">$5.87T</div>
+                        <div class="text-sm opacity-90">2024年永續金融市值</div>
+                    </div>
+                    <div class="text-center p-6 bg-gradient-to-br from-blue-600 to-blue-800 text-white rounded-2xl">
+                        <div class="text-2xl font-bold mb-2">21.7%</div>
+                        <div class="text-sm opacity-90">年複合成長率</div>
+                    </div>
+                    <div class="text-center p-6 bg-gradient-to-br from-green-600 to-green-800 text-white rounded-2xl">
+                        <div class="text-2xl font-bold mb-2">$4.5T</div>
+                        <div class="text-sm opacity-90">年度清潔能源投資需求</div>
+                    </div>
+                    <div class="text-center p-6 bg-gradient-to-br from-purple-600 to-purple-800 text-white rounded-2xl">
+                        <div class="text-2xl font-bold mb-2">6.5%</div>
+                        <div class="text-sm opacity-90">BIS模型資本需求增幅</div>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-8">
+                        氣候變遷壓力測試不僅是風險管理工具，更是永續轉型的戰略指引。台灣金融業應積極擁抱這個挑戰，將其轉化為引領產業發展的重要機遇。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="esg-footer py-12">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold mb-4">ESG永續金融報告</h3>
+                    <p class="text-lg opacity-90">引領台灣金融業邁向永續未來</p>
+                </div>
+                
+                <div class="border-t border-white/20 pt-8 text-sm opacity-80">
+                    <div class="grid md:grid-cols-3 gap-6 mb-6">
+                        <div>
+                            <strong>免責聲明：</strong><br>
+                            基於公開資料，僅供參考，不構成建議
+                        </div>
+                        <div>
+                            <strong>資料來源：</strong><br>
+                            網頁公開資訊
+                        </div>
+                        <div>
+                            <strong>版權所有：</strong><br>
+                            © 2025 Dunk
+                        </div>
+                    </div>
+                    
+                    <div class="pt-6 border-t border-white/20">
+                        <p>撰寫人員：廖冠智 | © 2025 版權所有</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        
+        if (savedTheme) {
+            html.classList.toggle('dark', savedTheme === 'dark');
+        } else {
+            html.classList.toggle('dark', systemTheme === 'dark');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            const isDark = html.classList.contains('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            
+            // Reinitialize charts with new theme
+            initializeCharts();
+        });
+        
+        // Initialize Mermaid
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: html.classList.contains('dark') ? 'dark' : 'default',
+            themeVariables: {
+                primaryColor: '#2d5016',
+                primaryTextColor: html.classList.contains('dark') ? '#ffffff' : '#333333',
+                primaryBorderColor: '#1a4d3a',
+                lineColor: '#0066cc',
+                secondaryColor: '#e8f5e8',
+                tertiaryColor: '#f8f9fa'
+            }
+        });
+        
+        // Charts initialization
+        function initializeCharts() {
+            const isDark = html.classList.contains('dark');
+            const theme = isDark ? 'dark' : null;
+            
+            // Market Growth Chart
+            const marketGrowthEl = document.getElementById('marketGrowthChart');
+            if (marketGrowthEl._chart) {
+                marketGrowthEl._chart.dispose();
+            }
+            const marketGrowthChart = echarts.init(marketGrowthEl, theme);
+            marketGrowthEl._chart = marketGrowthChart;
+            
+            const marketGrowthOption = {
+                grid: { top: 60, right: 40, bottom: 60, left: 80 },
+                xAxis: {
+                    type: 'category',
+                    data: ['2024', '2026', '2028', '2030', '2032', '2034']
+                },
+                yAxis: {
+                    type: 'value',
+                    name: '市值 (兆美元)',
+                    axisLabel: {
+                        formatter: '${value}T'
+                    }
+                },
+                series: [{
+                    data: [5.87, 8.5, 12.3, 17.8, 25.7, 38.19],
+                    type: 'line',
+                    smooth: true,
+                    lineStyle: {
+                        width: 4,
+                        color: '#2d5016'
+                    },
+                    itemStyle: {
+                        color: '#2d5016',
+                        borderWidth: 3,
+                        borderColor: '#ffffff'
+                    },
+                    areaStyle: {
+                        color: {
+                            type: 'linear',
+                            x: 0, y: 0, x2: 0, y2: 1,
+                            colorStops: [
+                                { offset: 0, color: 'rgba(45, 80, 22, 0.3)' },
+                                { offset: 1, color: 'rgba(45, 80, 22, 0.05)' }
+                            ]
+                        }
+                    },
+                    label: {
+                        show: true,
+                        position: 'top',
+                        formatter: '${c}T',
+                        color: isDark ? '#ffffff' : '#333333'
+                    }
+                }],
+                tooltip: {
+                    trigger: 'axis',
+                    formatter: '{b}: ${c}兆美元'
+                }
+            };
+            marketGrowthChart.setOption(marketGrowthOption);
+            
+            // Investment Need Chart
+            const investmentNeedEl = document.getElementById('investmentNeedChart');
+            if (investmentNeedEl._chart) {
+                investmentNeedEl._chart.dispose();
+            }
+            const investmentNeedChart = echarts.init(investmentNeedEl, theme);
+            investmentNeedEl._chart = investmentNeedChart;
+            
+            const investmentNeedOption = {
+                grid: { top: 60, right: 40, bottom: 60, left: 80 },
+                xAxis: {
+                    type: 'category',
+                    data: ['再生能源', '能源效率', '儲能技術', '電網升級', '運輸轉型', '工業減碳']
+                },
+                yAxis: {
+                    type: 'value',
+                    name: '投資需求 (兆美元)',
+                    axisLabel: {
+                        formatter: '${value}T'
+                    }
+                },
+                series: [{
+                    data: [1.2, 0.8, 0.6, 0.5, 0.9, 0.5],
+                    type: 'bar',
+                    itemStyle: {
+                        color: {
+                            type: 'linear',
+                            x: 0, y: 0, x2: 0, y2: 1,
+                            colorStops: [
+                                { offset: 0, color: '#0066cc' },
+                                { offset: 1, color: '#1e3a8a' }
+                            ]
+                        }
+                    },
+                    label: {
+                        show: true,
+                        position: 'top',
+                        formatter: '${c}T',
+                        color: isDark ? '#ffffff' : '#333333'
+                    }
+                }],
+                tooltip: {
+                    trigger: 'axis',
+                    formatter: '{b}: ${c}兆美元年度投資需求'
+                }
+            };
+            investmentNeedChart.setOption(investmentNeedOption);
+            
+            // Risk Factor Chart
+            const riskFactorEl = document.getElementById('riskFactorChart');
+            if (riskFactorEl._chart) {
+                riskFactorEl._chart.dispose();
+            }
+            const riskFactorChart = echarts.init(riskFactorEl, theme);
+            riskFactorEl._chart = riskFactorChart;
+            
+            const riskFactorOption = {
+                title: {
+                    text: '傳統ASRF vs BIS模型',
+                    left: 'center',
+                    textStyle: {
+                        color: isDark ? '#ffffff' : '#333333'
+                    }
+                },
+                grid: { top: 80, right: 40, bottom: 60, left: 100 },
+                xAxis: {
+                    type: 'category',
+                    data: ['經濟系統性風險', '氣候系統性風險', '組合風險效應']
+                },
+                yAxis: {
+                    type: 'value',
+                    name: '風險貢獻度',
+                    axisLabel: {
+                        formatter: '{value}%'
+                    }
+                },
+                series: [
+                    {
+                        name: '傳統ASRF',
+                        type: 'bar',
+                        data: [85, 0, 15],
+                        itemStyle: { color: '#94a3b8' },
+                        label: {
+                            show: true,
+                            position: 'top',
+                            formatter: '{c}%'
+                        }
+                    },
+                    {
+                        name: 'BIS模型',
+                        type: 'bar',
+                        data: [70, 20, 25],
+                        itemStyle: { color: '#2d5016' },
+                        label: {
+                            show: true,
+                            position: 'top',
+                            formatter: '{c}%'
+                        }
+                    }
+                ],
+                legend: {
+                    bottom: 10,
+                    textStyle: {
+                        color: isDark ? '#ffffff' : '#333333'
+                    }
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: { type: 'shadow' }
+                }
+            };
+            riskFactorChart.setOption(riskFactorOption);
+            
+            // Capital Impact Chart
+            const capitalImpactEl = document.getElementById('capitalImpactChart');
+            if (capitalImpactEl._chart) {
+                capitalImpactEl._chart.dispose();
+            }
+            const capitalImpactChart = echarts.init(capitalImpactEl, theme);
+            capitalImpactEl._chart = capitalImpactChart;
+            
+            const capitalImpactOption = {
+                title: {
+                    text: '資本計提率影響分析',
+                    left: 'center',
+                    textStyle: {
+                        color: isDark ? '#ffffff' : '#333333'
+                    }
+                },
+                grid: { top: 80, right: 40, bottom: 60, left: 80 },
+                xAxis: {
+                    type: 'category',
+                    data: ['基準情境', '氣候調整後']
+                },
+                yAxis: {
+                    type: 'value',
+                    name: '資本計提率 (%)',
+                    axisLabel: {
+                        formatter: '{value}%'
+                    }
+                },
+                series: [{
+                    data: [0.695, 0.740],
+                    type: 'bar',
+                    itemStyle: {
+                        color: function(params) {
+                            return params.dataIndex === 0 ? '#94a3b8' : '#ff6b35';
+                        }
+                    },
+                    label: {
+                        show: true,
+                        position: 'top',
+                        formatter: '{c}%',
+                        color: isDark ? '#ffffff' : '#333333'
+                    },
+                    markLine: {
+                        data: [
+                            {
+                                name: '增加6.5%',
+                                yAxis: 0.7175,
+                                lineStyle: { color: '#ef4444', type: 'dashed' },
+                                label: { 
+                                    formatter: '增加6.5%',
+                                    color: '#ef4444'
+                                }
+                            }
+                        ]
+                    }
+                }],
+                tooltip: {
+                    trigger: 'axis',
+                    formatter: function(params) {
+                        const data = params[0];
+                        if (data.dataIndex === 1) {
+                            return `${data.name}: ${data.value}%<br/>相較基準增加: 6.5%`;
+                        }
+                        return `${data.name}: ${data.value}%`;
+                    }
+                }
+            };
+            capitalImpactChart.setOption(capitalImpactOption);
+            
+            // Make charts responsive
+            window.addEventListener('resize', () => {
+                marketGrowthChart.resize();
+                investmentNeedChart.resize();
+                riskFactorChart.resize();
+                capitalImpactChart.resize();
+            });
+        }
+        
+        // Initialize charts on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(initializeCharts, 100);
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Update Mermaid theme when page theme changes
+        function updateMermaidTheme() {
+            const isDark = html.classList.contains('dark');
+            mermaid.initialize({
+                startOnLoad: true,
+                theme: isDark ? 'dark' : 'default',
+                themeVariables: {
+                    primaryColor: '#2d5016',
+                    primaryTextColor: isDark ? '#ffffff' : '#333333',
+                    primaryBorderColor: '#1a4d3a',
+                    lineColor: '#0066cc',
+                    secondaryColor: '#e8f5e8',
+                    tertiaryColor: '#f8f9fa'
+                }
+            });
+            
+            // Re-render all mermaid diagrams
+            document.querySelectorAll('.mermaid').forEach(element => {
+                mermaid.init(undefined, element);
+            });
+        }
+        
+        // Listen for theme changes
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach((mutation) => {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                    updateMermaidTheme();
+                }
+            });
+        });
+        
+        observer.observe(html, {
+            attributes: true,
+            attributeFilter: ['class']
+        });
+    </script>
+</body>
+</html>
