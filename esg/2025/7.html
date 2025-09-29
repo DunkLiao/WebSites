@@ -90,6 +90,19 @@
             align-items: center;
             min-height: 400px;
         }
+		
+		.video-container {
+			width: 100%;
+			max-width: 560px;
+			margin: 0 auto;
+		}
+
+		.video-container iframe {
+			width: 100%;
+			aspect-ratio: 16 / 9;
+			height: auto;
+		}
+		
     </style>
     
     <script>
@@ -960,6 +973,11 @@
             </div>
         </div>
     </section>
+	
+	<div class="video-container">
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/ag4gMNy0yVM?si=gK3KUsvmZTT2gzhm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+		<br/>
+	</div>
 
     <!-- Footer -->
     <footer class="esg-footer py-12">
@@ -987,7 +1005,7 @@
                     </div>
                     
                     <div class="pt-6 border-t border-white/20">
-                        <p>撰寫人員：廖冠智 | © 2025 版權所有</p>
+                        <p>撰寫人員：Dunk | © 2025 版權所有</p>
                     </div>
                 </div>
             </div>
