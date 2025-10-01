@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025年9月信用風險報告</title>
+    <style>
+        body {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #9A0036 0%, #941C61 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(154, 0, 54, 0.2);
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .header p {
+            margin: 0.5rem 0 0 0;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .nav-tabs {
+            display: flex;
+            background-color: #F5F5F5;
+            border-radius: 12px;
+            padding: 0.5rem;
+            margin-bottom: 2rem;
+            overflow-x: auto;
+            gap: 0.5rem;
+        }
+
+        .nav-tab {
+            flex: 1;
+            min-width: 180px;
+            padding: 1rem;
+            background-color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #333333;
+            transition: all 0.3s ease;
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .nav-tab:hover {
+            background-color: #EEBAC0;
+            transform: translateY(-2px);
+        }
+
+        .nav-tab.active {
+            background-color: #9A0036;
+            color: white;
+            box-shadow: 0 4px 12px rgba(154, 0, 54, 0.3);
+        }
+
+        .content-section {
+            display: none;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #F5F5F5;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 30px rgba(154, 0, 54, 0.15);
+            transform: translateY(-4px);
+        }
+
+        .card h2 {
+            color: #9A0036;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            border-bottom: 3px solid #EEBAC0;
+            padding-bottom: 0.5rem;
+        }
+
+        .card h3 {
+            color: #941C61;
+            font-size: 1.3rem;
+            margin: 1.5rem 0 1rem 0;
+            font-weight: 600;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #EEBAC0 0%, #F5F5F5 100%);
+            border-left: 4px solid #9A0036;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: white;
+            border: 2px solid #F5F5F5;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            border-color: #EEBAC0;
+            transform: scale(1.02);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #9A0036;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 500;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .data-table th {
+            background: linear-gradient(135deg, #9A0036 0%, #941C61 100%);
+            color: white;
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .data-table td {
+            padding: 1rem;
+            border-bottom: 1px solid #F5F5F5;
+        }
+
+        .data-table tr:hover {
+            background-color: #FAFAFA;
+        }
+
+        .risk-indicator {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin: 0.2rem;
+        }
+
+        .risk-high {
+            background-color: #FFE6E6;
+            color: #9A0036;
+            border: 1px solid #EEBAC0;
+        }
+
+        .risk-medium {
+            background-color: #FFF4E6;
+            color: #FF8C00;
+            border: 1px solid #FFD700;
+        }
+
+        .risk-low {
+            background-color: #E6F7E6;
+            color: #2E8B57;
+            border: 1px solid #90EE90;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #FF8C00 0%, #FFD700 100%);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(255, 140, 0, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 140, 0, 0.4);
+        }
+
+        .footer {
+            background-color: #F5F5F5;
+            padding: 2rem 0;
+            margin-top: 3rem;
+            border-top: 1px solid #E0E0E0;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .footer-content p {
+            margin: 0.5rem 0;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background-color: #F5F5F5;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #9A0036 0%, #941C61 100%);
+            border-radius: 4px;
+            transition: width 0.8s ease;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-tabs {
+                flex-direction: column;
+            }
+            
+            .nav-tab {
+                min-width: auto;
+            }
+            
+            .card {
+                padding: 1.5rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>2025年9月信用風險報告</h1>
+        <p>台灣銀行業信用風險格局深度分析</p>
+    </header>
+
+    <div class="container">
+        <nav class="nav-tabs">
+            <button class="nav-tab active" onclick="showSection('overview')">總體風險環境</button>
+            <button class="nav-tab" onclick="showSection('domestic')">國內信用風險</button>
+            <button class="nav-tab" onclick="showSection('external')">外部經濟衝擊</button>
+            <button class="nav-tab" onclick="showSection('resilience')">系統韌性評估</button>
+            <button class="nav-tab" onclick="showSection('outlook')">未來展望建議</button>
+        </nav>
+
+        <section id="overview" class="content-section active">
+            <div class="card">
+                <h2>1. 總體風險環境評估</h2>
+                <div class="highlight-box">
+                    <strong>核心矛盾：</strong>監管政策旨在主動抑制潛在的系統性風險，而持續的外部經濟衝擊則對銀行的資產品質構成直接威脅。
+                </div>
+                
+                <p>本報告旨在剖析2025年下半年台灣銀行業面臨的信用風險格局。當前，銀行體系雖然普遍具備穩健的資本基礎與充裕的流動性，但正同時應對來自國內不動產市場管制與全球經濟不確定性的雙重壓力。</p>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">36.71%</div>
+                        <div class="stat-label">不動產貸款集中度</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">惡化</div>
+                        <div class="stat-label">惠譽產業展望</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">充足</div>
+                        <div class="stat-label">系統韌性評估</div>
+                    </div>
+                </div>
+
+                <h3>關鍵風險指標</h3>
+                <ul>
+                    <li><span class="risk-indicator risk-high">高風險</span> 銀行業對不動產的總體貸款集中度仍高達36.71%</li>
+                    <li><span class="risk-indicator risk-high">高風險</span> 惠譽信評將產業展望下修至「惡化」</li>
+                    <li><span class="risk-indicator risk-medium">中風險</span> 監理壓力測試揭示部分機構脆弱點</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="domestic" class="content-section">
+            <div class="card">
+                <h2>2. 國內信用風險焦點：不動產市場管制與影響</h2>
+                
+                <h3>2.1 監管政策的審慎立場與政策拉鋸</h3>
+                <p>中央銀行對不動產市場的風險控管維持高度審慎。央行總裁楊金龍明確表示，與房地產相關的金融穩定風險尚未完全解除，故當前並無放鬆管制的理由。</p>
+
+                <div class="highlight-box">
+                    <strong>政策拉鋸：</strong>央行緊縮立場與行政院放寬「新青年安心成家貸款」限制形成對比，但對扭轉實體交易量效果有限。
+                </div>
+
+                <h3>2.2 市場反應與交易量化分析</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>指標</th>
+                            <th>2025年9月數據</th>
+                            <th>數據意涵</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>全台房市交易量 (月變動)</td>
+                            <td><strong style="color: #9A0036;">月減 5.8%</strong></td>
+                            <td>買方因貸款困難與利率考量而態度謹慎，市場動能疲軟</td>
+                        </tr>
+                        <tr>
+                            <td>全台房市交易量 (年變動)</td>
+                            <td><strong style="color: #9A0036;">年減 22.2%</strong></td>
+                            <td>反映信用管制政策對市場的長期冷卻效應</td>
+                        </tr>
+                        <tr>
+                            <td>民眾房價預期</td>
+                            <td><strong style="color: #941C61;">56.7%認為持平</strong></td>
+                            <td>市場看漲預期明顯降溫，房市已進入盤整階段</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>2.3 資產品質的現況評估</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">0.07%</div>
+                        <div class="stat-label">房貸逾放比率</div>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    <strong>風險警示：</strong>壞帳風險可能存在「遞延效應」。限貸令已篩選掉體質較弱的借款人，但一旦總體經濟惡化，風險將從被抑制的邊緣客群迅速傳導至整體。
+                </div>
+            </div>
+        </section>
+
+        <section id="external" class="content-section">
+            <div class="card">
+                <h2>3. 外部經濟衝擊與資產品質惡化壓力</h2>
+                
+                <h3>3.1 主要外部風險因子剖析</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">🇺🇸</div>
+                        <div class="stat-label">美國關稅政策<br>壓縮出口企業利潤</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">🔄</div>
+                        <div class="stat-label">美中貿易爭端<br>供應鏈重組不確定性</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">⚡</div>
+                        <div class="stat-label">地緣政治衝突<br>金融市場波動性</div>
+                    </div>
+                </div>
+
+                <h3>3.2 國際信評機構的預警</h3>
+                <div class="highlight-box">
+                    <strong>惠譽信評預警：</strong>2025年6月將台灣銀行業展望從「中性」下調至「惡化」，預測2025-2026年減損放款比率可能突破1%。
+                </div>
+
+                <h3>3.3 對銀行獲利能力與放款成長的預期衝擊</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>預測指標</th>
+                            <th>2024年實際</th>
+                            <th>2025-2026年預測</th>
+                            <th>變化趨勢</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>放款成長率</td>
+                            <td>9.5%</td>
+                            <td>中個位數</td>
+                            <td><span class="risk-indicator risk-high">顯著下降</span></td>
+                        </tr>
+                        <tr>
+                            <td>減損放款比率</td>
+                            <td>&lt; 1%</td>
+                            <td>&gt; 1%</td>
+                            <td><span class="risk-indicator risk-high">突破預期</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section id="resilience" class="content-section">
+            <div class="card">
+                <h2>4. 系統性韌性評估：監理壓力測試結果解析</h2>
+                
+                <h3>4.1 嚴峻情境的參數設定</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">-2.5%</div>
+                        <div class="stat-label">經濟成長率衰退</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">6.4%</div>
+                        <div class="stat-label">失業率攀升</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">-31%</div>
+                        <div class="stat-label">房價下跌</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">-30%</div>
+                        <div class="stat-label">台股重挫</div>
+                    </div>
+                </div>
+
+                <h3>4.2 整體測試結果與資本緩衝分析</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>資本比率</th>
+                            <th>嚴重情境下平均值</th>
+                            <th>法定最低標準</th>
+                            <th>結果評估</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>普通股權益比率</td>
+                            <td><strong style="color: #2E8B57;">9.41%</strong></td>
+                            <td>7.0%</td>
+                            <td><span class="risk-indicator risk-low">高於標準</span></td>
+                        </tr>
+                        <tr>
+                            <td>第一類資本比率</td>
+                            <td><strong style="color: #2E8B57;">10.58%</strong></td>
+                            <td>8.5%</td>
+                            <td><span class="risk-indicator risk-low">高於標準</span></td>
+                        </tr>
+                        <tr>
+                            <td>資本適足率</td>
+                            <td><strong style="color: #2E8B57;">12.35%</strong></td>
+                            <td>10.5%</td>
+                            <td><span class="risk-indicator risk-low">高於標準</span></td>
+                        </tr>
+                        <tr>
+                            <td>槓桿比率</td>
+                            <td><strong style="color: #2E8B57;">5.44%</strong></td>
+                            <td>3.0%</td>
+                            <td><span class="risk-indicator risk-low">高於標準</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>4.3 揭示的潛在脆弱點</h3>
+                <div class="highlight-box">
+                    <strong>重要警訊：</strong>在「嚴重情境」下，有3家銀行因信用風險導致的預期損失大幅增加，而未能通過測試標準。金管會已要求提交「資本改善計畫」。
+                </div>
+            </div>
+        </section>
+
+        <section id="outlook" class="content-section">
+            <div class="card">
+                <h2>5. 未來展望與策略性建議</h2>
+                
+                <h3>5.1 信用風險管理的策略要務</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">1</div>
+                        <div class="stat-label">授信組合主動式再平衡<br>降低不動產依賴</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">2</div>
+                        <div class="stat-label">建構動態預警指標<br>早期介入框架</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">內化壓力測試<br>動態資本規劃工具</div>
+                    </div>
+                </div>
+
+                <h3>5.2 風險管理的新興趨勢與工具</h3>
+                
+                <div class="highlight-box">
+                    <strong>科技賦能風險管理</strong>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 87%;"></div>
+                    </div>
+                    <p>87% 的台灣銀行業者已導入AI技術</p>
+                </div>
+
+                <div class="highlight-box">
+                    <strong>信用風險評級軟體市場成長</strong>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 70%;"></div>
+                    </div>
+                    <p>預計年均複合成長率 13.8%</p>
+                </div>
+
+                <h3>整合ESG與氣候風險</h3>
+                <ul>
+                    <li><span class="risk-indicator risk-low">機會</span> ESG表現與財務風險呈負相關</li>
+                    <li><span class="risk-indicator risk-medium">趨勢</span> 氣候變遷納入壓力測試框架</li>
+                    <li><span class="risk-indicator risk-low">創新</span> AI與大數據轉化ESG風險數據</li>
+                </ul>
+
+                <h3>5.3 總結</h3>
+                <div class="highlight-box">
+                    <strong>新階段定位：</strong>台灣銀行業已進入一個「高資本韌性，低成長容錯」的新階段。
+                </div>
+                
+                <p>憑藉厚實的資本緩衝與穩健的流動性，整體信用風險在2025年下半年仍屬可控。然而，國內不動產市場的結構性風險，以及全球經濟的高度不確定性，將持續考驗其資產品質與長期獲利能力。</p>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">✓</div>
+                        <div class="stat-label">厚實資本緩衝<br>穩健流動性基礎</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">⚠️</div>
+                        <div class="stat-label">結構性風險<br>持續考驗資產品質</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">🎯</div>
+                        <div class="stat-label">策略轉型<br>穿越週期挑戰</div>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <strong>未來成功關鍵：</strong>唯有透過靈活的策略調整、深化前瞻性的風險監控，並積極整合新興科技與ESG因子，台灣銀行業才能在充滿挑戰的環境中穿越週期，維持永續穩健的經營。
+                </div>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button class="cta-button" onclick="downloadReport()">下載完整報告</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p><strong>免責申明：</strong>基於公開資料，僅供參考，不構成建議</p>
+            <p><strong>資料來源：</strong>網頁公開資訊</p>
+            <p><strong>版權所有：</strong>© Dunk</p>
+        </div>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // 隱藏所有內容區塊
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // 移除所有標籤的active狀態
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // 顯示選中的內容區塊
+            document.getElementById(sectionId).classList.add('active');
+
+            // 設定對應標籤為active
+            event.target.classList.add('active');
+
+            // 平滑滾動到頂部
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        function downloadReport() {
+            // 模擬下載功能
+            const link = document.createElement('a');
+            link.href = '#';
+            link.download = '2025年9月信用風險報告.pdf';
+            
+            // 顯示下載提示
+            alert('報告下載功能已啟動！\n\n注意：這是示範功能，實際應用中會連接到真實的報告檔案。');
+        }
+
+        // 頁面載入時的動畫效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(30px)';
+                    card.style.transition = 'all 0.6s ease';
+                    
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 100);
+                }, index * 200);
+            });
+        });
+
+        // 響應式導航處理
+        window.addEventListener('resize', function() {
+            const navTabs = document.querySelector('.nav-tabs');
+            if (window.innerWidth <= 768) {
+                navTabs.style.flexDirection = 'column';
+            } else {
+                navTabs.style.flexDirection = 'row';
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'987c782db3ce8276',t:'MTc1OTMyNzA1MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
