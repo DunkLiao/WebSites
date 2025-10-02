@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025年9月金融市場月報</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#9A0036',
+                        secondary: '#941C61',
+                        accent: '#EEBAC0',
+                        highlight: '#FF8C00'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .hover-lift:hover {
+            transform: translateY(-2px);
+            transition: transform 0.2s ease-in-out;
+        }
+        .section-divider {
+            background: linear-gradient(90deg, #9A0036 0%, #EEBAC0 100%);
+            height: 3px;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, #9A0036 0%, #941C61 100%);
+        }
+        .data-card {
+            border-left: 4px solid #9A0036;
+        }
+        .progress-bar {
+            background: linear-gradient(90deg, #9A0036 0%, #FF8C00 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <!-- Header -->
+    <header class="bg-white shadow-lg border-b-4 border-primary">
+        <div class="max-w-7xl mx-auto px-4 py-6">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-3xl font-bold text-primary">2025年9月金融市場月報</h1>
+                    <p class="text-gray-600 mt-2">Taiwan Financial Market Monthly Report</p>
+                </div>
+                <div class="text-right">
+                    <div class="text-sm text-gray-500">發布日期</div>
+                    <div class="text-lg font-semibold text-primary">2025年10月</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-primary text-white sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex space-x-8 overflow-x-auto py-3">
+                <a href="#summary" class="whitespace-nowrap hover:text-accent transition-colors duration-200 font-medium">執行摘要</a>
+                <a href="#monetary" class="whitespace-nowrap hover:text-accent transition-colors duration-200 font-medium">總體經濟</a>
+                <a href="#market" class="whitespace-nowrap hover:text-accent transition-colors duration-200 font-medium">金融市場</a>
+                <a href="#regulation" class="whitespace-nowrap hover:text-accent transition-colors duration-200 font-medium">監管動態</a>
+                <a href="#fintech" class="whitespace-nowrap hover:text-accent transition-colors duration-200 font-medium">金融科技</a>
+                <a href="#security" class="whitespace-nowrap hover:text-accent transition-colors duration-200 font-medium">資安防護</a>
+                <a href="#banking" class="whitespace-nowrap hover:text-accent transition-colors duration-200 font-medium">銀行營運</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 py-8">
+        <!-- Executive Summary -->
+        <section id="summary" class="mb-12">
+            <div class="highlight-box text-white rounded-lg p-8 card-shadow">
+                <h2 class="text-2xl font-bold mb-6 flex items-center">
+                    <span class="bg-white text-primary rounded-full w-8 h-8 flex items-center justify-center mr-3 text-sm font-bold">📊</span>
+                    執行摘要
+                </h2>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white bg-opacity-10 rounded-lg p-4">
+                        <h3 class="font-semibold mb-2">政策張力</h3>
+                        <p class="text-sm">央行連續第六季維持基準利率2.0%，與行政院房貸政策形成張力</p>
+                    </div>
+                    <div class="bg-white bg-opacity-10 rounded-lg p-4">
+                        <h3 class="font-semibold mb-2">市場強勁</h3>
+                        <p class="text-sm">台股創26,394點歷史新高，打破九月魔咒，AI題材引領上漲</p>
+                    </div>
+                    <div class="bg-white bg-opacity-10 rounded-lg p-4">
+                        <h3 class="font-semibold mb-2">監管升級</h3>
+                        <p class="text-sm">金融業罰鍰逾1.3億元，資安法修正案公布，防詐措施強化</p>
+                    </div>
+                </div>
+                <div class="mt-6 p-4 bg-white bg-opacity-10 rounded-lg">
+                    <p class="text-sm leading-relaxed">
+                        2025年9月，台灣金融業在多重力量交織下呈現複雜而活躍的樣貌，主要圍繞三大主軸：政策張力與監理強化並行、市場信心與潛在風險共存，以及資安防護與反詐措施同步升級。整體而言，九月份的台灣金融業在強勁的資本市場支撐下展現韌性，但同時也面臨外部政策風險、內部監管壓力與數位轉型挑戰。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Key Metrics Dashboard -->
+        <section class="mb-12">
+            <h2 class="text-2xl font-bold text-primary mb-6">關鍵指標一覽</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="bg-white rounded-lg p-6 card-shadow hover-lift data-card">
+                    <div class="text-2xl font-bold text-primary">2.0%</div>
+                    <div class="text-sm text-gray-600">央行基準利率</div>
+                    <div class="text-xs text-secondary mt-1">連續六季維持</div>
+                </div>
+                <div class="bg-white rounded-lg p-6 card-shadow hover-lift data-card">
+                    <div class="text-2xl font-bold text-highlight">26,394</div>
+                    <div class="text-sm text-gray-600">台股歷史新高</div>
+                    <div class="text-xs text-secondary mt-1">9月24日創下</div>
+                </div>
+                <div class="bg-white rounded-lg p-6 card-shadow hover-lift data-card">
+                    <div class="text-2xl font-bold text-primary">1.34億</div>
+                    <div class="text-sm text-gray-600">金融業罰鍰</div>
+                    <div class="text-xs text-secondary mt-1">前八月總額</div>
+                </div>
+                <div class="bg-white rounded-lg p-6 card-shadow hover-lift data-card">
+                    <div class="text-2xl font-bold text-highlight">87%</div>
+                    <div class="text-sm text-gray-600">銀行AI採用率</div>
+                    <div class="text-xs text-secondary mt-1">數位轉型加速</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content Sections -->
+        <div class="grid lg:grid-cols-3 gap-8">
+            <!-- Left Column -->
+            <div class="lg:col-span-2 space-y-8">
+                <!-- Monetary Policy -->
+                <section id="monetary" class="bg-white rounded-lg p-6 card-shadow">
+                    <div class="section-divider mb-4"></div>
+                    <h2 class="text-xl font-bold text-primary mb-4">一、總體經濟與貨幣政策</h2>
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h3 class="font-semibold text-secondary mb-2">央行利率決策</h3>
+                            <p class="text-sm text-gray-700 mb-3">央行連續第六季維持重貼現率於2.0%不變，此利率水準為近15年來最高。主要考量包括美台關稅不確定性及強勁出口數據的可持續性。</p>
+                            <div class="flex items-center space-x-4 text-xs">
+                                <span class="bg-primary text-white px-2 py-1 rounded">政策獨立性</span>
+                                <span class="bg-secondary text-white px-2 py-1 rounded">審慎策略</span>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h3 class="font-semibold text-secondary mb-2">經濟成長預測</h3>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <div class="text-lg font-bold text-highlight">4.5%</div>
+                                    <div class="text-xs text-gray-600">國泰金控預測2025年</div>
+                                </div>
+                                <div>
+                                    <div class="text-lg font-bold text-primary">4.55%</div>
+                                    <div class="text-xs text-gray-600">央行預測2025年</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Market Performance -->
+                <section id="market" class="bg-white rounded-lg p-6 card-shadow">
+                    <div class="section-divider mb-4"></div>
+                    <h2 class="text-xl font-bold text-primary mb-4">二、金融市場表現</h2>
+                    <div class="space-y-4">
+                        <div class="bg-gradient-to-r from-green-50 to-green-100 rounded-lg p-4 border-l-4 border-green-500">
+                            <h3 class="font-semibold text-green-800 mb-2">台股創歷史新高</h3>
+                            <p class="text-sm text-green-700 mb-3">在AI供應鏈獲利優於預期推動下，加權指數於9月24日盤中創下26,394點的歷史新高，月線實現連五紅。</p>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <div class="text-lg font-bold text-green-600">+1,600點</div>
+                                    <div class="text-xs text-green-600">9月漲幅</div>
+                                </div>
+                                <div>
+                                    <div class="text-lg font-bold text-green-600">25,820</div>
+                                    <div class="text-xs text-green-600">月底收盤</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h3 class="font-semibold text-secondary mb-2">投資人信心回升</h3>
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-sm">消費者信心指數</span>
+                                <span class="font-bold text-primary">64.69點</span>
+                            </div>
+                            <div class="w-full bg-gray-200 rounded-full h-2">
+                                <div class="progress-bar h-2 rounded-full" style="width: 65%"></div>
+                            </div>
+                            <p class="text-xs text-gray-600 mt-2">為近四個月高點，主要受投資股票時機指標推動</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Regulation -->
+                <section id="regulation" class="bg-white rounded-lg p-6 card-shadow">
+                    <div class="section-divider mb-4"></div>
+                    <h2 class="text-xl font-bold text-primary mb-4">三、監管動態與法規遵循</h2>
+                    <div class="space-y-4">
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-sm">
+                                <thead>
+                                    <tr class="bg-gray-100">
+                                        <th class="text-left p-2 font-semibold">產業別</th>
+                                        <th class="text-right p-2 font-semibold">罰鍰金額</th>
+                                        <th class="text-right p-2 font-semibold">年增率</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b">
+                                        <td class="p-2">銀行業</td>
+                                        <td class="p-2 text-right font-semibold text-primary">4,823萬元</td>
+                                        <td class="p-2 text-right text-red-600">+21.44%</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="p-2">保險業</td>
+                                        <td class="p-2 text-right font-semibold text-primary">3,280萬元</td>
+                                        <td class="p-2 text-right text-green-600">-8.89%</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="p-2">證券期貨業</td>
+                                        <td class="p-2 text-right font-semibold text-primary">2,039萬元</td>
+                                        <td class="p-2 text-right">-</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="bg-red-50 border-l-4 border-red-400 p-4">
+                            <h4 class="font-semibold text-red-800 mb-2">重大內控缺失案件</h4>
+                            <ul class="text-sm text-red-700 space-y-1">
+                                <li>• 台灣銀行：前行員與詐騙集團勾結洗錢，罰2,200萬元</li>
+                                <li>• 國泰世華銀行：客服人員盜刷客戶信用卡，罰1,200萬元</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Right Column -->
+            <div class="space-y-8">
+                <!-- FinTech Innovation -->
+                <section id="fintech" class="bg-white rounded-lg p-6 card-shadow">
+                    <div class="section-divider mb-4"></div>
+                    <h2 class="text-lg font-bold text-primary mb-4">四、金融科技創新</h2>
+                    <div class="space-y-4">
+                        <div class="bg-blue-50 rounded-lg p-4">
+                            <h3 class="font-semibold text-blue-800 mb-2">FinTechOn 2025峰會</h3>
+                            <p class="text-sm text-blue-700 mb-3">金管會揭示五大策略，包括法規鬆綁、數位金融發展、虛擬資產業務等。</p>
+                            <div class="space-y-2">
+                                <div class="flex items-center text-xs">
+                                    <span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                                    法規鬆綁與擴大試辦
+                                </div>
+                                <div class="flex items-center text-xs">
+                                    <span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                                    數位金融發展
+                                </div>
+                                <div class="flex items-center text-xs">
+                                    <span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                                    新興業務探索
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center p-4 bg-gradient-to-r from-primary to-secondary text-white rounded-lg">
+                            <div class="text-2xl font-bold">87%</div>
+                            <div class="text-sm">銀行業AI採用率</div>
+                            <div class="text-xs mt-1 opacity-90">61家機構使用生成式AI</div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Security Challenges -->
+                <section id="security" class="bg-white rounded-lg p-6 card-shadow">
+                    <div class="section-divider mb-4"></div>
+                    <h2 class="text-lg font-bold text-primary mb-4">五、資安挑戰與防護</h2>
+                    <div class="space-y-4">
+                        <div class="bg-orange-50 border-l-4 border-orange-400 p-4">
+                            <h3 class="font-semibold text-orange-800 mb-2">資安預算創新高</h3>
+                            <div class="text-center">
+                                <div class="text-xl font-bold text-orange-600">2,000萬元</div>
+                                <div class="text-xs text-orange-600">企業平均資安預算</div>
+                            </div>
+                            <p class="text-sm text-orange-700 mt-2">佔IT預算比例接近10%，創歷史新高</p>
+                        </div>
+                        <div class="bg-red-50 rounded-lg p-4">
+                            <h3 class="font-semibold text-red-800 mb-2">重大資安事件</h3>
+                            <ul class="text-sm text-red-700 space-y-1">
+                                <li>• 夠麻吉等上市櫃公司遭駭</li>
+                                <li>• 奈米醫材遭商業郵件詐騙</li>
+                                <li>• 台灣人壽違反個資法遭罰</li>
+                            </ul>
+                        </div>
+                        <div class="bg-green-50 rounded-lg p-4">
+                            <h3 class="font-semibold text-green-800 mb-2">防護措施升級</h3>
+                            <p class="text-sm text-green-700">《資通安全管理法》修正案公布，多家銀行調降ATM提款限額至10萬元</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Banking Operations -->
+                <section id="banking" class="bg-white rounded-lg p-6 card-shadow">
+                    <div class="section-divider mb-4"></div>
+                    <h2 class="text-lg font-bold text-primary mb-4">六、銀行業營運動態</h2>
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 rounded-lg p-4">
+                            <h3 class="font-semibold text-secondary mb-2">產業景氣分化</h3>
+                            <div class="grid grid-cols-2 gap-2 text-sm">
+                                <div class="text-center p-2 bg-green-100 rounded">
+                                    <div class="font-bold text-green-600">52.1</div>
+                                    <div class="text-xs text-green-600">非製造業PMI</div>
+                                    <div class="text-xs">連續七月擴張</div>
+                                </div>
+                                <div class="text-center p-2 bg-red-100 rounded">
+                                    <div class="font-bold text-red-600">46.8</div>
+                                    <div class="text-xs text-red-600">製造業PMI</div>
+                                    <div class="text-xs">連續七月緊縮</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-blue-50 rounded-lg p-4">
+                            <h3 class="font-semibold text-blue-800 mb-2">聯貸與授信資產轉讓</h3>
+                            <div class="space-y-3">
+                                <div class="bg-white rounded p-3 border-l-4 border-blue-400">
+                                    <div class="flex justify-between items-start mb-1">
+                                        <span class="font-medium text-sm">皇翔建設都更聯貸案</span>
+                                        <span class="text-lg font-bold text-blue-600">70億元</span>
+                                    </div>
+                                    <p class="text-xs text-gray-600">第一銀行與臺灣銀行共同統籌，新北市板橋區都更計畫</p>
+                                </div>
+                                <div class="bg-white rounded p-3 border-l-4 border-blue-400">
+                                    <div class="flex justify-between items-start mb-1">
+                                        <span class="font-medium text-sm">國泰世華授信資產轉讓</span>
+                                        <span class="text-lg font-bold text-blue-600">15億元</span>
+                                    </div>
+                                    <p class="text-xs text-gray-600">轉讓予凱基銀行、全國農業金庫等多家機構</p>
+                                </div>
+                                <div class="bg-white rounded p-3 border-l-4 border-blue-400">
+                                    <div class="flex justify-between items-start mb-1">
+                                        <span class="font-medium text-sm">永豐銀行授信資產轉讓</span>
+                                        <span class="text-lg font-bold text-blue-600">1,500萬美元</span>
+                                    </div>
+                                    <p class="text-xs text-gray-600">聯合授信資產轉讓交易</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-orange-50 rounded-lg p-4">
+                            <h3 class="font-semibold text-orange-800 mb-2">不良債權（NPL）處分</h3>
+                            <div class="space-y-3">
+                                <div class="bg-white rounded p-3 border-l-4 border-orange-400">
+                                    <div class="flex justify-between items-start mb-1">
+                                        <span class="font-medium text-sm">上海商銀香港子公司</span>
+                                        <span class="text-lg font-bold text-orange-600">3.52億美元</span>
+                                    </div>
+                                    <p class="text-xs text-gray-600">處分不動產擔保NPL，加速資產活化</p>
+                                </div>
+                                <div class="bg-white rounded p-3 border-l-4 border-orange-400">
+                                    <div class="flex justify-between items-start mb-1">
+                                        <span class="font-medium text-sm">安泰銀行標售NPL</span>
+                                        <span class="text-lg font-bold text-orange-600">20.38億元</span>
+                                    </div>
+                                    <p class="text-xs text-gray-600">主要擔保品為不動產的不良債權</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                            <h3 class="font-semibold text-yellow-800 mb-2">KPMG市場觀察</h3>
+                            <p class="text-sm text-yellow-700">儘管2024年銀行業獲利創高，但2025年仍需謹慎應對央行信用管制與國際地緣政治風險帶來的挑戰。銀行業一方面積極參與具發展潛力的放款，另一方面也加速處分不良資產以優化資產品質。</p>
+                        </div>
+                        
+                        <div class="bg-blue-50 rounded-lg p-4">
+                            <h3 class="font-semibold text-blue-800 mb-2">資金流動管理</h3>
+                            <p class="text-sm text-blue-700">央行靈活操作定存單，9月底未到期餘額維持7.48兆元左右</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- Market Outlook -->
+        <section class="mt-12 bg-gradient-to-r from-primary to-secondary text-white rounded-lg p-8 card-shadow">
+            <h2 class="text-2xl font-bold mb-6 text-center">市場展望</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="text-center">
+                    <div class="text-3xl mb-2">🏦</div>
+                    <h3 class="font-semibold mb-2">貨幣政策</h3>
+                    <p class="text-sm opacity-90">央行最快2026年Q1才可能鬆綁政策，持續關注美台貿易關係發展</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl mb-2">📈</div>
+                    <h3 class="font-semibold mb-2">股市前景</h3>
+                    <p class="text-sm opacity-90">AI供應鏈持續受惠，但需留意外部政策風險與市場波動</p>
+                </div>
+                <div class="text-center">
+                    <div class="text-3xl mb-2">🔒</div>
+                    <h3 class="font-semibold mb-2">數位轉型</h3>
+                    <p class="text-sm opacity-90">資安投資持續增加，金融科技創新與監管並重發展</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white mt-16">
+        <div class="max-w-7xl mx-auto px-4 py-8">
+            <div class="border-t border-gray-600 pt-6">
+                <div class="grid md:grid-cols-3 gap-4 text-sm">
+                    <div>
+                        <h4 class="font-semibold mb-2 text-accent">免責申明</h4>
+                        <p class="text-gray-300">基於公開資料，僅供參考，不構成建議</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-2 text-accent">資料來源</h4>
+                        <p class="text-gray-300">網頁公開資訊</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-2 text-accent">版權所有</h4>
+                        <p class="text-gray-300">© Dunk</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add active state to navigation
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('nav a[href^="#"]');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (scrollY >= sectionTop) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-accent');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('text-accent');
+                }
+            });
+        });
+
+        // Add loading animation for cards
+        const cards = document.querySelectorAll('.card-shadow');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        cards.forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98846f5e160c8098',t:'MTc1OTQxMDU3NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
