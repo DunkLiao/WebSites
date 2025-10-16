@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20251017 永續週報 - 超越日常的永續洞察</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/preline@2.3.0/dist/preline.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans TC', sans-serif; }
+        .esg-header { background: linear-gradient(135deg, #2d5016 0%, #1a4d3a 100%); }
+        .esg-footer { background-color: #2d5016; }
+        .transition-all { transition: all 0.2s ease-in-out; }
+    </style>
+<script src="https://felo.ai/js/iframe.js?v=1760656750512"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style></head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-all">
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-leaf text-2xl text-green-600"></i>
+                    <span class="text-xl font-bold text-gray-900 dark:text-white">永續週報</span>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <a href="#ai-energy" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-green-600 transition-all">AI能源</a>
+                    <a href="#software-waste" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-green-600 transition-all">軟體品質</a>
+                    <a href="#aviation" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-green-600 transition-all">航空減排</a>
+                    <a href="#aquarium" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-green-600 transition-all">水族貿易</a>
+                    <a href="#conservation" class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-green-600 transition-all">保育衝突</a>
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="esg-header pt-20 pb-16 relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/30"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+                    超越日常的<br><span class="text-green-400">永續洞察</span>
+                </h1>
+                <p class="text-xl sm:text-2xl text-green-100 mb-8 leading-relaxed">
+                    AI演算法對電網的壓力、軟體程式碼與電子廢棄物的關聯、保育行動與在地文化的碰撞
+                </p>
+                <div class="text-sm text-green-200 font-medium">
+                    20251017 永續週報
+                </div>
+            </div>
+        </div>
+        <svg class="absolute bottom-0 left-0 w-full h-16" viewBox="0 0 1200 120" preserveAspectRatio="none">
+            <path d="M0,120 L0,50 Q600,0 1200,50 L1200,120 Z" fill="currentColor" class="text-white dark:text-gray-900"></path>
+        </svg>
+    </section>
+
+    <!-- Introduction -->
+    <section class="py-16 bg-white dark:bg-gray-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="prose prose-lg prose-gray dark:prose-invert mx-auto">
+                <p class="text-xl leading-relaxed text-gray-700 dark:text-gray-300">
+                    當我們談論永續發展，新聞頭條往往圍繞著碳排放、再生能源等熟悉的主題。然而，在這些廣為人知的議題之下，隱藏著許多更令人驚訝、更反直覺的真相。有些故事揭示了我們日常科技背後的巨大代價，有些則點出了善意行動中可能存在的盲點。這篇文章將揭開幾個被忽略的永續發展面向，從AI對能源網的渴求，到我們家中水族箱裡不為人知的秘密。讓我們一同探索這些隱藏在表面之下的關鍵環節，重新審視這個複雜而環環相扣的世界。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Energy Section -->
+    <section id="ai-energy" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl">
+                        <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-6">
+                            AI的渴求：正在拖延潔淨能源轉型的巨大胃口
+                        </h2>
+                        <div class="space-y-6 text-gray-700 dark:text-gray-300">
+                            <p class="text-lg leading-relaxed">
+                                人工智慧（AI）的指數級成長，正以前所未有的規模消耗著地球的電力。為了支持未來AI模型的訓練與服務，科技巨頭正在全球各地興建龐大的數據中心。例如，OpenAI計劃在阿根廷投資高達250億美元，打造一座電力容量達<strong class="text-orange-600">500百萬瓦（MW）</strong>的超級數據中心，這只是全球AI基礎設施擴張的冰山一角。
+                            </p>
+                            <p class="text-lg leading-relaxed">
+                                而OpenAI的巨額投資，正是麥肯錫報告中所揭示的宏觀趨勢下，一個具體而驚人的縮影。根據麥肯錫公司的報告，僅在美國，數據中心的電力需求正以驚人的年均17%延遲全球向潔淨能源的轉型。因為如此龐大的即時電力需求，迫使電力公司依賴現有的（通常是化石燃料）發電廠來維持電網穩定，從而推遲了新增潔淨能源項目的整合進程。
+                            </p>
+                            <div class="bg-green-50 dark:bg-green-900/20 border-l-4 border-green-500 p-4 rounded-r-lg">
+                                <p class="font-semibold text-green-800 dark:text-green-200">
+                                    根據麥肯錫報告，美國數據中心的龐大電力需求已成為該國電力增長的最大驅動因素，正直接導致向低碳能源替代方案轉型的進程受阻。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <div class="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-xl">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">AI數據中心能源消耗趨勢</h3>
+                        <img src="https://api.felo.ai/images/s/20e5nqxT91" alt="數據中心能源消耗圖表" class="w-full h-auto rounded-lg">
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mt-3">數據來源：Statista - 數據中心能源消耗在AI熱潮中激增</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Software Quality Section -->
+    <section id="software-waste" class="py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 shadow-xl">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">全球電子廢棄物統計</h3>
+                        <img src="https://api.felo.ai/images/s/1v9NZbPv7D" alt="全球電子廢棄物統計圖表" class="w-full h-auto rounded-lg">
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mt-3">數據來源：Statista - 各國電子廢棄物產生量</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl">
+                        <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-6">
+                            軟體品質崩壞：你電腦裡的「記憶體小偷」如何浪費地球資源
+                        </h2>
+                        <div class="space-y-6 text-gray-700 dark:text-gray-300">
+                            <p class="text-lg leading-relaxed">
+                                你是否感覺到，即使硬體不斷升級，你的電腦和手機應用程式卻似乎沒有變得更流暢？這背後隱藏著一個被稱為「軟體品質大崩壞」的現象。現代軟體開發越來越不重視效率，導致程式碼臃腫、資源浪費嚴重。一個令人震驚的例子是，Apple的計算機應用程式曾被發現存在高達32GB的記憶體洩漏問題，這意味著一個簡單的工具竟能癱瘓一台高性能電腦。
+                            </p>
+                            <p class="text-lg leading-relaxed">
+                                這個問題的影響遠不止於糟糕的使用者體驗。低效率、充滿漏洞的軟體會不斷蠶食你設備的運算資源，迫使你更頻繁地升級硬體以維持基本效能。這個循環直接導致了電子廢棄物的加速產生與全球資源的過度消耗。這是一個隱藏在數位世界背後的實體環境問題：一行行看似無形的拙劣程式碼，最終都將轉化為地球上沉重、有形的垃圾山。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Aviation Section -->
+    <section id="aviation" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-6">
+                    飛機的隱形殺手：比你想的更簡單、更便宜的解方
+                </h2>
+            </div>
+            <div class="grid lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2">
+                    <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl h-full">
+                        <div class="space-y-6 text-gray-700 dark:text-gray-300">
+                            <p class="text-lg leading-relaxed">
+                                談到航空業的氣候影響，多數人會立刻想到二氧化碳排放。然而，一個隱形的殺手——飛機在高空形成的「凝結尾跡」（contrails），其造成的暖化效應，竟佔據了航空業總氣候影響的約一半。這些由冰晶組成的細長雲朵能捕捉地球向外輻射的熱量，加劇全球暖化。
+                            </p>
+                            <p class="text-lg leading-relaxed">
+                                面對這個嚴峻問題，一個充滿希望且反直覺的解決方案浮現了。最新研究指出，我們並不需要等待昂貴的永續航空燃料（SAF）普及。僅僅透過微幅調整飛機的飛行高度和航線，避開容易形成凝結尾跡的大氣層，就能大幅減少其產生。更驚人的是，此方案的成本效益極高：預計每年僅需約1億至10億美元，這筆費用甚至不到開發永續航空燃料（SAF）所需數千億美元成本的1%。這個「低成本、高效益」的解方，為棘手的航空業減排問題提供了一個意想不到的突破口。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-xl">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">航空凝結尾跡氣候影響</h3>
+                        <img src="https://api.felo.ai/images/s/5pFlxhFThy" alt="航空凝結尾跡氣候影響圖表" class="w-full h-auto rounded-lg">
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mt-3">數據來源：RMI - 航空凝結尾跡的暖化現象研究</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Aquarium Section -->
+    <section id="aquarium" class="py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl">
+                        <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-6">
+                            水族箱的秘密：你的寵物魚可能來自瀕危的野生族群
+                        </h2>
+                        <div class="space-y-6 text-gray-700 dark:text-gray-300">
+                            <p class="text-lg leading-relaxed">
+                                在家中擺設一個美麗的水族箱，是許多人親近自然的方式。我們普遍認為，這些色彩斑斕的觀賞魚大多來自人工繁殖場。然而，最新的科學研究揭示了一個令人不安的真相：在美國市場上銷售的觀賞魚，絕大多數源自野生捕撈，而非人工飼養。
+                            </p>
+                            <p class="text-lg leading-relaxed">
+                                更嚴重的是，這項貿易中包含了數十種受威脅的魚類物種。這意味著，當消費者在水族店購買這些魚時，可能在不知不覺中成為了破壞海洋生態系統的共犯。從珊瑚礁捕撈這些魚類的行為，不僅直接衝擊了物種的野生族群，也破壞了牠們賴以為生的棲息地。一個看似無害的個人愛好，其背後的供應鏈可能正悄悄地掏空我們試圖在玻璃箱中欣賞的自然生態。
+                            </p>
+                            <div class="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 p-4 rounded-r-lg">
+                                <p class="font-semibold text-blue-800 dark:text-blue-200">
+                                    最新研究揭露，水族市場販售的觀賞魚絕大多數源自野生捕撈，而非人工繁殖，此行為正對全球海洋生物多樣性構成嚴重威脅。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl p-6 shadow-xl">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">海洋生物多樣性保育狀況</h3>
+                        <img src="https://api.felo.ai/images/s/29HJ6yLlRc" alt="海洋保護區統計圖表" class="w-full h-auto rounded-lg">
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mt-3">數據來源：Statista - 全球海洋保護區面積增長趨勢</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conservation Section -->
+    <section id="conservation" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="bg-gray-100 dark:bg-gray-700 rounded-2xl p-6 shadow-xl">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">保育衝突與社區關係</h3>
+                        <img src="https://api.felo.ai/images/s/72RhRABZPX" alt="保育衝突熱點圖表" class="w-full h-auto rounded-lg">
+                        <p class="text-sm text-gray-600 dark:text-gray-400 mt-3">數據來源：Frontiers - 保育衝突熱點分析</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl">
+                        <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-6">
+                            保育的傲慢：當「拯救自然」忘記了在地社群
+                        </h2>
+                        <div class="space-y-6 text-gray-700 dark:text-gray-300">
+                            <p class="text-lg leading-relaxed">
+                                永續發展不僅關乎生態，更關乎「人」。一個發生在非洲查德的事件，為此提供了深刻的教訓。查德政府近期終止了與國際知名的野生動物保育組織「African Parks」的合作，該組織負責管理包括扎庫馬國家公園在內的多個重要保護區。
+                            </p>
+                            <p class="text-lg leading-relaxed">
+                                查德官方給出的理由並非保育成效不彰，而是該組織在管理過程中表現出<strong class="text-orange-600">「傲慢且不尊重」當地社區的態度，未能妥善處理居民與野生動物之間的衝突。這起事件揭示了一個尖銳的矛盾：當以全球視野出發的「拯救自然」宏大敘事，與在地社群的日常生活及尊嚴發生碰撞時，再良善的初衷都可能變質為一種生態殖民主義的傲慢。這個案例是一個強烈的提醒：永續發展與生態保育不僅是科學或技術問題，更是社會與文化問題</strong>，人的參與和尊重是不可或缺的基石。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusion Section -->
+    <section class="py-20 bg-green-600 dark:bg-green-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl font-bold text-white mb-8">看見隱藏的連結</h2>
+            <div class="prose prose-lg prose-white mx-auto">
+                <p class="text-xl leading-relaxed text-green-100">
+                    從AI演算法對電網的壓力，到軟體程式碼與電子廢棄物的關聯；從航空路線的微調如何影響氣候，到保育行動必須尊重在地文化，這些故事揭示了永續發展中那些意想不到的連結。它們提醒我們，真正的永續解決方案，需要我們具備更廣闊的視野，去看見那些隱藏在表面之下的因果鏈。
+                </p>
+                <p class="text-lg text-green-200 mt-6">
+                    當我們開始看見這些隱藏的連結後，下一個我們應該關注的「隱形問題」會是什麼？
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="esg-footer py-12 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">免責聲明</h3>
+                    <p class="text-green-200 text-sm">基於公開資料，僅供參考，不構成建議</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">資料來源</h3>
+                    <p class="text-green-200 text-sm">網頁公開資訊</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">版權所有</h3>
+                    <p class="text-green-200 text-sm">© 2025 Dunk</p>
+                </div>
+            </div>
+            <div class="border-t border-green-500 pt-8 text-center">
+                <p class="text-green-200 text-sm">
+                    作者：Dunk | 2025年永續發展報告
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or default to 'light'
+        const currentTheme = localStorage.getItem('theme') || 
+            (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+        if (currentTheme === 'dark') {
+            html.classList.add('dark');
+        }
+
+        themeToggle.addEventListener('click', function() {
+            html.classList.toggle('dark');
+            
+            const theme = html.classList.contains('dark') ? 'dark' : 'light';
+            localStorage.setItem('theme', theme);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply initial styles and observe elements
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+
+        // Show first section immediately
+        document.querySelector('section').style.opacity = '1';
+        document.querySelector('section').style.transform = 'translateY(0)';
+    </script>
+</body>
+</html>
