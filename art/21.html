@@ -1,0 +1,722 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>米蘭「藝術的內在」展覽 - 當醫學影像技術揭開藝術傑作的祕密</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/preline@2.3.0/dist/preline.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Noto Sans TC', 'sans-serif'],
+                        'serif': ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        'burgundy': '#722f37',
+                        'gold': '#d4af37',
+                        'cream': '#f8f6f0',
+                        'charcoal': '#2d3748'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .art-gradient {
+            background: linear-gradient(135deg, #722f37 0%, #8b4513 50%, #d4af37 100%);
+        }
+        .glass-effect {
+            backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .dark .glass-effect {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .hover-lift {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        .dark .hover-lift:hover {
+            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.05);
+        }
+        .art-frame {
+            position: relative;
+            overflow: hidden;
+        }
+        .art-frame::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 48%, rgba(212, 175, 55, 0.3) 50%, transparent 52%);
+            pointer-events: none;
+            z-index: 1;
+        }
+        .parallax-bg {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        @media (max-width: 768px) {
+            .parallax-bg {
+                background-attachment: scroll;
+            }
+        }
+    </style>
+<script src="https://felo.ai/js/iframe.js?v=1760707568825"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style></head>
+<body class="font-sans bg-cream dark:bg-gray-900 text-gray-800 dark:text-gray-100 transition-colors duration-200">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-effect">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-palette text-2xl text-burgundy dark:text-gold"></i>
+                    <span class="text-xl font-bold text-burgundy dark:text-gold">Art from Inside</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#exhibition" class="hover:text-burgundy dark:hover:text-gold transition-colors">展覽介紹</a>
+                    <a href="#artworks" class="hover:text-burgundy dark:hover:text-gold transition-colors">展品</a>
+                    <a href="#technology" class="hover:text-burgundy dark:hover:text-gold transition-colors">科學技術</a>
+                    <a href="#info" class="hover:text-burgundy dark:hover:text-gold transition-colors">參觀資訊</a>
+                </div>
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i class="fas fa-sun text-xl dark:hidden"></i>
+                    <i class="fas fa-moon text-xl hidden dark:inline"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 art-gradient opacity-90"></div>
+        <div class="absolute inset-0">
+            <img src="https://api.felo.ai/images/s/jbXeYlBrNR" alt="Portrait of Carlo Emanuele I, Duke of Savoy by Giovanna Garzoni" class="w-full h-full object-cover opacity-30">
+        </div>
+        <div class="relative z-10 text-center text-white px-4 max-w-5xl mx-auto">
+            <h1 class="text-6xl md:text-8xl font-serif font-bold mb-6 text-shadow leading-tight">
+                藝術的內在
+            </h1>
+            <p class="text-2xl md:text-3xl font-light mb-8 text-shadow">
+                當醫學影像技術揭開藝術傑作的祕密
+            </p>
+            <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8 mb-12">
+                <div class="flex items-center space-x-2 glass-effect px-6 py-3 rounded-full">
+                    <i class="fas fa-calendar-alt text-gold"></i>
+                    <span class="text-lg">2025.10.09 - 2026.01.06</span>
+                </div>
+                <div class="flex items-center space-x-2 glass-effect px-6 py-3 rounded-full">
+                    <i class="fas fa-map-marker-alt text-gold"></i>
+                    <span class="text-lg">米蘭皇家宮殿</span>
+                </div>
+                <div class="flex items-center space-x-2 glass-effect px-6 py-3 rounded-full">
+                    <i class="fas fa-gift text-gold"></i>
+                    <span class="text-lg">免費入場</span>
+                </div>
+            </div>
+            <div class="text-xl md:text-2xl font-light max-w-3xl mx-auto leading-relaxed">
+                透過非侵入性診斷分析，揭示九件從十五世紀到十八世紀義大利大師傑作的隱藏層次
+            </div>
+        </div>
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+            <i class="fas fa-chevron-down text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- Exhibition Overview -->
+    <section id="exhibition" class="py-20 bg-white dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-serif font-bold text-burgundy dark:text-gold mb-6">展覽核心理念</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    科學與藝術的對話，開創藝術研究的新方向
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-16 items-center mb-20">
+                <div class="space-y-8">
+                    <div class="bg-burgundy dark:bg-gold text-white dark:text-gray-900 p-8 rounded-2xl hover-lift">
+                        <h3 class="text-2xl font-bold mb-4">跨領域創新</h3>
+                        <p class="text-lg leading-relaxed">
+                            將醫學診斷影像技術——包括X射線、紅外線、紫外線和光譜成像——運用於藝術品分析，首次在大型展覽場館中實現這一創新應用。
+                        </p>
+                    </div>
+                    <div class="bg-gray-100 dark:bg-gray-700 p-8 rounded-2xl hover-lift">
+                        <h3 class="text-2xl font-bold mb-4 text-burgundy dark:text-gold">教育使命</h3>
+                        <p class="text-lg leading-relaxed">
+                            作為免費教育計畫，旨在激發年輕人對應用於文化遺產的STEM學科的興趣，開啟科技、科學與藝術相結合的創新職業前景。
+                        </p>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="art-frame rounded-3xl overflow-hidden shadow-2xl">
+                        <img src="https://api.felo.ai/images/s/Z7osTdD7E4" alt="醫學影像設備掃描藝術品" class="w-full h-96 object-cover">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scientific Team -->
+            <div class="bg-cream dark:bg-gray-900 rounded-3xl p-12 mb-20">
+                <h3 class="text-4xl font-serif font-bold text-center text-burgundy dark:text-gold mb-12">科學顧問團隊</h3>
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div class="text-center">
+                        <div class="w-32 h-32 bg-burgundy dark:bg-gold rounded-full mx-auto mb-6 flex items-center justify-center">
+                            <i class="fas fa-microscope text-4xl text-white dark:text-gray-900"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4">伊莎貝拉·卡斯提廖尼教授</h4>
+                        <p class="text-lg text-gray-600 dark:text-gray-300 mb-4">米蘭-比可卡大學應用物理學正教授</p>
+                        <p class="leading-relaxed">
+                            義大利診斷中心科學主任，將醫學影像診斷的專業知識應用於藝術品分析，開創義大利在非侵入性藝術品診斷領域的先河。
+                        </p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-32 h-32 bg-burgundy dark:bg-gold rounded-full mx-auto mb-6 flex items-center justify-center">
+                            <i class="fas fa-palette text-4xl text-white dark:text-gray-900"></i>
+                        </div>
+                        <h4 class="text-2xl font-bold mb-4">斯特凡諾·祖菲</h4>
+                        <p class="text-lg text-gray-600 dark:text-gray-300 mb-4">藝術史學家</p>
+                        <p class="leading-relaxed">
+                            強調藝術品作為物質對象的本質，展現其所有的特質和物理問題。藝術品不僅是影像，更是具有物質性的物件。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Artworks -->
+    <section id="artworks" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-serif font-bold text-burgundy dark:text-gold mb-6">展覽作品</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    從文藝復興到巴洛克的藝術傑作，透過科學技術揭示隱藏的秘密
+                </p>
+            </div>
+
+            <!-- Caravaggio Section -->
+            <div class="mb-20">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div class="order-2 lg:order-1">
+                        <h3 class="text-4xl font-serif font-bold text-burgundy dark:text-gold mb-6">卡拉瓦喬的傑作</h3>
+                        <div class="space-y-6">
+                            <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg hover-lift">
+                                <h4 class="text-2xl font-bold mb-3 text-burgundy dark:text-gold">《算命者》(1597)</h4>
+                                <p class="text-lg leading-relaxed">
+                                    描繪羅馬街頭的日常場景：一位吉普賽女郎在假裝為年輕騎士看手相時，偷偷摘下他手上的戒指。透過診斷影像，研究人員揭示了卡拉瓦喬如何運用光影對比來強化人物的立體感和戲劇性張力。
+                                </p>
+                            </div>
+                            <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg hover-lift">
+                                <h4 class="text-2xl font-bold mb-3 text-burgundy dark:text-gold">《逃往埃及途中的休息》(1597)</h4>
+                                <p class="text-lg leading-relaxed">
+                                    展現卡拉瓦喬早期作品中罕見的明亮色調。1983年，學者們識別出畫中的樂譜，是佛蘭德作曲家諾埃爾·包德溫根據《雅歌》創作的旋律。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-1 lg:order-2">
+                        <div class="art-frame rounded-3xl overflow-hidden shadow-2xl">
+                            <img src="https://api.felo.ai/images/s/bbEToJ1RfW" alt="Caravaggio's La Buona Ventura" class="w-full h-auto">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Artworks Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white dark:bg-gray-700 rounded-2xl overflow-hidden shadow-xl hover-lift">
+                    <div class="h-64 bg-gradient-to-br from-burgundy to-gold flex items-center justify-center">
+                        <i class="fas fa-church text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-3 text-burgundy dark:text-gold">貝阿托·安吉利科</h4>
+                        <p class="text-gray-600 dark:text-gray-300 mb-3">《銀櫃首隔板》(約1450年)</p>
+                        <p class="leading-relaxed">為佛羅倫斯聖母領報教堂製作的彩繪傢具，透過診斷技術揭示了不同階段的創作痕跡。</p>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-gray-700 rounded-2xl overflow-hidden shadow-xl hover-lift">
+                    <div class="h-64 bg-gradient-to-br from-gold to-burgundy flex items-center justify-center">
+                        <i class="fas fa-ruler-combined text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-3 text-burgundy dark:text-gold">皮耶羅·德拉·弗朗切斯卡</h4>
+                        <p class="text-gray-600 dark:text-gray-300 mb-3">《聖尼古拉·達·托倫蒂諾》(約1469年)</p>
+                        <p class="leading-relaxed">以嚴謹的數學透視法描繪聖人，診斷研究發現了藍色羽翼的痕跡。</p>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-gray-700 rounded-2xl overflow-hidden shadow-xl hover-lift">
+                    <div class="h-64 bg-gradient-to-br from-burgundy via-gold to-burgundy flex items-center justify-center">
+                        <i class="fas fa-female text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-3 text-burgundy dark:text-gold">喬凡娜·加爾佐尼</h4>
+                        <p class="text-gray-600 dark:text-gray-300 mb-3">薩伏依公爵肖像畫(1632-1637)</p>
+                        <p class="leading-relaxed">17世紀少數獲得廣泛認可的女性藝術家，作品成為展覽的視覺主形象。</p>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-gray-700 rounded-2xl overflow-hidden shadow-xl hover-lift">
+                    <div class="h-64 bg-gradient-to-br from-gold to-burgundy flex items-center justify-center">
+                        <i class="fas fa-child text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-3 text-burgundy dark:text-gold">波特拉菲奧</h4>
+                        <p class="text-gray-600 dark:text-gray-300 mb-3">《玫瑰聖母》(約1490年)</p>
+                        <p class="leading-relaxed">達文西工作室最優秀學生的技藝，展現了明暗對比法的傳承與發展。</p>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-gray-700 rounded-2xl overflow-hidden shadow-xl hover-lift md:col-span-2">
+                    <div class="h-64 bg-gradient-to-r from-burgundy via-gold to-burgundy flex items-center justify-center">
+                        <i class="fas fa-music text-6xl text-white"></i>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-xl font-bold mb-3 text-burgundy dark:text-gold">洛倫佐·斯托里奧尼的小提琴</h4>
+                        <p class="text-gray-600 dark:text-gray-300 mb-3">18世紀樂器工藝</p>
+                        <p class="leading-relaxed">展覽中唯一的非繪畫作品，展示診斷影像技術在研究和保存樂器方面的應用價值，揭示樂器內部結構和製作工藝。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section id="technology" class="py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-serif font-bold text-burgundy dark:text-gold mb-6">診斷影像技術</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    醫學與藝術的跨界應用，揭示藝術品的隱藏層面
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-4 gap-8 mb-16">
+                <div class="bg-gradient-to-br from-burgundy to-red-900 text-white p-8 rounded-2xl hover-lift text-center">
+                    <i class="fas fa-x-ray text-4xl mb-6"></i>
+                    <h3 class="text-2xl font-bold mb-4">X射線成像</h3>
+                    <p class="leading-relaxed">揭示藝術品內部結構，如藝術家的修改痕跡、底層繪畫、裂縫和損壞</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-gold to-yellow-600 text-white p-8 rounded-2xl hover-lift text-center">
+                    <i class="fas fa-sun text-4xl mb-6"></i>
+                    <h3 class="text-2xl font-bold mb-4">紅外線成像</h3>
+                    <p class="leading-relaxed">穿透顏料層，揭示底層繪畫、預備素描和構圖修改</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-purple-600 to-indigo-700 text-white p-8 rounded-2xl hover-lift text-center">
+                    <i class="fas fa-eye text-4xl mb-6"></i>
+                    <h3 class="text-2xl font-bold mb-4">紫外線成像</h3>
+                    <p class="leading-relaxed">幫助區分有機和無機顏料，揭示底層預備素描</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-green-600 to-teal-700 text-white p-8 rounded-2xl hover-lift text-center">
+                    <i class="fas fa-spectrum text-4xl mb-6"></i>
+                    <h3 class="text-2xl font-bold mb-4">光譜分析</h3>
+                    <p class="leading-relaxed">分析顏料中的原子，獲得基於材料化學成分的「色彩地圖」</p>
+                </div>
+            </div>
+
+            <!-- Technology Flow -->
+            <div class="bg-gray-50 dark:bg-gray-800 rounded-3xl p-12">
+                <h3 class="text-3xl font-bold text-center text-burgundy dark:text-gold mb-12">技術應用流程</h3>
+                <div class="mermaid" id="tech-flow">
+flowchart TD
+    A["藝術品檢測"] --> B["X射線掃描"]
+    A --> C["紅外線成像"]
+    A --> D["紫外線分析"]
+    A --> E["光譜檢測"]
+    
+    B --> F["內部結構分析"]
+    C --> G["底層繪畫揭示"]
+    D --> H["顏料成分識別"]
+    E --> I["化學組成分析"]
+    
+    F --> J["綜合診斷報告"]
+    G --> J
+    H --> J
+    I --> J
+    
+    J --> K["藝術品「醫學病歷」"]
+    K --> L["保護與修復指導"]
+    K --> M["學術研究資料"]
+    K --> N["展覽呈現內容"]
+                </div>
+            </div>
+
+            <!-- Technical Insights -->
+            <div class="mt-16">
+                <h3 class="text-3xl font-bold text-center text-burgundy dark:text-gold mb-12">技術揭示的發現</h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="bg-white dark:bg-gray-700 p-8 rounded-2xl shadow-lg hover-lift">
+                        <i class="fas fa-search text-3xl text-burgundy dark:text-gold mb-4"></i>
+                        <h4 class="text-xl font-bold mb-4">隱藏的修改</h4>
+                        <p class="leading-relaxed">發現藝術家在創作過程中的構圖變化、人物位置調整和色彩修正</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-700 p-8 rounded-2xl shadow-lg hover-lift">
+                        <i class="fas fa-layers text-3xl text-burgundy dark:text-gold mb-4"></i>
+                        <h4 class="text-xl font-bold mb-4">材料分析</h4>
+                        <p class="leading-relaxed">識別顏料的地理來源、黏合劑類型和支撐物準備技術</p>
+                    </div>
+                    <div class="bg-white dark:bg-gray-700 p-8 rounded-2xl shadow-lg hover-lift">
+                        <i class="fas fa-clock text-3xl text-burgundy dark:text-gold mb-4"></i>
+                        <h4 class="text-xl font-bold mb-4">時間痕跡</h4>
+                        <p class="leading-relaxed">記錄藝術品的保存狀態和時間對作品造成的影響</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exhibition Experience -->
+    <section class="py-20 parallax-bg bg-gradient-to-r from-burgundy via-red-900 to-gold relative">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white text-center">
+            <h2 class="text-5xl font-serif font-bold mb-8 text-shadow">沉浸式多媒體敘事</h2>
+            <p class="text-2xl mb-12 text-shadow max-w-3xl mx-auto leading-relaxed">
+                透過高解析度影像和互動展示，觀眾能直觀了解藝術作品的內部結構和創作過程
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-effect p-8 rounded-2xl">
+                    <i class="fas fa-desktop text-4xl text-gold mb-6"></i>
+                    <h3 class="text-2xl font-bold mb-4">大型多媒體螢幕</h3>
+                    <p class="leading-relaxed">高解析影像技術提供高度互動體驗，增強觀眾參與感</p>
+                </div>
+                <div class="glass-effect p-8 rounded-2xl">
+                    <i class="fas fa-cube text-4xl text-gold mb-6"></i>
+                    <h3 class="text-2xl font-bold mb-4">1:1 比例複製</h3>
+                    <p class="text-lg leading-relaxed">精確複製原作，讓觀眾近距離欣賞藝術細節</p>
+                </div>
+                <div class="glass-effect p-8 rounded-2xl">
+                    <i class="fas fa-vr-cardboard text-4xl text-gold mb-6"></i>
+                    <h3 class="text-2xl font-bold mb-4">互動探索</h3>
+                    <p class="leading-relaxed">透過科技手段深入探索每件作品的「秘密生活」</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visitor Information -->
+    <section id="info" class="py-20 bg-cream dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-serif font-bold text-burgundy dark:text-gold mb-6">參觀資訊</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300">開啟您的藝術與科學探索之旅</p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8">
+                    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover-lift">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-map-marker-alt text-2xl text-burgundy dark:text-gold mr-4"></i>
+                            <h3 class="text-2xl font-bold">展覽地點</h3>
+                        </div>
+                        <p class="text-lg">米蘭皇家宮殿 (Palazzo Reale di Milano)</p>
+                        <p class="text-gray-600 dark:text-gray-300">義大利米蘭市中心歷史文化地標</p>
+                    </div>
+
+                    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover-lift">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-calendar-alt text-2xl text-burgundy dark:text-gold mr-4"></i>
+                            <h3 class="text-2xl font-bold">展覽時間</h3>
+                        </div>
+                        <p class="text-lg">2025年10月9日 - 2026年1月6日</p>
+                        <p class="text-gray-600 dark:text-gray-300">為期近三個月的文化盛宴</p>
+                    </div>
+
+                    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover-lift">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-clock text-2xl text-burgundy dark:text-gold mr-4"></i>
+                            <h3 class="text-2xl font-bold">開放時間</h3>
+                        </div>
+                        <p class="text-lg">週二至週日 10:00-19:30</p>
+                        <p class="text-lg">週四延長至 22:30</p>
+                        <p class="text-gray-600 dark:text-gray-300">週一休館，最後入場時間為閉館前一小時</p>
+                    </div>
+
+                    <div class="bg-burgundy dark:bg-gold text-white dark:text-gray-900 p-8 rounded-2xl">
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-gift text-2xl mr-4"></i>
+                            <h3 class="text-2xl font-bold">免費入場</h3>
+                        </div>
+                        <p class="text-lg">體現強烈的公民價值和教育使命</p>
+                        <p class="opacity-90">讓所有人都能接觸高水準學術研究成果</p>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="art-frame rounded-3xl overflow-hidden shadow-2xl">
+                        <img src="https://api.felo.ai/images/s/gqW2JUobb1" alt="米蘭皇家宮殿外觀" class="w-full h-96 object-cover">
+                    </div>
+                    <div class="absolute -bottom-8 -right-8 bg-gold text-gray-900 p-6 rounded-2xl shadow-xl">
+                        <div class="text-center">
+                            <i class="fas fa-users text-3xl mb-2"></i>
+                            <p class="font-bold text-lg">特別推薦</p>
+                            <p class="text-sm">學生與年輕觀眾</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Educational Value -->
+            <div class="mt-20 bg-white dark:bg-gray-800 rounded-3xl p-12">
+                <h3 class="text-3xl font-bold text-center text-burgundy dark:text-gold mb-12">展覽教育價值</h3>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-burgundy dark:bg-gold rounded-full mx-auto mb-6 flex items-center justify-center">
+                            <i class="fas fa-graduation-cap text-2xl text-white dark:text-gray-900"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4">STEM 教育</h4>
+                        <p class="leading-relaxed">激發對應用於文化遺產的科學技術學科的興趣</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-burgundy dark:bg-gold rounded-full mx-auto mb-6 flex items-center justify-center">
+                            <i class="fas fa-handshake text-2xl text-white dark:text-gray-900"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4">跨學科合作</h4>
+                        <p class="leading-relaxed">展示科學與人文學科交匯處的職業機會</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-burgundy dark:bg-gold rounded-full mx-auto mb-6 flex items-center justify-center">
+                            <i class="fas fa-shield-alt text-2xl text-white dark:text-gray-900"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4">文化保護</h4>
+                        <p class="leading-relaxed">提升公眾對文化遺產保護的認識和重視</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal dark:bg-black text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-12">
+                <div>
+                    <div class="flex items-center space-x-4 mb-6">
+                        <i class="fas fa-palette text-3xl text-gold"></i>
+                        <span class="text-2xl font-bold">Art from Inside</span>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed">
+                        藝術與科學揭示的傑作展覽，開創文化遺產研究的新典範
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-6 text-gold">主辦單位</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li>米蘭市文化局</li>
+                        <li>布拉科基金會</li>
+                        <li>米蘭皇家宮殿</li>
+                        <li>24ORE文化集團</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-6 text-gold">聯絡資訊</h4>
+                    <div class="space-y-3 text-gray-300">
+                        <p class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-3"></i>
+                            米蘭皇家宮殿
+                        </p>
+                        <p class="flex items-center">
+                            <i class="fas fa-envelope mr-3"></i>
+                            <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f39a9d959cb392818795819c9e9a9d809a9796dd9a87">[email&#160;protected]</a>
+                        </p>
+                        <p class="flex items-center">
+                            <i class="fas fa-phone mr-3"></i>
+                            +39 02 xxxx xxxx
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-12 pt-8 text-center text-gray-400">
+                <p class="mb-2">免責申明：基於公開資料，僅供參考，不構成建議</p>
+                <p class="mb-2">資料來源：網頁公開資訊</p>
+                <p>版權所有 © 2025 Dunk</p>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Theme Toggle Functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or default to 'system'
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+            html.classList.add('dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            const isDark = html.classList.contains('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            
+            // Re-render Mermaid chart with new theme
+            if (typeof mermaid !== 'undefined') {
+                setTimeout(renderMermaidChart, 100);
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mermaid initialization and theme management
+        function renderMermaidChart() {
+            const isDark = html.classList.contains('dark');
+            const theme = isDark ? 'dark' : 'default';
+            
+            mermaid.initialize({
+                startOnLoad: false,
+                theme: theme,
+                themeVariables: {
+                    primaryColor: isDark ? '#d4af37' : '#722f37',
+                    primaryTextColor: isDark ? '#ffffff' : '#000000',
+                    primaryBorderColor: isDark ? '#d4af37' : '#722f37',
+                    lineColor: isDark ? '#d4af37' : '#722f37',
+                    sectionBkgColor: isDark ? '#1f2937' : '#f8f6f0',
+                    altSectionBkgColor: isDark ? '#374151' : '#ffffff',
+                    gridColor: isDark ? '#d4af37' : '#722f37',
+                    secondaryColor: isDark ? '#374151' : '#f8f6f0',
+                    tertiaryColor: isDark ? '#1f2937' : '#ffffff'
+                }
+            });
+
+            // Clear existing chart
+            const chartElement = document.getElementById('tech-flow');
+            if (chartElement) {
+                chartElement.innerHTML = `flowchart TD
+    A["藝術品檢測"] --> B["X射線掃描"]
+    A --> C["紅外線成像"]
+    A --> D["紫外線分析"]
+    A --> E["光譜檢測"]
+    
+    B --> F["內部結構分析"]
+    C --> G["底層繪畫揭示"]
+    D --> H["顏料成分識別"]
+    E --> I["化學組成分析"]
+    
+    F --> J["綜合診斷報告"]
+    G --> J
+    H --> J
+    I --> J
+    
+    J --> K["藝術品「醫學病歷」"]
+    K --> L["保護與修復指導"]
+    K --> M["學術研究資料"]
+    K --> N["展覽呈現內容"]`;
+                
+                mermaid.run({
+                    nodes: [chartElement]
+                });
+            }
+        }
+
+        // Initialize Mermaid when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            renderMermaidChart();
+        });
+
+        // Parallax effect for hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            const heroSection = document.querySelector('section');
+            if (heroSection) {
+                heroSection.style.transform = `translateY(${rate}px)`;
+            }
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const animateElements = document.querySelectorAll('.hover-lift');
+            animateElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(el);
+            });
+        });
+
+        // Mobile menu functionality (if needed)
+        const mobileMenuButton = document.querySelector('[data-hs-overlay]');
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', function() {
+                const target = document.querySelector(this.getAttribute('data-hs-overlay'));
+                if (target) {
+                    target.classList.toggle('hidden');
+                }
+            });
+        }
+    </script>
+</body>
+</html>
