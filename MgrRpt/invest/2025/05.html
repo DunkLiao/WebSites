@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>非洲豬瘟臺中市梧棲區案例風險評估報告</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#9A0036',
+                        secondary: '#941C61',
+                        accent: '#EEBAC0',
+                        warning: '#FF8C00',
+                        gold: '#FFD700'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            box-sizing: border-box;
+            font-family: 'Microsoft JhengHei', 'PingFang TC', sans-serif;
+        }
+        
+        .card-shadow {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #9A0036 0%, #941C61 100%);
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 8px;
+            width: 16px;
+            height: 16px;
+            background: #9A0036;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+        
+        .risk-high { border-left: 4px solid #FF4444; }
+        .risk-medium { border-left: 4px solid #FF8C00; }
+        .risk-low { border-left: 4px solid #4CAF50; }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-full">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-6 mb-8">
+        <div class="container mx-auto px-6">
+            <h1 class="text-3xl font-bold mb-2">非洲豬瘟臺中市梧棲區案例風險評估報告</h1>
+            <p class="text-accent text-lg">African Swine Fever Risk Assessment Report - Wuqi District, Taichung</p>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 pb-20">
+        <!-- 執行摘要 -->
+        <section class="bg-white rounded-lg card-shadow p-6 mb-8 hover-lift transition-all duration-300">
+            <div class="flex items-center mb-4">
+                <div class="w-1 h-8 bg-primary mr-4"></div>
+                <h2 class="text-2xl font-bold text-gray-800">執行摘要</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                    <h3 class="font-semibold text-primary mb-2">疫情狀態</h3>
+                    <p class="text-sm text-gray-700">臺中市梧棲區一貫場確診非洲豬瘟陽性案例</p>
+                </div>
+                <div class="bg-orange-50 p-4 rounded-lg border border-orange-200">
+                    <h3 class="font-semibold text-warning mb-2">風險等級</h3>
+                    <p class="text-sm text-gray-700">高風險：40處關聯場需密切監控</p>
+                </div>
+                <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+                    <h3 class="font-semibold text-blue-600 mb-2">應變措施</h3>
+                    <p class="text-sm text-gray-700">全國禁運禁宰5天，全面禁用廚餘養豬</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 案例基本資訊 -->
+        <section class="bg-white rounded-lg card-shadow p-6 mb-8 hover-lift transition-all duration-300">
+            <div class="flex items-center mb-6">
+                <div class="w-1 h-8 bg-primary mr-4"></div>
+                <h2 class="text-2xl font-bold text-gray-800">1.0 背景說明與案例概況</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">案例場基本資料</h3>
+                    <div class="bg-gray-50 rounded-lg p-4">
+                        <table class="w-full text-sm">
+                            <tr class="border-b border-gray-200">
+                                <td class="py-2 font-medium text-gray-600">地理位置</td>
+                                <td class="py-2 text-gray-800">臺中市梧棲區</td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <td class="py-2 font-medium text-gray-600">豬場類型</td>
+                                <td class="py-2 text-gray-800">一貫場</td>
+                            </tr>
+                            <tr class="border-b border-gray-200">
+                                <td class="py-2 font-medium text-gray-600">登記頭數</td>
+                                <td class="py-2 text-gray-800">300頭</td>
+                            </tr>
+                            <tr>
+                                <td class="py-2 font-medium text-gray-600">飼養方式</td>
+                                <td class="py-2 text-gray-800">使用廚餘養豬（仔豬吃飼料）</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">非洲豬瘟危害特性</h3>
+                    <div class="space-y-3">
+                        <div class="flex items-start">
+                            <div class="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                            <div>
+                                <p class="font-medium text-gray-800">高傳染性與高致死率</p>
+                                <p class="text-sm text-gray-600">致死率可高達100%</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                            <div>
+                                <p class="font-medium text-gray-800">缺乏防治手段</p>
+                                <p class="text-sm text-gray-600">無疫苗、無特效藥</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                            <div>
+                                <p class="font-medium text-gray-800">病毒存活力強</p>
+                                <p class="text-sm text-gray-600">冷凍豬肉中可存活1000天</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                            <div>
+                                <p class="font-medium text-gray-800">非人畜共通傳染病</p>
+                                <p class="text-sm text-gray-600">不會感染人類，豬肉可安心食用</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 疫情時間軸 -->
+        <section class="bg-white rounded-lg card-shadow p-6 mb-8 hover-lift transition-all duration-300">
+            <div class="flex items-center mb-6">
+                <div class="w-1 h-8 bg-primary mr-4"></div>
+                <h2 class="text-2xl font-bold text-gray-800">2.0 案例發生歷程</h2>
+            </div>
+            
+            <div class="relative">
+                <div class="absolute left-4 top-0 bottom-0 w-0.5 bg-gray-300"></div>
+                <div class="space-y-6">
+                    <div class="relative pl-12 timeline-item">
+                        <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-400">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-semibold text-gray-800">10月10日</h3>
+                                <span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded">疫情開始</span>
+                            </div>
+                            <p class="text-gray-700">豬隻開始死亡，特約獸醫師誤診為放線桿菌胸膜肺炎</p>
+                        </div>
+                    </div>
+                    
+                    <div class="relative pl-12 timeline-item">
+                        <div class="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-400">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-semibold text-gray-800">10月14日</h3>
+                                <span class="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded">系統示警</span>
+                            </div>
+                            <p class="text-gray-700">化製監控系統偵測異常，動保處訪視但未採樣</p>
+                        </div>
+                    </div>
+                    
+                    <div class="relative pl-12 timeline-item">
+                        <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-semibold text-gray-800">10月20日</h3>
+                                <span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded">正式採檢</span>
+                            </div>
+                            <p class="text-gray-700">累計死亡117頭，動保處正式採樣送檢</p>
+                        </div>
+                    </div>
+                    
+                    <div class="relative pl-12 timeline-item">
+                        <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-semibold text-gray-800">10月21日</h3>
+                                <span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">確診陽性</span>
+                            </div>
+                            <p class="text-gray-700">獸醫研究所PCR檢測確認非洲豬瘟病毒陽性</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-6 p-4 bg-red-50 rounded-lg border border-red-200">
+                <p class="text-sm text-red-700"><strong>關鍵風險：</strong>從10月10日開始死亡至20日正式採檢，長達10天的診斷空窗期，構成病毒未受控制傳播的主要風險。</p>
+            </div>
+        </section>
+
+        <!-- 風險評估 -->
+        <section class="bg-white rounded-lg card-shadow p-6 mb-8 hover-lift transition-all duration-300">
+            <div class="flex items-center mb-6">
+                <div class="w-1 h-8 bg-primary mr-4"></div>
+                <h2 class="text-2xl font-bold text-gray-800">3.0 潛在擴散風險評估</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6 mb-8">
+                <div class="risk-high bg-red-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-red-700 mb-3">廚餘餵飼風險</h3>
+                    <p class="text-sm text-gray-700 mb-3">案例場使用廚餘養豬，為最可能的感染源頭</p>
+                    <div class="bg-white p-3 rounded border">
+                        <p class="text-xs text-gray-600"><strong>應對措施：</strong>全面禁止使用廚餘養豬</p>
+                    </div>
+                </div>
+                
+                <div class="risk-high bg-red-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-red-700 mb-3">車輛移動風險</h3>
+                    <p class="text-sm text-gray-700 mb-3">化製車關聯33場，運豬車關聯7場</p>
+                    <div class="bg-white p-3 rounded border">
+                        <p class="text-xs text-gray-600"><strong>高風險場數：</strong>共40處關聯場</p>
+                    </div>
+                </div>
+                
+                <div class="risk-medium bg-orange-50 p-4 rounded-lg">
+                    <h3 class="font-semibold text-orange-700 mb-3">地緣關聯風險</h3>
+                    <p class="text-sm text-gray-700 mb-3">3公里管制區內2場豬場（1場已停養）</p>
+                    <div class="bg-white p-3 rounded border">
+                        <p class="text-xs text-gray-600"><strong>監測期：</strong>至少20天密集監測</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="bg-gray-50 p-6 rounded-lg">
+                <h3 class="text-lg font-semibold text-gray-800 mb-4">關聯車輛風險分析</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="bg-primary text-white">
+                                <th class="px-4 py-3 text-left">車輛類型</th>
+                                <th class="px-4 py-3 text-center">關聯場數</th>
+                                <th class="px-4 py-3 text-left">風險分析</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white">
+                            <tr class="border-b border-gray-200">
+                                <td class="px-4 py-3 font-medium">化製車</td>
+                                <td class="px-4 py-3 text-center text-red-600 font-bold">33場</td>
+                                <td class="px-4 py-3">病毒可在糞便中存活11天，車輛成為機械性傳播媒介</td>
+                            </tr>
+                            <tr>
+                                <td class="px-4 py-3 font-medium">運豬車</td>
+                                <td class="px-4 py-3 text-center text-red-600 font-bold">7場</td>
+                                <td class="px-4 py-3">活豬運輸的直接與間接接觸，為最高效傳播途徑</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 產業衝擊評估 -->
+        <section class="bg-white rounded-lg card-shadow p-6 mb-8 hover-lift transition-all duration-300">
+            <div class="flex items-center mb-6">
+                <div class="w-1 h-8 bg-primary mr-4"></div>
+                <h2 class="text-2xl font-bold text-gray-800">4.0 產業衝擊評估</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">短期經濟損失</h3>
+                    <div class="space-y-4">
+                        <div class="bg-red-50 p-4 rounded-lg border border-red-200">
+                            <h4 class="font-medium text-red-700 mb-2">直接損失</h4>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>• 預防性撲殺195頭豬隻</li>
+                                <li>• 防疫作業成本</li>
+                                <li>• 場區消毒與掩埋費用</li>
+                            </ul>
+                        </div>
+                        <div class="bg-orange-50 p-4 rounded-lg border border-orange-200">
+                            <h4 class="font-medium text-orange-700 mb-2">市場擾動</h4>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>• 全國禁運禁宰5天</li>
+                                <li>• 供應鏈暫時中斷</li>
+                                <li>• 運輸與屠宰業損失</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4">潛在災難性衝擊</h3>
+                    <div class="bg-gradient-to-br from-red-50 to-red-100 p-6 rounded-lg border border-red-200">
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="w-3 h-3 bg-red-500 rounded-full mt-1 mr-3 flex-shrink-0"></div>
+                                <div>
+                                    <p class="font-medium text-red-800">產業結構崩潰</p>
+                                    <p class="text-sm text-red-700">豬價先崩盤後暴漲，供需嚴重失調</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-3 h-3 bg-red-500 rounded-full mt-1 mr-3 flex-shrink-0"></div>
+                                <div>
+                                    <p class="font-medium text-red-800">關聯產業鏈崩潰</p>
+                                    <p class="text-sm text-red-700">飼料、動物用藥、屠宰加工業連鎖蕭條</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-3 h-3 bg-red-500 rounded-full mt-1 mr-3 flex-shrink-0"></div>
+                                <div>
+                                    <p class="font-medium text-red-800">外銷市場封鎖</p>
+                                    <p class="text-sm text-red-700">豬肉出口無限期禁止</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 緊急應變措施 -->
+        <section class="bg-white rounded-lg card-shadow p-6 mb-8 hover-lift transition-all duration-300">
+            <div class="flex items-center mb-6">
+                <div class="w-1 h-8 bg-primary mr-4"></div>
+                <h2 class="text-2xl font-bold text-gray-800">已執行緊急防疫措施</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-400">
+                        <h3 class="font-semibold text-blue-700 mb-2">移動管制</h3>
+                        <p class="text-sm text-gray-700">案例場及周邊3公里內豬場禁止豬隻移動</p>
+                    </div>
+                    <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-400">
+                        <h3 class="font-semibold text-green-700 mb-2">預防性撲殺</h3>
+                        <p class="text-sm text-gray-700">195頭豬隻就地撲殺並掩埋處理</p>
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-400">
+                        <h3 class="font-semibold text-purple-700 mb-2">清潔消毒</h3>
+                        <p class="text-sm text-gray-700">案例豬場全面清潔與徹底消毒</p>
+                    </div>
+                    <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-400">
+                        <h3 class="font-semibold text-yellow-700 mb-2">管制區設立</h3>
+                        <p class="text-sm text-gray-700">3公里管制區疫情調查與監測</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 重要政策決定 -->
+        <section class="bg-gradient-to-r from-primary to-secondary text-white rounded-lg p-6 mb-8">
+            <div class="text-center">
+                <h2 class="text-2xl font-bold mb-4">重要政策決定</h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold mb-2">全國豬隻禁運禁宰</h3>
+                        <p class="text-sm">實施5天，阻斷潛在傳播鏈</p>
+                    </div>
+                    <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                        <h3 class="font-semibold mb-2">全面禁用廚餘養豬</h3>
+                        <p class="text-sm">從根本剷除關鍵傳播途徑</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 風險管理與應對建議 -->
+        <section class="bg-white rounded-lg card-shadow p-6 mb-8 hover-lift transition-all duration-300">
+            <div class="flex items-center mb-6">
+                <div class="w-1 h-8 bg-primary mr-4"></div>
+                <h2 class="text-2xl font-bold text-gray-800">5.0 風險管理與應對建議</h2>
+            </div>
+            
+            <!-- 已執行措施評估 -->
+            <div class="bg-green-50 p-6 rounded-lg border border-green-200 mb-8">
+                <h3 class="text-lg font-semibold text-green-800 mb-4">5.1 已執行應變措施之有效性評估</h3>
+                <div class="flex items-start">
+                    <div class="w-3 h-3 bg-green-500 rounded-full mt-2 mr-4 flex-shrink-0"></div>
+                    <div>
+                        <p class="text-gray-700 leading-relaxed">
+                            政府迅速成立「非洲豬瘟中央災害應變中心」，並公告全國豬隻禁運禁宰、全面禁止廚餘養豬等措施。
+                            這些應變作為符合《中央防範非洲豬瘟緊急應變措施手冊》中「第二級：我國本島或離島發生一例案例處置階段」的應變原則，
+                            展現了政府阻絕疫情蔓延的決心與高效執行能力，為後續風險控制爭取了寶貴時間。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 強化建議 -->
+            <div class="mb-6">
+                <h3 class="text-lg font-semibold text-gray-800 mb-6">5.2 後續風險控制強化建議</h3>
+                <div class="grid gap-6">
+                    <!-- 建議1 -->
+                    <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-blue-500">
+                        <div class="flex items-start">
+                            <div class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">1</div>
+                            <div>
+                                <h4 class="font-semibold text-blue-800 mb-3">強化關聯場追蹤監測</h4>
+                                <p class="text-gray-700 mb-3">
+                                    針對化製車與運豬車牽涉的<strong class="text-blue-700">共40場高風險關聯豬場</strong>，
+                                    執行為期至少兩個潛伏期（<strong class="text-blue-700">40天</strong>）的加強監測計畫。
+                                </p>
+                                <div class="bg-white p-4 rounded border">
+                                    <p class="text-sm text-gray-600">
+                                        <strong>監測方式：</strong>哨兵監測模式，結合官方獸醫師定期臨床訪視，
+                                        在第10、25、40天進行合併樣本的口液或糞便PCR檢測
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 建議2 -->
+                    <div class="bg-orange-50 p-6 rounded-lg border-l-4 border-orange-500">
+                        <div class="flex items-start">
+                            <div class="bg-orange-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">2</div>
+                            <div>
+                                <h4 class="font-semibold text-orange-800 mb-3">落實運輸車輛生物安全稽核</h4>
+                                <p class="text-gray-700 mb-3">
+                                    對所有進出過案例場及40個關聯場的運輸車輛（化製車、運豬車、飼料車等），
+                                    進行GPS軌跡回溯與強制性生物安全稽核。
+                                </p>
+                                <div class="bg-white p-4 rounded border">
+                                    <p class="text-sm text-gray-600">
+                                        <strong>稽核標準：</strong>依據「運輸車輛清潔消毒紀錄表」標準，
+                                        確保清潔消毒程序被徹底執行，避免車輛成為移動污染源
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 建議3 -->
+                    <div class="bg-purple-50 p-6 rounded-lg border-l-4 border-purple-500">
+                        <div class="flex items-start">
+                            <div class="bg-purple-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">3</div>
+                            <div>
+                                <h4 class="font-semibold text-purple-800 mb-3">鞏固廚餘禁令之執行與配套</h4>
+                                <p class="text-gray-700 mb-3">
+                                    建立跨部會聯合稽查機制，杜絕私下違規餵飼，
+                                    並提供原廚餘養豬戶轉型使用飼料的技術輔導與補助配套。
+                                </p>
+                                <div class="bg-white p-4 rounded border">
+                                    <p class="text-sm text-gray-600">
+                                        <strong>配套措施：</strong>參考「廚餘流向管控及去化處理」指導原則，
+                                        確保禁令能夠被永續、有效地執行
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 建議4 -->
+                    <div class="bg-teal-50 p-6 rounded-lg border-l-4 border-teal-500">
+                        <div class="flex items-start">
+                            <div class="bg-teal-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold mr-4 flex-shrink-0">4</div>
+                            <div>
+                                <h4 class="font-semibold text-teal-800 mb-3">規劃分級風險溝通策略</h4>
+                                <p class="text-gray-700 mb-3">針對不同利害關係人制定精準的溝通計畫：</p>
+                                <div class="grid md:grid-cols-2 gap-4">
+                                    <div class="bg-white p-4 rounded border">
+                                        <h5 class="font-medium text-teal-700 mb-2">對養豬業者</h5>
+                                        <p class="text-sm text-gray-600">
+                                            加強宣導豬場生物安全措施，特別是人員、車輛進出管制與消毒
+                                        </p>
+                                    </div>
+                                    <div class="bg-white p-4 rounded border">
+                                        <h5 class="font-medium text-teal-700 mb-2">對社會大眾</h5>
+                                        <p class="text-sm text-gray-600">
+                                            傳遞「非人畜共通傳染病」及「國產豬肉安全無虞」訊息，穩定消費信心
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 結論 -->
+        <section class="bg-white rounded-lg card-shadow p-6 mb-8 hover-lift transition-all duration-300">
+            <div class="flex items-center mb-6">
+                <div class="w-1 h-8 bg-primary mr-4"></div>
+                <h2 class="text-2xl font-bold text-gray-800">6.0 結論</h2>
+            </div>
+            
+            <div class="space-y-6">
+                <div class="bg-red-50 p-6 rounded-lg border border-red-200">
+                    <h3 class="font-semibold text-red-800 mb-3">防疫體系脆弱環節</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        臺中梧棲區的非洲豬瘟案例，是我國防疫體系面臨的一次嚴峻警訊。
+                        本次事件再次突顯了國內防疫體系中最脆弱的兩個環節：
+                        <strong class="text-red-700">廚餘餵飼</strong>所帶來的境外病原引入風險，
+                        以及<strong class="text-red-700">運輸車輛的交叉污染</strong>所造成的境內快速傳播風險。
+                    </p>
+                </div>
+                
+                <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+                    <h3 class="font-semibold text-blue-800 mb-3">初期應對成效</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        政府在確認案例後的初期應對措施，如全國禁運禁宰及禁用廚餘等，展現了迅速與果斷，
+                        成功阻止了疫情的立即性大爆發。然而，真正的挑戰在於後續對多達
+                        <strong class="text-blue-700">40場高風險關聯場</strong>的嚴密監控，
+                        以及全國性防疫政策的徹底落實。
+                    </p>
+                </div>
+                
+                <div class="bg-gradient-to-r from-primary to-secondary text-white p-6 rounded-lg">
+                    <h3 class="font-semibold mb-3">關鍵轉捩點</h3>
+                    <p class="leading-relaxed">
+                        此次事件不應被視為一次已成功圍堵的單一疫情，而應被視為一個關鍵的轉捩點。
+                        我們必須藉此契機，在全國生產鏈中強制推行並嚴格執行更高且不容妥協的生物安全標準——
+                        尤其是在運輸物流與飼料來源方面——以預防系統性的產業崩潰。
+                    </p>
+                </div>
+                
+                <div class="bg-yellow-50 p-6 rounded-lg border border-yellow-200 text-center">
+                    <p class="text-lg font-semibold text-yellow-800 mb-2">
+                        成功控制的關鍵在於後續40天的嚴密監控
+                    </p>
+                    <p class="text-yellow-700">
+                        這將決定本次危機最終能否被成功控制在單一點位
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-12">
+        <div class="container mx-auto px-6">
+            <div class="border-t border-gray-600 pt-4">
+                <div class="text-center space-y-2">
+                    <p class="text-sm text-gray-300">
+                        <strong>免責申明：</strong>基於公開資料，僅供參考，不構成建議
+                    </p>
+                    <p class="text-sm text-gray-300">
+                        <strong>資料來源：</strong>網頁公開資訊
+                    </p>
+                    <p class="text-sm text-gray-400">
+                        版權所有 © Dunk
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'993d90c8a32f4a3c',t:'MTc2MTM1MTgwOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
