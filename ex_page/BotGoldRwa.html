@@ -1,0 +1,1424 @@
+
+<!DOCTYPE html><html lang="zh-TW" class="scroll-smooth"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>貴金屬業務運用RWA代幣化技術跨行應用</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/preline@2.3.0/dist/preline.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans TC', sans-serif; }
+        .hero-gradient {
+            background: linear-gradient(135deg, #9A0036 0%, #941C61 50%, #EEBAC0 100%);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .dark .glass-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #9A0036, #941C61);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+    </style>
+<script src="https://felo.ai/js/iframe.js?v=1761653734746"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style><style id="felo-iframe-styles">html,body{margin:0 !important;padding:0 !important;}</style><style data-id="immersive-translate-input-injected-css">.immersive-translate-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2147483647;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.immersive-translate-attach-loading::after {
+  content: " ";
+
+  --loading-color: #f78fb6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+  position: relative;
+  color: white;
+  left: -100px;
+  box-sizing: border-box;
+  animation: immersiveTranslateShadowRolling 1.5s linear infinite;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-2000%, -50%);
+  z-index: 100;
+}
+
+.immersive-translate-loading-spinner {
+  vertical-align: middle !important;
+  width: 10px !important;
+  height: 10px !important;
+  display: inline-block !important;
+  margin: 0 4px !important;
+  border: 2px rgba(221, 244, 255, 0.6) solid !important;
+  border-top: 2px rgba(0, 0, 0, 0.375) solid !important;
+  border-left: 2px rgba(0, 0, 0, 0.375) solid !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  -webkit-animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+  animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+}
+
+@-webkit-keyframes immersive-translate-loading-animation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+
+@keyframes immersive-translate-loading-animation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.immersive-translate-input-loading {
+  --loading-color: #f78fb6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+  position: relative;
+  color: white;
+  left: -100px;
+  box-sizing: border-box;
+  animation: immersiveTranslateShadowRolling 1.5s linear infinite;
+}
+
+@keyframes immersiveTranslateShadowRolling {
+  0% {
+    box-shadow: 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  12% {
+    box-shadow: 100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  25% {
+    box-shadow: 110px 0 var(--loading-color), 100px 0 var(--loading-color),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  36% {
+    box-shadow: 120px 0 var(--loading-color), 110px 0 var(--loading-color),
+      100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  50% {
+    box-shadow: 130px 0 var(--loading-color), 120px 0 var(--loading-color),
+      110px 0 var(--loading-color), 100px 0 var(--loading-color);
+  }
+
+  62% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color),
+      120px 0 var(--loading-color), 110px 0 var(--loading-color);
+  }
+
+  75% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      130px 0 var(--loading-color), 120px 0 var(--loading-color);
+  }
+
+  87% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color);
+  }
+
+  100% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0);
+  }
+}
+
+.immersive-translate-toast {
+  display: flex;
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  right: 0;
+  top: 1%;
+  width: fit-content;
+  padding: 12px 20px;
+  margin: auto;
+  overflow: auto;
+  background: #fef6f9;
+  box-shadow: 0px 4px 10px 0px rgba(0, 10, 30, 0.06);
+  font-size: 15px;
+  border-radius: 8px;
+  color: #333;
+}
+
+.immersive-translate-toast-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.immersive-translate-toast-hidden {
+  margin: 0 20px 0 72px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.immersive-translate-toast-close {
+  color: #666666;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-toast {
+    top: 0;
+    padding: 12px 0px 0 10px;
+  }
+  .immersive-translate-toast-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .immersive-translate-toast-hidden {
+    margin: 10px auto;
+  }
+}
+
+.immersive-translate-dialog {
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  top: 0;
+  display: flex;
+  width: 300px;
+  flex-direction: column;
+  align-items: center;
+  font-size: 15px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: fit-content;
+  border-radius: 20px;
+  background-color: #fff;
+}
+
+.immersive-translate-modal {
+  display: none;
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  font-size: 15px;
+}
+
+.immersive-translate-modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 40px 24px 24px;
+  border-radius: 12px;
+  width: 350px;
+  font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",
+    "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-modal-content {
+    margin: 25% auto !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .immersive-translate-modal-content {
+    width: 80vw !important;
+    margin: 20vh auto !important;
+    padding: 20px 12px 12px !important;
+  }
+
+  .immersive-translate-modal-title {
+    font-size: 14px !important;
+  }
+
+  .immersive-translate-modal-body {
+    font-size: 13px !important;
+    max-height: 60vh !important;
+  }
+
+  .immersive-translate-btn {
+    font-size: 13px !important;
+    padding: 8px 16px !important;
+    margin: 0 4px !important;
+  }
+
+  .immersive-translate-modal-footer {
+    gap: 6px !important;
+    margin-top: 16px !important;
+  }
+}
+
+.immersive-translate-modal .immersive-translate-modal-content-in-input {
+  max-width: 500px;
+}
+.immersive-translate-modal-content-in-input .immersive-translate-modal-body {
+  text-align: left;
+  max-height: unset;
+}
+
+.immersive-translate-modal-title {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333333;
+}
+
+.immersive-translate-modal-body {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333333;
+  margin-top: 24px;
+  word-break: break-all;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-modal-body {
+    max-height: 250px;
+    overflow-y: auto;
+  }
+}
+
+.immersive-translate-close {
+  color: #666666;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.immersive-translate-close:hover,
+.immersive-translate-close:focus {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.immersive-translate-modal-footer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.immersive-translate-btn {
+  width: fit-content;
+  color: #fff;
+  background-color: #ea4c89;
+  border: none;
+  font-size: 14px;
+  margin: 0 8px;
+  padding: 9px 30px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.immersive-translate-btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.immersive-translate-btn:hover {
+  background-color: #f082ac;
+}
+.immersive-translate-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.immersive-translate-btn:disabled:hover {
+  background-color: #ea4c89;
+}
+
+.immersive-translate-link-btn {
+  background-color: transparent;
+  color: #ea4c89;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  line-height: 30px;
+}
+
+.immersive-translate-cancel-btn {
+  /* gray color */
+  background-color: rgb(89, 107, 120);
+}
+
+.immersive-translate-cancel-btn:hover {
+  background-color: hsl(205, 20%, 32%);
+}
+
+.immersive-translate-action-btn {
+  background-color: transparent;
+  color: #ea4c89;
+  border: 1px solid #ea4c89;
+}
+
+.immersive-translate-btn svg {
+  margin-right: 5px;
+}
+
+.immersive-translate-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #ea4c89;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+.immersive-translate-primary-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #ea4c89;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+.immersive-translate-modal input[type="radio"] {
+  margin: 0 6px;
+  cursor: pointer;
+}
+
+.immersive-translate-modal label {
+  cursor: pointer;
+}
+
+.immersive-translate-close-action {
+  position: absolute;
+  top: 2px;
+  right: 0px;
+  cursor: pointer;
+}
+
+.imt-image-status {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 16px !important;
+}
+.imt-image-status img,
+.imt-image-status svg,
+.imt-img-loading {
+  width: 28px !important;
+  height: 28px !important;
+  margin: 0 0 8px 0 !important;
+  min-height: 28px !important;
+  min-width: 28px !important;
+  position: relative !important;
+}
+.imt-img-loading {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAtFBMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////oK74hAAAAPHRSTlMABBMIDyQXHwyBfFdDMSw+OjXCb+5RG51IvV/k0rOqlGRM6KKMhdvNyZBz9MaupmxpWyj437iYd/yJVNZeuUC7AAACt0lEQVRIx53T2XKiUBCA4QYOiyCbiAsuuGBcYtxiYtT3f6/pbqoYHVFO5r+iivpo6DpAWYpqeoFfr9f90DsYAuRSWkFnPO50OgR9PwiCUFcl2GEcx+N/YBh6pvKaefHlUgZd1zVe0NbYcQjGBfzrPE8Xz8aF+71D8gG6DHFPpc4a7xFiCDuhaWgKgGIJQ3d5IMGDrpS4S5KgpIm+en9f6PlAhKby4JwEIxlYJV9h5k5nee9GoxHJ2IDSNB0dwdad1NAxDJ/uXDHYmebdk4PdbkS58CIVHdYSUHTYYRWOJblWSyu2lmy3KNFVJNBhxcuGW4YBVCbYGRZwIooipHsNqjM4FbgOQqQqSKQQU9V8xmi1QlgHqQQ6DDBvRUVCDirs+EzGDGOQTCATgtYTnbCVLgsVgRE0T1QE0qHCFAht2z6dLvJQs3Lo2FQoDxWNUiBhaP4eRgwNkI+dAjVOA/kUrIDwf3CG8NfNOE0eiFotSuo+rBiq8tD9oY4Qzc6YJw99hl1wzpQvD7ef2M8QgnOGJfJw+EltQc+oX2yn907QB22WZcvlUpd143dqQu+8pCJZuGE4xCuPXJqqcs5sNpsI93Rmzym1k4Npk+oD1SH3/a3LOK/JpUBpWfqNySxWzCfNCUITuDG5dtuphrUJ1myeIE9bIsPiKrfqTai5WZxbhtNphYx6GEIHihyGFTI69lje/rxajdh0s0msZ0zYxyPLhYCb1CyHm9Qsd2H37Y3lugVwL9kNh8Ot8cha6fUNQ8nuXi5z9/ExsAO4zQrb/ev1yrCB7lGyQzgYDGuxq1toDN/JGvN+HyWNHKB7zEoK+PX11e12G431erGYzwmytAWU56fkMHY5JJnDRR2eZji3AwtIcrEV8Cojat/BdQ7XOwGV1e1hDjGGjXbdArm8uJZtCH5MbcctVX8A1WpqumJHwckAAAAASUVORK5CYII=");
+  background-size: 28px 28px;
+  animation: image-loading-rotate 1s linear infinite !important;
+}
+
+.imt-image-status span {
+  color: var(--bg-2, #fff) !important;
+  font-size: 14px !important;
+  line-height: 14px !important;
+  font-weight: 500 !important;
+  font-family: "PingFang SC", Arial, sans-serif !important;
+}
+
+.imt-primary-button {
+  display: flex;
+  padding: 12px 80px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  background: #ea4c89;
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  border: none;
+  cursor: pointer;
+}
+
+.imt-retry-text {
+  color: #999;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  cursor: pointer;
+}
+
+.imt-action-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.imt-modal-content-text {
+  text-align: left;
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+@keyframes image-loading-rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.imt-linear-gradient-text {
+  background: linear-gradient(90deg, #00a6ff 0%, #c369ff 52.4%, #ff4590 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.imt-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imt-linear-black-btn {
+  border-radius: 50px;
+  background: linear-gradient(66deg, #222 19%, #696969 94.25%);
+  height: 48px;
+  width: 100%;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+}
+</style></head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300" contenteditable="false" spellcheck="false">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-coins text-2xl text-yellow-500"></i>
+                    <span class="font-bold text-xl gradient-text">RWA代幣化</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#overview" class="hover:text-red-600 dark:hover:text-red-400 transition-colors">總覽</a>
+                    <a href="#global-trends" class="hover:text-red-600 dark:hover:text-red-400 transition-colors">全球趨勢</a>
+                    <a href="#taiwan-project" class="hover:text-red-600 dark:hover:text-red-400 transition-colors">台灣專案</a>
+                    <a href="#applications" class="hover:text-red-600 dark:hover:text-red-400 transition-colors">應用情境</a>
+                    <a href="#future" class="hover:text-red-600 dark:hover:text-red-400 transition-colors">未來展望</a>
+                </div>
+                <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:inline"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient relative overflow-hidden min-h-screen flex items-center">
+        <div class="absolute inset-0 bg-black/20"></div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+            <div class="animate-float mb-8">
+                <i class="fas fa-coins text-8xl text-yellow-300 mb-6"></i>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 text-shadow">
+                貴金屬業務運用<br>
+                <span class="text-yellow-300">RWA代幣化技術</span><br>
+                跨行應用
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-4xl mx-auto text-shadow">
+                台灣金融業迎來現實世界資產代幣化的重要里程碑，由台灣銀行領銜九家金融機構共同啟動黃金代幣化專案，
+                革新銀行間清算與結算流程，預計將大幅提升效率、降低營運成本與風險
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#overview" class="bg-white text-red-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+                    探索專案詳情
+                </a>
+                <a href="#global-trends" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-red-600 transition-colors">
+                    了解全球趨勢
+                </a>
+            </div>
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <div class="glass-card p-6 rounded-lg">
+                    <div class="text-3xl font-bold text-yellow-300">16兆美元</div>
+                    <div class="text-sm">2030年全球代幣化資產市場規模預測</div>
+                </div>
+                <div class="glass-card p-6 rounded-lg">
+                    <div class="text-3xl font-bold text-yellow-300">九家銀行</div>
+                    <div class="text-sm">參與台灣跨行實證專案</div>
+                </div>
+                <div class="glass-card p-6 rounded-lg">
+                    <div class="text-3xl font-bold text-yellow-300">2025年底</div>
+                    <div class="text-sm">預計完成初步實證成果</div>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-white text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-6 gradient-text">專案總覽</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    台灣金融業正迎來現實世界資產（RWA）代幣化的重要里程碑，透過創新的雙層式架構實現跨行應用
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="https://api.felo.ai/images/s/2OD5MUVKzd?width=1425&amp;height=1069" alt="FinTechSpace 金融科技創新園區" class="w-full rounded-lg shadow-lg">
+                </div>
+                <div class="space-y-6">
+                    <h3 class="text-3xl font-bold">創新的雙層式架構</h3>
+                    <div class="space-y-4">
+                        <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
+                            <h4 class="text-xl font-semibold mb-3 text-red-600 dark:text-red-400">
+                                <i class="fas fa-link mr-2"></i>銀行間聯盟鏈層
+                            </h4>
+                            <p class="text-gray-600 dark:text-gray-300">
+                                各參與銀行間的交易帳務與清算透過聯盟鏈上發行的「黃金代幣」進行，智能合約自動執行淨額結算與跨行對帳
+                            </p>
+                        </div>
+                        <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md">
+                            <h4 class="text-xl font-semibold mb-3 text-red-600 dark:text-red-400">
+                                <i class="fas fa-user mr-2"></i>客戶端黃金存摺層
+                            </h4>
+                            <p class="text-gray-600 dark:text-gray-300">
+                                終端使用者維持使用現有的「黃金存摺」進行買賣與查詢，區塊鏈運作對客戶完全透明
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Trends Section -->
+    <section id="global-trends" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-6 gradient-text">全球RWA代幣化浪潮</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    現實世界資產代幣化正成為連接傳統金融與去中心化金融的關鍵橋樑
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+                <div>
+                    <img src="https://api.felo.ai/images/s/17LHh6cA33?width=1389&amp;height=570" alt="全球RWA價值增長趨勢圖" class="w-full rounded-lg shadow-lg">
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-2 text-center">全球RWA價值隨時間變化趨勢，顯示不同資產類別的增長</p>
+                </div>
+                <div class="space-y-6">
+                    <div class="bg-gradient-to-r from-red-50 to-pink-50 dark:from-red-900/20 dark:to-pink-900/20 p-8 rounded-lg">
+                        <h3 class="text-2xl font-bold mb-4">市場規模預測</h3>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center">
+                                <span>2025年8月</span>
+                                <span class="font-bold text-red-600 dark:text-red-400">280億美元</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span>2025年10月</span>
+                                <span class="font-bold text-red-600 dark:text-red-400">330億美元</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span>2030年預測</span>
+                                <span class="font-bold text-2xl text-red-600 dark:text-red-400">16兆美元</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-yellow-50 dark:bg-yellow-900/20 p-6 rounded-lg">
+                        <h4 class="text-xl font-semibold mb-3">同比增長率</h4>
+                        <div class="text-3xl font-bold text-yellow-600 dark:text-yellow-400">114%</div>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">截至2025年8月的年增長率</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Network Distribution Table -->
+            <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+                <div class="p-6 bg-gradient-to-r from-red-600 to-pink-600 text-white">
+                    <h3 class="text-2xl font-bold">主要區塊鏈網路RWA分佈</h3>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead class="bg-gray-50 dark:bg-gray-700">
+                            <tr>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">#</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">網路</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">RWA數量</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">總價值</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">30日變化</th>
+                                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">市場份額</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200 dark:divide-gray-600">
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">1</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">Ethereum</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm">316</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-bold">$8,306.1M</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-green-600">▲ 16.30%</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm">53.26%</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">2</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">ZKsync Era</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm">40</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-bold">$2,397.9M</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-red-600">▼ 1.98%</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm">15.37%</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">3</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">Polygon</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm">268</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-bold">$1,133.4M</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-red-600">▼ 0.72%</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm">7.27%</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">4</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">Aptos</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm">14</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-bold">$724.7M</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-red-600">▼ 1.68%</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm">4.65%</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-700">
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">5</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">Stellar</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm">16</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-bold">$510.3M</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-green-600">▲ 12.69%</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm">3.27%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Taiwan Project Section -->
+    <section id="taiwan-project" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-6 gradient-text">台灣貴金屬RWA跨行實證專案</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    由台灣銀行領銜，聯合九家金融機構共同推展的創新實證專案
+                </p>
+            </div>
+
+            <!-- Participating Banks -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold text-center mb-8">參與機構</h3>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
+                    <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md text-center">
+                        <div class="text-red-600 dark:text-red-400 text-2xl mb-2">
+                            <i class="fas fa-university"></i>
+                        </div>
+                        <div class="font-semibold">台灣銀行</div>
+                        <div class="text-sm text-gray-500 dark:text-gray-400">提案銀行</div>
+                    </div>
+                    <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md text-center">
+                        <div class="text-red-600 dark:text-red-400 text-2xl mb-2">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="font-semibold">土地銀行</div>
+                    </div>
+                    <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md text-center">
+                        <div class="text-red-600 dark:text-red-400 text-2xl mb-2">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="font-semibold">華南銀行</div>
+                    </div>
+                    <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md text-center">
+                        <div class="text-red-600 dark:text-red-400 text-2xl mb-2">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="font-semibold">彰化銀行</div>
+                    </div>
+                    <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md text-center">
+                        <div class="text-red-600 dark:text-red-400 text-2xl mb-2">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="font-semibold">上海商業儲蓄銀行</div>
+                    </div>
+                    <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md text-center">
+                        <div class="text-red-600 dark:text-red-400 text-2xl mb-2">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="font-semibold">台灣中小企業銀行</div>
+                    </div>
+                    <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md text-center">
+                        <div class="text-red-600 dark:text-red-400 text-2xl mb-2">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="font-semibold">永豐銀行</div>
+                    </div>
+                    <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md text-center">
+                        <div class="text-red-600 dark:text-red-400 text-2xl mb-2">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="font-semibold">中國信託商業銀行</div>
+                    </div>
+                    <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md text-center">
+                        <div class="text-red-600 dark:text-red-400 text-2xl mb-2">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="font-semibold">將來銀行</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Three Working Groups -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold text-center mb-8">三大工作小組</h3>
+                <img src="https://api.felo.ai/images/s/2HbxjDb6gO?width=1177&amp;height=1025" alt="三大工作小組協同驗證黃金代幣化可行性" class="w-full max-w-4xl mx-auto rounded-lg shadow-lg">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+                    <div class="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-lg">
+                        <h4 class="text-xl font-semibold mb-4 text-blue-600 dark:text-blue-400">
+                            <i class="fas fa-shield-alt mr-2"></i>技術與資安小組
+                        </h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">
+                            聚焦於區塊鏈架構、節點部署、智能合約功能驗證與資安風險評估
+                        </p>
+                        <div class="text-xs text-gray-500 dark:text-gray-400">
+                            參與銀行：台灣銀行、土地銀行、華南銀行、彰化銀行、永豐銀行、將來銀行
+                        </div>
+                    </div>
+                    <div class="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg">
+                        <h4 class="text-xl font-semibold mb-4 text-green-600 dark:text-green-400">
+                            <i class="fas fa-cogs mr-2"></i>業務流程小組
+                        </h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">
+                            解析現有黃金存摺作業，對映到鑄造、轉讓、提領、銷毀等流程
+                        </p>
+                        <div class="text-xs text-gray-500 dark:text-gray-400">
+                            參與銀行：台灣銀行、土地銀行、彰化銀行、台灣中小企銀、永豐銀行、將來銀行
+                        </div>
+                    </div>
+                    <div class="bg-purple-50 dark:bg-purple-900/20 p-6 rounded-lg">
+                        <h4 class="text-xl font-semibold mb-4 text-purple-600 dark:text-purple-400">
+                            <i class="fas fa-balance-scale mr-2"></i>法遵與監管小組
+                        </h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 mb-4">
+                            盤點相關法源與監管框架，並評估KYC/AML等影響
+                        </p>
+                        <div class="text-xs text-gray-500 dark:text-gray-400">
+                            參與銀行：台灣銀行、彰化銀行、上海銀行、永豐銀行、中國信託
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Current vs Future System -->
+            <div class="bg-white dark:bg-gray-700 rounded-lg shadow-lg p-8">
+                <h3 class="text-2xl font-bold text-center mb-8">現行黃金存摺交易機制對比</h3>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-xl font-semibold mb-4 text-red-600 dark:text-red-400">現行機制</h4>
+                        <img src="https://api.felo.ai/images/s/1UIVqaU5mS?width=1825&amp;height=317" alt="現行黃金存摺交易流程 T day" class="w-full rounded-lg mb-4">
+                        <img src="https://api.felo.ai/images/s/3X9TXw9yKg?width=1070&amp;height=392" alt="現行黃金存摺交易流程 T+1 day" class="w-full rounded-lg">
+                        <div class="mt-4 p-4 bg-red-50 dark:bg-red-900/20 rounded-lg">
+                            <h5 class="font-semibold text-red-600 dark:text-red-400 mb-2">挑戰與限制</h5>
+                            <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-1">
+                                <li>• T+1清算延遲</li>
+                                <li>• 人工處理流程</li>
+                                <li>• 高營運成本</li>
+                                <li>• 信用風險較高</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-semibold mb-4 text-green-600 dark:text-green-400">代幣化後機制</h4>
+                        <img src="https://api.felo.ai/images/s/2PORlFGS57?width=2072&amp;height=797" alt="資產in-Database和on-chain在技術本質上的差異" class="w-full rounded-lg">
+                        <div class="mt-4 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                            <h5 class="font-semibold text-green-600 dark:text-green-400 mb-2">優勢與效益</h5>
+                            <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-1">
+                                <li>• 即時清算結算</li>
+                                <li>• 智能合約自動化</li>
+                                <li>• 降低營運成本</li>
+                                <li>• 提升流通性</li>
+                                <li>• 增強透明度</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Applications Section -->
+    <section id="applications" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-6 gradient-text">應用情境展示</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    詳細展示機構購買、賣回黃金代幣及客戶提領現貨的完整流程
+                </p>
+            </div>
+
+            <div class="space-y-16">
+                <!-- Application Scenario A -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+                    <div class="bg-gradient-to-r from-blue-600 to-cyan-600 text-white p-6">
+                        <h3 class="text-2xl font-bold">
+                            <i class="fas fa-shopping-cart mr-2"></i>應用情境A：機構購買黃金代幣
+                        </h3>
+                    </div>
+                    <div class="p-6">
+                        <img src="https://api.felo.ai/images/s/2dajxJWPh3?width=2414&amp;height=1089" alt="機構購買黃金代幣流程圖" class="w-full rounded-lg shadow-md">
+                        <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                                <h4 class="font-semibold text-blue-600 dark:text-blue-400 mb-2">步驟一：客戶下單</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">客戶透過銷售機構購買黃金</p>
+                            </div>
+                            <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                                <h4 class="font-semibold text-blue-600 dark:text-blue-400 mb-2">步驟二：鏈上處理</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">智能合約自動鑄造黃金代幣</p>
+                            </div>
+                            <div class="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                                <h4 class="font-semibold text-blue-600 dark:text-blue-400 mb-2">步驟三：資產轉移</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">代幣轉移至機構錢包</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Application Scenario B -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+                    <div class="bg-gradient-to-r from-orange-600 to-red-600 text-white p-6">
+                        <h3 class="text-2xl font-bold">
+                            <i class="fas fa-undo mr-2"></i>應用情境B：機構賣回黃金代幣
+                        </h3>
+                    </div>
+                    <div class="p-6">
+                        <img src="https://api.felo.ai/images/s/Tp67RAmqFl?width=2403&amp;height=1047" alt="機構賣回黃金代幣流程圖" class="w-full rounded-lg shadow-md">
+                        <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="bg-orange-50 dark:bg-orange-900/20 p-4 rounded-lg">
+                                <h4 class="font-semibold text-orange-600 dark:text-orange-400 mb-2">步驟一：賣回申請</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">客戶透過銷售機構賣回黃金</p>
+                            </div>
+                            <div class="bg-orange-50 dark:bg-orange-900/20 p-4 rounded-lg">
+                                <h4 class="font-semibold text-orange-600 dark:text-orange-400 mb-2">步驟二：代幣銷毀</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">智能合約自動銷毀黃金代幣</p>
+                            </div>
+                            <div class="bg-orange-50 dark:bg-orange-900/20 p-4 rounded-lg">
+                                <h4 class="font-semibold text-orange-600 dark:text-orange-400 mb-2">步驟三：資金轉移</h4>
+                                <p class="text-sm text-gray-600 dark:text-gray-300">台幣代幣轉移至機構錢包</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Application Scenario C -->
+                <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+                    <div class="bg-gradient-to-r from-green-600 to-emerald-600 text-white p-6">
+                        <h3 class="text-2xl font-bold">
+                            <i class="fas fa-hand-holding-usd mr-2"></i>應用情境C：機構客戶提領黃金現貨
+                        </h3>
+                    </div>
+                    <div class="p-6">
+                        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <div>
+                                <h4 class="text-xl font-semibold mb-4">第一步：線上申請</h4>
+                                <img src="https://api.felo.ai/images/s/5bACzCodCS?width=2475&amp;height=922" alt="線上申請提領黃金現貨" class="w-full rounded-lg shadow-md">
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-4">第二步：臨櫃提領</h4>
+                                <img src="https://api.felo.ai/images/s/2EXRNbE5Dv?width=2448&amp;height=912" alt="臨櫃提領黃金現貨" class="w-full rounded-lg shadow-md">
+                            </div>
+                        </div>
+                        <div class="mt-8 bg-green-50 dark:bg-green-900/20 p-6 rounded-lg">
+                            <h5 class="font-semibold text-green-600 dark:text-green-400 mb-4">創新數位提領憑證機制</h5>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="flex items-center space-x-3">
+                                    <i class="fas fa-qrcode text-green-600 dark:text-green-400"></i>
+                                    <span class="text-sm text-gray-600 dark:text-gray-300">NFT提領憑證生成</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <i class="fas fa-shield-alt text-green-600 dark:text-green-400"></i>
+                                    <span class="text-sm text-gray-600 dark:text-gray-300">區塊鏈驗證機制</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <i class="fas fa-clock text-green-600 dark:text-green-400"></i>
+                                    <span class="text-sm text-gray-600 dark:text-gray-300">即時處理流程</span>
+                                </div>
+                                <div class="flex items-center space-x-3">
+                                    <i class="fas fa-university text-green-600 dark:text-green-400"></i>
+                                    <span class="text-sm text-gray-600 dark:text-gray-300">台灣銀行實物交付</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Cases Section -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-6 gradient-text">全球RWA代幣化案例</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    國際知名機構在RWA代幣化領域的創新實踐
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- BlackRock Case -->
+                <div class="bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden">
+                    <div class="bg-gradient-to-r from-gray-800 to-gray-900 text-white p-6">
+                        <h3 class="text-xl font-bold">BlackRock BUIDL</h3>
+                        <p class="text-sm opacity-90">全球最大資產管理公司</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="mb-4">
+                            <div class="text-2xl font-bold text-green-600 dark:text-green-400">26.4億美元</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-300">基金規模（2024年10月）</div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span class="text-sm">以太坊公鏈代幣化貨幣市場基金</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span class="text-sm">每日計息、每月配息</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span class="text-sm">價格維持1美元穩定性</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HSBC Case -->
+                <div class="bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden">
+                    <div class="bg-gradient-to-r from-red-600 to-red-700 text-white p-6">
+                        <h3 class="text-xl font-bold">HSBC Gold Token</h3>
+                        <p class="text-sm opacity-90">匯豐銀行黃金代幣化</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="mb-4">
+                            <div class="text-2xl font-bold text-yellow-600 dark:text-yellow-400">0.001盎司</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-300">最小投資單位</div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span class="text-sm">倫敦金庫實體黃金支撐</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span class="text-sm">DLT分散式帳本技術</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span class="text-sm">擴展至香港零售客戶</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- OndoFinance Case -->
+                <div class="bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden">
+                    <div class="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-6">
+                        <h3 class="text-xl font-bold">OndoFinance</h3>
+                        <p class="text-sm opacity-90">去中心化金融平台</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="mb-4">
+                            <div class="text-2xl font-bold text-purple-600 dark:text-purple-400">29億美元</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-300">OndoToken市值</div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span class="text-sm">美國國債與ETF上鏈</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span class="text-sm">結合託管機構強化信任</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span class="text-sm">獨立第三方資產驗證</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Robinhood Case -->
+                <div class="bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden">
+                    <div class="bg-gradient-to-r from-green-500 to-emerald-600 text-white p-6">
+                        <h3 class="text-xl font-bold">Robinhood Stocks</h3>
+                        <p class="text-sm opacity-90">股票代幣化交易</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="mb-4">
+                            <div class="text-2xl font-bold text-emerald-600 dark:text-emerald-400">5×24</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-300">小時交易時間</div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span class="text-sm">200種代幣化股票</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span class="text-sm">Arbitrum區塊鏈發行</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span class="text-sm">金融衍生品合約數位化</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Taiwan Regulatory Progress -->
+                <div class="bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden">
+                    <div class="bg-gradient-to-r from-red-600 to-pink-600 text-white p-6">
+                        <h3 class="text-xl font-bold">台灣監管進展</h3>
+                        <p class="text-sm opacity-90">金管會政策推動</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="mb-4">
+                            <div class="text-2xl font-bold text-red-600 dark:text-red-400">多項措施</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-300">建構完善監理架構</div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span class="text-sm">RWA代幣化小組成立</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span class="text-sm">虛擬資產保管業務試辦</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span class="text-sm">虛擬資產服務法草案</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technology Innovation -->
+                <div class="bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden">
+                    <div class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white p-6">
+                        <h3 class="text-xl font-bold">技術創新亮點</h3>
+                        <p class="text-sm opacity-90">BSOS灣谷科技</p>
+                    </div>
+                    <div class="p-6">
+                        <div class="mb-4">
+                            <div class="text-2xl font-bold text-purple-600 dark:text-purple-400">全生命週期</div>
+                            <div class="text-sm text-gray-600 dark:text-gray-300">代幣管理服務</div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span class="text-sm">鑄造、轉讓、提領、銷毀</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span class="text-sm">監管需求標準化介面</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span class="text-sm">核心系統串接支援</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Development Trends Chart -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-6 gradient-text">全球RWA代幣化發展趨勢</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    從概念驗證到標準化規模化的發展歷程
+                </p>
+            </div>
+
+            <div class="relative">
+                <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-red-600 to-pink-600 rounded-full"></div>
+                
+                <div class="space-y-16">
+                    <!-- Phase 1: 2017-2020 -->
+                    <div class="relative flex items-center">
+                        <div class="w-1/2 pr-8 text-right">
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                                <h3 class="text-2xl font-bold text-red-600 dark:text-red-400 mb-2">2017~2020</h3>
+                                <h4 class="text-xl font-semibold mb-4">概念驗證</h4>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                    小規模、私有鏈，驗證DLT在證券發行、結算的可行性
+                                </p>
+                                <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-1">
+                                    <li>• 金融科技公司、世界銀行、部分政府發行基於區塊鏈技術的債券</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-red-600 rounded-full border-4 border-white dark:border-gray-900"></div>
+                        <div class="w-1/2 pl-8"></div>
+                    </div>
+
+                    <!-- Phase 2: 2021-2023 -->
+                    <div class="relative flex items-center">
+                        <div class="w-1/2 pr-8"></div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-purple-600 rounded-full border-4 border-white dark:border-gray-900"></div>
+                        <div class="w-1/2 pl-8">
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                                <h3 class="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-2">2021~2023</h3>
+                                <h4 class="text-xl font-semibold mb-4">監理沙盒/政府領銜示範</h4>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                    大型機構+主管機關進場，開始發布相關指引
+                                </p>
+                                <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-1">
+                                    <li>• 2021歐洲投資銀行發行數位公債，使用CDBC結算</li>
+                                    <li>• 香港政府發行代幣化綠色債券（首支政府級債券）</li>
+                                    <li>• 新加坡金管局推出Project Guardian計畫</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Phase 3: 2024-Present -->
+                    <div class="relative flex items-center">
+                        <div class="w-1/2 pr-8 text-right">
+                            <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
+                                <h3 class="text-2xl font-bold text-green-600 dark:text-green-400 mb-2">2024~迄今</h3>
+                                <h4 class="text-xl font-semibold mb-4">標準化+跨鏈規模化</h4>
+                                <p class="text-gray-600 dark:text-gray-300 mb-4">
+                                    多鏈互通、公鏈性能提升，機構資產規模性以代幣化發行
+                                </p>
+                                <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-1">
+                                    <li>• 國際組織陸續發表代幣化報告，視為未來金融基礎設施關鍵零組件</li>
+                                    <li>• HSBC、Bofa、Euroclear將逾100億美元RWA移至公鏈（Solana）</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-green-600 rounded-full border-4 border-white dark:border-gray-900"></div>
+                        <div class="w-1/2 pl-8"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Outlook Section -->
+    <section id="future" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold mb-6 gradient-text">未來發展展望</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    利用本次實證經驗奠定台灣RWA領域之領先地位，推動多元化發展
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg text-center">
+                    <div class="w-16 h-16 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-handshake text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">跨行清算新模式正式落地</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">
+                        透過區塊鏈與智能合約，即時完成貴金屬交易的清算與對帳，降低T+1延遲帶來的信用風險
+                    </p>
+                </div>
+
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg text-center">
+                    <div class="w-16 h-16 bg-gradient-to-r from-green-600 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-certificate text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">擴大數位提領憑證機制運用</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">
+                        運用本次實證經驗，擴大場景至其他包含物流與金流的金融情境，優化分行臨櫃服務
+                    </p>
+                </div>
+
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg text-center">
+                    <div class="w-16 h-16 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-coins text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">拓展多元資產代幣化</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">
+                        逐步將RWA技術應用至台幣、外幣、貸款、基金、債券等資產，建立更完整的金融商品代幣化生態
+                    </p>
+                </div>
+
+                <div class="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg text-center">
+                    <div class="w-16 h-16 bg-gradient-to-r from-orange-600 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-globe text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">推進公鏈國際化佈局</h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">
+                        探索在公鏈發行貴金屬代幣化產品可行性，面向全球投資人，打造具國際流通性的數位貴金屬產品
+                    </p>
+                </div>
+            </div>
+
+            <!-- Success Metrics -->
+            <div class="bg-white dark:bg-gray-700 rounded-lg shadow-lg p-8">
+                <h3 class="text-2xl font-bold text-center mb-8">預期效益指標</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-green-600 dark:text-green-400 mb-2">即時結算</div>
+                        <div class="text-gray-600 dark:text-gray-300">從T+1縮短至幾分鐘</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">成本降低</div>
+                        <div class="text-gray-600 dark:text-gray-300">減少人力與營運成本</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl font-bold text-purple-600 dark:text-purple-400 mb-2">風險管控</div>
+                        <div class="text-gray-600 dark:text-gray-300">智能合約自動執行</div>
+                    </div>
+                </div>
+            </div>
+
+	</section>
+
+	<!-- Footer -->
+    <footer class="bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Author Info -->
+                <div class="md:col-span-1">
+                    <h4 class="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100">作者資訊</h4>
+                    <p class="text-gray-700 dark:text-gray-300 mb-4">
+                        <strong>Dunk</strong><br>
+                        專業金融數據分析師
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://twitter.com/liaokuanzhi" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-primary-800 dark:hover:text-primary-400transition-colors">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="https://x.com/liaokuanzhi" target="_blank" rel="noopener noreferrer" class="text-gray-600 dark:text-gray-400 hover:text-primary-800 dark:hover:text-primary-400 transition-colors">
+                            <i class="fab fa-x-twitter text-xl"></i>
+                        </a></div>
+                </div>
+                
+                <!-- Disclaimer -->
+                <div class="md:col-span-2">
+                    <h4 class="text-lg font-semibold mb-4 text-gray-900 dark:text-gray-100">免責聲明</h4>
+                    <div class="space-y-3 text-gray-600 dark:text-gray-400 text-sm">
+                        <p><strong>免責申明：</strong>基於公開資料，僅供參考，不構成建議</p>
+                        <p><strong>資料來源：</strong>網頁公開資訊</p>
+                        <p><strong>版權所有：</strong>© 2025 Dunk. All rights reserved.</p>
+                    </div>
+                    
+                    <!-- Last Updated -->
+                    <div class="mt-6 pt-4 border-t border-gray-200 dark:border-gray-700">
+                        <p class="text-xs text-gray-500 dark:text-gray-400">
+                            最後更新：2025年10月28日 |
+                            數據截至：2025年9月底| 
+                            <span class="inline-flex items-center px-2 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs rounded-full">
+                                <i class="fas fa-check-circle mr-1"></i>
+                                數據已驗證
+                            </span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
