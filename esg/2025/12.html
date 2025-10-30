@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>顛覆你的綠色想像：永續發展的四個驚人新貌 - ESG永續週報</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/preline@2.3.0/dist/preline.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = {            
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Noto Sans TC', 'sans-serif'],
+                    },
+                    colors: {
+                        'esg-green': '#2d5016',
+                        'esg-dark-green': '#1a4d3a',
+                        'esg-light-green': '#e8f5e8',
+                        'esg-blue': '#0066cc',
+                        'esg-navy': '#1e3a8a',
+                        'esg-orange': '#ff6b35',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #2d5016 0%, #1a4d3a 100%);
+        }
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        .hover-scale {
+            transition: transform 0.2s ease-in-out;
+        }
+        .hover-scale:hover {
+            transform: scale(1.02);
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .mermaid {
+            background: transparent !important;
+        }
+    </style>
+<script src="https://felo.ai/js/iframe.js?v=1761865189906"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style></head>
+<body class="font-sans bg-white dark:bg-gray-900 transition-colors duration-200">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-effect border-b border-white/20 dark:border-gray-800/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-leaf text-esg-green dark:text-esg-light-green text-xl"></i>
+                    <span class="text-xl font-bold text-gray-900 dark:text-white">ESG永續週報</span>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <a href="#innovation" class="text-gray-700 dark:text-gray-300 hover:text-esg-green dark:hover:text-esg-light-green transition-colors">生物運算</a>
+                    <a href="#diet" class="text-gray-700 dark:text-gray-300 hover:text-esg-green dark:hover:text-esg-light-green transition-colors">永續飲食</a>
+                    <a href="#island" class="text-gray-700 dark:text-gray-300 hover:text-esg-green dark:hover:text-esg-light-green transition-colors">復活節島</a>
+                    <a href="#climate" class="text-gray-700 dark:text-gray-300 hover:text-esg-green dark:hover:text-esg-light-green transition-colors">氣候樂觀</a>
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors">
+                        <i class="fas fa-sun dark:hidden"></i>
+                        <i class="fas fa-moon hidden dark:inline"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center gradient-bg overflow-hidden">
+        <div class="absolute inset-0 bg-black/20"></div>
+        <div class="absolute top-0 right-0 w-1/2 h-full opacity-10">
+            <svg viewBox="0 0 400 600" class="w-full h-full">
+                <defs>
+                    <pattern id="leaf-pattern" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M20 5 Q30 15 20 25 Q10 15 20 5" fill="currentColor" opacity="0.3"/>
+                    </pattern>
+                </defs>
+                <rect width="400" height="600" fill="url(#leaf-pattern)"/>
+            </svg>
+        </div>
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-white">
+                    <div class="inline-flex items-center px-4 py-2 bg-white/10 rounded-full text-sm font-medium mb-6 text-shadow">
+                        <i class="fas fa-calendar-alt mr-2"></i>
+                        20251031 永續週報
+                    </div>
+                    <h1 class="text-5xl lg:text-7xl font-black mb-6 leading-tight text-shadow">
+                        顛覆你的<br>
+                        <span class="text-esg-orange">綠色想像</span>
+                    </h1>
+                    <p class="text-xl lg:text-2xl mb-8 text-gray-100 leading-relaxed">
+                        從生物運算革命到氣候樂觀論，探索永續發展如何從環境議題演變為驅動科技創新與文化變革的根本力量
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="bg-white/20 px-4 py-2 rounded-lg">
+                            <span class="text-sm font-medium">香菇運算晶片</span>
+                        </div>
+                        <div class="bg-white/20 px-4 py-2 rounded-lg">
+                            <span class="text-sm font-medium">永續飲食思辨</span>
+                        </div>
+                        <div class="bg-white/20 px-4 py-2 rounded-lg">
+                            <span class="text-sm font-medium">復活節島重生</span>
+                        </div>
+                        <div class="bg-white/20 px-4 py-2 rounded-lg">
+                            <span class="text-sm font-medium">氣候樂觀策略</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="relative z-10">
+                        <img src="https://api.felo.ai/images/s/wWbQhTO31F" alt="永續科技創新概念圖" class="w-full rounded-2xl shadow-2xl">
+                    </div>
+                    <div class="absolute -top-6 -right-6 w-24 h-24 bg-esg-orange rounded-full opacity-80 blur-xl"></div>
+                    <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-white/20 rounded-full opacity-60 blur-xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Statistics -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="text-4xl font-black text-esg-green dark:text-esg-light-green mb-2">1-3%</div>
+                    <div class="text-gray-600 dark:text-gray-400">全球資料中心電力消耗</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-black text-esg-green dark:text-esg-light-green mb-2">90%</div>
+                    <div class="text-gray-600 dark:text-gray-400">香菇憶阻器準確率</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-black text-esg-green dark:text-esg-light-green mb-2">75%</div>
+                    <div class="text-gray-600 dark:text-gray-400">純素飲食減少環境影響</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl font-black text-esg-green dark:text-esg-light-green mb-2">2030</div>
+                    <div class="text-gray-600 dark:text-gray-400">氣候解決方案目標年</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction -->
+    <section class="py-20 bg-white dark:bg-gray-900 transition-colors">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="prose prose-lg max-w-none dark:prose-invert">
+                <p class="text-xl leading-relaxed text-gray-700 dark:text-gray-300">
+                    當我們談論永續發展或氣候變遷時，心中浮現的往往是海平面上升的警示、融化的冰川，或是一連串令人焦慮的數據。在資訊爆炸的時代，這種沉重的氛圍容易讓人感到疲勞甚至無力。然而，永續發展的真實樣貌，遠比我們想像的更創新、更複雜，甚至充滿了意想不到的驚喜。
+                </p>
+                <p class="text-xl leading-relaxed text-gray-700 dark:text-gray-300 mt-6">
+                    它不僅僅是減少浪費或資源回收，更是一場涵蓋科技、文化與思維模式的深刻革命。本文將分享幾個最令人意想不到的永續發展趨勢，它們正在從根本上挑戰我們的既有認知，並揭示了永續發展如何從單純的環境議題，演變為驅動科技創新、挑戰文化常規的根本力量。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Innovation Section -->
+    <section id="innovation" class="py-24 bg-gradient-to-br from-esg-light-green to-white dark:from-gray-800 dark:to-gray-900 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <div class="inline-flex items-center px-4 py-2 bg-esg-green/10 dark:bg-esg-light-green/10 rounded-full text-sm font-medium mb-6 text-esg-green dark:text-esg-light-green">
+                        <i class="fas fa-microscope mr-2"></i>
+                        生物運算革命
+                    </div>
+                    <h2 class="text-4xl lg:text-5xl font-black mb-8 text-gray-900 dark:text-white">
+                        電腦的未來，竟然長在<span class="text-esg-orange">香菇</span>上？
+                    </h2>
+                    <div class="space-y-6 text-gray-700 dark:text-gray-300">
+                        <p class="text-lg leading-relaxed">
+                            在當前的數位時代，我們的生活高度依賴數據，但這也帶來了巨大的環境代價。資料中心消耗著全球約1%至3%的電力，而傳統半導體製造過程衍生的電子廢棄物，更對環境構成巨大壓力。
+                        </p>
+                        <p class="text-lg leading-relaxed">
+                            俄亥俄州立大學的研究團隊發現，真菌具有成為「有機記憶設備」的潛力。他們成功培養並訓練香菇，使其能像電腦晶片一樣切換電氣狀態來處理與儲存數據，而且整個過程僅需極低的功耗。
+                        </p>
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700">
+                            <h4 class="font-bold text-esg-green dark:text-esg-light-green mb-4">香菇憶阻器的優勢</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <i class="fas fa-leaf text-esg-green dark:text-esg-light-green mt-1 mr-3"></i>
+                                    <span>低成本、可再生且可分解的生物材料</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-shield-alt text-esg-green dark:text-esg-light-green mt-1 mr-3"></i>
+                                    <span>抗輻射特性、輕重量和低耗能</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-network-wired text-esg-green dark:text-esg-light-green mt-1 mr-3"></i>
+                                    <span>天然分支互連網路，類似神經網路</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="https://api.felo.ai/images/s/379vN1pv03" alt="香菇運算技術概念圖" class="w-full rounded-2xl shadow-2xl">
+                    <div class="absolute -bottom-8 -right-8 bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700">
+                        <div class="text-3xl font-black text-esg-green dark:text-esg-light-green">5.85 kHz</div>
+                        <div class="text-sm text-gray-600 dark:text-gray-400">最高運作頻率</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Data Center Energy Chart -->
+            <div class="mt-20">
+                <h3 class="text-2xl font-bold text-center mb-8 text-gray-900 dark:text-white">全球資料中心能源消耗趨勢</h3>
+                <div id="datacenter-chart" class="h-96 bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Diet Section -->
+    <section id="diet" class="py-24 bg-white dark:bg-gray-900 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1 relative">
+                    <img src="https://api.felo.ai/images/s/2qtElMWPTD" alt="永續飲食與在地食材" class="w-full rounded-2xl shadow-2xl">
+                    <div class="absolute -top-8 -left-8 bg-esg-orange p-6 rounded-2xl shadow-lg text-white">
+                        <div class="text-3xl font-black">90%</div>
+                        <div class="text-sm">植物性餐點比例</div>
+                    </div>
+                </div>
+                <div class="order-1 lg:order-2">
+                    <div class="inline-flex items-center px-4 py-2 bg-esg-orange/10 rounded-full text-sm font-medium mb-6 text-esg-orange">
+                        <i class="fas fa-utensils mr-2"></i>
+                        永續飲食思辨
+                    </div>
+                    <h2 class="text-4xl lg:text-5xl font-black mb-8 text-gray-900 dark:text-white">
+                        純素不等於<br><span class="text-esg-orange">絕對永續</span>？
+                    </h2>
+                    <div class="space-y-6 text-gray-700 dark:text-gray-300">
+                        <p class="text-lg leading-relaxed">
+                            純素主義常被視為最環保的飲食選擇，但它真的是永續的唯一答案嗎？一場備受矚目的晚宴，引發了全球性的深刻思辨。
+                        </p>
+                        <p class="text-lg leading-relaxed">
+                            由英國威廉王子創立的「地球獎」晚宴，巴西名廚Saulo Jennings因主辦單位要求準備「純素」菜單而公開拒絕。他提倡設計一份約90%為植物性餐點，同時納入當地漁獲的菜單，認為這更能支持生物多樣性、在地生產者與文化傳承。
+                        </p>
+                        <div class="bg-esg-light-green dark:bg-gray-800 p-6 rounded-2xl">
+                            <h4 class="font-bold text-esg-green dark:text-esg-light-green mb-4">永續飲食的三個維度</h4>
+                            <div class="space-y-3">
+                                <div class="flex items-center">
+                                    <i class="fas fa-map-marker-alt text-esg-green dark:text-esg-light-green mr-3"></i>
+                                    <span>食材「從何而來」</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-users text-esg-green dark:text-esg-light-green mr-3"></i>
+                                    <span>如何支持在地社群的經濟</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-heart text-esg-green dark:text-esg-light-green mr-3"></i>
+                                    <span>如何尊重深植於土地的文化脈絡</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Diet Impact Chart -->
+            <div class="mt-20">
+                <h3 class="text-2xl font-bold text-center mb-8 text-gray-900 dark:text-white">不同飲食模式的環境影響比較</h3>
+                <div id="diet-chart" class="h-96 bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Island Section -->
+    <section id="island" class="py-24 bg-gradient-to-br from-blue-50 to-esg-light-green dark:from-gray-800 dark:to-gray-900 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="inline-flex items-center px-4 py-2 bg-blue-100 dark:bg-blue-900/30 rounded-full text-sm font-medium mb-6 text-blue-600 dark:text-blue-400">
+                    <i class="fas fa-island-tropical mr-2"></i>
+                    生態復甦典範
+                </div>
+                <h2 class="text-4xl lg:text-5xl font-black mb-8 text-gray-900 dark:text-white">
+                    告別毀滅的警世預言：<br>復活節島如何成為<span class="text-blue-600">永續生活</span>的新典範
+                </h2>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-8 mb-16">
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover-scale">
+                    <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-handshake text-2xl text-blue-600 dark:text-blue-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">融合傳統與創新</h3>
+                    <p class="text-gray-600 dark:text-gray-400">將祖先流傳下來的生態智慧，與現代的水資源管理、有機農業等技術結合。</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover-scale">
+                    <div class="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-users text-2xl text-green-600 dark:text-green-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">社區主導的保育</h3>
+                    <p class="text-gray-600 dark:text-gray-400">由島民社區親自參與並主導自然資源與文化遺產的保護計畫。</p>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover-scale">
+                    <div class="w-16 h-16 bg-orange-100 dark:bg-orange-900/30 rounded-2xl flex items-center justify-center mb-6">
+                        <i class="fas fa-plane text-2xl text-orange-600 dark:text-orange-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-900 dark:text-white">負責任的生態旅遊</h3>
+                    <p class="text-gray-600 dark:text-gray-400">嚴格限制遊客數量，推廣負責任的旅遊行為，確保對環境與文化帶來正面影響。</p>
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-8">
+                <h3 class="text-2xl font-bold text-center mb-8 text-gray-900 dark:text-white">復活節島永續轉型路徑</h3>
+                <div class="mermaid" id="island-diagram">
+                    flowchart TD
+                        A["生態危機"] --> B["傳統智慧復甦"]
+                        B --> C["現代技術整合"]
+                        C --> D["社區主導管理"]
+                        D --> E["負責任觀光"]
+                        E --> F["永續發展典範"]
+                        
+                        B --> G["水資源管理"]
+                        B --> H["有機農業"]
+                        
+                        D --> I["在地參與"]
+                        D --> J["文化保護"]
+                        
+                        E --> K["遊客限制"]
+                        E --> L["生態教育"]
+                        
+                        style A fill:#ff6b6b
+                        style F fill:#51cf66
+                        style B fill:#74c0fc
+                        style C fill:#74c0fc
+                        style D fill:#74c0fc
+                        style E fill:#74c0fc
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Climate Section -->
+    <section id="climate" class="py-24 bg-white dark:bg-gray-900 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <div class="inline-flex items-center px-4 py-2 bg-yellow-100 dark:bg-yellow-900/30 rounded-full text-sm font-medium mb-6 text-yellow-600 dark:text-yellow-400">
+                        <i class="fas fa-lightbulb mr-2"></i>
+                        氣候樂觀策略
+                    </div>
+                    <h2 class="text-4xl lg:text-5xl font-black mb-8 text-gray-900 dark:text-white">
+                        與其恐懼，不如行動：<br>比爾蓋茲為何呼籲我們對氣候變遷保持<span class="text-yellow-500">樂觀</span>？
+                    </h2>
+                    <div class="space-y-6 text-gray-700 dark:text-gray-300">
+                        <p class="text-lg leading-relaxed">
+                            長期以來，關於氣候變遷的論述總是圍繞著危機、災難與末日倒數，這種溝通方式雖然旨在喚起警覺，卻也可能導致公眾的焦慮與麻木。微軟創辦人比爾蓋茲對此提出了截然不同的視角。
+                        </p>
+                        <p class="text-lg leading-relaxed">
+                            蓋茲的核心論點是，我們應該將重心從單純的「減少污染」，擴展至「如何透過氣候行動改善人類生活」。他強調，全球在潔淨能源、永續農業等領域的科技創新已取得顯著進展。
+                        </p>
+                        <div class="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-400 p-6 rounded-r-2xl">
+                            <p class="font-medium text-yellow-800 dark:text-yellow-200">
+                                「我們的首要目標應該是減少痛苦，特別是那些身處最艱困環境、生活在全球最貧困地區的人。」
+                            </p>
+                            <p class="text-sm text-yellow-600 dark:text-yellow-400 mt-2">— 比爾蓋茲</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="https://api.felo.ai/images/s/1T4loxCcOb" alt="氣候解決方案與希望" class="w-full rounded-2xl shadow-2xl">
+                    <div class="absolute top-8 right-8 bg-white dark:bg-gray-800 p-4 rounded-2xl shadow-lg">
+                        <div class="text-2xl font-black text-green-600 dark:text-green-400">+11%</div>
+                        <div class="text-sm text-gray-600 dark:text-gray-400">2024年能源轉型投資增長</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Climate Investment Chart -->
+            <div class="mt-20">
+                <h3 class="text-2xl font-bold text-center mb-8 text-gray-900 dark:text-white">全球氣候解決方案投資趨勢</h3>
+                <div id="climate-chart" class="h-96 bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusion -->
+    <section class="py-24 gradient-bg">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="text-white">
+                <h2 class="text-4xl lg:text-5xl font-black mb-8">結語</h2>
+                <div class="space-y-6 text-lg leading-relaxed text-gray-100">
+                    <p>
+                        從可以運算的香菇、對永續飲食的深刻反思，到復活節島的重生故事與氣候樂觀論，這些案例共同揭示了一個核心趨勢：真正的永續創新，源於我們願意挑戰教條、與自然系統合作，並將人類福祉置於環保行動的中心。
+                    </p>
+                    <p>
+                        它不再是單一的環保口號，而是一場正在全球各個角落發生的，結合了科技、文化與人性智慧的深刻變革。在這些顛覆想像的永續新思路中，哪一個最讓你對未來充滿期待？
+                    </p>
+                </div>
+                <div class="mt-12 grid md:grid-cols-4 gap-6">
+                    <div class="bg-white/10 p-6 rounded-2xl">
+                        <i class="fas fa-microchip text-3xl mb-4"></i>
+                        <h4 class="font-bold mb-2">生物運算</h4>
+                        <p class="text-sm">香菇驅動的未來科技</p>
+                    </div>
+                    <div class="bg-white/10 p-6 rounded-2xl">
+                        <i class="fas fa-leaf text-3xl mb-4"></i>
+                        <h4 class="font-bold mb-2">永續飲食</h4>
+                        <p class="text-sm">在地文化與環保平衡</p>
+                    </div>
+                    <div class="bg-white/10 p-6 rounded-2xl">
+                        <i class="fas fa-island-tropical text-3xl mb-4"></i>
+                        <h4 class="font-bold mb-2">生態復甦</h4>
+                        <p class="text-sm">復活節島的重生奇蹟</p>
+                    </div>
+                    <div class="bg-white/10 p-6 rounded-2xl">
+                        <i class="fas fa-sun text-3xl mb-4"></i>
+                        <h4 class="font-bold mb-2">氣候樂觀</h4>
+                        <p class="text-sm">解決方案導向的思維</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="border-t border-gray-800 pt-8 mt-8 text-center">
+                <div class="text-sm text-gray-400 space-y-2">
+                    <p><strong>免責聲明：</strong>基於公開資料，僅供參考，不構成建議</p>
+                    <p><strong>資料來源：</strong>網頁公開資訊</p>
+                    <p><strong>版權所有：</strong>© 2025 Dunk</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            }
+            updateCharts();
+        }
+
+        function getPreferredTheme() {
+            const saved = localStorage.getItem('theme');
+            if (saved) return saved;
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+
+        setTheme(getPreferredTheme());
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.classList.contains('dark') ? 'dark' : 'light';
+            setTheme(currentTheme === 'dark' ? 'light' : 'dark');
+        });
+
+        // Charts
+        let datacenterChart, dietChart, climateChart;
+
+        function initCharts() {
+            // Data Center Energy Chart
+            datacenterChart = echarts.init(document.getElementById('datacenter-chart'), html.classList.contains('dark') ? 'dark' : null);
+            datacenterChart.setOption({
+                title: {
+                    text: '預估到2030年全球資料中心用電量將翻倍',
+                    left: 'center',
+                    textStyle: {
+                        fontSize: 16,
+                        fontWeight: 'bold'
+                    }
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    formatter: '{b}: {c} TWh'
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['2020', '2022', '2024', '2026', '2028', '2030']
+                },
+                yAxis: {
+                    type: 'value',
+                    name: '用電量 (TWh)'
+                },
+                series: [{
+                    data: [200, 250, 415, 550, 700, 945],
+                    type: 'line',
+                    smooth: true,
+                    lineStyle: {
+                        width: 4,
+                        color: '#2d5016'
+                    },
+                    itemStyle: {
+                        color: '#2d5016',
+                        borderWidth: 3,
+                        borderColor: '#fff'
+                    },
+                    areaStyle: {
+                        opacity: 0.3,
+                        color: '#e8f5e8'
+                    }
+                }],
+                grid: {
+                    left: '10%',
+                    right: '10%',
+                    bottom: '15%',
+                    top: '20%'
+                }
+            });
+
+            // Diet Impact Chart
+            dietChart = echarts.init(document.getElementById('diet-chart'), html.classList.contains('dark') ? 'dark' : null);
+            dietChart.setOption({
+                title: {
+                    text: '環境影響減少百分比 (相對於高肉食飲食)',
+                    left: 'center',
+                    textStyle: {
+                        fontSize: 16,
+                        fontWeight: 'bold'
+                    }
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    formatter: '{b}: {c}%'
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['高肉食', '一般雜食', '低肉食', '蛋奶素', '純素食']
+                },
+                yAxis: {
+                    type: 'value',
+                    name: '環境影響減少 (%)',
+                    min: 0,
+                    max: 80
+                },
+                series: [{
+                    data: [0, 20, 35, 55, 75],
+                    type: 'bar',
+                    itemStyle: {
+                        color: function(params) {
+                            const colors = ['#ff6b35', '#ffa726', '#66bb6a', '#42a5f5', '#2d5016'];
+                            return colors[params.dataIndex];
+                        }
+                    },
+                    label: {
+                        show: true,
+                        position: 'top',
+                        formatter: '{c}%'
+                    }
+                }],
+                grid: {
+                    left: '10%',
+                    right: '10%',
+                    bottom: '15%',
+                    top: '20%'
+                }
+            });
+
+            // Climate Investment Chart
+            climateChart = echarts.init(document.getElementById('climate-chart'), html.classList.contains('dark') ? 'dark' : null);
+            climateChart.setOption({
+                title: {
+                    text: '全球能源轉型投資金額 (兆美元)',
+                    left: 'center',
+                    textStyle: {
+                        fontSize: 16,
+                        fontWeight: 'bold'
+                    }
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    formatter: '{b}: {c} 兆美元'
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['2019', '2020', '2021', '2022', '2023', '2024']
+                },
+                yAxis: {
+                    type: 'value',
+                    name: '投資金額 (兆美元)'
+                },
+                series: [{
+                    data: [1.2, 1.4, 1.6, 1.7, 1.9, 2.1],
+                    type: 'bar',
+                    itemStyle: {
+                        color: '#0066cc'
+                    },
+                    label: {
+                        show: true,
+                        position: 'top',
+                        formatter: '{c}'
+                    }
+                }],
+                grid: {
+                    left: '10%',
+                    right: '10%',
+                    bottom: '15%',
+                    top: '20%'
+                }
+            });
+        }
+
+        function updateCharts() {
+            const isDark = html.classList.contains('dark');
+            if (datacenterChart) {
+                datacenterChart.dispose();
+                dietChart.dispose();
+                climateChart.dispose();
+            }
+            initCharts();
+        }
+
+        // Initialize Mermaid
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: html.classList.contains('dark') ? 'dark' : 'default',
+            themeVariables: {
+                primaryColor: '#2d5016',
+                primaryTextColor: '#1a1a1a',
+                primaryBorderColor: '#1a4d3a',
+                lineColor: '#333333',
+                secondaryColor: '#e8f5e8',
+                tertiaryColor: '#f8f9fa'
+            }
+        });
+
+        // Window resize handler
+        window.addEventListener('resize', function() {
+            if (datacenterChart) {
+                datacenterChart.resize();
+                dietChart.resize();
+                climateChart.resize();
+            }
+        });
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initCharts();
+            
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Fade in animation for elements
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
