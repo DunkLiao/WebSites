@@ -2,8 +2,6 @@
 
 [資料視覺化](/WebSites/ex_page/ "資料視覺化")
 
-[二道防線月報](/WebSites/RiskRpt/ "二道防線月報")
-
 [信用風險監控月報](/WebSites/MgrRpt/ "信用風險監控月報")
 
 [ESG永續部落格](/WebSites/esg/ "ESG永續部落格")
