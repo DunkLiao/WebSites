@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="zh-TW">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>非洲豬瘟疫情對台灣餐飲業供應鏈衝擊之風險評估與應變策略報告</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #9A0036 0%, #941C61 100%);
+        }
+        
+        .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        .hover-lift {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .section-divider {
+            border-left: 4px solid #9A0036;
+            padding-left: 1rem;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(90deg, rgba(154, 0, 54, 0.05) 0%, rgba(238, 186, 192, 0.1) 100%);
+            border-left: 4px solid #9A0036;
+        }
+        
+        .strategy-card {
+            border: 1px solid #EEBAC0;
+            background: white;
+            transition: all 0.3s ease;
+        }
+        
+        .strategy-card:hover {
+            border-color: #941C61;
+            box-shadow: 0 8px 25px -5px rgba(154, 0, 54, 0.15);
+        }
+        
+        .impact-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+        }
+        
+        .high-impact { background-color: #9A0036; }
+        .medium-impact { background-color: #941C61; }
+        .low-impact { background-color: #EEBAC0; }
+        
+        .table-header {
+            background: linear-gradient(90deg, #9A0036 0%, #941C61 100%);
+            color: white;
+        }
+        
+        .progress-bar {
+            background: linear-gradient(90deg, #9A0036 0%, #941C61 100%);
+            height: 6px;
+            border-radius: 3px;
+        }
+    </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="bg-gray-50 min-h-full"><!-- Header Section -->
+  <header class="gradient-bg text-white py-8">
+   <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center">
+     <h1 id="main-title" class="text-3xl md:text-4xl font-bold mb-4">非洲豬瘟疫情對台灣餐飲業供應鏈衝擊之風險評估與應變策略報告</h1>
+     <p id="subtitle" class="text-lg md:text-xl text-pink-100">2025年突發公共衛生事件影響分析</p>
+     <div class="mt-6 flex justify-center items-center space-x-4 text-sm"><span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">風險評估</span> <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">供應鏈分析</span> <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full">應變策略</span>
+     </div>
+    </div>
+   </div>
+  </header><!-- Navigation -->
+  <nav class="bg-white shadow-sm sticky top-0 z-10">
+   <div class="max-w-7xl mx-auto px-6">
+    <div class="flex space-x-8 overflow-x-auto py-4"><a href="#section1" class="text-gray-600 hover:text-red-600 whitespace-nowrap font-medium transition-colors">1.0 前言</a> <a href="#section2" class="text-gray-600 hover:text-red-600 whitespace-nowrap font-medium transition-colors">2.0 供應鏈衝擊</a> <a href="#section3" class="text-gray-600 hover:text-red-600 whitespace-nowrap font-medium transition-colors">3.0 案例研究</a> <a href="#section4" class="text-gray-600 hover:text-red-600 whitespace-nowrap font-medium transition-colors">4.0 市場反應</a> <a href="#section5" class="text-gray-600 hover:text-red-600 whitespace-nowrap font-medium transition-colors">5.0 結論建議</a> <a href="#summary" class="text-gray-600 hover:text-red-600 whitespace-nowrap font-medium transition-colors">總結</a>
+    </div>
+   </div>
+  </nav><!-- Main Content -->
+  <main class="max-w-7xl mx-auto px-6 py-8"><!-- Executive Summary -->
+   <section class="mb-12">
+    <div class="bg-white rounded-lg card-shadow p-8">
+     <div class="highlight-box p-6 rounded-lg mb-6">
+      <h2 class="text-2xl font-bold text-gray-800 mb-4">執行摘要</h2>
+      <p class="text-gray-700 leading-relaxed">2025年非洲豬瘟疫情爆發，政府實施全台活豬禁運禁宰政策，對高度依賴溫體豬肉的台灣餐飲業造成立即且劇烈衝擊。 本報告深入分析此突發事件對餐飲業供應鏈的影響，並評估業者採取的多元應變策略成效。</p>
+     </div><!-- Key Metrics -->
+     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="text-center p-6 bg-red-50 rounded-lg">
+       <div class="text-3xl font-bold text-red-600 mb-2">
+        87.5%
+       </div>
+       <div class="text-gray-600">
+        台灣豬肉自給率
+       </div>
+      </div>
+      <div class="text-center p-6 bg-pink-50 rounded-lg">
+       <div class="text-3xl font-bold text-pink-600 mb-2">
+        70%
+       </div>
+       <div class="text-gray-600">
+        預估業績下滑幅度
+       </div>
+      </div>
+      <div class="text-center p-6 bg-purple-50 rounded-lg">
+       <div class="text-3xl font-bold text-purple-600 mb-2">
+        4倍
+       </div>
+       <div class="text-gray-600">
+        替代食材成本增幅
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Section 1: 前言 -->
+   <section id="section1" class="mb-12">
+    <div class="bg-white rounded-lg card-shadow hover-lift">
+     <div class="p-8">
+      <div class="section-divider mb-6">
+       <h2 class="text-2xl font-bold text-gray-800">1.0 前言：危機背景與風險概述</h2>
+      </div>
+      <div class="space-y-6">
+       <div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-3">1.1 引言</h3>
+        <p class="text-gray-700 leading-relaxed">2025年，非洲豬瘟（African Swine Fever, ASF）疫情於台灣爆發，促使政府為控制疫情擴散，實施了全台活豬禁運禁宰的緊急應變政策。 此一決策雖是必要的公共衛生手段，卻對高度依賴溫體豬肉的台灣餐飲業供應鏈造成了立即且劇烈的衝擊。 從傳統小吃到連鎖餐飲，許多業者的日常營運在一夕之間陷入困境。</p>
+       </div>
+       <div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">1.2 核心挑戰</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+         <div class="strategy-card p-6 rounded-lg">
+          <div class="flex items-center mb-3"><span class="impact-indicator high-impact"></span>
+           <h4 class="font-semibold text-gray-800">供應鏈中斷</h4>
+          </div>
+          <p class="text-gray-600 text-sm">溫體豬肉供應戛然而止，直接衝擊以此為單一主要食材的店家，導致主力產品無法生產與銷售。</p>
+         </div>
+         <div class="strategy-card p-6 rounded-lg">
+          <div class="flex items-center mb-3"><span class="impact-indicator medium-impact"></span>
+           <h4 class="font-semibold text-gray-800">成本與定價壓力</h4>
+          </div>
+          <p class="text-gray-600 text-sm">轉而尋求替代食材，如成本高出數倍的進口伊比利豬肉，大幅墊高營運成本。</p>
+         </div>
+         <div class="strategy-card p-6 rounded-lg">
+          <div class="flex items-center mb-3"><span class="impact-indicator low-impact"></span>
+           <h4 class="font-semibold text-gray-800">消費者信心轉變</h4>
+          </div>
+          <p class="text-gray-600 text-sm">疫情引發民眾對豬肉產品的食品安全疑慮，部分消費者飲食習慣轉向替代性蛋白質。</p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Section 2: 供應鏈衝擊分析 -->
+   <section id="section2" class="mb-12">
+    <div class="bg-white rounded-lg card-shadow hover-lift">
+     <div class="p-8">
+      <div class="section-divider mb-6">
+       <h2 class="text-2xl font-bold text-gray-800">2.0 供應鏈衝擊分析：溫體豬肉斷鏈的連鎖效應</h2>
+      </div>
+      <div class="space-y-8">
+       <div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">2.1 直接衝擊評估</h3><!-- Impact Comparison -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+         <div class="bg-red-50 p-6 rounded-lg border border-red-200">
+          <h4 class="font-semibold text-red-800 mb-4 flex items-center"><span class="impact-indicator high-impact"></span> 傳統小吃店的衝擊</h4>
+          <div class="space-y-3">
+           <div class="flex justify-between items-center"><span class="text-sm text-gray-700">阿泉爌肉飯</span> <span class="text-sm font-medium text-red-600">停售主力產品</span>
+           </div>
+           <div class="flex justify-between items-center"><span class="text-sm text-gray-700">鹿港阿煜肉包</span> <span class="text-sm font-medium text-red-600">業績下滑70%</span>
+           </div>
+           <div class="flex justify-between items-center"><span class="text-sm text-gray-700">大元麻糬</span> <span class="text-sm font-medium text-red-600">鹹麻糬停售</span>
+           </div>
+          </div>
+         </div>
+         <div class="bg-green-50 p-6 rounded-lg border border-green-200">
+          <h4 class="font-semibold text-green-800 mb-4 flex items-center"><span class="impact-indicator low-impact"></span> 連鎖餐飲的韌性</h4>
+          <div class="space-y-3">
+           <div class="flex justify-between items-center"><span class="text-sm text-gray-700">八方雲集</span> <span class="text-sm font-medium text-green-600">正常營運</span>
+           </div>
+           <div class="flex justify-between items-center"><span class="text-sm text-gray-700">乾杯集團</span> <span class="text-sm font-medium text-green-600">進口替代</span>
+           </div>
+           <div class="flex justify-between items-center"><span class="text-sm text-gray-700">鼎泰豐</span> <span class="text-sm font-medium text-green-600">供應穩定</span>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">2.2 市場供需失衡</h3>
+        <div class="highlight-box p-6 rounded-lg">
+         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+           <h4 class="font-semibold text-gray-800 mb-3">市場結構風險</h4>
+           <ul class="space-y-2 text-gray-700">
+            <li class="flex items-center"><span class="w-2 h-2 bg-red-500 rounded-full mr-3"></span> 台灣豬肉自給率高達87.5%</li>
+            <li class="flex items-center"><span class="w-2 h-2 bg-red-500 rounded-full mr-3"></span> 對本土溫體豬肉形成路徑依賴</li>
+            <li class="flex items-center"><span class="w-2 h-2 bg-red-500 rounded-full mr-3"></span> 單一供應模式系統性風險</li>
+           </ul>
+          </div>
+          <div>
+           <h4 class="font-semibold text-gray-800 mb-3">政府應變措施</h4>
+           <ul class="space-y-2 text-gray-700">
+            <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span> 緊急調度全台冷凍豬肉庫存</li>
+            <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span> 配送至各地穩定民生需求</li>
+            <li class="flex items-center"><span class="w-2 h-2 bg-blue-500 rounded-full mr-3"></span> 特殊部位豬肉價格預期上漲</li>
+           </ul>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Section 3: 案例研究 -->
+   <section id="section3" class="mb-12">
+    <div class="bg-white rounded-lg card-shadow hover-lift">
+     <div class="p-8">
+      <div class="section-divider mb-6">
+       <h2 class="text-2xl font-bold text-gray-800">3.0 案例研究：餐飲業者的應變策略與成效評估</h2>
+      </div>
+      <div class="space-y-8"><!-- Strategy 1 -->
+       <div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">策略一：高價食材導入與產品創新</h3>
+        <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg border border-purple-200">
+         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div>
+           <h4 class="font-semibold text-purple-800 mb-3">案例：雲林虎尾「樂包子」</h4>
+           <ul class="space-y-2 text-gray-700 text-sm">
+            <li>• 引進西班牙伊比利豬肉（成本高出4倍）</li>
+            <li>• 創新「麻婆豆腐伊比利豬肉包」</li>
+            <li>• 定價45元，消費者反應良好</li>
+            <li>• 將危機轉化為產品升級契機</li>
+           </ul>
+          </div>
+          <div>
+           <h4 class="font-semibold text-purple-800 mb-3">成效評估</h4>
+           <div class="space-y-3">
+            <div>
+             <div class="flex justify-between text-sm mb-1"><span>消費者接受度</span> <span>85%</span>
+             </div>
+             <div class="w-full bg-gray-200 rounded-full h-2">
+              <div class="progress-bar w-4/5 rounded-full"></div>
+             </div>
+            </div>
+            <div>
+             <div class="flex justify-between text-sm mb-1"><span>品牌形象提升</span> <span>90%</span>
+             </div>
+             <div class="w-full bg-gray-200 rounded-full h-2">
+              <div class="progress-bar w-11/12 rounded-full"></div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div><!-- Strategy 2 -->
+       <div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">策略二：替代性蛋白的開發與風味傳承</h3>
+        <div class="overflow-x-auto">
+         <table class="w-full border border-gray-200 rounded-lg overflow-hidden">
+          <thead class="table-header">
+           <tr>
+            <th class="px-4 py-3 text-left text-sm font-semibold">店家名稱</th>
+            <th class="px-4 py-3 text-left text-sm font-semibold">創新產品</th>
+            <th class="px-4 py-3 text-left text-sm font-semibold">市場反應與特色</th>
+           </tr>
+          </thead>
+          <tbody class="bg-white divide-y divide-gray-200">
+           <tr class="hover:bg-gray-50">
+            <td class="px-4 py-3 text-sm text-gray-800">彰化市車路口肉羹店</td>
+            <td class="px-4 py-3 text-sm text-gray-700">雞柳條製作「雞霸分」肉羹</td>
+            <td class="px-4 py-3 text-sm text-gray-600">維持原價，顧客吃不出差異</td>
+           </tr>
+           <tr class="hover:bg-gray-50">
+            <td class="px-4 py-3 text-sm text-gray-800">彰化市阿泉爌肉飯</td>
+            <td class="px-4 py-3 text-sm text-gray-700">滷雞腿飯，保留傳統滷汁</td>
+            <td class="px-4 py-3 text-sm text-gray-600">「滷汁靈魂仍在」，考慮常態化</td>
+           </tr>
+           <tr class="hover:bg-gray-50">
+            <td class="px-4 py-3 text-sm text-gray-800">正彰化肉圓店</td>
+            <td class="px-4 py-3 text-sm text-gray-700">雞肉肉圓，去骨雞腿肉</td>
+            <td class="px-4 py-3 text-sm text-gray-600">試吃獲好評，迅速售罄</td>
+           </tr>
+          </tbody>
+         </table>
+        </div>
+       </div><!-- Strategy 3 -->
+       <div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">策略三：營運調整與供應鏈的前瞻性管理</h3>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+         <div class="bg-red-50 p-6 rounded-lg border border-red-200">
+          <h4 class="font-semibold text-red-800 mb-4">被動停售案例</h4>
+          <div class="space-y-4">
+           <div class="border-l-4 border-red-400 pl-4">
+            <h5 class="font-medium text-gray-800">彰化大元麻糬</h5>
+            <p class="text-sm text-gray-600">鹹麻糬高度依賴溫體豬肉，只能選擇停賣</p>
+           </div>
+           <div class="border-l-4 border-red-400 pl-4">
+            <h5 class="font-medium text-gray-800">鹿港阿煜肉包</h5>
+            <p class="text-sm text-gray-600">三天庫存耗盡，業績預計下滑七成</p>
+           </div>
+          </div>
+         </div>
+         <div class="bg-green-50 p-6 rounded-lg border border-green-200">
+          <h4 class="font-semibold text-green-800 mb-4">前瞻佈局典範</h4>
+          <div class="border-l-4 border-green-400 pl-4">
+           <h5 class="font-medium text-gray-800">鹿港阿振肉包</h5>
+           <ul class="text-sm text-gray-600 space-y-1 mt-2">
+            <li>• 長期採用CAS標章冷凍豬肉</li>
+            <li>• 20年前建立食材溯源管理</li>
+            <li>• 營運完全不受影響</li>
+            <li>• 展現高度營運韌性</li>
+           </ul>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Section 4: 市場反應分析 -->
+   <section id="section4" class="mb-12">
+    <div class="bg-white rounded-lg card-shadow hover-lift">
+     <div class="p-8">
+      <div class="section-divider mb-6">
+       <h2 class="text-2xl font-bold text-gray-800">4.0 市場反應分析：消費者對替代食材的接受度與食安意識</h2>
+      </div>
+      <div class="space-y-8">
+       <div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">4.1 本章引言</h3>
+        <p class="text-gray-700 leading-relaxed">任何成功的危機應對，都離不開對終端市場反應的精準把握。消費者的態度與選擇，是評估業者應變策略成效的關鍵指標。 本章將深入分析在非洲豬瘟疫情的陰影下，消費者行為如何分化、他們對替代食材的接受程度，以及潛藏在消費決策背後的食品安全疑慮。</p>
+       </div>
+       <div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">4.2 消費行為的分化現象</h3>
+        <p class="text-gray-700 leading-relaxed mb-6">疫情爆發後，消費者的反應呈現出兩種截然不同的模式：</p>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+         <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+          <h4 class="font-semibold text-blue-800 mb-4 flex items-center"><span class="w-3 h-3 bg-blue-500 rounded-full mr-3"></span> 持續消費群體</h4>
+          <div class="space-y-4">
+           <p class="text-gray-700 text-sm">一部分消費者展現出理性的態度，認為豬肉只要經過高溫徹底烹煮，病毒便會被消滅，因此食用上依然安全。</p>
+           <div class="bg-white p-4 rounded border border-blue-100">
+            <h5 class="font-medium text-blue-800 mb-2">市場策略</h5>
+            <p class="text-sm text-gray-600">部分火鍋業者精準抓住這一心理，推出「肉量加倍」等促銷活動，將豬肉庫存轉化為吸引顧客的利器。</p>
+           </div>
+          </div>
+         </div>
+         <div class="bg-orange-50 p-6 rounded-lg border border-orange-200">
+          <h4 class="font-semibold text-orange-800 mb-4 flex items-center"><span class="w-3 h-3 bg-orange-500 rounded-full mr-3"></span> 轉向替代品群體</h4>
+          <div class="space-y-4">
+           <p class="text-gray-700 text-sm">出於對食品安全的擔憂，另一部分消費者選擇了更為謹慎的策略，公開表示將「暫時不吃豬肉」，轉而「改吃雞肉跟魚」。</p>
+           <div class="bg-white p-4 rounded border border-orange-100">
+            <h5 class="font-medium text-orange-800 mb-2">市場影響</h5>
+            <p class="text-sm text-gray-600">台灣央行評估報告指出，豬肉需求在短期內可能因此下降，為推出雞肉等替代產品的店家提供了市場基礎。</p>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">4.3 對食品安全的疑慮與意識</h3>
+        <p class="text-gray-700 leading-relaxed mb-6">此次事件極大地提升了公眾的食品安全意識，並主要體現在以下幾個方面：</p>
+        <div class="space-y-6">
+         <div class="highlight-box p-6 rounded-lg">
+          <h4 class="font-semibold text-gray-800 mb-4">食安疑慮的三大面向</h4>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+           <div class="text-center">
+            <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-3"><span class="text-2xl">🥩</span>
+            </div>
+            <h5 class="font-medium text-gray-800 mb-2">進口豬肉疑慮</h5>
+            <p class="text-sm text-gray-600">消費者對進口豬肉來源追溯與品質安全存有疑慮，消基會警告勿隨意網購來源不明肉製品</p>
+           </div>
+           <div class="text-center">
+            <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-3"><span class="text-2xl">🛂</span>
+            </div>
+            <h5 class="font-medium text-gray-800 mb-2">邊境管制信心</h5>
+            <p class="text-sm text-gray-600">部分民眾質疑機場檢疫是否存在鬆散之處，顯示對防疫破口的強烈焦慮</p>
+           </div>
+           <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3"><span class="text-2xl">🤝</span>
+            </div>
+            <h5 class="font-medium text-gray-800 mb-2">防疫配合意願</h5>
+            <p class="text-sm text-gray-600">多數民眾願意積極配合防疫政策，如不攜帶境外肉品(14.69%)及支持政府加強查緝(12.45%)</p>
+           </div>
+          </div>
+         </div><!-- Consumer Sentiment Chart -->
+         <div class="bg-gray-50 p-6 rounded-lg">
+          <h4 class="font-semibold text-gray-800 mb-4">民眾防疫配合度調查</h4>
+          <div class="space-y-4">
+           <div>
+            <div class="flex justify-between text-sm mb-2"><span>不攜帶境外肉品</span> <span class="font-medium">14.69%</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-3">
+             <div class="progress-bar rounded-full h-3" style="width: 14.69%"></div>
+            </div>
+           </div>
+           <div>
+            <div class="flex justify-between text-sm mb-2"><span>支持政府加強查緝</span> <span class="font-medium">12.45%</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-3">
+             <div class="progress-bar rounded-full h-3" style="width: 12.45%"></div>
+            </div>
+           </div>
+           <div>
+            <div class="flex justify-between text-sm mb-2"><span>暫時改吃其他肉類</span> <span class="font-medium">25.8%</span>
+            </div>
+            <div class="w-full bg-gray-200 rounded-full h-3">
+             <div class="progress-bar rounded-full h-3" style="width: 25.8%"></div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Section 5: 結論與策略建議 -->
+   <section id="section5" class="mb-12">
+    <div class="bg-white rounded-lg card-shadow hover-lift">
+     <div class="p-8">
+      <div class="section-divider mb-6">
+       <h2 class="text-2xl font-bold text-gray-800">5.0 結論與策略建議</h2>
+      </div>
+      <div class="space-y-8">
+       <div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">5.1 本章引言</h3>
+        <p class="text-gray-700 leading-relaxed">本次非洲豬瘟疫情不僅是一次嚴峻的產業挑戰，更是一場全面的壓力測試。它無情地暴露了台灣餐飲業傳統供應鏈的脆弱性， 但同時也激發了業者驚人的創新潛能與經營韌性。本章旨在將前文的分析結果，轉化為對產業決策者具備高度參考價值的策略性建議， 以期建立一個更具抗風險能力的餐飲生態系統。</p>
+       </div>
+       <div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">5.2 核心發現總結</h3>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+         <div class="bg-red-50 p-6 rounded-lg border border-red-200">
+          <div class="flex items-center mb-4"><span class="w-8 h-8 bg-red-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">1</span>
+           <h4 class="font-semibold text-red-800">供應鏈脆弱性</h4>
+          </div>
+          <p class="text-gray-700 text-sm mb-3">過度依賴單一食材來源的商業模式，其營運風險極高。</p>
+          <div class="bg-white p-3 rounded border border-red-100">
+           <p class="text-xs text-gray-600"><strong>成功案例：</strong>「鹿港阿振肉包」建立前瞻性多元化食材管理系統，成功抵禦供應鏈衝擊。</p>
+          </div>
+         </div>
+         <div class="bg-blue-50 p-6 rounded-lg border border-blue-200">
+          <div class="flex items-center mb-4"><span class="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">2</span>
+           <h4 class="font-semibold text-blue-800">產品創新轉機</h4>
+          </div>
+          <p class="text-gray-700 text-sm mb-3">在危機中脫穎而出的業者進行了「風味傳承」下的產品創新。</p>
+          <div class="bg-white p-3 rounded border border-blue-100">
+           <p class="text-xs text-gray-600"><strong>創新範例：</strong>保留靈魂滷汁的「滷雞腿飯」、結合異國元素的「麻婆豆腐伊比利豬肉包」。</p>
+          </div>
+         </div>
+         <div class="bg-green-50 p-6 rounded-lg border border-green-200">
+          <div class="flex items-center mb-4"><span class="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold mr-3">3</span>
+           <h4 class="font-semibold text-green-800">透明溝通信任</h4>
+          </div>
+          <p class="text-gray-700 text-sm mb-3">清晰的來源標示、可靠的品質認證是維持市場信心的必要條件。</p>
+          <div class="bg-white p-3 rounded border border-green-100">
+           <p class="text-xs text-gray-600"><strong>信任基石：</strong>CAS認證的長期投資在危機期間成為決定性的競爭優勢。</p>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">5.3 未來應對策略建議</h3>
+        <div class="space-y-6">
+         <div class="strategy-card p-6 rounded-lg">
+          <div class="flex items-start">
+           <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0"><span class="text-xl">🔗</span>
+           </div>
+           <div class="flex-1">
+            <h4 class="font-semibold text-gray-800 mb-3">建立多元化與彈性的供應鏈</h4>
+            <p class="text-gray-700 text-sm mb-4">建議業者應擺脫對單一來源的依賴，積極建立一個至少包含「本地溫體」、「本地認證冷凍」與「合格進口」三種來源的供應鏈組合。</p>
+            <div class="grid grid-cols-3 gap-3">
+             <div class="text-center p-3 bg-gray-50 rounded">
+              <div class="text-sm font-medium text-gray-800">
+               本地溫體
+              </div>
+              <div class="text-xs text-gray-600 mt-1">
+               傳統優勢
+              </div>
+             </div>
+             <div class="text-center p-3 bg-gray-50 rounded">
+              <div class="text-sm font-medium text-gray-800">
+               認證冷凍
+              </div>
+              <div class="text-xs text-gray-600 mt-1">
+               品質保證
+              </div>
+             </div>
+             <div class="text-center p-3 bg-gray-50 rounded">
+              <div class="text-sm font-medium text-gray-800">
+               合格進口
+              </div>
+              <div class="text-xs text-gray-600 mt-1">
+               供應穩定
+              </div>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="strategy-card p-6 rounded-lg">
+          <div class="flex items-start">
+           <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0"><span class="text-xl">🍽️</span>
+           </div>
+           <div class="flex-1">
+            <h4 class="font-semibold text-gray-800 mb-3">常態化產品研發與菜單彈性</h4>
+            <p class="text-gray-700 text-sm mb-4">建議業者應將危機期間的「替代產品」開發經驗轉為常態化的研發流程，定期投入資源開發使用不同核心食材的備用菜色。</p>
+            <div class="bg-orange-50 p-4 rounded border border-orange-200">
+             <h5 class="font-medium text-orange-800 mb-2">實施要點</h5>
+             <ul class="text-sm text-gray-700 space-y-1">
+              <li>• 設計更具彈性的菜單結構</li>
+              <li>• 將被動應變轉化為主動市場區隔</li>
+              <li>• 創造新營收來源的前瞻性策略</li>
+             </ul>
+            </div>
+           </div>
+          </div>
+         </div>
+         <div class="strategy-card p-6 rounded-lg">
+          <div class="flex items-start">
+           <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0"><span class="text-xl">🛡️</span>
+           </div>
+           <div class="flex-1">
+            <h4 class="font-semibold text-gray-800 mb-3">強化食品安全與溯源管理投資</h4>
+            <p class="text-gray-700 text-sm mb-4">建議政府與產業協會應共同推動更完善、更普及的食材溯源系統，並鼓勵業者投資於CAS等食品安全認證。</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+             <div class="bg-green-50 p-4 rounded border border-green-200">
+              <h5 class="font-medium text-green-800 mb-2">政府層面</h5>
+              <ul class="text-sm text-gray-700 space-y-1">
+               <li>• 推動完善溯源系統</li>
+               <li>• 鼓勵食安認證投資</li>
+              </ul>
+             </div>
+             <div class="bg-green-50 p-4 rounded border border-green-200">
+              <h5 class="font-medium text-green-800 mb-2">業者層面</h5>
+              <ul class="text-sm text-gray-700 space-y-1">
+               <li>• 視為品牌護城河資產</li>
+               <li>• 主動展示食安努力</li>
+              </ul>
+             </div>
+            </div>
+           </div>
+          </div>
+         </div>
+        </div>
+       </div>
+       <div>
+        <h3 class="text-xl font-semibold text-gray-800 mb-4">5.4 報告結語</h3>
+        <div class="highlight-box p-6 rounded-lg">
+         <p class="text-gray-700 leading-relaxed">儘管非洲豬瘟等公共衛生危機帶來了巨大的挑戰與損失，但從另一個角度看，它也為整個產業提供了一次寶貴的學習機會。 那些能夠從此次衝擊中深刻反思、吸取教訓，並據此建立起更強韌性、更高透明度與更強創新能力的企業， 不僅能夠安然度過眼前的風暴，更將在未來多變的市場競爭中，佔據最有利的位置。</p>
+         <div class="mt-6 text-center">
+          <div class="inline-flex items-center px-6 py-3 bg-red-600 text-white rounded-lg"><span class="text-sm font-medium">危機即轉機 · 韌性創未來</span>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- Summary Section -->
+   <section id="summary" class="mb-12">
+    <div class="bg-white rounded-lg card-shadow hover-lift">
+     <div class="p-8">
+      <div class="section-divider mb-6">
+       <h2 class="text-2xl font-bold text-gray-800">總結與建議</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+       <div>
+        <h3 class="text-lg font-semibold text-gray-800 mb-4">關鍵發現</h3>
+        <div class="space-y-3">
+         <div class="flex items-start"><span class="w-6 h-6 bg-red-100 text-red-600 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">1</span>
+          <p class="text-gray-700 text-sm">供應鏈多元化是企業韌性的關鍵因素</p>
+         </div>
+         <div class="flex items-start"><span class="w-6 h-6 bg-red-100 text-red-600 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">2</span>
+          <p class="text-gray-700 text-sm">創新應變能力決定危機中的生存機會</p>
+         </div>
+         <div class="flex items-start"><span class="w-6 h-6 bg-red-100 text-red-600 rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5">3</span>
+          <p class="text-gray-700 text-sm">前瞻性風險管理優於被動式危機應對</p>
+         </div>
+        </div>
+       </div>
+       <div>
+        <h3 class="text-lg font-semibold text-gray-800 mb-4">策略建議</h3>
+        <div class="space-y-3">
+         <div class="bg-blue-50 p-4 rounded-lg border border-blue-200">
+          <h4 class="font-medium text-blue-800 mb-2">短期應變</h4>
+          <p class="text-blue-700 text-sm">建立多元供應商網絡，降低單點故障風險</p>
+         </div>
+         <div class="bg-green-50 p-4 rounded-lg border border-green-200">
+          <h4 class="font-medium text-green-800 mb-2">中期調整</h4>
+          <p class="text-green-700 text-sm">開發替代性產品線，增強營運彈性</p>
+         </div>
+         <div class="bg-purple-50 p-4 rounded-lg border border-purple-200">
+          <h4 class="font-medium text-purple-800 mb-2">長期規劃</h4>
+          <p class="text-purple-700 text-sm">建立完整的風險管理與危機應變機制</p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+  </main><!-- Footer -->
+  <footer class="bg-gray-800 text-white py-8 mt-12">
+   <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+     <div>
+      <h4 class="font-semibold mb-2">免責聲明</h4>
+      <p id="disclaimer" class="text-gray-300">基於公開資料，僅供參考，不構成建議</p>
+     </div>
+     <div>
+      <h4 class="font-semibold mb-2">資料來源</h4>
+      <p id="data-source" class="text-gray-300">網頁公開資訊</p>
+     </div>
+     <div>
+      <h4 class="font-semibold mb-2">版權所有</h4>
+      <p id="copyright" class="text-gray-300">© Dunk</p>
+     </div>
+    </div>
+    <div class="border-t border-gray-700 mt-6 pt-6 text-center text-gray-400 text-xs">
+     <p>本報告採用專業金融業界標準格式製作，確保資訊呈現的準確性與專業性</p>
+    </div>
+   </div>
+  </footer>
+  <script>
+        // Element SDK Configuration
+        const defaultConfig = {
+            report_title: "非洲豬瘟疫情對台灣餐飲業供應鏈衝擊之風險評估與應變策略報告",
+            report_subtitle: "2025年突發公共衛生事件影響分析",
+            disclaimer_text: "基於公開資料，僅供參考，不構成建議",
+            data_source: "網頁公開資訊",
+            copyright_text: "© Dunk"
+        };
+
+        async function onConfigChange(config) {
+            // Update main title
+            const mainTitle = document.getElementById('main-title');
+            if (mainTitle) {
+                mainTitle.textContent = config.report_title || defaultConfig.report_title;
+            }
+
+            // Update subtitle
+            const subtitle = document.getElementById('subtitle');
+            if (subtitle) {
+                subtitle.textContent = config.report_subtitle || defaultConfig.report_subtitle;
+            }
+
+            // Update footer elements
+            const disclaimer = document.getElementById('disclaimer');
+            if (disclaimer) {
+                disclaimer.textContent = config.disclaimer_text || defaultConfig.disclaimer_text;
+            }
+
+            const dataSource = document.getElementById('data-source');
+            if (dataSource) {
+                dataSource.textContent = config.data_source || defaultConfig.data_source;
+            }
+
+            const copyright = document.getElementById('copyright');
+            if (copyright) {
+                copyright.textContent = config.copyright_text || defaultConfig.copyright_text;
+            }
+        }
+
+        function mapToCapabilities(config) {
+            return {
+                recolorables: [],
+                borderables: [],
+                fontEditable: undefined,
+                fontSizeable: undefined
+            };
+        }
+
+        function mapToEditPanelValues(config) {
+            return new Map([
+                ["report_title", config.report_title || defaultConfig.report_title],
+                ["report_subtitle", config.report_subtitle || defaultConfig.report_subtitle],
+                ["disclaimer_text", config.disclaimer_text || defaultConfig.disclaimer_text],
+                ["data_source", config.data_source || defaultConfig.data_source],
+                ["copyright_text", config.copyright_text || defaultConfig.copyright_text]
+            ]);
+        }
+
+        // Initialize Element SDK
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities,
+                mapToEditPanelValues
+            });
+        }
+
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll-based navigation highlighting
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('nav a[href^="#"]');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('text-red-600', 'font-bold');
+                link.classList.add('text-gray-600');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.remove('text-gray-600');
+                    link.classList.add('text-red-600', 'font-bold');
+                }
+            });
+        });
+    </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'997bbed0a63fa3a9',t:'MTc2MjAwMzgxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
