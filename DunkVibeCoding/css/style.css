@@ -1,0 +1,51 @@
+h1 {
+    color: red;
+    font-size: 23pt;
+}
+
+p {
+    font-family: Verdana;
+    color: rgb(66, 66, 185);
+    font-size: 12pt;
+    line-height: 1.5;
+    text-align: left;
+    text-indent: 24px;
+    text-decoration: line-through;
+    letter-spacing: 6px;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: red;
+    text-decoration: underline;
+    font-size: 20pt;
+}
+
+a:active {
+    color: green;
+    font-size: 18pt;
+}
+
+ul {
+    color: khaki;
+    list-style-type: square;
+}
+
+li {
+    color: green;
+    font-size: 14pt;
+}
+
+.style1 {
+    color: purple;
+    font-size: 16pt;
+}
+
+.yellow {
+    color: yellow;
+    font-size: 15pt;
+}
