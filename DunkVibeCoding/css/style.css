@@ -1,4 +1,6 @@
 h1 {
+    border-left: 1px solid rgb(42, 107, 140);
+    border-bottom: 1px solid rgb(138, 29, 95);
     color: red;
     font-size: 23pt;
 }
@@ -36,7 +38,7 @@ ul {
 }
 
 li {
-    color: green;
+    color: orange;
     font-size: 14pt;
 }
 
