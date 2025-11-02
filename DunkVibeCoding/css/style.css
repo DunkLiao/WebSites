@@ -1,8 +1,8 @@
 h1 {
     border-left: 1px solid rgb(42, 107, 140);
     border-bottom: 1px solid rgb(138, 29, 95);
-    color: red;
-    font-size: 23pt;
+    color: #ff0000;
+    font-size: 30pt;
 }
 
 p {
