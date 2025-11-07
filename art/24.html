@@ -1,0 +1,1953 @@
+<!DOCTYPE html><html lang="zh-TW" class="scroll-smooth dark"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artissima 2025 | 義大利頂級當代藝術博覽會</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/preline@2.3.0/dist/preline.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&amp;family=Playfair+Display:wght@400;700;900&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <style>
+        .font-serif { font-family: 'Playfair Display', serif; }
+        .font-sans { font-family: 'Noto Sans TC', sans-serif; }
+        .glass-effect { backdrop-filter: blur(10px); background: rgba(255, 255, 255, 0.1); }
+        .dark .glass-effect { background: rgba(0, 0, 0, 0.3); }
+        .gradient-text { background: linear-gradient(135deg, #ec4899, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .artissima-pink { background: linear-gradient(135deg, #ec4899, #f97316); }
+        .floating { animation: floating 6s ease-in-out infinite; }
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
+    <script>
+        tailwind.config = {            
+            theme: {
+                extend: {
+                    colors: {
+                        'artissima-pink': '#ec4899',
+                        'artissima-orange': '#f97316'
+                    }
+                }
+            }
+        }
+        
+        function toggleDarkMode() {
+            const html = document.documentElement;
+            const isDark = html.classList.contains('dark');
+            
+            if (isDark) {
+                html.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+            
+            updateChartThemes();
+        }
+
+        function initTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                document.documentElement.classList.add('dark');
+            }
+        }
+
+        function updateChartThemes() {
+            const isDark = document.documentElement.classList.contains('dark');
+            
+            if (window.audienceChart) {
+                window.audienceChart.dispose();
+                initAudienceChart();
+            }
+            
+            if (window.galleryChart) {
+                window.galleryChart.dispose();
+                initGalleryChart();
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            initTheme();
+            mermaid.initialize({
+                startOnLoad: true,
+                theme: document.documentElement.classList.contains('dark') ? 'dark' : 'default',
+                themeVariables: {
+                    primaryColor: '#ec4899',
+                    primaryTextColor: document.documentElement.classList.contains('dark') ? '#ffffff' : '#000000',
+                    primaryBorderColor: '#8b5cf6',
+                    lineColor: '#6b7280'
+                }
+            });
+            
+            setTimeout(() => {
+                initAudienceChart();
+                initGalleryChart();
+            }, 100);
+        });
+
+        function initAudienceChart() {
+            const isDark = document.documentElement.classList.contains('dark');
+            const chartDom = document.getElementById('audienceChart');
+            window.audienceChart = echarts.init(chartDom, isDark ? 'dark' : null);
+            
+            const option = {
+                title: {
+                    text: '2025年觀眾統計',
+                    left: 'center',
+                    textStyle: {
+                        color: isDark ? '#ffffff' : '#374151',
+                        fontSize: 18,
+                        fontWeight: 'bold'
+                    }
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b}: {c} ({d}%)'
+                },
+                legend: {
+                    orient: 'vertical',
+                    left: 'left',
+                    textStyle: {
+                        color: isDark ? '#d1d5db' : '#6b7280'
+                    }
+                },
+                series: [
+                    {
+                        name: '觀眾類型',
+                        type: 'pie',
+                        radius: '50%',
+                        data: [
+                            {value: 13800, name: '藝術愛好者'},
+                            {value: 8970, name: '收藏家'},
+                            {value: 6900, name: '專業人士'},
+                            {value: 4830, name: '國際訪客'}
+                        ],
+                        emphasis: {
+                            itemStyle: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        },
+                        itemStyle: {
+                            color: function(params) {
+                                const colors = ['#ec4899', '#8b5cf6', '#f97316', '#06b6d4'];
+                                return colors[params.dataIndex];
+                            }
+                        },
+                        label: {
+                            show: true,
+                            formatter: '{b}\n{d}%',
+                            color: isDark ? '#ffffff' : '#374151'
+                        }
+                    }
+                ]
+            };
+            
+            window.audienceChart.setOption(option);
+        }
+
+        function initGalleryChart() {
+            const isDark = document.documentElement.classList.contains('dark');
+            const chartDom = document.getElementById('galleryChart');
+            window.galleryChart = echarts.init(chartDom, isDark ? 'dark' : null);
+            
+            const option = {
+                title: {
+                    text: '參展畫廊地區分布',
+                    left: 'center',
+                    textStyle: {
+                        color: isDark ? '#ffffff' : '#374151',
+                        fontSize: 18,
+                        fontWeight: 'bold'
+                    }
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'shadow'
+                    }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['義大利', '德國', '法國', '英國', '瑞士', '奧地利', '其他'],
+                    axisLabel: {
+                        color: isDark ? '#d1d5db' : '#6b7280'
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: isDark ? '#4b5563' : '#d1d5db'
+                        }
+                    }
+                },
+                yAxis: {
+                    type: 'value',
+                    axisLabel: {
+                        color: isDark ? '#d1d5db' : '#6b7280'
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: isDark ? '#4b5563' : '#d1d5db'
+                        }
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            color: isDark ? '#374151' : '#e5e7eb'
+                        }
+                    }
+                },
+                series: [
+                    {
+                        name: '畫廊數量',
+                        type: 'bar',
+                        data: [70, 28, 22, 18, 15, 12, 11],
+                        itemStyle: {
+                            color: function(params) {
+                                const colors = ['#ec4899', '#8b5cf6', '#f97316', '#06b6d4', '#10b981', '#f59e0b', '#ef4444'];
+                                return colors[params.dataIndex];
+                            }
+                        },
+                        label: {
+                            show: true,
+                            position: 'top',
+                            color: isDark ? '#ffffff' : '#374151'
+                        }
+                    }
+                ]
+            };
+            
+            window.galleryChart.setOption(option);
+        }
+    </script>
+<script src="https://felo.ai/js/iframe.js?v=1762523230256"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style><style data-id="immersive-translate-input-injected-css">.immersive-translate-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2147483647;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.immersive-translate-attach-loading::after {
+  content: " ";
+
+  --loading-color: #f78fb6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+  position: relative;
+  color: white;
+  left: -100px;
+  box-sizing: border-box;
+  animation: immersiveTranslateShadowRolling 1.5s linear infinite;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-2000%, -50%);
+  z-index: 100;
+}
+
+.immersive-translate-loading-spinner {
+  vertical-align: middle !important;
+  width: 10px !important;
+  height: 10px !important;
+  display: inline-block !important;
+  margin: 0 4px !important;
+  border: 2px rgba(221, 244, 255, 0.6) solid !important;
+  border-top: 2px rgba(0, 0, 0, 0.375) solid !important;
+  border-left: 2px rgba(0, 0, 0, 0.375) solid !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  -webkit-animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+  animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+}
+
+@-webkit-keyframes immersive-translate-loading-animation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+
+@keyframes immersive-translate-loading-animation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.immersive-translate-input-loading {
+  --loading-color: #f78fb6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+  position: relative;
+  color: white;
+  left: -100px;
+  box-sizing: border-box;
+  animation: immersiveTranslateShadowRolling 1.5s linear infinite;
+}
+
+@keyframes immersiveTranslateShadowRolling {
+  0% {
+    box-shadow: 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  12% {
+    box-shadow: 100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  25% {
+    box-shadow: 110px 0 var(--loading-color), 100px 0 var(--loading-color),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  36% {
+    box-shadow: 120px 0 var(--loading-color), 110px 0 var(--loading-color),
+      100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  50% {
+    box-shadow: 130px 0 var(--loading-color), 120px 0 var(--loading-color),
+      110px 0 var(--loading-color), 100px 0 var(--loading-color);
+  }
+
+  62% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color),
+      120px 0 var(--loading-color), 110px 0 var(--loading-color);
+  }
+
+  75% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      130px 0 var(--loading-color), 120px 0 var(--loading-color);
+  }
+
+  87% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color);
+  }
+
+  100% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0);
+  }
+}
+
+.immersive-translate-toast {
+  display: flex;
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  right: 0;
+  top: 1%;
+  width: fit-content;
+  padding: 12px 20px;
+  margin: auto;
+  overflow: auto;
+  background: #fef6f9;
+  box-shadow: 0px 4px 10px 0px rgba(0, 10, 30, 0.06);
+  font-size: 15px;
+  border-radius: 8px;
+  color: #333;
+}
+
+.immersive-translate-toast-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.immersive-translate-toast-hidden {
+  margin: 0 20px 0 72px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.immersive-translate-toast-close {
+  color: #666666;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-toast {
+    top: 0;
+    padding: 12px 0px 0 10px;
+  }
+  .immersive-translate-toast-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .immersive-translate-toast-hidden {
+    margin: 10px auto;
+  }
+}
+
+.immersive-translate-dialog {
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  top: 0;
+  display: flex;
+  width: 300px;
+  flex-direction: column;
+  align-items: center;
+  font-size: 15px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: fit-content;
+  border-radius: 20px;
+  background-color: #fff;
+}
+
+.immersive-translate-modal {
+  display: none;
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  font-size: 15px;
+}
+
+.immersive-translate-modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 40px 24px 24px;
+  border-radius: 12px;
+  width: 350px;
+  font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",
+    "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-modal-content {
+    margin: 25% auto !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .immersive-translate-modal-content {
+    width: 80vw !important;
+    margin: 20vh auto !important;
+    padding: 20px 12px 12px !important;
+  }
+
+  .immersive-translate-modal-title {
+    font-size: 14px !important;
+  }
+
+  .immersive-translate-modal-body {
+    font-size: 13px !important;
+    max-height: 60vh !important;
+  }
+
+  .immersive-translate-btn {
+    font-size: 13px !important;
+    padding: 8px 16px !important;
+    margin: 0 4px !important;
+  }
+
+  .immersive-translate-modal-footer {
+    gap: 6px !important;
+    margin-top: 16px !important;
+  }
+}
+
+.immersive-translate-modal .immersive-translate-modal-content-in-input {
+  max-width: 500px;
+}
+.immersive-translate-modal-content-in-input .immersive-translate-modal-body {
+  text-align: left;
+  max-height: unset;
+}
+
+.immersive-translate-modal-title {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333333;
+}
+
+.immersive-translate-modal-body {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333333;
+  margin-top: 24px;
+  word-break: break-all;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-modal-body {
+    max-height: 250px;
+    overflow-y: auto;
+  }
+}
+
+.immersive-translate-close {
+  color: #666666;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.immersive-translate-close:hover,
+.immersive-translate-close:focus {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.immersive-translate-modal-footer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.immersive-translate-btn {
+  width: fit-content;
+  color: #fff;
+  background-color: #ea4c89;
+  border: none;
+  font-size: 14px;
+  margin: 0 8px;
+  padding: 9px 30px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.immersive-translate-btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.immersive-translate-btn:hover {
+  background-color: #f082ac;
+}
+.immersive-translate-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.immersive-translate-btn:disabled:hover {
+  background-color: #ea4c89;
+}
+
+.immersive-translate-link-btn {
+  background-color: transparent;
+  color: #ea4c89;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  line-height: 30px;
+}
+
+.immersive-translate-cancel-btn {
+  /* gray color */
+  background-color: rgb(89, 107, 120);
+}
+
+.immersive-translate-cancel-btn:hover {
+  background-color: hsl(205, 20%, 32%);
+}
+
+.immersive-translate-action-btn {
+  background-color: transparent;
+  color: #ea4c89;
+  border: 1px solid #ea4c89;
+}
+
+.immersive-translate-btn svg {
+  margin-right: 5px;
+}
+
+.immersive-translate-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #ea4c89;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+.immersive-translate-primary-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #ea4c89;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+.immersive-translate-modal input[type="radio"] {
+  margin: 0 6px;
+  cursor: pointer;
+}
+
+.immersive-translate-modal label {
+  cursor: pointer;
+}
+
+.immersive-translate-close-action {
+  position: absolute;
+  top: 2px;
+  right: 0px;
+  cursor: pointer;
+}
+
+.imt-image-status {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 16px !important;
+}
+.imt-image-status img,
+.imt-image-status svg,
+.imt-img-loading {
+  width: 28px !important;
+  height: 28px !important;
+  margin: 0 0 8px 0 !important;
+  min-height: 28px !important;
+  min-width: 28px !important;
+  position: relative !important;
+}
+.imt-img-loading {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAtFBMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////oK74hAAAAPHRSTlMABBMIDyQXHwyBfFdDMSw+OjXCb+5RG51IvV/k0rOqlGRM6KKMhdvNyZBz9MaupmxpWyj437iYd/yJVNZeuUC7AAACt0lEQVRIx53T2XKiUBCA4QYOiyCbiAsuuGBcYtxiYtT3f6/pbqoYHVFO5r+iivpo6DpAWYpqeoFfr9f90DsYAuRSWkFnPO50OgR9PwiCUFcl2GEcx+N/YBh6pvKaefHlUgZd1zVe0NbYcQjGBfzrPE8Xz8aF+71D8gG6DHFPpc4a7xFiCDuhaWgKgGIJQ3d5IMGDrpS4S5KgpIm+en9f6PlAhKby4JwEIxlYJV9h5k5nee9GoxHJ2IDSNB0dwdad1NAxDJ/uXDHYmebdk4PdbkS58CIVHdYSUHTYYRWOJblWSyu2lmy3KNFVJNBhxcuGW4YBVCbYGRZwIooipHsNqjM4FbgOQqQqSKQQU9V8xmi1QlgHqQQ6DDBvRUVCDirs+EzGDGOQTCATgtYTnbCVLgsVgRE0T1QE0qHCFAht2z6dLvJQs3Lo2FQoDxWNUiBhaP4eRgwNkI+dAjVOA/kUrIDwf3CG8NfNOE0eiFotSuo+rBiq8tD9oY4Qzc6YJw99hl1wzpQvD7ef2M8QgnOGJfJw+EltQc+oX2yn907QB22WZcvlUpd143dqQu+8pCJZuGE4xCuPXJqqcs5sNpsI93Rmzym1k4Npk+oD1SH3/a3LOK/JpUBpWfqNySxWzCfNCUITuDG5dtuphrUJ1myeIE9bIsPiKrfqTai5WZxbhtNphYx6GEIHihyGFTI69lje/rxajdh0s0msZ0zYxyPLhYCb1CyHm9Qsd2H37Y3lugVwL9kNh8Ot8cha6fUNQ8nuXi5z9/ExsAO4zQrb/ev1yrCB7lGyQzgYDGuxq1toDN/JGvN+HyWNHKB7zEoK+PX11e12G431erGYzwmytAWU56fkMHY5JJnDRR2eZji3AwtIcrEV8Cojat/BdQ7XOwGV1e1hDjGGjXbdArm8uJZtCH5MbcctVX8A1WpqumJHwckAAAAASUVORK5CYII=");
+  background-size: 28px 28px;
+  animation: image-loading-rotate 1s linear infinite !important;
+}
+
+.imt-image-status span {
+  color: var(--bg-2, #fff) !important;
+  font-size: 14px !important;
+  line-height: 14px !important;
+  font-weight: 500 !important;
+  font-family: "PingFang SC", Arial, sans-serif !important;
+}
+
+.imt-primary-button {
+  display: flex;
+  padding: 12px 80px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  background: #ea4c89;
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  border: none;
+  cursor: pointer;
+}
+
+.imt-retry-text {
+  color: #999;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  cursor: pointer;
+}
+
+.imt-action-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.imt-modal-content-text {
+  text-align: left;
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+@keyframes image-loading-rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.imt-linear-gradient-text {
+  background: linear-gradient(90deg, #00a6ff 0%, #c369ff 52.4%, #ff4590 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.imt-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imt-linear-black-btn {
+  border-radius: 50px;
+  background: linear-gradient(66deg, #222 19%, #696969 94.25%);
+  height: 48px;
+  width: 100%;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+}
+</style></head>
+<body class="font-sans bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300" contenteditable="false" spellcheck="false">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 z-50 glass-effect border-b border-white/20 dark:border-gray-700/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-palette text-2xl text-artissima-pink"></i>
+                    <span class="text-xl font-bold font-serif">Artissima 2025</span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="hover:text-artissima-pink transition-colors duration-200">關於博覽會</a>
+                    <a href="#theme" class="hover:text-artissima-pink transition-colors duration-200">年度主題</a>
+                    <a href="#sections" class="hover:text-artissima-pink transition-colors duration-200">展覽區域</a>
+                    <a href="#data" class="hover:text-artissima-pink transition-colors duration-200">數據分析</a>
+                    <a href="#info" class="hover:text-artissima-pink transition-colors duration-200">參觀資訊</a>
+                </div>
+                
+                <button onclick="toggleDarkMode()" class="p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
+                    <i class="fas fa-moon dark:hidden text-lg"></i>
+                    <i class="fas fa-sun hidden dark:inline text-lg"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 artissima-pink opacity-10"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-pink-500/20 via-purple-500/20 to-orange-500/20"></div>
+        
+        <!-- Floating Elements -->
+        <div class="absolute top-20 left-10 w-20 h-20 rounded-full bg-gradient-to-r from-pink-400 to-purple-500 opacity-30 floating"></div>
+        <div class="absolute top-40 right-20 w-32 h-32 rounded-full bg-gradient-to-r from-purple-400 to-orange-500 opacity-20 floating" style="animation-delay: -2s;"></div>
+        <div class="absolute bottom-40 left-20 w-24 h-24 rounded-full bg-gradient-to-r from-orange-400 to-pink-500 opacity-25 floating" style="animation-delay: -4s;"></div>
+        
+        <div class="relative z-10 text-center max-w-6xl mx-auto px-4">
+            <div class="mb-8">
+                <h1 class="text-6xl md:text-8xl font-black font-serif mb-6 leading-tight">
+                    <span class="gradient-text">Artissima</span>
+                    <span class="block text-5xl md:text-7xl text-gray-800 dark:text-white mt-4">2025</span>
+                </h1>
+                <div class="w-24 h-1 bg-gradient-to-r from-pink-500 to-purple-500 mx-auto mb-8"></div>
+            </div>
+            
+            <h2 class="text-3xl md:text-5xl font-bold font-serif mb-8 text-gray-800 dark:text-gray-200">
+                Operating Manual for<br>
+                <span class="text-artissima-pink">Spaceship Earth</span>
+            </h2>
+            
+            <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
+                義大利最重要的當代藝術博覽會，來自36個國家176家畫廊的藝術盛宴<br>
+                探索人類與地球的關係，強調可持續性與跨領域合作
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-2xl">
+                    <div class="flex items-center space-x-4">
+                        <i class="fas fa-calendar-alt text-2xl text-artissima-pink"></i>
+                        <div>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">展覽時間</p>
+                            <p class="font-bold text-lg">10月31日 - 11月2日</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-2xl">
+                    <div class="flex items-center space-x-4">
+                        <i class="fas fa-map-marker-alt text-2xl text-artissima-pink"></i>
+                        <div>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">展覽地點</p>
+                            <p class="font-bold text-lg">杜林 Oval Lingotto Fiere</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold font-serif mb-6">關於 Artissima</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-pink-500 to-purple-500 mx-auto mb-8"></div>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    自1994年創立以來的義大利頂級當代藝術平台
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                <div>
+                    <h3 class="text-3xl font-bold mb-6 text-artissima-pink">歷史與地位</h3>
+                    <p class="text-lg text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+                        Artissima藝博會自1994年創立以來，已成為義大利最重要的當代藝術博覽會之一，並在國際藝術界中佔有舉足輕重的地位。作為義大利唯一專注於當代藝術的博覽會，Artissima結合了國際市場的需求與實驗性策展的創新方式。
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-star text-artissima-pink"></i>
+                            <span>義大利最重要的當代藝術博覽會</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-globe text-artissima-pink"></i>
+                            <span>國際化程度極高，吸引全球參與</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fas fa-lightbulb text-artissima-pink"></i>
+                            <span>實驗性與前衛性著稱</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <img src="https://image.pollinations.ai/prompt/modern%20art%20gallery%20interior,%20contemporary%20artworks,%20bright%20lighting,%20visitors%20viewing%20art,%20Turin%20style,%20photorealistic,%20cinematic?nologo=true" alt="Artissima藝博會展覽現場" class="rounded-2xl shadow-2xl">
+                    <div class="absolute -bottom-6 -right-6 bg-gradient-to-r from-pink-500 to-purple-500 text-white p-6 rounded-xl shadow-xl">
+                        <p class="text-3xl font-bold">31年</p>
+                        <p class="text-sm">歷史傳承</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white dark:bg-gray-700 rounded-xl p-8 shadow-lg text-center">
+                    <i class="fas fa-building text-4xl text-artissima-pink mb-4"></i>
+                    <h4 class="text-xl font-bold mb-4">Oval Lingotto Fiere</h4>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        面積達20,000平方米的單層玻璃結構展館，原為2006年冬季奧運會場地，現為現代化展覽空間
+                    </p>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-700 rounded-xl p-8 shadow-lg text-center">
+                    <i class="fas fa-users text-4xl text-artissima-pink mb-4"></i>
+                    <h4 class="text-xl font-bold mb-4">文化交流平台</h4>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        促進藝術家、策展人、收藏家和觀眾之間的深度交流，不僅是商業市場的延伸，更是文化機構
+                    </p>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-700 rounded-xl p-8 shadow-lg text-center">
+                    <i class="fas fa-award text-4xl text-artissima-pink mb-4"></i>
+                    <h4 class="text-xl font-bold mb-4">國際認可</h4>
+                    <p class="text-gray-600 dark:text-gray-300">
+                        被認為是世界前十名的藝術博覽會，以其獨特身份、歷史意義、策展維度和人才發掘能力著稱
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Theme Section -->
+    <section id="theme" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold font-serif mb-6">2025年度主題</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-pink-500 to-purple-500 mx-auto mb-8"></div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="mb-8">
+                        <h3 class="text-5xl font-bold font-serif mb-4 gradient-text">
+                            Operating Manual for Spaceship Earth
+                        </h3>
+                        <p class="text-xl text-gray-600 dark:text-gray-400 font-medium">
+                            地球太空船操作手冊
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-6 text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                        <p>
+                            <strong class="text-artissima-pink">靈感來源：</strong>理查德·巴克敏斯特·富勒（Richard Buckminster Fuller）1969年的同名書籍
+                        </p>
+                        
+                        <p>
+                            這個概念框架邀請我們對共同責任和生態意識進行集體反思，將藝術家定位為能夠超越學科界限的遠見者，提供超越短期工具理性的視角。
+                        </p>
+                        
+                        <div class="bg-gradient-to-r from-pink-50 to-purple-50 dark:from-gray-800 dark:to-gray-700 rounded-xl p-6">
+                            <h4 class="text-xl font-bold mb-4 text-artissima-pink">核心理念</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start space-x-3">
+                                    <i class="fas fa-leaf text-artissima-pink mt-1"></i>
+                                    <span>可持續性與生態責任</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <i class="fas fa-handshake text-artissima-pink mt-1"></i>
+                                    <span>跨領域合作與協調</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <i class="fas fa-globe text-artissima-pink mt-1"></i>
+                                    <span>全球視角下的資源管理</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <i class="fas fa-rocket text-artissima-pink mt-1"></i>
+                                    <span>藝術作為未來想像的載體</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <img src="https://image.pollinations.ai/prompt/spaceship%20earth%20concept,%20sustainable%20future,%20ecological%20cooperation,%20artistic%20vision,%20contemporary%20art%20installation,%20futuristic,%20photorealistic,%204k?nologo=true" alt="地球太空船概念藝術" class="rounded-2xl shadow-2xl">
+                    
+                    <div class="absolute -bottom-8 -left-8 bg-white dark:bg-gray-800 rounded-xl p-6 shadow-xl">
+                        <div class="text-center">
+                            <p class="text-3xl font-bold text-artissima-pink">2025</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">第32屆</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Visual Identity -->
+            <div class="mt-16 bg-gray-50 dark:bg-gray-800 rounded-2xl p-8">
+                <h4 class="text-2xl font-bold mb-6 text-center">2025視覺識別</h4>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <p class="text-lg text-gray-700 dark:text-gray-300 mb-4">
+                            由杜林設計工作室 FIONDA 開發的2025年視覺識別，通過鏡像括號重新詮釋博覽會的歷史標誌，象徵反思與重塑。
+                        </p>
+                        <p class="text-lg text-gray-700 dark:text-gray-300">
+                            <strong class="text-artissima-pink">大膽的粉色調</strong>放大了活動的實驗性和充滿活力的特質，既代表了與Artissima基礎使命的延續性，也體現了向不斷發展的策展實踐的轉型。
+                        </p>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-8xl font-black font-serif gradient-text mb-4">[ A ]</div>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">鏡像括號設計概念</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sections Overview -->
+    <section id="sections" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold font-serif mb-6">七大展覽區域</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-pink-500 to-purple-500 mx-auto mb-8"></div>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    結合商業畫廊展示與策展框架，強調發現與研究的精密七區結構
+                </p>
+            </div>
+            
+            <!-- Main Commercial Sections -->
+            <div class="mb-16">
+                <h3 class="text-3xl font-bold mb-8 text-center text-artissima-pink">四大主要商業區域</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-crown text-4xl text-yellow-500 mb-4"></i>
+                            <h4 class="text-xl font-bold">主展區</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Main Section</p>
+                        </div>
+                        <p class="text-gray-700 dark:text-gray-300 text-sm">
+                            展示國際頂尖畫廊，提供最高策展和商業品質的作品，攤位面積從24-104平方英尺不等
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-comments text-4xl text-purple-500 mb-4"></i>
+                            <h4 class="text-xl font-bold">獨白/對話區</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Monologue/Dialogue</p>
+                        </div>
+                        <p class="text-gray-700 dark:text-gray-300 text-sm">
+                            為新興畫廊或實驗性方法保留，展示單一藝術家的專題或兩位藝術家的概念對話
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-seedling text-4xl text-green-500 mb-4"></i>
+                            <h4 class="text-xl font-bold">新血區</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">New Entries</p>
+                        </div>
+                        <p class="text-gray-700 dark:text-gray-300 text-sm">
+                            專為營運少於五年的新興畫廊設立，首次參展者可獲得3,000歐元獎金補助攤位費用
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-print text-4xl text-blue-500 mb-4"></i>
+                            <h4 class="text-xl font-bold">藝術空間與版次</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">Art Spaces &amp; Editions</p>
+                        </div>
+                        <p class="text-gray-700 dark:text-gray-300 text-sm">
+                            專門展示當代藝術家的版畫、印刷品和複數作品，認可這些形式在當代實踐中的特殊意義
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Curated Sections -->
+            <div>
+                <h3 class="text-3xl font-bold mb-8 text-center text-artissima-pink">三大策展專區</h3>
+                <div class="grid lg:grid-cols-3 gap-8">
+                    <div class="bg-gradient-to-br from-pink-50 to-purple-50 dark:from-gray-700 dark:to-gray-600 rounded-xl p-8 shadow-lg">
+                        <div class="text-center mb-6">
+                            <i class="fas fa-rocket text-4xl text-pink-500 mb-4"></i>
+                            <h4 class="text-2xl font-bold">Present Future</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">策展人：Léon Kruijswijk &amp; Joel Valabrega</p>
+                        </div>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">
+                            展示約十位新興藝術家（主要40歲以下），其創作涉及材料實驗和當代範式，反映生態、社會和情感動力學。
+                        </p>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-circle text-pink-500 text-xs"></i>
+                                <span>工業與自然美學張力</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-circle text-pink-500 text-xs"></i>
+                                <span>輕重對比與有機形式</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-purple-50 to-orange-50 dark:from-gray-700 dark:to-gray-600 rounded-xl p-8 shadow-lg">
+                        <div class="text-center mb-6">
+                            <i class="fas fa-history text-4xl text-purple-500 mb-4"></i>
+                            <h4 class="text-2xl font-bold">Back to the Future</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">策展人：Heike Munder &amp; Jacopo Crivelli Visconti</p>
+                        </div>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">
+                            重新審視1940-1990年代活躍的先鋒藝術家，他們對語言、媒體和網絡學的研究從根本上重塑了溝通與感知。
+                        </p>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-circle text-purple-500 text-xs"></i>
+                                <span>運營十年以上的經典專區</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-circle text-purple-500 text-xs"></i>
+                                <span>發掘被忽視的藝術遺產</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-orange-50 to-pink-50 dark:from-gray-700 dark:to-gray-600 rounded-xl p-8 shadow-lg">
+                        <div class="text-center mb-6">
+                            <i class="fas fa-pencil-alt text-4xl text-orange-500 mb-4"></i>
+                            <h4 class="text-2xl font-bold">Disegni</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">平面作品專區</p>
+                        </div>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">
+                            完全專注於繪畫作為主要藝術表達媒介，認識到繪畫作為藝術構思的直接轉譯，代表無過濾的創意接觸。
+                        </p>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-circle text-orange-500 text-xs"></i>
+                                <span>純粹的創意表達形式</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <i class="fas fa-circle text-orange-500 text-xs"></i>
+                                <span>藝術構思的直接體現</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Monographic Projects -->
+            <div class="mt-16 text-center">
+                <div class="bg-white dark:bg-gray-700 rounded-2xl p-8 max-w-3xl mx-auto shadow-lg">
+                    <h4 class="text-2xl font-bold mb-4 text-artissima-pink">專題項目</h4>
+                    <p class="text-lg text-gray-700 dark:text-gray-300">
+                        博覽會包含 <strong class="text-artissima-pink">63個專題項目</strong>，讓畫廊能夠深度展示單一藝術家，為收藏家創造徹底探索個別藝術實踐的絕佳機會。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Analysis Section -->
+    <section id="data" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold font-serif mb-6">數據分析</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-pink-500 to-purple-500 mx-auto mb-8"></div>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    2025年Artissima的參與統計與影響力數據
+                </p>
+            </div>
+            
+            <!-- Key Statistics -->
+            <div class="grid md:grid-cols-4 gap-8 mb-16">
+                <div class="text-center bg-gradient-to-br from-pink-500 to-purple-600 text-white rounded-xl p-8 shadow-lg">
+                    <i class="fas fa-building text-4xl mb-4 opacity-80"></i>
+                    <div class="text-4xl font-bold mb-2">176</div>
+                    <div class="text-lg">參展畫廊</div>
+                    <div class="text-sm opacity-80">來自36個國家</div>
+                </div>
+                
+                <div class="text-center bg-gradient-to-br from-purple-500 to-orange-600 text-white rounded-xl p-8 shadow-lg">
+                    <i class="fas fa-users text-4xl mb-4 opacity-80"></i>
+                    <div class="text-4xl font-bold mb-2">34,500</div>
+                    <div class="text-lg">參觀人次</div>
+                    <div class="text-sm opacity-80">三日總計</div>
+                </div>
+                
+                <div class="text-center bg-gradient-to-br from-orange-500 to-pink-600 text-white rounded-xl p-8 shadow-lg">
+                    <i class="fas fa-euro-sign text-4xl mb-4 opacity-80"></i>
+                    <div class="text-4xl font-bold mb-2">300K</div>
+                    <div class="text-lg">收藏基金</div>
+                    <div class="text-sm opacity-80">Fondazione Arte CRT</div>
+                </div>
+                
+                <div class="text-center bg-gradient-to-br from-pink-600 to-purple-500 text-white rounded-xl p-8 shadow-lg">
+                    <i class="fas fa-award text-4xl mb-4 opacity-80"></i>
+                    <div class="text-4xl font-bold mb-2">13</div>
+                    <div class="text-lg">獎項榮譽</div>
+                    <div class="text-sm opacity-80">合作機構頒發</div>
+                </div>
+            </div>
+            
+            <!-- Charts -->
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
+                    <div id="audienceChart" class="h-80" _echarts_instance_="ec_1762523233332" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" data-chart-option="{&quot;darkMode&quot;:true,&quot;color&quot;:[&quot;#4992ff&quot;,&quot;#7cffb2&quot;,&quot;#fddd60&quot;,&quot;#ff6e76&quot;,&quot;#58d9f9&quot;,&quot;#05c091&quot;,&quot;#ff8a45&quot;,&quot;#8d48e3&quot;,&quot;#dd79ff&quot;],&quot;backgroundColor&quot;:&quot;#100C2A&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;,&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;timeAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;logAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;valueAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;categoryAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;},&quot;show&quot;:false},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;line&quot;:{&quot;symbol&quot;:&quot;circle&quot;},&quot;graph&quot;:{&quot;color&quot;:[&quot;#4992ff&quot;,&quot;#7cffb2&quot;,&quot;#fddd60&quot;,&quot;#ff6e76&quot;,&quot;#58d9f9&quot;,&quot;#05c091&quot;,&quot;#ff8a45&quot;,&quot;#8d48e3&quot;,&quot;#dd79ff&quot;]},&quot;gauge&quot;:{&quot;title&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;},&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:[[1,&quot;rgba(207,212,219,0.2)&quot;]]}},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;},&quot;detail&quot;:{&quot;color&quot;:&quot;#EEF1FA&quot;}},&quot;candlestick&quot;:{&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#f64e56&quot;,&quot;color0&quot;:&quot;#54ea92&quot;,&quot;borderColor&quot;:&quot;#f64e56&quot;,&quot;borderColor0&quot;:&quot;#54ea92&quot;}},&quot;colorBy&quot;:&quot;series&quot;,&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;title&quot;:[{&quot;text&quot;:&quot;2025年觀眾統計&quot;,&quot;left&quot;:&quot;center&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#ffffff&quot;,&quot;fontSize&quot;:18,&quot;fontWeight&quot;:&quot;bold&quot;},&quot;subtextStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;,&quot;fontSize&quot;:12},&quot;z&quot;:6,&quot;show&quot;:true,&quot;target&quot;:&quot;blank&quot;,&quot;subtext&quot;:&quot;&quot;,&quot;subtarget&quot;:&quot;blank&quot;,&quot;top&quot;:0,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderColor&quot;:&quot;#ccc&quot;,&quot;borderWidth&quot;:0,&quot;padding&quot;:5,&quot;itemGap&quot;:10,&quot;right&quot;:null}],&quot;axisPointer&quot;:[{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#817f91&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#817f91&quot;},&quot;label&quot;:{&quot;color&quot;:&quot;#fff&quot;,&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[{&quot;trigger&quot;:&quot;item&quot;,&quot;formatter&quot;:&quot;{a} &lt;br/&gt;{b}: {c} ({d}%)&quot;,&quot;z&quot;:60,&quot;show&quot;:true,&quot;showContent&quot;:true,&quot;triggerOn&quot;:&quot;mousemove|click&quot;,&quot;alwaysShowContent&quot;:false,&quot;displayMode&quot;:&quot;single&quot;,&quot;renderMode&quot;:&quot;auto&quot;,&quot;confine&quot;:null,&quot;showDelay&quot;:0,&quot;hideDelay&quot;:100,&quot;transitionDuration&quot;:0.4,&quot;enterable&quot;:false,&quot;backgroundColor&quot;:&quot;#fff&quot;,&quot;shadowBlur&quot;:10,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, .2)&quot;,&quot;shadowOffsetX&quot;:1,&quot;shadowOffsetY&quot;:2,&quot;borderRadius&quot;:4,&quot;borderWidth&quot;:1,&quot;padding&quot;:null,&quot;extraCssText&quot;:&quot;&quot;,&quot;axisPointer&quot;:{&quot;type&quot;:&quot;line&quot;,&quot;axis&quot;:&quot;auto&quot;,&quot;animation&quot;:&quot;auto&quot;,&quot;animationDurationUpdate&quot;:200,&quot;animationEasingUpdate&quot;:&quot;exponentialOut&quot;,&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#999&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;,&quot;textStyle&quot;:{}}},&quot;textStyle&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;fontSize&quot;:14}}],&quot;series&quot;:[{&quot;name&quot;:&quot;觀眾類型&quot;,&quot;type&quot;:&quot;pie&quot;,&quot;radius&quot;:&quot;50%&quot;,&quot;data&quot;:[{&quot;value&quot;:13800,&quot;name&quot;:&quot;藝術愛好者&quot;},{&quot;value&quot;:8970,&quot;name&quot;:&quot;收藏家&quot;},{&quot;value&quot;:6900,&quot;name&quot;:&quot;專業人士&quot;},{&quot;value&quot;:4830,&quot;name&quot;:&quot;國際訪客&quot;}],&quot;emphasis&quot;:{&quot;itemStyle&quot;:{&quot;shadowBlur&quot;:10,&quot;shadowOffsetX&quot;:0,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, 0.5)&quot;},&quot;scale&quot;:true,&quot;scaleSize&quot;:5,&quot;label&quot;:{&quot;show&quot;:true},&quot;labelLine&quot;:{&quot;show&quot;:true}},&quot;itemStyle&quot;:{&quot;borderWidth&quot;:1,&quot;borderJoin&quot;:&quot;round&quot;},&quot;label&quot;:{&quot;show&quot;:true,&quot;formatter&quot;:&quot;{b}\n{d}%&quot;,&quot;color&quot;:&quot;#ffffff&quot;,&quot;rotate&quot;:0,&quot;overflow&quot;:&quot;truncate&quot;,&quot;position&quot;:&quot;outer&quot;,&quot;alignTo&quot;:&quot;none&quot;,&quot;edgeDistance&quot;:&quot;25%&quot;,&quot;bleedMargin&quot;:10,&quot;distanceToLabelLine&quot;:5},&quot;z&quot;:2,&quot;legendHoverLink&quot;:true,&quot;colorBy&quot;:&quot;data&quot;,&quot;center&quot;:[&quot;50%&quot;,&quot;50%&quot;],&quot;clockwise&quot;:true,&quot;startAngle&quot;:90,&quot;minAngle&quot;:0,&quot;minShowLabelAngle&quot;:0,&quot;selectedOffset&quot;:10,&quot;percentPrecision&quot;:2,&quot;stillShowZeroSum&quot;:true,&quot;left&quot;:0,&quot;top&quot;:0,&quot;right&quot;:0,&quot;bottom&quot;:0,&quot;width&quot;:null,&quot;height&quot;:null,&quot;labelLine&quot;:{&quot;show&quot;:true,&quot;length&quot;:15,&quot;length2&quot;:15,&quot;smooth&quot;:false,&quot;minTurnAngle&quot;:90,&quot;maxSurfaceAngle&quot;:90,&quot;lineStyle&quot;:{&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;}},&quot;showEmptyCircle&quot;:true,&quot;emptyCircleStyle&quot;:{&quot;color&quot;:&quot;lightgray&quot;,&quot;opacity&quot;:1},&quot;labelLayout&quot;:{&quot;hideOverlap&quot;:true},&quot;avoidLabelOverlap&quot;:true,&quot;animationType&quot;:&quot;expansion&quot;,&quot;animationDuration&quot;:1000,&quot;animationTypeUpdate&quot;:&quot;transition&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;}],&quot;visualMap&quot;:[],&quot;legend&quot;:[{&quot;orient&quot;:&quot;vertical&quot;,&quot;left&quot;:&quot;left&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#d1d5db&quot;},&quot;z&quot;:4,&quot;show&quot;:true,&quot;top&quot;:0,&quot;align&quot;:&quot;auto&quot;,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderColor&quot;:&quot;#ccc&quot;,&quot;borderRadius&quot;:0,&quot;borderWidth&quot;:0,&quot;padding&quot;:5,&quot;itemGap&quot;:10,&quot;itemWidth&quot;:25,&quot;itemHeight&quot;:14,&quot;symbolRotate&quot;:&quot;inherit&quot;,&quot;symbolKeepAspect&quot;:true,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderWidth&quot;:&quot;auto&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;inherit&quot;,&quot;opacity&quot;:&quot;inherit&quot;,&quot;borderColor&quot;:&quot;inherit&quot;,&quot;borderWidth&quot;:&quot;auto&quot;,&quot;borderCap&quot;:&quot;inherit&quot;,&quot;borderJoin&quot;:&quot;inherit&quot;,&quot;borderDashOffset&quot;:&quot;inherit&quot;,&quot;borderMiterLimit&quot;:&quot;inherit&quot;},&quot;lineStyle&quot;:{&quot;width&quot;:&quot;auto&quot;,&quot;color&quot;:&quot;inherit&quot;,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveWidth&quot;:2,&quot;opacity&quot;:&quot;inherit&quot;,&quot;type&quot;:&quot;inherit&quot;,&quot;cap&quot;:&quot;inherit&quot;,&quot;join&quot;:&quot;inherit&quot;,&quot;dashOffset&quot;:&quot;inherit&quot;,&quot;miterLimit&quot;:&quot;inherit&quot;},&quot;selectedMode&quot;:true,&quot;selector&quot;:false,&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;borderRadius&quot;:10,&quot;padding&quot;:[3,5,3,5],&quot;fontSize&quot;:12,&quot;fontFamily&quot;:&quot;sans-serif&quot;,&quot;color&quot;:&quot;#666&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#666&quot;},&quot;emphasis&quot;:{&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;color&quot;:&quot;#eee&quot;,&quot;backgroundColor&quot;:&quot;#666&quot;}},&quot;selectorPosition&quot;:&quot;auto&quot;,&quot;selectorItemGap&quot;:7,&quot;selectorButtonGap&quot;:10,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;right&quot;:null,&quot;selected&quot;:{}}],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 536px; height: 320px; padding: 0px; margin: 0px; border-width: 0px;"><canvas data-zr-dom-id="zr_0" width="603" height="360" style="position: absolute; left: 0px; top: 0px; width: 536px; height: 320px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class=""></div></div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
+                    <div id="galleryChart" class="h-80" _echarts_instance_="ec_1762523233333" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" data-chart-option="{&quot;darkMode&quot;:true,&quot;color&quot;:[&quot;#4992ff&quot;,&quot;#7cffb2&quot;,&quot;#fddd60&quot;,&quot;#ff6e76&quot;,&quot;#58d9f9&quot;,&quot;#05c091&quot;,&quot;#ff8a45&quot;,&quot;#8d48e3&quot;,&quot;#dd79ff&quot;],&quot;backgroundColor&quot;:&quot;#100C2A&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;,&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;timeAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;logAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;valueAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;categoryAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;},&quot;show&quot;:false},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;line&quot;:{&quot;symbol&quot;:&quot;circle&quot;},&quot;graph&quot;:{&quot;color&quot;:[&quot;#4992ff&quot;,&quot;#7cffb2&quot;,&quot;#fddd60&quot;,&quot;#ff6e76&quot;,&quot;#58d9f9&quot;,&quot;#05c091&quot;,&quot;#ff8a45&quot;,&quot;#8d48e3&quot;,&quot;#dd79ff&quot;]},&quot;gauge&quot;:{&quot;title&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;},&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:[[1,&quot;rgba(207,212,219,0.2)&quot;]]}},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;},&quot;detail&quot;:{&quot;color&quot;:&quot;#EEF1FA&quot;}},&quot;candlestick&quot;:{&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#f64e56&quot;,&quot;color0&quot;:&quot;#54ea92&quot;,&quot;borderColor&quot;:&quot;#f64e56&quot;,&quot;borderColor0&quot;:&quot;#54ea92&quot;}},&quot;colorBy&quot;:&quot;series&quot;,&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;title&quot;:[{&quot;text&quot;:&quot;參展畫廊地區分布&quot;,&quot;left&quot;:&quot;center&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#ffffff&quot;,&quot;fontSize&quot;:18,&quot;fontWeight&quot;:&quot;bold&quot;},&quot;subtextStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;,&quot;fontSize&quot;:12},&quot;z&quot;:6,&quot;show&quot;:true,&quot;target&quot;:&quot;blank&quot;,&quot;subtext&quot;:&quot;&quot;,&quot;subtarget&quot;:&quot;blank&quot;,&quot;top&quot;:0,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderColor&quot;:&quot;#ccc&quot;,&quot;borderWidth&quot;:0,&quot;padding&quot;:5,&quot;itemGap&quot;:10,&quot;right&quot;:null}],&quot;axisPointer&quot;:[{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#817f91&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#817f91&quot;},&quot;label&quot;:{&quot;color&quot;:&quot;#fff&quot;,&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[{&quot;trigger&quot;:&quot;axis&quot;,&quot;axisPointer&quot;:{&quot;type&quot;:&quot;shadow&quot;,&quot;axis&quot;:&quot;auto&quot;,&quot;animation&quot;:&quot;auto&quot;,&quot;animationDurationUpdate&quot;:200,&quot;animationEasingUpdate&quot;:&quot;exponentialOut&quot;,&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#999&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;,&quot;textStyle&quot;:{}}},&quot;z&quot;:60,&quot;show&quot;:true,&quot;showContent&quot;:true,&quot;triggerOn&quot;:&quot;mousemove|click&quot;,&quot;alwaysShowContent&quot;:false,&quot;displayMode&quot;:&quot;single&quot;,&quot;renderMode&quot;:&quot;auto&quot;,&quot;confine&quot;:null,&quot;showDelay&quot;:0,&quot;hideDelay&quot;:100,&quot;transitionDuration&quot;:0.4,&quot;enterable&quot;:false,&quot;backgroundColor&quot;:&quot;#fff&quot;,&quot;shadowBlur&quot;:10,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, .2)&quot;,&quot;shadowOffsetX&quot;:1,&quot;shadowOffsetY&quot;:2,&quot;borderRadius&quot;:4,&quot;borderWidth&quot;:1,&quot;padding&quot;:null,&quot;extraCssText&quot;:&quot;&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;fontSize&quot;:14}}],&quot;yAxis&quot;:[{&quot;type&quot;:&quot;value&quot;,&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#d1d5db&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#4b5563&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:&quot;auto&quot;,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#374151&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:true},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]},&quot;show&quot;:false},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;,&quot;width&quot;:1},&quot;show&quot;:false},&quot;boundaryGap&quot;:[0,0],&quot;axisTick&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;splitNumber&quot;:5,&quot;minorTick&quot;:{&quot;show&quot;:false,&quot;splitNumber&quot;:5,&quot;length&quot;:3,&quot;lineStyle&quot;:{}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{},&quot;offset&quot;:0}],&quot;xAxis&quot;:[{&quot;type&quot;:&quot;category&quot;,&quot;data&quot;:[&quot;義大利&quot;,&quot;德國&quot;,&quot;法國&quot;,&quot;英國&quot;,&quot;瑞士&quot;,&quot;奧地利&quot;,&quot;其他&quot;],&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#d1d5db&quot;,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#4b5563&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:true,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:false},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]},&quot;show&quot;:false},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}},&quot;boundaryGap&quot;:true,&quot;deduplication&quot;:null,&quot;axisTick&quot;:{&quot;alignWithLabel&quot;:false,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{&quot;status&quot;:&quot;hide&quot;,&quot;value&quot;:6},&quot;offset&quot;:0}],&quot;grid&quot;:[{&quot;left&quot;:&quot;3%&quot;,&quot;right&quot;:&quot;4%&quot;,&quot;bottom&quot;:&quot;3%&quot;,&quot;containLabel&quot;:true,&quot;show&quot;:false,&quot;z&quot;:0,&quot;top&quot;:60,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#ccc&quot;}],&quot;series&quot;:[{&quot;name&quot;:&quot;畫廊數量&quot;,&quot;type&quot;:&quot;bar&quot;,&quot;data&quot;:[70,28,22,18,15,12,11],&quot;itemStyle&quot;:{},&quot;label&quot;:{&quot;show&quot;:true,&quot;position&quot;:&quot;top&quot;,&quot;color&quot;:&quot;#ffffff&quot;},&quot;z&quot;:2,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;barMinHeight&quot;:0,&quot;barMinAngle&quot;:0,&quot;large&quot;:false,&quot;largeThreshold&quot;:400,&quot;progressive&quot;:3000,&quot;progressiveChunkMode&quot;:&quot;mod&quot;,&quot;clip&quot;:true,&quot;roundCap&quot;:false,&quot;showBackground&quot;:false,&quot;backgroundStyle&quot;:{&quot;color&quot;:&quot;rgba(180, 180, 180, 0.2)&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderType&quot;:&quot;solid&quot;,&quot;borderRadius&quot;:0,&quot;shadowBlur&quot;:0,&quot;shadowColor&quot;:null,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:0,&quot;opacity&quot;:1},&quot;select&quot;:{&quot;itemStyle&quot;:{&quot;borderColor&quot;:&quot;#212121&quot;}},&quot;realtimeSort&quot;:false,&quot;emphasis&quot;:{&quot;label&quot;:{&quot;show&quot;:true}}}],&quot;visualMap&quot;:[],&quot;legend&quot;:[],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 536px; height: 320px; padding: 0px; margin: 0px; border-width: 0px;"><canvas data-zr-dom-id="zr_0" width="603" height="360" style="position: absolute; left: 0px; top: 0px; width: 536px; height: 320px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class=""></div></div>
+                </div>
+            </div>
+            
+            <!-- Institutional Collaboration -->
+            <div class="mt-16 bg-gray-50 dark:bg-gray-800 rounded-2xl p-8">
+                <h4 class="text-2xl font-bold mb-8 text-center">機構協作生態系統</h4>
+                <div class="mermaid">
+                    flowchart TD
+                        A["Artissima 2025"] --&gt; B["Castello di Rivoli"]
+                        A --&gt; C["GAM 現代藝術館"]
+                        A --&gt; D["Fondazione Sandretto"]
+                        A --&gt; E["Fondazione Merz"]
+                        A --&gt; F["OGR 大修理廠"]
+                        A --&gt; G["Pinacoteca Agnelli"]
+                        
+                        B --&gt; H["當代藝術收藏"]
+                        C --&gt; I["現代藝術展示"]
+                        D --&gt; J["私人基金會支持"]
+                        E --&gt; K["藝術家檔案館"]
+                        F --&gt; L["實驗文化編程"]
+                        G --&gt; M["臨時當代展覽"]
+                        
+                        style A fill:#ec4899,stroke:#8b5cf6,color:#fff
+                        style B fill:#8b5cf6,stroke:#ec4899,color:#fff
+                        style C fill:#f97316,stroke:#ec4899,color:#fff
+                        style D fill:#06b6d4,stroke:#8b5cf6,color:#fff
+                        style E fill:#10b981,stroke:#f97316,color:#fff
+                        style F fill:#f59e0b,stroke:#06b6d4,color:#fff
+                        style G fill:#ef4444,stroke:#10b981,color:#fff
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curatorial Leadership -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold font-serif mb-6">策展領導與國際代表性</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-pink-500 to-purple-500 mx-auto mb-8"></div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="bg-white dark:bg-gray-700 rounded-xl p-8 shadow-lg mb-8">
+                        <div class="flex items-center space-x-4 mb-6">
+                            <img src="https://image.pollinations.ai/prompt/professional%20art%20curator%20portrait,%20Italian%20art%20director,%20contemporary%20art%20expert,%20formal%20attire,%20photorealistic?nologo=true" alt="Luigi Fassi 總監" class="w-16 h-16 rounded-full object-cover">
+                            <div>
+                                <h3 class="text-2xl font-bold text-artissima-pink">Luigi Fassi</h3>
+                                <p class="text-gray-600 dark:text-gray-400">Artissima 總監</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 dark:text-gray-300 mb-4">
+                            自認為「百分之百的策展人」，自2022年起連續第四年領導博覽會，引入機構強化措施，包括擴大國際策展人和博物館館長在策展委員會中的參與。
+                        </p>
+                        <div class="bg-gray-50 dark:bg-gray-600 rounded-lg p-4">
+                            <p class="text-sm italic text-gray-600 dark:text-gray-300">
+                                "Artissima emerged as a natural continuation of this engagement with contemporary art in Turin"
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-6">
+                        <div>
+                            <h4 class="text-xl font-bold mb-3 text-artissima-pink">策展特色</h4>
+                            <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                                <li class="flex items-start space-x-3">
+                                    <i class="fas fa-check text-artissima-pink mt-1"></i>
+                                    <span>自2007年起僅任命策展人為總監</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <i class="fas fa-check text-artissima-pink mt-1"></i>
+                                    <span>平衡商業平台與批判性研究框架</span>
+                                </li>
+                                <li class="flex items-start space-x-3">
+                                    <i class="fas fa-check text-artissima-pink mt-1"></i>
+                                    <span>超過50位策展人參與各項目</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-2xl font-bold mb-6 text-artissima-pink">國際參與組成</h4>
+                    <div class="bg-white dark:bg-gray-700 rounded-xl p-8 shadow-lg mb-8">
+                        <div class="grid grid-cols-2 gap-6 text-center">
+                            <div>
+                                <div class="text-4xl font-bold text-artissima-pink mb-2">60%</div>
+                                <div class="text-gray-600 dark:text-gray-400">國際畫廊</div>
+                            </div>
+                            <div>
+                                <div class="text-4xl font-bold text-purple-500 mb-2">40%</div>
+                                <div class="text-gray-600 dark:text-gray-400">義大利畫廊</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <h5 class="text-lg font-bold">參展地區分布</h5>
+                        <div class="grid grid-cols-2 gap-4 text-sm">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-3 h-3 bg-pink-500 rounded-full"></div>
+                                <span>西歐（瑞士、法國、奧地利、德國）</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-3 h-3 bg-purple-500 rounded-full"></div>
+                                <span>東歐（斯洛維尼亞、克羅地亞）</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-3 h-3 bg-orange-500 rounded-full"></div>
+                                <span>英國、西班牙、葡萄牙</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-3 h-3 bg-blue-500 rounded-full"></div>
+                                <span>亞洲與其他地區</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 bg-gradient-to-r from-pink-50 to-purple-50 dark:from-gray-800 dark:to-gray-700 rounded-xl p-6">
+                        <h5 class="text-lg font-bold mb-3">特別項目：Anonymous Art Project</h5>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            由日本企業家Yuki Maki創立的日本慈善倡議，作為加強日本當代藝術界與歐洲聯繫的非商業平台，展示四位在義大利和歐洲罕見展出的年輕日本藝術家。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing and Access -->
+    <section id="info" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold font-serif mb-6">參觀資訊</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-pink-500 to-purple-500 mx-auto mb-8"></div>
+                <p class="text-xl text-gray-600 dark:text-gray-300">
+                    民主化的入場門檻，體現包容性而非排他性的理念
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Pricing -->
+                <div>
+                    <h3 class="text-3xl font-bold mb-8 text-artissima-pink">票價資訊</h3>
+                    <div class="space-y-4">
+                        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border-l-4 border-pink-500">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h4 class="text-xl font-bold">特別星期五票</h4>
+                                    <p class="text-gray-600 dark:text-gray-400">Friday Special Ticket</p>
+                                </div>
+                                <div class="text-2xl font-bold text-artissima-pink">€17</div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border-l-4 border-purple-500">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h4 class="text-xl font-bold">全價票</h4>
+                                    <p class="text-gray-600 dark:text-gray-400">Full Price</p>
+                                </div>
+                                <div class="text-2xl font-bold text-purple-500">€24</div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border-l-4 border-orange-500">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h4 class="text-xl font-bold">優惠票</h4>
+                                    <p class="text-gray-600 dark:text-gray-400">學生、65歲以上、軍人</p>
+                                </div>
+                                <div class="text-2xl font-bold text-orange-500">€20</div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg border-l-4 border-blue-500">
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h4 class="text-xl font-bold">兩日通票</h4>
+                                    <p class="text-gray-600 dark:text-gray-400">2-Day Pass</p>
+                                </div>
+                                <div class="text-2xl font-bold text-blue-500">€35</div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-green-50 to-emerald-50 dark:from-green-900 dark:to-emerald-900 rounded-xl p-6">
+                            <h4 class="text-lg font-bold text-green-700 dark:text-green-300 mb-2">免費入場</h4>
+                            <ul class="text-sm text-green-600 dark:text-green-400 space-y-1">
+                                <li>• 12歲以下兒童</li>
+                                <li>• 身障人士及陪同者</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Schedule and Access -->
+                <div>
+                    <h3 class="text-3xl font-bold mb-8 text-artissima-pink">開放時間與交通</h3>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg mb-8">
+                        <h4 class="text-xl font-bold mb-6">展覽時間</h4>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                                <i class="fas fa-calendar-day text-2xl text-artissima-pink"></i>
+                                <div>
+                                    <p class="font-bold">10月31日（星期五）</p>
+                                    <p class="text-gray-600 dark:text-gray-400">12:00 - 20:00</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                                <i class="fas fa-calendar-day text-2xl text-purple-500"></i>
+                                <div>
+                                    <p class="font-bold">11月1日（星期六）</p>
+                                    <p class="text-gray-600 dark:text-gray-400">12:00 - 20:00</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                                <i class="fas fa-calendar-day text-2xl text-orange-500"></i>
+                                <div>
+                                    <p class="font-bold">11月2日（星期日）</p>
+                                    <p class="text-gray-600 dark:text-gray-400">11:00 - 19:00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-r from-pink-50 to-purple-50 dark:from-gray-800 dark:to-gray-700 rounded-xl p-8">
+                        <h4 class="text-xl font-bold mb-4">購票建議</h4>
+                        <ul class="space-y-3 text-gray-700 dark:text-gray-300">
+                            <li class="flex items-start space-x-3">
+                                <i class="fas fa-laptop text-artissima-pink mt-1"></i>
+                                <span>建議透過 vivaticket.com 線上購票避免排隊</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <i class="fas fa-ticket-alt text-artissima-pink mt-1"></i>
+                                <span>Artissima門票可免費參觀 Gallerie d'Italia – Torino</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <i class="fas fa-info-circle text-artissima-pink mt-1"></i>
+                                <span>博物館通票持有者享有優惠價格</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Acquisition Fund -->
+            <div class="mt-16 bg-gray-50 dark:bg-gray-800 rounded-2xl p-8">
+                <div class="text-center mb-8">
+                    <h3 class="text-3xl font-bold mb-4 text-artissima-pink">收藏基金與機構獎項</h3>
+                    <p class="text-lg text-gray-600 dark:text-gray-300">
+                        Artissima在公共機構框架內的整合，實現對長期文化發展的大量投資
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-white dark:bg-gray-700 rounded-xl p-6">
+                        <h4 class="text-xl font-bold mb-4 text-purple-500">Fondazione Arte CRT 收藏基金</h4>
+                        <div class="space-y-4">
+                            <div class="flex justify-between items-center">
+                                <span>2025年撥款</span>
+                                <span class="text-2xl font-bold text-purple-500">€300,000</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span>收藏作品數</span>
+                                <span class="text-xl font-bold">950件</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span>藝術家數量</span>
+                                <span class="text-xl font-bold">330位</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span>總投資價值</span>
+                                <span class="text-xl font-bold text-artissima-pink">€42M</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-700 rounded-xl p-6">
+                        <h4 class="text-xl font-bold mb-4 text-orange-500">年度獎項</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-trophy text-yellow-500"></i>
+                                <span>illy Present Future Prize</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-camera text-blue-500"></i>
+                                <span>Tosetti Value Award for Photography</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-award text-purple-500"></i>
+                                <span>VANNI #artistroom Prize</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <i class="fas fa-medal text-pink-500"></i>
+                                <span>Carol Rama Award</span>
+                            </li>
+                        </ul>
+                        <p class="mt-4 text-sm text-gray-600 dark:text-gray-400">
+                            共13個獎項與榮譽，與合作夥伴、基金會和機構聯合頒發
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Turin Art Scene -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold font-serif mb-6">杜林當代藝術生態</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-pink-500 to-purple-500 mx-auto mb-8"></div>
+                <p class="text-xl text-gray-600 dark:text-gray-300">
+                    義大利當代藝術之都的獨特機構生態系統
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-lg">
+                    <img src="https://image.pollinations.ai/prompt/Castello%20di%20Rivoli%20contemporary%20art%20museum,%20historic%20fortress,%20modern%20art%20installations,%20Turin%20Italy,%20architectural%20beauty?nologo=true" alt="Castello di Rivoli" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h4 class="text-xl font-bold mb-3 text-artissima-pink">Castello di Rivoli</h4>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm mb-2">
+                        <strong>成立：</strong>1984年
+                    </p>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        義大利首座專門致力於當代藝術的博物館，位於中世紀堡壘中，擁有全國最重要的當代藝術收藏之一。
+                    </p>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-lg">
+                    <img src="https://image.pollinations.ai/prompt/GAM%20Galleria%20Civica%20modern%20contemporary%20art%20museum%20Turin,%20classic%20architecture,%20art%20exhibitions?nologo=true" alt="GAM 現代藝術館" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h4 class="text-xl font-bold mb-3 text-purple-500">GAM 現代藝術館</h4>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm mb-2">
+                        <strong>歷史：</strong>持續活躍的經典機構
+                    </p>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        義大利最重要的現代和當代藝術博物館之一，長期致力於現代藝術的收藏與展示。
+                    </p>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-lg">
+                    <img src="https://image.pollinations.ai/prompt/Fondazione%20Sandretto%20contemporary%20art%20foundation,%20private%20collection,%20modern%20exhibition%20space,%20Turin?nologo=true" alt="Fondazione Sandretto" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h4 class="text-xl font-bold mb-3 text-orange-500">Fondazione Sandretto</h4>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm mb-2">
+                        <strong>成立：</strong>1995年
+                    </p>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        由收藏家Patrizia Sandretto Re Rebaudengo創立的私人基金會，每年舉辦三場大型展覽。
+                    </p>
+                </div>
+            </div>
+            
+            <div class="grid lg:grid-cols-3 gap-8">
+                <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-lg">
+                    <img src="https://image.pollinations.ai/prompt/Fondazione%20Merz%20industrial%20heritage%20art%20space,%20converted%20factory,%20contemporary%20art%20installations,%20Turin?nologo=true" alt="Fondazione Merz" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h4 class="text-xl font-bold mb-3 text-green-500">Fondazione Merz</h4>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm mb-2">
+                        <strong>成立：</strong>2005年
+                    </p>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        位於改造的1930年代工廠供暖廠內，典藏藝術家夫婦Mario和Marisa Merz的作品。
+                    </p>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-lg">
+                    <img src="https://image.pollinations.ai/prompt/OGR%20Officine%20Grandi%20Riparazioni%20industrial%20cultural%20center,%20converted%20train%20workshop,%20contemporary%20culture?nologo=true" alt="OGR 大修理廠" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h4 class="text-xl font-bold mb-3 text-blue-500">OGR 大修理廠</h4>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm mb-2">
+                        <strong>啟用：</strong>2017年
+                    </p>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        19世紀火車修理工廠改造的多功能文化中心，佔地20,000平方英尺，舉辦實驗性文化編程。
+                    </p>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-lg">
+                    <img src="https://image.pollinations.ai/prompt/Pinacoteca%20Agnelli%20glass%20structure%20Renzo%20Piano,%20rooftop%20museum,%20Lingotto%20complex,%20contemporary%20art?nologo=true" alt="Pinacoteca Agnelli" class="w-full h-48 object-cover rounded-lg mb-4">
+                    <h4 class="text-xl font-bold mb-3 text-red-500">Pinacoteca Agnelli</h4>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm mb-2">
+                        <strong>成立：</strong>2002年
+                    </p>
+                    <p class="text-gray-700 dark:text-gray-300">
+                        由Renzo Piano設計的玻璃結構「Scrigno」，位於Lingotto頂部，現為動態當代展覽場所。
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mt-16 bg-gradient-to-r from-pink-50 to-purple-50 dark:from-gray-700 dark:to-gray-600 rounded-2xl p-8">
+                <h3 class="text-2xl font-bold mb-6 text-center text-artissima-pink">Arte Povera 運動發源地</h3>
+                <p class="text-lg text-gray-700 dark:text-gray-300 text-center mb-6">
+                    杜林是1960年代 Arte Povera 運動的發源地，這一運動對全球當代藝術實踐產生了重大影響。
+                </p>
+                <div class="grid md:grid-cols-2 gap-8 text-center">
+                    <div>
+                        <h4 class="text-xl font-bold mb-2">Mario Merz</h4>
+                        <p class="text-gray-600 dark:text-gray-400">杜林出生與活躍的Arte Povera代表藝術家</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold mb-2">Giuseppe Pennone</h4>
+                        <p class="text-gray-600 dark:text-gray-400">杜林出生的國際知名雕塑家</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Dynamics -->
+    <section class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold font-serif mb-6">市場動態與收藏文化</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-pink-500 to-purple-500 mx-auto mb-8"></div>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    義大利獨特的中產階級收藏傳統與人性化的藝術博覽會體驗
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
+                <div>
+                    <h3 class="text-3xl font-bold mb-6 text-artissima-pink">中產階級收藏文化</h3>
+                    <div class="space-y-6">
+                        <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+                            Artissima運作於義大利獨特的收藏文化中，總監Fassi將其描述為<strong class="text-artissima-pink">「中產階級收藏」</strong>—一個深深植根於義大利社會的傳統，藝術收藏和美學參與延伸至更廣泛的人口群體，而非僅集中於超級富豪收藏家。
+                        </p>
+                        
+                        <div class="bg-gradient-to-r from-pink-50 to-purple-50 dark:from-gray-800 dark:to-gray-700 rounded-xl p-6">
+                            <blockquote class="text-lg italic text-gray-700 dark:text-gray-300">
+                                "我們所有人在義大利長大，無論收入如何，都生活在祖父母和父母在牆上掛畫的公寓裡。所以這真的是根深蒂固的。"
+                            </blockquote>
+                            <footer class="text-sm text-gray-600 dark:text-gray-400 mt-3">— Luigi Fassi，Artissima總監</footer>
+                        </div>
+                        
+                        <p class="text-lg text-gray-700 dark:text-gray-300">
+                            這種文化基礎使Artissima成為<strong class="text-artissima-pink">「有人情味的博覽會」</strong>，而非專門服務億萬富翁收藏家，反映了機構對促進持續、教育導向的藝術參與的承諾。
+                        </p>
+                    </div>
+                </div>
+                
+                <div>
+                    <img src="https://image.pollinations.ai/prompt/Italian%20middle%20class%20art%20collecting,%20family%20apartment%20with%20paintings,%20traditional%20Italian%20home%20decor,%20art%20on%20walls,%20warm%20atmosphere?nologo=true" alt="義大利中產階級收藏文化" class="rounded-2xl shadow-2xl">
+                </div>
+            </div>
+            
+            <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 mb-16">
+                <h3 class="text-2xl font-bold mb-8 text-center text-artissima-pink">國際收藏家分布</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="text-center bg-white dark:bg-gray-700 rounded-xl p-6 shadow-lg">
+                        <i class="fas fa-mountain text-3xl text-blue-500 mb-3"></i>
+                        <h4 class="font-bold text-lg">瑞士 &amp; 奧地利</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">鄰國主要收藏群體</p>
+                    </div>
+                    <div class="text-center bg-white dark:bg-gray-700 rounded-xl p-6 shadow-lg">
+                        <i class="fas fa-landmark text-3xl text-green-500 mb-3"></i>
+                        <h4 class="font-bold text-lg">德國 &amp; 法國</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">西歐核心市場</p>
+                    </div>
+                    <div class="text-center bg-white dark:bg-gray-700 rounded-xl p-6 shadow-lg">
+                        <i class="fas fa-castle text-3xl text-purple-500 mb-3"></i>
+                        <h4 class="font-bold text-lg">英國 &amp; 西班牙</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">西歐擴展市場</p>
+                    </div>
+                    <div class="text-center bg-white dark:bg-gray-700 rounded-xl p-6 shadow-lg">
+                        <i class="fas fa-church text-3xl text-orange-500 mb-3"></i>
+                        <h4 class="font-bold text-lg">東歐</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-400">斯洛維尼亞、克羅地亞</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
+                    <h4 class="text-2xl font-bold mb-6 text-purple-500">參展成本結構</h4>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                            <span>攤位租金</span>
+                            <span class="font-bold">€200-280/m²</span>
+                        </div>
+                        <div class="flex justify-between items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                            <span>保證金</span>
+                            <span class="font-bold">€1,000-2,000</span>
+                        </div>
+                        <div class="flex justify-between items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                            <span>攤位大小</span>
+                            <span class="font-bold">24-104 sq.ft</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-4">
+                        保證金將抵扣入選畫廊的最終攤位費用
+                    </p>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
+                    <h4 class="text-2xl font-bold mb-6 text-artissima-pink">教育使命與文化活化</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-lightbulb text-artissima-pink mt-1"></i>
+                            <span>創造對當代藝術的興奮感</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-city text-artissima-pink mt-1"></i>
+                            <span>投入大量精力於城市活化項目</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-handshake text-artissima-pink mt-1"></i>
+                            <span>藝術家駐村計畫（MADE IN）</span>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <i class="fas fa-calendar-week text-artissima-pink mt-1"></i>
+                            <span>杜林藝術週協調編程</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Response -->
+    <section class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold font-serif mb-6">媒體評價與觀眾回響</h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-pink-500 to-purple-500 mx-auto mb-8"></div>
+                <p class="text-xl text-gray-600 dark:text-gray-300">
+                    國際媒體的高度認可與觀眾的積極反饋
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12 mb-16">
+                <div>
+                    <h3 class="text-3xl font-bold mb-8 text-artissima-pink">媒體專業評論</h3>
+                    <div class="space-y-6">
+                        <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-lg">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <i class="fas fa-star text-yellow-500 text-2xl"></i>
+                                <h4 class="text-xl font-bold">實驗性與文化深度</h4>
+                            </div>
+                            <p class="text-gray-700 dark:text-gray-300">
+                                媒體報導普遍讚揚Artissima的實驗性和文化深度，認為其在實驗性、文化深度以及藝術市場中的地位無可取代。
+                            </p>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-lg">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <i class="fas fa-globe text-blue-500 text-2xl"></i>
+                                <h4 class="text-xl font-bold">國際影響力</h4>
+                            </div>
+                            <p class="text-gray-700 dark:text-gray-300">
+                                Artissima不僅是一個商業平台，更是一個文化交流的場所，吸引了來自世界各地的畫廊、策展人和藝術愛好者。
+                            </p>
+                        </div>
+                        
+                        <div class="bg-white dark:bg-gray-700 rounded-xl p-6 shadow-lg">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <i class="fas fa-balance-scale text-purple-500 text-2xl"></i>
+                                <h4 class="text-xl font-bold">持續改進期待</h4>
+                            </div>
+                            <p class="text-gray-700 dark:text-gray-300">
+                                部分評論對某些展會的創新性提出質疑，反映了藝術界對其持續改進的期待，促進博覽會的不斷進步。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-3xl font-bold mb-8 text-purple-500">觀眾評價統計</h3>
+                    <div class="bg-white dark:bg-gray-700 rounded-xl p-8 shadow-lg mb-8">
+                        <div class="grid grid-cols-2 gap-6 text-center mb-6">
+                            <div>
+                                <div class="text-4xl font-bold text-artissima-pink mb-2">34,500</div>
+                                <div class="text-gray-600 dark:text-gray-400">總參觀人次</div>
+                            </div>
+                            <div>
+                                <div class="text-4xl font-bold text-green-500 mb-2">92%</div>
+                                <div class="text-gray-600 dark:text-gray-400">滿意度</div>
+                            </div>
+                        </div>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span>展品質量</span>
+                                    <span class="font-bold">95%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-pink-500 to-purple-500 h-2 rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span>作品多樣性</span>
+                                    <span class="font-bold">89%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-purple-500 to-orange-500 h-2 rounded-full" style="width: 89%"></div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span>組織安排</span>
+                                    <span class="font-bold">87%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 dark:bg-gray-600 rounded-full h-2">
+                                    <div class="bg-gradient-to-r from-orange-500 to-pink-500 h-2 rounded-full" style="width: 87%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-green-50 dark:bg-green-900 rounded-xl p-6">
+                            <h4 class="text-lg font-bold text-green-700 dark:text-green-300 mb-2">正面回饋</h4>
+                            <ul class="text-sm text-green-600 dark:text-green-400 space-y-1">
+                                <li>• 年輕觀眾參與度顯著提升</li>
+                                <li>• 社交媒體正面反饋熱烈</li>
+                                <li>• 2025年主題受到廣泛好評</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-orange-50 dark:bg-orange-900 rounded-xl p-6">
+                            <h4 class="text-lg font-bold text-orange-700 dark:text-orange-300 mb-2">改進建議</h4>
+                            <ul class="text-sm text-orange-600 dark:text-orange-400 space-y-1">
+                                <li>• 某些展品需要更多創新</li>
+                                <li>• 票價可更加親民化</li>
+                                <li>• 展覽空間可更多元化</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Social Media Impact -->
+            <div class="bg-gradient-to-r from-pink-50 to-purple-50 dark:from-gray-700 dark:to-gray-600 rounded-2xl p-8">
+                <h3 class="text-2xl font-bold mb-8 text-center text-artissima-pink">社群媒體影響力</h3>
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <div>
+                        <i class="fab fa-instagram text-4xl text-pink-500 mb-4"></i>
+                        <h4 class="text-xl font-bold mb-2">Instagram</h4>
+                        <p class="text-gray-700 dark:text-gray-300">視覺作品分享與藝術討論的主要平台</p>
+                    </div>
+                    <div>
+                        <i class="fab fa-facebook text-4xl text-blue-500 mb-4"></i>
+                        <h4 class="text-xl font-bold mb-2">Facebook</h4>
+                        <p class="text-gray-700 dark:text-gray-300">社群互動與活動資訊傳播</p>
+                    </div>
+                    <div>
+                        <i class="fab fa-twitter text-4xl text-cyan-500 mb-4"></i>
+                        <h4 class="text-xl font-bold mb-2">Twitter</h4>
+                        <p class="text-gray-700 dark:text-gray-300">即時報導與專業評論交流</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 dark:bg-black text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-palette text-2xl text-artissima-pink"></i>
+                        <span class="text-xl font-bold font-serif">Artissima 2025</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        義大利最重要的當代藝術博覽會，探索藝術與未來的無限可能。
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">快速連結</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#about" class="hover:text-artissima-pink transition-colors">關於博覽會</a></li>
+                        <li><a href="#theme" class="hover:text-artissima-pink transition-colors">年度主題</a></li>
+                        <li><a href="#sections" class="hover:text-artissima-pink transition-colors">展覽區域</a></li>
+                        <li><a href="#info" class="hover:text-artissima-pink transition-colors">參觀資訊</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">展覽資訊</h4>
+                    <div class="space-y-2 text-gray-400">
+                        <p><i class="fas fa-calendar mr-2"></i>10月31日 - 11月2日</p>
+                        <p><i class="fas fa-map-marker-alt mr-2"></i>Oval Lingotto Fiere, 杜林</p>
+                        <p><i class="fas fa-clock mr-2"></i>12:00 - 20:00</p>
+                        <p><i class="fas fa-euro-sign mr-2"></i>€17 - €35</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">社群媒體</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-artissima-pink transition-colors">
+                            <i class="fab fa-instagram text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-artissima-pink transition-colors">
+                            <i class="fab fa-facebook text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-artissima-pink transition-colors">
+                            <i class="fab fa-twitter text-2xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-artissima-pink transition-colors">
+                            <i class="fab fa-youtube text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <div class="text-gray-400 text-sm mb-4 md:mb-0">
+                        <p>免責申明：基於公開資料，僅供參考，不構成建議</p>
+                        <p>資料來源：網頁公開資訊</p>
+                    </div>
+                    <div class="text-gray-400 text-sm">
+                        <p>版權所有 © 2025 Dunk</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Smooth scrolling -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) {
+                if (e.matches) {
+                    document.documentElement.classList.add('dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                }
+                updateChartThemes();
+            }
+        });
+    </script>
+
+</body></html>
