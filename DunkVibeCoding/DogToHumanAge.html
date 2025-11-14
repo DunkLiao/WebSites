@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>人狗換算歲數器 — 貼圖手繪風</title>
+
+  <!-- 手寫風字型 (Google Fonts) -->
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #fff6f9;
+      --card: #fff;
+      --accent: #ff7aa2;
+      --accent-2: #ffd6e6;
+      --text: #2b2b2b;
+      --muted: #6b6b6b;
+      --shadow: 0 8px 30px rgba(43,27,40,0.08);
+      --radius: 16px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background: linear-gradient(180deg, #fff6f9 0%, #fff9fb 100%);
+      color:var(--text);
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:28px 18px 140px; /* bottom padding for fixed footer */
+    }
+
+    /* 主容器 */
+    .wrap{
+      width:100%;
+      max-width:920px;
+      display:grid;
+      grid-template-columns: 420px 1fr;
+      gap:20px;
+      align-items:start;
+    }
+
+    /* 左側卡片：輸入與結果 */
+    .panel{
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow:var(--shadow);
+      position:relative;
+      overflow:visible;
+    }
+    h1{
+      font-family: "Patrick Hand", "Helvetica Neue", Arial, sans-serif;
+      font-size:26px;
+      margin:6px 0 12px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .subtitle{
+      font-size:13px;
+      color:var(--muted);
+      margin-bottom:12px;
+    }
+
+    label{font-weight:600; font-size:14px; display:block; margin-bottom:6px;}
+    input[type="date"], select{
+      width:100%;
+      padding:12px;
+      border-radius:10px;
+      border:1px dashed #ffd6e6;
+      background:linear-gradient(180deg,#fff,#fff9fb);
+      font-size:15px;
+    }
+
+    .controls{margin-top:12px}
+    button.calc {
+      margin-top:12px;
+      width:100%;
+      padding:12px;
+      border-radius:12px;
+      border:none;
+      font-weight:700;
+      font-size:16px;
+      background:linear-gradient(180deg,var(--accent),#ff5b8a);
+      color:white;
+      cursor:pointer;
+      box-shadow: 0 8px 18px rgba(255,122,162,0.18);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    /* hover 微放大（D） */
+    button.calc:hover{
+      transform: scale(1.04);
+      box-shadow: 0 14px 30px rgba(255,122,162,0.22);
+    }
+
+    .result-box{
+      margin-top:18px;
+      background: linear-gradient(180deg,#fff,#fff7fb);
+      border-radius:12px;
+      padding:14px;
+      border:1px solid rgba(255,185,210,0.4);
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .result-text{
+      font-size:15px;
+      line-height:1.4;
+    }
+    .result-key{
+      font-size:20px;
+      font-weight:800;
+      color:#e83b7b;
+    }
+
+    /* 右側：插畫 + 說明卡 */
+    .art-panel{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+    .sticker {
+      background: linear-gradient(180deg,#fff,#fffaf2);
+      border-radius:18px;
+      padding:18px;
+      box-shadow: var(--shadow);
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+
+    /* 手繪狗狗插畫區 */
+    .dog-wrap{
+      width:140px;
+      height:140px;
+      position:relative;
+      flex: 0 0 140px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    /* 插畫：SVG 容器 */
+    .dog-svg{
+      width:120px;
+      height:120px;
+      transform-origin: center bottom;
+      position:relative;
+    }
+
+    /* 摇尾巴動畫 (B) */
+    @keyframes wag {
+      0% { transform: rotate(6deg); }
+      25% { transform: rotate(-12deg); }
+      50% { transform: rotate(8deg); }
+      75% { transform: rotate(-8deg); }
+      100% { transform: rotate(6deg); }
+    }
+    .tail {
+      transform-origin: 8px 8px;
+      animation: wag 1s ease-in-out infinite;
+    }
+
+    /* 眨眼動畫 (B) */
+    @keyframes blink {
+      0%, 80%, 100% { transform: scaleY(1); }
+      85% { transform: scaleY(0.12); }
+      87% { transform: scaleY(1); }
+    }
+    .eye {
+      transform-origin: center;
+      animation: blink 4.5s infinite;
+    }
+
+    /* 插畫文字卡 */
+    .info-card{
+      padding:10px;
+      background:linear-gradient(180deg,#fff,#fff7fb);
+      border-radius:12px;
+      border:1px solid rgba(0,0,0,0.04);
+      font-size:14px;
+      color:var(--muted);
+      line-height:1.5;
+    }
+
+    /* 說明區（固定在頁面下方） */
+    .formula-footer{
+      position:fixed;
+      left:0;
+      right:0;
+      bottom:0;
+      background:linear-gradient(180deg,#fff,#fff8fb);
+      border-top: 1px solid rgba(0,0,0,0.04);
+      padding:18px 22px;
+      box-shadow: 0 -10px 30px rgba(0,0,0,0.04);
+    }
+    .formula-inner{
+      max-width:1100px;
+      margin:0 auto;
+      display:flex;
+      gap:18px;
+      align-items:flex-start;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+    .table-block{
+      background:#fff;
+      border-radius:12px;
+      padding:12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+      min-width:420px;
+    }
+    .table-block table{
+      border-collapse:collapse;
+      width:100%;
+      font-size:13px;
+    }
+    .table-block th, .table-block td{
+      border-bottom:1px dashed #f3dbe4;
+      padding:8px 6px;
+      text-align:center;
+    }
+    .table-block th{
+      font-weight:700;
+      color:#7b1d3e;
+      background: linear-gradient(90deg,#fff7fb,#fff0f7);
+      border-radius:6px;
+    }
+
+    .card-block{
+      max-width:420px;
+      min-width:280px;
+      background:linear-gradient(180deg,#fff,#fff9fb);
+      padding:12px;
+      border-radius:12px;
+      box-shadow:0 6px 20px rgba(0,0,0,0.03);
+    }
+    .card{
+      display:flex;
+      gap:8px;
+      align-items:center;
+      margin-bottom:10px;
+    }
+    .card svg{flex:0 0 58px;}
+	
+	.calculator-box {
+	  position: relative;
+	  z-index: 20;
+	}
+	
+	.info-section {
+	  position: relative;
+	  z-index: 1;
+	}
+
+
+    /* 響應式 */
+    @media (max-width:900px){
+      .wrap{grid-template-columns: 1fr; max-width:560px;}
+      .dog-wrap{width:110px;height:110px}
+      .sticker{align-items:flex-start}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="calculator-box " role="main" aria-label="人狗換算歲數器">
+    <!-- 左：輸入、結果 -->
+    <section class="panel" aria-labelledby="appTitle">
+      <h1 id="appTitle">🐶 人狗換算歲數器（貼圖手繪風）</h1>
+      <div class="subtitle">輸入出生日期 → 會顯示狗年齡與換算成人類年齡（依體型）</div>
+
+      <label for="birth">狗狗的出生日期</label>
+      <input id="birth" type="date" max="" aria-describedby="birthDesc" />
+
+      <label for="size">狗狗體型</label>
+      <select id="size" aria-label="選擇狗狗體型">
+        <option value="small">小型犬（9kg 以下）</option>
+        <option value="medium">中型犬（9–23kg）</option>
+        <option value="large">大型犬（23–45kg）</option>
+        <option value="giant">巨型犬（45kg 以上）</option>
+      </select>
+
+      <div class="controls">
+        <button class="calc" id="calcBtn" aria-label="開始計算">開始計算</button>
+      </div>
+
+      <div id="output" class="result-box" style="display:none;" aria-live="polite">
+        <div style="flex:1">
+          <div class="result-text">
+            狗狗現在大約 <span class="result-key" id="dogYears">-</span> 歲（狗年齡）<br>
+            換算成人類年齡大約是 <span class="result-key" id="humanYears">-</span> 歲（<span id="showSizeLabel">-</span>）
+          </div>
+        </div>
+
+        <!-- 小型貼紙插畫（同步動畫） -->
+        <div style="width:120px;display:flex;align-items:center;justify-content:center">
+          <div style="width:86px;height:86px;border-radius:12px;background:linear-gradient(180deg,#fff,#fff9fb);display:flex;align-items:center;justify-content:center;border:1px dashed #ffd6e6;">
+            <!-- 簡單 SVG 狗狗 (尾巴與眼睛會動畫) -->
+            <svg class="dog-svg" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <!-- body -->
+              <ellipse cx="60" cy="70" rx="38" ry="26" fill="#fff" stroke="#2b2b2b" stroke-width="2" />
+              <!-- ear -->
+              <path d="M36 48 C28 44, 26 32, 38 30 C50 28, 44 46, 36 48 Z" fill="#ffd6e6" stroke="#2b2b2b" stroke-width="1.6"/>
+              <path d="M84 48 C92 44, 94 32, 82 30 C70 28, 76 46, 84 48 Z" fill="#ffd6e6" stroke="#2b2b2b" stroke-width="1.6"/>
+
+              <!-- head -->
+              <circle cx="60" cy="44" r="24" fill="#fff" stroke="#2b2b2b" stroke-width="2" />
+              <!-- eye left -->
+              <ellipse class="eye" cx="52" cy="42" rx="3.8" ry="4.8" fill="#2b2b2b"/>
+              <!-- eye right -->
+              <ellipse class="eye" cx="68" cy="42" rx="3.8" ry="4.8" fill="#2b2b2b"/>
+              <!-- nose -->
+              <ellipse cx="60" cy="50" rx="4.8" ry="3.4" fill="#2b2b2b"/>
+              <!-- mouth -->
+              <path d="M56 54 Q60 58 64 54" stroke="#2b2b2b" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+              <!-- tail (separate group for animation) -->
+              <g transform="translate(98,64) rotate(6)" class="tail">
+                <path d="M0 0 C8 -4, 12 -12, 6 -18" stroke="#2b2b2b" stroke-width="3" fill="none" stroke-linecap="round"/>
+                <path d="M2 -2 C10 -6, 14 -14, 8 -20" stroke="#ff5b8a" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.6"/>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:12px" class="info-card">
+        小提示：建議輸入 **準確出生日期**，結果會以今天日期作為計算基礎並用表格資料進行換算（若為非整歲，會以相鄰表格點做線性插值）。
+      </div>
+    </section>
+
+    <!-- 右側：大插畫 + 卡片 -->
+    <aside class="art-panel">
+      <div class="sticker" aria-hidden="true">
+        <div class="dog-wrap">
+          <!-- 大手繪貼圖風狗狗（動畫：眨眼 + 搖尾巴） -->
+          <svg class="dog-svg" viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="可愛狗狗插畫">
+            <!-- shadow -->
+            <ellipse cx="80" cy="140" rx="44" ry="8" fill="#ffd6e6" opacity="0.35"/>
+            <!-- body -->
+            <ellipse cx="80" cy="100" rx="54" ry="36" fill="#fff" stroke="#2b2b2b" stroke-width="3"/>
+            <!-- head -->
+            <circle cx="80" cy="58" r="36" fill="#fff" stroke="#2b2b2b" stroke-width="3"/>
+            <!-- ears -->
+            <path d="M50 46 C38 36, 34 28, 48 22 C58 18, 64 38, 50 46 Z" fill="#ffd6e6" stroke="#2b2b2b" stroke-width="2"/>
+            <path d="M110 46 C122 36, 126 28, 112 22 C102 18, 96 38, 110 46 Z" fill="#ffd6e6" stroke="#2b2b2b" stroke-width="2"/>
+
+            <!-- eyes (blink) -->
+            <g transform="translate(0,0)">
+              <ellipse class="eye" cx="70" cy="60" rx="5.2" ry="6.4" fill="#2b2b2b"/>
+              <ellipse class="eye" cx="90" cy="60" rx="5.2" ry="6.4" fill="#2b2b2b"/>
+            </g>
+
+            <!-- nose & mouth -->
+            <ellipse cx="80" cy="72" rx="5.5" ry="4.2" fill="#2b2b2b"/>
+            <path d="M76 78 Q80 84 84 78" stroke="#2b2b2b" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+
+            <!-- tail group -->
+            <g transform="translate(140,98) rotate(8)" class="tail">
+              <path d="M0 0 C10 -6, 16 -18, 8 -26" stroke="#2b2b2b" stroke-width="4" fill="none" stroke-linecap="round"/>
+              <path d="M4 -4 C14 -10, 20 -22, 12 -30" stroke="#ff5b8a" stroke-width="3.2" fill="none" stroke-linecap="round" opacity="0.7"/>
+            </g>
+
+            <!-- blush -->
+            <ellipse cx="60" cy="74" rx="8" ry="5.2" fill="#ffd6e6" opacity="0.9"/>
+            <ellipse cx="100" cy="74" rx="8" ry="5.2" fill="#ffd6e6" opacity="0.9"/>
+
+            <!-- little scarf -->
+            <path d="M80 86 C66 94, 58 94, 52 92 C50 96, 68 106, 86 98 L80 86 Z" fill="#ff5b8a" stroke="#2b2b2b" stroke-width="1.6"/>
+          </svg>
+        </div>
+
+        <div style="flex:1">
+          <div style="font-family: 'Patrick Hand'; font-size:18px; color:#7b1d3e; margin-bottom:6px;">Hello！我是貼圖狗狗</div>
+          <div style="color:var(--muted); font-size:14px; line-height:1.5">
+            來試試看把你的狗狗年齡換算成人類年齡吧！我會搖尾巴、眨眼，還會用我們的換算表幫你精準換算（有插值）。
+          </div>
+        </div>
+      </div>
+
+      <div class="info-card" style="font-size:14px">
+        <strong style="display:block; margin-bottom:6px;">功能特色</strong>
+        • 手繪貼圖風 UI（LINE 貼圖感）<br>
+        • 固定顯示詳細換算表與說明（頁底）<br>
+        • 狗狗會眨眼與搖尾巴動畫（持續播放）<br>
+        • 按鈕有微放大互動
+      </div>
+    </aside>
+  </div>
+
+  <!-- 固定下方：詳細換算公式（表格 + 圖文卡） -->
+  <footer class="info-section" aria-labelledby="formulaTitle">
+    <div class="formula-inner">
+      <div class="table-block" role="region" aria-label="換算表">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+          <div style="font-weight:800;color:#7b1d3e;">詳細換算表</div>
+          <div style="font-size:13px;color:var(--muted)">資料來源：上傳 CSV（表格化）</div>
+        </div>
+
+        <!-- 換算資料表 (來自 CSV) -->
+        <table aria-hidden="false">
+          <thead>
+            <tr>
+              <th>狗狗年齡</th>
+              <th>小型犬（9kg 以下）</th>
+              <th>中型犬（9–23kg）</th>
+              <th>大型犬（23–45kg）</th>
+              <th>巨型犬（45kg 以上）</th>
+            </tr>
+          </thead>
+          <tbody id="dataTableBody">
+            <!-- JS 會填入表格列 -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card-block" role="region" aria-label="換算公式說明">
+        <div style="font-weight:800;color:#7b1d3e;margin-bottom:8px" id="formulaTitle">換算公式說明（表格 + 圖文）</div>
+
+        <!-- 圖文卡片 ②+③ -->
+        <div class="card">
+          <svg width="58" height="58" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="32" cy="32" r="30" fill="#fff" stroke="#2b2b2b" stroke-width="1.8"/>
+            <path d="M18 36 Q32 46 46 36" stroke="#ff5b8a" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+            <circle cx="24" cy="28" r="3.2" fill="#2b2b2b"/>
+            <circle cx="40" cy="28" r="3.2" fill="#2b2b2b"/>
+          </svg>
+          <div>
+            <div style="font-weight:700">換算思路</div>
+            <div style="color:var(--muted);font-size:13px">使用你提供的年齡表（CSV）。若計算到的狗年齡介於兩個表格點之間，會以 <strong>線性插值</strong> 估算對應的人類年齡。</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <svg width="58" height="58" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="6" y="10" width="52" height="44" rx="6" fill="#fff" stroke="#2b2b2b" stroke-width="1.6"/>
+            <text x="14" y="28" font-size="10" fill="#7b1d3e" font-weight="700">若 dogY 在</text>
+            <text x="14" y="40" font-size="10" fill="#6b6b6b">pointA..pointB → interpolate</text>
+          </svg>
+          <div>
+            <div style="font-weight:700">公式（簡化）</div>
+            <div style="color:var(--muted);font-size:13px">
+              若 <em>dogY</em> 在 <em>A</em>（人齡 = HA）與 <em>B</em>（人齡 = HB）之間：<br>
+              <code>human ≈ HA + (HB-HA) * (dogY - A) / (B - A)</code>
+            </div>
+          </div>
+        </div>
+
+        <div style="font-size:13px;color:var(--muted);margin-top:8px">
+          表格包含：1、2、3、5、7、10、12、15 歲對應的人類年齡（依來源 CSV）。
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ---- 1. CSV 資料（來自上傳的 table.csv） ----
+    // 為了方便前端使用，我把 CSV 解析後的資料寫成下面的結構（數字）
+    // 資料來源（CSV）:
+    const agePoints = [
+      { dog: 1, small: 15, medium: 15, large: 15, giant: 12 },
+      { dog: 2, small: 24, medium: 24, large: 24, giant: 22 },
+      { dog: 3, small: 28, medium: 28, large: 28, giant: 31 },
+      { dog: 5, small: 36, medium: 36, large: 36, giant: 45 },
+      { dog: 7, small: 44, medium: 47, large: 50, giant: 56 },
+      { dog: 10, small: 56, medium: 60, large: 66, giant: 79 },
+      { dog: 12, small: 64, medium: 69, large: 77, giant: 93 },
+      { dog: 15, small: 76, medium: 83, large: 93, giant: 114 }
+    ];
+
+    // 將表格內容填入 footer 的 table body
+    (function fillTable(){
+      const tbody = document.getElementById('dataTableBody');
+      tbody.innerHTML = '';
+      agePoints.forEach(pt=>{
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${pt.dog} 歲</td>
+          <td>${pt.small} 歲</td>
+          <td>${pt.medium} 歲</td>
+          <td>${pt.large} 歲</td>
+          <td>${pt.giant} 歲</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    })();
+
+    // 計算今天為 max date
+    (function setMaxDate(){
+      const d = new Date();
+      const yyyy = d.getFullYear();
+      const mm = String(d.getMonth()+1).padStart(2,'0');
+      const dd = String(d.getDate()).padStart(2,'0');
+      document.getElementById('birth').max = `${yyyy}-${mm}-${dd}`;
+    })();
+
+    // 選單 label 顯示
+    const sizeLabelMap = {
+      small: "小型犬（9kg 以下）",
+      medium: "中型犬（9–23kg）",
+      large: "大型犬（23–45kg）",
+      giant: "巨型犬（45kg 以上）"
+    };
+
+    // 線性插值函式：找離散點中最接近的下界與上界後做插值
+    function humanAgeFromDogYears(dogYears, sizeKey){
+      // 範圍考量：若小於最小點，用最小點值；若大於最大點，用最大點值
+      if (dogYears <= agePoints[0].dog) return agePoints[0][sizeKey];
+      const last = agePoints[agePoints.length-1];
+      if (dogYears >= last.dog) return last[sizeKey];
+
+      // 找到 A <= dogYears <= B
+      for (let i = 0; i < agePoints.length - 1; i++){
+        const A = agePoints[i].dog, B = agePoints[i+1].dog;
+        if (dogYears >= A && dogYears <= B) {
+          const HA = agePoints[i][sizeKey];
+          const HB = agePoints[i+1][sizeKey];
+          // 若恰好等於 A，回傳 HA
+          if (dogYears === A) return HA;
+          // 線性插值
+          const t = (dogYears - A) / (B - A);
+          const interpolated = HA + (HB - HA) * t;
+          return Math.round(interpolated * 10) / 10; // 一位小數
+        }
+      }
+      // fallback
+      return last[sizeKey];
+    }
+
+    // 計算狗年齡（以年為單位，保留一位小數）
+    function calcDogYearsFromBirth(birthDateStr){
+      const birth = new Date(birthDateStr + 'T00:00:00');
+      const now = new Date();
+      if (isNaN(birth)) return null;
+      const diffMs = now - birth;
+      const years = diffMs / (1000 * 60 * 60 * 24 * 365.2425); // 平均天數（考慮閏年）
+      return Math.round(years * 10) / 10;
+    }
+
+    // UI 互動
+    const btn = document.getElementById('calcBtn');
+    btn.addEventListener('click', ()=>{
+      const birth = document.getElementById('birth').value;
+      const size = document.getElementById('size').value;
+      if (!birth) {
+        alert('請先輸入狗狗的出生日期 😊');
+        return;
+      }
+      // 計算
+      const dogY = calcDogYearsFromBirth(birth);
+      const humanY = humanAgeFromDogYears(dogY, size);
+
+      // 顯示
+      document.getElementById('dogYears').textContent = dogY;
+      document.getElementById('humanYears').textContent = humanY;
+      document.getElementById('showSizeLabel').textContent = sizeLabelMap[size];
+
+      document.getElementById('output').style.display = 'flex';
+      // 小動畫：讓結果區淡入
+      const out = document.getElementById('output');
+      out.style.opacity = 0;
+      out.animate([{opacity:0, transform:'translateY(10px)'},{opacity:1, transform:'translateY(0)'}], {duration:300, easing:'ease-out', fill:'forwards'});
+    });
+
+    // === Accessibility: allow Enter key to trigger calculation when focus on date/select ===
+    document.getElementById('birth').addEventListener('keypress', (e)=>{
+      if (e.key === 'Enter') btn.click();
+    });
+    document.getElementById('size').addEventListener('keypress', (e)=>{
+      if (e.key === 'Enter') btn.click();
+    });
+
+    // 註：如果你希望改成「使用者上傳 CSV 後動態讀取」，我可以幫你把前端加上檔案讀取功能。
+  </script>
+</body>
+</html>
