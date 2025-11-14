@@ -271,7 +271,7 @@
     <!-- 左：輸入、結果 -->
     <section class="panel" aria-labelledby="appTitle">
       <h1 id="appTitle">🐶 人狗換算歲數器（貼圖手繪風）</h1>
-      <div class="subtitle">輸入出生日期 → 會顯示狗年齡與換算成人類年齡（依體型）</div>
+      <div class="subtitle">輸入出生日期 → 會顯示狗年齡（依體型）與換算成人類年齡</div>
 
       <label for="birth">狗狗的出生日期</label>
       <input id="birth" type="date" max="" aria-describedby="birthDesc" />
@@ -291,8 +291,8 @@
       <div id="output" class="result-box" style="display:none;" aria-live="polite">
         <div style="flex:1">
           <div class="result-text">
-            狗狗現在大約 <span class="result-key" id="dogYears">-</span> 歲（狗年齡）<br>
-            換算成人類年齡大約是 <span class="result-key" id="humanYears">-</span> 歲（<span id="showSizeLabel">-</span>）
+            狗狗（<span id="showSizeLabel">-</span>）現在大約 <span class="result-key" id="dogYears">-</span> 歲（狗年齡）<br>
+            換算成人類年齡大約是 <span class="result-key" id="humanYears">-</span> 歲
           </div>
         </div>
 
@@ -397,7 +397,7 @@
       <div class="table-block" role="region" aria-label="換算表">
         <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
           <div style="font-weight:800;color:#7b1d3e;">詳細換算表</div>
-          <div style="font-size:13px;color:var(--muted)">資料來源：上傳 CSV（表格化）</div>
+          <div style="font-size:13px;color:var(--muted)">資料來源：<a href='https://hehopets.com/age-conversion' target='about:blank'>@犬貓年齡換算@</a><a href='https://pets.edh.tw/blog/dog-age-conversion-guide' target='about:blank'>@早安毛健康@</a></div>
         </div>
 
         <!-- 換算資料表 (來自 CSV) -->
@@ -405,10 +405,10 @@
           <thead>
             <tr>
               <th>狗狗年齡</th>
-              <th>小型犬（9kg 以下）</th>
-              <th>中型犬（9–23kg）</th>
-              <th>大型犬（23–45kg）</th>
-              <th>巨型犬（45kg 以上）</th>
+              <th><p><b>小型犬（9kg 以下）</b></p>換算至人類年齡</th>
+              <th><p><b>中型犬（9–23kg）</b></p>換算至人類年齡</th>
+              <th><p><b>大型犬（23–45kg）</b></p>換算至人類年齡</th>
+              <th><p><b>巨型犬（45kg 以上）</b></p>換算至人類年齡</th>
             </tr>
           </thead>
           <tbody id="dataTableBody">
@@ -450,7 +450,7 @@
         </div>
 
         <div style="font-size:13px;color:var(--muted);margin-top:8px">
-          表格包含：1、2、3、5、7、10、12、15 歲對應的人類年齡（依來源 CSV）。
+          表格包含：1、2、3、5、7、10、12、15 歲對應的人類年齡。
         </div>
       </div>
     </div>
