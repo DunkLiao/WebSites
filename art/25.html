@@ -1,0 +1,1568 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" x-data="{ darkMode: false }" x-init="
+  darkMode = localStorage.getItem('darkMode') === 'true' || (!localStorage.getItem('darkMode') &amp;&amp; window.matchMedia('(prefers-color-scheme: dark)').matches);
+  $watch('darkMode', val =&gt; {
+    localStorage.setItem('darkMode', val);
+    document.documentElement.classList.toggle('dark', val);
+    // 重新渲染图表
+    if (window.echarts) {
+      const chartElements = document.querySelectorAll('[id^=chart]');
+      chartElements.forEach(el =&gt; {
+        const chart = window.echarts.getInstanceByDom(el);
+        if (chart) {
+          chart.dispose();
+          const newChart = window.echarts.init(el, val ? 'dark' : null);
+          newChart.setOption(window.chartOptions[el.id]);
+        }
+      });
+    }
+    // 重新渲染Mermaid
+    if (window.mermaid) {
+      window.mermaid.initialize({ 
+        theme: val ? 'dark' : 'default',
+        startOnLoad: false
+      });
+      const mermaidElements = document.querySelectorAll('.mermaid');
+      mermaidElements.forEach(el =&gt; {
+        window.mermaid.run();
+      });
+    }
+  });
+  document.documentElement.classList.toggle('dark', darkMode);
+" class="scroll-smooth"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>漢堡「Affordable Art Fair」藝術博覽會 2025</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/preline@2.3.0/dist/preline.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js" defer=""></script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Noto Sans TC', 'Inter', sans-serif;
+    }
+    .hero-pattern {
+      background-image: 
+        radial-gradient(circle at 25% 25%, rgba(139, 69, 19, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(220, 20, 60, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 50% 100%, rgba(75, 0, 130, 0.1) 0%, transparent 50%);
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      align-items: start;
+    }
+    .gallery-grid .item:nth-child(2n) {
+      margin-top: 2rem;
+    }
+    @media (max-width: 768px) {
+      .gallery-grid .item:nth-child(2n) {
+        margin-top: 0;
+      }
+    }
+    .art-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .art-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    .section-divider {
+      background: linear-gradient(135deg, transparent 25%, rgba(139, 69, 19, 0.1) 50%, transparent 75%);
+      height: 1px;
+      margin: 4rem 0;
+    }
+  </style>
+<script src="https://felo.ai/js/iframe.js?v=1763165328126"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style><style data-id="immersive-translate-input-injected-css">.immersive-translate-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2147483647;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.immersive-translate-attach-loading::after {
+  content: " ";
+
+  --loading-color: #f78fb6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+  position: relative;
+  color: white;
+  left: -100px;
+  box-sizing: border-box;
+  animation: immersiveTranslateShadowRolling 1.5s linear infinite;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-2000%, -50%);
+  z-index: 100;
+}
+
+.immersive-translate-loading-spinner {
+  vertical-align: middle !important;
+  width: 10px !important;
+  height: 10px !important;
+  display: inline-block !important;
+  margin: 0 4px !important;
+  border: 2px rgba(221, 244, 255, 0.6) solid !important;
+  border-top: 2px rgba(0, 0, 0, 0.375) solid !important;
+  border-left: 2px rgba(0, 0, 0, 0.375) solid !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  -webkit-animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+  animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+}
+
+@-webkit-keyframes immersive-translate-loading-animation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+
+@keyframes immersive-translate-loading-animation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.immersive-translate-input-loading {
+  --loading-color: #f78fb6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+  position: relative;
+  color: white;
+  left: -100px;
+  box-sizing: border-box;
+  animation: immersiveTranslateShadowRolling 1.5s linear infinite;
+}
+
+@keyframes immersiveTranslateShadowRolling {
+  0% {
+    box-shadow: 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  12% {
+    box-shadow: 100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  25% {
+    box-shadow: 110px 0 var(--loading-color), 100px 0 var(--loading-color),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  36% {
+    box-shadow: 120px 0 var(--loading-color), 110px 0 var(--loading-color),
+      100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  50% {
+    box-shadow: 130px 0 var(--loading-color), 120px 0 var(--loading-color),
+      110px 0 var(--loading-color), 100px 0 var(--loading-color);
+  }
+
+  62% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color),
+      120px 0 var(--loading-color), 110px 0 var(--loading-color);
+  }
+
+  75% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      130px 0 var(--loading-color), 120px 0 var(--loading-color);
+  }
+
+  87% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color);
+  }
+
+  100% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0);
+  }
+}
+
+.immersive-translate-toast {
+  display: flex;
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  right: 0;
+  top: 1%;
+  width: fit-content;
+  padding: 12px 20px;
+  margin: auto;
+  overflow: auto;
+  background: #fef6f9;
+  box-shadow: 0px 4px 10px 0px rgba(0, 10, 30, 0.06);
+  font-size: 15px;
+  border-radius: 8px;
+  color: #333;
+}
+
+.immersive-translate-toast-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.immersive-translate-toast-hidden {
+  margin: 0 20px 0 72px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.immersive-translate-toast-close {
+  color: #666666;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-toast {
+    top: 0;
+    padding: 12px 0px 0 10px;
+  }
+  .immersive-translate-toast-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .immersive-translate-toast-hidden {
+    margin: 10px auto;
+  }
+}
+
+.immersive-translate-dialog {
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  top: 0;
+  display: flex;
+  width: 300px;
+  flex-direction: column;
+  align-items: center;
+  font-size: 15px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: fit-content;
+  border-radius: 20px;
+  background-color: #fff;
+}
+
+.immersive-translate-modal {
+  display: none;
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  font-size: 15px;
+}
+
+.immersive-translate-modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 40px 24px 24px;
+  border-radius: 12px;
+  width: 350px;
+  font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",
+    "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-modal-content {
+    margin: 25% auto !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .immersive-translate-modal-content {
+    width: 80vw !important;
+    margin: 20vh auto !important;
+    padding: 20px 12px 12px !important;
+  }
+
+  .immersive-translate-modal-title {
+    font-size: 14px !important;
+  }
+
+  .immersive-translate-modal-body {
+    font-size: 13px !important;
+    max-height: 60vh !important;
+  }
+
+  .immersive-translate-btn {
+    font-size: 13px !important;
+    padding: 8px 16px !important;
+    margin: 0 4px !important;
+  }
+
+  .immersive-translate-modal-footer {
+    gap: 6px !important;
+    margin-top: 16px !important;
+  }
+}
+
+.immersive-translate-modal .immersive-translate-modal-content-in-input {
+  max-width: 500px;
+}
+.immersive-translate-modal-content-in-input .immersive-translate-modal-body {
+  text-align: left;
+  max-height: unset;
+}
+
+.immersive-translate-modal-title {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333333;
+}
+
+.immersive-translate-modal-body {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333333;
+  margin-top: 24px;
+  word-break: break-all;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-modal-body {
+    max-height: 250px;
+    overflow-y: auto;
+  }
+}
+
+.immersive-translate-close {
+  color: #666666;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.immersive-translate-close:hover,
+.immersive-translate-close:focus {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.immersive-translate-modal-footer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.immersive-translate-btn {
+  width: fit-content;
+  color: #fff;
+  background-color: #ea4c89;
+  border: none;
+  font-size: 14px;
+  margin: 0 8px;
+  padding: 9px 30px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.immersive-translate-btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.immersive-translate-btn:hover {
+  background-color: #f082ac;
+}
+.immersive-translate-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.immersive-translate-btn:disabled:hover {
+  background-color: #ea4c89;
+}
+
+.immersive-translate-link-btn {
+  background-color: transparent;
+  color: #ea4c89;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  line-height: 30px;
+}
+
+.immersive-translate-cancel-btn {
+  /* gray color */
+  background-color: rgb(89, 107, 120);
+}
+
+.immersive-translate-cancel-btn:hover {
+  background-color: hsl(205, 20%, 32%);
+}
+
+.immersive-translate-action-btn {
+  background-color: transparent;
+  color: #ea4c89;
+  border: 1px solid #ea4c89;
+}
+
+.immersive-translate-btn svg {
+  margin-right: 5px;
+}
+
+.immersive-translate-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #ea4c89;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+.immersive-translate-primary-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #ea4c89;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+.immersive-translate-modal input[type="radio"] {
+  margin: 0 6px;
+  cursor: pointer;
+}
+
+.immersive-translate-modal label {
+  cursor: pointer;
+}
+
+.immersive-translate-close-action {
+  position: absolute;
+  top: 2px;
+  right: 0px;
+  cursor: pointer;
+}
+
+.imt-image-status {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 16px !important;
+}
+.imt-image-status img,
+.imt-image-status svg,
+.imt-img-loading {
+  width: 28px !important;
+  height: 28px !important;
+  margin: 0 0 8px 0 !important;
+  min-height: 28px !important;
+  min-width: 28px !important;
+  position: relative !important;
+}
+.imt-img-loading {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAtFBMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////oK74hAAAAPHRSTlMABBMIDyQXHwyBfFdDMSw+OjXCb+5RG51IvV/k0rOqlGRM6KKMhdvNyZBz9MaupmxpWyj437iYd/yJVNZeuUC7AAACt0lEQVRIx53T2XKiUBCA4QYOiyCbiAsuuGBcYtxiYtT3f6/pbqoYHVFO5r+iivpo6DpAWYpqeoFfr9f90DsYAuRSWkFnPO50OgR9PwiCUFcl2GEcx+N/YBh6pvKaefHlUgZd1zVe0NbYcQjGBfzrPE8Xz8aF+71D8gG6DHFPpc4a7xFiCDuhaWgKgGIJQ3d5IMGDrpS4S5KgpIm+en9f6PlAhKby4JwEIxlYJV9h5k5nee9GoxHJ2IDSNB0dwdad1NAxDJ/uXDHYmebdk4PdbkS58CIVHdYSUHTYYRWOJblWSyu2lmy3KNFVJNBhxcuGW4YBVCbYGRZwIooipHsNqjM4FbgOQqQqSKQQU9V8xmi1QlgHqQQ6DDBvRUVCDirs+EzGDGOQTCATgtYTnbCVLgsVgRE0T1QE0qHCFAht2z6dLvJQs3Lo2FQoDxWNUiBhaP4eRgwNkI+dAjVOA/kUrIDwf3CG8NfNOE0eiFotSuo+rBiq8tD9oY4Qzc6YJw99hl1wzpQvD7ef2M8QgnOGJfJw+EltQc+oX2yn907QB22WZcvlUpd143dqQu+8pCJZuGE4xCuPXJqqcs5sNpsI93Rmzym1k4Npk+oD1SH3/a3LOK/JpUBpWfqNySxWzCfNCUITuDG5dtuphrUJ1myeIE9bIsPiKrfqTai5WZxbhtNphYx6GEIHihyGFTI69lje/rxajdh0s0msZ0zYxyPLhYCb1CyHm9Qsd2H37Y3lugVwL9kNh8Ot8cha6fUNQ8nuXi5z9/ExsAO4zQrb/ev1yrCB7lGyQzgYDGuxq1toDN/JGvN+HyWNHKB7zEoK+PX11e12G431erGYzwmytAWU56fkMHY5JJnDRR2eZji3AwtIcrEV8Cojat/BdQ7XOwGV1e1hDjGGjXbdArm8uJZtCH5MbcctVX8A1WpqumJHwckAAAAASUVORK5CYII=");
+  background-size: 28px 28px;
+  animation: image-loading-rotate 1s linear infinite !important;
+}
+
+.imt-image-status span {
+  color: var(--bg-2, #fff) !important;
+  font-size: 14px !important;
+  line-height: 14px !important;
+  font-weight: 500 !important;
+  font-family: "PingFang SC", Arial, sans-serif !important;
+}
+
+.imt-primary-button {
+  display: flex;
+  padding: 12px 80px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  background: #ea4c89;
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  border: none;
+  cursor: pointer;
+}
+
+.imt-retry-text {
+  color: #999;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  cursor: pointer;
+}
+
+.imt-action-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.imt-modal-content-text {
+  text-align: left;
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+@keyframes image-loading-rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.imt-linear-gradient-text {
+  background: linear-gradient(90deg, #00a6ff 0%, #c369ff 52.4%, #ff4590 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.imt-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imt-linear-black-btn {
+  border-radius: 50px;
+  background: linear-gradient(66deg, #222 19%, #696969 94.25%);
+  height: 48px;
+  width: 100%;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+}
+</style><style id="felo-iframe-styles">html,body{margin:0 !important;padding:0 !important;}</style></head>
+
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300" contenteditable="false" spellcheck="false">
+  <!-- 導航欄 -->
+  <nav class="fixed top-0 w-full bg-white/90 dark:bg-gray-900/90 backdrop-blur-md z-50 border-b border-gray-200 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center space-x-3">
+          <div class="w-8 h-8 bg-gradient-to-r from-amber-500 to-orange-600 rounded-full flex items-center justify-center">
+            <i class="fas fa-palette text-white text-sm"></i>
+          </div>
+          <span class="text-xl font-semibold">AAF Hamburg 2025</span>
+        </div>
+        
+        <div class="hidden md:flex space-x-6">
+          <a href="#overview" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-200">展覽概覽</a>
+          <a href="#details" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-200">展覽資訊</a>
+          <a href="#artists" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-200">藝術家</a>
+          <a href="#activities" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-200">特色活動</a>
+          <a href="#tickets" class="hover:text-amber-600 dark:hover:text-amber-400 transition-colors duration-200">購票資訊</a>
+        </div>
+
+        <button @click="darkMode = !darkMode" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors duration-200">
+          <i x-show="!darkMode" class="fas fa-moon text-gray-600"></i>
+          <i x-show="darkMode" class="fas fa-sun text-yellow-500" style="display: none;"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 英雄區 -->
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden hero-pattern">
+    <div class="absolute inset-0 bg-gradient-to-br from-amber-50/50 via-orange-50/30 to-red-50/50 dark:from-gray-900/80 dark:via-gray-800/60 dark:to-gray-900/80"></div>
+    
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="space-y-8">
+        <div class="inline-flex items-center px-4 py-2 bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-200 rounded-full text-sm font-medium mb-6">
+          <i class="fas fa-calendar-alt mr-2"></i>
+          2025年11月13-16日 • 漢堡會展中心
+        </div>
+        
+        <h1 class="text-5xl md:text-7xl font-bold leading-tight">
+          <span class="bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 bg-clip-text text-transparent">Affordable</span><br>
+          <span class="text-gray-900 dark:text-gray-100">Art Fair</span><br>
+          <span class="text-2xl md:text-3xl font-light text-gray-600 dark:text-gray-400">Hamburg 2025</span>
+        </h1>
+        
+        <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          藝術為所有人 • Art for All<br>
+          <span class="text-lg">來自15個國家85家畫廊，超過1,000件當代藝術作品</span><br>
+          <span class="text-lg font-semibold text-amber-600 dark:text-amber-400">€100 - €10,000</span>
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-8">
+          <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur rounded-2xl p-6 shadow-xl">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+              <div>
+                <div class="text-3xl font-bold text-amber-600 dark:text-amber-400">85</div>
+                <div class="text-sm text-gray-600 dark:text-gray-400">畫廊</div>
+              </div>
+              <div>
+                <div class="text-3xl font-bold text-orange-600 dark:text-orange-400">15</div>
+                <div class="text-sm text-gray-600 dark:text-gray-400">國家</div>
+              </div>
+              <div>
+                <div class="text-3xl font-bold text-red-600 dark:text-red-400">1000+</div>
+                <div class="text-sm text-gray-600 dark:text-gray-400">作品</div>
+              </div>
+              <div>
+                <div class="text-3xl font-bold text-purple-600 dark:text-purple-400">20K</div>
+                <div class="text-sm text-gray-600 dark:text-gray-400">參觀者</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white dark:from-gray-900 to-transparent"></div>
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <i class="fas fa-chevron-down text-gray-600 dark:text-gray-400 text-xl"></i>
+    </div>
+  </section>
+
+  <!-- 展覽概覽 -->
+  <section id="overview" class="py-20 bg-gray-50 dark:bg-gray-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6">展覽概覽</h2>
+        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          漢堡的「Affordable Art Fair」是北德地區最大、最成功的藝術博覽會，致力於讓藝術收藏變得平易近人且負擔得起。
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+        <div class="space-y-6">
+          <h3 class="text-3xl font-bold text-amber-600 dark:text-amber-400">藝術為所有人</h3>
+          <p class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+            自1999年由Will Ramsay創立以來，Affordable Art Fair已成為全球最具影響力的藝術博覽會之一。漢堡展覽自2012年起舉辦，現已成為當地文化日程中的重要活動。
+          </p>
+          <div class="space-y-4">
+            <div class="flex items-start space-x-3">
+              <div class="w-6 h-6 bg-amber-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <i class="fas fa-check text-white text-xs"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold">多元化與包容性</h4>
+                <p class="text-gray-600 dark:text-gray-400">支持新興藝術家發展，消除藝術收藏的心理障礙</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <div class="w-6 h-6 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <i class="fas fa-check text-white text-xs"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold">透明的價格策略</h4>
+                <p class="text-gray-600 dark:text-gray-400">所有作品價格在€100至€10,000之間，清楚標示</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-3">
+              <div class="w-6 h-6 bg-red-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                <i class="fas fa-check text-white text-xs"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold">教育與互動</h4>
+                <p class="text-gray-600 dark:text-gray-400">免費導覽服務、互動體驗及主題活動</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="relative">
+          <img src="https://image.pollinations.ai/prompt/modern%20art%20gallery%20interior,%20contemporary%20paintings%20on%20walls,%20visitors%20admiring%20artwork,%20warm%20lighting,%20photorealistic,%20cinematic,%204k?nologo=true" alt="現代藝術畫廊內景" class="w-full h-96 object-cover rounded-2xl shadow-2xl">
+          <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-amber-400 to-orange-600 rounded-2xl opacity-20"></div>
+        </div>
+      </div>
+
+      <!-- 全球影響力統計 -->
+      <div class="bg-white dark:bg-gray-900 rounded-3xl p-8 shadow-xl">
+        <h3 class="text-2xl font-bold text-center mb-8">全球影響力</h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div class="text-3xl font-bold text-amber-600 dark:text-amber-400 mb-2">14</div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">全球城市</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-orange-600 dark:text-orange-400 mb-2">280萬+</div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">參觀者</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-red-600 dark:text-red-400 mb-2">53.8萬+</div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">作品售出</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">25年</div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">歷史傳承</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 展覽詳細資訊 -->
+  <section id="details" class="py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6">展覽資訊</h2>
+        <p class="text-xl text-gray-600 dark:text-gray-300">2025年11月13日至16日，漢堡會展中心A3展廳</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <!-- 基本資訊卡片 -->
+        <div class="space-y-6">
+          <div class="bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 rounded-2xl p-8">
+            <h3 class="text-2xl font-bold mb-6 flex items-center">
+              <i class="fas fa-info-circle text-amber-600 dark:text-amber-400 mr-3"></i>
+              基本資訊
+            </h3>
+            <div class="space-y-4">
+              <div class="flex items-center space-x-3">
+                <i class="fas fa-calendar-alt text-gray-600 dark:text-gray-400 w-5"></i>
+                <span><strong>日期：</strong>2025年11月13日至16日</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <i class="fas fa-map-marker-alt text-gray-600 dark:text-gray-400 w-5"></i>
+                <span><strong>地點：</strong>漢堡會展中心A3展廳</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <i class="fas fa-euro-sign text-gray-600 dark:text-gray-400 w-5"></i>
+                <span><strong>價格範圍：</strong>€100 - €10,000</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <i class="fas fa-users text-gray-600 dark:text-gray-400 w-5"></i>
+                <span><strong>預期參觀者：</strong>5,000 - 20,000人</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-2xl p-8">
+            <h3 class="text-2xl font-bold mb-6 flex items-center">
+              <i class="fas fa-clock text-blue-600 dark:text-blue-400 mr-3"></i>
+              開放時間
+            </h3>
+            <div class="space-y-3">
+              <div class="flex justify-between items-center">
+                <span class="font-semibold">星期四（11月13日）</span>
+                <span class="text-blue-600 dark:text-blue-400">12:00 - 22:00</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="font-semibold">星期五（11月14日）</span>
+                <span class="text-blue-600 dark:text-blue-400">12:00 - 20:00</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="font-semibold">星期六（11月15日）</span>
+                <span class="text-blue-600 dark:text-blue-400">11:00 - 20:00</span>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="font-semibold">星期日（11月16日）</span>
+                <span class="text-blue-600 dark:text-blue-400">11:00 - 18:00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 地圖和交通資訊 -->
+        <div class="space-y-6">
+          <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 border border-gray-200 dark:border-gray-700">
+            <h3 class="text-2xl font-bold mb-6 flex items-center">
+              <i class="fas fa-route text-green-600 dark:text-green-400 mr-3"></i>
+              交通指南
+            </h3>
+            
+            <div class="space-y-6">
+              <div>
+                <h4 class="font-semibold text-lg mb-3 text-green-600 dark:text-green-400">公共交通</h4>
+                <div class="space-y-2 text-sm">
+                  <div class="flex items-center space-x-3">
+                    <span class="bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 px-2 py-1 rounded text-xs font-semibold">U2</span>
+                    <span>地鐵至Messehallen站</span>
+                  </div>
+                  <div class="flex items-center space-x-3">
+                    <span class="bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 px-2 py-1 rounded text-xs font-semibold">S-Bahn</span>
+                    <span>U3、S11、S21、S31線至Sternschanze（Messe）站</span>
+                  </div>
+                  <div class="flex items-center space-x-3">
+                    <span class="bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 px-2 py-1 rounded text-xs font-semibold">Bus 35</span>
+                    <span>快速巴士至Hamburg Messe Eingang Mitte站</span>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h4 class="font-semibold text-lg mb-3 text-red-600 dark:text-red-400">駕車停車</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">拉格街中央立體停車場，可容納約900輛車</p>
+                <div class="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-400 p-3 rounded">
+                  <p class="text-sm text-yellow-800 dark:text-yellow-200">
+                    <i class="fas fa-exclamation-triangle mr-2"></i>
+                    建議使用公共交通，停車費用較高
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative h-64 bg-gray-200 dark:bg-gray-700 rounded-2xl overflow-hidden">
+            <img src="https://image.pollinations.ai/prompt/Hamburg%20Messe%20convention%20center%20exterior,%20modern%20architecture,%20entrance,%20people%20walking,%20daylight,%20photorealistic?nologo=true" alt="漢堡會展中心外觀" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+            <div class="absolute bottom-4 left-4 text-white">
+              <p class="font-semibold">漢堡會展中心</p>
+              <p class="text-sm opacity-90">Messeplatz, 20357 Hamburg</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- 藝術家與作品展示 -->
+  <section id="artists" class="py-20 bg-gray-50 dark:bg-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6">藝術家與作品</h2>
+        <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          來自15個國家85家畫廊的精選作品，涵蓋繪畫、雕塑、攝影及混合媒材等多種藝術形式
+        </p>
+      </div>
+
+      <!-- 作品媒材分布 -->
+      <div class="mb-16">
+        <h3 class="text-3xl font-bold text-center mb-8">作品媒材分布</h3>
+        <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl">
+          <div id="mediaChart" class="h-80" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" _echarts_instance_="ec_1763165316394" data-chart-option="{&quot;darkMode&quot;:&quot;auto&quot;,&quot;colorBy&quot;:&quot;series&quot;,&quot;color&quot;:[&quot;#5470c6&quot;,&quot;#91cc75&quot;,&quot;#fac858&quot;,&quot;#ee6666&quot;,&quot;#73c0de&quot;,&quot;#3ba272&quot;,&quot;#fc8452&quot;,&quot;#9a60b4&quot;,&quot;#ea7ccc&quot;],&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;textStyle&quot;:{&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;title&quot;:[{&quot;text&quot;:&quot;展品媒材分布&quot;,&quot;left&quot;:&quot;center&quot;,&quot;textStyle&quot;:{&quot;fontSize&quot;:18,&quot;fontWeight&quot;:&quot;bold&quot;,&quot;color&quot;:&quot;#464646&quot;},&quot;z&quot;:6,&quot;show&quot;:true,&quot;target&quot;:&quot;blank&quot;,&quot;subtext&quot;:&quot;&quot;,&quot;subtarget&quot;:&quot;blank&quot;,&quot;top&quot;:0,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderColor&quot;:&quot;#ccc&quot;,&quot;borderWidth&quot;:0,&quot;padding&quot;:5,&quot;itemGap&quot;:10,&quot;subtextStyle&quot;:{&quot;fontSize&quot;:12,&quot;color&quot;:&quot;#6E7079&quot;},&quot;right&quot;:null}],&quot;axisPointer&quot;:[{&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9BEC9&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;label&quot;:{&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;color&quot;:&quot;#fff&quot;,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[{&quot;trigger&quot;:&quot;item&quot;,&quot;formatter&quot;:&quot;{a} &lt;br/&gt;{b}: {c}% ({d}%)&quot;,&quot;z&quot;:60,&quot;show&quot;:true,&quot;showContent&quot;:true,&quot;triggerOn&quot;:&quot;mousemove|click&quot;,&quot;alwaysShowContent&quot;:false,&quot;displayMode&quot;:&quot;single&quot;,&quot;renderMode&quot;:&quot;auto&quot;,&quot;confine&quot;:null,&quot;showDelay&quot;:0,&quot;hideDelay&quot;:100,&quot;transitionDuration&quot;:0.4,&quot;enterable&quot;:false,&quot;backgroundColor&quot;:&quot;#fff&quot;,&quot;shadowBlur&quot;:10,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, .2)&quot;,&quot;shadowOffsetX&quot;:1,&quot;shadowOffsetY&quot;:2,&quot;borderRadius&quot;:4,&quot;borderWidth&quot;:1,&quot;padding&quot;:null,&quot;extraCssText&quot;:&quot;&quot;,&quot;axisPointer&quot;:{&quot;type&quot;:&quot;line&quot;,&quot;axis&quot;:&quot;auto&quot;,&quot;animation&quot;:&quot;auto&quot;,&quot;animationDurationUpdate&quot;:200,&quot;animationEasingUpdate&quot;:&quot;exponentialOut&quot;,&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#999&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;,&quot;textStyle&quot;:{}}},&quot;textStyle&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;fontSize&quot;:14}}],&quot;series&quot;:[{&quot;name&quot;:&quot;媒材類型&quot;,&quot;type&quot;:&quot;pie&quot;,&quot;radius&quot;:&quot;60%&quot;,&quot;center&quot;:[&quot;60%&quot;,&quot;50%&quot;],&quot;data&quot;:[{&quot;value&quot;:35,&quot;name&quot;:&quot;油畫與壓克力畫&quot;},{&quot;value&quot;:25,&quot;name&quot;:&quot;攝影作品&quot;},{&quot;value&quot;:20,&quot;name&quot;:&quot;雕塑作品&quot;},{&quot;value&quot;:15,&quot;name&quot;:&quot;混合媒材&quot;},{&quot;value&quot;:5,&quot;name&quot;:&quot;數位藝術&quot;}],&quot;emphasis&quot;:{&quot;itemStyle&quot;:{&quot;shadowBlur&quot;:10,&quot;shadowOffsetX&quot;:0,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, 0.5)&quot;},&quot;scale&quot;:true,&quot;scaleSize&quot;:5,&quot;label&quot;:{&quot;show&quot;:true},&quot;labelLine&quot;:{&quot;show&quot;:true}},&quot;label&quot;:{&quot;show&quot;:true,&quot;formatter&quot;:&quot;{b}: {c}%&quot;,&quot;rotate&quot;:0,&quot;overflow&quot;:&quot;truncate&quot;,&quot;position&quot;:&quot;outer&quot;,&quot;alignTo&quot;:&quot;none&quot;,&quot;edgeDistance&quot;:&quot;25%&quot;,&quot;bleedMargin&quot;:10,&quot;distanceToLabelLine&quot;:5},&quot;z&quot;:2,&quot;legendHoverLink&quot;:true,&quot;colorBy&quot;:&quot;data&quot;,&quot;clockwise&quot;:true,&quot;startAngle&quot;:90,&quot;minAngle&quot;:0,&quot;minShowLabelAngle&quot;:0,&quot;selectedOffset&quot;:10,&quot;percentPrecision&quot;:2,&quot;stillShowZeroSum&quot;:true,&quot;left&quot;:0,&quot;top&quot;:0,&quot;right&quot;:0,&quot;bottom&quot;:0,&quot;width&quot;:null,&quot;height&quot;:null,&quot;labelLine&quot;:{&quot;show&quot;:true,&quot;length&quot;:15,&quot;length2&quot;:15,&quot;smooth&quot;:false,&quot;minTurnAngle&quot;:90,&quot;maxSurfaceAngle&quot;:90,&quot;lineStyle&quot;:{&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;}},&quot;itemStyle&quot;:{&quot;borderWidth&quot;:1,&quot;borderJoin&quot;:&quot;round&quot;},&quot;showEmptyCircle&quot;:true,&quot;emptyCircleStyle&quot;:{&quot;color&quot;:&quot;lightgray&quot;,&quot;opacity&quot;:1},&quot;labelLayout&quot;:{&quot;hideOverlap&quot;:true},&quot;avoidLabelOverlap&quot;:true,&quot;animationType&quot;:&quot;expansion&quot;,&quot;animationDuration&quot;:1000,&quot;animationTypeUpdate&quot;:&quot;transition&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;}],&quot;visualMap&quot;:[],&quot;legend&quot;:[{&quot;orient&quot;:&quot;vertical&quot;,&quot;left&quot;:&quot;left&quot;,&quot;z&quot;:4,&quot;show&quot;:true,&quot;top&quot;:0,&quot;align&quot;:&quot;auto&quot;,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderColor&quot;:&quot;#ccc&quot;,&quot;borderRadius&quot;:0,&quot;borderWidth&quot;:0,&quot;padding&quot;:5,&quot;itemGap&quot;:10,&quot;itemWidth&quot;:25,&quot;itemHeight&quot;:14,&quot;symbolRotate&quot;:&quot;inherit&quot;,&quot;symbolKeepAspect&quot;:true,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderWidth&quot;:&quot;auto&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;inherit&quot;,&quot;opacity&quot;:&quot;inherit&quot;,&quot;borderColor&quot;:&quot;inherit&quot;,&quot;borderWidth&quot;:&quot;auto&quot;,&quot;borderCap&quot;:&quot;inherit&quot;,&quot;borderJoin&quot;:&quot;inherit&quot;,&quot;borderDashOffset&quot;:&quot;inherit&quot;,&quot;borderMiterLimit&quot;:&quot;inherit&quot;},&quot;lineStyle&quot;:{&quot;width&quot;:&quot;auto&quot;,&quot;color&quot;:&quot;inherit&quot;,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveWidth&quot;:2,&quot;opacity&quot;:&quot;inherit&quot;,&quot;type&quot;:&quot;inherit&quot;,&quot;cap&quot;:&quot;inherit&quot;,&quot;join&quot;:&quot;inherit&quot;,&quot;dashOffset&quot;:&quot;inherit&quot;,&quot;miterLimit&quot;:&quot;inherit&quot;},&quot;textStyle&quot;:{&quot;color&quot;:&quot;#333&quot;},&quot;selectedMode&quot;:true,&quot;selector&quot;:false,&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;borderRadius&quot;:10,&quot;padding&quot;:[3,5,3,5],&quot;fontSize&quot;:12,&quot;fontFamily&quot;:&quot;sans-serif&quot;,&quot;color&quot;:&quot;#666&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#666&quot;},&quot;emphasis&quot;:{&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;color&quot;:&quot;#eee&quot;,&quot;backgroundColor&quot;:&quot;#666&quot;}},&quot;selectorPosition&quot;:&quot;auto&quot;,&quot;selectorItemGap&quot;:7,&quot;selectorButtonGap&quot;:10,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;right&quot;:null,&quot;selected&quot;:{}}],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 1152px; height: 320px; padding: 0px; margin: 0px; border-width: 0px;"><canvas data-zr-dom-id="zr_0" width="1296" height="360" style="position: absolute; left: 0px; top: 0px; width: 1152px; height: 320px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class=""></div></div>
+        </div>
+      </div>
+
+      <!-- 新興藝術家展覽 -->
+      <div class="mb-16">
+        <div class="text-center mb-12">
+          <h3 class="text-3xl font-bold mb-4">新興藝術家展覽</h3>
+          <p class="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            由策展人Hannah Weber-Heidenfels策劃，展出三位傑出年輕藝術家的概念性作品
+          </p>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="item art-card bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-xl">
+            <img src="https://image.pollinations.ai/prompt/contemporary%20art%20studio,%20female%20artist%20painting,%20colorful%20abstract%20artwork,%20natural%20light,%20photorealistic,%20cinematic?nologo=true" alt="Anne Meerpohl 的創作" class="w-full h-64 object-cover">
+            <div class="p-6">
+              <h4 class="text-xl font-bold mb-2">Anne Meerpohl</h4>
+              <p class="text-amber-600 dark:text-amber-400 text-sm mb-3">漢堡 • 繪畫與混合媒材</p>
+              <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                以獨特的視角和創作風格，通過細膩的筆觸和豐富的色彩表現對生活的深刻觀察，作品展現出強烈的情感表達力。
+              </p>
+            </div>
+          </div>
+
+          <div class="item art-card bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-xl">
+            <img src="https://image.pollinations.ai/prompt/mixed%20media%20artwork,%20political%20themes,%20contemporary%20art,%20gallery%20wall,%20dramatic%20lighting,%20photorealistic?nologo=true" alt="Penny Monogiou 的作品" class="w-full h-64 object-cover">
+            <div class="p-6">
+              <h4 class="text-xl font-bold mb-2">Penny Monogiou</h4>
+              <p class="text-orange-600 dark:text-orange-400 text-sm mb-3">漢堡 • 政治主題與混合媒材</p>
+              <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                作品探索個人和政治主題，靈感來自當代社會的多樣性，常結合繪畫和混合媒材，展現深刻的社會洞察力。
+              </p>
+            </div>
+          </div>
+
+          <div class="item art-card bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-xl">
+            <img src="https://image.pollinations.ai/prompt/conceptual%20art%20installation,%20social%20themes,%20Berlin%20artist,%20contemporary%20gallery,%20soft%20lighting,%20photorealistic?nologo=true" alt="Paula Hoffmann 的作品" class="w-full h-64 object-cover">
+            <div class="p-6">
+              <h4 class="text-xl font-bold mb-2">Paula Hoffmann</h4>
+              <p class="text-red-600 dark:text-red-400 text-sm mb-3">柏林 • 社會議題探索</p>
+              <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                作品聚焦於個人和社會議題，以深刻的社會洞察力和藝術表現力著稱，創作涵蓋多種媒材形式。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 其他參展藝術家 -->
+      <div>
+        <h3 class="text-3xl font-bold text-center mb-8">精選參展藝術家</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg">
+            <h4 class="text-lg font-bold mb-3 text-purple-600 dark:text-purple-400">Jakob Scheidt</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">表現主義風格</p>
+            <p class="text-sm leading-relaxed">作品多為大型畫作，色彩大膽，情感強烈，展現出強烈的視覺衝擊力和情感表達。</p>
+          </div>
+          
+          <div class="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg">
+            <h4 class="text-lg font-bold mb-3 text-green-600 dark:text-green-400">Manuela Karin Knaut</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">多媒材融合</p>
+            <p class="text-sm leading-relaxed">結合絲網印刷、壓克力和油畫，探索日常生活中的美學與情感，展現獨特的藝術語言。</p>
+          </div>
+          
+          <div class="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg">
+            <h4 class="text-lg font-bold mb-3 text-indigo-600 dark:text-indigo-400">Marco Wachsmuth</h4>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">抒情抽象風格</p>
+            <p class="text-sm leading-relaxed">通過顏色的直接對話創作，展現記憶與當下的交錯，作品充滿詩意和哲學思考。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 特色活動與服務 -->
+  <section id="activities" class="py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6">特色活動</h2>
+        <p class="text-xl text-gray-600 dark:text-gray-300">豐富的互動活動與專業服務，提升您的藝術體驗</p>
+      </div>
+
+      <div class="space-y-12">
+        <!-- Late View晚間特別活動 -->
+        <div class="bg-gradient-to-r from-purple-500 to-pink-600 rounded-3xl p-8 md:p-12 text-white relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"></div>
+          <div class="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12"></div>
+          <div class="relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 class="text-3xl font-bold mb-4 flex items-center">
+                  <i class="fas fa-moon mr-3"></i>
+                  晚間特別活動 Late View
+                </h3>
+                <p class="text-lg mb-6 opacity-90">
+                  11月13日（星期四）18:00-22:00，享受音樂、美酒與藝術的完美結合，在輕鬆創意的氛圍中欣賞年度精選展覽。
+                </p>
+                <div class="flex items-center space-x-4">
+                  <span class="bg-white/20 px-4 py-2 rounded-full text-sm">DJ音樂</span>
+                  <span class="bg-white/20 px-4 py-2 rounded-full text-sm">葡萄酒品鑑</span>
+                  <span class="bg-white/20 px-4 py-2 rounded-full text-sm">€20門票</span>
+                </div>
+              </div>
+              <div class="text-center">
+                <img src="https://image.pollinations.ai/prompt/art%20gallery%20evening%20event,%20people%20with%20wine%20glasses,%20contemporary%20art%20on%20walls,%20ambient%20lighting,%20social%20atmosphere,%20photorealistic?nologo=true" alt="晚間藝術活動" class="w-full h-64 object-cover rounded-xl shadow-2xl">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- 免費導覽 -->
+          <div class="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-xl">
+            <div class="text-center mb-4">
+              <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-route text-blue-600 dark:text-blue-400 text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold">免費導覽服務</h3>
+            </div>
+            <div class="space-y-3 text-sm">
+              <div class="flex justify-between">
+                <span>每日公眾導覽</span>
+                <span class="text-blue-600 dark:text-blue-400">下午3時</span>
+              </div>
+              <div class="border-t border-gray-200 dark:border-gray-700 pt-3">
+                <p class="font-medium mb-2">專題導覽：</p>
+                <p>• 新興藝術家（11/14 16:00）</p>
+                <p>• 千歐以下作品（11/14 17:00）</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 收藏家對談 -->
+          <div class="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-xl">
+            <div class="text-center mb-4">
+              <div class="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-comments text-green-600 dark:text-green-400 text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold">收藏家對談</h3>
+            </div>
+            <div class="space-y-3 text-sm">
+              <div class="flex justify-between">
+                <span>如何開始收集藝術品</span>
+                <span class="text-green-600 dark:text-green-400">11/15 15:00</span>
+              </div>
+              <div class="border-t border-gray-200 dark:border-gray-700 pt-3">
+                <p class="text-gray-600 dark:text-gray-400">與專業收藏家和畫廊主對話，分享實用建議和收藏視角</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 家庭服務 -->
+          <div class="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-xl">
+            <div class="text-center mb-4">
+              <div class="w-16 h-16 bg-orange-100 dark:bg-orange-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-child text-orange-600 dark:text-orange-400 text-2xl"></i>
+              </div>
+              <h3 class="text-xl font-bold">兒童與家庭</h3>
+            </div>
+            <div class="space-y-3 text-sm">
+              <div class="flex justify-between">
+                <span>家庭票優惠</span>
+                <span class="text-orange-600 dark:text-orange-400">週末€22</span>
+              </div>
+              <div class="border-t border-gray-200 dark:border-gray-700 pt-3">
+                <p>• 兒童創意活動區</p>
+                <p>• 新增兒童繪畫牆</p>
+                <p>• 互動體驗設施</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 專業服務 -->
+        <div class="bg-gray-50 dark:bg-gray-800 rounded-2xl p-8">
+          <h3 class="text-2xl font-bold text-center mb-8">專業服務</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-lg flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-box text-purple-600 dark:text-purple-400"></i>
+              </div>
+              <div>
+                <h4 class="font-bold mb-2">專業包裝運輸</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400">由Wall to Wall Art Solutions提供專業包裝與運輸服務，確保購買的藝術品安全運回</p>
+              </div>
+            </div>
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-lg flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-utensils text-indigo-600 dark:text-indigo-400"></i>
+              </div>
+              <div>
+                <h4 class="font-bold mb-2">餐飲服務</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400">現場設有餐廳、咖啡館和食品車，提供披薩、塔可、沙拉、咖啡和雞尾酒等多種選擇</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- 購票資訊 -->
+  <section id="tickets" class="py-20 bg-gray-50 dark:bg-gray-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6">購票資訊</h2>
+        <p class="text-xl text-gray-600 dark:text-gray-300">多種票券選擇，建議提前線上購買享受優惠</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <!-- 早鳥票 -->
+        <div class="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-xl border-2 border-green-200 dark:border-green-800">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-early-birds text-green-600 dark:text-green-400 text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">早鳥票</h3>
+            <div class="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">€12</div>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">9月10日-10月5日</p>
+            <div class="bg-green-50 dark:bg-green-900/20 rounded-lg p-3">
+              <p class="text-xs text-green-800 dark:text-green-200">最優惠價格</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 網上預售票 -->
+        <div class="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-xl">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-laptop text-blue-600 dark:text-blue-400 text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">網上預售票</h3>
+            <div class="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">€15</div>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">至11月9日</p>
+            <div class="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-3">
+              <p class="text-xs text-blue-800 dark:text-blue-200">避免現場排隊</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 現場購票 -->
+        <div class="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-xl">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-orange-100 dark:bg-orange-900 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-ticket-alt text-orange-600 dark:text-orange-400 text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">現場購票</h3>
+            <div class="text-3xl font-bold text-orange-600 dark:text-orange-400 mb-2">€18</div>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">現場購買</p>
+            <div class="bg-orange-50 dark:bg-orange-900/20 rounded-lg p-3">
+              <p class="text-xs text-orange-800 dark:text-orange-200">標準價格</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 家庭票 -->
+        <div class="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-xl border-2 border-purple-200 dark:border-purple-800">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-users text-purple-600 dark:text-purple-400 text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">家庭票</h3>
+            <div class="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">€22</div>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">週六日有效</p>
+            <div class="bg-purple-50 dark:bg-purple-900/20 rounded-lg p-3">
+              <p class="text-xs text-purple-800 dark:text-purple-200">2成人+3兒童</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Late View 特別票券 -->
+      <div class="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-3xl p-8 text-white text-center mb-12">
+        <h3 class="text-2xl font-bold mb-4">Late View 晚間特別活動</h3>
+        <div class="text-4xl font-bold mb-4">€20</div>
+        <p class="text-lg mb-6">11月13日 18:00-22:00 • 包含音樂與飲品</p>
+        <div class="inline-flex items-center space-x-4 text-sm">
+          <span class="bg-white/20 px-3 py-1 rounded-full">DJ現場</span>
+          <span class="bg-white/20 px-3 py-1 rounded-full">葡萄酒品鑑</span>
+          <span class="bg-white/20 px-3 py-1 rounded-full">避開人群</span>
+        </div>
+      </div>
+
+      <!-- 購票建議 -->
+      <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl">
+        <h3 class="text-2xl font-bold text-center mb-6">購票建議與最佳參觀時間</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <h4 class="text-lg font-semibold mb-4 text-amber-600 dark:text-amber-400">購票建議</h4>
+            <ul class="space-y-2 text-sm">
+              <li class="flex items-start space-x-2">
+                <i class="fas fa-check text-green-500 mt-1 flex-shrink-0"></i>
+                <span>提前線上購票可節省費用並避免現場排隊</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <i class="fas fa-check text-green-500 mt-1 flex-shrink-0"></i>
+                <span>早鳥票提供最優惠價格（9月10日-10月5日）</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <i class="fas fa-check text-green-500 mt-1 flex-shrink-0"></i>
+                <span>家庭票適合週末攜帶兒童參觀</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-semibold mb-4 text-blue-600 dark:text-blue-400">最佳參觀時間</h4>
+            <ul class="space-y-2 text-sm">
+              <li class="flex items-start space-x-2">
+                <i class="fas fa-star text-yellow-500 mt-1 flex-shrink-0"></i>
+                <span>工作日上午或週日上午較不擁擠</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <i class="fas fa-star text-yellow-500 mt-1 flex-shrink-0"></i>
+                <span>Late View提供獨特的社交體驗</span>
+              </li>
+              <li class="flex items-start space-x-2">
+                <i class="fas fa-star text-yellow-500 mt-1 flex-shrink-0"></i>
+                <span>建議預留3-4小時參觀時間</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 媒體評價與影響 -->
+  <section class="py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6">媒體評價與文化影響</h2>
+        <p class="text-xl text-gray-600 dark:text-gray-300">促進藝術民主化，推動漢堡藝術市場復興</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+        <!-- 媒體統計 -->
+        <div class="space-y-6">
+          <h3 class="text-2xl font-bold">媒體關注度</h3>
+          <div class="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-xl">
+            <div id="mediaStatsChart" class="h-64" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" _echarts_instance_="ec_1763165316395" data-chart-option="{&quot;darkMode&quot;:&quot;auto&quot;,&quot;colorBy&quot;:&quot;series&quot;,&quot;color&quot;:[&quot;#5470c6&quot;,&quot;#91cc75&quot;,&quot;#fac858&quot;,&quot;#ee6666&quot;,&quot;#73c0de&quot;,&quot;#3ba272&quot;,&quot;#fc8452&quot;,&quot;#9a60b4&quot;,&quot;#ea7ccc&quot;],&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;textStyle&quot;:{&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;title&quot;:[{&quot;text&quot;:&quot;2019年媒體報導統計&quot;,&quot;textStyle&quot;:{&quot;fontSize&quot;:16,&quot;fontWeight&quot;:&quot;bold&quot;,&quot;color&quot;:&quot;#464646&quot;},&quot;z&quot;:6,&quot;show&quot;:true,&quot;target&quot;:&quot;blank&quot;,&quot;subtext&quot;:&quot;&quot;,&quot;subtarget&quot;:&quot;blank&quot;,&quot;left&quot;:0,&quot;top&quot;:0,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderColor&quot;:&quot;#ccc&quot;,&quot;borderWidth&quot;:0,&quot;padding&quot;:5,&quot;itemGap&quot;:10,&quot;subtextStyle&quot;:{&quot;fontSize&quot;:12,&quot;color&quot;:&quot;#6E7079&quot;}}],&quot;axisPointer&quot;:[{&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9BEC9&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;label&quot;:{&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;color&quot;:&quot;#fff&quot;,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[{&quot;trigger&quot;:&quot;axis&quot;,&quot;z&quot;:60,&quot;show&quot;:true,&quot;showContent&quot;:true,&quot;triggerOn&quot;:&quot;mousemove|click&quot;,&quot;alwaysShowContent&quot;:false,&quot;displayMode&quot;:&quot;single&quot;,&quot;renderMode&quot;:&quot;auto&quot;,&quot;confine&quot;:null,&quot;showDelay&quot;:0,&quot;hideDelay&quot;:100,&quot;transitionDuration&quot;:0.4,&quot;enterable&quot;:false,&quot;backgroundColor&quot;:&quot;#fff&quot;,&quot;shadowBlur&quot;:10,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, .2)&quot;,&quot;shadowOffsetX&quot;:1,&quot;shadowOffsetY&quot;:2,&quot;borderRadius&quot;:4,&quot;borderWidth&quot;:1,&quot;padding&quot;:null,&quot;extraCssText&quot;:&quot;&quot;,&quot;axisPointer&quot;:{&quot;type&quot;:&quot;line&quot;,&quot;axis&quot;:&quot;auto&quot;,&quot;animation&quot;:&quot;auto&quot;,&quot;animationDurationUpdate&quot;:200,&quot;animationEasingUpdate&quot;:&quot;exponentialOut&quot;,&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#999&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;,&quot;textStyle&quot;:{}}},&quot;textStyle&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;fontSize&quot;:14}}],&quot;yAxis&quot;:[{&quot;type&quot;:&quot;value&quot;,&quot;boundaryGap&quot;:[0,0],&quot;axisLine&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#6E7079&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;axisTick&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;splitNumber&quot;:5,&quot;minorTick&quot;:{&quot;show&quot;:false,&quot;splitNumber&quot;:5,&quot;length&quot;:3,&quot;lineStyle&quot;:{}},&quot;minorSplitLine&quot;:{&quot;show&quot;:false,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#F4F7FD&quot;,&quot;width&quot;:1}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{},&quot;axisLabel&quot;:{&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;splitLine&quot;:{&quot;show&quot;:true,&quot;lineStyle&quot;:{&quot;color&quot;:[&quot;#E0E6F1&quot;],&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;}},&quot;splitArea&quot;:{&quot;show&quot;:false,&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(250,250,250,0.2)&quot;,&quot;rgba(210,219,238,0.2)&quot;]}},&quot;offset&quot;:0}],&quot;xAxis&quot;:[{&quot;type&quot;:&quot;category&quot;,&quot;data&quot;:[&quot;印刷媒體&quot;,&quot;線上文章&quot;,&quot;社交分享&quot;,&quot;廣播電視&quot;],&quot;boundaryGap&quot;:true,&quot;deduplication&quot;:null,&quot;splitLine&quot;:{&quot;show&quot;:false,&quot;lineStyle&quot;:{&quot;color&quot;:[&quot;#E0E6F1&quot;],&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;}},&quot;axisTick&quot;:{&quot;alignWithLabel&quot;:false,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;axisLabel&quot;:{&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{&quot;status&quot;:&quot;hide&quot;,&quot;value&quot;:3},&quot;axisLine&quot;:{&quot;show&quot;:true,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#6E7079&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;splitArea&quot;:{&quot;show&quot;:false,&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(250,250,250,0.2)&quot;,&quot;rgba(210,219,238,0.2)&quot;]}},&quot;offset&quot;:0}],&quot;grid&quot;:[{&quot;show&quot;:false,&quot;z&quot;:0,&quot;left&quot;:&quot;10%&quot;,&quot;top&quot;:60,&quot;right&quot;:&quot;10%&quot;,&quot;bottom&quot;:70,&quot;containLabel&quot;:false,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#ccc&quot;}],&quot;series&quot;:[{&quot;name&quot;:&quot;報導數量&quot;,&quot;type&quot;:&quot;bar&quot;,&quot;data&quot;:[45,36,114,15],&quot;itemStyle&quot;:{&quot;color&quot;:{&quot;colorStops&quot;:[{&quot;offset&quot;:0,&quot;color&quot;:&quot;#fbbf24&quot;},{&quot;offset&quot;:1,&quot;color&quot;:&quot;#f59e0b&quot;}],&quot;x&quot;:0,&quot;y&quot;:0,&quot;x2&quot;:0,&quot;y2&quot;:1,&quot;type&quot;:&quot;linear&quot;,&quot;global&quot;:false}},&quot;label&quot;:{&quot;show&quot;:true,&quot;position&quot;:&quot;top&quot;},&quot;z&quot;:2,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;barMinHeight&quot;:0,&quot;barMinAngle&quot;:0,&quot;large&quot;:false,&quot;largeThreshold&quot;:400,&quot;progressive&quot;:3000,&quot;progressiveChunkMode&quot;:&quot;mod&quot;,&quot;clip&quot;:true,&quot;roundCap&quot;:false,&quot;showBackground&quot;:false,&quot;backgroundStyle&quot;:{&quot;color&quot;:&quot;rgba(180, 180, 180, 0.2)&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderType&quot;:&quot;solid&quot;,&quot;borderRadius&quot;:0,&quot;shadowBlur&quot;:0,&quot;shadowColor&quot;:null,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:0,&quot;opacity&quot;:1},&quot;select&quot;:{&quot;itemStyle&quot;:{&quot;borderColor&quot;:&quot;#212121&quot;}},&quot;realtimeSort&quot;:false,&quot;emphasis&quot;:{&quot;label&quot;:{&quot;show&quot;:true}}}],&quot;visualMap&quot;:[],&quot;legend&quot;:[],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 472px; height: 256px; padding: 0px; margin: 0px; border-width: 0px;"><canvas data-zr-dom-id="zr_0" width="531" height="288" style="position: absolute; left: 0px; top: 0px; width: 472px; height: 256px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class=""></div></div>
+          </div>
+          <div class="text-center text-sm text-gray-600 dark:text-gray-400">
+            2019年媒體報導統計 - 觸及超過1,500萬人
+          </div>
+        </div>
+
+        <!-- 藝術市場趨勢 -->
+        <div class="space-y-6">
+          <h3 class="text-2xl font-bold">低價位藝術品市場趨勢</h3>
+          <div class="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-xl">
+            <div id="marketTrendChart" class="h-64" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" _echarts_instance_="ec_1763165316396" data-chart-option="{&quot;darkMode&quot;:&quot;auto&quot;,&quot;colorBy&quot;:&quot;series&quot;,&quot;color&quot;:[&quot;#5470c6&quot;,&quot;#91cc75&quot;,&quot;#fac858&quot;,&quot;#ee6666&quot;,&quot;#73c0de&quot;,&quot;#3ba272&quot;,&quot;#fc8452&quot;,&quot;#9a60b4&quot;,&quot;#ea7ccc&quot;],&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;textStyle&quot;:{&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;title&quot;:[{&quot;text&quot;:&quot;低價位藝術品交易佔比&quot;,&quot;textStyle&quot;:{&quot;fontSize&quot;:16,&quot;fontWeight&quot;:&quot;bold&quot;,&quot;color&quot;:&quot;#464646&quot;},&quot;z&quot;:6,&quot;show&quot;:true,&quot;target&quot;:&quot;blank&quot;,&quot;subtext&quot;:&quot;&quot;,&quot;subtarget&quot;:&quot;blank&quot;,&quot;left&quot;:0,&quot;top&quot;:0,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderColor&quot;:&quot;#ccc&quot;,&quot;borderWidth&quot;:0,&quot;padding&quot;:5,&quot;itemGap&quot;:10,&quot;subtextStyle&quot;:{&quot;fontSize&quot;:12,&quot;color&quot;:&quot;#6E7079&quot;}}],&quot;axisPointer&quot;:[{&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9BEC9&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;label&quot;:{&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;color&quot;:&quot;#fff&quot;,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[{&quot;trigger&quot;:&quot;axis&quot;,&quot;z&quot;:60,&quot;show&quot;:true,&quot;showContent&quot;:true,&quot;triggerOn&quot;:&quot;mousemove|click&quot;,&quot;alwaysShowContent&quot;:false,&quot;displayMode&quot;:&quot;single&quot;,&quot;renderMode&quot;:&quot;auto&quot;,&quot;confine&quot;:null,&quot;showDelay&quot;:0,&quot;hideDelay&quot;:100,&quot;transitionDuration&quot;:0.4,&quot;enterable&quot;:false,&quot;backgroundColor&quot;:&quot;#fff&quot;,&quot;shadowBlur&quot;:10,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, .2)&quot;,&quot;shadowOffsetX&quot;:1,&quot;shadowOffsetY&quot;:2,&quot;borderRadius&quot;:4,&quot;borderWidth&quot;:1,&quot;padding&quot;:null,&quot;extraCssText&quot;:&quot;&quot;,&quot;axisPointer&quot;:{&quot;type&quot;:&quot;line&quot;,&quot;axis&quot;:&quot;auto&quot;,&quot;animation&quot;:&quot;auto&quot;,&quot;animationDurationUpdate&quot;:200,&quot;animationEasingUpdate&quot;:&quot;exponentialOut&quot;,&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#999&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;,&quot;textStyle&quot;:{}}},&quot;textStyle&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;fontSize&quot;:14}}],&quot;yAxis&quot;:[{&quot;type&quot;:&quot;value&quot;,&quot;min&quot;:0,&quot;max&quot;:100,&quot;axisLabel&quot;:{&quot;formatter&quot;:&quot;{value}%&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;boundaryGap&quot;:[0,0],&quot;axisLine&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#6E7079&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;axisTick&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;splitNumber&quot;:5,&quot;minorTick&quot;:{&quot;show&quot;:false,&quot;splitNumber&quot;:5,&quot;length&quot;:3,&quot;lineStyle&quot;:{}},&quot;minorSplitLine&quot;:{&quot;show&quot;:false,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#F4F7FD&quot;,&quot;width&quot;:1}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{},&quot;splitLine&quot;:{&quot;show&quot;:true,&quot;lineStyle&quot;:{&quot;color&quot;:[&quot;#E0E6F1&quot;],&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;}},&quot;splitArea&quot;:{&quot;show&quot;:false,&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(250,250,250,0.2)&quot;,&quot;rgba(210,219,238,0.2)&quot;]}},&quot;offset&quot;:0}],&quot;xAxis&quot;:[{&quot;type&quot;:&quot;category&quot;,&quot;data&quot;:[&quot;2022年&quot;,&quot;2024年&quot;],&quot;boundaryGap&quot;:true,&quot;deduplication&quot;:null,&quot;splitLine&quot;:{&quot;show&quot;:false,&quot;lineStyle&quot;:{&quot;color&quot;:[&quot;#E0E6F1&quot;],&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;}},&quot;axisTick&quot;:{&quot;alignWithLabel&quot;:false,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;axisLabel&quot;:{&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{&quot;status&quot;:&quot;hide&quot;,&quot;value&quot;:1},&quot;axisLine&quot;:{&quot;show&quot;:true,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#6E7079&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;splitArea&quot;:{&quot;show&quot;:false,&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(250,250,250,0.2)&quot;,&quot;rgba(210,219,238,0.2)&quot;]}},&quot;offset&quot;:0}],&quot;grid&quot;:[{&quot;show&quot;:false,&quot;z&quot;:0,&quot;left&quot;:&quot;10%&quot;,&quot;top&quot;:60,&quot;right&quot;:&quot;10%&quot;,&quot;bottom&quot;:70,&quot;containLabel&quot;:false,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#ccc&quot;}],&quot;series&quot;:[{&quot;name&quot;:&quot;交易佔比&quot;,&quot;type&quot;:&quot;line&quot;,&quot;data&quot;:[73,85],&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#10b981&quot;,&quot;width&quot;:3,&quot;type&quot;:&quot;solid&quot;},&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#10b981&quot;},&quot;areaStyle&quot;:{&quot;color&quot;:{&quot;colorStops&quot;:[{&quot;offset&quot;:0,&quot;color&quot;:&quot;rgba(16, 185, 129, 0.3)&quot;},{&quot;offset&quot;:1,&quot;color&quot;:&quot;rgba(16, 185, 129, 0.1)&quot;}],&quot;x&quot;:0,&quot;y&quot;:0,&quot;x2&quot;:0,&quot;y2&quot;:1,&quot;type&quot;:&quot;linear&quot;,&quot;global&quot;:false}},&quot;label&quot;:{&quot;show&quot;:true,&quot;formatter&quot;:&quot;{c}%&quot;,&quot;position&quot;:&quot;top&quot;},&quot;z&quot;:3,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;clip&quot;:true,&quot;endLabel&quot;:{&quot;show&quot;:false,&quot;valueAnimation&quot;:true,&quot;distance&quot;:8},&quot;emphasis&quot;:{&quot;scale&quot;:true,&quot;label&quot;:{&quot;show&quot;:true}},&quot;step&quot;:false,&quot;smooth&quot;:false,&quot;smoothMonotone&quot;:null,&quot;symbol&quot;:&quot;emptyCircle&quot;,&quot;symbolSize&quot;:4,&quot;symbolRotate&quot;:null,&quot;showSymbol&quot;:true,&quot;showAllSymbol&quot;:&quot;auto&quot;,&quot;connectNulls&quot;:false,&quot;sampling&quot;:&quot;none&quot;,&quot;animationEasing&quot;:&quot;linear&quot;,&quot;progressive&quot;:0,&quot;hoverLayerThreshold&quot;:null,&quot;universalTransition&quot;:{&quot;divideShape&quot;:&quot;clone&quot;},&quot;triggerLineEvent&quot;:false}],&quot;visualMap&quot;:[],&quot;legend&quot;:[],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 472px; height: 256px; padding: 0px; margin: 0px; border-width: 0px;"><canvas data-zr-dom-id="zr_0" width="531" height="288" style="position: absolute; left: 0px; top: 0px; width: 472px; height: 256px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class=""></div></div>
+          </div>
+          <div class="text-center text-sm text-gray-600 dark:text-gray-400">
+            $5,000美元以下藝術品交易佔比變化
+          </div>
+        </div>
+      </div>
+
+      <!-- 專業評論 -->
+      <div class="space-y-8">
+        <h3 class="text-3xl font-bold text-center">專業評論與觀眾回饋</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- 正面評價 -->
+          <div class="bg-green-50 dark:bg-green-900/20 rounded-2xl p-6">
+            <h4 class="text-xl font-bold mb-4 text-green-700 dark:text-green-300">媒體與專業評論</h4>
+            <div class="space-y-4">
+              <blockquote class="border-l-4 border-green-400 pl-4 italic">
+                <p class="text-sm mb-2">"展覽不僅是一個促進藝術交流的平台，還在藝術民主化方面做出了重要貢獻。"</p>
+                <cite class="text-xs text-gray-600 dark:text-gray-400">- 藝術媒體評論</cite>
+              </blockquote>
+              <blockquote class="border-l-4 border-green-400 pl-4 italic">
+                <p class="text-sm mb-2">"價格範圍設計合理，能夠吸引更多初次接觸藝術的觀眾。"</p>
+                <cite class="text-xs text-gray-600 dark:text-gray-400">- 專業藝術評論</cite>
+              </blockquote>
+            </div>
+          </div>
+
+          <!-- 建議與改進 -->
+          <div class="bg-blue-50 dark:bg-blue-900/20 rounded-2xl p-6">
+            <h4 class="text-xl font-bold mb-4 text-blue-700 dark:text-blue-300">觀眾回饋與建議</h4>
+            <div class="space-y-4">
+              <div class="bg-white dark:bg-gray-800 rounded-lg p-3">
+                <p class="text-sm mb-1 font-medium">正面回饋：</p>
+                <p class="text-xs text-gray-600 dark:text-gray-400">展覽環境友好、作品多樣性高、新興藝術家作品令人印象深刻</p>
+              </div>
+              <div class="bg-white dark:bg-gray-800 rounded-lg p-3">
+                <p class="text-sm mb-1 font-medium">改進建議：</p>
+                <p class="text-xs text-gray-600 dark:text-gray-400">部分觀眾認為價格仍偏高、停車費用昂貴，建議提供更多交通優惠</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 社會影響 -->
+        <div class="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 rounded-2xl p-8">
+          <h4 class="text-2xl font-bold text-center mb-6">社會影響與貢獻</h4>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="text-center">
+              <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-heart text-purple-600 dark:text-purple-400 text-2xl"></i>
+              </div>
+              <h5 class="font-bold mb-2">慈善捐贈</h5>
+              <p class="text-sm text-gray-600 dark:text-gray-400">向藝術慈善機構捐贈150萬英鎊</p>
+            </div>
+            <div class="text-center">
+              <div class="w-16 h-16 bg-indigo-100 dark:bg-indigo-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-graduation-cap text-indigo-600 dark:text-indigo-400 text-2xl"></i>
+              </div>
+              <h5 class="font-bold mb-2">教育支持</h5>
+              <p class="text-sm text-gray-600 dark:text-gray-400">為藝術教育項目提供310萬英鎊支持</p>
+            </div>
+            <div class="text-center">
+              <div class="w-16 h-16 bg-pink-100 dark:bg-pink-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-seedling text-pink-600 dark:text-pink-400 text-2xl"></i>
+              </div>
+              <h5 class="font-bold mb-2">新興藝術家</h5>
+              <p class="text-sm text-gray-600 dark:text-gray-400">提供230萬英鎊展位空間支持</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 頁腳 -->
+  <footer class="bg-gray-900 text-white py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div>
+          <div class="flex items-center space-x-3 mb-6">
+            <div class="w-10 h-10 bg-gradient-to-r from-amber-500 to-orange-600 rounded-full flex items-center justify-center">
+              <i class="fas fa-palette text-white"></i>
+            </div>
+            <span class="text-2xl font-bold">AAF Hamburg</span>
+          </div>
+          <p class="text-gray-400 leading-relaxed">
+            藝術為所有人。漢堡「Affordable Art Fair」致力於讓藝術更加親民，促進藝術的普及化與民主化。
+          </p>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-bold mb-6">展覽資訊</h3>
+          <div class="space-y-3 text-gray-400">
+            <p><i class="fas fa-calendar mr-2 text-amber-400"></i>2025年11月13-16日</p>
+            <p><i class="fas fa-map-marker-alt mr-2 text-orange-400"></i>漢堡會展中心 A3展廳</p>
+            <p><i class="fas fa-euro-sign mr-2 text-red-400"></i>作品價格 €100 - €10,000</p>
+            <p><i class="fas fa-users mr-2 text-purple-400"></i>預期參觀者 5,000-20,000人</p>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-bold mb-6">聯絡資訊</h3>
+          <div class="space-y-3 text-gray-400">
+            <p>Messeplatz, 20357 Hamburg</p>
+            <p>Germany</p>
+            <div class="pt-4">
+              <p class="text-sm">免責申明：基於公開資料，僅供參考，不構成建議</p>
+              <p class="text-sm">資料來源：網頁公開資訊</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 mt-12 pt-8 text-center">
+        <p class="text-gray-400">版權所有 © 2025 Dunk. 保留所有權利。</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // 圖表選項全局存儲
+    window.chartOptions = {};
+
+    // 初始化 Mermaid
+    mermaid.initialize({
+      theme: document.documentElement.classList.contains('dark') ? 'dark' : 'default',
+      startOnLoad: true
+    });
+
+    // 媒材分布圖表
+    const initMediaChart = () => {
+      const chartDom = document.getElementById('mediaChart');
+      const myChart = echarts.init(chartDom, document.documentElement.classList.contains('dark') ? 'dark' : null);
+      const option = {
+        title: {
+          text: '展品媒材分布',
+          left: 'center',
+          textStyle: {
+            fontSize: 18,
+            fontWeight: 'bold'
+          }
+        },
+        tooltip: {
+          trigger: 'item',
+          formatter: '{a} <br/>{b}: {c}% ({d}%)'
+        },
+        legend: {
+          orient: 'vertical',
+          left: 'left'
+        },
+        series: [
+          {
+            name: '媒材類型',
+            type: 'pie',
+            radius: '60%',
+            center: ['60%', '50%'],
+            data: [
+              { value: 35, name: '油畫與壓克力畫' },
+              { value: 25, name: '攝影作品' },
+              { value: 20, name: '雕塑作品' },
+              { value: 15, name: '混合媒材' },
+              { value: 5, name: '數位藝術' }
+            ],
+            emphasis: {
+              itemStyle: {
+                shadowBlur: 10,
+                shadowOffsetX: 0,
+                shadowColor: 'rgba(0, 0, 0, 0.5)'
+              }
+            },
+            label: {
+              show: true,
+              formatter: '{b}: {c}%'
+            }
+          }
+        ]
+      };
+      window.chartOptions['mediaChart'] = option;
+      myChart.setOption(option);
+    };
+
+    // 媒體統計圖表
+    const initMediaStatsChart = () => {
+      const chartDom = document.getElementById('mediaStatsChart');
+      const myChart = echarts.init(chartDom, document.documentElement.classList.contains('dark') ? 'dark' : null);
+      const option = {
+        title: {
+          text: '2019年媒體報導統計',
+          textStyle: {
+            fontSize: 16
+          }
+        },
+        tooltip: {
+          trigger: 'axis'
+        },
+        xAxis: {
+          type: 'category',
+          data: ['印刷媒體', '線上文章', '社交分享', '廣播電視']
+        },
+        yAxis: {
+          type: 'value'
+        },
+        series: [
+          {
+            name: '報導數量',
+            type: 'bar',
+            data: [45, 36, 114, 15],
+            itemStyle: {
+              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                { offset: 0, color: '#fbbf24' },
+                { offset: 1, color: '#f59e0b' }
+              ])
+            },
+            label: {
+              show: true,
+              position: 'top'
+            }
+          }
+        ]
+      };
+      window.chartOptions['mediaStatsChart'] = option;
+      myChart.setOption(option);
+    };
+
+    // 市場趨勢圖表
+    const initMarketTrendChart = () => {
+      const chartDom = document.getElementById('marketTrendChart');
+      const myChart = echarts.init(chartDom, document.documentElement.classList.contains('dark') ? 'dark' : null);
+      const option = {
+        title: {
+          text: '低價位藝術品交易佔比',
+          textStyle: {
+            fontSize: 16
+          }
+        },
+        tooltip: {
+          trigger: 'axis'
+        },
+        xAxis: {
+          type: 'category',
+          data: ['2022年', '2024年']
+        },
+        yAxis: {
+          type: 'value',
+          min: 0,
+          max: 100,
+          axisLabel: {
+            formatter: '{value}%'
+          }
+        },
+        series: [
+          {
+            name: '交易佔比',
+            type: 'line',
+            data: [73, 85],
+            lineStyle: {
+              color: '#10b981',
+              width: 3
+            },
+            itemStyle: {
+              color: '#10b981'
+            },
+            areaStyle: {
+              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                { offset: 0, color: 'rgba(16, 185, 129, 0.3)' },
+                { offset: 1, color: 'rgba(16, 185, 129, 0.1)' }
+              ])
+            },
+            label: {
+              show: true,
+              formatter: '{c}%'
+            }
+          }
+        ]
+      };
+      window.chartOptions['marketTrendChart'] = option;
+      myChart.setOption(option);
+    };
+
+    // 初始化所有圖表
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        initMediaChart();
+        initMediaStatsChart();
+        initMarketTrendChart();
+      }, 100);
+    });
+
+    // 平滑滾動
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  </script>
+
+</body></html>
