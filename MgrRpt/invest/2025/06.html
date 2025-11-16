@@ -1,0 +1,1548 @@
+<!DOCTYPE html><html lang="zh-TW" class="scroll-smooth dark"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IOSCO 金融資產代幣化報告 - 深度解析與市場洞察</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/preline@2.3.0/dist/preline.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script>
+        tailwind.config = {            
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Noto Sans TC', 'Inter', 'sans-serif']
+                    },
+                    colors: {
+                        primary: '#9A0036',
+                        secondary: '#941C61',
+                        accent: '#EEBAC0',
+                        highlight: '#F59E0B'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #9A0036 0%, #941C61 50%, #EEBAC0 100%);
+        }
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+<script src="https://felo.ai/js/iframe.js?v=1763334599286"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style><style data-id="immersive-translate-input-injected-css">.immersive-translate-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2147483647;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.immersive-translate-attach-loading::after {
+  content: " ";
+
+  --loading-color: #f78fb6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+  position: relative;
+  color: white;
+  left: -100px;
+  box-sizing: border-box;
+  animation: immersiveTranslateShadowRolling 1.5s linear infinite;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-2000%, -50%);
+  z-index: 100;
+}
+
+.immersive-translate-loading-spinner {
+  vertical-align: middle !important;
+  width: 10px !important;
+  height: 10px !important;
+  display: inline-block !important;
+  margin: 0 4px !important;
+  border: 2px rgba(221, 244, 255, 0.6) solid !important;
+  border-top: 2px rgba(0, 0, 0, 0.375) solid !important;
+  border-left: 2px rgba(0, 0, 0, 0.375) solid !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  -webkit-animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+  animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+}
+
+@-webkit-keyframes immersive-translate-loading-animation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+
+@keyframes immersive-translate-loading-animation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.immersive-translate-input-loading {
+  --loading-color: #f78fb6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+  position: relative;
+  color: white;
+  left: -100px;
+  box-sizing: border-box;
+  animation: immersiveTranslateShadowRolling 1.5s linear infinite;
+}
+
+@keyframes immersiveTranslateShadowRolling {
+  0% {
+    box-shadow: 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  12% {
+    box-shadow: 100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  25% {
+    box-shadow: 110px 0 var(--loading-color), 100px 0 var(--loading-color),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  36% {
+    box-shadow: 120px 0 var(--loading-color), 110px 0 var(--loading-color),
+      100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  50% {
+    box-shadow: 130px 0 var(--loading-color), 120px 0 var(--loading-color),
+      110px 0 var(--loading-color), 100px 0 var(--loading-color);
+  }
+
+  62% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color),
+      120px 0 var(--loading-color), 110px 0 var(--loading-color);
+  }
+
+  75% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      130px 0 var(--loading-color), 120px 0 var(--loading-color);
+  }
+
+  87% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color);
+  }
+
+  100% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0);
+  }
+}
+
+.immersive-translate-toast {
+  display: flex;
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  right: 0;
+  top: 1%;
+  width: fit-content;
+  padding: 12px 20px;
+  margin: auto;
+  overflow: auto;
+  background: #fef6f9;
+  box-shadow: 0px 4px 10px 0px rgba(0, 10, 30, 0.06);
+  font-size: 15px;
+  border-radius: 8px;
+  color: #333;
+}
+
+.immersive-translate-toast-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.immersive-translate-toast-hidden {
+  margin: 0 20px 0 72px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.immersive-translate-toast-close {
+  color: #666666;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-toast {
+    top: 0;
+    padding: 12px 0px 0 10px;
+  }
+  .immersive-translate-toast-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .immersive-translate-toast-hidden {
+    margin: 10px auto;
+  }
+}
+
+.immersive-translate-dialog {
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  top: 0;
+  display: flex;
+  width: 300px;
+  flex-direction: column;
+  align-items: center;
+  font-size: 15px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: fit-content;
+  border-radius: 20px;
+  background-color: #fff;
+}
+
+.immersive-translate-modal {
+  display: none;
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  font-size: 15px;
+}
+
+.immersive-translate-modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 40px 24px 24px;
+  border-radius: 12px;
+  width: 350px;
+  font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",
+    "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-modal-content {
+    margin: 25% auto !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .immersive-translate-modal-content {
+    width: 80vw !important;
+    margin: 20vh auto !important;
+    padding: 20px 12px 12px !important;
+  }
+
+  .immersive-translate-modal-title {
+    font-size: 14px !important;
+  }
+
+  .immersive-translate-modal-body {
+    font-size: 13px !important;
+    max-height: 60vh !important;
+  }
+
+  .immersive-translate-btn {
+    font-size: 13px !important;
+    padding: 8px 16px !important;
+    margin: 0 4px !important;
+  }
+
+  .immersive-translate-modal-footer {
+    gap: 6px !important;
+    margin-top: 16px !important;
+  }
+}
+
+.immersive-translate-modal .immersive-translate-modal-content-in-input {
+  max-width: 500px;
+}
+.immersive-translate-modal-content-in-input .immersive-translate-modal-body {
+  text-align: left;
+  max-height: unset;
+}
+
+.immersive-translate-modal-title {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333333;
+}
+
+.immersive-translate-modal-body {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333333;
+  margin-top: 24px;
+  word-break: break-all;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-modal-body {
+    max-height: 250px;
+    overflow-y: auto;
+  }
+}
+
+.immersive-translate-close {
+  color: #666666;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.immersive-translate-close:hover,
+.immersive-translate-close:focus {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.immersive-translate-modal-footer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.immersive-translate-btn {
+  width: fit-content;
+  color: #fff;
+  background-color: #ea4c89;
+  border: none;
+  font-size: 14px;
+  margin: 0 8px;
+  padding: 9px 30px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.immersive-translate-btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.immersive-translate-btn:hover {
+  background-color: #f082ac;
+}
+.immersive-translate-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.immersive-translate-btn:disabled:hover {
+  background-color: #ea4c89;
+}
+
+.immersive-translate-link-btn {
+  background-color: transparent;
+  color: #ea4c89;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  line-height: 30px;
+}
+
+.immersive-translate-cancel-btn {
+  /* gray color */
+  background-color: rgb(89, 107, 120);
+}
+
+.immersive-translate-cancel-btn:hover {
+  background-color: hsl(205, 20%, 32%);
+}
+
+.immersive-translate-action-btn {
+  background-color: transparent;
+  color: #ea4c89;
+  border: 1px solid #ea4c89;
+}
+
+.immersive-translate-btn svg {
+  margin-right: 5px;
+}
+
+.immersive-translate-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #ea4c89;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+.immersive-translate-primary-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #ea4c89;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+.immersive-translate-modal input[type="radio"] {
+  margin: 0 6px;
+  cursor: pointer;
+}
+
+.immersive-translate-modal label {
+  cursor: pointer;
+}
+
+.immersive-translate-close-action {
+  position: absolute;
+  top: 2px;
+  right: 0px;
+  cursor: pointer;
+}
+
+.imt-image-status {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 16px !important;
+}
+.imt-image-status img,
+.imt-image-status svg,
+.imt-img-loading {
+  width: 28px !important;
+  height: 28px !important;
+  margin: 0 0 8px 0 !important;
+  min-height: 28px !important;
+  min-width: 28px !important;
+  position: relative !important;
+}
+.imt-img-loading {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAtFBMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////oK74hAAAAPHRSTlMABBMIDyQXHwyBfFdDMSw+OjXCb+5RG51IvV/k0rOqlGRM6KKMhdvNyZBz9MaupmxpWyj437iYd/yJVNZeuUC7AAACt0lEQVRIx53T2XKiUBCA4QYOiyCbiAsuuGBcYtxiYtT3f6/pbqoYHVFO5r+iivpo6DpAWYpqeoFfr9f90DsYAuRSWkFnPO50OgR9PwiCUFcl2GEcx+N/YBh6pvKaefHlUgZd1zVe0NbYcQjGBfzrPE8Xz8aF+71D8gG6DHFPpc4a7xFiCDuhaWgKgGIJQ3d5IMGDrpS4S5KgpIm+en9f6PlAhKby4JwEIxlYJV9h5k5nee9GoxHJ2IDSNB0dwdad1NAxDJ/uXDHYmebdk4PdbkS58CIVHdYSUHTYYRWOJblWSyu2lmy3KNFVJNBhxcuGW4YBVCbYGRZwIooipHsNqjM4FbgOQqQqSKQQU9V8xmi1QlgHqQQ6DDBvRUVCDirs+EzGDGOQTCATgtYTnbCVLgsVgRE0T1QE0qHCFAht2z6dLvJQs3Lo2FQoDxWNUiBhaP4eRgwNkI+dAjVOA/kUrIDwf3CG8NfNOE0eiFotSuo+rBiq8tD9oY4Qzc6YJw99hl1wzpQvD7ef2M8QgnOGJfJw+EltQc+oX2yn907QB22WZcvlUpd143dqQu+8pCJZuGE4xCuPXJqqcs5sNpsI93Rmzym1k4Npk+oD1SH3/a3LOK/JpUBpWfqNySxWzCfNCUITuDG5dtuphrUJ1myeIE9bIsPiKrfqTai5WZxbhtNphYx6GEIHihyGFTI69lje/rxajdh0s0msZ0zYxyPLhYCb1CyHm9Qsd2H37Y3lugVwL9kNh8Ot8cha6fUNQ8nuXi5z9/ExsAO4zQrb/ev1yrCB7lGyQzgYDGuxq1toDN/JGvN+HyWNHKB7zEoK+PX11e12G431erGYzwmytAWU56fkMHY5JJnDRR2eZji3AwtIcrEV8Cojat/BdQ7XOwGV1e1hDjGGjXbdArm8uJZtCH5MbcctVX8A1WpqumJHwckAAAAASUVORK5CYII=");
+  background-size: 28px 28px;
+  animation: image-loading-rotate 1s linear infinite !important;
+}
+
+.imt-image-status span {
+  color: var(--bg-2, #fff) !important;
+  font-size: 14px !important;
+  line-height: 14px !important;
+  font-weight: 500 !important;
+  font-family: "PingFang SC", Arial, sans-serif !important;
+}
+
+.imt-primary-button {
+  display: flex;
+  padding: 12px 80px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  background: #ea4c89;
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  border: none;
+  cursor: pointer;
+}
+
+.imt-retry-text {
+  color: #999;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  cursor: pointer;
+}
+
+.imt-action-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.imt-modal-content-text {
+  text-align: left;
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+@keyframes image-loading-rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.imt-linear-gradient-text {
+  background: linear-gradient(90deg, #00a6ff 0%, #c369ff 52.4%, #ff4590 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.imt-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imt-linear-black-btn {
+  border-radius: 50px;
+  background: linear-gradient(66deg, #222 19%, #696969 94.25%);
+  height: 48px;
+  width: 100%;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+}
+</style><style id="felo-iframe-styles">html,body{margin:0 !important;padding:0 !important;}</style></head>
+
+<body class="font-sans bg-white dark:bg-gray-900 transition-colors duration-300" contenteditable="false" spellcheck="false">
+    
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-effect bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-4">
+                    <i class="fas fa-coins text-primary text-2xl"></i>
+                    <span class="text-xl font-bold text-gray-900 dark:text-white">IOSCO 代幣化報告</span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#overview" class="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">總覽</a>
+                    <a href="#adoption" class="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">市場採用</a>
+                    <a href="#risks" class="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">風險分析</a>
+                    <a href="#regulation" class="text-gray-700 dark:text-gray-300 hover:text-primary transition-colors">監管考量</a>
+                </div>
+                
+                <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:block"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div class="hero-gradient absolute inset-0"></div>
+        <div class="absolute inset-0 bg-black/20"></div>
+        
+        <div class="relative z-10 text-center text-white px-4 max-w-6xl mx-auto">
+            <div class="animate-fade-in">
+                <h1 class="text-6xl md:text-8xl font-bold mb-6 leading-tight">
+                    金融資產<br>
+                    <span class="text-accent">代幣化</span>報告
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 text-white/90 max-w-3xl mx-auto leading-relaxed">
+                    IOSCO 深度解析全球代幣化發展現狀、風險評估與監管框架
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 mb-12">
+                    <div class="glass-effect rounded-2xl p-6 text-center">
+                        <div class="text-4xl font-bold text-highlight mb-2">$100億</div>
+                        <div class="text-white/80">代幣化債券發行量</div>
+                    </div>
+                    <div class="glass-effect rounded-2xl p-6 text-center">
+                        <div class="text-4xl font-bold text-highlight mb-2">$25兆</div>
+                        <div class="text-white/80">全球抵押品市場</div>
+                    </div>
+                    <div class="glass-effect rounded-2xl p-6 text-center">
+                        <div class="text-4xl font-bold text-highlight mb-2">91%</div>
+                        <div class="text-white/80">司法管轄區採用有限</div>
+                    </div>
+                </div>
+                
+                <a href="#overview" class="inline-flex items-center px-8 py-4 bg-white text-primary font-semibold rounded-full hover:bg-gray-100 transition-colors shadow-lg hover:shadow-xl">
+                    深入了解報告
+                    <i class="fas fa-arrow-down ml-2"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-0 left-0 right-0">
+            <svg class="w-full h-16 fill-white dark:fill-gray-900" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,60 C300,90 900,30 1200,60 L1200,120 L0,120 Z" style="pointer-events: none;"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview" class="py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold text-gray-900 dark:text-white mb-6">報告總覽</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+                    國際證券委員會組織 (IOSCO) 通過其金融科技工作組深度分析代幣化在資本市場的發展現狀
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
+                <div class="space-y-8">
+                    <h3 class="text-3xl font-bold text-gray-900 dark:text-white">核心發現</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-chart-line text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">穩步增長但仍處早期</h4>
+                                <p class="text-gray-600 dark:text-gray-300">代幣化在資本市場中的採用正在穩步增長，但相較於傳統金融市場規模仍相對有限</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-balance-scale text-secondary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">風險管理與監管</h4>
+                                <p class="text-gray-600 dark:text-gray-300">現有風險分類框架基本適用，但需要針對技術特性引入額外控制措施</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-12 h-12 bg-highlight/10 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-network-wired text-highlight text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">基礎設施挑戰</h4>
+                                <p class="text-gray-600 dark:text-gray-300">缺乏跨區塊鏈互操作性和可靠結算資產限制了代幣化的規模化發展</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 dark:bg-gray-800 rounded-3xl p-8">
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">報告結構</h3>
+                    <div class="mermaid" id="report-structure" data-processed="true"><svg aria-roledescription="flowchart-v2" role="graphics-document document" viewBox="-8 -8 143 589" style="max-width: 143px;" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="100%" id="mermaid-1763334598411"><style style="pointer-events: none;">#mermaid-1763334598411{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#ccc;}#mermaid-1763334598411 .error-icon{fill:#a44141;}#mermaid-1763334598411 .error-text{fill:#ddd;stroke:#ddd;}#mermaid-1763334598411 .edge-thickness-normal{stroke-width:2px;}#mermaid-1763334598411 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-1763334598411 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-1763334598411 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-1763334598411 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-1763334598411 .marker{fill:#6B7280;stroke:#6B7280;}#mermaid-1763334598411 .marker.cross{stroke:#6B7280;}#mermaid-1763334598411 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaid-1763334598411 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#ccc;}#mermaid-1763334598411 .cluster-label text{fill:#F9FFFE;}#mermaid-1763334598411 .cluster-label span,#mermaid-1763334598411 p{color:#F9FFFE;}#mermaid-1763334598411 .label text,#mermaid-1763334598411 span,#mermaid-1763334598411 p{fill:#ccc;color:#ccc;}#mermaid-1763334598411 .node rect,#mermaid-1763334598411 .node circle,#mermaid-1763334598411 .node ellipse,#mermaid-1763334598411 .node polygon,#mermaid-1763334598411 .node path{fill:#1f2020;stroke:#81B1DB;stroke-width:1px;}#mermaid-1763334598411 .flowchart-label text{text-anchor:middle;}#mermaid-1763334598411 .node .label{text-align:center;}#mermaid-1763334598411 .node.clickable{cursor:pointer;}#mermaid-1763334598411 .arrowheadPath{fill:lightgrey;}#mermaid-1763334598411 .edgePath .path{stroke:#6B7280;stroke-width:2.0px;}#mermaid-1763334598411 .flowchart-link{stroke:#6B7280;fill:none;}#mermaid-1763334598411 .edgeLabel{background-color:hsl(0, 0%, 34.4117647059%);text-align:center;}#mermaid-1763334598411 .edgeLabel rect{opacity:0.5;background-color:hsl(0, 0%, 34.4117647059%);fill:hsl(0, 0%, 34.4117647059%);}#mermaid-1763334598411 .labelBkg{background-color:rgba(87.75, 87.75, 87.75, 0.5);}#mermaid-1763334598411 .cluster rect{fill:hsl(180, 1.5873015873%, 28.3529411765%);stroke:rgba(255, 255, 255, 0.25);stroke-width:1px;}#mermaid-1763334598411 .cluster text{fill:#F9FFFE;}#mermaid-1763334598411 .cluster span,#mermaid-1763334598411 p{color:#F9FFFE;}#mermaid-1763334598411 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:#1F2937;border:1px solid rgba(255, 255, 255, 0.25);border-radius:2px;pointer-events:none;z-index:100;}#mermaid-1763334598411 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#ccc;}#mermaid-1763334598411 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}</style><g style="pointer-events: none;"><marker orient="auto" markerHeight="12" markerWidth="12" markerUnits="userSpaceOnUse" refY="5" refX="6" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1763334598411_flowchart-pointEnd" style="pointer-events: none;"><path style="stroke-width: 1; stroke-dasharray: 1, 0; pointer-events: none;" class="arrowMarkerPath" d="M 0 0 L 10 5 L 0 10 z"></path></marker><marker orient="auto" markerHeight="12" markerWidth="12" markerUnits="userSpaceOnUse" refY="5" refX="4.5" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1763334598411_flowchart-pointStart" style="pointer-events: none;"><path style="stroke-width: 1; stroke-dasharray: 1, 0; pointer-events: none;" class="arrowMarkerPath" d="M 0 5 L 10 10 L 10 0 z"></path></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5" refX="11" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1763334598411_flowchart-circleEnd" style="pointer-events: none;"><circle style="stroke-width: 1; stroke-dasharray: 1, 0; pointer-events: none;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5" refX="-1" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1763334598411_flowchart-circleStart" style="pointer-events: none;"><circle style="stroke-width: 1; stroke-dasharray: 1, 0; pointer-events: none;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5.2" refX="12" viewBox="0 0 11 11" class="marker cross flowchart" id="mermaid-1763334598411_flowchart-crossEnd" style="pointer-events: none;"><path style="stroke-width: 2; stroke-dasharray: 1, 0; pointer-events: none;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5.2" refX="-1" viewBox="0 0 11 11" class="marker cross flowchart" id="mermaid-1763334598411_flowchart-crossStart" style="pointer-events: none;"><path style="stroke-width: 2; stroke-dasharray: 1, 0; pointer-events: none;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><g class="root" style="pointer-events: none;"><g class="clusters" style="pointer-events: none;"></g><g class="edgePaths" style="pointer-events: none;"><path marker-end="url(#mermaid-1763334598411_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-A LE-B" id="L-A-B-0" d="M63.5,39L63.5,43.167C63.5,47.333,63.5,55.667,63.5,63.117C63.5,70.567,63.5,77.133,63.5,80.417L63.5,83.7"></path><path marker-end="url(#mermaid-1763334598411_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-B LE-C" id="L-B-C-0" d="M63.5,128L63.5,132.167C63.5,136.333,63.5,144.667,63.5,152.117C63.5,159.567,63.5,166.133,63.5,169.417L63.5,172.7"></path><path marker-end="url(#mermaid-1763334598411_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-C LE-D" id="L-C-D-0" d="M63.5,217L63.5,221.167C63.5,225.333,63.5,233.667,63.5,241.117C63.5,248.567,63.5,255.133,63.5,258.417L63.5,261.7"></path><path marker-end="url(#mermaid-1763334598411_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-D LE-E" id="L-D-E-0" d="M63.5,306L63.5,310.167C63.5,314.333,63.5,322.667,63.5,330.117C63.5,337.567,63.5,344.133,63.5,347.417L63.5,350.7"></path><path marker-end="url(#mermaid-1763334598411_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-E LE-F" id="L-E-F-0" d="M63.5,395L63.5,399.167C63.5,403.333,63.5,411.667,63.5,419.117C63.5,426.567,63.5,433.133,63.5,436.417L63.5,439.7"></path><path marker-end="url(#mermaid-1763334598411_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-F LE-G" id="L-F-G-0" d="M63.5,484L63.5,488.167C63.5,492.333,63.5,500.667,63.5,508.117C63.5,515.567,63.5,522.133,63.5,525.417L63.5,528.7"></path></g><g class="edgeLabels" style="pointer-events: none;"><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g></g><g class="nodes" style="pointer-events: none;"><g transform="translate(63.5, 19.5)" id="flowchart-A-0" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="79" y="-19.5" x="-39.5" ry="0" rx="0" style="fill: rgb(154, 0, 54); stroke: rgb(255, 255, 255); stroke-width: 2px; pointer-events: none;" class="basic label-container"></rect><g transform="translate(-32, -12)" style="color: rgb(255, 255, 255); pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="64" style="pointer-events: none;"><div xmlns="http://www.w3.org/1999/xhtml" style="color: rgb(255, 255, 255); display: inline-block; white-space: nowrap; pointer-events: none;"><span style="color: rgb(255, 255, 255); pointer-events: none;" class="nodeLabel">執行摘要</span></div></foreignObject></g></g><g transform="translate(63.5, 108.5)" id="flowchart-B-1" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="47" y="-19.5" x="-23.5" ry="0" rx="0" style="pointer-events: none;" class="basic label-container"></rect><g transform="translate(-16, -12)" style="pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="32" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="pointer-events: none;">導言</span></div></foreignObject></g></g><g transform="translate(63.5, 197.5)" id="flowchart-C-3" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="127" y="-19.5" x="-63.5" ry="0" rx="0" style="fill: rgb(148, 28, 97); stroke: rgb(255, 255, 255); stroke-width: 2px; pointer-events: none;" class="basic label-container"></rect><g transform="translate(-56, -12)" style="color: rgb(255, 255, 255); pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="112" style="pointer-events: none;"><div xmlns="http://www.w3.org/1999/xhtml" style="color: rgb(255, 255, 255); display: inline-block; white-space: nowrap; pointer-events: none;"><span style="color: rgb(255, 255, 255); pointer-events: none;" class="nodeLabel">代幣化採用情況</span></div></foreignObject></g></g><g transform="translate(63.5, 286.5)" id="flowchart-D-5" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="111" y="-19.5" x="-55.5" ry="0" rx="0" style="pointer-events: none;" class="basic label-container"></rect><g transform="translate(-48, -12)" style="pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="96" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="pointer-events: none;">潛在影響分析</span></div></foreignObject></g></g><g transform="translate(63.5, 375.5)" id="flowchart-E-7" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="111" y="-19.5" x="-55.5" ry="0" rx="0" style="fill: rgb(238, 186, 192); stroke: rgb(51, 51, 51); stroke-width: 2px; pointer-events: none;" class="basic label-container"></rect><g transform="translate(-48, -12)" style="color: rgb(51, 51, 51); pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="96" style="pointer-events: none;"><div xmlns="http://www.w3.org/1999/xhtml" style="color: rgb(51, 51, 51); display: inline-block; white-space: nowrap; pointer-events: none;"><span style="color: rgb(51, 51, 51); pointer-events: none;" class="nodeLabel">監管回應措施</span></div></foreignObject></g></g><g transform="translate(63.5, 464.5)" id="flowchart-F-9" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="95" y="-19.5" x="-47.5" ry="0" rx="0" style="pointer-events: none;" class="basic label-container"></rect><g transform="translate(-40, -12)" style="pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="80" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="pointer-events: none;">結論與建議</span></div></foreignObject></g></g><g transform="translate(63.5, 553.5)" id="flowchart-G-11" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="47" y="-19.5" x="-23.5" ry="0" rx="0" style="pointer-events: none;" class="basic label-container"></rect><g transform="translate(-16, -12)" style="pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="32" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="pointer-events: none;">附錄</span></div></foreignObject></g></g></g></g></g></svg></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Adoption Section -->
+    <section id="adoption" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold text-gray-900 dark:text-white mb-6">市場採用現狀</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300">深入分析各資產類別的代幣化發展程度</p>
+            </div>
+            
+            <!-- Asset Classes Overview -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <div class="card-hover bg-white dark:bg-gray-900 rounded-2xl p-8 text-center shadow-lg">
+                    <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-file-contract text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">固定收益</h3>
+                    <p class="text-3xl font-bold text-primary mb-2">$100億</p>
+                    <p class="text-gray-600 dark:text-gray-300">代幣化債券發行量</p>
+                </div>
+                
+                <div class="card-hover bg-white dark:bg-gray-900 rounded-2xl p-8 text-center shadow-lg">
+                    <div class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-handshake text-secondary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">回購市場</h3>
+                    <p class="text-3xl font-bold text-secondary mb-2">$15兆</p>
+                    <p class="text-gray-600 dark:text-gray-300">全球回購市場規模</p>
+                </div>
+                
+                <div class="card-hover bg-white dark:bg-gray-900 rounded-2xl p-8 text-center shadow-lg">
+                    <div class="w-16 h-16 bg-highlight/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-piggy-bank text-highlight text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">貨幣市場基金</h3>
+                    <p class="text-3xl font-bold text-highlight mb-2">數十億</p>
+                    <p class="text-gray-600 dark:text-gray-300">資產管理規模</p>
+                </div>
+                
+                <div class="card-hover bg-white dark:bg-gray-900 rounded-2xl p-8 text-center shadow-lg">
+                    <div class="w-16 h-16 bg-accent/30 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chart-bar text-gray-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">股票</h3>
+                    <p class="text-3xl font-bold text-gray-500 mb-2">$16M</p>
+                    <p class="text-gray-600 dark:text-gray-300">代幣化股票市值</p>
+                </div>
+            </div>
+            
+            <!-- Tokenized Bond Issuance Chart -->
+            <div class="bg-white dark:bg-gray-900 rounded-3xl p-8 mb-16 shadow-lg">
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">代幣化固定收益工具發行趨勢</h3>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <img src="https://api.felo.ai/images/s/1fo4HZuLxt?width=1103&amp;height=584" alt="代幣化固定收益工具發行量統計圖表，顯示2021-2024年逐年增長趨勢" class="w-full rounded-xl shadow-lg">
+                    </div>
+                    <div class="space-y-6">
+                        <h4 class="text-xl font-bold text-gray-900 dark:text-white">關鍵洞察</h4>
+                        <ul class="space-y-4">
+                            <li class="flex items-start space-x-3">
+                                <i class="fas fa-arrow-up text-green-500 mt-1"></i>
+                                <span class="text-gray-600 dark:text-gray-300">2021-2024年代幣化債券發行量呈現顯著上升趨勢</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <i class="fas fa-globe text-primary mt-1"></i>
+                                <span class="text-gray-600 dark:text-gray-300">歐洲、亞洲、美洲三大區域均有參與</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <i class="fas fa-university text-secondary mt-1"></i>
+                                <span class="text-gray-600 dark:text-gray-300">央行試驗計畫(ECB、SNB)推動市場發展</span>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <i class="fas fa-chart-line text-highlight mt-1"></i>
+                                <span class="text-gray-600 dark:text-gray-300">相對於$140兆全球債券市場仍有巨大成長空間</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Regional Distribution -->
+            <div class="bg-white dark:bg-gray-900 rounded-3xl p-8 shadow-lg">
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">地區分布情況</h3>
+                <img src="https://api.felo.ai/images/s/56ZtbhNwEH?width=1113&amp;height=511" alt="2021-2024年代幣化固定收益工具地區分布圖，顯示美洲、亞洲、歐洲的發展情況" class="w-full rounded-xl shadow-lg mb-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="text-center p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
+                        <h4 class="text-lg font-semibold text-blue-900 dark:text-blue-300 mb-2">歐洲</h4>
+                        <p class="text-blue-700 dark:text-blue-400">領先的央行試驗計畫，ECB和SNB積極推動</p>
+                    </div>
+                    <div class="text-center p-4 bg-green-50 dark:bg-green-900/20 rounded-xl">
+                        <h4 class="text-lg font-semibold text-green-900 dark:text-green-300 mb-2">亞洲</h4>
+                        <p class="text-green-700 dark:text-green-400">穩定增長，多個重要發行案例</p>
+                    </div>
+                    <div class="text-center p-4 bg-purple-50 dark:bg-purple-900/20 rounded-xl">
+                        <h4 class="text-lg font-semibold text-purple-900 dark:text-purple-300 mb-2">美洲</h4>
+                        <p class="text-purple-700 dark:text-purple-400">後期加入但發展迅速</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold text-gray-900 dark:text-white mb-6">實際應用案例</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300">深入探索代幣化在不同金融產品中的實際應用</p>
+            </div>
+            
+            <div class="space-y-16">
+                <!-- UBS Digital Bond Case -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="order-2 lg:order-1">
+                        <div class="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-3xl p-8">
+                            <div class="flex items-center mb-6">
+                                <div class="w-12 h-12 bg-primary rounded-xl flex items-center justify-center mr-4">
+                                    <i class="fas fa-university text-white text-xl"></i>
+                                </div>
+                                <h3 class="text-2xl font-bold text-gray-900 dark:text-white">UBS 數字債券</h3>
+                            </div>
+                            <div class="space-y-4">
+                                <div class="flex justify-between items-center p-4 bg-white dark:bg-gray-800 rounded-xl">
+                                    <span class="text-gray-600 dark:text-gray-300">發行金額</span>
+                                    <span class="font-bold text-primary">CHF 3.75億</span>
+                                </div>
+                                <div class="flex justify-between items-center p-4 bg-white dark:bg-gray-800 rounded-xl">
+                                    <span class="text-gray-600 dark:text-gray-300">發行平台</span>
+                                    <span class="font-bold text-gray-900 dark:text-white">SIX Digital Exchange</span>
+                                </div>
+                                <div class="flex justify-between items-center p-4 bg-white dark:bg-gray-800 rounded-xl">
+                                    <span class="text-gray-600 dark:text-gray-300">結算方式</span>
+                                    <span class="font-bold text-gray-900 dark:text-white">原子化(T+0)</span>
+                                </div>
+                                <div class="flex justify-between items-center p-4 bg-white dark:bg-gray-800 rounded-xl">
+                                    <span class="text-gray-600 dark:text-gray-300">代幣類型</span>
+                                    <span class="font-bold text-gray-900 dark:text-white">原生代幣</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-1 lg:order-2">
+                        <h4 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">開創性的原生代幣債券</h4>
+                        <p class="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                            UBS AG於2022年在SIX數字交易所發行的數字債券，是原生代幣的典型範例。直接在SDX的DLT網絡上創建，實現了T+0原子化結算，並可選擇使用代幣化瑞士法郎或批發央行數字貨幣進行結算。
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span class="text-gray-600 dark:text-gray-300">雙重上市：SDX和SIX瑞士交易所</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span class="text-gray-600 dark:text-gray-300">瑞士法律下的權威記錄</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span class="text-gray-600 dark:text-gray-300">與傳統基礎設施相似的發行流程</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- BlackRock BUIDL Fund Case -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h4 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">BlackRock BUIDL 基金</h4>
+                        <p class="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                            BlackRock USD Institutional Digital Liquidity Fund (BUIDL) 在公共無許可區塊鏈內創建了許可系統，用於發行、記錄所有權、託管代幣、二級市場交易和股息支付流程。
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-shield-alt text-primary mt-1"></i>
+                                <div>
+                                    <h5 class="font-semibold text-gray-900 dark:text-white">許可系統</h5>
+                                    <p class="text-gray-600 dark:text-gray-300 text-sm">在公鏈上實現准入控制</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-coins text-secondary mt-1"></i>
+                                <div>
+                                    <h5 class="font-semibold text-gray-900 dark:text-white">抵押品應用</h5>
+                                    <p class="text-gray-600 dark:text-gray-300 text-sm">被用作各種金融和加密市場環境中的抵押品</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <i class="fas fa-database text-highlight mt-1"></i>
+                                <div>
+                                    <h5 class="font-semibold text-gray-900 dark:text-white">記錄系統</h5>
+                                    <p class="text-gray-600 dark:text-gray-300 text-sm">法律所有權記錄由轉讓代理人的鏈下系統維護</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-700 rounded-3xl p-8">
+                            <h5 class="text-xl font-bold text-gray-900 dark:text-white mb-6">基金特色</h5>
+                            <div class="space-y-4">
+                                <div class="bg-white dark:bg-gray-900 rounded-xl p-4">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-gray-600 dark:text-gray-300">區塊鏈類型</span>
+                                        <span class="text-sm font-medium text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full">公共無許可</span>
+                                    </div>
+                                </div>
+                                <div class="bg-white dark:bg-gray-900 rounded-xl p-4">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-gray-600 dark:text-gray-300">準入控制</span>
+                                        <span class="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">許可系統</span>
+                                    </div>
+                                </div>
+                                <div class="bg-white dark:bg-gray-900 rounded-xl p-4">
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-gray-600 dark:text-gray-300">應用場景</span>
+                                        <span class="text-sm font-medium text-secondary bg-secondary/10 px-3 py-1 rounded-full">抵押品</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- J.P. Morgan Kinexys Case -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="order-2 lg:order-1">
+                        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-3xl p-8">
+                            <h5 class="text-xl font-bold text-gray-900 dark:text-white mb-6">平台績效</h5>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="text-center p-4 bg-white dark:bg-gray-800 rounded-xl">
+                                    <div class="text-2xl font-bold text-blue-600 mb-1">$2兆</div>
+                                    <div class="text-sm text-gray-600 dark:text-gray-300">累積交易量</div>
+                                </div>
+                                <div class="text-center p-4 bg-white dark:bg-gray-800 rounded-xl">
+                                    <div class="text-2xl font-bold text-green-600 mb-1">$30億</div>
+                                    <div class="text-sm text-gray-600 dark:text-gray-300">日交易量</div>
+                                </div>
+                                <div class="text-center p-4 bg-white dark:bg-gray-800 rounded-xl">
+                                    <div class="text-2xl font-bold text-purple-600 mb-1">2020</div>
+                                    <div class="text-sm text-gray-600 dark:text-gray-300">啟動年份</div>
+                                </div>
+                                <div class="text-center p-4 bg-white dark:bg-gray-800 rounded-xl">
+                                    <div class="text-2xl font-bold text-orange-600 mb-1">24/7</div>
+                                    <div class="text-sm text-gray-600 dark:text-gray-300">全天候服務</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="order-1 lg:order-2">
+                        <h4 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">J.P. Morgan Kinexys</h4>
+                        <p class="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                            Kinexys數位資產平台專注於日內回購和抵押品服務，支援貨幣市場基金份額的代幣化，實現交易結算和抵押品所有權轉讓的無縫整合。
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex items-center space-x-3 p-4 bg-gray-50 dark:bg-gray-800 rounded-xl">
+                                <i class="fas fa-clock text-blue-500 text-xl"></i>
+                                <div>
+                                    <h5 class="font-semibold text-gray-900 dark:text-white">日內回購</h5>
+                                    <p class="text-gray-600 dark:text-gray-300 text-sm">提高抵押品流動性和資本效率</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-3 p-4 bg-gray-50 dark:bg-gray-800 rounded-xl">
+                                <i class="fas fa-exchange-alt text-green-500 text-xl"></i>
+                                <div>
+                                    <h5 class="font-semibold text-gray-900 dark:text-white">原子化結算</h5>
+                                    <p class="text-gray-600 dark:text-gray-300 text-sm">同步執行交易結算和抵押品轉移</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Risks Analysis Section -->
+    <section id="risks" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold text-gray-900 dark:text-white mb-6">風險分析框架</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300">深入分析代幣化帶來的潛在風險與挑戰</p>
+            </div>
+            
+            <!-- Risk Categories -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+                <div class="card-hover bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg">
+                    <div class="w-16 h-16 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-gavel text-red-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 text-center">法律風險</h3>
+                    <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+                        <li class="flex items-start space-x-2">
+                            <i class="fas fa-circle text-red-500 text-xs mt-2"></i>
+                            <span>代幣所有權法律地位不明確</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <i class="fas fa-circle text-red-500 text-xs mt-2"></i>
+                            <span>結算終局性缺乏確定性</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <i class="fas fa-circle text-red-500 text-xs mt-2"></i>
+                            <span>跨司法管轄區差異</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <i class="fas fa-circle text-red-500 text-xs mt-2"></i>
+                            <span>智能合約法律地位不確定</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card-hover bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg">
+                    <div class="w-16 h-16 bg-orange-100 dark:bg-orange-900/30 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-cogs text-orange-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 text-center">操作風險</h3>
+                    <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+                        <li class="flex items-start space-x-2">
+                            <i class="fas fa-circle text-orange-500 text-xs mt-2"></i>
+                            <span>智能合約設計缺陷和錯誤</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <i class="fas fa-circle text-orange-500 text-xs mt-2"></i>
+                            <span>私鑰丟失、盜竊或損壞</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <i class="fas fa-circle text-orange-500 text-xs mt-2"></i>
+                            <span>網絡速度和處理能力限制</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <i class="fas fa-circle text-orange-500 text-xs mt-2"></i>
+                            <span>跨區塊鏈互操作性不足</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="card-hover bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg">
+                    <div class="w-16 h-16 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-shield-alt text-purple-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 text-center">技術風險</h3>
+                    <ul class="space-y-3 text-gray-600 dark:text-gray-300">
+                        <li class="flex items-start space-x-2">
+                            <i class="fas fa-circle text-purple-500 text-xs mt-2"></i>
+                            <span>區塊鏈節點網絡攻擊</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <i class="fas fa-circle text-purple-500 text-xs mt-2"></i>
+                            <span>51%攻擊風險</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <i class="fas fa-circle text-purple-500 text-xs mt-2"></i>
+                            <span>數據隱私與透明度衝突</span>
+                        </li>
+                        <li class="flex items-start space-x-2">
+                            <i class="fas fa-circle text-purple-500 text-xs mt-2"></i>
+                            <span>預言機依賴的單點故障</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Risk Flow Diagram -->
+            <div class="bg-white dark:bg-gray-900 rounded-3xl p-8 mb-16 shadow-lg">
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">代幣化風險傳遞路徑</h3>
+                <div class="mermaid" id="risk-flow" data-processed="true"><svg aria-roledescription="flowchart-v2" role="graphics-document document" viewBox="-8 -8 1226.7916259765625 322" style="max-width: 1226.7916259765625px;" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="100%" id="mermaid-1763334598538"><style style="pointer-events: none;">#mermaid-1763334598538{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#ccc;}#mermaid-1763334598538 .error-icon{fill:#a44141;}#mermaid-1763334598538 .error-text{fill:#ddd;stroke:#ddd;}#mermaid-1763334598538 .edge-thickness-normal{stroke-width:2px;}#mermaid-1763334598538 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-1763334598538 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-1763334598538 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-1763334598538 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-1763334598538 .marker{fill:#6B7280;stroke:#6B7280;}#mermaid-1763334598538 .marker.cross{stroke:#6B7280;}#mermaid-1763334598538 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaid-1763334598538 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#ccc;}#mermaid-1763334598538 .cluster-label text{fill:#F9FFFE;}#mermaid-1763334598538 .cluster-label span,#mermaid-1763334598538 p{color:#F9FFFE;}#mermaid-1763334598538 .label text,#mermaid-1763334598538 span,#mermaid-1763334598538 p{fill:#ccc;color:#ccc;}#mermaid-1763334598538 .node rect,#mermaid-1763334598538 .node circle,#mermaid-1763334598538 .node ellipse,#mermaid-1763334598538 .node polygon,#mermaid-1763334598538 .node path{fill:#1f2020;stroke:#81B1DB;stroke-width:1px;}#mermaid-1763334598538 .flowchart-label text{text-anchor:middle;}#mermaid-1763334598538 .node .label{text-align:center;}#mermaid-1763334598538 .node.clickable{cursor:pointer;}#mermaid-1763334598538 .arrowheadPath{fill:lightgrey;}#mermaid-1763334598538 .edgePath .path{stroke:#6B7280;stroke-width:2.0px;}#mermaid-1763334598538 .flowchart-link{stroke:#6B7280;fill:none;}#mermaid-1763334598538 .edgeLabel{background-color:hsl(0, 0%, 34.4117647059%);text-align:center;}#mermaid-1763334598538 .edgeLabel rect{opacity:0.5;background-color:hsl(0, 0%, 34.4117647059%);fill:hsl(0, 0%, 34.4117647059%);}#mermaid-1763334598538 .labelBkg{background-color:rgba(87.75, 87.75, 87.75, 0.5);}#mermaid-1763334598538 .cluster rect{fill:hsl(180, 1.5873015873%, 28.3529411765%);stroke:rgba(255, 255, 255, 0.25);stroke-width:1px;}#mermaid-1763334598538 .cluster text{fill:#F9FFFE;}#mermaid-1763334598538 .cluster span,#mermaid-1763334598538 p{color:#F9FFFE;}#mermaid-1763334598538 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:#1F2937;border:1px solid rgba(255, 255, 255, 0.25);border-radius:2px;pointer-events:none;z-index:100;}#mermaid-1763334598538 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#ccc;}#mermaid-1763334598538 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}</style><g style="pointer-events: none;"><marker orient="auto" markerHeight="12" markerWidth="12" markerUnits="userSpaceOnUse" refY="5" refX="6" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1763334598538_flowchart-pointEnd" style="pointer-events: none;"><path style="stroke-width: 1; stroke-dasharray: 1, 0; pointer-events: none;" class="arrowMarkerPath" d="M 0 0 L 10 5 L 0 10 z"></path></marker><marker orient="auto" markerHeight="12" markerWidth="12" markerUnits="userSpaceOnUse" refY="5" refX="4.5" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1763334598538_flowchart-pointStart" style="pointer-events: none;"><path style="stroke-width: 1; stroke-dasharray: 1, 0; pointer-events: none;" class="arrowMarkerPath" d="M 0 5 L 10 10 L 10 0 z"></path></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5" refX="11" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1763334598538_flowchart-circleEnd" style="pointer-events: none;"><circle style="stroke-width: 1; stroke-dasharray: 1, 0; pointer-events: none;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5" refX="-1" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1763334598538_flowchart-circleStart" style="pointer-events: none;"><circle style="stroke-width: 1; stroke-dasharray: 1, 0; pointer-events: none;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5.2" refX="12" viewBox="0 0 11 11" class="marker cross flowchart" id="mermaid-1763334598538_flowchart-crossEnd" style="pointer-events: none;"><path style="stroke-width: 2; stroke-dasharray: 1, 0; pointer-events: none;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5.2" refX="-1" viewBox="0 0 11 11" class="marker cross flowchart" id="mermaid-1763334598538_flowchart-crossStart" style="pointer-events: none;"><path style="stroke-width: 2; stroke-dasharray: 1, 0; pointer-events: none;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><g class="root" style="pointer-events: none;"><g class="clusters" style="pointer-events: none;"></g><g class="edgePaths" style="pointer-events: none;"><path marker-end="url(#mermaid-1763334598538_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-A LE-B" id="L-A-B-0" d="M624.792,34.389L603.743,39.324C582.694,44.259,540.597,54.13,519.549,62.348C498.5,70.567,498.5,77.133,498.5,80.417L498.5,83.7"></path><path marker-end="url(#mermaid-1763334598538_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-A LE-C" id="L-A-C-0" d="M688.292,39L688.292,43.167C688.292,47.333,688.292,55.667,688.292,63.117C688.292,70.567,688.292,77.133,688.292,80.417L688.292,83.7"></path><path marker-end="url(#mermaid-1763334598538_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-A LE-D" id="L-A-D-0" d="M751.792,25.766L816.375,32.138C880.958,38.51,1010.125,51.255,1074.708,60.911C1139.292,70.567,1139.292,77.133,1139.292,80.417L1139.292,83.7"></path><path marker-end="url(#mermaid-1763334598538_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-B LE-B1" id="L-B-B1-0" d="M427,115.682L365.083,121.902C303.167,128.122,179.333,140.561,117.417,150.064C55.5,159.567,55.5,166.133,55.5,169.417L55.5,172.7"></path><path marker-end="url(#mermaid-1763334598538_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-B LE-B2" id="L-B-B2-0" d="M498.5,128L498.5,132.167C498.5,136.333,498.5,144.667,498.5,152.117C498.5,159.567,498.5,166.133,498.5,169.417L498.5,172.7"></path><path marker-end="url(#mermaid-1763334598538_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-B LE-B3" id="L-B-B3-0" d="M570,117.782L615.215,123.652C660.431,129.521,750.861,141.261,796.076,150.414C841.292,159.567,841.292,166.133,841.292,169.417L841.292,172.7"></path><path marker-end="url(#mermaid-1763334598538_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-C LE-C1" id="L-C-C1-0" d="M620,114.73L550.083,121.108C480.167,127.487,340.333,140.243,270.417,149.905C200.5,159.567,200.5,166.133,200.5,169.417L200.5,172.7"></path><path marker-end="url(#mermaid-1763334598538_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-C LE-C2" id="L-C-C2-0" d="M688.292,128L688.292,132.167C688.292,136.333,688.292,144.667,688.292,152.117C688.292,159.567,688.292,166.133,688.292,169.417L688.292,172.7"></path><path marker-end="url(#mermaid-1763334598538_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-C LE-C3" id="L-C-C3-0" d="M756.583,118.979L793.535,124.649C830.486,130.319,904.389,141.66,941.34,150.613C978.292,159.567,978.292,166.133,978.292,169.417L978.292,172.7"></path><path marker-end="url(#mermaid-1763334598538_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-D LE-D1" id="L-D-D1-0" d="M1139.292,128L1139.292,132.167C1139.292,136.333,1139.292,144.667,1139.292,152.117C1139.292,159.567,1139.292,166.133,1139.292,169.417L1139.292,172.7"></path><path marker-end="url(#mermaid-1763334598538_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-D LE-D2" id="L-D-D2-0" d="M1083.792,111.58L959.41,118.484C835.028,125.387,586.264,139.193,461.882,149.38C337.5,159.567,337.5,166.133,337.5,169.417L337.5,172.7"></path><path marker-end="url(#mermaid-1763334598538_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-B1 LE-E" id="L-B1-E-0" d="M55.5,217L55.5,221.167C55.5,225.333,55.5,233.667,69.572,242.152C83.644,250.637,111.789,259.275,125.861,263.594L139.933,267.912"></path><path marker-end="url(#mermaid-1763334598538_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-B2 LE-F" id="L-B2-F-0" d="M498.5,217L498.5,221.167C498.5,225.333,498.5,233.667,507.324,241.649C516.147,249.632,533.795,257.264,542.618,261.08L551.442,264.896"></path><path marker-end="url(#mermaid-1763334598538_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-B3 LE-G" id="L-B3-G-0" d="M841.292,217L841.292,221.167C841.292,225.333,841.292,233.667,859.357,242.827C877.422,251.986,913.553,261.973,931.618,266.966L949.683,271.959"></path><path marker-end="url(#mermaid-1763334598538_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-C1 LE-E" id="L-C1-E-0" d="M200.5,217L200.5,221.167C200.5,225.333,200.5,233.667,200.5,241.117C200.5,248.567,200.5,255.133,200.5,258.417L200.5,261.7"></path><path marker-end="url(#mermaid-1763334598538_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-C2 LE-F" id="L-C2-F-0" d="M688.292,217L688.292,221.167C688.292,225.333,688.292,233.667,680.942,241.597C673.592,249.528,658.891,257.056,651.541,260.82L644.191,264.584"></path><path marker-end="url(#mermaid-1763334598538_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-C3 LE-G" id="L-C3-G-0" d="M978.292,217L978.292,221.167C978.292,225.333,978.292,233.667,980.12,241.223C981.947,248.778,985.603,255.557,987.431,258.946L989.259,262.335"></path><path marker-end="url(#mermaid-1763334598538_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-D1 LE-G" id="L-D1-G-0" d="M1139.292,217L1139.292,221.167C1139.292,225.333,1139.292,233.667,1125.215,242.406C1111.139,251.145,1082.985,260.289,1068.909,264.862L1054.832,269.434"></path><path marker-end="url(#mermaid-1763334598538_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-D2 LE-E" id="L-D2-E-0" d="M337.5,217L337.5,221.167C337.5,225.333,337.5,233.667,324.757,241.973C312.014,250.278,286.527,258.557,273.784,262.696L261.041,266.835"></path></g><g class="edgeLabels" style="pointer-events: none;"><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g></g><g class="nodes" style="pointer-events: none;"><g transform="translate(688.2916641235352, 19.5)" id="flowchart-A-15" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="127" y="-19.5" x="-63.5" ry="0" rx="0" style="fill: rgb(154, 0, 54); stroke: rgb(255, 255, 255); stroke-width: 2px; pointer-events: none;" class="basic label-container"></rect><g transform="translate(-56, -12)" style="color: rgb(255, 255, 255); pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="112" style="pointer-events: none;"><div xmlns="http://www.w3.org/1999/xhtml" style="color: rgb(255, 255, 255); display: inline-block; white-space: nowrap; pointer-events: none;"><span style="color: rgb(255, 255, 255); pointer-events: none;" class="nodeLabel">金融資產代幣化</span></div></foreignObject></g></g><g transform="translate(498.5, 108.5)" id="flowchart-B-16" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="143" y="-19.5" x="-71.5" ry="0" rx="0" style="pointer-events: none;" class="basic label-container"></rect><g transform="translate(-64, -12)" style="pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="128" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="pointer-events: none;">代幣形式表示風險</span></div></foreignObject></g></g><g transform="translate(688.2916641235352, 108.5)" id="flowchart-C-18" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="136.58333587646484" y="-19.5" x="-68.29166793823242" ry="0" rx="0" style="pointer-events: none;" class="basic label-container"></rect><g transform="translate(-60.79166793823242, -12)" style="pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="121.58333587646484" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="pointer-events: none;">DLT基礎設施風險</span></div></foreignObject></g></g><g transform="translate(1139.2916641235352, 108.5)" id="flowchart-D-20" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="111" y="-19.5" x="-55.5" ry="0" rx="0" style="pointer-events: none;" class="basic label-container"></rect><g transform="translate(-48, -12)" style="pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="96" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="pointer-events: none;">結算資產風險</span></div></foreignObject></g></g><g transform="translate(55.5, 197.5)" id="flowchart-B1-22" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="111" y="-19.5" x="-55.5" ry="0" rx="0" style="pointer-events: none;" class="basic label-container"></rect><g transform="translate(-48, -12)" style="pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="96" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="pointer-events: none;">法律承認問題</span></div></foreignObject></g></g><g transform="translate(498.5, 197.5)" id="flowchart-B2-24" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="127" y="-19.5" x="-63.5" ry="0" rx="0" style="pointer-events: none;" class="basic label-container"></rect><g transform="translate(-56, -12)" style="pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="112" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="pointer-events: none;">投資者權利不明</span></div></foreignObject></g></g><g transform="translate(841.2916641235352, 197.5)" id="flowchart-B3-26" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="95" y="-19.5" x="-47.5" ry="0" rx="0" style="pointer-events: none;" class="basic label-container"></rect><g transform="translate(-40, -12)" style="pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="80" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="pointer-events: none;">結算終局性</span></div></foreignObject></g></g><g transform="translate(200.5, 197.5)" id="flowchart-C1-28" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="79" y="-19.5" x="-39.5" ry="0" rx="0" style="pointer-events: none;" class="basic label-container"></rect><g transform="translate(-32, -12)" style="pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="64" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="pointer-events: none;">網絡漏洞</span></div></foreignObject></g></g><g transform="translate(688.2916641235352, 197.5)" id="flowchart-C2-30" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="111" y="-19.5" x="-55.5" ry="0" rx="0" style="pointer-events: none;" class="basic label-container"></rect><g transform="translate(-48, -12)" style="pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="96" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="pointer-events: none;">智能合約風險</span></div></foreignObject></g></g><g transform="translate(978.2916641235352, 197.5)" id="flowchart-C3-32" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="79" y="-19.5" x="-39.5" ry="0" rx="0" style="pointer-events: none;" class="basic label-container"></rect><g transform="translate(-32, -12)" style="pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="64" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="pointer-events: none;">託管風險</span></div></foreignObject></g></g><g transform="translate(1139.2916641235352, 197.5)" id="flowchart-D1-34" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="143" y="-19.5" x="-71.5" ry="0" rx="0" style="pointer-events: none;" class="basic label-container"></rect><g transform="translate(-64, -12)" style="pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="128" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="pointer-events: none;">缺乏可靠結算資產</span></div></foreignObject></g></g><g transform="translate(337.5, 197.5)" id="flowchart-D2-36" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="95" y="-19.5" x="-47.5" ry="0" rx="0" style="pointer-events: none;" class="basic label-container"></rect><g transform="translate(-40, -12)" style="pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="80" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="pointer-events: none;">穩定幣風險</span></div></foreignObject></g></g><g transform="translate(200.5, 286.5)" id="flowchart-E-38" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="111" y="-19.5" x="-55.5" ry="0" rx="0" style="fill: rgb(220, 38, 38); stroke: rgb(255, 255, 255); stroke-width: 2px; pointer-events: none;" class="basic label-container"></rect><g transform="translate(-48, -12)" style="color: rgb(255, 255, 255); pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="96" style="pointer-events: none;"><div xmlns="http://www.w3.org/1999/xhtml" style="color: rgb(255, 255, 255); display: inline-block; white-space: nowrap; pointer-events: none;"><span style="color: rgb(255, 255, 255); pointer-events: none;" class="nodeLabel">市場誠信風險</span></div></foreignObject></g></g><g transform="translate(601.3958320617676, 286.5)" id="flowchart-F-40" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="127" y="-19.5" x="-63.5" ry="0" rx="0" style="fill: rgb(234, 88, 12); stroke: rgb(255, 255, 255); stroke-width: 2px; pointer-events: none;" class="basic label-container"></rect><g transform="translate(-56, -12)" style="color: rgb(255, 255, 255); pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="112" style="pointer-events: none;"><div xmlns="http://www.w3.org/1999/xhtml" style="color: rgb(255, 255, 255); display: inline-block; white-space: nowrap; pointer-events: none;"><span style="color: rgb(255, 255, 255); pointer-events: none;" class="nodeLabel">投資者保護風險</span></div></foreignObject></g></g><g transform="translate(1002.2916641235352, 286.5)" id="flowchart-G-42" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="95" y="-19.5" x="-47.5" ry="0" rx="0" style="fill: rgb(124, 45, 18); stroke: rgb(255, 255, 255); stroke-width: 2px; pointer-events: none;" class="basic label-container"></rect><g transform="translate(-40, -12)" style="color: rgb(255, 255, 255); pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="80" style="pointer-events: none;"><div xmlns="http://www.w3.org/1999/xhtml" style="color: rgb(255, 255, 255); display: inline-block; white-space: nowrap; pointer-events: none;"><span style="color: rgb(255, 255, 255); pointer-events: none;" class="nodeLabel">系統性風險</span></div></foreignObject></g></g></g></g></g></svg></div>
+            </div>
+            
+            <!-- Regulatory Response -->
+            <div class="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-3xl p-8">
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">監管回應策略</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-6">
+                        <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-file-alt text-blue-600 text-xl"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-gray-900 dark:text-white mb-2">具體指導</h4>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">發布指導意見澄清現有監管框架的適用性</p>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-6">
+                        <div class="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-flask text-green-600 text-xl"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-gray-900 dark:text-white mb-2">沙盒機制</h4>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">設立監管沙盒允許受控環境中的實驗</p>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-6">
+                        <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fas fa-balance-scale text-purple-600 text-xl"></i>
+                        </div>
+                        <h4 class="text-lg font-bold text-gray-900 dark:text-white mb-2">法規修訂</h4>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">實施新的法律法規提供監管清晰度</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Projections Section -->
+    <section class="py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold text-gray-900 dark:text-white mb-6">市場前景展望</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300">各大機構對代幣化市場規模的預測分析</p>
+            </div>
+            
+            <!-- Market Size Projections Chart -->
+            <div class="bg-gray-50 dark:bg-gray-800 rounded-3xl p-8 mb-16">
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-8">代幣化市場規模預測 (2025-2034)</h3>
+                <div class="h-96" id="market-projections-chart" _echarts_instance_="ec_1763334597337" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" data-chart-option="{&quot;darkMode&quot;:true,&quot;color&quot;:[&quot;#4992ff&quot;,&quot;#7cffb2&quot;,&quot;#fddd60&quot;,&quot;#ff6e76&quot;,&quot;#58d9f9&quot;,&quot;#05c091&quot;,&quot;#ff8a45&quot;,&quot;#8d48e3&quot;,&quot;#dd79ff&quot;],&quot;backgroundColor&quot;:&quot;#100C2A&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;,&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;timeAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;logAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;valueAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;categoryAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;},&quot;show&quot;:false},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;line&quot;:{&quot;symbol&quot;:&quot;circle&quot;},&quot;graph&quot;:{&quot;color&quot;:[&quot;#4992ff&quot;,&quot;#7cffb2&quot;,&quot;#fddd60&quot;,&quot;#ff6e76&quot;,&quot;#58d9f9&quot;,&quot;#05c091&quot;,&quot;#ff8a45&quot;,&quot;#8d48e3&quot;,&quot;#dd79ff&quot;]},&quot;gauge&quot;:{&quot;title&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;},&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:[[1,&quot;rgba(207,212,219,0.2)&quot;]]}},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;},&quot;detail&quot;:{&quot;color&quot;:&quot;#EEF1FA&quot;}},&quot;candlestick&quot;:{&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#f64e56&quot;,&quot;color0&quot;:&quot;#54ea92&quot;,&quot;borderColor&quot;:&quot;#f64e56&quot;,&quot;borderColor0&quot;:&quot;#54ea92&quot;}},&quot;colorBy&quot;:&quot;series&quot;,&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;axisPointer&quot;:[{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#817f91&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#817f91&quot;},&quot;label&quot;:{&quot;color&quot;:&quot;#fff&quot;,&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[{&quot;trigger&quot;:&quot;axis&quot;,&quot;axisPointer&quot;:{&quot;type&quot;:&quot;cross&quot;,&quot;axis&quot;:&quot;auto&quot;,&quot;animation&quot;:&quot;auto&quot;,&quot;animationDurationUpdate&quot;:200,&quot;animationEasingUpdate&quot;:&quot;exponentialOut&quot;,&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#999&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;,&quot;textStyle&quot;:{}}},&quot;z&quot;:60,&quot;show&quot;:true,&quot;showContent&quot;:true,&quot;triggerOn&quot;:&quot;mousemove|click&quot;,&quot;alwaysShowContent&quot;:false,&quot;displayMode&quot;:&quot;single&quot;,&quot;renderMode&quot;:&quot;auto&quot;,&quot;confine&quot;:null,&quot;showDelay&quot;:0,&quot;hideDelay&quot;:100,&quot;transitionDuration&quot;:0.4,&quot;enterable&quot;:false,&quot;backgroundColor&quot;:&quot;#fff&quot;,&quot;shadowBlur&quot;:10,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, .2)&quot;,&quot;shadowOffsetX&quot;:1,&quot;shadowOffsetY&quot;:2,&quot;borderRadius&quot;:4,&quot;borderWidth&quot;:1,&quot;padding&quot;:null,&quot;extraCssText&quot;:&quot;&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;fontSize&quot;:14}}],&quot;yAxis&quot;:[{&quot;type&quot;:&quot;value&quot;,&quot;name&quot;:&quot;萬億美元&quot;,&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#6B7280&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:&quot;auto&quot;,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#E5E7EB&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#374151&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:true},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]},&quot;show&quot;:false},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;,&quot;width&quot;:1},&quot;show&quot;:false},&quot;boundaryGap&quot;:[0,0],&quot;axisTick&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;splitNumber&quot;:5,&quot;minorTick&quot;:{&quot;show&quot;:false,&quot;splitNumber&quot;:5,&quot;length&quot;:3,&quot;lineStyle&quot;:{}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{&quot;status&quot;:&quot;hide&quot;,&quot;value&quot;:35},&quot;offset&quot;:0}],&quot;xAxis&quot;:[{&quot;type&quot;:&quot;category&quot;,&quot;data&quot;:[&quot;2025&quot;,&quot;2030&quot;,&quot;2033&quot;,&quot;2034&quot;],&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#6B7280&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:true,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#E5E7EB&quot;,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:false},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]},&quot;show&quot;:false},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}},&quot;boundaryGap&quot;:true,&quot;deduplication&quot;:null,&quot;axisTick&quot;:{&quot;alignWithLabel&quot;:false,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{&quot;status&quot;:&quot;hide&quot;,&quot;value&quot;:3},&quot;offset&quot;:0}],&quot;grid&quot;:[{&quot;left&quot;:&quot;3%&quot;,&quot;right&quot;:&quot;4%&quot;,&quot;bottom&quot;:&quot;3%&quot;,&quot;containLabel&quot;:true,&quot;show&quot;:false,&quot;z&quot;:0,&quot;top&quot;:60,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#ccc&quot;}],&quot;series&quot;:[{&quot;name&quot;:&quot;McKinsey&quot;,&quot;type&quot;:&quot;bar&quot;,&quot;data&quot;:[0,4,0,0],&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#3B82F6&quot;},&quot;z&quot;:2,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;barMinHeight&quot;:0,&quot;barMinAngle&quot;:0,&quot;large&quot;:false,&quot;largeThreshold&quot;:400,&quot;progressive&quot;:3000,&quot;progressiveChunkMode&quot;:&quot;mod&quot;,&quot;clip&quot;:true,&quot;roundCap&quot;:false,&quot;showBackground&quot;:false,&quot;backgroundStyle&quot;:{&quot;color&quot;:&quot;rgba(180, 180, 180, 0.2)&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderType&quot;:&quot;solid&quot;,&quot;borderRadius&quot;:0,&quot;shadowBlur&quot;:0,&quot;shadowColor&quot;:null,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:0,&quot;opacity&quot;:1},&quot;select&quot;:{&quot;itemStyle&quot;:{&quot;borderColor&quot;:&quot;#212121&quot;}},&quot;realtimeSort&quot;:false,&quot;label&quot;:{},&quot;emphasis&quot;:{&quot;label&quot;:{}}},{&quot;name&quot;:&quot;Citi&quot;,&quot;type&quot;:&quot;bar&quot;,&quot;data&quot;:[0,5,0,0],&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#10B981&quot;},&quot;z&quot;:2,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;barMinHeight&quot;:0,&quot;barMinAngle&quot;:0,&quot;large&quot;:false,&quot;largeThreshold&quot;:400,&quot;progressive&quot;:3000,&quot;progressiveChunkMode&quot;:&quot;mod&quot;,&quot;clip&quot;:true,&quot;roundCap&quot;:false,&quot;showBackground&quot;:false,&quot;backgroundStyle&quot;:{&quot;color&quot;:&quot;rgba(180, 180, 180, 0.2)&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderType&quot;:&quot;solid&quot;,&quot;borderRadius&quot;:0,&quot;shadowBlur&quot;:0,&quot;shadowColor&quot;:null,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:0,&quot;opacity&quot;:1},&quot;select&quot;:{&quot;itemStyle&quot;:{&quot;borderColor&quot;:&quot;#212121&quot;}},&quot;realtimeSort&quot;:false,&quot;label&quot;:{},&quot;emphasis&quot;:{&quot;label&quot;:{}}},{&quot;name&quot;:&quot;Ripple/BCG&quot;,&quot;type&quot;:&quot;bar&quot;,&quot;data&quot;:[0.6,0,18.9,0],&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#8B5CF6&quot;},&quot;z&quot;:2,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;barMinHeight&quot;:0,&quot;barMinAngle&quot;:0,&quot;large&quot;:false,&quot;largeThreshold&quot;:400,&quot;progressive&quot;:3000,&quot;progressiveChunkMode&quot;:&quot;mod&quot;,&quot;clip&quot;:true,&quot;roundCap&quot;:false,&quot;showBackground&quot;:false,&quot;backgroundStyle&quot;:{&quot;color&quot;:&quot;rgba(180, 180, 180, 0.2)&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderType&quot;:&quot;solid&quot;,&quot;borderRadius&quot;:0,&quot;shadowBlur&quot;:0,&quot;shadowColor&quot;:null,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:0,&quot;opacity&quot;:1},&quot;select&quot;:{&quot;itemStyle&quot;:{&quot;borderColor&quot;:&quot;#212121&quot;}},&quot;realtimeSort&quot;:false,&quot;label&quot;:{},&quot;emphasis&quot;:{&quot;label&quot;:{}}},{&quot;name&quot;:&quot;渣打/Synpulse&quot;,&quot;type&quot;:&quot;bar&quot;,&quot;data&quot;:[0,0,0,30.1],&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#F59E0B&quot;},&quot;z&quot;:2,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;barMinHeight&quot;:0,&quot;barMinAngle&quot;:0,&quot;large&quot;:false,&quot;largeThreshold&quot;:400,&quot;progressive&quot;:3000,&quot;progressiveChunkMode&quot;:&quot;mod&quot;,&quot;clip&quot;:true,&quot;roundCap&quot;:false,&quot;showBackground&quot;:false,&quot;backgroundStyle&quot;:{&quot;color&quot;:&quot;rgba(180, 180, 180, 0.2)&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderType&quot;:&quot;solid&quot;,&quot;borderRadius&quot;:0,&quot;shadowBlur&quot;:0,&quot;shadowColor&quot;:null,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:0,&quot;opacity&quot;:1},&quot;select&quot;:{&quot;itemStyle&quot;:{&quot;borderColor&quot;:&quot;#212121&quot;}},&quot;realtimeSort&quot;:false,&quot;label&quot;:{},&quot;emphasis&quot;:{&quot;label&quot;:{}}}],&quot;visualMap&quot;:[],&quot;legend&quot;:[{&quot;data&quot;:[&quot;McKinsey&quot;,&quot;Citi&quot;,&quot;Ripple/BCG&quot;,&quot;渣打/Synpulse&quot;],&quot;textStyle&quot;:{&quot;color&quot;:&quot;#E5E7EB&quot;},&quot;z&quot;:4,&quot;show&quot;:true,&quot;orient&quot;:&quot;horizontal&quot;,&quot;left&quot;:&quot;center&quot;,&quot;top&quot;:0,&quot;align&quot;:&quot;auto&quot;,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderColor&quot;:&quot;#ccc&quot;,&quot;borderRadius&quot;:0,&quot;borderWidth&quot;:0,&quot;padding&quot;:5,&quot;itemGap&quot;:10,&quot;itemWidth&quot;:25,&quot;itemHeight&quot;:14,&quot;symbolRotate&quot;:&quot;inherit&quot;,&quot;symbolKeepAspect&quot;:true,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderWidth&quot;:&quot;auto&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;inherit&quot;,&quot;opacity&quot;:&quot;inherit&quot;,&quot;borderColor&quot;:&quot;inherit&quot;,&quot;borderWidth&quot;:&quot;auto&quot;,&quot;borderCap&quot;:&quot;inherit&quot;,&quot;borderJoin&quot;:&quot;inherit&quot;,&quot;borderDashOffset&quot;:&quot;inherit&quot;,&quot;borderMiterLimit&quot;:&quot;inherit&quot;},&quot;lineStyle&quot;:{&quot;width&quot;:&quot;auto&quot;,&quot;color&quot;:&quot;inherit&quot;,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveWidth&quot;:2,&quot;opacity&quot;:&quot;inherit&quot;,&quot;type&quot;:&quot;inherit&quot;,&quot;cap&quot;:&quot;inherit&quot;,&quot;join&quot;:&quot;inherit&quot;,&quot;dashOffset&quot;:&quot;inherit&quot;,&quot;miterLimit&quot;:&quot;inherit&quot;},&quot;selectedMode&quot;:true,&quot;selector&quot;:false,&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;borderRadius&quot;:10,&quot;padding&quot;:[3,5,3,5],&quot;fontSize&quot;:12,&quot;fontFamily&quot;:&quot;sans-serif&quot;,&quot;color&quot;:&quot;#666&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#666&quot;},&quot;emphasis&quot;:{&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;color&quot;:&quot;#eee&quot;,&quot;backgroundColor&quot;:&quot;#666&quot;}},&quot;selectorPosition&quot;:&quot;auto&quot;,&quot;selectorItemGap&quot;:7,&quot;selectorButtonGap&quot;:10,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;selected&quot;:{}}],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 1007px; height: 384px; padding: 0px; margin: 0px; border-width: 0px;"><canvas data-zr-dom-id="zr_0" width="1132" height="432" style="position: absolute; left: 0px; top: 0px; width: 1007px; height: 384px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class=""></div></div>
+            </div>
+            
+            <!-- Key Statistics Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="card-hover bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 rounded-2xl p-6 text-center">
+                    <i class="fas fa-chart-line text-blue-600 text-3xl mb-4"></i>
+                    <div class="text-3xl font-bold text-blue-900 dark:text-blue-300 mb-2">$4兆</div>
+                    <div class="text-blue-700 dark:text-blue-400 font-medium">McKinsey 2030預測</div>
+                    <div class="text-blue-600 dark:text-blue-500 text-sm mt-2">(樂觀情景)</div>
+                </div>
+                
+                <div class="card-hover bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900/20 dark:to-green-800/20 rounded-2xl p-6 text-center">
+                    <i class="fas fa-university text-green-600 text-3xl mb-4"></i>
+                    <div class="text-3xl font-bold text-green-900 dark:text-green-300 mb-2">$5兆</div>
+                    <div class="text-green-700 dark:text-green-400 font-medium">Citi 2030預測</div>
+                    <div class="text-green-600 dark:text-green-500 text-sm mt-2">(證券代幣化)</div>
+                </div>
+                
+                <div class="card-hover bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 rounded-2xl p-6 text-center">
+                    <i class="fas fa-coins text-purple-600 text-3xl mb-4"></i>
+                    <div class="text-3xl font-bold text-purple-900 dark:text-purple-300 mb-2">$18.9兆</div>
+                    <div class="text-purple-700 dark:text-purple-400 font-medium">Ripple/BCG 2033</div>
+                    <div class="text-purple-600 dark:text-purple-500 text-sm mt-2">(實物資產)</div>
+                </div>
+                
+                <div class="card-hover bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 rounded-2xl p-6 text-center">
+                    <i class="fas fa-globe text-orange-600 text-3xl mb-4"></i>
+                    <div class="text-3xl font-bold text-orange-900 dark:text-orange-300 mb-2">$30.1兆</div>
+                    <div class="text-orange-700 dark:text-orange-400 font-medium">渣打/Synpulse 2034</div>
+                    <div class="text-orange-600 dark:text-orange-500 text-sm mt-2">(整體市場)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Regulation Section -->
+    <section id="regulation" class="py-20 bg-gray-50 dark:bg-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold text-gray-900 dark:text-white mb-6">監管考量</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300">IOSCO的監管原則與建議框架</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                <div class="space-y-8">
+                    <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">核心監管原則</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4 p-4 bg-primary/5 rounded-xl">
+                                <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                    <i class="fas fa-balance-scale text-white text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 dark:text-white mb-2">技術中立原則</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">關注產品的經濟實質而非所使用的技術</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4 p-4 bg-secondary/5 rounded-xl">
+                                <div class="w-8 h-8 bg-secondary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                    <i class="fas fa-equals text-white text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 dark:text-white mb-2">同等監管原則</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">相同活動、相同風險、相同監管結果</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start space-x-4 p-4 bg-highlight/10 rounded-xl">
+                                <div class="w-8 h-8 bg-highlight rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                                    <i class="fas fa-shield-alt text-white text-sm"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 dark:text-white mb-2">投資者保護</h4>
+                                    <p class="text-gray-600 dark:text-gray-300">確保投資者權益和市場誠信</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">適用標準框架</h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-center space-x-3 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span class="text-gray-700 dark:text-gray-300">證券監管目標和原則</span>
+                            </li>
+                            <li class="flex items-center space-x-3 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span class="text-gray-700 dark:text-gray-300">加密和數字資產市場建議</span>
+                            </li>
+                            <li class="flex items-center space-x-3 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
+                                <i class="fas fa-check-circle text-green-500"></i>
+                                <span class="text-gray-700 dark:text-gray-300">去中心化金融建議</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="space-y-8">
+                    <div class="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">監管回應措施</h3>
+                        <div class="space-y-4">
+                            <div class="border-l-4 border-blue-500 pl-6 py-4">
+                                <h4 class="font-bold text-gray-900 dark:text-white mb-2">具體指導 (91%採用)</h4>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm">發布指導意見澄清現有監管框架的適用性</p>
+                            </div>
+                            
+                            <div class="border-l-4 border-green-500 pl-6 py-4">
+                                <h4 class="font-bold text-gray-900 dark:text-white mb-2">監管沙盒</h4>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm">允許在受控環境中實驗DLT驅動的金融產品</p>
+                            </div>
+                            
+                            <div class="border-l-4 border-purple-500 pl-6 py-4">
+                                <h4 class="font-bold text-gray-900 dark:text-white mb-2">法律修訂</h4>
+                                <p class="text-gray-600 dark:text-gray-300 text-sm">實施新的法律法規消除障礙並提供清晰度</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl p-8">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">FTF調查結果</h3>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="text-center p-4 bg-white dark:bg-gray-800 rounded-xl">
+                                <div class="text-2xl font-bold text-primary mb-1">57%</div>
+                                <div class="text-sm text-gray-600 dark:text-gray-300">進行實驗</div>
+                            </div>
+                            <div class="text-center p-4 bg-white dark:bg-gray-800 rounded-xl">
+                                <div class="text-2xl font-bold text-secondary mb-1">43%</div>
+                                <div class="text-sm text-gray-600 dark:text-gray-300">實際用例</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusion Section -->
+    <section class="py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold text-gray-900 dark:text-white mb-6">結論與展望</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300">代幣化發展的現狀總結與未來趨勢</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-seedling text-green-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">發展現狀</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                        代幣化在固定收益產品和貨幣市場基金領域表現活躍，但整體仍處於早期發展階段，用例有限且不平衡
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-blue-100 dark:bg-blue-900/30 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-link text-blue-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">互聯互通</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                        代幣化與傳統金融及加密市場的聯繫日益緊密，特別是代幣化MMFs作為穩定幣儲備資產的使用
+                    </p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="w-20 h-20 bg-purple-100 dark:bg-purple-900/30 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-cogs text-purple-600 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4">結構挑戰</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                        缺乏跨區塊鏈互操作性和高質量結算資產是限制代幣化規模化發展的主要結構性挑戰
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Key Takeaways -->
+            <div class="bg-gradient-to-r from-primary/5 to-secondary/5 rounded-3xl p-8 mb-16">
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">關鍵要點</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="space-y-4">
+                        <h4 class="text-lg font-bold text-gray-900 dark:text-white flex items-center">
+                            <i class="fas fa-chart-line text-primary mr-3"></i>
+                            市場表現
+                        </h4>
+                        <ul class="space-y-2 text-gray-600 dark:text-gray-300 ml-8">
+                            <li>• 代幣化債券發行量達$100億，但相對於$140兆全球債券市場仍微小</li>
+                            <li>• 實驗多於實際商業用例（57% vs 43%）</li>
+                            <li>• 固定收益和MMFs引領採用</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <h4 class="text-lg font-bold text-gray-900 dark:text-white flex items-center">
+                            <i class="fas fa-shield-alt text-secondary mr-3"></i>
+                            風險管理
+                        </h4>
+                        <ul class="space-y-2 text-gray-600 dark:text-gray-300 ml-8">
+                            <li>• 現有風險分類基本適用</li>
+                            <li>• 技術特性需要新的控制措施</li>
+                            <li>• 監管機構採用技術中立原則</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Future Outlook -->
+            <div class="text-center">
+                <h3 class="text-3xl font-bold text-gray-900 dark:text-white mb-8">未來展望</h3>
+                <div class="max-w-4xl mx-auto">
+                    <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                        隨著監管框架的完善、技術標準的統一以及市場參與者經驗的積累，代幣化有望在未來十年內實現顯著增長。
+                        各大機構預測到2030-2034年，代幣化市場規模將達到數萬億美元水準。
+                    </p>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                        成功的關鍵在於建立跨區塊鏈互操作性標準、發展可靠的結算資產體系，
+                        以及在創新與風險管理之間找到適當平衡。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 dark:bg-black text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-2">
+                    <div class="flex items-center space-x-4 mb-6">
+                        <i class="fas fa-coins text-primary text-3xl"></i>
+                        <span class="text-2xl font-bold">IOSCO 代幣化報告</span>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed max-w-md">
+                        深度解析國際證券委員會組織對金融資產代幣化的全面研究報告，
+                        為投資者和監管機構提供重要參考依據。
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">快速導航</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#overview" class="text-gray-300 hover:text-primary transition-colors">報告總覽</a></li>
+                        <li><a href="#adoption" class="text-gray-300 hover:text-primary transition-colors">市場採用</a></li>
+                        <li><a href="#risks" class="text-gray-300 hover:text-primary transition-colors">風險分析</a></li>
+                        <li><a href="#regulation" class="text-gray-300 hover:text-primary transition-colors">監管考量</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">聯絡資訊</h4>
+                    <div class="space-y-2 text-gray-300">
+                        <p>作者：廖冠智</p>
+                        <p>版權所有：© 2025 Dunk</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-400">
+                    免責申明：基於公開資料，僅供參考，不構成建議 | 
+                    資料來源：網頁公開資訊 | 
+                    版權所有：© Dunk
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        // Check for saved theme preference or default to system preference
+        const savedTheme = localStorage.getItem('theme');
+        const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        const initialTheme = savedTheme || systemTheme;
+        
+        if (initialTheme === 'dark') {
+            html.classList.add('dark');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            const currentTheme = html.classList.contains('dark') ? 'dark' : 'light';
+            localStorage.setItem('theme', currentTheme);
+            
+            // Re-initialize charts and diagrams with new theme
+            initializeCharts();
+            initializeMermaid();
+        });
+        
+        // Initialize Mermaid
+        function initializeMermaid() {
+            const isDark = html.classList.contains('dark');
+            mermaid.initialize({
+                startOnLoad: true,
+                theme: isDark ? 'dark' : 'default',
+                themeVariables: {
+                    primaryColor: '#9A0036',
+                    primaryTextColor: isDark ? '#ffffff' : '#000000',
+                    primaryBorderColor: '#941C61',
+                    lineColor: isDark ? '#6B7280' : '#374151',
+                    secondaryColor: '#EEBAC0',
+                    tertiaryColor: isDark ? '#1F2937' : '#F3F4F6'
+                }
+            });
+        }
+        
+        // Initialize charts
+        function initializeCharts() {
+            const isDark = html.classList.contains('dark');
+            
+            // Market Projections Chart
+            const marketChart = echarts.init(document.getElementById('market-projections-chart'), isDark ? 'dark' : null);
+            const marketOption = {
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'cross'
+                    }
+                },
+                legend: {
+                    data: ['McKinsey', 'Citi', 'Ripple/BCG', '渣打/Synpulse'],
+                    textStyle: {
+                        color: isDark ? '#E5E7EB' : '#374151'
+                    }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['2025', '2030', '2033', '2034'],
+                    axisLine: {
+                        lineStyle: {
+                            color: isDark ? '#6B7280' : '#9CA3AF'
+                        }
+                    },
+                    axisLabel: {
+                        color: isDark ? '#E5E7EB' : '#374151'
+                    }
+                },
+                yAxis: {
+                    type: 'value',
+                    name: '萬億美元',
+                    axisLine: {
+                        lineStyle: {
+                            color: isDark ? '#6B7280' : '#9CA3AF'
+                        }
+                    },
+                    axisLabel: {
+                        color: isDark ? '#E5E7EB' : '#374151'
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            color: isDark ? '#374151' : '#E5E7EB'
+                        }
+                    }
+                },
+                series: [
+                    {
+                        name: 'McKinsey',
+                        type: 'bar',
+                        data: [0, 4, 0, 0],
+                        itemStyle: { color: '#3B82F6' }
+                    },
+                    {
+                        name: 'Citi',
+                        type: 'bar',
+                        data: [0, 5, 0, 0],
+                        itemStyle: { color: '#10B981' }
+                    },
+                    {
+                        name: 'Ripple/BCG',
+                        type: 'bar',
+                        data: [0.6, 0, 18.9, 0],
+                        itemStyle: { color: '#8B5CF6' }
+                    },
+                    {
+                        name: '渣打/Synpulse',
+                        type: 'bar',
+                        data: [0, 0, 0, 30.1],
+                        itemStyle: { color: '#F59E0B' }
+                    }
+                ]
+            };
+            marketChart.setOption(marketOption);
+            
+            // Make charts responsive
+            window.addEventListener('resize', function() {
+                marketChart.resize();
+            });
+        }
+        
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeMermaid();
+            initializeCharts();
+            
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+
+<div class="mermaidTooltip" style="opacity: 0;"></div></body></html>
