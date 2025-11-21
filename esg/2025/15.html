@@ -1,0 +1,625 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2025年永續週報：5大驚人趨勢 | ESG Insights</title>
+    <meta name="description" content="從AI的隱藏成本到氣候現實，揭示重塑未來的五大永續發展趨勢。">
+    <meta name="author" content="Dunk">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {            
+            theme: {
+                extend: {
+                    colors: {
+                        esg: {
+                            dark: '#1a4d3a',   // 墨綠色
+                            primary: '#2d5016', // 深森林綠
+                            light: '#e8f5e8',  // 淺綠色
+                            accent: '#ff6b35', // 橙色
+                            link: '#0066cc',   // 專業藍
+                            navy: '#1e3a8a',   // 海軍藍
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', '"Inter"', 'sans-serif'],
+                        serif: ['"Noto Serif TC"', 'serif'],
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Preline UI -->
+    <script src="https://cdn.jsdelivr.net/npm/preline@2.3.0/dist/preline.min.js"></script>
+    
+    <!-- Mermaid.js -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    
+    <!-- ECharts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2d5016;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #1a4d3a;
+        }
+        
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .dark .glass-nav {
+            background: rgba(17, 24, 39, 0.9);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .text-balance {
+            text-wrap: balance;
+        }
+        
+        /* Chart Containers */
+        .chart-container {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 1rem;
+        }
+    </style>
+<script src="https://felo.ai/js/iframe.js?v=1763680565078"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style></head>
+<body class="bg-slate-50 text-slate-800 dark:bg-gray-900 dark:text-slate-100 font-sans transition-colors duration-300 antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300 top-0 start-0">
+        <div class="max-w-[85rem] w-full mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <a class="flex-none text-xl font-serif font-bold text-esg-dark dark:text-white" href="#">
+                    <i class="fa-solid fa-leaf text-esg-primary mr-2"></i>ESG 永續週報
+                </a>
+                
+                <div class="hidden md:block">
+                    <div class="flex items-center gap-8 text-sm font-medium text-gray-600 dark:text-gray-300">
+                        <a class="hover:text-esg-primary dark:hover:text-esg-light transition-colors" href="#trend1">AI能耗</a>
+                        <a class="hover:text-esg-primary dark:hover:text-esg-light transition-colors" href="#trend2">風險認知</a>
+                        <a class="hover:text-esg-primary dark:hover:text-esg-light transition-colors" href="#trend3">海洋轉化</a>
+                        <a class="hover:text-esg-primary dark:hover:text-esg-light transition-colors" href="#trend4">飲食革命</a>
+                        <a class="hover:text-esg-primary dark:hover:text-esg-light transition-colors" href="#trend5">氣候現實</a>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <button id="theme-toggle" type="button" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-gray-300 focus:outline-none">
+                        <i class="fa-solid fa-moon hidden dark:block"></i>
+                        <i class="fa-solid fa-sun block dark:hidden"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden min-h-screen flex items-center pt-16">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://api.felo.ai/images/s/5FL28i4tSR" 
+                 alt="Sustainable Future" 
+                 class="w-full h-full object-cover opacity-20 dark:opacity-10">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-slate-50 dark:to-gray-900"></div>
+        </div>
+
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="inline-block mb-4 px-3 py-1 rounded-full bg-esg-light text-esg-primary text-xs font-bold tracking-wide uppercase dark:bg-esg-primary/20 dark:text-esg-light border border-esg-primary/20">
+                    2025 永續趨勢報告
+                </div>
+                <h1 class="esg-header text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-esg-dark dark:text-white mb-6 leading-tight text-balance">
+                    2025年的5大驚人趨勢
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-10 font-light leading-relaxed">
+                    從AI的隱藏成本到億萬富翁的最大恐懼，<br class="hidden md:block">這些永續新知將重塑你的世界觀。
+                </p>
+                
+                <!-- Introduction Card -->
+                <div class="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-gray-100 dark:border-gray-700 text-left max-w-3xl mx-auto relative overflow-hidden group hover:shadow-2xl transition-all duration-300">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-esg-accent"></div>
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-3">未來已來，只是尚未均勻分佈</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                        我們每天都被海量的新聞資訊淹沒。本文將剝開表象，為你揭示五個最令人驚訝、最具影響力，甚至有些違反直覺的永續發展新知。這些洞見不僅關乎地球的未來，更與我們的經濟、健康，乃至日常生活的每一個選擇都息息相關。
+                    </p>
+                    <div class="mt-6 flex justify-center">
+                         <a href="#trend1" class="animate-bounce text-esg-primary dark:text-esg-light">
+                            <i class="fa-solid fa-chevron-down text-2xl"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trend 1: AI Energy -->
+    <section id="trend1" class="py-24 bg-white dark:bg-gray-900 relative">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-full bg-esg-primary text-white font-bold text-lg">1</span>
+                        <h2 class="text-3xl font-serif font-bold text-gray-900 dark:text-white">AI的驚人代價</h2>
+                    </div>
+                    <h3 class="text-xl text-esg-primary dark:text-esg-light font-medium mb-6">每一次「智慧」點擊，都在消耗一座城市的電力</h3>
+                    
+                    <div class="prose dark:prose-invert text-gray-600 dark:text-gray-300 mb-8">
+                        <p class="mb-4">
+                            當我們讚嘆AI的智慧時，背後的代價是驚人的能源黑洞。AI伺服器的能源需求急劇攀升，Gartner預測顯示：
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-bolt text-esg-accent mt-1 mr-3"></i>
+                                <span>到2025年，資料中心總電力消耗將佔全球發電量的 <strong>2% 至 5%</strong>。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-chart-line text-esg-accent mt-1 mr-3"></i>
+                                <span>到2027年，AI工作負載電力消耗的年複合成長率（CAGR）將達 <strong>20% 至 30%</strong>。</span>
+                            </li>
+                        </ul>
+                        <p class="text-sm border-l-4 border-esg-accent pl-4 italic">
+                            這不僅是環境挑戰，更是經濟問題。AI的「隱藏成本」最終將轉嫁為服務價格上漲，加劇數位不平等，但也加速了人類尋找氫能、地熱能及核能等替代能源的迫切性。
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="order-1 lg:order-2 bg-esg-light/30 dark:bg-gray-800 p-6 rounded-3xl shadow-inner">
+                    <h4 class="text-center text-sm font-semibold text-gray-500 mb-4 uppercase tracking-wider">資料中心電力消耗預測 (TWh)</h4>
+                    <div id="chart-ai-energy" class="chart-container h-[400px] w-full"></div>
+                    <p class="text-xs text-center text-gray-400 mt-2">資料來源：Gartner & 公開預測數據</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trend 2: Billionaire Fear -->
+    <section id="trend2" class="py-24 bg-gray-50 dark:bg-gray-800/50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto text-center mb-12">
+                <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-esg-accent text-white font-bold text-xl mb-6 shadow-lg shadow-orange-500/30">2</div>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 dark:text-white mb-4">億萬富翁的最大恐懼</h2>
+                <p class="text-xl text-gray-600 dark:text-gray-300">不是市場崩盤，而是AI失控</p>
+            </div>
+
+            <div class="bg-white dark:bg-gray-900 rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-gray-700">
+                <div class="grid md:grid-cols-12 gap-0">
+                    <!-- Left Content -->
+                    <div class="md:col-span-7 p-8 md:p-12 flex flex-col justify-center">
+                        <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
+                            摩根大通（JPMorgan）針對超高淨值客戶的調查揭示了一個反直覺的事實：這群最敏銳的資本家恐懼的並非財富損失，而是賴以生存的社會體系崩潰。
+                        </p>
+                        <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-xl border-l-4 border-esg-navy mb-6">
+                            <h4 class="font-bold text-esg-navy dark:text-blue-400 mb-2">深層洞察</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">
+                                當AI威脅到資源分配與社會穩定時，它動搖的是全球秩序的根基。這已是攸關存續的系統性永續危機，推動全球加速建立「負責任AI」框架。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Right Visual -->
+                    <div class="md:col-span-5 bg-esg-navy/5 dark:bg-black/20 p-8 flex flex-col items-center justify-center relative">
+                        <div id="chart-risk-perception" class="chart-container w-full h-[300px]"></div>
+                        <div class="absolute bottom-6 text-center">
+                            <p class="text-3xl font-black text-esg-navy dark:text-blue-400">69%</p>
+                            <p class="text-sm font-medium text-gray-500">視AI為首要風險</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trend 3: Ocean Alchemy -->
+    <section id="trend3" class="py-24 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row gap-12">
+                <!-- Text Content -->
+                <div class="md:w-1/2 space-y-6">
+                    <div class="flex items-center gap-3">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-full bg-esg-primary text-white font-bold text-lg">3</span>
+                        <h2 class="text-3xl font-serif font-bold text-gray-900 dark:text-white">海洋的煉金術</h2>
+                    </div>
+                    <h3 class="text-xl text-esg-link dark:text-blue-400 font-medium">將海水中的二氧化碳變成永續塑膠</h3>
+                    
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                        這項發表於《Nature Catalysis》的技術如同現代煉金術。科學家成功從海洋中「捕撈」加劇氣候變遷的二氧化碳，並將其重塑為堅固耐用的塑膠。
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-100 dark:border-blue-800">
+                            <i class="fa-solid fa-recycle text-2xl text-blue-600 mb-2"></i>
+                            <h4 class="font-bold text-gray-900 dark:text-white">循環經濟</h4>
+                            <p class="text-xs text-gray-500 dark:text-gray-400">變廢為寶，將溫室氣體轉化為有價值的產品。</p>
+                        </div>
+                        <div class="p-4 bg-green-50 dark:bg-green-900/20 rounded-xl border border-green-100 dark:border-green-800">
+                            <i class="fa-solid fa-leaf text-2xl text-green-600 mb-2"></i>
+                            <h4 class="font-bold text-gray-900 dark:text-white">雙重效益</h4>
+                            <p class="text-xs text-gray-500 dark:text-gray-400">同時解決塑膠污染與氣候變遷兩大危機。</p>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                         <img src="https://api.felo.ai/images/s/4tK5eblI4l" class="rounded-2xl shadow-lg w-full h-48 object-cover opacity-90 hover:opacity-100 transition-opacity" alt="Ocean Tech">
+                    </div>
+                </div>
+
+                <!-- Mermaid Diagram -->
+                <div class="md:w-1/2 bg-slate-50 dark:bg-slate-800 rounded-3xl p-6 shadow-lg border border-slate-200 dark:border-slate-700 flex flex-col justify-center">
+                    <h4 class="text-center font-bold text-gray-700 dark:text-gray-300 mb-6 tracking-widest uppercase text-sm">技術轉化流程</h4>
+                    <div class="mermaid flex justify-center">
+                        flowchart TD
+                            A["🌊 海水提取"] -->|捕獲溶解CO2| B(二氧化碳氣體)
+                            B -->|化學催化劑| C{轉化過程}
+                            C -->|聚合反應| D["♻️ 永續塑膠"]
+                            style A fill:#e0f2fe,stroke:#0284c7,stroke-width:2px,color:#000
+                            style B fill:#f1f5f9,stroke:#64748b,stroke-width:2px,color:#000
+                            style C fill:#fff7ed,stroke:#f97316,stroke-width:2px,color:#000
+                            style D fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#000
+                            linkStyle default stroke:#94a3b8,stroke-width:2px
+                    </div>
+                    <p class="text-center text-xs text-gray-400 mt-6">流程示意圖：基於《Nature Catalysis》研究</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trend 4: Diet & Longevity -->
+    <section id="trend4" class="py-24 bg-esg-light/50 dark:bg-gray-800/30">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-esg-accent text-white font-bold text-xl mb-6 shadow-lg shadow-orange-500/30">4</div>
+                <h2 class="text-3xl font-serif font-bold text-gray-900 dark:text-white">活得更久的簡單秘訣</h2>
+                <p class="mt-2 text-lg text-gray-600 dark:text-gray-300">改變餐盤上的一樣東西：以植物性替代品取代紅肉</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Card 1: Personal Health -->
+                <div class="bg-white dark:bg-gray-900 p-8 rounded-3xl shadow-lg border-t-8 border-esg-primary transform hover:-translate-y-1 transition-transform duration-300">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900 dark:text-white">個人健康回報</h3>
+                            <p class="text-sm text-gray-500">豆類、堅果、全穀物</p>
+                        </div>
+                        <div class="p-3 bg-green-100 dark:bg-green-900 rounded-full">
+                            <i class="fa-solid fa-heart-pulse text-2xl text-green-600"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">
+                        最新的健康研究指出，簡單的飲食調整可以顯著延長預期壽命。這不僅是減少疾病風險，更是提升生命質量的關鍵。
+                    </p>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5 mb-1">
+                        <div class="bg-green-600 h-2.5 rounded-full" style="width: 85%"></div>
+                    </div>
+                    <p class="text-xs text-right text-gray-500">預期壽命增益</p>
+                </div>
+
+                <!-- Card 2: Environmental Impact -->
+                <div class="bg-white dark:bg-gray-900 p-8 rounded-3xl shadow-lg border-t-8 border-blue-500 transform hover:-translate-y-1 transition-transform duration-300">
+                    <div class="flex justify-between items-start mb-6">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900 dark:text-white">環境足跡銳減</h3>
+                            <p class="text-sm text-gray-500">減少溫室氣體排放</p>
+                        </div>
+                        <div class="p-3 bg-blue-100 dark:bg-blue-900 rounded-full">
+                            <i class="fa-solid fa-earth-americas text-2xl text-blue-600"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6">
+                        這是一項強而有力的環保行動。轉向植物基飲食能有效降低個人碳足跡，讓我們透過「吃」這一基本行為來實質改變世界。
+                    </p>
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5 mb-1">
+                        <div class="bg-blue-500 h-2.5 rounded-full" style="width: 90%"></div>
+                    </div>
+                    <p class="text-xs text-right text-gray-500">碳排放減少潛力</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trend 5: Climate Reality -->
+    <section id="trend5" class="py-24 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col-reverse lg:flex-row gap-16 items-center">
+                <!-- Chart/Map Representation -->
+                <div class="w-full lg:w-1/2">
+                    <div class="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl p-6 border border-gray-200 dark:border-gray-700">
+                        <h4 class="text-lg font-bold text-gray-800 dark:text-white mb-4 pl-2 border-l-4 border-red-500">台灣氣候脆弱性預測</h4>
+                         <div id="chart-climate-taiwan" class="chart-container h-[350px] w-full"></div>
+                    </div>
+                </div>
+
+                <!-- Text Content -->
+                <div class="w-full lg:w-1/2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="flex items-center justify-center w-10 h-10 rounded-full bg-esg-primary text-white font-bold text-lg">5</span>
+                        <h2 class="text-3xl font-serif font-bold text-gray-900 dark:text-white">被低估的末日預言</h2>
+                    </div>
+                    <h3 class="text-xl text-red-600 dark:text-red-400 font-medium mb-6">氣候警訊不再是未來式，而是現在進行式</h3>
+                    
+                    <div class="space-y-6 text-gray-600 dark:text-gray-300">
+                        <p>
+                            過去被視為危言聳聽的預測，如今正不斷應驗。對於台灣而言，這場危機尤為迫切：
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start bg-red-50 dark:bg-red-900/10 p-4 rounded-lg">
+                                <i class="fa-solid fa-temperature-arrow-up text-red-500 mt-1 mr-4 text-xl"></i>
+                                <div>
+                                    <strong class="block text-gray-900 dark:text-white">熱浪頻襲</strong>
+                                    <span class="text-sm">夏季極端高溫日數顯著增加，衝擊公共衛生與能源供應。</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start bg-blue-50 dark:bg-blue-900/10 p-4 rounded-lg">
+                                <i class="fa-solid fa-water text-blue-500 mt-1 mr-4 text-xl"></i>
+                                <div>
+                                    <strong class="block text-gray-900 dark:text-white">國土淹沒風險</strong>
+                                    <span class="text-sm">若海平面上升50公分，約1,300平方公里土地（包括西部工業區與港口）面臨威脅。</span>
+                                </div>
+                            </li>
+                        </ul>
+                        <p class="font-medium text-esg-dark dark:text-esg-light">
+                            我們的目標必須從單純的「預防」轉向同時擁抱「適應與韌性」。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusion -->
+    <section class="py-20 bg-esg-primary text-white relative overflow-hidden">
+        <!-- Abstract Background Pattern -->
+        <svg class="absolute top-0 left-0 transform -translate-x-1/2 -translate-y-1/2 opacity-10 w-96 h-96" viewBox="0 0 100 100" fill="currentColor">
+            <circle cx="50" cy="50" r="50" />
+        </svg>
+        <svg class="absolute bottom-0 right-0 transform translate-x-1/2 translate-y-1/2 opacity-10 w-96 h-96" viewBox="0 0 100 100" fill="currentColor">
+            <rect x="0" y="0" width="100" height="100" />
+        </svg>
+
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h2 class="text-3xl md:text-5xl font-serif font-bold mb-8">在挑戰與機遇之間，你選擇站在哪裡？</h2>
+            <div class="max-w-3xl mx-auto">
+                <p class="text-lg md:text-xl leading-relaxed mb-10 text-gray-100">
+                    永續發展的道路上，既有AI能耗這樣意想不到的挑戰，也有如海水變塑膠般充滿希望的創新。我們正處於關鍵轉捩點，舊模式正在瓦解，新規則正在形成。
+                </p>
+                <div class="p-8 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20">
+                    <p class="text-xl font-medium italic">
+                        "當這些強大的力量正在重塑我們的世界時，你將選擇扮演什麼角色，為這個永續新篇章做出貢獻？"
+                    </p>
+                </div>
+                <div class="mt-10">
+                    <a href="#" class="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-esg-primary transition-all duration-200 bg-white border border-transparent rounded-full hover:bg-esg-light hover:scale-105 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-esg-primary focus:ring-white shadow-lg">
+                        訂閱永續週報
+                        <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-center md:text-left">
+                    <h5 class="text-white font-bold text-lg mb-2">ESG Insights</h5>
+                    <p class="text-sm">為企業決策者與永續先行者提供深度洞察。</p>
+                </div>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-linkedin text-2xl"></i></a>
+                    <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-twitter text-2xl"></i></a>
+                    <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-facebook text-2xl"></i></a>
+                </div>
+            </div>
+            <hr class="border-gray-800 my-8">
+            <div class="flex flex-col md:flex-row justify-between items-center text-xs gap-4">
+                <div class="space-y-2 text-center md:text-left">
+                    <p>免責聲明：基於公開資料，僅供參考，不構成建議</p>
+                    <p>資料來源：網頁公開資訊</p>
+                </div>
+                <div class="text-center md:text-right">
+                    <p>作者：廖冠智</p>
+                    <p>版權所有：© 2025 Dunk. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts for Interactivity and Charts -->
+    <script>
+        // 1. Dark Mode Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        function updateTheme() {
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                htmlElement.classList.add('dark');
+            } else {
+                htmlElement.classList.remove('dark');
+            }
+            initCharts(); // Re-init charts on theme change
+            initMermaid(); // Re-init mermaid
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.theme = 'light';
+            } else {
+                localStorage.theme = 'dark';
+            }
+            updateTheme();
+        });
+
+        // Initial Theme Check
+        updateTheme();
+
+        // 2. ECharts Initialization
+        let chartAI, chartRisk, chartClimate;
+
+        function initCharts() {
+            const isDark = htmlElement.classList.contains('dark');
+            const theme = isDark ? 'dark' : null;
+            const textColor = isDark ? '#ccc' : '#333';
+            const gridColor = isDark ? '#333' : '#eee';
+
+            // --- Chart 1: AI Energy ---
+            const domAI = document.getElementById('chart-ai-energy');
+            if (domAI) {
+                if (chartAI) chartAI.dispose();
+                chartAI = echarts.init(domAI, theme);
+                chartAI.setOption({
+                    backgroundColor: 'transparent',
+                    tooltip: { trigger: 'axis' },
+                    grid: { left: '3%', right: '4%', bottom: '3%', containLabel: true },
+                    xAxis: { 
+                        type: 'category', 
+                        data: ['2023', '2024', '2025', '2026', '2027'],
+                        axisLine: { lineStyle: { color: textColor } }
+                    },
+                    yAxis: { 
+                        type: 'value', 
+                        name: '能耗指數',
+                        splitLine: { lineStyle: { color: gridColor } },
+                        axisLine: { lineStyle: { color: textColor } }
+                    },
+                    series: [{
+                        name: 'AI電力需求',
+                        type: 'bar',
+                        data: [100, 140, 210, 320, 450], // Hypothetical trend based on CAGR 20-30%
+                        itemStyle: { color: '#2d5016' },
+                        smooth: true
+                    }]
+                });
+            }
+
+            // --- Chart 2: Risk Perception ---
+            const domRisk = document.getElementById('chart-risk-perception');
+            if (domRisk) {
+                if (chartRisk) chartRisk.dispose();
+                chartRisk = echarts.init(domRisk, theme);
+                chartRisk.setOption({
+                    backgroundColor: 'transparent',
+                    series: [{
+                        type: 'pie',
+                        radius: ['60%', '80%'],
+                        avoidLabelOverlap: false,
+                        label: { show: false },
+                        emphasis: { label: { show: true, fontSize: '20', fontWeight: 'bold' } },
+                        data: [
+                            { value: 69, name: 'AI首要風險', itemStyle: { color: '#ff6b35' } },
+                            { value: 31, name: '其他風險', itemStyle: { color: '#e8f5e8' } }
+                        ]
+                    }]
+                });
+            }
+
+            // --- Chart 3: Climate Taiwan ---
+            const domClimate = document.getElementById('chart-climate-taiwan');
+            if (domClimate) {
+                if (chartClimate) chartClimate.dispose();
+                chartClimate = echarts.init(domClimate, theme);
+                chartClimate.setOption({
+                    backgroundColor: 'transparent',
+                    title: { text: '海平面上升與極端高溫趨勢模擬', left: 'center', textStyle: { fontSize: 14, color: textColor } },
+                    tooltip: { trigger: 'axis' },
+                    legend: { top: 'bottom', textStyle: { color: textColor } },
+                    grid: { left: '3%', right: '4%', bottom: '10%', containLabel: true },
+                    xAxis: { 
+                        type: 'category', 
+                        boundaryGap: false, 
+                        data: ['2020', '2030', '2040', '2050'],
+                        axisLabel: { color: textColor }
+                    },
+                    yAxis: [
+                        { type: 'value', name: '淹沒面積(km²)', position: 'left', axisLabel: { color: textColor } },
+                        { type: 'value', name: '高溫日數(天)', position: 'right', axisLabel: { color: textColor } }
+                    ],
+                    series: [
+                        {
+                            name: '淹沒潛勢區域',
+                            type: 'line',
+                            yAxisIndex: 0,
+                            data: [100, 450, 800, 1300],
+                            areaStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{offset: 0, color: '#1e3a8a'}, {offset: 1, color: 'rgba(30,58,138,0.1)'}]) },
+                            itemStyle: { color: '#1e3a8a' }
+                        },
+                        {
+                            name: '夏季極端高溫',
+                            type: 'line',
+                            yAxisIndex: 1,
+                            data: [30, 60, 95, 120],
+                            itemStyle: { color: '#ff6b35' }
+                        }
+                    ]
+                });
+            }
+        }
+
+        // 3. Mermaid Initialization
+        function initMermaid() {
+            const isDark = htmlElement.classList.contains('dark');
+            mermaid.initialize({
+                startOnLoad: true,
+                theme: isDark ? 'dark' : 'default',
+                securityLevel: 'loose',
+                fontFamily: '"Noto Sans TC", sans-serif'
+            });
+        }
+
+        // Resize Listener
+        window.addEventListener('resize', () => {
+            if(chartAI) chartAI.resize();
+            if(chartRisk) chartRisk.resize();
+            if(chartClimate) chartClimate.resize();
+        });
+
+        // Initial Calls
+        initCharts();
+        
+    </script>
+</body>
+</html>
