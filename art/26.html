@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expo Favela Innovation 2025 | 貧民窟：創新的震央</title>
+    <meta name="description" content="巴西最大的邊緣創業盛會，連結貧民窟與全球市場，展示創新、文化與經濟潛力。">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Space+Grotesk:wght@300;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        display: ['"Space Grotesk"', 'sans-serif'],
+                    },
+                    colors: {
+                        'favela-black': '#0F0F0F',
+                        'favela-neon-green': '#CCFF00',
+                        'favela-hot-pink': '#FF00CC',
+                        'favela-cyan': '#00CCFF',
+                        'favela-yellow': '#FFD700',
+                        'favela-orange': '#FF5500',
+                    },
+                    backgroundImage: {
+                        'grid-pattern': "url(\"data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E\")",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Preline UI -->
+    <script src="https://cdn.jsdelivr.net/npm/preline@2.3.0/dist/preline.min.js"></script>
+    
+    <!-- ECharts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    
+    <!-- Mermaid -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Text Gradient */
+        .text-gradient {
+            background: linear-gradient(to right, #CCFF00, #00CCFF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Image Reveal Animation */
+        .reveal-img {
+            clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+            animation: reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+        }
+        @keyframes reveal {
+            to { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+        }
+
+        /* Grid Hover Effects */
+        .art-grid-item {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .art-grid-item:hover {
+            transform: scale(0.98);
+            filter: brightness(1.1);
+        }
+        
+        /* Mermaid Container */
+        .mermaid-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            overflow-x: auto;
+        }
+    </style>
+<script src="https://felo.ai/js/iframe.js?v=1763782685347"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style></head>
+<body class="bg-gray-50 dark:bg-favela-black text-gray-900 dark:text-gray-100 transition-colors duration-300 antialiased">
+
+    <!-- Navigation -->
+    <header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-favela-black/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+        <nav class="max-w-[85rem] w-full mx-auto px-4 sm:px-6 lg:px-8" aria-label="Global">
+            <div class="relative flex items-center justify-between h-16">
+                <a class="flex-none text-xl font-black tracking-tighter uppercase" href="#" aria-label="Brand">
+                    Expo <span class="text-favela-neon-green">Favela</span> <span class="font-light">2025</span>
+                </a>
+                <div class="flex items-center gap-4">
+                    <div class="hidden md:flex gap-6 text-sm font-medium">
+                        <a class="hover:text-favela-cyan transition-colors" href="#about">關於展會</a>
+                        <a class="hover:text-favela-hot-pink transition-colors" href="#mosaic">藝術方格</a>
+                        <a class="hover:text-favela-neon-green transition-colors" href="#impact">數據影響</a>
+                        <a class="hover:text-favela-yellow transition-colors" href="#timeline">全球巡迴</a>
+                    </div>
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" type="button" class="hs-dark-mode-active:hidden block hs-dark-mode group flex items-center text-gray-600 hover:text-blue-600 font-medium dark:text-gray-400 dark:hover:text-gray-500">
+                        <i class="fa-regular fa-moon"></i>
+                    </button>
+                    <button id="theme-toggle-dark" type="button" class="hs-dark-mode-active:block hidden hs-dark-mode group flex items-center text-gray-600 hover:text-blue-600 font-medium dark:text-gray-400 dark:hover:text-gray-500">
+                        <i class="fa-regular fa-sun"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section: Visual Impact -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://image.pollinations.ai/prompt/Brazilian%20favela%20at%20sunset,%20vibrant%20colors,%20cinematic%20lighting,%20futuristic%20innovation%20hub,%20artistic,%204k,%20high%20contrast,%20wide%20angle?nologo=true" alt="Favela Innovation Atmosphere" class="w-full h-full object-cover opacity-60 dark:opacity-40 reveal-img">
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-50 dark:from-favela-black via-transparent to-transparent"></div>
+            <div class="absolute inset-0 bg-grid-pattern opacity-20"></div>
+        </div>
+
+        <div class="relative z-10 max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="mb-4 text-sm md:text-base font-bold tracking-widest uppercase text-favela-neon-green animate-pulse">
+                巴西 · 巴黎 · 全球
+            </p>
+            <h1 class="text-5xl md:text-7xl lg:text-9xl font-black tracking-tighter mb-6 leading-tight">
+                EXPO FAVELA<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-favela-hot-pink to-favela-cyan">INNOVATION</span>
+            </h1>
+            <p class="text-lg md:text-2xl max-w-2xl mx-auto font-light text-gray-800 dark:text-gray-200 mb-10">
+                從匱乏到潛力，從邊緣到中心。<br>
+                見證全球最大的貧民窟創業與創新盛會。
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#about" class="px-8 py-4 bg-favela-black dark:bg-white text-white dark:text-favela-black font-bold rounded-full hover:scale-105 transition-transform duration-300">
+                    探索展會
+                </a>
+                <a href="https://www.youtube.com/watch?v=oBEuM2Fc2wY" target="_blank" class="px-8 py-4 border border-gray-800 dark:border-white text-gray-800 dark:text-white font-bold rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">
+                    <i class="fa-solid fa-play mr-2"></i> 觀看預告
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction: Editorial Layout -->
+    <section id="about" class="py-20 lg:py-32 bg-white dark:bg-favela-black">
+        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                <div class="lg:col-span-5 sticky top-24">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                        不僅是展覽，<br>更是一場<span class="underline decoration-favela-neon-green underline-offset-8">文化革命</span>。
+                    </h2>
+                    <div class="w-20 h-2 bg-favela-hot-pink mb-8"></div>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">
+                        巴西的貧民窟（Favela）長期被視為社會問題的象徵，但實際上，這裡是創新、文化與經濟潛力的溫床。
+                    </p>
+                    <p class="text-lg text-gray-600 dark:text-gray-400">
+                        由 <strong>Celso Athayde</strong> (CUFA 創辦人) 發起，Expo Favela Innovation 旨在打破刻板印象，連結「柏油路」（正式經濟）與「貧民窟」（非正式經濟），展現這些社區高達 2,000 億雷亞爾的經濟活力。
+                    </p>
+                </div>
+                <div class="lg:col-span-7">
+                    <!-- User provided image: Event Scene -->
+                    <figure class="relative group overflow-hidden rounded-2xl shadow-2xl">
+                        <img src="https://api.felo.ai/images/s/4WXJWCs2Ma?width=1330&height=889" alt="Expo Favela Event Scene" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        <figcaption class="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black/80 to-transparent text-white">
+                            <span class="text-favela-neon-green font-bold uppercase text-xs tracking-wider">現場直擊</span>
+                            <p class="font-medium mt-1">充滿活力的展會現場，匯聚創業者、藝術家與投資人。</p>
+                        </figcaption>
+                    </figure>
+                    
+                    <div class="grid grid-cols-2 gap-6 mt-6">
+                         <div class="bg-gray-100 dark:bg-gray-900 p-6 rounded-xl border-l-4 border-favela-cyan">
+                            <h3 class="text-xl font-bold mb-2">核心目標</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">將貧民窟的創造力轉化為經濟價值，促進社會包容。</p>
+                        </div>
+                        <div class="bg-gray-100 dark:bg-gray-900 p-6 rounded-xl border-l-4 border-favela-yellow">
+                            <h3 class="text-xl font-bold mb-2">國際連結</h3>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">從聖保羅到巴黎，建立跨國界的創新對話。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The "Art Mosaic" Section: Theme Squares -->
+    <!-- Requested: "依照主題決定適合的網頁藝術配色方格" -->
+    <section id="mosaic" class="py-20 bg-gray-50 dark:bg-[#111]">
+        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+            <h2 class="text-3xl font-bold text-center mb-4">多元創新光譜</h2>
+            <p class="text-center text-gray-500 max-w-2xl mx-auto">Expo Favela 的內容豐富多樣，每個領域都閃耀著獨特的色彩。</p>
+        </div>
+
+        <!-- Mosaic Grid Layout -->
+        <div class="max-w-[90rem] mx-auto px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 auto-rows-[300px] gap-4">
+            
+            <!-- Block 1: Entrepreneurship (Blue) -->
+            <div class="art-grid-item relative group overflow-hidden rounded-lg col-span-1 lg:col-span-2 bg-blue-600">
+                <img src="https://image.pollinations.ai/prompt/modern%20brazilian%20startup%20team%20working%20in%20colorful%20office,%20diversity,%20tech,%20laptops,%20energetic?nologo=true" alt="Business" class="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-700">
+                <div class="absolute inset-0 p-8 flex flex-col justify-end">
+                    <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                        <span class="bg-white text-blue-600 px-3 py-1 text-xs font-bold uppercase tracking-wider rounded mb-2 inline-block">創業與商業</span>
+                        <h3 class="text-3xl font-bold text-white mb-2">Favela Business School</h3>
+                        <p class="text-white/80 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                            提供正式創業培訓、金融知識與導師指導，連接投資者與創新項目。
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Block 2: Culture (Pink) -->
+            <div class="art-grid-item relative group overflow-hidden rounded-lg bg-favela-hot-pink">
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <i class="fa-solid fa-masks-theater text-8xl text-white/20 group-hover:rotate-12 transition-transform duration-500"></i>
+                </div>
+                <div class="absolute inset-0 p-6 flex flex-col justify-between">
+                    <div class="text-right">
+                        <i class="fa-solid fa-arrow-right text-white text-xl opacity-0 group-hover:opacity-100 transition-opacity"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold text-white">文化與藝術</h3>
+                        <p class="text-white/90 text-sm mt-2">Batalha de Rima (押韻對戰)、塗鴉藝術與戲劇表演。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Block 3: Tech (Dark) -->
+            <div class="art-grid-item relative group overflow-hidden rounded-lg bg-gray-900 border border-gray-700">
+                 <img src="https://api.felo.ai/images/s/5pxjtGGy46" alt="Tech" class="absolute inset-0 w-full h-full object-cover opacity-30">
+                <div class="absolute inset-0 p-6 flex flex-col justify-end">
+                    <h3 class="text-2xl font-bold text-favela-cyan">科技創新</h3>
+                    <p class="text-gray-300 text-sm mt-2">從社區物流應用到太陽能照明技術，解決在地問題。</p>
+                </div>
+            </div>
+
+            <!-- Block 4: Fashion (Yellow) -->
+            <div class="art-grid-item relative group overflow-hidden rounded-lg bg-favela-yellow text-black">
+                <div class="absolute inset-0 p-6 flex flex-col">
+                    <h3 class="text-2xl font-black uppercase tracking-tight">Estrela da Favela</h3>
+                    <div class="mt-auto">
+                        <p class="font-bold text-xl">時尚與設計</p>
+                        <p class="text-sm font-medium mt-1">回收材料時裝秀與運動鞋客製化。</p>
+                    </div>
+                </div>
+                 <img src="https://api.felo.ai/images/s/2Jjnp7deeY" alt="Fashion" class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-30 transition-opacity duration-500 mix-blend-multiply">
+            </div>
+
+            <!-- Block 5: Sports (Green) -->
+            <div class="art-grid-item relative group overflow-hidden rounded-lg bg-favela-neon-green text-black">
+                <div class="absolute top-0 right-0 p-4">
+                    <i class="fa-solid fa-basketball text-4xl opacity-50"></i>
+                </div>
+                <div class="absolute inset-0 p-6 flex flex-col justify-end">
+                    <h3 class="text-2xl font-bold">體育與娛樂</h3>
+                    <p class="text-sm font-medium mt-2">3x3 籃球賽與 Futmesa，以運動促進健康與包容。</p>
+                </div>
+            </div>
+
+            <!-- Block 6: Agro (Orange) -->
+            <div class="art-grid-item relative group overflow-hidden rounded-lg lg:col-span-2 bg-favela-orange">
+                <div class="grid grid-cols-2 h-full">
+                    <div class="p-8 flex flex-col justify-center text-white">
+                        <h3 class="text-3xl font-bold mb-2">Favela Agro</h3>
+                        <p class="text-white/90 mb-4">城市農業創新與可持續發展。連結鄉村與城市，推廣有機與本地種植。</p>
+                        <span class="text-xs border border-white/50 rounded px-2 py-1 w-fit">環境永續</span>
+                    </div>
+                    <div class="relative h-full">
+                         <img src="https://api.felo.ai/images/s/5QjHfJEeMY" alt="Agro" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Visualization Section -->
+    <section id="impact" class="py-20 bg-white dark:bg-favela-black overflow-hidden">
+        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-16 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">重新定義經濟價值</h2>
+                <p class="text-gray-600 dark:text-gray-400">數據證明，貧民窟不是慈善的對象，而是投資的藍海。</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Chart 1: Business Transactions -->
+                <div class="bg-gray-50 dark:bg-[#151515] p-8 rounded-2xl shadow-lg">
+                    <h3 class="text-xl font-bold mb-6 pl-4 border-l-4 border-favela-neon-green">商業交易額成長 (百萬雷亞爾)</h3>
+                    <div id="chart-transaction" class="w-full h-80"></div>
+                    <p class="text-xs text-right text-gray-500 mt-2">*數據來源：2022-2024 官方統計</p>
+                </div>
+
+                <!-- Chart 2: Participant Categories -->
+                <div class="bg-gray-50 dark:bg-[#151515] p-8 rounded-2xl shadow-lg">
+                    <h3 class="text-xl font-bold mb-6 pl-4 border-l-4 border-favela-cyan">參展者與受眾構成</h3>
+                    <div id="chart-participants" class="w-full h-80"></div>
+                </div>
+            </div>
+
+            <!-- Key Stats Cards -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
+                <div class="text-center p-6 bg-gray-100 dark:bg-white/5 rounded-xl">
+                    <div class="text-4xl font-black text-favela-hot-pink mb-2">2000億+</div>
+                    <div class="text-sm text-gray-500">雷亞爾/年 經濟潛力</div>
+                </div>
+                <div class="text-center p-6 bg-gray-100 dark:bg-white/5 rounded-xl">
+                    <div class="text-4xl font-black text-favela-cyan mb-2">20萬+</div>
+                    <div class="text-sm text-gray-500">年度參與人數</div>
+                </div>
+                <div class="text-center p-6 bg-gray-100 dark:bg-white/5 rounded-xl">
+                    <div class="text-4xl font-black text-favela-neon-green mb-2">70+</div>
+                    <div class="text-sm text-gray-500">CUFA 營運國家</div>
+                </div>
+                <div class="text-center p-6 bg-gray-100 dark:bg-white/5 rounded-xl">
+                    <div class="text-4xl font-black text-favela-yellow mb-2">100%</div>
+                    <div class="text-sm text-gray-500">創新與活力</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Organization & Selection Process Visual -->
+    <section class="py-20 bg-gray-900 text-white relative overflow-hidden">
+        <!-- Decorative SVG Background -->
+        <div class="absolute inset-0 opacity-10">
+            <svg class="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M0 100 C 20 0 50 0 100 100 Z" fill="url(#gradient)" />
+                <defs>
+                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#FF00CC;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#00CCFF;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+
+        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-3xl font-bold mb-6">從地方到全國：選拔機制</h2>
+                    <p class="text-gray-300 mb-8 text-lg">
+                        Expo Favela 的競爭架構為新興創業者提供了通往全國及國際舞台的途徑。通過各州的選拔，最終決賽在聖保羅舉行，並有機會登上 TV Globo 電視節目。
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-favela-neon-green mt-1 mr-3"></i>
+                            <span><strong>地區初選：</strong>各州舉辦展會，評選最具創新項目。</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-favela-neon-green mt-1 mr-3"></i>
+                            <span><strong>Top 5 晉級：</strong>每州選出 5 個項目進入全國賽。</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-favela-neon-green mt-1 mr-3"></i>
+                            <span><strong>全國 Top 10：</strong>聖保羅總決賽選出全國十強。</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa-solid fa-check text-favela-neon-green mt-1 mr-3"></i>
+                            <span><strong>電視真人秀：</strong>登上 TV Globo，爭奪 10 萬雷亞爾獎金。</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500">
+                     <!-- User provided image: Organizational Chart -->
+                    <img src="https://api.felo.ai/images/s/623GVYJ7Ii?width=1322&height=878" alt="Organization Chart" class="w-full h-auto rounded-lg">
+                    <p class="text-gray-500 text-xs mt-2 text-center">Expo Favela Innovation 2025 組織架構與選拔流程</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline / Map Section -->
+    <section id="timeline" class="py-20 bg-gray-50 dark:bg-favela-black">
+        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="inline-block py-1 px-3 rounded-full bg-blue-100 text-blue-600 text-xs font-bold tracking-wider uppercase mb-2">World Tour</span>
+                <h2 class="text-3xl md:text-4xl font-bold">2025 全球巡迴日程</h2>
+            </div>
+            
+            <!-- Mermaid Flowchart for Timeline -->
+            <div class="mermaid-container bg-white dark:bg-[#1a1a1a] p-6 rounded-xl shadow-sm border border-gray-200 dark:border-gray-800 overflow-x-auto">
+                <div class="mermaid">
+                    %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#CCFF00', 'edgeLabelBackground':'#fff', 'tertiaryColor': '#fff'}}}%%
+                    flowchart LR
+                        subgraph INTL ["國際擴展"]
+                            direction TB
+                            Paris("🇫🇷 巴黎<br/>7月4-5日<br/>Théâtre de la Concorde")
+                        end
+
+                        subgraph BR ["巴西巡迴"]
+                            direction TB
+                            SP_Reg("聖保羅 (地區)<br/>7月19-20日")
+                            Brasilia("巴西利亞<br/>10月11-12日")
+                            Rio("里約熱內盧<br/>10月25-26日<br/>Cidade das Artes")
+                            Ceara("塞阿拉<br/>11月21-22日")
+                        end
+
+                        subgraph FINALE ["年度總決賽"]
+                            SP_Final("🏆 聖保羅全國決賽<br/>11月29-30日<br/>Expo Center Norte")
+                        end
+
+                        INTL --> BR
+                        BR --> FINALE
+
+                        style Paris fill:#00CCFF,stroke:#333,stroke-width:2px,color:#000
+                        style SP_Final fill:#FF00CC,stroke:#333,stroke-width:4px,color:#fff,font-weight:bold
+                        style SP_Reg fill:#fff,stroke:#333,stroke-dasharray: 5 5
+                        style Brasilia fill:#fff,stroke:#333
+                        style Rio fill:#fff,stroke:#333
+                        style Ceara fill:#fff,stroke:#333
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unique Ticket Pricing (Social Inclusion) -->
+    <section class="py-16 bg-favela-neon-green text-black">
+        <div class="max-w-5xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-8">社會包容性票務</h2>
+            <p class="text-lg mb-8 font-medium">我們不以收入區分，而是以社區身份認同來定價。這是一種相互認可與交流的承諾。</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
+                <!-- Card 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-xl transform hover:-translate-y-2 transition-transform">
+                    <div class="text-sm font-bold text-gray-500 uppercase tracking-widest mb-2">FAVELA</div>
+                    <div class="text-5xl font-black mb-2">R$ 20</div>
+                    <p class="text-gray-600">貧民窟居民票</p>
+                    <div class="mt-4 border-t pt-4 text-sm">
+                        <span class="block text-gray-400">半票 R$ 10</span>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-favela-black text-white p-8 rounded-2xl shadow-xl transform hover:-translate-y-2 transition-transform">
+                    <div class="text-sm font-bold text-gray-400 uppercase tracking-widest mb-2">ASFALTO</div>
+                    <div class="text-5xl font-black mb-2">R$ 40</div>
+                    <p class="text-gray-300">非貧民窟居民票 (柏油路)</p>
+                    <div class="mt-4 border-t border-gray-700 pt-4 text-sm">
+                        <span class="block text-gray-500">半票 R$ 20</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners & Organizers -->
+    <section class="py-12 bg-white dark:bg-favela-black border-t border-gray-200 dark:border-gray-800">
+        <div class="max-w-[85rem] mx-auto px-4 text-center">
+            <p class="text-sm font-bold text-gray-400 uppercase mb-8">主辦與合作夥伴</p>
+            <div class="flex flex-wrap justify-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                <!-- Placeholders for logos based on content -->
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-building-ngo text-3xl"></i>
+                    <span class="font-black text-xl">CUFA</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-hand-holding-heart text-3xl"></i>
+                    <span class="font-black text-xl">Favela Holding</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-tv text-3xl"></i>
+                    <span class="font-bold text-xl">TV Globo</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-bolt text-3xl"></i>
+                    <span class="font-bold text-xl">Schneider Electric</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
+        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-4">Expo Favela 2025</h4>
+                    <p class="text-sm leading-relaxed">
+                        連接夢想與機會，展示邊緣社區的真實力量。<br>
+                        由 Favela Holding 與 CUFA 聯合呈現。
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-4">快速連結</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-favela-neon-green">關於我們</a></li>
+                        <li><a href="#" class="hover:text-favela-neon-green">日程安排</a></li>
+                        <li><a href="#" class="hover:text-favela-neon-green">參與展覽</a></li>
+                        <li><a href="#" class="hover:text-favela-neon-green">媒體中心</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-4">關注我們</h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-favela-hot-pink hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-blue-600 hover:text-white transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-red-600 hover:text-white transition-colors"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-xs">
+                <p class="mb-2">
+                    免責申明：基於公開資料，僅供參考，不構成建議 | 資料來源：網頁公開資訊
+                </p>
+                <p>
+                    版權所有： © Dunk 2025 | 設計：Dunk
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Mermaid
+        mermaid.initialize({ startOnLoad: true, theme: 'base' });
+
+        // ECharts Initialization
+        const initCharts = () => {
+            const isDark = document.documentElement.classList.contains('dark');
+            const textColor = isDark ? '#ccc' : '#333';
+            const bgColor = isDark ? 'transparent' : 'transparent';
+
+            // Chart 1: Transaction Volume
+            const chartTrans = echarts.init(document.getElementById('chart-transaction'), isDark ? 'dark' : null);
+            const optionTrans = {
+                backgroundColor: bgColor,
+                grid: { top: 30, right: 20, bottom: 30, left: 50 },
+                tooltip: { trigger: 'axis' },
+                xAxis: { 
+                    type: 'category', 
+                    data: ['2022 (首屆)', '2023', '2024 (預估)', '2025 (目標)'],
+                    axisLabel: { color: textColor }
+                },
+                yAxis: { 
+                    type: 'value', 
+                    name: '百萬雷亞爾 (R$)',
+                    axisLabel: { color: textColor },
+                    splitLine: { lineStyle: { color: isDark ? '#333' : '#eee' } }
+                },
+                series: [{
+                    data: [63, 122, 140, 180],
+                    type: 'bar',
+                    itemStyle: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                            { offset: 0, color: '#CCFF00' },
+                            { offset: 1, color: '#00CCFF' }
+                        ])
+                    },
+                    label: { show: true, position: 'top', color: textColor }
+                }]
+            };
+            chartTrans.setOption(optionTrans);
+
+            // Chart 2: Participants Pie
+            const chartPart = echarts.init(document.getElementById('chart-participants'), isDark ? 'dark' : null);
+            const optionPart = {
+                backgroundColor: bgColor,
+                tooltip: { trigger: 'item' },
+                legend: { bottom: '0%', left: 'center', textStyle: { color: textColor } },
+                series: [{
+                    name: '參與類別',
+                    type: 'pie',
+                    radius: ['40%', '70%'],
+                    avoidLabelOverlap: false,
+                    itemStyle: {
+                        borderRadius: 10,
+                        borderColor: isDark ? '#151515' : '#fff',
+                        borderWidth: 2
+                    },
+                    label: { show: false, position: 'center' },
+                    emphasis: {
+                        label: { show: true, fontSize: 20, fontWeight: 'bold', color: textColor }
+                    },
+                    data: [
+                        { value: 45, name: '創業者', itemStyle: { color: '#FF00CC' } },
+                        { value: 25, name: '公眾觀眾', itemStyle: { color: '#00CCFF' } },
+                        { value: 15, name: '投資者', itemStyle: { color: '#CCFF00' } },
+                        { value: 10, name: '藝術家', itemStyle: { color: '#FFD700' } },
+                        { value: 5, name: '政府/NGO', itemStyle: { color: '#FF5500' } }
+                    ]
+                }]
+            };
+            chartPart.setOption(optionPart);
+
+            window.addEventListener('resize', () => {
+                chartTrans.resize();
+                chartPart.resize();
+            });
+        };
+
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleDarkBtn = document.getElementById('theme-toggle-dark');
+        const html = document.documentElement;
+
+        const toggleTheme = () => {
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('hs_theme', 'light');
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('hs_theme', 'dark');
+            }
+            // Re-init charts to match theme
+            const chart1 = echarts.getInstanceByDom(document.getElementById('chart-transaction'));
+            const chart2 = echarts.getInstanceByDom(document.getElementById('chart-participants'));
+            if (chart1) chart1.dispose();
+            if (chart2) chart2.dispose();
+            initCharts();
+            
+            // Re-init Mermaid slightly hacky but effective for theme switch
+             location.reload(); // Optional: Reloading strictly to force mermaid theme update if needed, or implement dynamic mermaid render logic. For this single page, kept simple.
+        };
+
+        themeToggleBtn.addEventListener('click', toggleTheme);
+        themeToggleDarkBtn.addEventListener('click', toggleTheme);
+
+        // Initial Theme Check
+        if (localStorage.getItem('hs_theme') === 'dark' || (!('hs_theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+
+        // Load Charts on Load
+        window.addEventListener('load', initCharts);
+
+    </script>
+</body>
+</html>
