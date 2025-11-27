@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>天氣預報</title>
+    <link rel="icon" type="image/png" href="./icon-v2.png">
+    <link rel="apple-touch-icon" href="./icon-v2.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="./icon-v2.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            /* 台灣歷史風格配色 */
+            --tw-brick: #B85C50;
+            /* 紅磚色 */
+            --tw-tile: #4A5D5E;
+            /* 青瓦色 */
+            --tw-wood: #8B6F47;
+            /* 木紋色 */
+            --tw-beige: #F5EBD8;
+            /* 米白色 */
+            --tw-cream: #FFF9E6;
+            /* 奶油色 */
+            --tw-gold: #D4A574;
+            /* 金黃色 */
+            --tw-jade: #6B9080;
+            /* 青玉色 */
+            --tw-dark: #3E2723;
+            /* 深棕色 */
+            --tw-border: #D4C4B0;
+            /* 邊框色 */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            background-color: var(--tw-jade);
+            /* 傳統建築紋理背景 */
+            background-image:
+                repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(139, 111, 71, 0.1) 20px, rgba(139, 111, 71, 0.1) 40px);
+            min-height: 100vh;
+            color: var(--tw-dark);
+            /* 防止 iOS 左右滑動 */
+            overflow-x: hidden;
+            padding-bottom: 20px;
+        }
+
+        /* 頂部狀態列 */
+        .status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .location-pill {
+            background: var(--tw-gold);
+            color: var(--tw-dark);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 900;
+            font-size: 1.1rem;
+            transform: rotate(-2deg);
+            border: 2px solid var(--tw-cream);
+            box-shadow: 2px 2px 0 rgba(62, 39, 35, 0.2);
+        }
+
+        .update-pill {
+            font-size: 0.8rem;
+            color: white;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 4px 10px;
+            border-radius: 12px;
+        }
+
+        /* 縣市選單樣式 */
+        .city-selector {
+            background: var(--tw-cream);
+            color: var(--tw-dark);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1rem;
+            border: 2px solid var(--tw-brick);
+            box-shadow: 2px 2px 0 rgba(184, 92, 80, 0.2);
+            cursor: pointer;
+            font-family: 'Zen Maru Gothic', sans-serif;
+            outline: none;
+        }
+
+        .city-selector:focus {
+            border-color: var(--tw-wood);
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 600px;
+            /* 限制在大手機寬度 */
+            margin: 0 auto;
+        }
+
+        /* === 核心：今日焦點卡片 === */
+        .hero-card {
+            background: var(--tw-cream);
+            border-radius: 35px;
+            padding: 30px 25px;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(62, 39, 35, 0.15);
+            border: 4px solid var(--tw-gold);
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        /* 時段標籤 */
+        .hero-period {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--tw-brick);
+            color: var(--tw-cream);
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            border: 3px solid var(--tw-gold);
+            box-shadow: 0 4px 0 rgba(62, 39, 35, 0.2);
+        }
+
+        .hero-temp-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .hero-icon {
+            font-size: 5rem;
+            filter: drop-shadow(0 4px 0 rgba(0, 0, 0, 0.1));
+            animation: bounce 3s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .hero-temp {
+            font-size: 4.5rem;
+            font-weight: 900;
+            color: var(--tw-brick);
+            line-height: 1;
+        }
+
+        .hero-desc {
+            font-size: 1.5rem;
+            color: var(--tw-wood);
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        /* === 上班族最愛的：快速建議區 === */
+        .advice-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px dashed #E0D8C0;
+        }
+
+        .advice-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.5);
+            padding: 10px;
+            border-radius: 20px;
+        }
+
+        .advice-icon {
+            font-size: 2rem;
+            margin-bottom: 5px;
+        }
+
+        .advice-text {
+            font-size: 1.4rem;
+            font-weight: 900;
+            color: var(--tw-dark);
+            margin: 5px 0;
+            line-height: 1.2;
+        }
+
+        /* === 稍後預報：橫向滑動區 === */
+        .section-title {
+            font-size: 1.2rem;
+            color: white;
+            margin-bottom: 15px;
+            margin-left: 10px;
+            font-weight: 900;
+            text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .scroll-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 15px;
+            padding-bottom: 10px;
+            /* 隱藏滾動條但保留功能 */
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .scroll-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .mini-card {
+            min-width: 140px;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 25px;
+            padding: 20px 15px;
+            text-align: center;
+            border: 3px solid white;
+            flex-shrink: 0;
+            /* 防止被擠壓 */
+        }
+
+        .mini-time {
+            background: var(--tw-jade);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .mini-icon {
+            font-size: 2.5rem;
+            margin: 5px 0;
+        }
+
+        .mini-temp {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--tw-dark);
+        }
+
+        /* Loading 畫面 */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--ac-green);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loading" class="loading-screen">
+        <div style="font-size: 4rem; animation: bounce 2s infinite;">☁️</div>
+        <p style="color: white; font-weight: bold; margin-top: 20px;">正在觀測雲的流動...</p>
+    </div>
+    <div class="status-bar">
+        <div class="location-pill" id="locationDisplay">📍 新北市</div>
+        <div style="display: flex; flex-direction: column; align-items: center;">
+            <span style="font-size:0.95rem; color:#6b5b4b; font-weight:bold; margin-bottom:2px;">請選擇縣市查看天氣</span>
+            <select id="citySelector" class="city-selector">
+                <option value="keelung">基隆市</option>
+                <option value="taipei">臺北市</option>
+                <option value="newtaipei" selected>新北市</option>
+                <option value="yilan">宜蘭縣</option>
+                <option value="taoyuan">桃園市</option>
+                <option value="hsinchucity">新竹市</option>
+                <option value="hsinchucounty">新竹縣</option>
+                <option value="miaoli">苗栗縣</option>
+                <option value="taichung">臺中市</option>
+                <option value="changhua">彰化縣</option>
+                <option value="nantou">南投縣</option>
+                <option value="yunlin">雲林縣</option>
+                <option value="chiayicity">嘉義市</option>
+                <option value="chiayicounty">嘉義縣</option>
+                <option value="tainan">臺南市</option>
+                <option value="kaohsiung">高雄市</option>
+                <option value="pingtung">屏東縣</option>
+                <option value="hualien">花蓮縣</option>
+                <option value="taitung">臺東縣</option>
+                <option value="penghu">澎湖縣</option>
+                <option value="kinmen">金門縣</option>
+                <option value="lienchiang">連江縣</option>
+            </select>
+        </div>
+        <div id="updateTime" class="update-pill">更新中...</div>
+    </div>
+
+
+    <div class="container" id="mainContent" style="display: none;">
+        <div id="cityLandmark" style="margin-bottom: 24px;"></div>
+        <div id="heroCard"></div>
+        <h3 class="section-title">稍後預報</h3>
+        <div class="scroll-container" id="futureForecasts"></div>
+    </div>
+
+    <script>
+        // 各縣市古蹟SVG與故事（優化版）
+        const cityLandmarks = {
+            keelung: {
+                svg: `<svg width="80" height="80" viewBox="0 0 80 80"><circle cx="40" cy="35" r="22" fill="#D4A574" stroke="#3E2723" stroke-width="2"/><ellipse cx="40" cy="65" rx="28" ry="10" fill="#8B6F47" stroke="#3E2723" stroke-width="2"/><rect x="35" y="30" width="10" height="15" fill="#B85C50" rx="2"/><circle cx="40" cy="28" r="6" fill="#F5EBD8" stroke="#3E2723" stroke-width="1.5"/></svg>`,
+                title: "基隆中正公園主普壇",
+                story: "主普壇是基隆中元祭的核心，見證基隆多元族群融合與和平祈福的歷史。"
+            },
+            taipei: {
+                svg: `<svg width="80" height="80" viewBox="0 0 80 80"><rect x="25" y="15" width="30" height="50" fill="#B85C50" stroke="#3E2723" stroke-width="2" rx="3"/><rect x="20" y="60" width="40" height="8" fill="#8B6F47" stroke="#3E2723" stroke-width="2"/><polygon points="40,5 55,15 25,15" fill="#4A5D5E" stroke="#3E2723" stroke-width="2"/><rect x="33" y="25" width="14" height="18" fill="#3E2723" opacity="0.3"/></svg>`,
+                title: "台北城門（北門）",
+                story: "北門，全名承恩門，建於清朝，是台北僅存的古城門。它見證了台北城的興衰與現代化，是台北重要的歷史地標。"
+            },
+            newtaipei: {
+                svg: `<svg width="80" height="80" viewBox="0 0 80 80"><ellipse cx="40" cy="55" rx="28" ry="18" fill="#6B9080" stroke="#3E2723" stroke-width="2"/><rect x="28" y="30" width="24" height="25" fill="#8B6F47" stroke="#3E2723" stroke-width="2" rx="2"/><polygon points="40,18 52,30 28,30" fill="#B85C50" stroke="#3E2723" stroke-width="2"/><circle cx="35" cy="40" r="3" fill="#D4A574"/><circle cx="45" cy="40" r="3" fill="#D4A574"/></svg>`,
+                title: "林本源園邸（板橋林家花園）",
+                story: "林本源園邸是台灣現存最完整的園林建築，融合中西風格，見證板橋林家興盛與台灣園林文化的發展。"
+            },
+            yilan: {
+                svg: `<svg width="80" height="80" viewBox="0 0 80 80"><rect x="25" y="35" width="30" height="30" fill="#8B6F47" stroke="#3E2723" stroke-width="2"/><polygon points="40,15 58,35 22,35" fill="#B85C50" stroke="#3E2723" stroke-width="2"/><rect x="35" y="45" width="10" height="15" fill="#3E2723" opacity="0.3"/><line x1="25" y1="50" x2="55" y2="50" stroke="#3E2723" stroke-width="1.5"/></svg>`,
+                title: "宜蘭設治紀念館",
+                story: "原為宜蘭廳長官邸，見證宜蘭設治與地方發展，是日治時期木造官舍代表。"
+            },
+            taoyuan: {
+                svg: `<svg width="80" height="80" viewBox="0 0 80 80"><rect x="20" y="40" width="40" height="25" fill="#D4A574" stroke="#3E2723" stroke-width="2" rx="3"/><path d="M 25 40 Q 40 25 55 40" fill="none" stroke="#3E2723" stroke-width="2.5"/><circle cx="30" cy="52" r="4" fill="#8B6F47"/><circle cx="50" cy="52" r="4" fill="#8B6F47"/><rect x="38" y="48" width="4" height="12" fill="#3E2723"/></svg>`,
+                title: "大溪老街拱門",
+                story: "大溪老街以巴洛克式拱門聞名，見證桃園大溪的繁榮與木藝發展。"
+            },
+            hsinchucity: {
+                svg: `<svg width="80" height="80" viewBox="0 0 80 80"><rect x="22" y="35" width="36" height="30" fill="#B85C50" stroke="#3E2723" stroke-width="2"/><polygon points="40,18 58,35 22,35" fill="#4A5D5E" stroke="#3E2723" stroke-width="2"/><rect x="35" y="45" width="10" height="15" fill="#D4A574" stroke="#3E2723" stroke-width="1.5"/><circle cx="40" cy="27" r="5" fill="#F5EBD8" stroke="#3E2723" stroke-width="1.5"/></svg>`,
+                title: "新竹城隍廟",
+                story: "新竹城隍廟建於清朝，是台灣最具規模的城隍廟，見證新竹信仰與庶民生活。"
+            },
+            hsinchucounty: {
+                svg: `<svg width="80" height="80" viewBox="0 0 80 80"><rect x="25" y="30" width="30" height="35" fill="#8B6F47" stroke="#3E2723" stroke-width="2"/><polygon points="40,15 55,30 25,30" fill="#B85C50" stroke="#3E2723" stroke-width="2"/><rect x="35" y="42" width="10" height="18" fill="#3E2723" opacity="0.3"/><line x1="25" y1="40" x2="55" y2="40" stroke="#3E2723" stroke-width="1.5"/><line x1="25" y1="50" x2="55" y2="50" stroke="#3E2723" stroke-width="1.5"/></svg>`,
+                title: "北埔慈天宮",
+                story: "北埔慈天宮為客家聚落信仰中心，見證新竹縣客家文化與地方凝聚力。"
+            },
+            miaoli: {
+                svg: `<svg width="80" height="80" viewBox="0 0 80 80"><rect x="22" y="35" width="36" height="28" fill="#8B6F47" stroke="#3E2723" stroke-width="2"/><polygon points="40,20 56,35 24,35" fill="#4A5D5E" stroke="#3E2723" stroke-width="2"/><rect x="32" y="45" width="7" height="13" fill="#D4A574"/><rect x="41" y="45" width="7" height="13" fill="#D4A574"/><line x1="22" y1="50" x2="58" y2="50" stroke="#3E2723" stroke-width="1.5"/></svg>`,
+                title: "苗栗火車站舊站",
+                story: "苗栗舊火車站為日治時期木造建築，見證苗栗交通發展與地方歷史。"
+            },
+            taichung: {
+                svg: `<svg width="80" height="80" viewBox="0 0 80 80"><rect x="22" y="32" width="36" height="33" fill="#D4A574" stroke="#3E2723" stroke-width="2"/><rect x="32" y="18" width="16" height="14" fill="#8B6F47" stroke="#3E2723" stroke-width="2"/><rect x="28" y="42" width="10" height="18" fill="#4A5D5E" opacity="0.4"/><rect x="42" y="42" width="10" height="18" fill="#4A5D5E" opacity="0.4"/><line x1="22" y1="48" x2="58" y2="48" stroke="#3E2723" stroke-width="1.5"/></svg>`,
+                title: "台中州廳",
+                story: "台中州廳建於日治時期，是台中市最具代表性的歷史建築，見證台中現代化的起點。"
+            },
+            changhua: {
+                svg: `<svg width="80" height="80" viewBox="0 0 80 80"><ellipse cx="40" cy="60" rx="28" ry="12" fill="#8B6F47" stroke="#3E2723" stroke-width="2"/><rect x="35" y="30" width="10" height="30" fill="#D4A574" stroke="#3E2723" stroke-width="2"/><circle cx="40" cy="25" r="8" fill="#B85C50" stroke="#3E2723" stroke-width="2"/><circle cx="38" cy="23" r="2" fill="#3E2723"/><circle cx="42" cy="23" r="2" fill="#3E2723"/></svg>`,
+                title: "彰化八卦山大佛",
+                story: "八卦山大佛為彰化地標，見證地方信仰與觀光發展。"
+            },
+            nantou: {
+                svg: `<svg width="80" height="80" viewBox="0 0 80 80"><rect x="25" y="35" width="30" height="28" fill="#8B6F47" stroke="#3E2723" stroke-width="2"/><polygon points="40,20 55,35 25,35" fill="#B85C50" stroke="#3E2723" stroke-width="2"/><rect x="33" y="45" width="14" height="13" fill="#D4A574"/><line x1="25" y1="48" x2="55" y2="48" stroke="#3E2723" stroke-width="1.5"/><circle cx="40" cy="28" r="3" fill="#F5EBD8"/></svg>`,
+                title: "集集車站",
+                story: "集集車站為日治時期木造車站，見證南投集集線鐵道歷史與921重建。"
+            },
+            yunlin: {
+                svg: `<svg width="80" height="80" viewBox="0 0 80 80"><rect x="20" y="35" width="40" height="30" fill="#B85C50" stroke="#3E2723" stroke-width="2"/><polygon points="40,15 60,35 20,35" fill="#4A5D5E" stroke="#3E2723" stroke-width="2"/><rect x="35" y="45" width="10" height="15" fill="#D4A574"/><circle cx="28" cy="48" r="4" fill="#F5EBD8"/><circle cx="52" cy="48" r="4" fill="#F5EBD8"/></svg>`,
+                title: "北港朝天宮",
+                story: "北港朝天宮為台灣媽祖信仰重鎮，見證雲林宗教文化與地方繁榮。"
+            },
+            chiayicity: {
+                svg: `<svg width="80" height="80" viewBox="0 0 80 80"><rect x="22" y="30" width="36" height="35" fill="#8B6F47" stroke="#3E2723" stroke-width="2"/><rect x="28" y="40" width="8" height="15" fill="#3E2723" opacity="0.4"/><rect x="44" y="40" width="8" height="15" fill="#3E2723" opacity="0.4"/><line x1="22" y1="45" x2="58" y2="45" stroke="#3E2723" stroke-width="2"/><line x1="22" y1="55" x2="58" y2="55" stroke="#3E2723" stroke-width="2"/></svg>`,
+                title: "嘉義舊監獄",
+                story: "嘉義舊監獄為日治時期監獄建築，見證嘉義司法與人權發展。"
+            },
+            chiayicounty: {
+                svg: `<svg width="80" height="80" viewBox="0 0 80 80"><rect x="25" y="38" width="30" height="27" fill="#8B6F47" stroke="#3E2723" stroke-width="2"/><polygon points="40,22 55,38 25,38" fill="#B85C50" stroke="#3E2723" stroke-width="2"/><rect x="33" y="48" width="6" height="12" fill="#D4A574"/><rect x="41" y="48" width="6" height="12" fill="#D4A574"/><line x1="25" y1="52" x2="55" y2="52" stroke="#3E2723" stroke-width="1.5"/></svg>`,
+                title: "奮起湖老街",
+                story: "奮起湖老街為阿里山鐵道中繼站，見證嘉義縣山城生活與鐵道文化。"
+            },
+            tainan: {
+                svg: `<svg width="80" height="80" viewBox="0 0 80 80"><rect x="18" y="40" width="44" height="25" fill="#B85C50" stroke="#3E2723" stroke-width="2"/><polygon points="20,40 40,18 60,40" fill="#4A5D5E" stroke="#3E2723" stroke-width="2"/><rect x="30" y="48" width="8" height="12" fill="#D4A574"/><rect x="42" y="48" width="8" height="12" fill="#D4A574"/><circle cx="40" cy="30" r="4" fill="#F5EBD8"/></svg>`,
+                title: "赤崁樓",
+                story: "赤崁樓建於荷治時期，歷經明鄭、清朝，是台灣最具代表性的古蹟之一，見證台南多元歷史。"
+            },
+            kaohsiung: {
+                svg: `<svg width="80" height="80" viewBox="0 0 80 80"><rect x="25" y="35" width="30" height="30" fill="#B85C50" stroke="#3E2723" stroke-width="2"/><polygon points="40,20 55,35 25,35" fill="#8B6F47" stroke="#3E2723" stroke-width="2"/><rect x="33" y="45" width="14" height="15" fill="#D4A574"/><ellipse cx="40" cy="68" rx="20" ry="8" fill="#6B9080" stroke="#3E2723" stroke-width="1.5"/></svg>`,
+                title: "打狗英國領事館",
+                story: "打狗英國領事館建於19世紀，是台灣現存最早的西式建築之一，俯瞰高雄港，見證台灣對外交流史。"
+            },
+            pingtung: {
+                svg: `<svg width="80" height="80" viewBox="0 0 80 80"><rect x="18" y="30" width="44" height="35" fill="#8B6F47" stroke="#3E2723" stroke-width="2"/><rect x="15" y="25" width="50" height="8" fill="#B85C50" stroke="#3E2723" stroke-width="2"/><rect x="35" y="42" width="10" height="18" fill="#D4A574"/><line x1="18" y1="45" x2="62" y2="45" stroke="#3E2723" stroke-width="2"/></svg>`,
+                title: "恆春古城",
+                story: "恆春古城為台灣現存最完整的城牆之一，見證屏東恆春地區的歷史發展。"
+            },
+            hualien: {
+                svg: `<svg width="80" height="80" viewBox="0 0 80 80"><rect x="24" y="32" width="32" height="33" fill="#8B6F47" stroke="#3E2723" stroke-width="2"/><polygon points="40,18 56,32 24,32" fill="#B85C50" stroke="#3E2723" stroke-width="2"/><rect x="32" y="42" width="7" height="18" fill="#D4A574"/><rect x="41" y="42" width="7" height="18" fill="#D4A574"/><line x1="24" y1="48" x2="56" y2="48" stroke="#3E2723" stroke-width="1.5"/></svg>`,
+                title: "松園別館",
+                story: "松園別館為日治時期軍事指揮所，見證花蓮戰爭史與日式建築美學。"
+            },
+            taitung: {
+                svg: `<svg width="80" height="80" viewBox="0 0 80 80"><circle cx="40" cy="45" r="20" fill="#8B6F47" stroke="#3E2723" stroke-width="2"/><rect x="35" y="40" width="10" height="25" fill="#D4A574" stroke="#3E2723" stroke-width="2"/><circle cx="40" cy="35" r="8" fill="#B85C50" stroke="#3E2723" stroke-width="2"/><ellipse cx="40" cy="68" rx="25" ry="8" fill="#6B9080" stroke="#3E2723" stroke-width="1.5"/></svg>`,
+                title: "卑南遺址公園",
+                story: "卑南遺址為台灣史前文化重鎮，見證台東原住民族群的歷史。"
+            },
+            penghu: {
+                svg: `<svg width="80" height="80" viewBox="0 0 80 80"><rect x="22" y="32" width="36" height="33" fill="#B85C50" stroke="#3E2723" stroke-width="2"/><polygon points="40,15 58,32 22,32" fill="#4A5D5E" stroke="#3E2723" stroke-width="2"/><rect x="35" y="42" width="10" height="18" fill="#D4A574"/><ellipse cx="40" cy="68" rx="22" ry="8" fill="#6B9080" stroke="#3E2723" stroke-width="1.5"/></svg>`,
+                title: "澎湖天后宮",
+                story: "澎湖天后宮為台灣最早的媽祖廟，見證澎湖海洋信仰與移民歷史。"
+            },
+            kinmen: {
+                svg: `<svg width="80" height="80" viewBox="0 0 80 80"><rect x="20" y="30" width="40" height="35" fill="#B85C50" stroke="#3E2723" stroke-width="2"/><polygon points="40,12 60,30 20,30" fill="#4A5D5E" stroke="#3E2723" stroke-width="2"/><rect x="30" y="40" width="8" height="20" fill="#D4A574"/><rect x="42" y="40" width="8" height="20" fill="#D4A574"/><circle cx="40" cy="22" r="5" fill="#F5EBD8" stroke="#3E2723" stroke-width="1.5"/></svg>`,
+                title: "莒光樓",
+                story: "莒光樓為金門地標，見證戰地政務與閩南建築之美。"
+            },
+            lienchiang: {
+                svg: `<svg width="80" height="80" viewBox="0 0 80 80"><ellipse cx="40" cy="60" rx="25" ry="10" fill="#8B6F47" stroke="#3E2723" stroke-width="2"/><rect x="35" y="25" width="10" height="35" fill="#F5EBD8" stroke="#3E2723" stroke-width="2"/><polygon points="40,15 45,25 35,25" fill="#B85C50" stroke="#3E2723" stroke-width="2"/><circle cx="40" cy="35" r="4" fill="#D4A574" stroke="#3E2723" stroke-width="1.5"/></svg>`,
+                title: "東莒燈塔",
+                story: "東莒燈塔為馬祖重要航標，見證連江縣海洋文化與戰地歷史。"
+            }
+        };
+
+        function renderLandmark(city) {
+            const landmark = cityLandmarks[city];
+            const el = document.getElementById('cityLandmark');
+            if (landmark) {
+                el.innerHTML = `
+                    <div style="background:var(--tw-cream);border-radius:20px;padding:16px;border:3px solid var(--tw-border);box-shadow:0 4px 12px rgba(62,39,35,0.1);display:flex;align-items:center;gap:18px;">
+                        <div style="flex-shrink:0;">${landmark.svg}</div>
+                        <div style="flex:1;">
+                            <div style="font-weight:bold;font-size:1.15rem;color:var(--tw-brick);margin-bottom:4px;">${landmark.title}</div>
+                            <div style="font-size:0.95rem;color:var(--tw-wood);line-height:1.5;">${landmark.story}</div>
+                        </div>
+                    </div>
+                `;
+            } else {
+                el.innerHTML = '';
+            }
+        }
+        // 縣市名稱對照表
+        const cityNames = {
+            keelung: "基隆市",
+            taipei: "臺北市",
+            newtaipei: "新北市",
+            yilan: "宜蘭縣",
+            taoyuan: "桃園市",
+            hsinchucity: "新竹市",
+            hsinchucounty: "新竹縣",
+            miaoli: "苗栗縣",
+            taichung: "臺中市",
+            changhua: "彰化縣",
+            nantou: "南投縣",
+            yunlin: "雲林縣",
+            chiayicity: "嘉義市",
+            chiayicounty: "嘉義縣",
+            tainan: "臺南市",
+            kaohsiung: "高雄市",
+            pingtung: "屏東縣",
+            hualien: "花蓮縣",
+            taitung: "臺東縣",
+            penghu: "澎湖縣",
+            kinmen: "金門縣",
+            lienchiang: "連江縣"
+        };
+
+        let currentCity = "newtaipei";
+        const API_BASE_URL = "https://weatherdunk.zeabur.app/api/weather/";
+
+        function getApiUrl() {
+            return API_BASE_URL + currentCity;
+        }
+
+        function getWeatherIcon(weather) {
+            if (!weather) return "🌤️";
+            if (weather.includes("晴")) return "☀️";
+            if (weather.includes("多雲")) return "⛅";
+            if (weather.includes("陰")) return "☁️";
+            if (weather.includes("雨")) return "🌧️";
+            if (weather.includes("雷")) return "⛈️";
+            return "🌤️";
+        }
+
+        function getAdvice(rainProb, maxTemp) {
+            let rainIcon = "🌂";
+            let rainText = "不用帶傘";
+            if (parseInt(rainProb) > 30) {
+                rainIcon = "☂️";
+                rainText = "記得帶傘！";
+            }
+
+            let clothIcon = "👕";
+            let clothText = "舒適穿搭";
+            if (parseInt(maxTemp) >= 28) {
+                clothIcon = "🎽";
+                clothText = "短袖出發";
+            } else if (parseInt(maxTemp) <= 20) {
+                clothIcon = "🧥";
+                clothText = "加件外套";
+            }
+
+            return { rainIcon, rainText, clothIcon, clothText };
+        }
+
+        function getTimePeriod(startTime) {
+            const hour = new Date(startTime).getHours();
+            if (hour >= 5 && hour < 11) return "早晨";
+            if (hour >= 11 && hour < 14) return "中午";
+            if (hour >= 14 && hour < 18) return "下午";
+            if (hour >= 18 && hour < 23) return "晚上";
+            return "深夜";
+        }
+
+        function renderWeather(data) {
+            const forecasts = data.forecasts;
+            const current = forecasts[0];
+            const others = forecasts.slice(1);
+
+            // 1. 渲染 Hero Card (主畫面)
+            const advice = getAdvice(current.rain, current.maxTemp);
+            const period = getTimePeriod(current.startTime);
+            const avgTemp = Math.round((parseInt(current.maxTemp) + parseInt(current.minTemp)) / 2);
+
+            document.getElementById('heroCard').innerHTML = `
+                        <div class="hero-card">
+                            <div class="hero-period">${period}</div>
+                            <div class="hero-temp-container">
+                                <div class="hero-icon">${getWeatherIcon(current.weather)}</div>
+                                <div class="hero-temp">${avgTemp}°</div>
+                            </div>
+                            <div class="hero-desc">${current.weather}</div>
+                            
+                            <div class="advice-grid">
+                                <div class="advice-item">
+                                    <div class="advice-icon">${advice.rainIcon}</div>
+                                    <div class="advice-text">${advice.rainText}</div>
+                                    <div style="font-size:0.7rem; color:#999">降雨率 ${current.rain}</div>
+                                </div>
+                                <div class="advice-item">
+                                    <div class="advice-icon">${advice.clothIcon}</div>
+                                    <div class="advice-text">${advice.clothText}</div>
+                                    <div style="font-size:0.7rem; color:#999">最高溫 ${current.maxTemp}°</div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+
+            // 2. 渲染稍後預報 (包含明天判斷)
+            const scrollContainer = document.getElementById('futureForecasts');
+            scrollContainer.innerHTML = '';
+
+            // 抓今天的日期數字 (例如 24)
+            const todayDate = new Date().getDate();
+
+            others.forEach(f => {
+                let p = getTimePeriod(f.startTime);
+
+                // 判斷該預報的日期是否跟今天不同，不同就是明天
+                const fDate = new Date(f.startTime);
+                if (fDate.getDate() !== todayDate) {
+                    p = "明天" + p;
+                }
+
+                scrollContainer.innerHTML += `
+                            <div class="mini-card">
+                                <div class="mini-time">${p}</div>
+                                <div class="mini-icon">${getWeatherIcon(f.weather)}</div>
+                                <div class="mini-temp">${f.minTemp}° - ${f.maxTemp}°</div>
+                                <div style="font-size:0.8rem; color:#888; margin-top:5px;">💧${f.rain}</div>
+                            </div>
+                        `;
+            });
+
+            // 3. 右上角顯示今日日期
+            const now = new Date();
+            const month = now.getMonth() + 1;
+            const date = now.getDate();
+            const dayIndex = now.getDay();
+            const days = ["週日", "週一", "週二", "週三", "週四", "週五", "週六"];
+
+            document.getElementById('updateTime').textContent = `${month}月${date}日 ${days[dayIndex]}`;
+        }
+
+        async function fetchWeather() {
+            renderLandmark(currentCity);
+            try {
+                // 顯示 Loading 畫面
+                document.getElementById('loading').style.display = 'flex';
+                document.getElementById('mainContent').style.display = 'none';
+
+                // 1. 定義「最低等待時間」：1500 毫秒 (1.5秒)
+                const delayPromise = new Promise(resolve => setTimeout(resolve, 1500));
+
+                // 2. 定義「抓取資料」的工作
+                const fetchPromise = fetch(getApiUrl()).then(res => res.json());
+
+                // 3. Promise.all 會等待「兩個都完成」才會往下走
+                // result 陣列裡，第一個是 delay 的結果(沒用到)，第二個是 api 的 json 資料
+                const [_, json] = await Promise.all([delayPromise, fetchPromise]);
+
+                if (json.success) {
+                    renderWeather(json.data);
+
+                    // 更新位置顯示
+                    document.getElementById('locationDisplay').textContent = `📍 ${cityNames[currentCity]}`;
+
+                    // 資料處理好後,隱藏 Loading，顯示主畫面
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('mainContent').style.display = 'block';
+                } else {
+                    throw new Error("API Error");
+                }
+            } catch (e) {
+                console.error(e);
+                alert("天氣資料讀取失敗，狸克把網路線咬斷了！");
+                // 發生錯誤時也要隱藏 loading
+                document.getElementById('loading').style.display = 'none';
+            }
+        }
+
+        // 監聽縣市選單變化
+        document.getElementById('citySelector').addEventListener('change', function (e) {
+            currentCity = e.target.value;
+            renderLandmark(currentCity);
+            fetchWeather();
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            renderLandmark(currentCity);
+            fetchWeather();
+        });
+    </script>
+</body>
+
+</html>
