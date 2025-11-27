@@ -1,0 +1,143 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900">
+  <!-- 定義箭頭標記 -->
+  <defs>
+    <marker id="arrowblue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#00f3ff" />
+    </marker>
+    <marker id="arrowgreen" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#00ff88" />
+    </marker>
+    <marker id="arroworange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#ffaa00" />
+    </marker>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="1200" height="900" fill="#0a0a0a"/>
+  
+  <!-- 標題 -->
+  <text x="600" y="35" font-family="Arial" font-size="24" font-weight="bold" fill="#00f3ff" text-anchor="middle">Day 18 專案架構流程圖</text>
+  
+  <!-- 第一層：外部資源 -->
+  <rect x="50" y="70" width="200" height="80" fill="#1a1a1a" stroke="#00f3ff" stroke-width="2" rx="8"/>
+  <text x="150" y="100" font-family="Arial" font-size="14" font-weight="bold" fill="#00f3ff" text-anchor="middle">Google Sheets</text>
+  <text x="150" y="120" font-family="Arial" font-size="12" fill="#888" text-anchor="middle">CSV 資料源</text>
+  <text x="150" y="135" font-family="Arial" font-size="10" fill="#666" text-anchor="middle">(商品資料)</text>
+  
+  <rect x="300" y="70" width="200" height="80" fill="#1a1a1a" stroke="#00f3ff" stroke-width="2" rx="8"/>
+  <text x="400" y="100" font-family="Arial" font-size="14" font-weight="bold" fill="#00f3ff" text-anchor="middle">PapaParse Library</text>
+  <text x="400" y="120" font-family="Arial" font-size="12" fill="#888" text-anchor="middle">CSV 解析器</text>
+  
+  <rect x="550" y="70" width="200" height="80" fill="#1a1a1a" stroke="#00f3ff" stroke-width="2" rx="8"/>
+  <text x="650" y="100" font-family="Arial" font-size="14" font-weight="bold" fill="#00f3ff" text-anchor="middle">Google Fonts</text>
+  <text x="650" y="120" font-family="Arial" font-size="12" fill="#888" text-anchor="middle">字體資源</text>
+  
+  <!-- 箭頭：外部資源 → 初始化 -->
+  <path d="M 150 150 L 150 200" stroke="#00f3ff" stroke-width="2" fill="none" marker-end="url(#arrowblue)"/>
+  <path d="M 400 150 L 300 200" stroke="#00f3ff" stroke-width="2" fill="none" marker-end="url(#arrowblue)"/>
+  
+  <!-- 第二層：初始化函數 -->
+  <rect x="200" y="200" width="200" height="100" fill="#2a1a4a" stroke="#00f3ff" stroke-width="3" rx="8"/>
+  <text x="300" y="230" font-family="Arial" font-size="16" font-weight="bold" fill="#00f3ff" text-anchor="middle">init()</text>
+  <text x="300" y="250" font-family="Arial" font-size="11" fill="#aaa" text-anchor="middle">• 檢查 CSV_URL</text>
+  <text x="300" y="265" font-family="Arial" font-size="11" fill="#aaa" text-anchor="middle">• 呼叫 Papa.parse()</text>
+  <text x="300" y="280" font-family="Arial" font-size="11" fill="#aaa" text-anchor="middle">• 處理成功/錯誤</text>
+  
+  <!-- 箭頭：init → 資料處理 -->
+  <path d="M 300 300 L 300 360" stroke="#00ff88" stroke-width="2" fill="none" marker-end="url(#arrowgreen)"/>
+  <text x="320" y="335" font-family="Arial" font-size="10" fill="#00ff88">成功載入</text>
+  
+  <!-- 第三層：資料儲存 -->
+  <rect x="200" y="360" width="200" height="70" fill="#1a3a1a" stroke="#00ff88" stroke-width="2" rx="8"/>
+  <text x="300" y="385" font-family="Arial" font-size="14" font-weight="bold" fill="#00ff88" text-anchor="middle">allData = []</text>
+  <text x="300" y="405" font-family="Arial" font-size="11" fill="#aaa" text-anchor="middle">全域變數</text>
+  <text x="300" y="420" font-family="Arial" font-size="11" fill="#aaa" text-anchor="middle">儲存所有商品資料</text>
+  
+  <!-- 箭頭：資料 → 渲染 -->
+  <path d="M 300 430 L 300 490" stroke="#00ff88" stroke-width="2" fill="none" marker-end="url(#arrowgreen)"/>
+  
+  <!-- 第四層：渲染函數 -->
+  <rect x="200" y="490" width="200" height="100" fill="#2a1a4a" stroke="#00ff88" stroke-width="3" rx="8"/>
+  <text x="300" y="520" font-family="Arial" font-size="16" font-weight="bold" fill="#00ff88" text-anchor="middle">renderCards(data)</text>
+  <text x="300" y="540" font-family="Arial" font-size="11" fill="#aaa" text-anchor="middle">• 清空 app.innerHTML</text>
+  <text x="300" y="555" font-family="Arial" font-size="11" fill="#aaa" text-anchor="middle">• 遍歷資料 forEach</text>
+  <text x="300" y="570" font-family="Arial" font-size="11" fill="#aaa" text-anchor="middle">• 生成卡片 HTML</text>
+  
+  <!-- 箭頭：渲染 → DOM -->
+  <path d="M 300 590 L 300 650" stroke="#ffaa00" stroke-width="2" fill="none" marker-end="url(#arroworange)"/>
+  <text x="320" y="625" font-family="Arial" font-size="10" fill="#ffaa00">DOM 更新</text>
+  
+  <!-- 第五層：DOM 元素 -->
+  <rect x="200" y="650" width="200" height="80" fill="#3a2a1a" stroke="#ffaa00" stroke-width="2" rx="8"/>
+  <text x="300" y="680" font-family="Arial" font-size="14" font-weight="bold" fill="#ffaa00" text-anchor="middle">&lt;div id="app"&gt;</text>
+  <text x="300" y="700" font-family="Arial" font-size="11" fill="#aaa" text-anchor="middle">顯示商品卡片</text>
+  <text x="300" y="715" font-family="Arial" font-size="11" fill="#aaa" text-anchor="middle">(.card 元素)</text>
+  
+  <!-- 右側：篩選流程 -->
+  <rect x="550" y="200" width="220" height="100" fill="#2a1a4a" stroke="#ff44aa" stroke-width="3" rx="8"/>
+  <text x="660" y="230" font-family="Arial" font-size="16" font-weight="bold" fill="#ff44aa" text-anchor="middle">setupFilterButtons()</text>
+  <text x="660" y="250" font-family="Arial" font-size="11" fill="#aaa" text-anchor="middle">• querySelectorAll('.filter-btn')</text>
+  <text x="660" y="265" font-family="Arial" font-size="11" fill="#aaa" text-anchor="middle">• addEventListener('click')</text>
+  <text x="660" y="280" font-family="Arial" font-size="11" fill="#aaa" text-anchor="middle">• 更新 currentFilter</text>
+  
+  <!-- 箭頭：init → 篩選設定 -->
+  <path d="M 400 250 L 550 250" stroke="#ff44aa" stroke-width="2" fill="none" marker-end="url(#arrowblue)"/>
+  
+  <!-- 篩選變數 -->
+  <rect x="550" y="360" width="220" height="70" fill="#1a1a3a" stroke="#ff44aa" stroke-width="2" rx="8"/>
+  <text x="660" y="385" font-family="Arial" font-size="14" font-weight="bold" fill="#ff44aa" text-anchor="middle">currentFilter = 'all'</text>
+  <text x="660" y="405" font-family="Arial" font-size="11" fill="#aaa" text-anchor="middle">全域變數</text>
+  <text x="660" y="420" font-family="Arial" font-size="11" fill="#aaa" text-anchor="middle">當前篩選條件</text>
+  
+  <!-- 箭頭：篩選設定 → 篩選變數 -->
+  <path d="M 660 300 L 660 360" stroke="#ff44aa" stroke-width="2" fill="none" marker-end="url(#arrowblue)"/>
+  
+  <!-- 篩選與渲染函數 -->
+  <rect x="550" y="490" width="220" height="100" fill="#2a1a4a" stroke="#ff44aa" stroke-width="3" rx="8"/>
+  <text x="660" y="520" font-family="Arial" font-size="16" font-weight="bold" fill="#ff44aa" text-anchor="middle">filterAndRender()</text>
+  <text x="660" y="540" font-family="Arial" font-size="11" fill="#aaa" text-anchor="middle">• 根據 currentFilter</text>
+  <text x="660" y="555" font-family="Arial" font-size="11" fill="#aaa" text-anchor="middle">• 過濾 allData</text>
+  <text x="660" y="570" font-family="Arial" font-size="11" fill="#aaa" text-anchor="middle">• 呼叫 renderCards()</text>
+  
+  <!-- 箭頭：篩選變數 → 篩選函數 -->
+  <path d="M 660 430 L 660 490" stroke="#ff44aa" stroke-width="2" fill="none" marker-end="url(#arrowblue)"/>
+  
+  <!-- 箭頭：篩選函數 → 渲染函數 -->
+  <path d="M 550 540 L 400 540" stroke="#ff44aa" stroke-width="2" fill="none" marker-end="url(#arrowblue)"/>
+  <text x="475" y="530" font-family="Arial" font-size="10" fill="#ff44aa">呼叫</text>
+  
+  <!-- 使用者互動 -->
+  <rect x="850" y="200" width="200" height="80" fill="#1a1a1a" stroke="#ffff00" stroke-width="2" rx="8"/>
+  <text x="950" y="230" font-family="Arial" font-size="14" font-weight="bold" fill="#ffff00" text-anchor="middle">使用者點擊</text>
+  <text x="950" y="250" font-family="Arial" font-size="12" fill="#aaa" text-anchor="middle">篩選按鈕</text>
+  <text x="950" y="265" font-family="Arial" font-size="10" fill="#666" text-anchor="middle">(全部/低/中/高價)</text>
+  
+  <!-- 箭頭：使用者 → 事件處理 -->
+  <path d="M 850 240 L 770 240" stroke="#ffff00" stroke-width="2" fill="none" marker-end="url(#arrowblue)"/>
+  <text x="810" y="230" font-family="Arial" font-size="10" fill="#ffff00">click 事件</text>
+  
+  <!-- 事件流程箭頭 -->
+  <path d="M 660 300 Q 800 350 660 430" stroke="#ffff00" stroke-width="2" fill="none" marker-end="url(#arrowblue)" stroke-dasharray="5,5"/>
+  <text x="750" y="370" font-family="Arial" font-size="10" fill="#ffff00">觸發篩選</text>
+  
+  <!-- 圖例 -->
+  <rect x="50" y="780" width="1100" height="100" fill="#1a1a1a" stroke="#333" stroke-width="1" rx="8"/>
+  <text x="600" y="805" font-family="Arial" font-size="16" font-weight="bold" fill="#fff" text-anchor="middle">圖例說明</text>
+  
+  <line x1="80" y1="830" x2="130" y2="830" stroke="#00f3ff" stroke-width="2" marker-end="url(#arrowblue)"/>
+  <text x="140" y="835" font-family="Arial" font-size="12" fill="#00f3ff">API/外部資源流</text>
+  
+  <line x1="300" y1="830" x2="350" y2="830" stroke="#00ff88" stroke-width="2" marker-end="url(#arrowgreen)"/>
+  <text x="360" y="835" font-family="Arial" font-size="12" fill="#00ff88">資料流</text>
+  
+  <line x1="480" y1="830" x2="530" y2="830" stroke="#ffaa00" stroke-width="2" marker-end="url(#arroworange)"/>
+  <text x="540" y="835" font-family="Arial" font-size="12" fill="#ffaa00">DOM 更新流</text>
+  
+  <line x1="680" y1="830" x2="730" y2="830" stroke="#ff44aa" stroke-width="2" marker-end="url(#arrowblue)"/>
+  <text x="740" y="835" font-family="Arial" font-size="12" fill="#ff44aa">事件綁定/篩選流</text>
+  
+  <line x1="900" y1="830" x2="950" y2="830" stroke="#ffff00" stroke-width="2" marker-end="url(#arrowblue)" stroke-dasharray="5,5"/>
+  <text x="960" y="835" font-family="Arial" font-size="12" fill="#ffff00">使用者互動</text>
+  
+  <text x="80" y="860" font-family="Arial" font-size="11" fill="#888">執行順序：載入外部資源 → init() → 解析CSV → 儲存資料 → 渲染畫面 → 設定事件監聽 → 等待使用者互動</text>
+</svg>
