@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NCA三年展2025 | Kasb-e-Kamal Kun</title>
+    <meta name="description" content="巴基斯坦國立藝術學院（NCA）150週年慶典暨首屆NCA三年展2025——「Kasb-e-Kamal Kun」（追求卓越）。">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Preline UI -->
+    <script src="https://cdn.jsdelivr.net/npm/preline@2.3.0/dist/preline.min.js"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- ECharts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        nca: {
+                            gold: '#C5A059',
+                            blue: '#1B365D',
+                            dark: '#0F172A',
+                            cream: '#FDFBF7',
+                            clay: '#A0522D'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Noto Serif TC"', '"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C5A059; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #b08d4b; 
+        }
+
+        /* Animation Utilities */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.8));
+        }
+
+        .text-stroke {
+            -webkit-text-stroke: 1px rgba(255,255,255,0.1);
+        }
+        
+        .image-mask-blob {
+            mask-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23FF0066' d='M44.7,-76.4C58.9,-69.2,71.8,-59.1,81.6,-46.6C91.4,-34.1,98.1,-19.2,95.8,-4.9C93.5,9.3,82.2,22.9,71.3,34.3C60.4,45.7,49.9,54.9,38.3,62.8C26.7,70.7,14,77.3,0.6,76.3C-12.8,75.3,-26.2,66.7,-39.3,58.3C-52.4,49.9,-65.2,41.7,-74.6,30.3C-84,18.9,-90,4.3,-88.2,-9.5C-86.4,-23.3,-76.8,-36.3,-65.4,-46.1C-54,-55.9,-40.8,-62.5,-27.9,-70.5C-15,-78.5,-2.4,-87.9,8.9,-86.3C20.2,-84.7,40.4,-72.1,44.7,-76.4Z' transform='translate(100 100)' /%3E%3C/svg%3E");
+            mask-repeat: no-repeat;
+            mask-position: center;
+            mask-size: contain;
+        }
+    </style>
+<script src="https://felo.ai/js/iframe.js?v=1764377672475"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style></head>
+<body class="bg-nca-cream dark:bg-slate-950 text-slate-800 dark:text-slate-200 antialiased transition-colors duration-300">
+
+    <!-- Navigation -->
+    <header class="fixed w-full top-0 z-50 transition-all duration-300 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-gray-100 dark:border-slate-800">
+        <nav class="max-w-[85rem] w-full mx-auto px-4 sm:px-6 lg:px-8" aria-label="Global">
+            <div class="relative flex items-center justify-between h-20">
+                <a class="flex-none text-2xl font-serif font-bold text-nca-blue dark:text-nca-gold tracking-widest" href="#" aria-label="Brand">NCA 2025</a>
+                
+                <div class="flex items-center gap-x-6">
+                    <div class="hidden md:flex items-center gap-x-8">
+                        <a class="font-medium text-gray-600 hover:text-nca-blue dark:text-gray-300 dark:hover:text-nca-gold transition" href="#about">關於NCA</a>
+                        <a class="font-medium text-gray-600 hover:text-nca-blue dark:text-gray-300 dark:hover:text-nca-gold transition" href="#theme">展覽主題</a>
+                        <a class="font-medium text-gray-600 hover:text-nca-blue dark:text-gray-300 dark:hover:text-nca-gold transition" href="#program">展覽內容</a>
+                        <a class="font-medium text-gray-600 hover:text-nca-blue dark:text-gray-300 dark:hover:text-nca-gold transition" href="#events">活動日程</a>
+                    </div>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button type="button" class="hs-dark-mode-active:hidden block hs-dark-mode group flex items-center text-gray-600 hover:text-blue-600 font-medium dark:text-gray-400 dark:hover:text-gray-500" data-hs-theme-click-value="dark">
+                        <i class="fa-regular fa-moon text-lg"></i>
+                    </button>
+                    <button type="button" class="hs-dark-mode-active:block hidden hs-dark-mode group flex items-center text-gray-600 hover:text-blue-600 font-medium dark:text-gray-400 dark:hover:text-gray-500" data-hs-theme-click-value="light">
+                        <i class="fa-regular fa-sun text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="relative h-screen w-full overflow-hidden flex items-center justify-center">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://image.pollinations.ai/prompt/abstract%20artistic%20fusion%20of%20traditional%20islamic%20geometric%20patterns%20and%20modern%20art,%20deep%20navy%20blue%20and%20gold,%20cinematic%20lighting,%204k,%20high%20detail,%20elegant,%20minimalist?nologo=true" alt="Kasb-e-Kamal Kun Artistic Background" class="w-full h-full object-cover">
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+
+        <div class="relative z-10 max-w-[85rem] px-4 sm:px-6 lg:px-8 mx-auto text-center">
+            <div class="mb-4 inline-block animate-bounce">
+                <span class="py-1 px-3 rounded-full bg-white/10 border border-white/20 text-white text-xs font-semibold uppercase tracking-wider backdrop-blur-sm">
+                    1875 - 2025 | NCA 150週年慶典
+                </span>
+            </div>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif font-black text-white mb-6 tracking-tight leading-tight drop-shadow-lg">
+                NCA 三年展 <span class="text-nca-gold">2025</span>
+            </h1>
+            <p class="mt-4 text-xl md:text-3xl text-gray-200 font-light font-serif italic tracking-wide">
+                "Kasb-e-Kamal Kun"
+            </p>
+            <p class="mt-2 text-lg text-gray-300 font-sans tracking-widest uppercase">
+                追求卓越，贏得世界的尊重
+            </p>
+            
+            <div class="mt-12 flex justify-center gap-4">
+                <a href="#about" class="py-3 px-8 inline-flex justify-center items-center gap-2 rounded-full border border-transparent font-semibold bg-nca-gold text-white hover:bg-yellow-600 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-offset-2 transition-all text-sm uppercase tracking-widest">
+                    探索展覽
+                </a>
+                <a href="#events" class="py-3 px-8 inline-flex justify-center items-center gap-2 rounded-full border border-white font-semibold text-white hover:bg-white hover:text-nca-blue focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 transition-all text-sm uppercase tracking-widest backdrop-blur-sm">
+                    查看日程
+                </a>
+            </div>
+            
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 text-white/60 text-sm">
+                <span>拉合爾 · 巴基斯坦</span>
+                <span class="h-10 w-[1px] bg-white/30"></span>
+                <span>10.31 - 11.28</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Introduction Section (Staggered Layout) -->
+    <section id="about" class="py-24 lg:py-32 overflow-hidden relative">
+        <div class="absolute top-0 right-0 -z-10 opacity-10 dark:opacity-5">
+            <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="#C5A059" d="M44.7,-76.4C58.9,-69.2,71.8,-59.1,81.6,-46.6C91.4,-34.1,98.1,-19.2,95.8,-4.9C93.5,9.3,82.2,22.9,71.3,34.3C60.4,45.7,49.9,54.9,38.3,62.8C26.7,70.7,14,77.3,0.6,76.3C-12.8,75.3,-26.2,66.7,-39.3,58.3C-52.4,49.9,-65.2,41.7,-74.6,30.3C-84,18.9,-90,4.3,-88.2,-9.5C-86.4,-23.3,-76.8,-36.3,-65.4,-46.1C-54,-55.9,-40.8,-62.5,-27.9,-70.5C-15,-78.5,-2.4,-87.9,8.9,-86.3C20.2,-84.7,40.4,-72.1,44.7,-76.4Z" transform="translate(100 100)" />
+            </svg>
+        </div>
+
+        <div class="max-w-[85rem] px-4 sm:px-6 lg:px-8 mx-auto">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Text Content -->
+                <div class="order-2 lg:order-1 fade-in-up">
+                    <div class="flex items-center gap-4 mb-6">
+                        <span class="h-[1px] w-12 bg-nca-gold"></span>
+                        <span class="text-nca-gold font-bold uppercase tracking-widest text-sm">歷史傳承</span>
+                    </div>
+                    <h2 class="text-3xl md:text-5xl font-serif font-bold mb-6 text-slate-900 dark:text-white leading-tight">
+                        巴基斯坦國立藝術學院 <br><span class="text-nca-blue dark:text-gray-400">150年的榮耀</span>
+                    </h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                        NCA前身為1875年成立的美奧工業藝術學校，由約翰·洛克伍德·基普林創辦，旨在保存旁遮普邦的傳統工藝。作為南亞最古老的藝術教育機構之一，NCA一直是傳統工藝與現代藝術教育的交匯點。
+                    </p>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+                        這座由著名工程師Ganga Ram監督建造的「晚期莫臥兒」風格建築，見證了無數大師的誕生。此次三年展不僅是慶典，更是對過去與未來的深層對話。
+                    </p>
+                    
+                    <div class="grid grid-cols-3 gap-6 border-t border-gray-200 dark:border-gray-700 pt-8">
+                        <div>
+                            <span class="block text-4xl font-serif font-bold text-nca-gold">150</span>
+                            <span class="text-sm text-gray-500 uppercase tracking-wide">週年歷史</span>
+                        </div>
+                        <div>
+                            <span class="block text-4xl font-serif font-bold text-nca-gold">200+</span>
+                            <span class="text-sm text-gray-500 uppercase tracking-wide">參展藝術家</span>
+                        </div>
+                        <div>
+                            <span class="block text-4xl font-serif font-bold text-nca-gold">1st</span>
+                            <span class="text-sm text-gray-500 uppercase tracking-wide">公共院校三年展</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image -->
+                <div class="order-1 lg:order-2 relative fade-in-up delay-100">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                        <img class="w-full h-auto object-cover transform hover:scale-105 transition duration-700" src="https://api.felo.ai/images/s/rZ64jFKBrT" alt="NCA Historic Building">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 text-white text-sm font-medium tracking-wide">
+                            拉合爾 · 1875年至今
+                        </div>
+                    </div>
+                    <!-- Decorative Elements -->
+                    <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-nca-blue/10 dark:bg-nca-gold/10 rounded-full blur-3xl -z-10"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Theme Section (Editorial Layout) -->
+    <section id="theme" class="py-24 bg-nca-blue text-white relative overflow-hidden">
+        <!-- SVG Pattern Background -->
+        <div class="absolute inset-0 opacity-10">
+            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="0.5"/>
+                    </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid)" />
+            </svg>
+        </div>
+
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <div class="mb-8 fade-in-up">
+                <h2 class="text-nca-gold text-lg md:text-xl font-medium tracking-[0.3em] uppercase mb-4">Core Theme</h2>
+                <h3 class="text-5xl md:text-7xl font-serif font-black leading-none mb-6">
+                    Kasb-e-Kamal Kun
+                </h3>
+                <p class="text-2xl md:text-3xl font-serif text-gray-300 italic mb-12">
+                    "通過卓越的工作而贏得世界的尊重"
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 text-left text-lg leading-relaxed text-gray-300 font-light fade-in-up delay-200">
+                <p>
+                    在這個主題下，展覽重新審視了「工藝」的定義。在NCA三年展中，工藝不再與藝術對立，而是一個連續統一體。我們探索傳統工藝與當代藝術實踐之間的交叉點，特別是在人工智能和新興技術日益驅動世界的時代，強調工匠傳統的持久價值。
+                </p>
+                <p>
+                    策展聲明充滿詩意：「手藝者各自創作詩歌，在細微的痕跡中留下其詩句。我不再僅是認知的存在——我的手成為路徑、軌跡、飛行，一種穩定的運動，工具的精準。」這不僅是對物質的塑造，更是對集體記憶與文化認同的保存。
+                </p>
+            </div>
+
+            <div class="mt-16 fade-in-up delay-300">
+                <img src="https://image.pollinations.ai/prompt/hands%20of%20a%20craftsman%20working%20on%20intricate%20gold%20metalwork,%20close%20up,%20moody%20dramatic%20lighting,%20cinematic,%20high%20contrast,%20artistic?nologo=true" alt="Craftsmanship" class="w-full h-96 object-cover rounded-lg shadow-2xl opacity-90 hover:opacity-100 transition duration-500">
+                <p class="mt-4 text-sm text-gray-400 font-sans tracking-wide">手工創作的詩學與記憶</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exhibition Programs (Cards Grid) -->
+    <section id="program" class="py-24 bg-white dark:bg-slate-900 transition-colors duration-300">
+        <div class="max-w-[85rem] px-4 sm:px-6 lg:px-8 mx-auto">
+            <div class="text-center mb-16 fade-in-up">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 dark:text-white mb-4">展覽核心項目</h2>
+                <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                    匯集視覺藝術、設計、建築、音樂等多個創意學科，打破藝術與工藝的邊界。
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="group flex flex-col h-full bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 shadow-sm rounded-xl hover:shadow-xl transition-all duration-300 fade-in-up">
+                    <div class="h-52 flex flex-col justify-center items-center bg-gray-100 dark:bg-slate-700 rounded-t-xl overflow-hidden relative">
+                        <img src="https://api.felo.ai/images/s/2LhBo051sX" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Visual Arts">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2 font-serif">視覺藝術展覽</h3>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm">
+                            匯集200+參展藝術家的當代藝術作品，呈現多元化的視覺表達，挑戰傳統與現代的界限。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group flex flex-col h-full bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 shadow-sm rounded-xl hover:shadow-xl transition-all duration-300 fade-in-up delay-100">
+                    <div class="h-52 flex flex-col justify-center items-center bg-gray-100 dark:bg-slate-700 rounded-t-xl overflow-hidden relative">
+                        <img src="https://api.felo.ai/images/s/5jhUpdPvEp" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Archives">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2 font-serif">NCA檔案展：見證時間</h3>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm">
+                            展示NCA自1875年以來的寶貴檔案記錄，記錄了一個半世紀以來學院的發展歷程和傑出人物。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group flex flex-col h-full bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 shadow-sm rounded-xl hover:shadow-xl transition-all duration-300 fade-in-up delay-200">
+                    <div class="h-52 flex flex-col justify-center items-center bg-gray-100 dark:bg-slate-700 rounded-t-xl overflow-hidden relative">
+                        <img src="https://image.pollinations.ai/prompt/traditional%20printmaking%20studio,%20etching%20press,%20ink,%20artistic%20paper,%20craftsman%20hands?nologo=true" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Printmaking">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2 font-serif">Impressions 版畫展</h3>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm">
+                            位於科瓦斯傑印刷工作室，慶祝巴基斯坦版畫藝術的復興與精神，強調對瀕危技術的保護。
+                        </p>
+                    </div>
+                </div>
+                
+                 <!-- Card 4 -->
+                 <div class="group flex flex-col h-full bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 shadow-sm rounded-xl hover:shadow-xl transition-all duration-300 fade-in-up">
+                    <div class="h-52 flex flex-col justify-center items-center bg-gray-100 dark:bg-slate-700 rounded-t-xl overflow-hidden relative">
+                        <img src="https://image.pollinations.ai/prompt/art%20students%20exhibition%20university,%20modern%20design%20projects,%20colorful,%20creative?nologo=true" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Scope XI">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2 font-serif">Scope XI 院系展覽</h3>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm">
+                            全面展示NCA各院系師生的最新創作成果，體現學院前沿的教學與創作實力。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="group flex flex-col h-full bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 shadow-sm rounded-xl hover:shadow-xl transition-all duration-300 fade-in-up delay-100">
+                    <div class="h-52 flex flex-col justify-center items-center bg-gray-100 dark:bg-slate-700 rounded-t-xl overflow-hidden relative">
+                        <img src="https://image.pollinations.ai/prompt/black%20and%20white%20artistic%20portrait%20photography%20gallery,%20minimalist,%20framed%20photos?nologo=true" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="Photography">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition"></div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2 font-serif">Paiker-e-Tasveer 攝影展</h3>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm">
+                            攝影先驅專題展覽，呈現巴基斯坦攝影藝術的發展演變與視覺語言。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Global Participation Stats (ECharts) -->
+                 <div class="flex flex-col h-full bg-slate-50 dark:bg-slate-800/50 border border-transparent dark:border-slate-700 rounded-xl p-6 fade-in-up delay-200">
+                    <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2 font-serif">全球參與</h3>
+                    <div id="chart-participation" class="w-full h-48 flex-grow"></div>
+                    <p class="text-xs text-center text-gray-400 mt-2">來自歐洲、中國、伊朗、英國等地的藝術家</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events & Workshops (Timeline Style) -->
+    <section id="events" class="py-24 bg-nca-cream dark:bg-slate-950 relative">
+        <div class="max-w-[85rem] px-4 sm:px-6 lg:px-8 mx-auto">
+            <div class="grid lg:grid-cols-12 gap-12">
+                <!-- Header -->
+                <div class="lg:col-span-4 fade-in-up">
+                    <h2 class="text-4xl font-serif font-bold text-nca-blue dark:text-nca-gold mb-6">活動與工作坊</h2>
+                    <p class="text-gray-600 dark:text-gray-400 mb-8">
+                        從傳統金屬工藝到現代3D角色設計，NCA三年展提供一系列動手工作坊與現場表演，邀請公眾深度參與。
+                    </p>
+                    <div class="rounded-xl overflow-hidden shadow-lg">
+                        <img src="https://image.pollinations.ai/prompt/traditional%20south%20asian%20music%20performance,%20sitar,%20qawwali,%20atmospheric%20stage%20lighting,%20cultural%20event?nologo=true" alt="Performance" class="w-full h-auto">
+                    </div>
+                    <div class="mt-4 p-4 bg-white dark:bg-slate-800 rounded-lg border border-gray-100 dark:border-slate-700 shadow-sm">
+                        <h4 class="font-bold text-gray-800 dark:text-white mb-2">特別演出</h4>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">傳奇音樂家 Ustad Hamid Ali Khan</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Echoes of North 學生合唱團</p>
+                    </div>
+                </div>
+
+                <!-- Timeline -->
+                <div class="lg:col-span-8 space-y-8 fade-in-up delay-100">
+                    
+                    <!-- Event 1 -->
+                    <div class="flex gap-x-3">
+                        <div class="w-16 text-end flex-shrink-0">
+                            <span class="text-xs text-gray-500 dark:text-gray-400 block">11月</span>
+                            <span class="text-2xl font-bold text-nca-gold block">01-02</span>
+                        </div>
+                        <div class="relative last:after:hidden after:absolute after:top-7 after:bottom-0 after:start-3.5 after:w-px after:-translate-x-[0.5px] after:bg-gray-200 dark:after:bg-slate-700">
+                            <div class="relative z-10 w-7 h-7 flex justify-center items-center">
+                                <div class="w-2 h-2 rounded-full bg-nca-blue dark:bg-nca-gold"></div>
+                            </div>
+                        </div>
+                        <div class="grow pt-0.5 pb-8">
+                            <h3 class="flex gap-x-1.5 font-semibold text-gray-800 dark:text-white">
+                                金屬工藝工作坊
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                                主持：Ustad Amjad Ali & Syeda Ailia <br>
+                                內容：涉及鍛造、雕刻、鑄造和錘打等瀕危的金屬工藝技術。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Event 2 -->
+                    <div class="flex gap-x-3">
+                        <div class="w-16 text-end flex-shrink-0">
+                            <span class="text-xs text-gray-500 dark:text-gray-400 block">11月</span>
+                            <span class="text-2xl font-bold text-nca-gold block">01-04</span>
+                        </div>
+                        <div class="relative last:after:hidden after:absolute after:top-7 after:bottom-0 after:start-3.5 after:w-px after:-translate-x-[0.5px] after:bg-gray-200 dark:after:bg-slate-700">
+                            <div class="relative z-10 w-7 h-7 flex justify-center items-center">
+                                <div class="w-2 h-2 rounded-full bg-nca-blue dark:bg-nca-gold"></div>
+                            </div>
+                        </div>
+                        <div class="grow pt-0.5 pb-8">
+                            <h3 class="flex gap-x-1.5 font-semibold text-gray-800 dark:text-white">
+                                創意研究工作坊
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                                主持：Atiab Rehman & Varisha Asim <br>
+                                內容：將研究視為創意探究的方式，融合藝術、寫作和文化意識。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Event 3 -->
+                    <div class="flex gap-x-3">
+                        <div class="w-16 text-end flex-shrink-0">
+                            <span class="text-xs text-gray-500 dark:text-gray-400 block">11月</span>
+                            <span class="text-2xl font-bold text-nca-gold block">01-06</span>
+                        </div>
+                        <div class="relative last:after:hidden after:absolute after:top-7 after:bottom-0 after:start-3.5 after:w-px after:-translate-x-[0.5px] after:bg-gray-200 dark:after:bg-slate-700">
+                            <div class="relative z-10 w-7 h-7 flex justify-center items-center">
+                                <div class="w-2 h-2 rounded-full bg-nca-blue dark:bg-nca-gold"></div>
+                            </div>
+                        </div>
+                        <div class="grow pt-0.5 pb-8">
+                            <h3 class="flex gap-x-1.5 font-semibold text-gray-800 dark:text-white">
+                                3D角色設計工作坊
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                                指導：Ahmed Ali Hussnain <br>
+                                內容：涵蓋從3D掃描到虛幻引擎導出等高級數字工藝技能。
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Event 4 -->
+                    <div class="flex gap-x-3">
+                        <div class="w-16 text-end flex-shrink-0">
+                            <span class="text-xs text-gray-500 dark:text-gray-400 block">11月</span>
+                            <span class="text-2xl font-bold text-nca-gold block">01-09</span>
+                        </div>
+                        <div class="relative last:after:hidden after:absolute after:top-7 after:bottom-0 after:start-3.5 after:w-px after:-translate-x-[0.5px] after:bg-gray-200 dark:after:bg-slate-700">
+                            <div class="relative z-10 w-7 h-7 flex justify-center items-center">
+                                <div class="w-2 h-2 rounded-full bg-nca-blue dark:bg-nca-gold"></div>
+                            </div>
+                        </div>
+                        <div class="grow pt-0.5 pb-8">
+                            <h3 class="flex gap-x-1.5 font-semibold text-gray-800 dark:text-white">
+                                紙漿手工工作坊
+                            </h3>
+                            <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
+                                主持：Khawaja Amir Rasheed & M. Serwar Saghar <br>
+                                內容：探索源自克什米爾傳統的古老紙漿手藝技術。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cultural Impact Section -->
+    <section class="py-20 bg-nca-blue dark:bg-slate-900 text-white border-t border-white/10">
+        <div class="max-w-4xl mx-auto px-4 text-center fade-in-up">
+            <i class="fa-solid fa-quote-left text-4xl text-nca-gold mb-6 opacity-50"></i>
+            <blockquote class="text-2xl md:text-3xl font-serif leading-relaxed mb-8">
+                “從'Kasb-e-Hilal'到'Kasb-e-Kamal Kun'，每一件藝術作品都講述自己的故事；這些創作象徵著創意精神和次大陸卓越的文化遺產。”
+            </blockquote>
+            <cite class="not-italic font-medium text-gray-300">
+                — Khalid Maqbool Siddiqui, 聯邦教育和職業培訓部部長
+            </cite>
+            <div class="mt-12 flex justify-center gap-4">
+                <div class="px-6 py-4 bg-white/5 rounded-lg backdrop-blur-sm border border-white/10">
+                    <span class="block text-nca-gold font-bold">新校園計畫</span>
+                    <span class="text-sm text-gray-400">卡拉奇 NCA Campus</span>
+                </div>
+                <div class="px-6 py-4 bg-white/5 rounded-lg backdrop-blur-sm border border-white/10">
+                    <span class="block text-nca-gold font-bold">文化保存</span>
+                    <span class="text-sm text-gray-400">數位檔案化</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 w-full">
+        <div class="w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5 text-center md:text-left">
+                <div>
+                    <a class="flex-none text-xl font-serif font-semibold text-white" href="#" aria-label="Brand">NCA 2025</a>
+                    <p class="mt-2 text-sm text-gray-400">National College of Arts, Lahore</p>
+                </div>
+
+                <div class="md:text-center">
+                    <h4 class="text-gray-300 font-medium mb-2">關注我們</h4>
+                    <div class="flex justify-center md:justify-center space-x-4">
+                        <a class="text-gray-400 hover:text-white transition" href="#"><i class="fa-brands fa-facebook"></i></a>
+                        <a class="text-gray-400 hover:text-white transition" href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a class="text-gray-400 hover:text-white transition" href="#"><i class="fa-brands fa-twitter"></i></a>
+                    </div>
+                </div>
+
+                <div class="md:text-right">
+                    <p class="text-sm text-gray-400">免責申明：基於公開資料，僅供參考，不構成建議</p>
+                    <p class="text-sm text-gray-400">資料來源：網頁公開資訊</p>
+                    <p class="text-sm text-gray-400 mt-2">版權所有： © Dunk | 設計：廖冠智 2025</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts for Interactivity -->
+    <script>
+        // --- 1. Animation on Scroll ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Only animate once
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in-up').forEach(el => {
+                observer.observe(el);
+            });
+        });
+
+        // --- 2. ECharts Initialization ---
+        var participationChart = echarts.init(document.getElementById('chart-participation'));
+        
+        const chartOptions = {
+            tooltip: { trigger: 'item' },
+            legend: { top: '5%', left: 'center', textStyle: { color: '#9ca3af' } },
+            series: [
+                {
+                    name: '藝術家來源',
+                    type: 'pie',
+                    radius: ['40%', '70%'],
+                    avoidLabelOverlap: false,
+                    itemStyle: {
+                        borderRadius: 10,
+                        borderColor: '#fff',
+                        borderWidth: 2
+                    },
+                    label: {
+                        show: false,
+                        position: 'center'
+                    },
+                    emphasis: {
+                        label: {
+                            show: true,
+                            fontSize: 16,
+                            fontWeight: 'bold',
+                            color: '#C5A059'
+                        }
+                    },
+                    labelLine: { show: false },
+                    data: [
+                        { value: 120, name: '巴基斯坦 (本地)', itemStyle: { color: '#1B365D' } },
+                        { value: 30, name: '歐洲', itemStyle: { color: '#C5A059' } },
+                        { value: 20, name: '中國', itemStyle: { color: '#A0522D' } },
+                        { value: 15, name: '英國', itemStyle: { color: '#64748b' } },
+                        { value: 15, name: '其他 (伊朗/巴勒斯坦等)', itemStyle: { color: '#94a3b8' } }
+                    ]
+                }
+            ]
+        };
+        
+        participationChart.setOption(chartOptions);
+
+        // --- 3. Dark Mode Handling for ECharts ---
+        const updateChartTheme = () => {
+            const isDark = document.documentElement.classList.contains('dark');
+            const textColor = isDark ? '#e2e8f0' : '#374151';
+            const borderColor = isDark ? '#1e293b' : '#fff';
+            
+            participationChart.setOption({
+                legend: { textStyle: { color: textColor } },
+                series: [{ itemStyle: { borderColor: borderColor } }]
+            });
+        };
+
+        // Observe class changes on html element for dark mode toggle
+        const themeObserver = new MutationObserver(updateChartTheme);
+        themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+
+        // Resize chart on window resize
+        window.addEventListener('resize', () => {
+            participationChart.resize();
+        });
+    </script>
+</body>
+</html>
