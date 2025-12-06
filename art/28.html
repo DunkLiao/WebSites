@@ -1,0 +1,591 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>誠實的眼睛：卡米耶·畢沙羅的印象派藝術 | 丹佛藝術博物館</title>
+    <meta name="description" content="丹佛藝術博物館年度大展《誠實的眼睛：卡米耶·畢沙羅的印象派藝術》，美國40年來首場大型回顧展。">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        museum: {
+                            50: '#f9f8f6', // Paper white
+                            100: '#f2eee9',
+                            200: '#e6ded4',
+                            300: '#d1c3b1',
+                            400: '#bca68e',
+                            500: '#a88a6f', // Earthy gold
+                            600: '#8c6f56',
+                            700: '#735a46',
+                            800: '#5e4a3b',
+                            900: '#4d3d33', // Deep warm brown
+                            950: '#2a211b',
+                        },
+                        imp: {
+                            blue: '#4a6fa5',
+                            green: '#6b8c42',
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Mermaid -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+
+    <style>
+        /* Custom Utilities */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .dark .glass-nav {
+            background: rgba(42, 33, 27, 0.85);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .text-shadow-sm {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .image-mask-organic {
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            transition: border-radius 0.5s ease;
+        }
+        .image-mask-organic:hover {
+            border-radius: 50%;
+        }
+
+        /* Hide scrollbar for clean look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #a88a6f;
+            border-radius: 4px;
+        }
+    </style>
+<script src="https://felo.ai/js/iframe.js?v=1764982688431"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style></head>
+<body class="bg-museum-50 text-museum-900 dark:bg-museum-950 dark:text-museum-100 transition-colors duration-300 antialiased font-sans selection:bg-museum-500 selection:text-white">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <span class="font-serif text-2xl font-bold tracking-tighter">DAM.</span>
+                    <span class="hidden md:block text-sm uppercase tracking-widest border-l border-museum-400 pl-3 text-museum-600 dark:text-museum-300">Denver Art Museum</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#overview" class="text-sm font-medium hover:text-museum-600 dark:hover:text-museum-300 transition-colors">展覽總覽</a>
+                    <a href="#artist" class="text-sm font-medium hover:text-museum-600 dark:hover:text-museum-300 transition-colors">畢沙羅生平</a>
+                    <a href="#gallery" class="text-sm font-medium hover:text-museum-600 dark:hover:text-museum-300 transition-colors">精選作品</a>
+                    <a href="#visit" class="text-sm font-medium hover:text-museum-600 dark:hover:text-museum-300 transition-colors">參觀資訊</a>
+                    
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-museum-200 dark:hover:bg-museum-800 transition-colors focus:outline-none" aria-label="切換深色模式">
+                        <i class="fas fa-moon dark:hidden text-museum-800"></i>
+                        <i class="fas fa-sun hidden dark:block text-museum-100"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-museum-900 dark:text-museum-100 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-museum-50 dark:bg-museum-950 absolute w-full border-b border-museum-200 dark:border-museum-800">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="#overview" class="block px-3 py-3 text-base font-medium hover:bg-museum-100 dark:hover:bg-museum-800 rounded-md">展覽總覽</a>
+                <a href="#artist" class="block px-3 py-3 text-base font-medium hover:bg-museum-100 dark:hover:bg-museum-800 rounded-md">畢沙羅生平</a>
+                <a href="#gallery" class="block px-3 py-3 text-base font-medium hover:bg-museum-100 dark:hover:bg-museum-800 rounded-md">精選作品</a>
+                <a href="#visit" class="block px-3 py-3 text-base font-medium hover:bg-museum-100 dark:hover:bg-museum-800 rounded-md">參觀資訊</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <!-- Utilizing User Provided Image: Pastoral landscape -->
+            <img src="https://api.felo.ai/images/s/1XJ7huqHKs?width=1327&height=1083" alt="Camille Pissarro Landscape" class="w-full h-full object-cover object-center scale-105 animate-[fadeIn_2s_ease-out]">
+            <!-- Overlay Gradient -->
+            <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-museum-950/90 mix-blend-multiply"></div>
+            <div class="absolute inset-0 bg-black/30"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto opacity-0 animate-fade-in-up" style="animation-delay: 0.3s;">
+            <p class="text-museum-200 uppercase tracking-[0.3em] text-sm md:text-base mb-6 font-medium">丹佛藝術博物館 × 波茨坦巴貝里尼博物館</p>
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight text-shadow-sm">
+                誠實的眼睛<br>
+                <span class="italic font-light text-4xl md:text-6xl text-museum-100 block mt-4">The Honest Eye</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-museum-100 font-light mb-10 max-w-2xl mx-auto">
+                卡米耶·畢沙羅的印象派藝術<br>
+                <span class="text-base md:text-lg opacity-80 mt-2 block">Camille Pissarro's Impressionism</span>
+            </p>
+            
+            <div class="flex flex-col md:flex-row gap-6 justify-center items-center text-white/90">
+                <div class="flex items-center gap-2 border-r-0 md:border-r border-white/30 pr-0 md:pr-6">
+                    <i class="far fa-calendar"></i>
+                    <span>2025.10.26 — 2026.02.08</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>美國 · 丹佛藝術博物館</span>
+                </div>
+            </div>
+            
+            <div class="mt-12">
+                <a href="#visit" class="inline-block px-8 py-4 border border-white/40 text-white hover:bg-white hover:text-museum-900 transition-all duration-300 uppercase tracking-widest text-sm backdrop-blur-sm rounded-sm">
+                    規劃您的參觀
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-white/50">
+            <i class="fas fa-chevron-down text-xl"></i>
+        </div>
+    </header>
+
+    <!-- Overview Section (Magazine Layout) -->
+    <section id="overview" class="py-24 md:py-32 px-6 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <!-- Left Column: Big Heading -->
+            <div class="lg:col-span-5 sticky top-32">
+                <span class="text-museum-600 dark:text-museum-400 font-bold tracking-widest uppercase text-xs mb-4 block">Exhibition Overview</span>
+                <h2 class="font-serif text-4xl md:text-5xl leading-tight mb-8 text-museum-900 dark:text-museum-50">
+                    美國40年來<br>首場大型回顧展
+                </h2>
+                <div class="h-1 w-20 bg-museum-500 mb-8"></div>
+                <p class="text-lg text-museum-700 dark:text-museum-300 leading-relaxed font-serif italic">
+                    「莫奈畫的是永恆的星期天，而畢沙羅畫的是其餘的日子。」
+                    <br><span class="text-sm not-italic mt-2 block text-museum-500">— 丹佛藝術博物館館長 Christoph Heinrich</span>
+                </p>
+            </div>
+
+            <!-- Right Column: Content -->
+            <div class="lg:col-span-7 space-y-8 text-museum-800 dark:text-museum-200 leading-relaxed">
+                <p class="first-letter:text-5xl first-letter:font-serif first-letter:mr-3 first-letter:float-left text-lg">
+                    丹佛藝術博物館（DAM）榮幸呈現《誠實的眼睛：卡米耶·畢沙羅的印象派藝術》，展覽匯集了來自全球近50家國際博物館和私人收藏的超過100件珍貴畫作。
+                </p>
+                <p>
+                    這是自1980年代以來，美國首次對這位「印象派之父」進行如此全面性的審視。展覽不僅標誌著與德國波茨坦巴貝里尼博物館的再度成功合作，更旨在重新確立畢沙羅作為現代主義先驅的核心地位。
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
+                    <div class="bg-white dark:bg-museum-900 p-8 rounded-sm shadow-sm border-t-2 border-museum-400">
+                        <h3 class="font-serif text-xl mb-3 dark:text-white">展覽規模</h3>
+                        <p class="text-sm opacity-80">橫跨藝術家50年的創作生涯，涵蓋風景、城市景觀、靜物與人物畫，全方位展現畢沙羅的藝術演變。</p>
+                    </div>
+                    <div class="bg-white dark:bg-museum-900 p-8 rounded-sm shadow-sm border-t-2 border-museum-400">
+                        <h3 class="font-serif text-xl mb-3 dark:text-white">獨特視角</h3>
+                        <p class="text-sm opacity-80">展覽標題源自左拉對畢沙羅的讚譽，強調其「誠實」看待世界的方式——不加修飾地描繪勞動者與社會現實。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Break / Parallax -->
+    <section class="py-20 bg-museum-100 dark:bg-museum-900 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                <div class="w-full md:w-1/2 relative group">
+                    <div class="absolute -inset-4 bg-museum-300 dark:bg-museum-700 rounded-full blur-2xl opacity-30 group-hover:opacity-50 transition duration-700"></div>
+                    <!-- User Image: City Street -->
+                    <img src="https://api.felo.ai/images/s/4upniXTl3n?width=822&height=1022" alt="Rue Saint-Honoré" class="relative w-full h-auto shadow-2xl rounded-sm transform transition duration-700 group-hover:scale-[1.02]">
+                    <div class="absolute bottom-4 right-4 bg-white/90 dark:bg-black/80 backdrop-blur px-4 py-2 text-xs font-mono">
+                        晨曦中的蒙馬特大道 (1898)
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <h3 class="font-serif text-3xl mb-6 dark:text-museum-50">城市與鄉村的詩意對話</h3>
+                    <p class="mb-6 text-museum-700 dark:text-museum-300 leading-loose">
+                        畢沙羅不僅是鄉村風景的大師，他在晚年創作的城市系列同樣令人驚嘆。他從酒店窗戶俯瞰巴黎、魯昂等地的繁忙街道，捕捉工業革命時期現代城市的脈動。
+                    </p>
+                    <p class="text-museum-700 dark:text-museum-300 leading-loose">
+                        與莫奈經常描繪無人的寧靜不同，畢沙羅的作品充滿了「人」的氣息。無論是田間勞作的農婦，還是熙攘街頭的馬車，都體現了他作為無政府主義者對社會底層的深切關懷。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Artist: Interactive Timeline -->
+    <section id="artist" class="py-24 px-6 max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+            <span class="text-museum-500 font-bold tracking-widest uppercase text-xs">Biography</span>
+            <h2 class="font-serif text-4xl mt-3 mb-6 dark:text-white">印象派的「院長」與導師</h2>
+            <p class="max-w-2xl mx-auto text-museum-600 dark:text-museum-400">
+                卡米耶·畢沙羅是唯一一位參加了全部八次印象派展覽的藝術家。他是塞尚口中的「父親」，也是高更的老師，是連結印象派與後印象派的關鍵人物。
+            </p>
+        </div>
+
+        <!-- Mermaid Timeline -->
+        <div class="mermaid-container bg-white dark:bg-museum-800 p-6 md:p-12 rounded-xl shadow-lg overflow-x-auto">
+            <div class="mermaid text-center">
+                timeline
+                    title 畢沙羅的藝術人生 (1830-1903)
+                    section 加勒比海與啟蒙
+                        1830 : 出生於聖托馬斯島 <br/> (多元文化背景)
+                        1852 : 委內瑞拉遊歷 <br/> (研究自然光線)
+                    section 印象派核心
+                        1855 : 定居巴黎 <br/> (遇見柯羅、莫奈)
+                        1874 : 首次印象派展覽 <br/> (展出《白霜》)
+                        1874-1886 : 參加全部八次展覽 <br/> (印象派的中流砥柱)
+                    section 創新與晚期
+                        1885 : 點彩派實驗 <br/> (與修拉、西涅克合作)
+                        1890 : 回歸印象派 <br/> (更自由的筆觸)
+                        1898 : 城市景觀系列 <br/> (巴黎大道系列)
+            </div>
+        </div>
+
+        <!-- Mentorship Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+            <div class="p-6 bg-museum-100 dark:bg-museum-900/50 rounded-lg text-center group hover:bg-museum-200 dark:hover:bg-museum-800 transition-colors">
+                <i class="fas fa-users text-4xl text-museum-400 mb-4 group-hover:scale-110 transition-transform"></i>
+                <h4 class="font-serif font-bold text-lg mb-2 dark:text-museum-50">印象派的粘合劑</h4>
+                <p class="text-sm opacity-70">以其智慧與善良凝聚了個性迥異的印象派畫家群體。</p>
+            </div>
+            <div class="p-6 bg-museum-100 dark:bg-museum-900/50 rounded-lg text-center group hover:bg-museum-200 dark:hover:bg-museum-800 transition-colors">
+                <i class="fas fa-seedling text-4xl text-museum-400 mb-4 group-hover:scale-110 transition-transform"></i>
+                <h4 class="font-serif font-bold text-lg mb-2 dark:text-museum-50">塞尚的父親</h4>
+                <p class="text-sm opacity-70">保羅·塞尚曾說：「他對我來說是一位父親，有點像良善的上帝。」</p>
+            </div>
+            <div class="p-6 bg-museum-100 dark:bg-museum-900/50 rounded-lg text-center group hover:bg-museum-200 dark:hover:bg-museum-800 transition-colors">
+                <i class="fas fa-palette text-4xl text-museum-400 mb-4 group-hover:scale-110 transition-transform"></i>
+                <h4 class="font-serif font-bold text-lg mb-2 dark:text-museum-50">永恆的實驗者</h4>
+                <p class="text-sm opacity-70">54歲時仍勇於突破，嘗試新印象派的點彩技法，雖然後來放棄。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Art Style Evolution (Cards) -->
+    <section id="style" class="py-24 bg-museum-900 text-museum-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-16 border-l-4 border-museum-500 pl-6">
+                <h2 class="font-serif text-4xl mb-4">風格演變</h2>
+                <p class="text-museum-300 max-w-xl">從熱帶陽光到巴黎霧氣，從點彩實驗到宏偉的城市透視，畢沙羅的畫筆從未停止探索。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="group relative overflow-hidden rounded-md aspect-[3/4] cursor-pointer">
+                    <!-- AI Generated Placeholder for Early Work/Caribbean if needed, or use logic descriptions -->
+                    <img src="https://api.felo.ai/images/s/3qzDCC85hL" alt="早期加勒比時期" class="w-full h-full object-cover transition duration-500 group-hover:scale-110 opacity-80 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-6">
+                        <span class="text-xs font-bold text-museum-400 uppercase mb-2 block">1850s - 1860s</span>
+                        <h3 class="font-serif text-2xl mb-2">光線的覺醒</h3>
+                        <p class="text-sm text-gray-300 line-clamp-3">在加勒比海與委內瑞拉的熱帶環境中，畢沙羅開始研究自然光對色彩的影響，為印象派技法奠基。</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group relative overflow-hidden rounded-md aspect-[3/4] cursor-pointer">
+                    <!-- Use provided landscape -->
+                    <img src="https://api.felo.ai/images/s/1XJ7huqHKs?width=1327&height=1083" alt="印象派成熟期" class="w-full h-full object-cover transition duration-500 group-hover:scale-110 opacity-80 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-6">
+                        <span class="text-xs font-bold text-museum-400 uppercase mb-2 block">1870s - 1880s</span>
+                        <h3 class="font-serif text-2xl mb-2">鄉村與勞動</h3>
+                        <p class="text-sm text-gray-300 line-clamp-3">描繪埃拉尼等地的農村生活。不同於田園牧歌，他展現勞動者的尊嚴，筆觸短促而有力。</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group relative overflow-hidden rounded-md aspect-[3/4] cursor-pointer">
+                     <!-- AI Generated for Pointillism phase -->
+                    <img src="https://api.felo.ai/images/s/2x5eTOwniF" alt="點彩派實驗" class="w-full h-full object-cover transition duration-500 group-hover:scale-110 opacity-80 group-hover:opacity-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-6">
+                        <span class="text-xs font-bold text-museum-400 uppercase mb-2 block">1885 - 1888</span>
+                        <h3 class="font-serif text-2xl mb-2">科學的點彩</h3>
+                        <p class="text-sm text-gray-300 line-clamp-3">受修拉影響，短暫轉向「新印象派」。使用純色色塊創造混合幻象，雖然後來因過於僵化而放棄。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlights Gallery -->
+    <section id="gallery" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="font-serif text-4xl md:text-5xl text-museum-900 dark:text-museum-50 mb-4">展覽亮點</h2>
+            <p class="text-museum-600 dark:text-museum-400">匯集全球50家機構鎮館之寶</p>
+        </div>
+
+        <!-- Z-pattern Layout for Highlights -->
+        <div class="space-y-24">
+            
+            <!-- Item 1: Urban -->
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="w-full md:w-1/2">
+                    <div class="relative p-4 border border-museum-200 dark:border-museum-700 bg-white dark:bg-museum-800 shadow-xl rotate-1 hover:rotate-0 transition-transform duration-500">
+                        <img src="https://api.felo.ai/images/s/4upniXTl3n?width=822&height=1022" alt="Morning Sun" class="w-full h-auto">
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <div class="flex items-center gap-4 mb-4">
+                        <span class="px-3 py-1 bg-museum-200 dark:bg-museum-700 text-museum-800 dark:text-museum-200 text-xs tracking-widest uppercase">1898</span>
+                        <span class="h-px flex-grow bg-museum-300 dark:bg-museum-600"></span>
+                    </div>
+                    <h3 class="font-serif text-3xl mb-4 dark:text-white">晨曦中的蒙馬特大道</h3>
+                    <p class="text-museum-600 dark:text-museum-300 leading-relaxed mb-6">
+                        這幅作品展現了畢沙羅晚年對城市景觀的精湛掌控。他從高處俯瞰，捕捉了巴黎大道的動態——馬車穿梭，人群熙攘。晨曦的光線柔和地灑在豪斯曼式的建築上，展現了現代都市的詩意。
+                    </p>
+                    <ul class="space-y-2 text-sm text-museum-500 dark:text-museum-400">
+                        <li><i class="fas fa-check mr-2"></i> 捕捉瞬間光影變化的傑作</li>
+                        <li><i class="fas fa-check mr-2"></i> 系列繪畫模式的代表</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Item 2: Rural (Reverse) -->
+            <div class="flex flex-col md:flex-row-reverse items-center gap-12">
+                <div class="w-full md:w-1/2">
+                     <!-- AI Generated for Hay harvest -->
+                     <div class="relative p-4 border border-museum-200 dark:border-museum-700 bg-white dark:bg-museum-800 shadow-xl -rotate-1 hover:rotate-0 transition-transform duration-500">
+                        <img src="https://api.felo.ai/images/s/4lB0Qy4Gjs" alt="埃拉尼的干草製作" class="w-full h-auto">
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 text-right md:text-left"> <!-- Reset text align for content -->
+                    <div class="flex flex-row-reverse md:flex-row items-center gap-4 mb-4">
+                        <span class="px-3 py-1 bg-museum-200 dark:bg-museum-700 text-museum-800 dark:text-museum-200 text-xs tracking-widest uppercase">1893</span>
+                        <span class="h-px flex-grow bg-museum-300 dark:bg-museum-600"></span>
+                    </div>
+                    <div class="md:text-left text-right">
+                        <h3 class="font-serif text-3xl mb-4 dark:text-white">埃拉尼的干草製作</h3>
+                        <p class="text-museum-600 dark:text-museum-300 leading-relaxed mb-6">
+                            畢沙羅筆下的農民是有尊嚴的勞動者。在這幅作品中，他精確捕捉了夕陽西下時的光影變化和人物動態。與其他印象派畫家迴避勞動主題不同，畢沙羅將其政治信念融入了對田野勞作的抒情描繪中。
+                        </p>
+                         <ul class="space-y-2 text-sm text-museum-500 dark:text-museum-400 inline-block text-left">
+                            <li><i class="fas fa-check mr-2"></i> 社會關懷與藝術的結合</li>
+                            <li><i class="fas fa-check mr-2"></i> 豐富的色彩層次</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Visit Info -->
+    <section id="visit" class="py-24 bg-museum-50 dark:bg-museum-950 relative">
+        <div class="max-w-4xl mx-auto px-6 relative z-10">
+            <div class="bg-white dark:bg-museum-900 shadow-2xl rounded-sm p-8 md:p-12 border-t-4 border-museum-500">
+                <div class="text-center mb-10">
+                    <h2 class="font-serif text-3xl md:text-4xl mb-2 dark:text-white">參觀資訊</h2>
+                    <p class="text-museum-500 uppercase tracking-widest text-sm">Plan Your Visit</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <!-- Info List -->
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-museum-100 dark:bg-museum-800 flex items-center justify-center flex-shrink-0 text-museum-600 dark:text-museum-300">
+                                <i class="far fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-museum-900 dark:text-museum-100 mb-1">開放時間</h4>
+                                <p class="text-sm text-museum-600 dark:text-museum-400">每日 10:00 - 17:00</p>
+                                <p class="text-sm text-museum-600 dark:text-museum-400">週五延長至 20:00</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-museum-100 dark:bg-museum-800 flex items-center justify-center flex-shrink-0 text-museum-600 dark:text-museum-300">
+                                <i class="fas fa-ticket-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-museum-900 dark:text-museum-100 mb-1">票務資訊</h4>
+                                <p class="text-sm text-museum-600 dark:text-museum-400">成人票價：$27 起</p>
+                                <p class="text-xs text-red-500 mt-1">* 採用定時門票制度，建議提前預約</p>
+                            </div>
+                        </div>
+
+                         <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-museum-100 dark:bg-museum-800 flex items-center justify-center flex-shrink-0 text-museum-600 dark:text-museum-300">
+                                <i class="fas fa-map-pin"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-museum-900 dark:text-museum-100 mb-1">地點</h4>
+                                <p class="text-sm text-museum-600 dark:text-museum-400">丹佛藝術博物館 (Hamilton Building)</p>
+                                <p class="text-sm text-museum-600 dark:text-museum-400">100 W 14th Ave Pkwy, Denver, CO</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Map / CTA -->
+                    <div class="bg-museum-50 dark:bg-museum-800/50 p-6 rounded-lg flex flex-col justify-center items-center text-center">
+                        <i class="fas fa-headphones-alt text-4xl text-museum-400 mb-4"></i>
+                        <h4 class="font-bold mb-2 dark:text-museum-100">語音導覽</h4>
+                        <p class="text-sm text-museum-600 dark:text-museum-400 mb-6">展覽提供詳盡的語音導覽，深入解析畢沙羅的創作背景。</p>
+                        <button class="px-6 py-3 bg-museum-900 dark:bg-museum-100 text-white dark:text-museum-900 font-medium rounded hover:bg-museum-700 transition w-full">
+                            立即購票
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Background element -->
+        <div class="absolute bottom-0 left-0 w-full h-1/2 bg-museum-200 dark:bg-museum-900/30 z-0 skew-y-3 transform origin-bottom-left"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-museum-900 text-museum-300 py-12 border-t border-museum-800">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-2">
+                    <span class="font-serif text-2xl font-bold text-white tracking-tighter block mb-4">DAM.</span>
+                    <p class="text-sm opacity-60 max-w-sm">
+                        《誠實的眼睛：卡米耶·畢沙羅的印象派藝術》由丹佛藝術博物館與波茨坦巴貝里尼博物館共同策劃。
+                    </p>
+                </div>
+                <div>
+                    <h5 class="text-white font-bold mb-4">相關連結</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white transition">博物館首頁</a></li>
+                        <li><a href="#" class="hover:text-white transition">會員資訊</a></li>
+                        <li><a href="#" class="hover:text-white transition">媒體中心</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-white font-bold mb-4">社交媒體</h5>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-museum-800 hover:bg-museum-700 transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-museum-800 hover:bg-museum-700 transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="w-8 h-8 flex items-center justify-center rounded-full bg-museum-800 hover:bg-museum-700 transition"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-museum-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs opacity-50">
+                <p>免責申明：基於公開資料，僅供參考，不構成建議 | 資料來源：網頁公開資訊</p>
+                <div class="mt-4 md:mt-0 flex flex-col md:flex-row items-center gap-4">
+                    <span>版權所有： © Dunk 2025</span>
+                    <span>Designed by 廖冠智</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mermaid Initialization
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: document.documentElement.classList.contains('dark') ? 'dark' : 'neutral',
+            fontFamily: '"Noto Sans TC", sans-serif'
+        });
+
+        // Dark Mode Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        
+        // Check system preference or local storage
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            
+            // Save preference
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+                // Re-init mermaid for dark theme
+                location.reload(); // Simple reload to refresh mermaid theme, ideally use API but simple for this task
+            } else {
+                localStorage.theme = 'light';
+                location.reload();
+            }
+        });
+
+        // Mobile Menu
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('shadow-md');
+            } else {
+                nav.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body>
+</html>
