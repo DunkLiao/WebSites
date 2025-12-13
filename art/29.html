@@ -1,0 +1,1070 @@
+
+<!DOCTYPE html><html lang="zh-Hant" class="scroll-smooth"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>味覺展覽 Visites Gustatives | Maif Social Club</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&amp;family=Noto+Serif+TC:wght@300;500;700;900&amp;family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Noto Serif TC"', '"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#1a1a1a',
+                            light: '#f4f4f0',
+                            accent: '#c05621', // Terracotta
+                            sage: '#8c9a87',   // Organic Green
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'blob': 'blob 7s infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Preline UI -->
+    <script src="https://cdn.jsdelivr.net/npm/preline@2.3.0/dist/preline.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Mermaid.js -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    
+    <!-- Apache ECharts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+
+    <style>
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .dark .glass-nav {
+            background: rgba(26, 26, 26, 0.85);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .text-justify-inter {
+            text-align-last: left;
+            text-justify: inter-word;
+        }
+        /* Hide scrollbar for clean look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #475569;
+        }
+    </style>
+<script src="https://felo.ai/js/iframe.js?v=1765603127478"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style><style data-id="immersive-translate-input-injected-css">.immersive-translate-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2147483647;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.immersive-translate-attach-loading::after {
+  content: " ";
+
+  --loading-color: #f78fb6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+  position: relative;
+  color: white;
+  left: -100px;
+  box-sizing: border-box;
+  animation: immersiveTranslateShadowRolling 1.5s linear infinite;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-2000%, -50%);
+  z-index: 100;
+}
+
+.immersive-translate-loading-spinner {
+  vertical-align: middle !important;
+  width: 10px !important;
+  height: 10px !important;
+  display: inline-block !important;
+  margin: 0 4px !important;
+  border: 2px rgba(221, 244, 255, 0.6) solid !important;
+  border-top: 2px rgba(0, 0, 0, 0.375) solid !important;
+  border-left: 2px rgba(0, 0, 0, 0.375) solid !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  -webkit-animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+  animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+}
+
+@-webkit-keyframes immersive-translate-loading-animation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+
+@keyframes immersive-translate-loading-animation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.immersive-translate-input-loading {
+  --loading-color: #f78fb6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+  position: relative;
+  color: white;
+  left: -100px;
+  box-sizing: border-box;
+  animation: immersiveTranslateShadowRolling 1.5s linear infinite;
+}
+
+@keyframes immersiveTranslateShadowRolling {
+  0% {
+    box-shadow: 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  12% {
+    box-shadow: 100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  25% {
+    box-shadow: 110px 0 var(--loading-color), 100px 0 var(--loading-color),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  36% {
+    box-shadow: 120px 0 var(--loading-color), 110px 0 var(--loading-color),
+      100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  50% {
+    box-shadow: 130px 0 var(--loading-color), 120px 0 var(--loading-color),
+      110px 0 var(--loading-color), 100px 0 var(--loading-color);
+  }
+
+  62% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color),
+      120px 0 var(--loading-color), 110px 0 var(--loading-color);
+  }
+
+  75% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      130px 0 var(--loading-color), 120px 0 var(--loading-color);
+  }
+
+  87% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color);
+  }
+
+  100% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0);
+  }
+}
+
+.immersive-translate-toast {
+  display: flex;
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  right: 0;
+  top: 1%;
+  width: fit-content;
+  padding: 12px 20px;
+  margin: auto;
+  overflow: auto;
+  background: #fef6f9;
+  box-shadow: 0px 4px 10px 0px rgba(0, 10, 30, 0.06);
+  font-size: 15px;
+  border-radius: 8px;
+  color: #333;
+}
+
+.immersive-translate-toast-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.immersive-translate-toast-hidden {
+  margin: 0 20px 0 72px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.immersive-translate-toast-close {
+  color: #666666;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-toast {
+    top: 0;
+    padding: 12px 0px 0 10px;
+  }
+  .immersive-translate-toast-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .immersive-translate-toast-hidden {
+    margin: 10px auto;
+  }
+}
+
+.immersive-translate-dialog {
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  top: 0;
+  display: flex;
+  width: 300px;
+  flex-direction: column;
+  align-items: center;
+  font-size: 15px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: fit-content;
+  border-radius: 20px;
+  background-color: #fff;
+}
+
+.immersive-translate-modal {
+  display: none;
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  font-size: 15px;
+}
+
+.immersive-translate-modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 40px 24px 24px;
+  border-radius: 12px;
+  width: 350px;
+  font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",
+    "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-modal-content {
+    margin: 25% auto !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .immersive-translate-modal-content {
+    width: 80vw !important;
+    margin: 20vh auto !important;
+    padding: 20px 12px 12px !important;
+  }
+
+  .immersive-translate-modal-title {
+    font-size: 14px !important;
+  }
+
+  .immersive-translate-modal-body {
+    font-size: 13px !important;
+    max-height: 60vh !important;
+  }
+
+  .immersive-translate-btn {
+    font-size: 13px !important;
+    padding: 8px 16px !important;
+    margin: 0 4px !important;
+  }
+
+  .immersive-translate-modal-footer {
+    gap: 6px !important;
+    margin-top: 16px !important;
+  }
+}
+
+.immersive-translate-modal .immersive-translate-modal-content-in-input {
+  max-width: 500px;
+}
+.immersive-translate-modal-content-in-input .immersive-translate-modal-body {
+  text-align: left;
+  max-height: unset;
+}
+
+.immersive-translate-modal-title {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333333;
+}
+
+.immersive-translate-modal-body {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333333;
+  margin-top: 24px;
+  word-break: break-all;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-modal-body {
+    max-height: 250px;
+    overflow-y: auto;
+  }
+}
+
+.immersive-translate-close {
+  color: #666666;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.immersive-translate-close:hover,
+.immersive-translate-close:focus {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.immersive-translate-modal-footer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.immersive-translate-btn {
+  width: fit-content;
+  color: #fff;
+  background-color: #ea4c89;
+  border: none;
+  font-size: 14px;
+  margin: 0 8px;
+  padding: 9px 30px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.immersive-translate-btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.immersive-translate-btn:hover {
+  background-color: #f082ac;
+}
+.immersive-translate-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.immersive-translate-btn:disabled:hover {
+  background-color: #ea4c89;
+}
+
+.immersive-translate-link-btn {
+  background-color: transparent;
+  color: #ea4c89;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  line-height: 30px;
+}
+
+.immersive-translate-cancel-btn {
+  /* gray color */
+  background-color: rgb(89, 107, 120);
+}
+
+.immersive-translate-cancel-btn:hover {
+  background-color: hsl(205, 20%, 32%);
+}
+
+.immersive-translate-action-btn {
+  background-color: transparent;
+  color: #ea4c89;
+  border: 1px solid #ea4c89;
+}
+
+.immersive-translate-btn svg {
+  margin-right: 5px;
+}
+
+.immersive-translate-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #ea4c89;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+.immersive-translate-primary-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #ea4c89;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+.immersive-translate-modal input[type="radio"] {
+  margin: 0 6px;
+  cursor: pointer;
+}
+
+.immersive-translate-modal label {
+  cursor: pointer;
+}
+
+.immersive-translate-close-action {
+  position: absolute;
+  top: 2px;
+  right: 0px;
+  cursor: pointer;
+}
+
+.imt-image-status {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 16px !important;
+}
+.imt-image-status img,
+.imt-image-status svg,
+.imt-img-loading {
+  width: 28px !important;
+  height: 28px !important;
+  margin: 0 0 8px 0 !important;
+  min-height: 28px !important;
+  min-width: 28px !important;
+  position: relative !important;
+}
+.imt-img-loading {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAtFBMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////oK74hAAAAPHRSTlMABBMIDyQXHwyBfFdDMSw+OjXCb+5RG51IvV/k0rOqlGRM6KKMhdvNyZBz9MaupmxpWyj437iYd/yJVNZeuUC7AAACt0lEQVRIx53T2XKiUBCA4QYOiyCbiAsuuGBcYtxiYtT3f6/pbqoYHVFO5r+iivpo6DpAWYpqeoFfr9f90DsYAuRSWkFnPO50OgR9PwiCUFcl2GEcx+N/YBh6pvKaefHlUgZd1zVe0NbYcQjGBfzrPE8Xz8aF+71D8gG6DHFPpc4a7xFiCDuhaWgKgGIJQ3d5IMGDrpS4S5KgpIm+en9f6PlAhKby4JwEIxlYJV9h5k5nee9GoxHJ2IDSNB0dwdad1NAxDJ/uXDHYmebdk4PdbkS58CIVHdYSUHTYYRWOJblWSyu2lmy3KNFVJNBhxcuGW4YBVCbYGRZwIooipHsNqjM4FbgOQqQqSKQQU9V8xmi1QlgHqQQ6DDBvRUVCDirs+EzGDGOQTCATgtYTnbCVLgsVgRE0T1QE0qHCFAht2z6dLvJQs3Lo2FQoDxWNUiBhaP4eRgwNkI+dAjVOA/kUrIDwf3CG8NfNOE0eiFotSuo+rBiq8tD9oY4Qzc6YJw99hl1wzpQvD7ef2M8QgnOGJfJw+EltQc+oX2yn907QB22WZcvlUpd143dqQu+8pCJZuGE4xCuPXJqqcs5sNpsI93Rmzym1k4Npk+oD1SH3/a3LOK/JpUBpWfqNySxWzCfNCUITuDG5dtuphrUJ1myeIE9bIsPiKrfqTai5WZxbhtNphYx6GEIHihyGFTI69lje/rxajdh0s0msZ0zYxyPLhYCb1CyHm9Qsd2H37Y3lugVwL9kNh8Ot8cha6fUNQ8nuXi5z9/ExsAO4zQrb/ev1yrCB7lGyQzgYDGuxq1toDN/JGvN+HyWNHKB7zEoK+PX11e12G431erGYzwmytAWU56fkMHY5JJnDRR2eZji3AwtIcrEV8Cojat/BdQ7XOwGV1e1hDjGGjXbdArm8uJZtCH5MbcctVX8A1WpqumJHwckAAAAASUVORK5CYII=");
+  background-size: 28px 28px;
+  animation: image-loading-rotate 1s linear infinite !important;
+}
+
+.imt-image-status span {
+  color: var(--bg-2, #fff) !important;
+  font-size: 14px !important;
+  line-height: 14px !important;
+  font-weight: 500 !important;
+  font-family: "PingFang SC", Arial, sans-serif !important;
+}
+
+.imt-primary-button {
+  display: flex;
+  padding: 12px 80px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  background: #ea4c89;
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  border: none;
+  cursor: pointer;
+}
+
+.imt-retry-text {
+  color: #999;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  cursor: pointer;
+}
+
+.imt-action-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.imt-modal-content-text {
+  text-align: left;
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+@keyframes image-loading-rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.imt-linear-gradient-text {
+  background: linear-gradient(90deg, #00a6ff 0%, #c369ff 52.4%, #ff4590 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.imt-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imt-linear-black-btn {
+  border-radius: 50px;
+  background: linear-gradient(66deg, #222 19%, #696969 94.25%);
+  height: 48px;
+  width: 100%;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+}
+</style><style id="felo-iframe-styles">html,body{margin:0 !important;padding:0 !important;}</style></head>
+<body class="bg-brand-light dark:bg-brand-dark text-gray-800 dark:text-gray-100 transition-colors duration-300 font-sans antialiased selection:bg-brand-accent selection:text-white" contenteditable="false" spellcheck="false" data-listener-added_d3fff69d="true">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <span class="font-serif font-bold text-2xl tracking-tighter">MAIF <span class="text-brand-accent italic">Social Club</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#concept" class="text-sm uppercase tracking-widest hover:text-brand-accent transition-colors">展覽概念</a>
+                    <a href="#chef" class="text-sm uppercase tracking-widest hover:text-brand-accent transition-colors">主廚 Lila Djeddi</a>
+                    <a href="#exhibition" class="text-sm uppercase tracking-widest hover:text-brand-accent transition-colors">當期展覽</a>
+                    <a href="#visit" class="px-5 py-2 border border-gray-800 dark:border-gray-200 rounded-full hover:bg-gray-800 hover:text-white dark:hover:bg-gray-200 dark:hover:text-gray-900 transition-all text-sm font-medium">預約參觀</a>
+                </div>
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none">
+                    <i class="fas fa-moon dark:hidden text-gray-600"></i>
+                    <i class="fas fa-sun hidden dark:inline text-yellow-400"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Abstract Background -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://api.felo.ai/images/s/1nTzAx7EMT" alt="Abstract Art Texture" class="w-full h-full object-cover opacity-80 dark:opacity-40">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-light dark:from-brand-dark via-transparent to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+            <h2 class="text-sm md:text-base font-bold uppercase tracking-[0.3em] text-brand-accent mb-6 animate-fade-in-up" style="animation-delay: 0.2s;">Visites Gustatives</h2>
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-9xl font-black leading-tight mb-8 text-gray-900 dark:text-white animate-fade-in-up" style="animation-delay: 0.4s;">
+                Faisons Corps<br>
+                <span class="text-3xl md:text-5xl lg:text-6xl font-light italic opacity-90 block mt-2">當代藝術 × 味覺詮釋</span>
+            </h1>
+            <p class="max-w-2xl mx-auto text-lg md:text-xl text-gray-700 dark:text-gray-300 font-light leading-relaxed animate-fade-in-up" style="animation-delay: 0.6s;">
+                這不僅是一場展覽，更是一次感官的重塑。在巴黎瑪黑區，我們邀請您用舌尖「品嚐」藝術，探索身體、親密關係與身份的邊界。
+            </p>
+            <div class="mt-12 animate-fade-in-up" style="animation-delay: 0.8s;">
+                <a href="#concept" class="group inline-flex items-center gap-2 text-sm uppercase tracking-widest border-b border-gray-900 dark:border-white pb-1 hover:text-brand-accent hover:border-brand-accent transition-all duration-300">
+                    探索體驗 <i class="fas fa-arrow-down transform group-hover:translate-y-1 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Concept Section: The Aha Moment -->
+    <section id="concept" class="py-24 md:py-32 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <div class="relative">
+                    <div class="absolute -top-10 -left-10 w-32 h-32 bg-brand-accent/20 rounded-full blur-2xl animate-blob"></div>
+                    <div class="absolute -bottom-10 -right-10 w-40 h-40 bg-brand-sage/20 rounded-full blur-2xl animate-blob" style="animation-delay: 2s;"></div>
+                    <img src="https://api.felo.ai/images/s/21wTQVZe24" alt="Poetic Small Bites" class="relative z-10 rounded-lg shadow-2xl grayscale hover:grayscale-0 transition-all duration-700 duration-700 w-full h-[600px] object-cover">
+                    <div class="absolute -bottom-6 -right-6 bg-white dark:bg-gray-800 p-6 shadow-xl max-w-xs z-20 hidden md:block border-l-4 border-brand-accent">
+                        <p class="font-serif italic text-lg text-gray-600 dark:text-gray-300">"吃掉藝術品，讓它成為身體的一部分。"</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <span class="text-brand-accent font-bold tracking-widest uppercase text-sm mb-2 block">創意概念</span>
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold mb-8 text-gray-900 dark:text-white leading-tight">打破感官階級：<br>從「觀看」到「吞嚥」</h2>
+                    
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-xl font-bold mb-3 flex items-center gap-3">
+                                <span class="w-8 h-8 rounded-full bg-brand-dark text-brand-light flex items-center justify-center text-sm font-serif">I</span>
+                                詩意小食 (Poetic Small Bites)
+                            </h3>
+                            <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                                與傳統導覽不同，我們將視覺藝術轉化為「可食用的詮釋」。主廚 Lila Djeddi 將展品的抽象概念（如時間、生態、混亂）濃縮為一口大小的素食料理。
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-3 flex items-center gap-3">
+                                <span class="w-8 h-8 rounded-full bg-brand-dark text-brand-light flex items-center justify-center text-sm font-serif">II</span>
+                                雙重聲音 (Dual-Voice Mediation)
+                            </h3>
+                            <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                                展覽由文化中介人與主廚共同引導。中介人解析藝術脈絡，主廚解構味覺層次。這種對話消弭了「高雅藝術」與「生理需求」的界限，讓藝術評論在味蕾上綻放。
+                            </p>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-3 flex items-center gap-3">
+                                <span class="w-8 h-8 rounded-full bg-brand-dark text-brand-light flex items-center justify-center text-sm font-serif">III</span>
+                                儀式感與當下 (The Ritual)
+                            </h3>
+                            <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                                入場前的洗手儀式，不僅是衛生考量，更是心靈的淨化。食物的稍縱即逝（ephemerality）迫使觀眾全神貫注於「當下」，這正是對當代藝術最深刻的致敬。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chef Section: The Soul -->
+    <section id="chef" class="py-24 bg-white dark:bg-gray-900 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-brand-sage font-bold tracking-widest uppercase text-sm">靈魂人物</span>
+                <h2 class="font-serif text-4xl md:text-5xl mt-2">Lila Djeddi：參與式料理宣言</h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Profile Card -->
+                <div class="col-span-1 md:col-span-1">
+                    <img src="https://image.pollinations.ai/prompt/portrait%20of%20a%20friendly%20female%20chef%20with%20curly%20hair,%20wearing%20apron,%20holding%20fresh%20organic%20vegetables,%20natural%20light,%20parisian%20kitchen%20background,%20warm%20smile,%20authentic?nologo=true" alt="Lila Djeddi" class="w-full h-[500px] object-cover rounded-sm grayscale hover:grayscale-0 transition-all duration-500">
+                    <div class="mt-4">
+                        <h3 class="font-serif text-2xl font-bold">Lila Djeddi</h3>
+                        <p class="text-sm text-brand-accent uppercase tracking-wide">自學成才主廚 / 飲食行動主義者</p>
+                    </div>
+                </div>
+
+                <!-- Philosophy -->
+                <div class="col-span-1 md:col-span-2 flex flex-col justify-center space-y-8 pl-0 md:pl-12">
+                    <blockquote class="font-serif text-2xl md:text-3xl italic leading-relaxed text-gray-800 dark:text-gray-200 border-l-4 border-brand-sage pl-6">
+                        "我們手中有真正的力量，那就是購買的行為。我想將日常烹飪昇華，讓每個人都能享受公平、快樂的食物。"
+                    </blockquote>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-8">
+                        <div class="bg-brand-light dark:bg-gray-800 p-8 rounded-lg">
+                            <i class="fas fa-seedling text-3xl text-brand-sage mb-4"></i>
+                            <h4 class="font-bold text-lg mb-2">生態與倫理</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">
+                                堅持使用有機、季節性、短供應鏈食材。所有展覽小食均為<b>素食</b>，這是對生態挑戰的溫柔回應。
+                            </p>
+                        </div>
+                        <div class="bg-brand-light dark:bg-gray-800 p-8 rounded-lg">
+                            <i class="fas fa-recycle text-3xl text-brand-sage mb-4"></i>
+                            <h4 class="font-bold text-lg mb-2">零浪費承諾</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">
+                                從「Cantine Vagabonde」到 MAIF Social Club，7歐元的費用旨在防止浪費，廚餘全數堆肥。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology Visualization (Mermaid) -->
+    <section class="py-20 bg-brand-light dark:bg-black transition-colors duration-300">
+        <div class="max-w-5xl mx-auto px-6 text-center">
+            <h2 class="font-serif text-3xl mb-12">感官轉譯機制：如何「吃」懂藝術？</h2>
+            
+            <div class="mermaid p-4 bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-x-auto flex justify-center" data-element-id="29428f5c-21ee-4b6a-afeb-c38e357d666d" data-processed="true"><svg aria-roledescription="flowchart-v2" role="graphics-document document" viewBox="-8 -8 1346.0750732421875 192" style="max-width: 1346.0750732421875px;" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="100%" id="mermaid-1765603127259"><style>#mermaid-1765603127259{font-family:Noto Sans TC;font-size:16px;fill:#fff;}#mermaid-1765603127259 .error-icon{fill:#fff;}#mermaid-1765603127259 .error-text{fill:#000000;stroke:#000000;}#mermaid-1765603127259 .edge-thickness-normal{stroke-width:2px;}#mermaid-1765603127259 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-1765603127259 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-1765603127259 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-1765603127259 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-1765603127259 .marker{fill:#333;stroke:#333;}#mermaid-1765603127259 .marker.cross{stroke:#333;}#mermaid-1765603127259 svg{font-family:Noto Sans TC;font-size:16px;}#mermaid-1765603127259 .label{font-family:Noto Sans TC;color:#fff;}#mermaid-1765603127259 .cluster-label text{fill:#000000;}#mermaid-1765603127259 .cluster-label span,#mermaid-1765603127259 p{color:#000000;}#mermaid-1765603127259 .label text,#mermaid-1765603127259 span,#mermaid-1765603127259 p{fill:#fff;color:#fff;}#mermaid-1765603127259 .node rect,#mermaid-1765603127259 .node circle,#mermaid-1765603127259 .node ellipse,#mermaid-1765603127259 .node polygon,#mermaid-1765603127259 .node path{fill:#c05621;stroke:#c05621;stroke-width:1px;}#mermaid-1765603127259 .flowchart-label text{text-anchor:middle;}#mermaid-1765603127259 .node .label{text-align:center;}#mermaid-1765603127259 .node.clickable{cursor:pointer;}#mermaid-1765603127259 .arrowheadPath{fill:#0b0b0b;}#mermaid-1765603127259 .edgePath .path{stroke:#333;stroke-width:2.0px;}#mermaid-1765603127259 .flowchart-link{stroke:#333;fill:none;}#mermaid-1765603127259 .edgeLabel{background-color:#8c9a87;text-align:center;}#mermaid-1765603127259 .edgeLabel rect{opacity:0.5;background-color:#8c9a87;fill:#8c9a87;}#mermaid-1765603127259 .labelBkg{background-color:rgba(140, 154, 135, 0.5);}#mermaid-1765603127259 .cluster rect{fill:#fff;stroke:hsl(0, 0%, 90%);stroke-width:1px;}#mermaid-1765603127259 .cluster text{fill:#000000;}#mermaid-1765603127259 .cluster span,#mermaid-1765603127259 p{color:#000000;}#mermaid-1765603127259 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:Noto Sans TC;font-size:12px;background:#fff;border:1px solid hsl(0, 0%, 90%);border-radius:2px;pointer-events:none;z-index:100;}#mermaid-1765603127259 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#fff;}#mermaid-1765603127259 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}#mermaid-1765603127259 .art&gt;*{fill:#e2e8f0!important;stroke:#334155!important;stroke-width:2px!important;color:#1e293b!important;}#mermaid-1765603127259 .art span{fill:#e2e8f0!important;stroke:#334155!important;stroke-width:2px!important;color:#1e293b!important;}#mermaid-1765603127259 .art tspan{fill:#1e293b!important;}#mermaid-1765603127259 .human&gt;*{fill:#fff!important;stroke:#c05621!important;stroke-width:2px!important;color:#1e293b!important;}#mermaid-1765603127259 .human span{fill:#fff!important;stroke:#c05621!important;stroke-width:2px!important;color:#1e293b!important;}#mermaid-1765603127259 .human tspan{fill:#1e293b!important;}#mermaid-1765603127259 .output&gt;*{fill:#f0fdf4!important;stroke:#166534!important;stroke-width:2px!important;stroke-dasharray:5 5!important;color:#1e293b!important;}#mermaid-1765603127259 .output span{fill:#f0fdf4!important;stroke:#166534!important;stroke-width:2px!important;stroke-dasharray:5 5!important;color:#1e293b!important;}#mermaid-1765603127259 .output tspan{fill:#1e293b!important;}#mermaid-1765603127259 .exp&gt;*{fill:#1a202c!important;stroke:#fff!important;color:#fff!important;}#mermaid-1765603127259 .exp span{fill:#1a202c!important;stroke:#fff!important;color:#fff!important;}#mermaid-1765603127259 .exp tspan{fill:#fff!important;}</style><g><marker orient="auto" markerHeight="12" markerWidth="12" markerUnits="userSpaceOnUse" refY="5" refX="6" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1765603127259_flowchart-pointEnd"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 0 L 10 5 L 0 10 z"></path></marker><marker orient="auto" markerHeight="12" markerWidth="12" markerUnits="userSpaceOnUse" refY="5" refX="4.5" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1765603127259_flowchart-pointStart"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 5 L 10 10 L 10 0 z"></path></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5" refX="11" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1765603127259_flowchart-circleEnd"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5" refX="-1" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1765603127259_flowchart-circleStart"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5.2" refX="12" viewBox="0 0 11 11" class="marker cross flowchart" id="mermaid-1765603127259_flowchart-crossEnd"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5.2" refX="-1" viewBox="0 0 11 11" class="marker cross flowchart" id="mermaid-1765603127259_flowchart-crossStart"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path marker-end="url(#mermaid-1765603127259_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-Art LE-Theme" id="L-Art-Theme-0" d="M111,88L117.833,88C124.667,88,138.333,88,153.825,88.076C169.317,88.151,186.633,88.302,195.292,88.378L203.95,88.454"></path><path marker-end="url(#mermaid-1765603127259_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-Theme LE-Mediator" id="L-Theme-Mediator-0" d="M409.251,57L422.082,52.75C434.913,48.5,460.575,40,486.646,35.828C512.717,31.656,539.196,31.812,552.435,31.891L565.675,31.969"></path><path marker-end="url(#mermaid-1765603127259_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-Theme LE-Chef" id="L-Theme-Chef-0" d="M399.767,116.94L414.179,121.533C428.591,126.127,457.414,135.313,480.526,139.982C503.638,144.651,521.038,144.803,529.738,144.878L538.438,144.954"></path><path marker-end="url(#mermaid-1765603127259_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-Mediator LE-Story" id="L-Mediator-Story-0" d="M704.887,32L716.177,31.917C727.467,31.833,750.046,31.667,772.664,31.583C795.281,31.5,817.937,31.5,829.266,31.5L840.594,31.5"></path><path marker-end="url(#mermaid-1765603127259_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-Chef LE-Food" id="L-Chef-Food-0" d="M732.125,145L738.875,144.917C745.625,144.833,759.125,144.667,771.825,144.583C784.525,144.5,796.425,144.5,802.375,144.5L808.325,144.5"></path><path marker-end="url(#mermaid-1765603127259_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-Story LE-Visitor" id="L-Story-Visitor-0" d="M929.356,31.5L938.901,31.5C948.446,31.5,967.535,31.5,982.219,35.868C996.903,40.235,1007.181,48.97,1012.32,53.338L1017.459,57.705"></path><path marker-end="url(#mermaid-1765603127259_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-Food LE-Visitor" id="L-Food-Visitor-0" d="M961.625,144.5L965.792,144.5C969.958,144.5,978.292,144.5,987.597,140.132C996.903,135.765,1007.181,127.03,1012.32,122.662L1017.459,118.295"></path><path marker-end="url(#mermaid-1765603127259_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-Visitor LE-Experience" id="L-Visitor-Experience-0" d="M1094.588,88L1101.421,88C1108.254,88,1121.921,88,1134.788,88.073C1147.654,88.145,1159.721,88.291,1165.754,88.363L1171.788,88.436"></path></g><g class="edgeLabels"><g transform="translate(152, 88)" class="edgeLabel"><g transform="translate(-16, -12)" class="label"><foreignObject height="24" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">激發</span></div></foreignObject></g></g><g transform="translate(486.2375030517578, 31.5)" class="edgeLabel"><g transform="translate(-32, -12)" class="label"><foreignObject height="24" width="64"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">理性分析</span></div></foreignObject></g></g><g transform="translate(486.2375030517578, 144.5)" class="edgeLabel"><g transform="translate(-32, -12)" class="label"><foreignObject height="24" width="64"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">感性轉譯</span></div></foreignObject></g></g><g transform="translate(772.625, 31.5)" class="edgeLabel"><g transform="translate(-16, -12)" class="label"><foreignObject height="24" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">口述</span></div></foreignObject></g></g><g transform="translate(772.625, 144.5)" class="edgeLabel"><g transform="translate(-16, -12)" class="label"><foreignObject height="24" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">烹飪</span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g transform="translate(1135.587501525879, 88)" class="edgeLabel"><g transform="translate(-16, -12)" class="label"><foreignObject height="24" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">整合</span></div></foreignObject></g></g></g><g class="nodes"><g transform="translate(55.5, 88)" id="flowchart-Art-0" class="node default art flowchart-label"><path transform="translate(-55.5,-49.137711864406775)" d="M 0,11.758474576271185 a 55.5,11.758474576271185 0,0,0 111 0 a 55.5,11.758474576271185 0,0,0 -111 0 l 0,74.75847457627118 a 55.5,11.758474576271185 0,0,0 111 0 l 0,-74.75847457627118" style=""></path><g transform="translate(-48, -24)" style="" class="label"><rect></rect><foreignObject height="48" width="96"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">視覺藝術作品<br>(Visual Art)</span></div></foreignObject></g></g><g transform="translate(311.1187515258789, 88)" id="flowchart-Theme-1" class="node default art flowchart-label"><polygon style="" transform="translate(-97.1187515258789,31.5)" class="label-container" points="-21,0 183.7375030517578,0 215.2375030517578,-63 10.5,-63"></polygon><g transform="translate(-89.6187515258789, -24)" style="" class="label"><rect></rect><foreignObject height="48" width="179.2375030517578"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">抽象主題<br>(Theme: 身體/時間/生態)</span></div></foreignObject></g></g><g transform="translate(637.4312515258789, 31.5)" id="flowchart-Mediator-2" class="node default human flowchart-label"><polygon style="" transform="translate(-58.95624923706055,31.5)" class="label-container" points="0,0 117.9124984741211,0 117.9124984741211,-63 0,-63 0,0 -8,0 125.9124984741211,0 125.9124984741211,-63 -8,-63 -8,0"></polygon><g transform="translate(-51.45624923706055, -24)" style="" class="label"><rect></rect><foreignObject height="48" width="102.9124984741211"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">文化中介人<br>(Art Mediator)</span></div></foreignObject></g></g><g transform="translate(637.4312515258789, 144.5)" id="flowchart-Chef-3" class="node default human flowchart-label"><polygon style="" transform="translate(-86.1937484741211,31.5)" class="label-container" points="0,0 172.3874969482422,0 172.3874969482422,-63 0,-63 0,0 -8,0 180.3874969482422,0 180.3874969482422,-63 -8,-63 -8,0"></polygon><g transform="translate(-78.6937484741211, -24)" style="" class="label"><rect></rect><foreignObject height="48" width="157.3874969482422"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">主廚 Lila Djeddi<br>(Culinary Interpreter)</span></div></foreignObject></g></g><g transform="translate(887.625, 31.5)" id="flowchart-Story-4" class="node default output flowchart-label"><rect height="63" width="83.4625015258789" y="-31.5" x="-41.73125076293945" ry="5" rx="5" style="" class="basic label-container"></rect><g transform="translate(-34.23125076293945, -24)" style="" class="label"><rect></rect><foreignObject height="48" width="68.4625015258789"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">敘事解說<br>(Context)</span></div></foreignObject></g></g><g transform="translate(887.625, 144.5)" id="flowchart-Food-5" class="node default output flowchart-label"><rect height="63" width="148" y="-31.5" x="-74" ry="5" rx="5" style="" class="basic label-container"></rect><g transform="translate(-66.5, -24)" style="" class="label"><rect></rect><foreignObject height="48" width="133"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">味覺隱喻<br>(Edible Metaphor)</span></div></foreignObject></g></g><g transform="translate(1053.1062507629395, 88)" id="flowchart-Visitor-6" class="node default exp flowchart-label"><g class="exp flowchart-label"><circle height="73" width="82.9625015258789" r="41.48125076293945" ry="0" rx="0" style=""></circle><circle height="63" width="72.9625015258789" r="36.48125076293945" ry="0" rx="0" style=""></circle></g><g transform="translate(-28.981250762939453, -24)" style="" class="label"><rect></rect><foreignObject height="48" width="57.962501525878906"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">參觀者<br>(Visitor)</span></div></foreignObject></g></g><g transform="translate(1253.3312530517578, 88)" id="flowchart-Experience-7" class="node default exp flowchart-label"><polygon style="" transform="translate(-76.7437515258789,31.5)" class="label-container" points="15.75,0 137.7375030517578,0 153.4875030517578,-31.5 137.7375030517578,-63 15.75,-63 0,-31.5"></polygon><g transform="translate(-53.493751525878906, -24)" style="" class="label"><rect></rect><foreignObject height="48" width="106.98750305175781"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">多感官共鳴<br>(Aha-Moment)</span></div></foreignObject></g></g></g></g></g></svg></div>
+            <p class="mt-6 text-sm text-gray-500 italic">圖解：Maif Social Club 的雙重中介模式流程</p>
+        </div>
+    </section>
+
+    <!-- Current Exhibition: Faisons corps -->
+    <section id="exhibition" class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-gray-200 dark:border-gray-700 pb-6">
+                <div>
+                    <span class="text-brand-accent font-bold tracking-widest uppercase text-sm">當期展覽</span>
+                    <h2 class="font-serif text-5xl md:text-6xl mt-2 text-gray-900 dark:text-white">Faisons corps</h2>
+                    <p class="mt-2 text-xl font-light text-gray-500">2024.03.30 — 2025.01.04</p>
+                </div>
+                <div class="mt-6 md:mt-0 max-w-md text-right md:text-left">
+                    <p class="text-gray-600 dark:text-gray-400">
+                        展覽探索身體、親密關係與身份。身體是我們存在於世的媒介，也是連結他者的橋樑。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Item 1 -->
+                <div class="group relative overflow-hidden rounded-lg cursor-pointer h-96">
+                    <img src="https://api.felo.ai/images/s/NF0uNDQZgR" alt="Chaises et Bounce station" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                        <span class="text-brand-accent text-xs uppercase tracking-wider mb-2">Studio Smarin</span>
+                        <h3 class="text-white font-serif text-2xl">Chaises et Bounce station</h3>
+                        <p class="text-gray-300 text-sm mt-2 line-clamp-3">諷刺現代久坐生活方式，邀請觀眾在不站起來的情況下進行身體運動。</p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="group relative overflow-hidden rounded-lg cursor-pointer h-96 md:-mt-12 shadow-2xl">
+                    <img src="https://image.pollinations.ai/prompt/abstract%20art%20installation%20colorful%20vertical%20stripes,%20Jacob%20Dahlgren,%20immersive,%20geometric,%20modern%20art%20gallery?nologo=true" alt="The wonderful world of abstraction" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                        <span class="text-brand-accent text-xs uppercase tracking-wider mb-2">Jacob Dahlgren</span>
+                        <h3 class="text-white font-serif text-2xl">The wonderful world of abstraction</h3>
+                        <p class="text-gray-300 text-sm mt-2">鼓勵觀眾走入色彩與線條之中，用身體丈量抽象的世界。</p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="group relative overflow-hidden rounded-lg cursor-pointer h-96">
+                    <img src="https://image.pollinations.ai/prompt/interactive%20light%20art%20installation,%20two%20people%20touching%20hands%20to%20activate%20light,%20glowing%20skin,%20Scenocosme,%20dark%20room,%20magical?nologo=true" alt="Lights Contacts" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-8">
+                        <span class="text-brand-accent text-xs uppercase tracking-wider mb-2">Scenocosme</span>
+                        <h3 class="text-white font-serif text-2xl">Lights Contacts</h3>
+                        <p class="text-gray-300 text-sm mt-2">唯有觀眾彼此肌膚接觸，裝置才會被激活發光發聲，強調人際連結的溫度。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Visualization: Impact & Experience -->
+    <section class="py-24 bg-brand-light dark:bg-gray-800 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-12 text-center">
+                <h2 class="font-serif text-3xl font-bold mb-4">展覽影響力數據</h2>
+                <p class="text-gray-600 dark:text-gray-400">觀眾回饋與展覽構成分析</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <!-- EChart 1: Radar - Sensory Balance -->
+                <div class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-sm">
+                    <h3 class="text-lg font-bold mb-4 text-center">體驗構成平衡</h3>
+                    <div id="radarChart" class="w-full h-80" _echarts_instance_="ec_1765603093335" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);" data-chart-option="{&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;color&quot;:[&quot;#37A2DA&quot;,&quot;#32C5E9&quot;,&quot;#67E0E3&quot;,&quot;#9FE6B8&quot;,&quot;#FFDB5C&quot;,&quot;#ff9f7f&quot;,&quot;#fb7293&quot;,&quot;#E062AE&quot;,&quot;#E690D1&quot;,&quot;#e7bcf3&quot;,&quot;#9d96f5&quot;,&quot;#8378EA&quot;,&quot;#96BFFF&quot;],&quot;colorLayer&quot;:[[&quot;#37A2DA&quot;,&quot;#ffd85c&quot;,&quot;#fd7b5f&quot;],[&quot;#37A2DA&quot;,&quot;#67E0E3&quot;,&quot;#FFDB5C&quot;,&quot;#ff9f7f&quot;,&quot;#E062AE&quot;,&quot;#9d96f5&quot;],[&quot;#37A2DA&quot;,&quot;#32C5E9&quot;,&quot;#9FE6B8&quot;,&quot;#FFDB5C&quot;,&quot;#ff9f7f&quot;,&quot;#fb7293&quot;,&quot;#e7bcf3&quot;,&quot;#8378EA&quot;,&quot;#96BFFF&quot;],[&quot;#37A2DA&quot;,&quot;#32C5E9&quot;,&quot;#67E0E3&quot;,&quot;#9FE6B8&quot;,&quot;#FFDB5C&quot;,&quot;#ff9f7f&quot;,&quot;#fb7293&quot;,&quot;#E062AE&quot;,&quot;#E690D1&quot;,&quot;#e7bcf3&quot;,&quot;#9d96f5&quot;,&quot;#8378EA&quot;,&quot;#96BFFF&quot;]],&quot;darkMode&quot;:&quot;auto&quot;,&quot;colorBy&quot;:&quot;series&quot;,&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;textStyle&quot;:{&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;axisPointer&quot;:[{&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9BEC9&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;label&quot;:{&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;color&quot;:&quot;#fff&quot;,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[],&quot;radar&quot;:[{&quot;indicator&quot;:[{&quot;name&quot;:&quot;視覺藝術&quot;,&quot;max&quot;:100,&quot;min&quot;:0},{&quot;name&quot;:&quot;味覺體驗&quot;,&quot;max&quot;:100,&quot;min&quot;:0},{&quot;name&quot;:&quot;生態意識&quot;,&quot;max&quot;:100,&quot;min&quot;:0},{&quot;name&quot;:&quot;社會互動&quot;,&quot;max&quot;:100,&quot;min&quot;:0},{&quot;name&quot;:&quot;自我反思&quot;,&quot;max&quot;:100,&quot;min&quot;:0}],&quot;axisName&quot;:{&quot;color&quot;:&quot;#374151&quot;,&quot;fontFamily&quot;:&quot;Noto Sans TC&quot;,&quot;show&quot;:true},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;#f3f4f6&quot;,&quot;#fff&quot;]},&quot;show&quot;:true},&quot;z&quot;:0,&quot;center&quot;:[&quot;50%&quot;,&quot;50%&quot;],&quot;radius&quot;:&quot;75%&quot;,&quot;startAngle&quot;:90,&quot;boundaryGap&quot;:[0,0],&quot;splitNumber&quot;:5,&quot;axisNameGap&quot;:15,&quot;scale&quot;:false,&quot;shape&quot;:&quot;polygon&quot;,&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#bbb&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:&quot;auto&quot;,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;axisLabel&quot;:{&quot;show&quot;:false,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;axisTick&quot;:{&quot;show&quot;:false,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;splitLine&quot;:{&quot;show&quot;:true,&quot;lineStyle&quot;:{&quot;color&quot;:[&quot;#E0E6F1&quot;],&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;}}}],&quot;series&quot;:[{&quot;name&quot;:&quot;展覽平衡&quot;,&quot;type&quot;:&quot;radar&quot;,&quot;data&quot;:[{&quot;value&quot;:[90,95,85,80,88],&quot;name&quot;:&quot;Visites Gustatives&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#c05621&quot;},&quot;areaStyle&quot;:{&quot;opacity&quot;:0.3,&quot;color&quot;:&quot;#c05621&quot;}}],&quot;z&quot;:2,&quot;colorBy&quot;:&quot;data&quot;,&quot;coordinateSystem&quot;:&quot;radar&quot;,&quot;legendHoverLink&quot;:true,&quot;radarIndex&quot;:0,&quot;lineStyle&quot;:{&quot;width&quot;:2,&quot;type&quot;:&quot;solid&quot;,&quot;join&quot;:&quot;round&quot;},&quot;label&quot;:{&quot;position&quot;:&quot;top&quot;},&quot;symbolSize&quot;:8,&quot;emphasis&quot;:{&quot;label&quot;:{}}}],&quot;visualMap&quot;:[],&quot;legend&quot;:[],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 387px; height: 320px; padding: 0px; margin: 0px; border-width: 0px;"><canvas data-zr-dom-id="zr_0" width="483" height="400" style="position: absolute; left: 0px; top: 0px; width: 387px; height: 320px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div></div>
+                </div>
+
+                <!-- EChart 2: Pie - Visitor Feedback Themes -->
+                <div class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-sm">
+                    <h3 class="text-lg font-bold mb-4 text-center">觀眾回饋關鍵詞</h3>
+                    <div id="pieChart" class="w-full h-80" _echarts_instance_="ec_1765603093336" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" data-chart-option="{&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;color&quot;:[&quot;#37A2DA&quot;,&quot;#32C5E9&quot;,&quot;#67E0E3&quot;,&quot;#9FE6B8&quot;,&quot;#FFDB5C&quot;,&quot;#ff9f7f&quot;,&quot;#fb7293&quot;,&quot;#E062AE&quot;,&quot;#E690D1&quot;,&quot;#e7bcf3&quot;,&quot;#9d96f5&quot;,&quot;#8378EA&quot;,&quot;#96BFFF&quot;],&quot;colorLayer&quot;:[[&quot;#37A2DA&quot;,&quot;#ffd85c&quot;,&quot;#fd7b5f&quot;],[&quot;#37A2DA&quot;,&quot;#67E0E3&quot;,&quot;#FFDB5C&quot;,&quot;#ff9f7f&quot;,&quot;#E062AE&quot;,&quot;#9d96f5&quot;],[&quot;#37A2DA&quot;,&quot;#32C5E9&quot;,&quot;#9FE6B8&quot;,&quot;#FFDB5C&quot;,&quot;#ff9f7f&quot;,&quot;#fb7293&quot;,&quot;#e7bcf3&quot;,&quot;#8378EA&quot;,&quot;#96BFFF&quot;],[&quot;#37A2DA&quot;,&quot;#32C5E9&quot;,&quot;#67E0E3&quot;,&quot;#9FE6B8&quot;,&quot;#FFDB5C&quot;,&quot;#ff9f7f&quot;,&quot;#fb7293&quot;,&quot;#E062AE&quot;,&quot;#E690D1&quot;,&quot;#e7bcf3&quot;,&quot;#9d96f5&quot;,&quot;#8378EA&quot;,&quot;#96BFFF&quot;]],&quot;darkMode&quot;:&quot;auto&quot;,&quot;colorBy&quot;:&quot;series&quot;,&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;textStyle&quot;:{&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;axisPointer&quot;:[{&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9BEC9&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;label&quot;:{&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;color&quot;:&quot;#fff&quot;,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[{&quot;trigger&quot;:&quot;item&quot;,&quot;z&quot;:60,&quot;show&quot;:true,&quot;showContent&quot;:true,&quot;triggerOn&quot;:&quot;mousemove|click&quot;,&quot;alwaysShowContent&quot;:false,&quot;displayMode&quot;:&quot;single&quot;,&quot;renderMode&quot;:&quot;auto&quot;,&quot;confine&quot;:null,&quot;showDelay&quot;:0,&quot;hideDelay&quot;:100,&quot;transitionDuration&quot;:0.4,&quot;enterable&quot;:false,&quot;backgroundColor&quot;:&quot;#fff&quot;,&quot;shadowBlur&quot;:10,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, .2)&quot;,&quot;shadowOffsetX&quot;:1,&quot;shadowOffsetY&quot;:2,&quot;borderRadius&quot;:4,&quot;borderWidth&quot;:1,&quot;padding&quot;:null,&quot;extraCssText&quot;:&quot;&quot;,&quot;axisPointer&quot;:{&quot;type&quot;:&quot;line&quot;,&quot;axis&quot;:&quot;auto&quot;,&quot;animation&quot;:&quot;auto&quot;,&quot;animationDurationUpdate&quot;:200,&quot;animationEasingUpdate&quot;:&quot;exponentialOut&quot;,&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#999&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;,&quot;textStyle&quot;:{}}},&quot;textStyle&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;fontSize&quot;:14}}],&quot;series&quot;:[{&quot;name&quot;:&quot;回饋主題&quot;,&quot;type&quot;:&quot;pie&quot;,&quot;radius&quot;:[&quot;40%&quot;,&quot;70%&quot;],&quot;avoidLabelOverlap&quot;:false,&quot;itemStyle&quot;:{&quot;borderRadius&quot;:10,&quot;borderColor&quot;:&quot;#ffffff&quot;,&quot;borderWidth&quot;:2,&quot;borderJoin&quot;:&quot;round&quot;},&quot;label&quot;:{&quot;show&quot;:false,&quot;position&quot;:&quot;center&quot;,&quot;rotate&quot;:0,&quot;overflow&quot;:&quot;truncate&quot;,&quot;alignTo&quot;:&quot;none&quot;,&quot;edgeDistance&quot;:&quot;25%&quot;,&quot;bleedMargin&quot;:10,&quot;distanceToLabelLine&quot;:5},&quot;emphasis&quot;:{&quot;label&quot;:{&quot;show&quot;:true,&quot;fontSize&quot;:20,&quot;fontWeight&quot;:&quot;bold&quot;,&quot;color&quot;:&quot;#374151&quot;},&quot;scale&quot;:true,&quot;scaleSize&quot;:5,&quot;labelLine&quot;:{&quot;show&quot;:true}},&quot;data&quot;:[{&quot;value&quot;:40,&quot;name&quot;:&quot;沉浸感強&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#c05621&quot;}},{&quot;value&quot;:30,&quot;name&quot;:&quot;味覺驚喜&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#8c9a87&quot;}},{&quot;value&quot;:20,&quot;name&quot;:&quot;社會共鳴&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#d97706&quot;}},{&quot;value&quot;:10,&quot;name&quot;:&quot;友善互動&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#4b5563&quot;}}],&quot;z&quot;:2,&quot;legendHoverLink&quot;:true,&quot;colorBy&quot;:&quot;data&quot;,&quot;center&quot;:[&quot;50%&quot;,&quot;50%&quot;],&quot;clockwise&quot;:true,&quot;startAngle&quot;:90,&quot;minAngle&quot;:0,&quot;minShowLabelAngle&quot;:0,&quot;selectedOffset&quot;:10,&quot;percentPrecision&quot;:2,&quot;stillShowZeroSum&quot;:true,&quot;left&quot;:0,&quot;top&quot;:0,&quot;right&quot;:0,&quot;bottom&quot;:0,&quot;width&quot;:null,&quot;height&quot;:null,&quot;labelLine&quot;:{&quot;show&quot;:false,&quot;length&quot;:15,&quot;length2&quot;:15,&quot;smooth&quot;:false,&quot;minTurnAngle&quot;:90,&quot;maxSurfaceAngle&quot;:90,&quot;lineStyle&quot;:{&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;}},&quot;showEmptyCircle&quot;:true,&quot;emptyCircleStyle&quot;:{&quot;color&quot;:&quot;lightgray&quot;,&quot;opacity&quot;:1},&quot;labelLayout&quot;:{&quot;hideOverlap&quot;:true},&quot;animationType&quot;:&quot;expansion&quot;,&quot;animationDuration&quot;:1000,&quot;animationTypeUpdate&quot;:&quot;transition&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;}],&quot;visualMap&quot;:[],&quot;legend&quot;:[{&quot;bottom&quot;:&quot;0%&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#374151&quot;},&quot;z&quot;:4,&quot;show&quot;:true,&quot;orient&quot;:&quot;horizontal&quot;,&quot;left&quot;:&quot;center&quot;,&quot;top&quot;:null,&quot;align&quot;:&quot;auto&quot;,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderColor&quot;:&quot;#ccc&quot;,&quot;borderRadius&quot;:0,&quot;borderWidth&quot;:0,&quot;padding&quot;:5,&quot;itemGap&quot;:10,&quot;itemWidth&quot;:25,&quot;itemHeight&quot;:14,&quot;symbolRotate&quot;:&quot;inherit&quot;,&quot;symbolKeepAspect&quot;:true,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderWidth&quot;:&quot;auto&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;inherit&quot;,&quot;opacity&quot;:&quot;inherit&quot;,&quot;borderColor&quot;:&quot;inherit&quot;,&quot;borderWidth&quot;:&quot;auto&quot;,&quot;borderCap&quot;:&quot;inherit&quot;,&quot;borderJoin&quot;:&quot;inherit&quot;,&quot;borderDashOffset&quot;:&quot;inherit&quot;,&quot;borderMiterLimit&quot;:&quot;inherit&quot;},&quot;lineStyle&quot;:{&quot;width&quot;:&quot;auto&quot;,&quot;color&quot;:&quot;inherit&quot;,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveWidth&quot;:2,&quot;opacity&quot;:&quot;inherit&quot;,&quot;type&quot;:&quot;inherit&quot;,&quot;cap&quot;:&quot;inherit&quot;,&quot;join&quot;:&quot;inherit&quot;,&quot;dashOffset&quot;:&quot;inherit&quot;,&quot;miterLimit&quot;:&quot;inherit&quot;},&quot;selectedMode&quot;:true,&quot;selector&quot;:false,&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;borderRadius&quot;:10,&quot;padding&quot;:[3,5,3,5],&quot;fontSize&quot;:12,&quot;fontFamily&quot;:&quot;sans-serif&quot;,&quot;color&quot;:&quot;#666&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#666&quot;},&quot;emphasis&quot;:{&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;color&quot;:&quot;#eee&quot;,&quot;backgroundColor&quot;:&quot;#666&quot;}},&quot;selectorPosition&quot;:&quot;auto&quot;,&quot;selectorItemGap&quot;:7,&quot;selectorButtonGap&quot;:10,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;selected&quot;:{}}],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 387px; height: 320px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas data-zr-dom-id="zr_0" width="483" height="400" style="position: absolute; left: 0px; top: 0px; width: 387px; height: 320px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class="" style="position: absolute; display: block; border-style: solid; white-space: nowrap; z-index: 9999999; box-shadow: rgba(0, 0, 0, 0.2) 1px 2px 10px; transition: opacity 0.2s cubic-bezier(0.23, 1, 0.32, 1), visibility 0.2s cubic-bezier(0.23, 1, 0.32, 1); background-color: rgb(255, 255, 255); border-width: 1px; border-radius: 4px; color: rgb(102, 102, 102); font: 14px / 21px &quot;Microsoft YaHei&quot;; padding: 10px; top: 0px; left: 0px; transform: translate3d(188px, 116px, 0px); border-color: rgb(75, 85, 99); pointer-events: none; visibility: hidden; opacity: 0;"><div style="margin: 0px 0 0;line-height:1;"><div style="font-size:14px;color:#666;font-weight:400;line-height:1;">回饋主題</div><div style="margin: 10px 0 0;line-height:1;"><div style="margin: 0px 0 0;line-height:1;"><span style="display:inline-block;margin-right:4px;border-radius:10px;width:10px;height:10px;background-color:#4b5563;"></span><span style="font-size:14px;color:#666;font-weight:400;margin-left:2px">友善互動</span><span style="float:right;margin-left:20px;font-size:14px;color:#666;font-weight:900">10</span><div style="clear:both"></div></div><div style="clear:both"></div></div><div style="clear:both"></div></div></div></div>
+                </div>
+            </div>
+            
+            <!-- Key Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 text-center">
+                <div class="p-4">
+                    <div class="text-4xl font-serif font-bold text-brand-accent mb-2">9+</div>
+                    <div class="text-xs uppercase tracking-widest text-gray-500">個月展期</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-4xl font-serif font-bold text-brand-accent mb-2">15</div>
+                    <div class="text-xs uppercase tracking-widest text-gray-500">每場次限定人數</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-4xl font-serif font-bold text-brand-sage mb-2">100%</div>
+                    <div class="text-xs uppercase tracking-widest text-gray-500">有機季節性食材</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-4xl font-serif font-bold text-brand-sage mb-2">0</div>
+                    <div class="text-xs uppercase tracking-widest text-gray-500">食物浪費目標</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practical Info & CTA -->
+    <section id="visit" class="py-24 relative bg-brand-dark text-white overflow-hidden">
+        <!-- Background decoration -->
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gray-800/50 skew-x-12 transform translate-x-20"></div>
+
+        <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
+            <h2 class="font-serif text-4xl md:text-5xl mb-8">準備好體驗這場味覺冒險了嗎？</h2>
+            <p class="text-xl text-gray-300 font-light mb-12">
+                每月一次，名額極其有限。讓藝術穿過身體，留存於記憶。
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left bg-white/5 backdrop-blur-sm p-8 rounded-xl border border-white/10 mb-12">
+                <div>
+                    <h4 class="text-brand-accent font-bold uppercase text-xs tracking-widest mb-2">地點</h4>
+                    <p class="font-serif text-lg">MAIF Social Club</p>
+                    <p class="text-sm text-gray-400">37 Rue de Turenne, 75003 Paris</p>
+                </div>
+                <div>
+                    <h4 class="text-brand-accent font-bold uppercase text-xs tracking-widest mb-2">費用</h4>
+                    <p class="font-serif text-lg">7 €</p>
+                    <p class="text-sm text-gray-400">不可退款 (確保零浪費承諾)</p>
+                </div>
+                <div>
+                    <h4 class="text-brand-accent font-bold uppercase text-xs tracking-widest mb-2">注意事項</h4>
+                    <p class="font-serif text-lg">請提前預約</p>
+                    <p class="text-sm text-gray-400">體驗前必須洗手</p>
+                </div>
+            </div>
+
+            <button class="bg-brand-accent text-white px-10 py-4 rounded-full text-lg font-bold tracking-wide hover:bg-orange-700 transition-all shadow-lg hover:shadow-brand-accent/50 transform hover:-translate-y-1">
+                立即預約品味之旅
+            </button>
+            <p class="mt-4 text-xs text-gray-500">*具體開放時間請以官網為準</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-gray-400 py-12 border-t border-gray-800 text-sm">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <h5 class="text-white font-serif font-bold text-lg mb-1">MAIF Social Club</h5>
+                <p>藝術 × 社會 × 生態</p>
+            </div>
+            
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-white transition-colors"><i class="fab fa-instagram text-xl"></i></a>
+                <a href="#" class="hover:text-white transition-colors"><i class="fab fa-facebook text-xl"></i></a>
+                <a href="#" class="hover:text-white transition-colors"><i class="fab fa-youtube text-xl"></i></a>
+            </div>
+            
+            <div class="text-center md:text-right text-xs text-gray-600">
+                <p class="mb-1">免責申明：基於公開資料，僅供參考，不構成建議</p>
+                <p class="mb-1">資料來源：網頁公開資訊</p>
+                <p>版權所有： © 2025 Dunk </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Dark Mode Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        // Check system preference
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            if (html.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+                initCharts('dark');
+                initMermaid('dark');
+            } else {
+                localStorage.theme = 'light';
+                initCharts('light');
+                initMermaid('default');
+            }
+        });
+
+        // Mermaid Initialization
+        function initMermaid(theme) {
+            const mermaidConfig = {
+                startOnLoad: true,
+                theme: theme === 'dark' ? 'dark' : 'base',
+                themeVariables: {
+                    fontFamily: 'Noto Sans TC',
+                    primaryColor: '#c05621',
+                    primaryTextColor: '#fff',
+                    primaryBorderColor: '#c05621',
+                    lineColor: theme === 'dark' ? '#fff' : '#333',
+                    secondaryColor: '#8c9a87',
+                    tertiaryColor: '#fff'
+                }
+            };
+            mermaid.initialize(mermaidConfig);
+            // Re-render logic would go here if content was dynamic, 
+            // but for static content, reloading page or complex re-render is usually needed.
+            // For this demo, initial load handles it.
+        }
+        initMermaid(html.classList.contains('dark') ? 'dark' : 'default');
+
+        // ECharts Logic
+        let radarChart, pieChart;
+
+        function initCharts(theme) {
+            const textColor = theme === 'dark' ? '#e5e7eb' : '#374151';
+            const bgColor = theme === 'dark' ? '#111827' : '#ffffff'; // Match card bg
+
+            // Dispose existing instances if any
+            if (radarChart) radarChart.dispose();
+            if (pieChart) pieChart.dispose();
+
+            // Radar Chart
+            radarChart = echarts.init(document.getElementById('radarChart'), theme);
+            radarChart.setOption({
+                backgroundColor: 'transparent',
+                radar: {
+                    indicator: [
+                        { name: '視覺藝術', max: 100 },
+                        { name: '味覺體驗', max: 100 },
+                        { name: '生態意識', max: 100 },
+                        { name: '社會互動', max: 100 },
+                        { name: '自我反思', max: 100 }
+                    ],
+                    axisName: { color: textColor, fontFamily: 'Noto Sans TC' },
+                    splitArea: { areaStyle: { color: theme === 'dark' ? ['#1f2937', '#111827'] : ['#f3f4f6', '#fff'] } }
+                },
+                series: [{
+                    name: '展覽平衡',
+                    type: 'radar',
+                    data: [
+                        {
+                            value: [90, 95, 85, 80, 88],
+                            name: 'Visites Gustatives',
+                            itemStyle: { color: '#c05621' },
+                            areaStyle: { opacity: 0.3, color: '#c05621' }
+                        }
+                    ]
+                }]
+            });
+
+            // Pie Chart
+            pieChart = echarts.init(document.getElementById('pieChart'), theme);
+            pieChart.setOption({
+                backgroundColor: 'transparent',
+                tooltip: { trigger: 'item' },
+                legend: { bottom: '0%', textStyle: { color: textColor } },
+                series: [
+                    {
+                        name: '回饋主題',
+                        type: 'pie',
+                        radius: ['40%', '70%'],
+                        avoidLabelOverlap: false,
+                        itemStyle: {
+                            borderRadius: 10,
+                            borderColor: bgColor,
+                            borderWidth: 2
+                        },
+                        label: { show: false, position: 'center' },
+                        emphasis: {
+                            label: { show: true, fontSize: 20, fontWeight: 'bold', color: textColor }
+                        },
+                        data: [
+                            { value: 40, name: '沉浸感強', itemStyle: { color: '#c05621' } },
+                            { value: 30, name: '味覺驚喜', itemStyle: { color: '#8c9a87' } },
+                            { value: 20, name: '社會共鳴', itemStyle: { color: '#d97706' } },
+                            { value: 10, name: '友善互動', itemStyle: { color: '#4b5563' } }
+                        ]
+                    }
+                ]
+            });
+        }
+
+        // Initialize charts on load
+        initCharts(html.classList.contains('dark') ? 'dark' : 'light');
+
+        // Resize charts on window resize
+        window.addEventListener('resize', () => {
+            radarChart && radarChart.resize();
+            pieChart && pieChart.resize();
+        });
+
+    </script>
+
+<div class="mermaidTooltip" style="opacity: 0;"></div></body><span id="monica-writing-entry-btn-root" style="position: absolute; left: 0px; top: 0px; pointer-events: none;"></span></html>
