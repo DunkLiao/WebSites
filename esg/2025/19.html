@@ -1,0 +1,1077 @@
+
+<!DOCTYPE html><html lang="zh-TW" class="scroll-smooth dark"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20251219_永續週報 | 未來已來，但並非坦途</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&amp;family=Playfair+Display:ital,wght@0,600;1,600&amp;display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {            
+            theme: {
+                extend: {
+                    colors: {
+                        esg: {
+                            primary: '#2d5016',    // 深森林綠
+                            dark: '#1a4d3a',       // 墨綠色
+                            bg: '#f8f9fa',         // 淺灰白
+                            text: '#333333',       // 深炭灰
+                            link: '#0066cc',       // 專業藍
+                            accent: '#ff6b35',     // 橙色
+                            soft: '#e8f5e8',       // 淺綠色
+                            surface: '#ffffff'     // 純白
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- ECharts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    
+    <!-- Preline UI -->
+    <script src="https://cdn.jsdelivr.net/npm/preline@2.3.0/dist/preline.min.js"></script>
+
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            color: #333333;
+            background-color: #f8f9fa;
+        }
+        
+        .esg-header h1 {
+            font-family: 'Playfair Display', serif;
+            letter-spacing: -0.02em;
+        }
+
+        .text-justify-custom {
+            text-align: justify;
+            text-justify: inter-ideograph;
+        }
+
+        /* Glassmorphism for dark mode overlay */
+        .glass-dark {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Card Hover Effect */
+        .esg-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .esg-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Chart Container */
+        .chart-container {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 0.5rem;
+        }
+
+        /* Hide scrollbar for clean look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2d5016; 
+            border-radius: 4px;
+        }
+    </style>
+<script src="https://felo.ai/js/iframe.js?v=1766098486178"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style><style data-id="immersive-translate-input-injected-css">.immersive-translate-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2147483647;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.immersive-translate-attach-loading::after {
+  content: " ";
+
+  --loading-color: #f78fb6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+  position: relative;
+  color: white;
+  left: -100px;
+  box-sizing: border-box;
+  animation: immersiveTranslateShadowRolling 1.5s linear infinite;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-2000%, -50%);
+  z-index: 100;
+}
+
+.immersive-translate-loading-spinner {
+  vertical-align: middle !important;
+  width: 10px !important;
+  height: 10px !important;
+  display: inline-block !important;
+  margin: 0 4px !important;
+  border: 2px rgba(221, 244, 255, 0.6) solid !important;
+  border-top: 2px rgba(0, 0, 0, 0.375) solid !important;
+  border-left: 2px rgba(0, 0, 0, 0.375) solid !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  -webkit-animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+  animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+}
+
+@-webkit-keyframes immersive-translate-loading-animation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+
+@keyframes immersive-translate-loading-animation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.immersive-translate-input-loading {
+  --loading-color: #f78fb6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+  position: relative;
+  color: white;
+  left: -100px;
+  box-sizing: border-box;
+  animation: immersiveTranslateShadowRolling 1.5s linear infinite;
+}
+
+@keyframes immersiveTranslateShadowRolling {
+  0% {
+    box-shadow: 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  12% {
+    box-shadow: 100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  25% {
+    box-shadow: 110px 0 var(--loading-color), 100px 0 var(--loading-color),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  36% {
+    box-shadow: 120px 0 var(--loading-color), 110px 0 var(--loading-color),
+      100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  50% {
+    box-shadow: 130px 0 var(--loading-color), 120px 0 var(--loading-color),
+      110px 0 var(--loading-color), 100px 0 var(--loading-color);
+  }
+
+  62% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color),
+      120px 0 var(--loading-color), 110px 0 var(--loading-color);
+  }
+
+  75% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      130px 0 var(--loading-color), 120px 0 var(--loading-color);
+  }
+
+  87% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color);
+  }
+
+  100% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0);
+  }
+}
+
+.immersive-translate-toast {
+  display: flex;
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  right: 0;
+  top: 1%;
+  width: fit-content;
+  padding: 12px 20px;
+  margin: auto;
+  overflow: auto;
+  background: #fef6f9;
+  box-shadow: 0px 4px 10px 0px rgba(0, 10, 30, 0.06);
+  font-size: 15px;
+  border-radius: 8px;
+  color: #333;
+}
+
+.immersive-translate-toast-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.immersive-translate-toast-hidden {
+  margin: 0 20px 0 72px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.immersive-translate-toast-close {
+  color: #666666;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-toast {
+    top: 0;
+    padding: 12px 0px 0 10px;
+  }
+  .immersive-translate-toast-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .immersive-translate-toast-hidden {
+    margin: 10px auto;
+  }
+}
+
+.immersive-translate-dialog {
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  top: 0;
+  display: flex;
+  width: 300px;
+  flex-direction: column;
+  align-items: center;
+  font-size: 15px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: fit-content;
+  border-radius: 20px;
+  background-color: #fff;
+}
+
+.immersive-translate-modal {
+  display: none;
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  font-size: 15px;
+}
+
+.immersive-translate-modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 40px 24px 24px;
+  border-radius: 12px;
+  width: 350px;
+  font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",
+    "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-modal-content {
+    margin: 25% auto !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .immersive-translate-modal-content {
+    width: 80vw !important;
+    margin: 20vh auto !important;
+    padding: 20px 12px 12px !important;
+  }
+
+  .immersive-translate-modal-title {
+    font-size: 14px !important;
+  }
+
+  .immersive-translate-modal-body {
+    font-size: 13px !important;
+    max-height: 60vh !important;
+  }
+
+  .immersive-translate-btn {
+    font-size: 13px !important;
+    padding: 8px 16px !important;
+    margin: 0 4px !important;
+  }
+
+  .immersive-translate-modal-footer {
+    gap: 6px !important;
+    margin-top: 16px !important;
+  }
+}
+
+.immersive-translate-modal .immersive-translate-modal-content-in-input {
+  max-width: 500px;
+}
+.immersive-translate-modal-content-in-input .immersive-translate-modal-body {
+  text-align: left;
+  max-height: unset;
+}
+
+.immersive-translate-modal-title {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333333;
+}
+
+.immersive-translate-modal-body {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333333;
+  margin-top: 24px;
+  word-break: break-all;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-modal-body {
+    max-height: 250px;
+    overflow-y: auto;
+  }
+}
+
+.immersive-translate-close {
+  color: #666666;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.immersive-translate-close:hover,
+.immersive-translate-close:focus {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.immersive-translate-modal-footer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.immersive-translate-btn {
+  width: fit-content;
+  color: #fff;
+  background-color: #ea4c89;
+  border: none;
+  font-size: 14px;
+  margin: 0 8px;
+  padding: 9px 30px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.immersive-translate-btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.immersive-translate-btn:hover {
+  background-color: #f082ac;
+}
+.immersive-translate-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.immersive-translate-btn:disabled:hover {
+  background-color: #ea4c89;
+}
+
+.immersive-translate-link-btn {
+  background-color: transparent;
+  color: #ea4c89;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  line-height: 30px;
+}
+
+.immersive-translate-cancel-btn {
+  /* gray color */
+  background-color: rgb(89, 107, 120);
+}
+
+.immersive-translate-cancel-btn:hover {
+  background-color: hsl(205, 20%, 32%);
+}
+
+.immersive-translate-action-btn {
+  background-color: transparent;
+  color: #ea4c89;
+  border: 1px solid #ea4c89;
+}
+
+.immersive-translate-btn svg {
+  margin-right: 5px;
+}
+
+.immersive-translate-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #ea4c89;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+.immersive-translate-primary-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #ea4c89;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+.immersive-translate-modal input[type="radio"] {
+  margin: 0 6px;
+  cursor: pointer;
+}
+
+.immersive-translate-modal label {
+  cursor: pointer;
+}
+
+.immersive-translate-close-action {
+  position: absolute;
+  top: 2px;
+  right: 0px;
+  cursor: pointer;
+}
+
+.imt-image-status {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 16px !important;
+}
+.imt-image-status img,
+.imt-image-status svg,
+.imt-img-loading {
+  width: 28px !important;
+  height: 28px !important;
+  margin: 0 0 8px 0 !important;
+  min-height: 28px !important;
+  min-width: 28px !important;
+  position: relative !important;
+}
+.imt-img-loading {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAtFBMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////oK74hAAAAPHRSTlMABBMIDyQXHwyBfFdDMSw+OjXCb+5RG51IvV/k0rOqlGRM6KKMhdvNyZBz9MaupmxpWyj437iYd/yJVNZeuUC7AAACt0lEQVRIx53T2XKiUBCA4QYOiyCbiAsuuGBcYtxiYtT3f6/pbqoYHVFO5r+iivpo6DpAWYpqeoFfr9f90DsYAuRSWkFnPO50OgR9PwiCUFcl2GEcx+N/YBh6pvKaefHlUgZd1zVe0NbYcQjGBfzrPE8Xz8aF+71D8gG6DHFPpc4a7xFiCDuhaWgKgGIJQ3d5IMGDrpS4S5KgpIm+en9f6PlAhKby4JwEIxlYJV9h5k5nee9GoxHJ2IDSNB0dwdad1NAxDJ/uXDHYmebdk4PdbkS58CIVHdYSUHTYYRWOJblWSyu2lmy3KNFVJNBhxcuGW4YBVCbYGRZwIooipHsNqjM4FbgOQqQqSKQQU9V8xmi1QlgHqQQ6DDBvRUVCDirs+EzGDGOQTCATgtYTnbCVLgsVgRE0T1QE0qHCFAht2z6dLvJQs3Lo2FQoDxWNUiBhaP4eRgwNkI+dAjVOA/kUrIDwf3CG8NfNOE0eiFotSuo+rBiq8tD9oY4Qzc6YJw99hl1wzpQvD7ef2M8QgnOGJfJw+EltQc+oX2yn907QB22WZcvlUpd143dqQu+8pCJZuGE4xCuPXJqqcs5sNpsI93Rmzym1k4Npk+oD1SH3/a3LOK/JpUBpWfqNySxWzCfNCUITuDG5dtuphrUJ1myeIE9bIsPiKrfqTai5WZxbhtNphYx6GEIHihyGFTI69lje/rxajdh0s0msZ0zYxyPLhYCb1CyHm9Qsd2H37Y3lugVwL9kNh8Ot8cha6fUNQ8nuXi5z9/ExsAO4zQrb/ev1yrCB7lGyQzgYDGuxq1toDN/JGvN+HyWNHKB7zEoK+PX11e12G431erGYzwmytAWU56fkMHY5JJnDRR2eZji3AwtIcrEV8Cojat/BdQ7XOwGV1e1hDjGGjXbdArm8uJZtCH5MbcctVX8A1WpqumJHwckAAAAASUVORK5CYII=");
+  background-size: 28px 28px;
+  animation: image-loading-rotate 1s linear infinite !important;
+}
+
+.imt-image-status span {
+  color: var(--bg-2, #fff) !important;
+  font-size: 14px !important;
+  line-height: 14px !important;
+  font-weight: 500 !important;
+  font-family: "PingFang SC", Arial, sans-serif !important;
+}
+
+.imt-primary-button {
+  display: flex;
+  padding: 12px 80px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  background: #ea4c89;
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  border: none;
+  cursor: pointer;
+}
+
+.imt-retry-text {
+  color: #999;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  cursor: pointer;
+}
+
+.imt-action-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.imt-modal-content-text {
+  text-align: left;
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+@keyframes image-loading-rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.imt-linear-gradient-text {
+  background: linear-gradient(90deg, #00a6ff 0%, #c369ff 52.4%, #ff4590 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.imt-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imt-linear-black-btn {
+  border-radius: 50px;
+  background: linear-gradient(66deg, #222 19%, #696969 94.25%);
+  height: 48px;
+  width: 100%;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+}
+</style><style id="felo-iframe-styles">html,body{margin:0 !important;padding:0 !important;}</style></head>
+<body class="antialiased transition-colors duration-300 dark:bg-gray-900 dark:text-gray-100" contenteditable="false" spellcheck="false">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md border-b border-esg-soft dark:bg-gray-900/90 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-esg-primary rounded-lg flex items-center justify-center text-white">
+                        <i class="fa-solid fa-leaf text-xl"></i>
+                    </div>
+                    <span class="font-bold text-xl tracking-tight text-esg-primary dark:text-esg-soft">2025永續週報</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-esg-primary dark:text-esg-soft">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block"></i>
+                    </button>
+                    <a href="#conclusion" class="hidden md:inline-flex items-center justify-center px-5 py-2 border border-transparent text-sm font-medium rounded-full text-white bg-esg-accent hover:bg-orange-600 transition-colors shadow-lg shadow-orange-500/30">
+                        閱讀結論
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <!-- Creative SVG Background Pattern -->
+            <svg class="absolute w-full h-full text-esg-soft dark:text-esg-primary/20" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M0 100 C 20 0 50 0 100 100 Z" fill="currentColor" opacity="0.3" style="pointer-events: none;"></path>
+            </svg>
+            <div class="absolute inset-0 bg-gradient-to-br from-esg-primary/90 to-esg-dark/95 mix-blend-multiply"></div>
+            <img src="https://api.felo.ai/images/s/3hm37fWFwJ" alt="Background" class="w-full h-full object-cover opacity-30">
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white esg-header">
+            <span class="inline-block py-1 px-3 rounded-full bg-esg-accent/20 border border-esg-accent/50 text-esg-accent font-semibold text-sm mb-6 backdrop-blur-sm">
+                2025.12.19 趨勢報告
+            </span>
+            <h1 class="text-4xl md:text-6xl font-bold mb-8 leading-tight">
+                未來已來，但並非坦途：<br>
+                <span class="text-esg-soft bg-clip-text text-transparent bg-gradient-to-r from-esg-soft to-white">4個顛覆你想像的永續發展新趨勢</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-200 font-light max-w-3xl mx-auto mb-12">
+                從政策調整到科技突破，從生態反思到食物革命——探索永續發展的複雜現實與未來可能
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up">
+                <div class="flex items-center gap-2 text-gray-300 text-sm">
+                    <i class="fa-solid fa-clock"></i> 閱讀時間約 8 分鐘
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Introduction Section -->
+    <section class="py-16 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="prose prose-lg dark:prose-invert mx-auto text-justify-custom text-gray-600 dark:text-gray-300">
+                <p class="lead text-2xl font-serif text-esg-primary dark:text-esg-soft mb-8 border-l-4 border-esg-accent pl-6 italic">
+                    「真實的發展路徑並非一條康莊大道，而是充滿了意想不到的轉折、悖論與驚喜。」
+                </p>
+                <p class="mb-6">
+                    當代社會，「永續發展」已從一個邊緣概念躍升為全球共識。從企業的ESG報告到個人的消費選擇，我們似乎正朝著一個更綠色、更公平的未來穩步前行。然而，理想的政策目標與殘酷的產業現實相互拉扯，前瞻的科技突破也可能伴隨著未知的生態風險。
+                </p>
+                <p>
+                    本文將深入剖析近期新聞中的四個重大趨勢——從歐盟電動車政策的髮夾彎，到核融合能源的關鍵進展；從中國大規模植樹引發的缺水悖論，到基因編輯真菌如何挑戰我們對食物的想像。這些案例揭示了科技的巨大潛力，更暴露了理想與現實之間的複雜權衡。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content: Cards Layout -->
+    <main class="py-20 bg-esg-bg dark:bg-gray-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
+            
+            <!-- Trend 1: EU EV Policy -->
+            <article class="esg-card bg-white dark:bg-gray-800 rounded-3xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700">
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <div class="p-8 lg:p-12 flex flex-col justify-center order-2 lg:order-1">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="w-8 h-8 rounded-full bg-blue-100 text-esg-link flex items-center justify-center font-bold">1</span>
+                            <h2 class="text-2xl font-bold text-gray-900 dark:text-white">政策的髮夾彎？歐盟電動車轉型之路的現實考驗</h2>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                            歐盟原計畫於2035年全面禁售燃油車，但在德國、義大利等汽車大國及豪華品牌的強力遊說下，政策出現重大轉向。歐盟正考慮允許使用「碳中和燃料（e-fuels）」的燃油車繼續銷售。這並非單純妥協，而是凸顯了氣候目標與產業經濟利益之間的複雜拉扯。
+                        </p>
+                        <div class="bg-esg-soft/50 dark:bg-esg-primary/20 p-4 rounded-xl border border-esg-primary/10">
+                            <h4 class="font-bold text-esg-primary dark:text-esg-soft mb-2"><i class="fas fa-lightbulb mr-2"></i>關鍵洞察</h4>
+                            <p class="text-sm text-gray-700 dark:text-gray-200">通往淨零排放的道路並非直線，需要不斷協商與務實調整。</p>
+                        </div>
+                    </div>
+                    <div class="relative bg-gray-50 dark:bg-gray-700 order-1 lg:order-2 min-h-[300px] lg:min-h-full">
+                         <!-- Using user provided image -->
+                        <img src="https://api.felo.ai/images/s/4zXvPvZIev" alt="歐盟電動車產量趨勢" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-6">
+                            <p class="text-white text-sm font-medium"><i class="fas fa-chart-line mr-2"></i>歐盟電動車市場趨勢預測 (資料來源: UAnalyze)</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Data Visualization Section -->
+                <div class="border-t border-gray-100 dark:border-gray-700 p-8">
+                    <h3 class="text-lg font-semibold mb-6 text-gray-800 dark:text-gray-200">政策轉向的權衡因素分析</h3>
+                    <div id="evChart" class="chart-container w-full h-80" _echarts_instance_="ec_1766098484239" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" data-chart-option="{&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;darkMode&quot;:true,&quot;color&quot;:[&quot;#4992ff&quot;,&quot;#7cffb2&quot;,&quot;#fddd60&quot;,&quot;#ff6e76&quot;,&quot;#58d9f9&quot;,&quot;#05c091&quot;,&quot;#ff8a45&quot;,&quot;#8d48e3&quot;,&quot;#dd79ff&quot;],&quot;textStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;,&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;timeAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;logAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;valueAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;categoryAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;},&quot;show&quot;:false},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;line&quot;:{&quot;symbol&quot;:&quot;circle&quot;},&quot;graph&quot;:{&quot;color&quot;:[&quot;#4992ff&quot;,&quot;#7cffb2&quot;,&quot;#fddd60&quot;,&quot;#ff6e76&quot;,&quot;#58d9f9&quot;,&quot;#05c091&quot;,&quot;#ff8a45&quot;,&quot;#8d48e3&quot;,&quot;#dd79ff&quot;]},&quot;gauge&quot;:{&quot;title&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;},&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:[[1,&quot;rgba(207,212,219,0.2)&quot;]]}},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;},&quot;detail&quot;:{&quot;color&quot;:&quot;#EEF1FA&quot;}},&quot;candlestick&quot;:{&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#f64e56&quot;,&quot;color0&quot;:&quot;#54ea92&quot;,&quot;borderColor&quot;:&quot;#f64e56&quot;,&quot;borderColor0&quot;:&quot;#54ea92&quot;}},&quot;colorBy&quot;:&quot;series&quot;,&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;axisPointer&quot;:[{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#817f91&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#817f91&quot;},&quot;label&quot;:{&quot;color&quot;:&quot;#fff&quot;,&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[{&quot;trigger&quot;:&quot;axis&quot;,&quot;backgroundColor&quot;:&quot;rgba(17, 24, 39, 0.9)&quot;,&quot;borderColor&quot;:&quot;#374151&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#e5e7eb&quot;,&quot;fontSize&quot;:14},&quot;z&quot;:60,&quot;show&quot;:true,&quot;showContent&quot;:true,&quot;triggerOn&quot;:&quot;mousemove|click&quot;,&quot;alwaysShowContent&quot;:false,&quot;displayMode&quot;:&quot;single&quot;,&quot;renderMode&quot;:&quot;auto&quot;,&quot;confine&quot;:null,&quot;showDelay&quot;:0,&quot;hideDelay&quot;:100,&quot;transitionDuration&quot;:0.4,&quot;enterable&quot;:false,&quot;shadowBlur&quot;:10,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, .2)&quot;,&quot;shadowOffsetX&quot;:1,&quot;shadowOffsetY&quot;:2,&quot;borderRadius&quot;:4,&quot;borderWidth&quot;:1,&quot;padding&quot;:null,&quot;extraCssText&quot;:&quot;&quot;,&quot;axisPointer&quot;:{&quot;type&quot;:&quot;line&quot;,&quot;axis&quot;:&quot;auto&quot;,&quot;animation&quot;:&quot;auto&quot;,&quot;animationDurationUpdate&quot;:200,&quot;animationEasingUpdate&quot;:&quot;exponentialOut&quot;,&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#999&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;,&quot;textStyle&quot;:{}}}}],&quot;yAxis&quot;:[{&quot;type&quot;:&quot;value&quot;,&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#374151&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:&quot;auto&quot;,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#374151&quot;,&quot;type&quot;:&quot;dashed&quot;,&quot;width&quot;:1},&quot;show&quot;:true},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#e5e7eb&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]},&quot;show&quot;:false},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;,&quot;width&quot;:1},&quot;show&quot;:false},&quot;boundaryGap&quot;:[0,0],&quot;axisTick&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;splitNumber&quot;:5,&quot;minorTick&quot;:{&quot;show&quot;:false,&quot;splitNumber&quot;:5,&quot;length&quot;:3,&quot;lineStyle&quot;:{}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{},&quot;offset&quot;:0}],&quot;xAxis&quot;:[{&quot;type&quot;:&quot;category&quot;,&quot;boundaryGap&quot;:false,&quot;data&quot;:[&quot;2020&quot;,&quot;2022&quot;,&quot;2024&quot;,&quot;2026(預測)&quot;,&quot;2030(預測)&quot;,&quot;2035(目標)&quot;],&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#374151&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:true,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#e5e7eb&quot;,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:false},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]},&quot;show&quot;:false},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}},&quot;deduplication&quot;:null,&quot;axisTick&quot;:{&quot;alignWithLabel&quot;:false,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{&quot;status&quot;:&quot;hide&quot;,&quot;value&quot;:5},&quot;offset&quot;:0}],&quot;grid&quot;:[{&quot;left&quot;:&quot;3%&quot;,&quot;right&quot;:&quot;4%&quot;,&quot;bottom&quot;:&quot;10%&quot;,&quot;containLabel&quot;:true,&quot;show&quot;:false,&quot;z&quot;:0,&quot;top&quot;:60,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#ccc&quot;}],&quot;series&quot;:[{&quot;name&quot;:&quot;目標減碳量&quot;,&quot;type&quot;:&quot;line&quot;,&quot;smooth&quot;:true,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#2d5016&quot;,&quot;width&quot;:3,&quot;type&quot;:&quot;solid&quot;},&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#2d5016&quot;},&quot;areaStyle&quot;:{&quot;opacity&quot;:0.1,&quot;color&quot;:&quot;#2d5016&quot;},&quot;data&quot;:[20,35,45,60,80,100],&quot;symbol&quot;:&quot;circle&quot;,&quot;z&quot;:3,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;clip&quot;:true,&quot;label&quot;:{&quot;position&quot;:&quot;top&quot;},&quot;endLabel&quot;:{&quot;show&quot;:false,&quot;valueAnimation&quot;:true,&quot;distance&quot;:8},&quot;emphasis&quot;:{&quot;scale&quot;:true,&quot;label&quot;:{}},&quot;step&quot;:false,&quot;smoothMonotone&quot;:null,&quot;symbolSize&quot;:4,&quot;symbolRotate&quot;:null,&quot;showSymbol&quot;:true,&quot;showAllSymbol&quot;:&quot;auto&quot;,&quot;connectNulls&quot;:false,&quot;sampling&quot;:&quot;none&quot;,&quot;animationEasing&quot;:&quot;linear&quot;,&quot;progressive&quot;:0,&quot;hoverLayerThreshold&quot;:null,&quot;universalTransition&quot;:{&quot;divideShape&quot;:&quot;clone&quot;},&quot;triggerLineEvent&quot;:false},{&quot;name&quot;:&quot;燃油車遊說壓力&quot;,&quot;type&quot;:&quot;line&quot;,&quot;smooth&quot;:true,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#ff6b35&quot;,&quot;width&quot;:2,&quot;type&quot;:&quot;dashed&quot;},&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#ff6b35&quot;},&quot;data&quot;:[80,75,85,90,60,40],&quot;symbol&quot;:&quot;circle&quot;,&quot;z&quot;:3,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;clip&quot;:true,&quot;label&quot;:{&quot;position&quot;:&quot;top&quot;},&quot;endLabel&quot;:{&quot;show&quot;:false,&quot;valueAnimation&quot;:true,&quot;distance&quot;:8},&quot;emphasis&quot;:{&quot;scale&quot;:true,&quot;label&quot;:{}},&quot;step&quot;:false,&quot;smoothMonotone&quot;:null,&quot;symbolSize&quot;:4,&quot;symbolRotate&quot;:null,&quot;showSymbol&quot;:true,&quot;showAllSymbol&quot;:&quot;auto&quot;,&quot;connectNulls&quot;:false,&quot;sampling&quot;:&quot;none&quot;,&quot;animationEasing&quot;:&quot;linear&quot;,&quot;progressive&quot;:0,&quot;hoverLayerThreshold&quot;:null,&quot;universalTransition&quot;:{&quot;divideShape&quot;:&quot;clone&quot;},&quot;triggerLineEvent&quot;:false},{&quot;name&quot;:&quot;電動車市佔率&quot;,&quot;type&quot;:&quot;bar&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#0066cc&quot;,&quot;borderRadius&quot;:[4,4,0,0]},&quot;barWidth&quot;:&quot;30%&quot;,&quot;data&quot;:[10,18,25,35,55,85],&quot;z&quot;:2,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;barMinHeight&quot;:0,&quot;barMinAngle&quot;:0,&quot;large&quot;:false,&quot;largeThreshold&quot;:400,&quot;progressive&quot;:3000,&quot;progressiveChunkMode&quot;:&quot;mod&quot;,&quot;clip&quot;:true,&quot;roundCap&quot;:false,&quot;showBackground&quot;:false,&quot;backgroundStyle&quot;:{&quot;color&quot;:&quot;rgba(180, 180, 180, 0.2)&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderType&quot;:&quot;solid&quot;,&quot;borderRadius&quot;:0,&quot;shadowBlur&quot;:0,&quot;shadowColor&quot;:null,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:0,&quot;opacity&quot;:1},&quot;select&quot;:{&quot;itemStyle&quot;:{&quot;borderColor&quot;:&quot;#212121&quot;}},&quot;realtimeSort&quot;:false,&quot;label&quot;:{},&quot;emphasis&quot;:{&quot;label&quot;:{}}}],&quot;visualMap&quot;:[],&quot;legend&quot;:[{&quot;data&quot;:[&quot;目標減碳量&quot;,&quot;燃油車遊說壓力&quot;,&quot;電動車市佔率&quot;],&quot;textStyle&quot;:{&quot;color&quot;:&quot;#e5e7eb&quot;},&quot;bottom&quot;:0,&quot;z&quot;:4,&quot;show&quot;:true,&quot;orient&quot;:&quot;horizontal&quot;,&quot;left&quot;:&quot;center&quot;,&quot;top&quot;:null,&quot;align&quot;:&quot;auto&quot;,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderColor&quot;:&quot;#ccc&quot;,&quot;borderRadius&quot;:0,&quot;borderWidth&quot;:0,&quot;padding&quot;:5,&quot;itemGap&quot;:10,&quot;itemWidth&quot;:25,&quot;itemHeight&quot;:14,&quot;symbolRotate&quot;:&quot;inherit&quot;,&quot;symbolKeepAspect&quot;:true,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderWidth&quot;:&quot;auto&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;inherit&quot;,&quot;opacity&quot;:&quot;inherit&quot;,&quot;borderColor&quot;:&quot;inherit&quot;,&quot;borderWidth&quot;:&quot;auto&quot;,&quot;borderCap&quot;:&quot;inherit&quot;,&quot;borderJoin&quot;:&quot;inherit&quot;,&quot;borderDashOffset&quot;:&quot;inherit&quot;,&quot;borderMiterLimit&quot;:&quot;inherit&quot;},&quot;lineStyle&quot;:{&quot;width&quot;:&quot;auto&quot;,&quot;color&quot;:&quot;inherit&quot;,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveWidth&quot;:2,&quot;opacity&quot;:&quot;inherit&quot;,&quot;type&quot;:&quot;inherit&quot;,&quot;cap&quot;:&quot;inherit&quot;,&quot;join&quot;:&quot;inherit&quot;,&quot;dashOffset&quot;:&quot;inherit&quot;,&quot;miterLimit&quot;:&quot;inherit&quot;},&quot;selectedMode&quot;:true,&quot;selector&quot;:false,&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;borderRadius&quot;:10,&quot;padding&quot;:[3,5,3,5],&quot;fontSize&quot;:12,&quot;fontFamily&quot;:&quot;sans-serif&quot;,&quot;color&quot;:&quot;#666&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#666&quot;},&quot;emphasis&quot;:{&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;color&quot;:&quot;#eee&quot;,&quot;backgroundColor&quot;:&quot;#666&quot;}},&quot;selectorPosition&quot;:&quot;auto&quot;,&quot;selectorItemGap&quot;:7,&quot;selectorButtonGap&quot;:10,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;selected&quot;:{}}],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 1150px; height: 320px; padding: 0px; margin: 0px; border-width: 0px;"><canvas data-zr-dom-id="zr_0" width="1437" height="400" style="position: absolute; left: 0px; top: 0px; width: 1150px; height: 320px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class=""></div></div>
+                </div>
+            </article>
+
+            <!-- Trend 2: Nuclear Fusion -->
+            <article class="esg-card bg-white dark:bg-gray-800 rounded-3xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700">
+                <div class="grid grid-cols-1 lg:grid-cols-2">
+                     <div class="relative bg-gray-50 dark:bg-gray-700 min-h-[300px] lg:min-h-full">
+                        <img src="https://api.felo.ai/images/s/5f4KMFiIJP" alt="核融合能源未來" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent flex items-end p-6">
+                            <span class="text-white bg-esg-accent px-3 py-1 rounded text-xs">科技突破</span>
+                        </div>
+                    </div>
+                    <div class="p-8 lg:p-12 flex flex-col justify-center">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="w-8 h-8 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center font-bold">2</span>
+                            <h2 class="text-2xl font-bold text-gray-900 dark:text-white">「人造太陽」的曙光：核融合能源迎來關鍵材料突破</h2>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                            美國邁阿密大學團隊開發出一種新型特殊合金，能在模擬核融合反應爐的極端高溫與輻射下穩定運行超過一個月。這解決了長期困擾科學界的材料侵蝕問題，為「聖杯級」潔淨能源的商業化鋪平了道路。
+                        </p>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-esg-primary mt-1 mr-3"></i>
+                                <span class="text-sm text-gray-600 dark:text-gray-300"><strong>無限能源潛力：</strong>模仿太陽發電原理，潔淨且安全。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-esg-primary mt-1 mr-3"></i>
+                                <span class="text-sm text-gray-600 dark:text-gray-300"><strong>關鍵瓶頸突破：</strong>新合金解決了反應爐內壁耐受性問題。</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Trend 3: China Afforestation Paradox -->
+            <article class="esg-card bg-white dark:bg-gray-800 rounded-3xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700">
+                <div class="p-8 lg:p-12">
+                    <div class="flex flex-col lg:flex-row gap-12">
+                        <div class="lg:w-1/2">
+                            <div class="flex items-center gap-3 mb-6">
+                                <span class="w-8 h-8 rounded-full bg-green-100 text-esg-primary flex items-center justify-center font-bold">3</span>
+                                <h2 class="text-2xl font-bold text-gray-900 dark:text-white">當環保美意變調：大規模植樹引發的「缺水悖論」</h2>
+                            </div>
+                            <p class="text-gray-600 dark:text-gray-300 mb-6 text-justify-custom">
+                                中國自1981年推動全球最大植樹計畫（如三北防護林），種植約780億棵樹。然而，研究發現這種單一物種的大規模造林，特別是在乾旱地區種植高耗水樹種，導致了嚴重的「缺水悖論」。樹木的蒸騰作用加劇水分流失，造成地下水位下降，反而加劇了當地的水資源短缺。
+                            </p>
+                            <div class="p-4 bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-400 text-yellow-800 dark:text-yellow-200 text-sm">
+                                <strong>警示：</strong> 環境修復必須「因地制宜」，否則良善意圖可能帶來負面生態衝擊。
+                            </div>
+                        </div>
+                        <div class="lg:w-1/2">
+                             <!-- Visualizing the Paradox -->
+                             <div id="waterChart" class="chart-container w-full h-80 bg-gray-50 dark:bg-gray-900 rounded-lg p-4" _echarts_instance_="ec_1766098484240" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" data-chart-option="{&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;darkMode&quot;:true,&quot;color&quot;:[&quot;#4992ff&quot;,&quot;#7cffb2&quot;,&quot;#fddd60&quot;,&quot;#ff6e76&quot;,&quot;#58d9f9&quot;,&quot;#05c091&quot;,&quot;#ff8a45&quot;,&quot;#8d48e3&quot;,&quot;#dd79ff&quot;],&quot;textStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;,&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;timeAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;logAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;valueAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;categoryAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;},&quot;show&quot;:false},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;line&quot;:{&quot;symbol&quot;:&quot;circle&quot;},&quot;graph&quot;:{&quot;color&quot;:[&quot;#4992ff&quot;,&quot;#7cffb2&quot;,&quot;#fddd60&quot;,&quot;#ff6e76&quot;,&quot;#58d9f9&quot;,&quot;#05c091&quot;,&quot;#ff8a45&quot;,&quot;#8d48e3&quot;,&quot;#dd79ff&quot;]},&quot;gauge&quot;:{&quot;title&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;},&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:[[1,&quot;rgba(207,212,219,0.2)&quot;]]}},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;},&quot;detail&quot;:{&quot;color&quot;:&quot;#EEF1FA&quot;}},&quot;candlestick&quot;:{&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#f64e56&quot;,&quot;color0&quot;:&quot;#54ea92&quot;,&quot;borderColor&quot;:&quot;#f64e56&quot;,&quot;borderColor0&quot;:&quot;#54ea92&quot;}},&quot;colorBy&quot;:&quot;series&quot;,&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;axisPointer&quot;:[{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#817f91&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#817f91&quot;},&quot;label&quot;:{&quot;color&quot;:&quot;#fff&quot;,&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[{&quot;trigger&quot;:&quot;axis&quot;,&quot;axisPointer&quot;:{&quot;type&quot;:&quot;cross&quot;,&quot;axis&quot;:&quot;auto&quot;,&quot;animation&quot;:&quot;auto&quot;,&quot;animationDurationUpdate&quot;:200,&quot;animationEasingUpdate&quot;:&quot;exponentialOut&quot;,&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#999&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;,&quot;textStyle&quot;:{}}},&quot;backgroundColor&quot;:&quot;rgba(17, 24, 39, 0.9)&quot;,&quot;borderColor&quot;:&quot;#374151&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#e5e7eb&quot;,&quot;fontSize&quot;:14},&quot;z&quot;:60,&quot;show&quot;:true,&quot;showContent&quot;:true,&quot;triggerOn&quot;:&quot;mousemove|click&quot;,&quot;alwaysShowContent&quot;:false,&quot;displayMode&quot;:&quot;single&quot;,&quot;renderMode&quot;:&quot;auto&quot;,&quot;confine&quot;:null,&quot;showDelay&quot;:0,&quot;hideDelay&quot;:100,&quot;transitionDuration&quot;:0.4,&quot;enterable&quot;:false,&quot;shadowBlur&quot;:10,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, .2)&quot;,&quot;shadowOffsetX&quot;:1,&quot;shadowOffsetY&quot;:2,&quot;borderRadius&quot;:4,&quot;borderWidth&quot;:1,&quot;padding&quot;:null,&quot;extraCssText&quot;:&quot;&quot;}],&quot;yAxis&quot;:[{&quot;type&quot;:&quot;value&quot;,&quot;name&quot;:&quot;覆蓋率 %&quot;,&quot;position&quot;:&quot;left&quot;,&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#2d5016&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:&quot;auto&quot;,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#2d5016&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;splitLine&quot;:{&quot;show&quot;:false,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]},&quot;show&quot;:false},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;,&quot;width&quot;:1},&quot;show&quot;:false},&quot;boundaryGap&quot;:[0,0],&quot;axisTick&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;splitNumber&quot;:5,&quot;minorTick&quot;:{&quot;show&quot;:false,&quot;splitNumber&quot;:5,&quot;length&quot;:3,&quot;lineStyle&quot;:{}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{&quot;status&quot;:&quot;hide&quot;,&quot;value&quot;:42.96348314606741,&quot;seriesDataIndices&quot;:[]},&quot;offset&quot;:0},{&quot;type&quot;:&quot;value&quot;,&quot;name&quot;:&quot;水位深度 (m)&quot;,&quot;position&quot;:&quot;right&quot;,&quot;inverse&quot;:true,&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#0066cc&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:&quot;auto&quot;,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#0066cc&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#374151&quot;,&quot;type&quot;:&quot;dashed&quot;,&quot;width&quot;:1},&quot;show&quot;:true},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]},&quot;show&quot;:false},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;,&quot;width&quot;:1},&quot;show&quot;:false},&quot;boundaryGap&quot;:[0,0],&quot;axisTick&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;splitNumber&quot;:5,&quot;minorTick&quot;:{&quot;show&quot;:false,&quot;splitNumber&quot;:5,&quot;length&quot;:3,&quot;lineStyle&quot;:{}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{&quot;status&quot;:&quot;hide&quot;,&quot;value&quot;:15.44943820224719,&quot;seriesDataIndices&quot;:[]},&quot;offset&quot;:0}],&quot;xAxis&quot;:[{&quot;type&quot;:&quot;category&quot;,&quot;data&quot;:[&quot;1980&quot;,&quot;1990&quot;,&quot;2000&quot;,&quot;2010&quot;,&quot;2020&quot;,&quot;2024&quot;],&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#374151&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:true,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#e5e7eb&quot;,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:false},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]},&quot;show&quot;:false},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}},&quot;boundaryGap&quot;:true,&quot;deduplication&quot;:null,&quot;axisTick&quot;:{&quot;alignWithLabel&quot;:false,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{&quot;status&quot;:&quot;hide&quot;,&quot;value&quot;:5,&quot;seriesDataIndices&quot;:[{&quot;seriesIndex&quot;:0,&quot;dataIndexInside&quot;:5,&quot;dataIndex&quot;:5},{&quot;seriesIndex&quot;:1,&quot;dataIndexInside&quot;:5,&quot;dataIndex&quot;:5}]},&quot;offset&quot;:0}],&quot;grid&quot;:[{&quot;left&quot;:&quot;3%&quot;,&quot;right&quot;:&quot;4%&quot;,&quot;bottom&quot;:&quot;3%&quot;,&quot;containLabel&quot;:true,&quot;show&quot;:false,&quot;z&quot;:0,&quot;top&quot;:60,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#ccc&quot;}],&quot;series&quot;:[{&quot;name&quot;:&quot;植被覆蓋率 (NDVI)&quot;,&quot;type&quot;:&quot;line&quot;,&quot;smooth&quot;:true,&quot;areaStyle&quot;:{&quot;color&quot;:{&quot;colorStops&quot;:[{&quot;offset&quot;:0,&quot;color&quot;:&quot;#2d5016&quot;},{&quot;offset&quot;:1,&quot;color&quot;:&quot;#e8f5e8&quot;}],&quot;x&quot;:0,&quot;y&quot;:0,&quot;x2&quot;:0,&quot;y2&quot;:1,&quot;type&quot;:&quot;linear&quot;,&quot;global&quot;:false}},&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#2d5016&quot;},&quot;data&quot;:[15,25,40,55,65,70],&quot;symbol&quot;:&quot;circle&quot;,&quot;z&quot;:3,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;clip&quot;:true,&quot;label&quot;:{&quot;position&quot;:&quot;top&quot;},&quot;endLabel&quot;:{&quot;show&quot;:false,&quot;valueAnimation&quot;:true,&quot;distance&quot;:8},&quot;lineStyle&quot;:{&quot;width&quot;:2,&quot;type&quot;:&quot;solid&quot;},&quot;emphasis&quot;:{&quot;scale&quot;:true,&quot;label&quot;:{}},&quot;step&quot;:false,&quot;smoothMonotone&quot;:null,&quot;symbolSize&quot;:4,&quot;symbolRotate&quot;:null,&quot;showSymbol&quot;:true,&quot;showAllSymbol&quot;:&quot;auto&quot;,&quot;connectNulls&quot;:false,&quot;sampling&quot;:&quot;none&quot;,&quot;animationEasing&quot;:&quot;linear&quot;,&quot;progressive&quot;:0,&quot;hoverLayerThreshold&quot;:null,&quot;universalTransition&quot;:{&quot;divideShape&quot;:&quot;clone&quot;},&quot;triggerLineEvent&quot;:false},{&quot;name&quot;:&quot;地下水位深度 (m)&quot;,&quot;type&quot;:&quot;line&quot;,&quot;yAxisIndex&quot;:1,&quot;smooth&quot;:true,&quot;lineStyle&quot;:{&quot;width&quot;:3,&quot;color&quot;:&quot;#0066cc&quot;,&quot;type&quot;:&quot;solid&quot;},&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#0066cc&quot;},&quot;data&quot;:[10,12,18,25,32,35],&quot;symbol&quot;:&quot;circle&quot;,&quot;z&quot;:3,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;clip&quot;:true,&quot;label&quot;:{&quot;position&quot;:&quot;top&quot;},&quot;endLabel&quot;:{&quot;show&quot;:false,&quot;valueAnimation&quot;:true,&quot;distance&quot;:8},&quot;emphasis&quot;:{&quot;scale&quot;:true,&quot;label&quot;:{}},&quot;step&quot;:false,&quot;smoothMonotone&quot;:null,&quot;symbolSize&quot;:4,&quot;symbolRotate&quot;:null,&quot;showSymbol&quot;:true,&quot;showAllSymbol&quot;:&quot;auto&quot;,&quot;connectNulls&quot;:false,&quot;sampling&quot;:&quot;none&quot;,&quot;animationEasing&quot;:&quot;linear&quot;,&quot;progressive&quot;:0,&quot;hoverLayerThreshold&quot;:null,&quot;universalTransition&quot;:{&quot;divideShape&quot;:&quot;clone&quot;},&quot;triggerLineEvent&quot;:false}],&quot;visualMap&quot;:[],&quot;legend&quot;:[{&quot;data&quot;:[&quot;植被覆蓋率 (NDVI)&quot;,&quot;地下水位深度 (m)&quot;],&quot;textStyle&quot;:{&quot;color&quot;:&quot;#e5e7eb&quot;},&quot;z&quot;:4,&quot;show&quot;:true,&quot;orient&quot;:&quot;horizontal&quot;,&quot;left&quot;:&quot;center&quot;,&quot;top&quot;:0,&quot;align&quot;:&quot;auto&quot;,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderColor&quot;:&quot;#ccc&quot;,&quot;borderRadius&quot;:0,&quot;borderWidth&quot;:0,&quot;padding&quot;:5,&quot;itemGap&quot;:10,&quot;itemWidth&quot;:25,&quot;itemHeight&quot;:14,&quot;symbolRotate&quot;:&quot;inherit&quot;,&quot;symbolKeepAspect&quot;:true,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderWidth&quot;:&quot;auto&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;inherit&quot;,&quot;opacity&quot;:&quot;inherit&quot;,&quot;borderColor&quot;:&quot;inherit&quot;,&quot;borderWidth&quot;:&quot;auto&quot;,&quot;borderCap&quot;:&quot;inherit&quot;,&quot;borderJoin&quot;:&quot;inherit&quot;,&quot;borderDashOffset&quot;:&quot;inherit&quot;,&quot;borderMiterLimit&quot;:&quot;inherit&quot;},&quot;lineStyle&quot;:{&quot;width&quot;:&quot;auto&quot;,&quot;color&quot;:&quot;inherit&quot;,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveWidth&quot;:2,&quot;opacity&quot;:&quot;inherit&quot;,&quot;type&quot;:&quot;inherit&quot;,&quot;cap&quot;:&quot;inherit&quot;,&quot;join&quot;:&quot;inherit&quot;,&quot;dashOffset&quot;:&quot;inherit&quot;,&quot;miterLimit&quot;:&quot;inherit&quot;},&quot;selectedMode&quot;:true,&quot;selector&quot;:false,&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;borderRadius&quot;:10,&quot;padding&quot;:[3,5,3,5],&quot;fontSize&quot;:12,&quot;fontFamily&quot;:&quot;sans-serif&quot;,&quot;color&quot;:&quot;#666&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#666&quot;},&quot;emphasis&quot;:{&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;color&quot;:&quot;#eee&quot;,&quot;backgroundColor&quot;:&quot;#666&quot;}},&quot;selectorPosition&quot;:&quot;auto&quot;,&quot;selectorItemGap&quot;:7,&quot;selectorButtonGap&quot;:10,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;selected&quot;:{}}],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 503px; height: 288px; padding: 0px; margin: 0px; border-width: 0px; cursor: pointer;"><canvas data-zr-dom-id="zr_0" width="628" height="360" style="position: absolute; left: 0px; top: 0px; width: 503px; height: 288px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class="" style="position: absolute; display: block; border-style: solid; white-space: nowrap; z-index: 9999999; box-shadow: rgba(0, 0, 0, 0.2) 1px 2px 10px; background-color: rgba(17, 24, 39, 0.9); border-width: 1px; border-radius: 4px; color: rgb(229, 231, 235); font: 14px / 21px &quot;Microsoft YaHei&quot;; padding: 10px; top: 0px; left: 0px; transform: translate3d(214px, 173px, 0px); border-color: rgb(55, 65, 81); pointer-events: none; visibility: hidden; opacity: 0;"><div style="margin: 0px 0 0;line-height:1;"><div style="margin: 0px 0 0;line-height:1;"><div style="font-size:14px;color:#e5e7eb;font-weight:400;line-height:1;">2024</div><div style="margin: 10px 0 0;line-height:1;"><div style="margin: 0px 0 0;line-height:1;"><div style="margin: 0px 0 0;line-height:1;"><span style="display:inline-block;margin-right:4px;border-radius:10px;width:10px;height:10px;background-color:#2d5016;"></span><span style="font-size:14px;color:#e5e7eb;font-weight:400;margin-left:2px">植被覆蓋率 (NDVI)</span><span style="float:right;margin-left:20px;font-size:14px;color:#e5e7eb;font-weight:900">70</span><div style="clear:both"></div></div><div style="clear:both"></div></div><div style="margin: 10px 0 0;line-height:1;"><div style="margin: 0px 0 0;line-height:1;"><span style="display:inline-block;margin-right:4px;border-radius:10px;width:10px;height:10px;background-color:#0066cc;"></span><span style="font-size:14px;color:#e5e7eb;font-weight:400;margin-left:2px">地下水位深度 (m)</span><span style="float:right;margin-left:20px;font-size:14px;color:#e5e7eb;font-weight:900">35</span><div style="clear:both"></div></div><div style="clear:both"></div></div><div style="clear:both"></div></div><div style="clear:both"></div></div><div style="clear:both"></div></div></div></div>
+                             <p class="text-center text-xs text-gray-500 mt-2">圖表示意：植被密度增加與地下水位下降的反比關係</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Trend 4: Gene-edited Food -->
+            <article class="esg-card bg-white dark:bg-gray-800 rounded-3xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700">
+                 <div class="grid grid-cols-1 lg:grid-cols-2">
+                    <div class="relative bg-gray-50 dark:bg-gray-700 order-1 lg:order-1 min-h-[300px]">
+                        <img src="https://api.felo.ai/images/s/1oJTJMopiA" alt="基因編輯作物" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                    <div class="p-8 lg:p-12 flex flex-col justify-center order-2 lg:order-2">
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="w-8 h-8 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center font-bold">4</span>
+                            <h2 class="text-2xl font-bold text-gray-900 dark:text-white">未來的餐桌風景：基因編輯真菌，用科技餵養世界</h2>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                            面對2050年全球人口增長挑戰，傳統畜牧業難以為繼。研究人員利用CRISPR技術改良 Fusarium venenatum 真菌，使其蛋白質含量更高、口感更像肉類。這項技術若能規模化，每取代一公斤肉類可節省約1,000公升水，是解決糧食安全與低碳排放的革命性方案。
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 mt-4">
+                            <div class="text-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                                <span class="block text-2xl font-bold text-esg-primary dark:text-esg-soft">-1000L</span>
+                                <span class="text-xs text-gray-500 dark:text-gray-400">每公斤節省水資源</span>
+                            </div>
+                            <div class="text-center p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                                <span class="block text-2xl font-bold text-esg-accent">CRISPR</span>
+                                <span class="text-xs text-gray-500 dark:text-gray-400">精準基因編輯技術</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- Conclusion Section -->
+    <section id="conclusion" class="py-20 bg-esg-primary relative overflow-hidden">
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 opacity-10">
+             <i class="fas fa-globe-americas text-[400px] absolute -right-20 -bottom-40 text-white"></i>
+        </div>
+        
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-8 font-serif">在變動中尋找前行的座標</h2>
+            <p class="text-xl text-esg-soft mb-10 leading-relaxed opacity-90">
+                通往永續的道路遠比我們想像的更複雜。科技的躍進、政策的修正與生態的反思，都是這趟旅程中不可或缺的部分。
+                <br><br>
+                我們最大的挑戰究竟是技術的極限，還是我們如何權衡眼前利益與長遠未來的智慧？
+            </p>
+            <div class="inline-block p-1 rounded-full bg-white/20 backdrop-blur-sm">
+                <button class="bg-esg-accent hover:bg-orange-600 text-white font-bold py-4 px-10 rounded-full transition-transform transform hover:scale-105 shadow-xl">
+                    參與永續對話 <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 pt-12 pb-8 esg-footer">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-4">關於報告</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">
+                        本報告彙整2025年最新永續發展趨勢，旨在為決策者提供深度觀點。內容涵蓋能源、政策、生態與食品科技。
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-4">資料來源</h3>
+                    <ul class="text-sm text-gray-500 dark:text-gray-400 space-y-2">
+                        <li><i class="fas fa-link mr-2"></i>網頁公開資訊</li>
+                        <li><i class="fas fa-link mr-2"></i>UAnalyze 優分析</li>
+                        <li><i class="fas fa-link mr-2"></i>科學期刊與新聞報導</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wider mb-4">免責聲明</h3>
+                    <p class="text-xs text-gray-400 dark:text-gray-500 leading-relaxed">
+                        基於公開資料，僅供參考，不構成投資或決策建議。所有數據截至2025年12月。
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 dark:border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm text-gray-400">版權所有 © 2025 Dunk. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-esg-primary transition-colors"><i class="fab fa-linkedin text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-esg-primary transition-colors"><i class="fab fa-twitter text-xl"></i></a>
+                    <span class="text-sm text-gray-400">Design by Dunk</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chart Logic -->
+    <script>
+        // Dark Mode Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        // Initial Check
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+
+        // Charts Initialization Function
+        let evChartInstance = null;
+        let waterChartInstance = null;
+
+        function initCharts() {
+            const isDark = html.classList.contains('dark');
+            const textColor = isDark ? '#e5e7eb' : '#333333';
+            const gridColor = isDark ? '#374151' : '#e5e7eb';
+            const tooltipBg = isDark ? 'rgba(17, 24, 39, 0.9)' : 'rgba(255, 255, 255, 0.9)';
+
+            // 1. EU EV Policy Chart (Radar/Pie/Bar Combo) - Illustrating the "Pull" of factors
+            const evChartDom = document.getElementById('evChart');
+            if (evChartDom) {
+                if (evChartInstance) evChartInstance.dispose();
+                evChartInstance = echarts.init(evChartDom, isDark ? 'dark' : null);
+                
+                const optionEv = {
+                    backgroundColor: 'transparent',
+                    tooltip: {
+                        trigger: 'axis',
+                        backgroundColor: tooltipBg,
+                        borderColor: gridColor,
+                        textStyle: { color: textColor }
+                    },
+                    legend: {
+                        data: ['目標減碳量', '燃油車遊說壓力', '電動車市佔率'],
+                        textStyle: { color: textColor },
+                        bottom: 0
+                    },
+                    grid: {
+                        left: '3%',
+                        right: '4%',
+                        bottom: '10%',
+                        containLabel: true
+                    },
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: ['2020', '2022', '2024', '2026(預測)', '2030(預測)', '2035(目標)'],
+                        axisLine: { lineStyle: { color: gridColor } },
+                        axisLabel: { color: textColor }
+                    },
+                    yAxis: {
+                        type: 'value',
+                        axisLine: { lineStyle: { color: gridColor } },
+                        splitLine: { lineStyle: { color: gridColor, type: 'dashed' } },
+                        axisLabel: { color: textColor }
+                    },
+                    series: [
+                        {
+                            name: '目標減碳量',
+                            type: 'line',
+                            smooth: true,
+                            lineStyle: { color: '#2d5016', width: 3 },
+                            itemStyle: { color: '#2d5016' },
+                            areaStyle: { opacity: 0.1, color: '#2d5016' },
+                            data: [20, 35, 45, 60, 80, 100]
+                        },
+                        {
+                            name: '燃油車遊說壓力',
+                            type: 'line',
+                            smooth: true,
+                            lineStyle: { color: '#ff6b35', width: 2, type: 'dashed' },
+                            itemStyle: { color: '#ff6b35' },
+                            data: [80, 75, 85, 90, 60, 40]
+                        },
+                        {
+                            name: '電動車市佔率',
+                            type: 'bar',
+                            itemStyle: { color: '#0066cc', borderRadius: [4, 4, 0, 0] },
+                            barWidth: '30%',
+                            data: [10, 18, 25, 35, 55, 85]
+                        }
+                    ]
+                };
+                evChartInstance.setOption(optionEv);
+            }
+
+            // 3. Afforestation Paradox Chart (Inverse Correlation)
+            const waterChartDom = document.getElementById('waterChart');
+            if (waterChartDom) {
+                if (waterChartInstance) waterChartInstance.dispose();
+                waterChartInstance = echarts.init(waterChartDom, isDark ? 'dark' : null);
+
+                const optionWater = {
+                    backgroundColor: 'transparent',
+                    tooltip: {
+                        trigger: 'axis',
+                        axisPointer: { type: 'cross' },
+                        backgroundColor: tooltipBg,
+                        borderColor: gridColor,
+                        textStyle: { color: textColor }
+                    },
+                    legend: {
+                        data: ['植被覆蓋率 (NDVI)', '地下水位深度 (m)'],
+                        textStyle: { color: textColor }
+                    },
+                    grid: {
+                        left: '3%',
+                        right: '4%',
+                        bottom: '3%',
+                        containLabel: true
+                    },
+                    xAxis: {
+                        type: 'category',
+                        data: ['1980', '1990', '2000', '2010', '2020', '2024'],
+                        axisLine: { lineStyle: { color: gridColor } },
+                        axisLabel: { color: textColor }
+                    },
+                    yAxis: [
+                        {
+                            type: 'value',
+                            name: '覆蓋率 %',
+                            position: 'left',
+                            axisLine: { lineStyle: { color: '#2d5016' } },
+                            axisLabel: { color: '#2d5016' },
+                            splitLine: { show: false }
+                        },
+                        {
+                            type: 'value',
+                            name: '水位深度 (m)',
+                            position: 'right',
+                            inverse: true, // Invert axis to show drop visually
+                            axisLine: { lineStyle: { color: '#0066cc' } },
+                            axisLabel: { color: '#0066cc' },
+                            splitLine: { lineStyle: { color: gridColor, type: 'dashed' } }
+                        }
+                    ],
+                    series: [
+                        {
+                            name: '植被覆蓋率 (NDVI)',
+                            type: 'line',
+                            smooth: true,
+                            areaStyle: { color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{offset: 0, color: '#2d5016'}, {offset: 1, color: '#e8f5e8'}]) },
+                            itemStyle: { color: '#2d5016' },
+                            data: [15, 25, 40, 55, 65, 70]
+                        },
+                        {
+                            name: '地下水位深度 (m)',
+                            type: 'line',
+                            yAxisIndex: 1,
+                            smooth: true,
+                            lineStyle: { width: 3, color: '#0066cc' },
+                            itemStyle: { color: '#0066cc' },
+                            data: [10, 12, 18, 25, 32, 35] // Numbers increasing means water going deeper (bad)
+                        }
+                    ]
+                };
+                waterChartInstance.setOption(optionWater);
+            }
+        }
+
+        // Initialize on load
+        window.addEventListener('load', initCharts);
+        
+        // Handle Resize
+        window.addEventListener('resize', () => {
+            if(evChartInstance) evChartInstance.resize();
+            if(waterChartInstance) waterChartInstance.resize();
+        });
+
+        // Toggle Theme Event
+        themeToggleBtn.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            if (html.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+            // Re-render charts with new theme colors
+            setTimeout(initCharts, 50); 
+        });
+
+    </script>
+
+</body></html>
