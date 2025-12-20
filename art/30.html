@@ -44,186 +44,1250 @@
     </div>
 </body>
 </html>
-<html lang="zh-Hant">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>惠特尼雙年展 Whitney Biennial</title>
-  <style>
-    :root {
-      --bg-main: #F4F1EC;
-      --primary: #1F1F1F;
-      --accent: #B63A2B;
-      --secondary: #6B6E70;
-      --grid-1: #E6DED4;
-      --grid-2: #D8CFC4;
-      --grid-3: #C9B8A6;
-    }
+<html lang="zh-TW" class="scroll-smooth dark"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>惠特尼雙年展 Whitney Biennial | 2024-2026</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&amp;family=Space+Grotesk:wght@300;400;600;700&amp;family=Noto+Serif+TC:wght@400;700&amp;display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {            
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                        serif: ['Noto Serif TC', 'serif'],
+                    },
+                    colors: {
+                        whitney: {
+                            black: '#1a1a1a',
+                            gray: '#f4f4f4',
+                            amber: '#d97706', // 呼應 Lotus L. Kang 作品
+                            soil: '#78350f',  // 呼應 Kiyan Williams 作品
+                            ai: '#6366f1',    // 呼應 AI 主題
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 
-    body {
-      margin: 0;
-      font-family: "Noto Serif TC", serif;
-      background-color: var(--bg-main);
-      color: var(--primary);
-      line-height: 1.8;
-    }
+    <!-- UI Library -->
+    <script src="https://cdn.jsdelivr.net/npm/preline@2.3.0/dist/preline.min.js"></script>
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- ECharts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
 
-    header {
-      padding: 4rem 2rem 3rem;
-      text-align: center;
-    }
+    <style>
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        .dark .glass-nav {
+            background: rgba(10, 10, 10, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .editorial-img-mask {
+            clip-path: inset(0 0 0 0);
+            transition: clip-path 0.5s ease;
+        }
+        .editorial-img-mask:hover {
+            clip-path: inset(10px 10px 10px 10px round 5px);
+        }
+        /* Hide scrollbar for clean design */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #475569;
+        }
+    </style>
+<script src="https://felo.ai/js/iframe.js?v=1766233786893"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style><style data-id="immersive-translate-input-injected-css">.immersive-translate-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2147483647;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.immersive-translate-attach-loading::after {
+  content: " ";
 
-    header h1 {
-      font-size: 3rem;
-      letter-spacing: 0.1em;
-      margin-bottom: 1rem;
-    }
+  --loading-color: #f78fb6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+  position: relative;
+  color: white;
+  left: -100px;
+  box-sizing: border-box;
+  animation: immersiveTranslateShadowRolling 1.5s linear infinite;
 
-    header p {
-      max-width: 720px;
-      margin: 0 auto;
-      color: var(--secondary);
-    }
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-2000%, -50%);
+  z-index: 100;
+}
 
-    .color-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      height: 180px;
-    }
+.immersive-translate-loading-spinner {
+  vertical-align: middle !important;
+  width: 10px !important;
+  height: 10px !important;
+  display: inline-block !important;
+  margin: 0 4px !important;
+  border: 2px rgba(221, 244, 255, 0.6) solid !important;
+  border-top: 2px rgba(0, 0, 0, 0.375) solid !important;
+  border-left: 2px rgba(0, 0, 0, 0.375) solid !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  -webkit-animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+  animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+}
 
-    .color-grid div:nth-child(1) { background: var(--grid-1); }
-    .color-grid div:nth-child(2) { background: var(--grid-2); }
-    .color-grid div:nth-child(3) { background: var(--grid-3); }
+@-webkit-keyframes immersive-translate-loading-animation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
 
-    section {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 4rem 2rem;
-    }
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
 
-    section h2 {
-      font-size: 1.8rem;
-      border-left: 6px solid var(--accent);
-      padding-left: 1rem;
-      margin-bottom: 2rem;
-    }
+@keyframes immersive-translate-loading-animation {
+  from {
+    transform: rotate(0deg);
+  }
 
-    footer {
-      background: #1F1F1F;
-      color: #FFFFFF;
-      padding: 2rem;
-      text-align: center;
-      font-size: 0.9rem;
-    }
+  to {
+    transform: rotate(359deg);
+  }
+}
 
-    footer p {
-      margin: 0.3rem 0;
-      opacity: 0.85;
-    }
+.immersive-translate-input-loading {
+  --loading-color: #f78fb6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+  position: relative;
+  color: white;
+  left: -100px;
+  box-sizing: border-box;
+  animation: immersiveTranslateShadowRolling 1.5s linear infinite;
+}
 
-    @media (max-width: 768px) {
-      header h1 { font-size: 2.2rem; }
-      .color-grid { height: 120px; }
-    }
-  </style>
-</head>
-<body>
+@keyframes immersiveTranslateShadowRolling {
+  0% {
+    box-shadow: 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
 
-<header>
-  <h1>惠特尼雙年展</h1>
-  <p>Whitney Biennial — 美國當代藝術最具影響力的年度觀測窗口之一，透過藝術回應時代、政治與文化結構。</p>
-</header>
+  12% {
+    box-shadow: 100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
 
-<div class="color-grid" aria-label="藝術主題配色方格"></div>
+  25% {
+    box-shadow: 110px 0 var(--loading-color), 100px 0 var(--loading-color),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
 
-<section>
-  <h2>展覽背景與定位</h2>
-  <p>
-    惠特尼雙年展自 1932 年創立以來，長期扮演美國當代藝術風向球的角色。展覽以非競賽、非評審的策展邏輯，
-    提供藝術家回應社會現實、科技發展與身分政治的重要平台。
-  </p>
-</section>
+  36% {
+    box-shadow: 120px 0 var(--loading-color), 110px 0 var(--loading-color),
+      100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0);
+  }
 
-<section>
-  <h2>藝術媒材與策展特徵</h2>
-  <p>
-    展覽涵蓋繪畫、裝置、影像、表演、聲音與數位藝術，並持續擴展至 AI 與網路原生藝術形式。
-    策展強調關係性、情緒質地與社會結構，呈現當代藝術的多層次視覺經驗。
-  </p>
-</section>
+  50% {
+    box-shadow: 130px 0 var(--loading-color), 120px 0 var(--loading-color),
+      110px 0 var(--loading-color), 100px 0 var(--loading-color);
+  }
 
-<section>
-  <h2>2024 年策展主題解析｜優於真實之物</h2>
-  <p>
-    本屆惠特尼雙年展以「優於真實之物（Even Better Than the Real Thing）」為題，聚焦人工智慧、
-    身分流動性與身體政治等議題。策展論述並非將 AI 視為單一技術工具，而是作為一種深度嵌入
-    社會結構的力量，重新塑造「真實」的定義。
-  </p>
-  <p>
-    在空間配置上，展覽刻意避免線性敘事，而是讓不同媒材與議題形成「不和諧的合唱」，
-    觀眾必須在碎片化、交錯的感知中自行建立理解路徑，這也呼應當代資訊環境的經驗狀態。
-  </p>
-</section>
+  62% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color),
+      120px 0 var(--loading-color), 110px 0 var(--loading-color);
+  }
 
-<section>
-  <h2>代表性藝術家與作品視覺化摘要</h2>
-  <p>
-    多數作品以大型裝置與沉浸式影像為主，材質選擇強調可變性與脆弱性，
-    例如土壤、半透明膠片、回收物與即時生成的數位影像，象徵制度、身分與歷史的非穩定狀態。
-  </p>
-  <p>
-    策展上並未以「明星藝術家」作為導向，而是讓作品彼此形成張力，
-    使觀眾在移動過程中不斷切換尺度——從個人身體、社群記憶到國家與科技權力。
-  </p>
-</section>
+  75% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      130px 0 var(--loading-color), 120px 0 var(--loading-color);
+  }
 
-<section>
-  <h2>代表藝術家卡片｜Artist Spotlight</h2>
+  87% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color);
+  }
 
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;">
-    <article style="background:#FFFFFF;padding:1.8rem;border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,0.06);">
-      <h3>基揚・威廉姆斯<br><small style="color:#6B6E70;">Kiyan Williams</small></h3>
-      <p>
-        以土壤、鋼材與建築碎片重構權力象徵，其作品將美國制度視為一種
-        可被侵蝕、翻轉與瓦解的物質存在。
-      </p>
-      <p style="font-size:0.85rem;color:#6B6E70;">關鍵字：制度批判・土地政治・歷史殘骸</p>
-    </article>
+  100% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0);
+  }
+}
 
-    <article style="background:#FFFFFF;padding:1.8rem;border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,0.06);">
-      <h3>蓮花・康<br><small style="color:#6B6E70;">Lotus L. Kang</small></h3>
-      <p>
-        透過可感光、可變色的攝影材料，使作品在展覽期間持續變化，
-        暗示身體、環境與時間之間的滲透關係。
-      </p>
-      <p style="font-size:0.85rem;color:#6B6E70;">關鍵字：身體感知・時間性・物質變化</p>
-    </article>
+.immersive-translate-toast {
+  display: flex;
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  right: 0;
+  top: 1%;
+  width: fit-content;
+  padding: 12px 20px;
+  margin: auto;
+  overflow: auto;
+  background: #fef6f9;
+  box-shadow: 0px 4px 10px 0px rgba(0, 10, 30, 0.06);
+  font-size: 15px;
+  border-radius: 8px;
+  color: #333;
+}
 
-    <article style="background:#FFFFFF;padding:1.8rem;border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,0.06);">
-      <h3>霍莉・赫恩頓 & 馬特・德萊赫斯特<br><small style="color:#6B6E70;">Holly Herndon & Mat Dryhurst</small></h3>
-      <p>
-        以 AI 訓練資料為創作場域，探討藝術家在生成式模型中的身份、
-        聲音與資料主權問題。
-      </p>
-      <p style="font-size:0.85rem;color:#6B6E70;">關鍵字：人工智慧・資料主權・生成藝術</p>
-    </article>
+.immersive-translate-toast-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 
-    <article style="background:#FFFFFF;padding:1.8rem;border-radius:16px;box-shadow:0 8px 24px rgba(0,0,0,0.06);">
-      <h3>卡努帕・漢斯卡・盧格<br><small style="color:#6B6E70;">Cannupa Hanska Luger</small></h3>
-      <p>
-        結合原住民科技、未來想像與去殖民視角，
-        建構超越資本主義敘事的替代性未來。
-      </p>
-      <p style="font-size:0.85rem;color:#6B6E70;">關鍵字：原住民未來學・去殖民・科技想像</p>
-    </article>
-  </div>
-</section>
+.immersive-translate-toast-hidden {
+  margin: 0 20px 0 72px;
+  text-decoration: underline;
+  cursor: pointer;
+}
 
-<footer>
-  <p>免責申明：基於公開資料，僅供參考，不構成建議</p>
-  <p>資料來源：網頁公開資訊</p>
-  <p>版權所有： © Dunk</p>
-</footer>
+.immersive-translate-toast-close {
+  color: #666666;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0 10px;
+  cursor: pointer;
+}
 
-</body>
-</html>
+@media screen and (max-width: 768px) {
+  .immersive-translate-toast {
+    top: 0;
+    padding: 12px 0px 0 10px;
+  }
+  .immersive-translate-toast-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .immersive-translate-toast-hidden {
+    margin: 10px auto;
+  }
+}
+
+.immersive-translate-dialog {
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  top: 0;
+  display: flex;
+  width: 300px;
+  flex-direction: column;
+  align-items: center;
+  font-size: 15px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: fit-content;
+  border-radius: 20px;
+  background-color: #fff;
+}
+
+.immersive-translate-modal {
+  display: none;
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  font-size: 15px;
+}
+
+.immersive-translate-modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 40px 24px 24px;
+  border-radius: 12px;
+  width: 350px;
+  font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",
+    "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-modal-content {
+    margin: 25% auto !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .immersive-translate-modal-content {
+    width: 80vw !important;
+    margin: 20vh auto !important;
+    padding: 20px 12px 12px !important;
+  }
+
+  .immersive-translate-modal-title {
+    font-size: 14px !important;
+  }
+
+  .immersive-translate-modal-body {
+    font-size: 13px !important;
+    max-height: 60vh !important;
+  }
+
+  .immersive-translate-btn {
+    font-size: 13px !important;
+    padding: 8px 16px !important;
+    margin: 0 4px !important;
+  }
+
+  .immersive-translate-modal-footer {
+    gap: 6px !important;
+    margin-top: 16px !important;
+  }
+}
+
+.immersive-translate-modal .immersive-translate-modal-content-in-input {
+  max-width: 500px;
+}
+.immersive-translate-modal-content-in-input .immersive-translate-modal-body {
+  text-align: left;
+  max-height: unset;
+}
+
+.immersive-translate-modal-title {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333333;
+}
+
+.immersive-translate-modal-body {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333333;
+  margin-top: 24px;
+  word-break: break-all;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-modal-body {
+    max-height: 250px;
+    overflow-y: auto;
+  }
+}
+
+.immersive-translate-close {
+  color: #666666;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.immersive-translate-close:hover,
+.immersive-translate-close:focus {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.immersive-translate-modal-footer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.immersive-translate-btn {
+  width: fit-content;
+  color: #fff;
+  background-color: #ea4c89;
+  border: none;
+  font-size: 14px;
+  margin: 0 8px;
+  padding: 9px 30px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.immersive-translate-btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.immersive-translate-btn:hover {
+  background-color: #f082ac;
+}
+.immersive-translate-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.immersive-translate-btn:disabled:hover {
+  background-color: #ea4c89;
+}
+
+.immersive-translate-link-btn {
+  background-color: transparent;
+  color: #ea4c89;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  line-height: 30px;
+}
+
+.immersive-translate-cancel-btn {
+  /* gray color */
+  background-color: rgb(89, 107, 120);
+}
+
+.immersive-translate-cancel-btn:hover {
+  background-color: hsl(205, 20%, 32%);
+}
+
+.immersive-translate-action-btn {
+  background-color: transparent;
+  color: #ea4c89;
+  border: 1px solid #ea4c89;
+}
+
+.immersive-translate-btn svg {
+  margin-right: 5px;
+}
+
+.immersive-translate-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #ea4c89;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+.immersive-translate-primary-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #ea4c89;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+.immersive-translate-modal input[type="radio"] {
+  margin: 0 6px;
+  cursor: pointer;
+}
+
+.immersive-translate-modal label {
+  cursor: pointer;
+}
+
+.immersive-translate-close-action {
+  position: absolute;
+  top: 2px;
+  right: 0px;
+  cursor: pointer;
+}
+
+.imt-image-status {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 16px !important;
+}
+.imt-image-status img,
+.imt-image-status svg,
+.imt-img-loading {
+  width: 28px !important;
+  height: 28px !important;
+  margin: 0 0 8px 0 !important;
+  min-height: 28px !important;
+  min-width: 28px !important;
+  position: relative !important;
+}
+.imt-img-loading {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAtFBMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////oK74hAAAAPHRSTlMABBMIDyQXHwyBfFdDMSw+OjXCb+5RG51IvV/k0rOqlGRM6KKMhdvNyZBz9MaupmxpWyj437iYd/yJVNZeuUC7AAACt0lEQVRIx53T2XKiUBCA4QYOiyCbiAsuuGBcYtxiYtT3f6/pbqoYHVFO5r+iivpo6DpAWYpqeoFfr9f90DsYAuRSWkFnPO50OgR9PwiCUFcl2GEcx+N/YBh6pvKaefHlUgZd1zVe0NbYcQjGBfzrPE8Xz8aF+71D8gG6DHFPpc4a7xFiCDuhaWgKgGIJQ3d5IMGDrpS4S5KgpIm+en9f6PlAhKby4JwEIxlYJV9h5k5nee9GoxHJ2IDSNB0dwdad1NAxDJ/uXDHYmebdk4PdbkS58CIVHdYSUHTYYRWOJblWSyu2lmy3KNFVJNBhxcuGW4YBVCbYGRZwIooipHsNqjM4FbgOQqQqSKQQU9V8xmi1QlgHqQQ6DDBvRUVCDirs+EzGDGOQTCATgtYTnbCVLgsVgRE0T1QE0qHCFAht2z6dLvJQs3Lo2FQoDxWNUiBhaP4eRgwNkI+dAjVOA/kUrIDwf3CG8NfNOE0eiFotSuo+rBiq8tD9oY4Qzc6YJw99hl1wzpQvD7ef2M8QgnOGJfJw+EltQc+oX2yn907QB22WZcvlUpd143dqQu+8pCJZuGE4xCuPXJqqcs5sNpsI93Rmzym1k4Npk+oD1SH3/a3LOK/JpUBpWfqNySxWzCfNCUITuDG5dtuphrUJ1myeIE9bIsPiKrfqTai5WZxbhtNphYx6GEIHihyGFTI69lje/rxajdh0s0msZ0zYxyPLhYCb1CyHm9Qsd2H37Y3lugVwL9kNh8Ot8cha6fUNQ8nuXi5z9/ExsAO4zQrb/ev1yrCB7lGyQzgYDGuxq1toDN/JGvN+HyWNHKB7zEoK+PX11e12G431erGYzwmytAWU56fkMHY5JJnDRR2eZji3AwtIcrEV8Cojat/BdQ7XOwGV1e1hDjGGjXbdArm8uJZtCH5MbcctVX8A1WpqumJHwckAAAAASUVORK5CYII=");
+  background-size: 28px 28px;
+  animation: image-loading-rotate 1s linear infinite !important;
+}
+
+.imt-image-status span {
+  color: var(--bg-2, #fff) !important;
+  font-size: 14px !important;
+  line-height: 14px !important;
+  font-weight: 500 !important;
+  font-family: "PingFang SC", Arial, sans-serif !important;
+}
+
+.imt-primary-button {
+  display: flex;
+  padding: 12px 80px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  background: #ea4c89;
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  border: none;
+  cursor: pointer;
+}
+
+.imt-retry-text {
+  color: #999;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  cursor: pointer;
+}
+
+.imt-action-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.imt-modal-content-text {
+  text-align: left;
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+@keyframes image-loading-rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.imt-linear-gradient-text {
+  background: linear-gradient(90deg, #00a6ff 0%, #c369ff 52.4%, #ff4590 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.imt-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imt-linear-black-btn {
+  border-radius: 50px;
+  background: linear-gradient(66deg, #222 19%, #696969 94.25%);
+  height: 48px;
+  width: 100%;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+}
+</style></head>
+<body class="bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-50 antialiased transition-colors duration-300" contenteditable="false" spellcheck="false">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-[85rem] w-full mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a class="flex-none text-2xl font-display font-bold tracking-tight uppercase" href="#">
+                    Whitney <span class="text-whitney-amber">Biennial</span>
+                </a>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#history" class="text-sm font-medium hover:text-whitney-amber transition-colors">歷史沿革</a>
+                    <a href="#theme-2024" class="text-sm font-medium hover:text-whitney-amber transition-colors">2024 主題</a>
+                    <a href="#artists" class="text-sm font-medium hover:text-whitney-amber transition-colors">焦點藝術家</a>
+                    <a href="#data" class="text-sm font-medium hover:text-whitney-amber transition-colors">數據洞察</a>
+                    <a href="#future-2026" class="text-sm font-medium hover:text-whitney-amber transition-colors">展望 2026</a>
+                    <a href="#visit" class="text-sm font-medium hover:text-whitney-amber transition-colors">參觀資訊</a>
+                </div>
+
+                <!-- Tools -->
+                <div class="flex items-center gap-4">
+                    <button id="theme-toggle" type="button" class="p-2 rounded-full hover:bg-neutral-200 dark:hover:bg-neutral-800 transition-colors focus:outline-none">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
+                    </button>
+                    <a href="#visit" class="hidden sm:inline-block px-5 py-2 text-sm font-semibold rounded-full border border-neutral-900 dark:border-neutral-100 hover:bg-neutral-900 hover:text-white dark:hover:bg-white dark:hover:text-black transition-all">
+                        購票入場
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <!-- Abstract Background -->
+        <div class="absolute inset-0 z-0">
+            <!-- 使用 Pollinations 生成抽象藝術背景，呼應展覽的 "流動性" 與 "琥珀色" -->
+            <img src="https://image.pollinations.ai/prompt/abstract%20art%20background%2C%20amber%20and%20translucent%20film%20texture%2C%20sunlight%20refraction%2C%20minimalist%20museum%20space%2C%20cinematic%20lighting%2C%204k%2C%20highly%20detailed?nologo=true" alt="Abstract Amber Texture Background" class="w-full h-full object-cover opacity-20 dark:opacity-30 scale-105 animate-float filter blur-sm">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-neutral-50/50 to-neutral-50 dark:via-neutral-950/50 dark:to-neutral-950"></div>
+        </div>
+
+        <div class="relative z-10 max-w-6xl mx-auto px-4 text-center">
+            <p class="mb-4 text-sm md:text-base font-medium tracking-[0.2em] uppercase text-whitney-amber animate-fade-in-up" style="animation-delay: 0.1s;">
+                Whitney Biennial 2024
+            </p>
+            <h1 class="text-5xl md:text-7xl lg:text-9xl font-display font-bold leading-tight mb-8 animate-fade-in-up" style="animation-delay: 0.2s;">
+                Even Better Than<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-neutral-900 to-neutral-500 dark:from-neutral-100 dark:to-neutral-500 italic font-serif">The Real Thing</span>
+            </h1>
+            <p class="max-w-2xl mx-auto text-lg md:text-xl text-neutral-600 dark:text-neutral-400 mb-10 font-light animate-fade-in-up" style="animation-delay: 0.3s;">
+                探索人工智慧時代的「真實」、流動的身份認同，以及身體與環境之間日益脆弱的界限。第 81 屆惠特尼雙年展，一場關於當代美國藝術的不和諧合唱。
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 animate-fade-in-up" style="animation-delay: 0.4s;">
+                <a href="#intro" class="group flex items-center gap-2 text-sm font-semibold uppercase tracking-widest hover:text-whitney-amber transition-colors">
+                    <span class="w-8 h-[1px] bg-current transition-all group-hover:w-12"></span>
+                    開始探索
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 1: Introduction & History (Layout: Left Text, Right Image) -->
+    <section id="history" class="py-24 md:py-32 relative">
+        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="order-2 md:order-1">
+                    <div class="relative">
+                        <!-- User provided Exhibition Image -->
+                        <img src="https://api.felo.ai/images/s/lrdMfY4kRT?width=1330&amp;height=997" alt="Whitney Biennial Exhibition View" class="rounded-xl shadow-2xl grayscale hover:grayscale-0 transition-all duration-700 editorial-img-mask w-full">
+                        <div class="absolute -bottom-8 -right-8 w-48 h-48 bg-neutral-100 dark:bg-neutral-900 rounded-full flex items-center justify-center p-4 shadow-lg hidden lg:flex">
+                            <p class="text-center text-xs font-display font-bold">
+                                自 1932 年起<br>
+                                美國當代藝術<br>
+                                最高殿堂
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="order-1 md:order-2 space-y-8">
+                    <h2 class="text-3xl md:text-5xl font-display font-bold">
+                        定義美國藝術的<br>
+                        <span class="italic font-serif text-whitney-amber">風向球</span>
+                    </h2>
+                    <div class="space-y-4 text-neutral-600 dark:text-neutral-300 leading-relaxed text-justify">
+                        <p>
+                            惠特尼雙年展（Whitney Biennial）是美國歷史最悠久、最具影響力的當代藝術調查展覽。這一切始於 1929 年，當大都會藝術博物館拒絕了葛楚德·范德比爾特·惠特尼（Gertrude Vanderbilt Whitney）捐贈的 500 件美國藝術品後，她決心創立一個屬於美國藝術家的家。
+                        </p>
+                        <p>
+                            1932 年，首屆展覽（當時為年度展）秉持著「無評審、無獎項」的民主精神開幕。自 1973 年改制為雙年展以來，這裡成為了喬治亞·歐基弗（Georgia O'Keeffe）、傑斯珀·瓊斯（Jasper Johns）等大師嶄露頭角的舞台，也是「游擊隊女孩」（Guerrilla Girls）等團體進行機構批判的戰場。
+                        </p>
+                    </div>
+                    
+                    <!-- Stats Grid -->
+                    <div class="grid grid-cols-3 gap-8 pt-8 border-t border-neutral-200 dark:border-neutral-800">
+                        <div>
+                            <div class="text-3xl font-display font-bold">94+</div>
+                            <div class="text-xs uppercase tracking-wider text-neutral-500 mt-1">年歷史</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-display font-bold">81</div>
+                            <div class="text-xs uppercase tracking-wider text-neutral-500 mt-1">屆展覽</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-display font-bold">NYC</div>
+                            <div class="text-xs uppercase tracking-wider text-neutral-500 mt-1">文化地標</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: 2024 Theme "Even Better Than the Real Thing" -->
+    <section id="theme-2024" class="py-24 bg-neutral-100 dark:bg-neutral-900 transition-colors">
+        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-4xl mx-auto text-center mb-20">
+                <span class="inline-block py-1 px-3 rounded-full bg-whitney-amber/10 text-whitney-amber text-xs font-bold tracking-widest uppercase mb-4">
+                    2024 Curatorial Vision
+                </span>
+                <h2 class="text-4xl md:text-6xl font-display font-bold mb-6">
+                    優於真實之物
+                </h2>
+                <p class="text-xl text-neutral-600 dark:text-neutral-400 font-serif italic">
+                    "A dissonant chorus." —— 不和諧的合唱
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-12">
+                <!-- Concept 1: AI & Reality -->
+                <div class="group">
+                    <div class="h-64 w-full bg-neutral-200 dark:bg-neutral-800 rounded-lg overflow-hidden mb-6 relative">
+                        <img src="https://image.pollinations.ai/prompt/artificial%20intelligence%20distorted%20human%20face%20wireframe%2C%20glitch%20art%2C%20digital%20blue%20and%20purple%20neon%2C%20cyberpunk%20aesthetic%2C%20contemporary%20art?nologo=true" alt="AI Representation" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-whitney-ai/20 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">人工智慧與真實</h3>
+                    <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                        展覽副標題暗示了 AI 如何動搖我們對「真實」的認知。藝術家不僅利用 AI 創作，更深入檢視機器學習背後的數據偏見與倫理風險，如 Holly Herndon 的《xhairymutantx》項目。
+                    </p>
+                </div>
+
+                <!-- Concept 2: Body & Fluidity -->
+                <div class="group">
+                    <div class="h-64 w-full bg-neutral-200 dark:bg-neutral-800 rounded-lg overflow-hidden mb-6 relative">
+                        <img src="https://api.felo.ai/images/s/LWljSVztsi" alt="Body Fluidity Representation" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-whitney-amber/20 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">身體與身份流動</h3>
+                    <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                        策展人 Chrissie Iles 與 Meg Onli 聚焦於身份的流動性。透過 Lotus L. Kang 等人的作品，探討身體與環境之間的滲透性，挑戰關於性別與種族的僵化修辭。
+                    </p>
+                </div>
+
+                <!-- Concept 3: Precarity & History -->
+                <div class="group">
+                    <div class="h-64 w-full bg-neutral-200 dark:bg-neutral-800 rounded-lg overflow-hidden mb-6 relative">
+                        <img src="https://image.pollinations.ai/prompt/upside%20down%20white%20house%20facade%20sculpture%20made%20of%20soil%20and%20earth%2C%20decaying%20empire%20symbolism%2C%20contemporary%20art%20museum%20setting?nologo=true" alt="Precarity Representation" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-whitney-soil/20 group-hover:bg-transparent transition-colors"></div>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">不穩定的世界</h3>
+                    <p class="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+                        面對自然與建構世界的崩解，Kiyan Williams 等藝術家以泥土、瓦礫為媒材，象徵帝國的衰落與重構，將歷史創傷轉化為物質性的在場。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Featured Artists (Grid Layout) -->
+    <section id="artists" class="py-24">
+        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-display font-bold">焦點作品</h2>
+                    <p class="mt-4 text-neutral-500">71 位藝術家與集體，探索當下的裂隙</p>
+                </div>
+            </div>
+
+            <!-- Masonry-like Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Artist 1: Lotus L. Kang -->
+                <div class="group relative overflow-hidden rounded-xl bg-white dark:bg-neutral-900 shadow-sm hover:shadow-xl transition-all duration-300 border border-neutral-100 dark:border-neutral-800">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="https://api.felo.ai/images/s/1U5tEWvoCL" alt="Lotus L. Kang Art" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold">Lotus L. Kang</h3>
+                        <p class="text-xs text-neutral-500 mb-2 font-serif italic">In Cascades (2023–24)</p>
+                        <p class="text-sm text-neutral-600 dark:text-neutral-400 line-clamp-3">
+                            懸掛的感光膠片在展覽期間持續「曬黑」，如同人體肌膚對環境的反應。這件裝置隱喻了身體與外界環境之間多孔且不斷變化的關係。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Artist 2: Kiyan Williams -->
+                <div class="group relative overflow-hidden rounded-xl bg-white dark:bg-neutral-900 shadow-sm hover:shadow-xl transition-all duration-300 border border-neutral-100 dark:border-neutral-800 lg:translate-y-12">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="https://image.pollinations.ai/prompt/Kiyan%20Williams%20Ruins%20of%20Empire%20II%2C%20sculpture%20of%20upside%20down%20white%20house%20made%20of%20earth%20and%20mud%2C%20dramatic%20lighting?nologo=true" alt="Kiyan Williams Art" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold">Kiyan Williams</h3>
+                        <p class="text-xs text-neutral-500 mb-2 font-serif italic">Ruins of Empire II</p>
+                        <p class="text-sm text-neutral-600 dark:text-neutral-400 line-clamp-3">
+                            一座倒置的、由泥土與廢墟構成的白宮外牆。這件極具震撼力的作品象徵著「美國夢的枯竭」以及帝國權力結構的最終腐朽與回歸塵土。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Artist 3: Holly Herndon -->
+                <div class="group relative overflow-hidden rounded-xl bg-white dark:bg-neutral-900 shadow-sm hover:shadow-xl transition-all duration-300 border border-neutral-100 dark:border-neutral-800">
+                    <div class="aspect-[4/5] overflow-hidden">
+                        <img src="https://api.felo.ai/images/s/TGorEgBax6" alt="Holly Herndon Art" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold">Holly Herndon &amp; Mat Dryhurst</h3>
+                        <p class="text-xs text-neutral-500 mb-2 font-serif italic">xhairymutantx</p>
+                        <p class="text-sm text-neutral-600 dark:text-neutral-400 line-clamp-3">
+                            透過訓練 AI 模型生成藝術家扭曲的形象，以此對抗商業 AI 對身份的「淨化」處理。他們提出了「發聲主權」，保護藝術家在數位時代的身份。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Artist 4: Demian DinéYazhi’ -->
+                <div class="group relative overflow-hidden rounded-xl bg-white dark:bg-neutral-900 shadow-sm hover:shadow-xl transition-all duration-300 border border-neutral-100 dark:border-neutral-800">
+                    <div class="aspect-[4/3] overflow-hidden">
+                        <img src="https://image.pollinations.ai/prompt/red%20neon%20sign%20installation%20art%20text%20on%20wall%2C%20we%20must%20stop%20imagining%20apocalypse%2C%20dark%20room%2C%20glowing%20red%20light?nologo=true" alt="Demian DinéYazhi Art" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold">Demian DinéYazhi’</h3>
+                        <p class="text-xs text-neutral-500 mb-2 font-serif italic">Neon Installation</p>
+                        <p class="text-sm text-neutral-600 dark:text-neutral-400 line-clamp-3">
+                            閃爍的紅色霓虹燈裝置，傳達對末日想像的批判與解放的渴望。作品中隱藏的訊息引發了關於藝術機構內政治言論自由的激烈討論。
+                        </p>
+                    </div>
+                </div>
+                 <!-- Artist 5: Carmen Winant -->
+                 <div class="group relative overflow-hidden rounded-xl bg-white dark:bg-neutral-900 shadow-sm hover:shadow-xl transition-all duration-300 border border-neutral-100 dark:border-neutral-800 lg:translate-y-12">
+                    <div class="aspect-[4/3] overflow-hidden">
+                        <img src="https://image.pollinations.ai/prompt/collage%20of%20thousands%20of%20photographs%20covering%20entire%20gallery%20wall%2C%20black%20and%20white%20photos%2C%20medical%20clinic%20workers%2C%20documentary%20style?nologo=true" alt="Carmen Winant Art" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold">Carmen Winant</h3>
+                        <p class="text-xs text-neutral-500 mb-2 font-serif italic">The Last Safe Abortion</p>
+                        <p class="text-sm text-neutral-600 dark:text-neutral-400 line-clamp-3">
+                            由 2,700 多張照片組成的密集拼貼，記錄了羅訴韋德案被推翻後診所工作人員的日常勞動。這是一份關於照護、集體記憶與抵抗的檔案。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Artist 6: Eddie Rodolfo Aparicio -->
+                 <div class="group relative overflow-hidden rounded-xl bg-white dark:bg-neutral-900 shadow-sm hover:shadow-xl transition-all duration-300 border border-neutral-100 dark:border-neutral-800">
+                    <div class="aspect-[4/3] overflow-hidden">
+                        <img src="https://image.pollinations.ai/prompt/monumental%20amber%20resin%20cube%20sculpture%20with%20embedded%20objects%2C%20translucent%20texture%2C%20gallery%20lighting%2C%20minimalist?nologo=true" alt="Eddie Rodolfo Aparicio Art" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold">Eddie Rodolfo Aparicio</h3>
+                        <p class="text-xs text-neutral-500 mb-2 font-serif italic">Paloma Blanca Deja Volar</p>
+                        <p class="text-sm text-neutral-600 dark:text-neutral-400 line-clamp-3">
+                            巨大的半透明琥珀色裝置，封存了白人活動家的文件碎片。利用材料的變化作為歷史流動的能指，探討特權與團結之間的複雜關係。
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Data Visualization (ECharts) -->
+    <section id="data" class="py-24 bg-neutral-900 text-white">
+        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-16">
+                <h2 class="text-3xl md:text-5xl font-display font-bold mb-6">藝術生態的社會學分析</h2>
+                <p class="text-neutral-400 max-w-2xl">
+                    透過數據檢視 2024 雙年展的構成，揭示了美國當代藝術圈的代際轉移與教育背景的集中化趨勢。
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Chart 1: Demographics -->
+                <div class="bg-neutral-800/50 p-6 rounded-2xl border border-neutral-700">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                        <i class="fas fa-users text-whitney-amber"></i>
+                        世代崛起：千禧世代的主導
+                    </h3>
+                    <div id="chart-demographics" class="w-full h-80" _echarts_instance_="ec_1766233809641" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" data-chart-option="{&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;darkMode&quot;:true,&quot;color&quot;:[&quot;#4992ff&quot;,&quot;#7cffb2&quot;,&quot;#fddd60&quot;,&quot;#ff6e76&quot;,&quot;#58d9f9&quot;,&quot;#05c091&quot;,&quot;#ff8a45&quot;,&quot;#8d48e3&quot;,&quot;#dd79ff&quot;],&quot;textStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;,&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;timeAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;logAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;valueAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;categoryAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;},&quot;show&quot;:false},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;line&quot;:{&quot;symbol&quot;:&quot;circle&quot;},&quot;graph&quot;:{&quot;color&quot;:[&quot;#4992ff&quot;,&quot;#7cffb2&quot;,&quot;#fddd60&quot;,&quot;#ff6e76&quot;,&quot;#58d9f9&quot;,&quot;#05c091&quot;,&quot;#ff8a45&quot;,&quot;#8d48e3&quot;,&quot;#dd79ff&quot;]},&quot;gauge&quot;:{&quot;title&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;},&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:[[1,&quot;rgba(207,212,219,0.2)&quot;]]}},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;},&quot;detail&quot;:{&quot;color&quot;:&quot;#EEF1FA&quot;}},&quot;candlestick&quot;:{&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#f64e56&quot;,&quot;color0&quot;:&quot;#54ea92&quot;,&quot;borderColor&quot;:&quot;#f64e56&quot;,&quot;borderColor0&quot;:&quot;#54ea92&quot;}},&quot;colorBy&quot;:&quot;series&quot;,&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;axisPointer&quot;:[{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#817f91&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#817f91&quot;},&quot;label&quot;:{&quot;color&quot;:&quot;#fff&quot;,&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[{&quot;trigger&quot;:&quot;item&quot;,&quot;z&quot;:60,&quot;show&quot;:true,&quot;showContent&quot;:true,&quot;triggerOn&quot;:&quot;mousemove|click&quot;,&quot;alwaysShowContent&quot;:false,&quot;displayMode&quot;:&quot;single&quot;,&quot;renderMode&quot;:&quot;auto&quot;,&quot;confine&quot;:null,&quot;showDelay&quot;:0,&quot;hideDelay&quot;:100,&quot;transitionDuration&quot;:0.4,&quot;enterable&quot;:false,&quot;backgroundColor&quot;:&quot;#fff&quot;,&quot;shadowBlur&quot;:10,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, .2)&quot;,&quot;shadowOffsetX&quot;:1,&quot;shadowOffsetY&quot;:2,&quot;borderRadius&quot;:4,&quot;borderWidth&quot;:1,&quot;padding&quot;:null,&quot;extraCssText&quot;:&quot;&quot;,&quot;axisPointer&quot;:{&quot;type&quot;:&quot;line&quot;,&quot;axis&quot;:&quot;auto&quot;,&quot;animation&quot;:&quot;auto&quot;,&quot;animationDurationUpdate&quot;:200,&quot;animationEasingUpdate&quot;:&quot;exponentialOut&quot;,&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#999&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;,&quot;textStyle&quot;:{}}},&quot;textStyle&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;fontSize&quot;:14}}],&quot;series&quot;:[{&quot;name&quot;:&quot;藝術家世代&quot;,&quot;type&quot;:&quot;pie&quot;,&quot;radius&quot;:[&quot;40%&quot;,&quot;70%&quot;],&quot;avoidLabelOverlap&quot;:false,&quot;itemStyle&quot;:{&quot;borderRadius&quot;:10,&quot;borderColor&quot;:&quot;#171717&quot;,&quot;borderWidth&quot;:2,&quot;borderJoin&quot;:&quot;round&quot;},&quot;label&quot;:{&quot;show&quot;:false,&quot;position&quot;:&quot;center&quot;,&quot;rotate&quot;:0,&quot;overflow&quot;:&quot;truncate&quot;,&quot;alignTo&quot;:&quot;none&quot;,&quot;edgeDistance&quot;:&quot;25%&quot;,&quot;bleedMargin&quot;:10,&quot;distanceToLabelLine&quot;:5},&quot;emphasis&quot;:{&quot;label&quot;:{&quot;show&quot;:true,&quot;fontSize&quot;:20,&quot;fontWeight&quot;:&quot;bold&quot;,&quot;color&quot;:&quot;#a3a3a3&quot;},&quot;scale&quot;:true,&quot;scaleSize&quot;:5,&quot;labelLine&quot;:{&quot;show&quot;:false}},&quot;labelLine&quot;:{&quot;show&quot;:false,&quot;length&quot;:15,&quot;length2&quot;:15,&quot;smooth&quot;:false,&quot;minTurnAngle&quot;:90,&quot;maxSurfaceAngle&quot;:90,&quot;lineStyle&quot;:{&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;}},&quot;data&quot;:[{&quot;value&quot;:60,&quot;name&quot;:&quot;千禧世代 (1981-1996)&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#d97706&quot;}},{&quot;value&quot;:40,&quot;name&quot;:&quot;其他世代&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#525252&quot;}}],&quot;z&quot;:2,&quot;legendHoverLink&quot;:true,&quot;colorBy&quot;:&quot;data&quot;,&quot;center&quot;:[&quot;50%&quot;,&quot;50%&quot;],&quot;clockwise&quot;:true,&quot;startAngle&quot;:90,&quot;minAngle&quot;:0,&quot;minShowLabelAngle&quot;:0,&quot;selectedOffset&quot;:10,&quot;percentPrecision&quot;:2,&quot;stillShowZeroSum&quot;:true,&quot;left&quot;:0,&quot;top&quot;:0,&quot;right&quot;:0,&quot;bottom&quot;:0,&quot;width&quot;:null,&quot;height&quot;:null,&quot;showEmptyCircle&quot;:true,&quot;emptyCircleStyle&quot;:{&quot;color&quot;:&quot;lightgray&quot;,&quot;opacity&quot;:1},&quot;labelLayout&quot;:{&quot;hideOverlap&quot;:true},&quot;animationType&quot;:&quot;expansion&quot;,&quot;animationDuration&quot;:1000,&quot;animationTypeUpdate&quot;:&quot;transition&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;}],&quot;visualMap&quot;:[],&quot;legend&quot;:[{&quot;top&quot;:&quot;5%&quot;,&quot;left&quot;:&quot;center&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#a3a3a3&quot;},&quot;z&quot;:4,&quot;show&quot;:true,&quot;orient&quot;:&quot;horizontal&quot;,&quot;align&quot;:&quot;auto&quot;,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderColor&quot;:&quot;#ccc&quot;,&quot;borderRadius&quot;:0,&quot;borderWidth&quot;:0,&quot;padding&quot;:5,&quot;itemGap&quot;:10,&quot;itemWidth&quot;:25,&quot;itemHeight&quot;:14,&quot;symbolRotate&quot;:&quot;inherit&quot;,&quot;symbolKeepAspect&quot;:true,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderWidth&quot;:&quot;auto&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;inherit&quot;,&quot;opacity&quot;:&quot;inherit&quot;,&quot;borderColor&quot;:&quot;inherit&quot;,&quot;borderWidth&quot;:&quot;auto&quot;,&quot;borderCap&quot;:&quot;inherit&quot;,&quot;borderJoin&quot;:&quot;inherit&quot;,&quot;borderDashOffset&quot;:&quot;inherit&quot;,&quot;borderMiterLimit&quot;:&quot;inherit&quot;},&quot;lineStyle&quot;:{&quot;width&quot;:&quot;auto&quot;,&quot;color&quot;:&quot;inherit&quot;,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveWidth&quot;:2,&quot;opacity&quot;:&quot;inherit&quot;,&quot;type&quot;:&quot;inherit&quot;,&quot;cap&quot;:&quot;inherit&quot;,&quot;join&quot;:&quot;inherit&quot;,&quot;dashOffset&quot;:&quot;inherit&quot;,&quot;miterLimit&quot;:&quot;inherit&quot;},&quot;selectedMode&quot;:true,&quot;selector&quot;:false,&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;borderRadius&quot;:10,&quot;padding&quot;:[3,5,3,5],&quot;fontSize&quot;:12,&quot;fontFamily&quot;:&quot;sans-serif&quot;,&quot;color&quot;:&quot;#666&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#666&quot;},&quot;emphasis&quot;:{&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;color&quot;:&quot;#eee&quot;,&quot;backgroundColor&quot;:&quot;#666&quot;}},&quot;selectorPosition&quot;:&quot;auto&quot;,&quot;selectorItemGap&quot;:7,&quot;selectorButtonGap&quot;:10,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;right&quot;:null,&quot;bottom&quot;:null,&quot;selected&quot;:{}}],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 574px; height: 320px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas data-zr-dom-id="zr_0" width="717" height="400" style="position: absolute; left: 0px; top: 0px; width: 574px; height: 320px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class=""></div></div>
+                    <p class="text-sm text-neutral-400 mt-4">
+                        2024 年，1981-1996 年出生的千禧世代藝術家佔比達 60%，帶來了關於數位困境與身份流動的新視角。
+                    </p>
+                </div>
+
+                <!-- Chart 2: Education -->
+                <div class="bg-neutral-800/50 p-6 rounded-2xl border border-neutral-700">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                        <i class="fas fa-graduation-cap text-whitney-ai"></i>
+                        MFA 學歷霸權
+                    </h3>
+                    <div id="chart-education" class="w-full h-80" _echarts_instance_="ec_1766233809642" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" data-chart-option="{&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;darkMode&quot;:true,&quot;color&quot;:[&quot;#4992ff&quot;,&quot;#7cffb2&quot;,&quot;#fddd60&quot;,&quot;#ff6e76&quot;,&quot;#58d9f9&quot;,&quot;#05c091&quot;,&quot;#ff8a45&quot;,&quot;#8d48e3&quot;,&quot;#dd79ff&quot;],&quot;textStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;,&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;timeAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;logAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;valueAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;categoryAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;},&quot;show&quot;:false},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;line&quot;:{&quot;symbol&quot;:&quot;circle&quot;},&quot;graph&quot;:{&quot;color&quot;:[&quot;#4992ff&quot;,&quot;#7cffb2&quot;,&quot;#fddd60&quot;,&quot;#ff6e76&quot;,&quot;#58d9f9&quot;,&quot;#05c091&quot;,&quot;#ff8a45&quot;,&quot;#8d48e3&quot;,&quot;#dd79ff&quot;]},&quot;gauge&quot;:{&quot;title&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;},&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:[[1,&quot;rgba(207,212,219,0.2)&quot;]]}},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;},&quot;detail&quot;:{&quot;color&quot;:&quot;#EEF1FA&quot;}},&quot;candlestick&quot;:{&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#f64e56&quot;,&quot;color0&quot;:&quot;#54ea92&quot;,&quot;borderColor&quot;:&quot;#f64e56&quot;,&quot;borderColor0&quot;:&quot;#54ea92&quot;}},&quot;colorBy&quot;:&quot;series&quot;,&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;axisPointer&quot;:[{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#817f91&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#817f91&quot;},&quot;label&quot;:{&quot;color&quot;:&quot;#fff&quot;,&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[{&quot;trigger&quot;:&quot;axis&quot;,&quot;axisPointer&quot;:{&quot;type&quot;:&quot;shadow&quot;,&quot;axis&quot;:&quot;auto&quot;,&quot;animation&quot;:&quot;auto&quot;,&quot;animationDurationUpdate&quot;:200,&quot;animationEasingUpdate&quot;:&quot;exponentialOut&quot;,&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#999&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;,&quot;textStyle&quot;:{}}},&quot;z&quot;:60,&quot;show&quot;:true,&quot;showContent&quot;:true,&quot;triggerOn&quot;:&quot;mousemove|click&quot;,&quot;alwaysShowContent&quot;:false,&quot;displayMode&quot;:&quot;single&quot;,&quot;renderMode&quot;:&quot;auto&quot;,&quot;confine&quot;:null,&quot;showDelay&quot;:0,&quot;hideDelay&quot;:100,&quot;transitionDuration&quot;:0.4,&quot;enterable&quot;:false,&quot;backgroundColor&quot;:&quot;#fff&quot;,&quot;shadowBlur&quot;:10,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, .2)&quot;,&quot;shadowOffsetX&quot;:1,&quot;shadowOffsetY&quot;:2,&quot;borderRadius&quot;:4,&quot;borderWidth&quot;:1,&quot;padding&quot;:null,&quot;extraCssText&quot;:&quot;&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;fontSize&quot;:14}}],&quot;yAxis&quot;:[{&quot;type&quot;:&quot;value&quot;,&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;type&quot;:&quot;dashed&quot;,&quot;color&quot;:&quot;#404040&quot;,&quot;width&quot;:1},&quot;show&quot;:true},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#a3a3a3&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:&quot;auto&quot;,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]},&quot;show&quot;:false},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;,&quot;width&quot;:1},&quot;show&quot;:false},&quot;boundaryGap&quot;:[0,0],&quot;axisTick&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;splitNumber&quot;:5,&quot;minorTick&quot;:{&quot;show&quot;:false,&quot;splitNumber&quot;:5,&quot;length&quot;:3,&quot;lineStyle&quot;:{}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{},&quot;offset&quot;:0}],&quot;xAxis&quot;:[{&quot;type&quot;:&quot;category&quot;,&quot;data&quot;:[&quot;UCLA&quot;,&quot;Columbia&quot;,&quot;Yale&quot;,&quot;CCA&quot;,&quot;其他&quot;],&quot;axisTick&quot;:{&quot;alignWithLabel&quot;:true,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#a3a3a3&quot;,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:true,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:false},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]},&quot;show&quot;:false},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}},&quot;boundaryGap&quot;:true,&quot;deduplication&quot;:null,&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{&quot;status&quot;:&quot;hide&quot;,&quot;value&quot;:4},&quot;offset&quot;:0}],&quot;grid&quot;:[{&quot;left&quot;:&quot;3%&quot;,&quot;right&quot;:&quot;4%&quot;,&quot;bottom&quot;:&quot;3%&quot;,&quot;containLabel&quot;:true,&quot;show&quot;:false,&quot;z&quot;:0,&quot;top&quot;:60,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#ccc&quot;}],&quot;series&quot;:[{&quot;name&quot;:&quot;藝術家人數&quot;,&quot;type&quot;:&quot;bar&quot;,&quot;barWidth&quot;:&quot;60%&quot;,&quot;data&quot;:[5,5,4,4,{&quot;value&quot;:53,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#525252&quot;}}],&quot;itemStyle&quot;:{&quot;borderRadius&quot;:[4,4,0,0]},&quot;z&quot;:2,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;barMinHeight&quot;:0,&quot;barMinAngle&quot;:0,&quot;large&quot;:false,&quot;largeThreshold&quot;:400,&quot;progressive&quot;:3000,&quot;progressiveChunkMode&quot;:&quot;mod&quot;,&quot;clip&quot;:true,&quot;roundCap&quot;:false,&quot;showBackground&quot;:false,&quot;backgroundStyle&quot;:{&quot;color&quot;:&quot;rgba(180, 180, 180, 0.2)&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderType&quot;:&quot;solid&quot;,&quot;borderRadius&quot;:0,&quot;shadowBlur&quot;:0,&quot;shadowColor&quot;:null,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:0,&quot;opacity&quot;:1},&quot;select&quot;:{&quot;itemStyle&quot;:{&quot;borderColor&quot;:&quot;#212121&quot;}},&quot;realtimeSort&quot;:false,&quot;label&quot;:{},&quot;emphasis&quot;:{&quot;label&quot;:{}}}],&quot;visualMap&quot;:[],&quot;legend&quot;:[],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 574px; height: 320px; padding: 0px; margin: 0px; border-width: 0px;"><canvas data-zr-dom-id="zr_0" width="717" height="400" style="position: absolute; left: 0px; top: 0px; width: 574px; height: 320px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class=""></div></div>
+                    <p class="text-sm text-neutral-400 mt-4">
+                        約 70% 的參展藝術家擁有 MFA 學位，且高度集中於 UCLA, Columbia, Yale 等名校，反映了藝術家職業化的路徑。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Timeline visualization using ECharts -->
+             <div class="mt-12 bg-neutral-800/50 p-6 rounded-2xl border border-neutral-700">
+                <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                    <i class="fas fa-history text-neutral-400"></i>
+                    關鍵歷史里程碑 (1914 - 2026)
+                </h3>
+                <div id="chart-timeline" class="w-full h-96" _echarts_instance_="ec_1766233809643" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" data-chart-option="{&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;darkMode&quot;:true,&quot;color&quot;:[&quot;#4992ff&quot;,&quot;#7cffb2&quot;,&quot;#fddd60&quot;,&quot;#ff6e76&quot;,&quot;#58d9f9&quot;,&quot;#05c091&quot;,&quot;#ff8a45&quot;,&quot;#8d48e3&quot;,&quot;#dd79ff&quot;],&quot;textStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;,&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;timeAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;logAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;valueAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;categoryAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;},&quot;show&quot;:false},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;line&quot;:{&quot;symbol&quot;:&quot;circle&quot;},&quot;graph&quot;:{&quot;color&quot;:[&quot;#4992ff&quot;,&quot;#7cffb2&quot;,&quot;#fddd60&quot;,&quot;#ff6e76&quot;,&quot;#58d9f9&quot;,&quot;#05c091&quot;,&quot;#ff8a45&quot;,&quot;#8d48e3&quot;,&quot;#dd79ff&quot;]},&quot;gauge&quot;:{&quot;title&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;},&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:[[1,&quot;rgba(207,212,219,0.2)&quot;]]}},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;},&quot;detail&quot;:{&quot;color&quot;:&quot;#EEF1FA&quot;}},&quot;candlestick&quot;:{&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#f64e56&quot;,&quot;color0&quot;:&quot;#54ea92&quot;,&quot;borderColor&quot;:&quot;#f64e56&quot;,&quot;borderColor0&quot;:&quot;#54ea92&quot;}},&quot;colorBy&quot;:&quot;series&quot;,&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;axisPointer&quot;:[{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#817f91&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#817f91&quot;},&quot;label&quot;:{&quot;color&quot;:&quot;#fff&quot;,&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[{&quot;trigger&quot;:&quot;axis&quot;,&quot;z&quot;:60,&quot;show&quot;:true,&quot;showContent&quot;:true,&quot;triggerOn&quot;:&quot;mousemove|click&quot;,&quot;alwaysShowContent&quot;:false,&quot;displayMode&quot;:&quot;single&quot;,&quot;renderMode&quot;:&quot;auto&quot;,&quot;confine&quot;:null,&quot;showDelay&quot;:0,&quot;hideDelay&quot;:100,&quot;transitionDuration&quot;:0.4,&quot;enterable&quot;:false,&quot;backgroundColor&quot;:&quot;#fff&quot;,&quot;shadowBlur&quot;:10,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, .2)&quot;,&quot;shadowOffsetX&quot;:1,&quot;shadowOffsetY&quot;:2,&quot;borderRadius&quot;:4,&quot;borderWidth&quot;:1,&quot;padding&quot;:null,&quot;extraCssText&quot;:&quot;&quot;,&quot;axisPointer&quot;:{&quot;type&quot;:&quot;line&quot;,&quot;axis&quot;:&quot;auto&quot;,&quot;animation&quot;:&quot;auto&quot;,&quot;animationDurationUpdate&quot;:200,&quot;animationEasingUpdate&quot;:&quot;exponentialOut&quot;,&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#999&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;,&quot;textStyle&quot;:{}}},&quot;textStyle&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;fontSize&quot;:14}}],&quot;yAxis&quot;:[{&quot;type&quot;:&quot;category&quot;,&quot;data&quot;:[&quot;事件&quot;,&quot;變革&quot;],&quot;show&quot;:false,&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:true,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:false},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]},&quot;show&quot;:false},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}},&quot;boundaryGap&quot;:true,&quot;deduplication&quot;:null,&quot;axisTick&quot;:{&quot;alignWithLabel&quot;:false,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;axisLabel&quot;:{&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{},&quot;offset&quot;:0}],&quot;xAxis&quot;:[{&quot;type&quot;:&quot;category&quot;,&quot;boundaryGap&quot;:false,&quot;data&quot;:[&quot;1914&quot;,&quot;1929&quot;,&quot;1932&quot;,&quot;1966&quot;,&quot;1973&quot;,&quot;2015&quot;,&quot;2019&quot;,&quot;2024&quot;,&quot;2026&quot;],&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#a3a3a3&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:true,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#a3a3a3&quot;,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:false},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]},&quot;show&quot;:false},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}},&quot;deduplication&quot;:null,&quot;axisTick&quot;:{&quot;alignWithLabel&quot;:false,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{&quot;status&quot;:&quot;hide&quot;,&quot;value&quot;:7,&quot;seriesDataIndices&quot;:[{&quot;seriesIndex&quot;:0,&quot;dataIndexInside&quot;:7,&quot;dataIndex&quot;:7}]},&quot;offset&quot;:0}],&quot;grid&quot;:[{&quot;left&quot;:&quot;5%&quot;,&quot;right&quot;:&quot;5%&quot;,&quot;top&quot;:&quot;10%&quot;,&quot;bottom&quot;:&quot;10%&quot;,&quot;containLabel&quot;:true,&quot;show&quot;:false,&quot;z&quot;:0,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#ccc&quot;}],&quot;series&quot;:[{&quot;name&quot;:&quot;里程碑&quot;,&quot;type&quot;:&quot;line&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;symbolSize&quot;:12,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#d97706&quot;,&quot;width&quot;:3,&quot;type&quot;:&quot;solid&quot;},&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#d97706&quot;,&quot;borderWidth&quot;:2,&quot;borderColor&quot;:&quot;#fff&quot;},&quot;data&quot;:[{&quot;value&quot;:&quot;成立工作室&quot;,&quot;desc&quot;:&quot;Gertrude Whitney 成立工作室&quot;},{&quot;value&quot;:&quot;MET 拒絕&quot;,&quot;desc&quot;:&quot;MET 拒絕捐贈，促使建館&quot;},{&quot;value&quot;:&quot;首屆年度展&quot;,&quot;desc&quot;:&quot;惠特尼年度展創立&quot;},{&quot;value&quot;:&quot;Breuer 建築&quot;,&quot;desc&quot;:&quot;搬入 Marcel Breuer 設計的建築&quot;},{&quot;value&quot;:&quot;雙年展&quot;,&quot;desc&quot;:&quot;改制為雙年展格式&quot;},{&quot;value&quot;:&quot;Meatpacking&quot;,&quot;desc&quot;:&quot;搬入 Renzo Piano 新館&quot;},{&quot;value&quot;:&quot;抗議&quot;,&quot;desc&quot;:&quot;催淚瓦斯雙年展爭議&quot;},{&quot;value&quot;:&quot;第81屆&quot;,&quot;desc&quot;:&quot;優於真實之物 (AI/身份)&quot;},{&quot;value&quot;:&quot;第82屆&quot;,&quot;desc&quot;:&quot;未來展覽 (關係性)&quot;}],&quot;label&quot;:{&quot;show&quot;:true,&quot;position&quot;:&quot;top&quot;,&quot;formatter&quot;:&quot;{b}&quot;,&quot;color&quot;:&quot;#a3a3a3&quot;,&quot;fontSize&quot;:10},&quot;z&quot;:3,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;clip&quot;:true,&quot;endLabel&quot;:{&quot;show&quot;:false,&quot;valueAnimation&quot;:true,&quot;distance&quot;:8},&quot;emphasis&quot;:{&quot;scale&quot;:true,&quot;label&quot;:{&quot;show&quot;:true}},&quot;step&quot;:false,&quot;smooth&quot;:false,&quot;smoothMonotone&quot;:null,&quot;symbolRotate&quot;:null,&quot;showSymbol&quot;:true,&quot;showAllSymbol&quot;:&quot;auto&quot;,&quot;connectNulls&quot;:false,&quot;sampling&quot;:&quot;none&quot;,&quot;animationEasing&quot;:&quot;linear&quot;,&quot;progressive&quot;:0,&quot;hoverLayerThreshold&quot;:null,&quot;universalTransition&quot;:{&quot;divideShape&quot;:&quot;clone&quot;},&quot;triggerLineEvent&quot;:false}],&quot;visualMap&quot;:[],&quot;legend&quot;:[],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 1246px; height: 384px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas data-zr-dom-id="zr_0" width="1557" height="480" style="position: absolute; left: 0px; top: 0px; width: 1246px; height: 384px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class="" style="position: absolute; display: block; border-style: solid; white-space: nowrap; z-index: 9999999; box-shadow: rgba(0, 0, 0, 0.2) 1px 2px 10px; transition: opacity 0.2s cubic-bezier(0.23, 1, 0.32, 1), visibility 0.2s cubic-bezier(0.23, 1, 0.32, 1), transform 0.4s cubic-bezier(0.23, 1, 0.32, 1); background-color: rgb(255, 255, 255); border-width: 1px; border-radius: 4px; color: rgb(102, 102, 102); font: 14px / 21px &quot;Microsoft YaHei&quot;; padding: 10px; top: 0px; left: 0px; transform: translate3d(847px, 241px, 0px); border-color: rgb(255, 255, 255); pointer-events: none; visibility: hidden; opacity: 0;">2024<br>第81屆 : 優於真實之物 (AI/身份)</div></div>
+             </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Future 2026 -->
+    <section id="future-2026" class="py-24 relative overflow-hidden">
+        <div class="absolute -right-20 top-20 w-96 h-96 bg-blue-100 dark:bg-blue-900/20 rounded-full blur-3xl opacity-50 z-0"></div>
+        <div class="max-w-4xl mx-auto px-4 relative z-10 text-center">
+            <h2 class="text-sm font-bold tracking-widest uppercase text-neutral-500 mb-4">Forward Outlook</h2>
+            <h3 class="text-4xl md:text-6xl font-display font-bold mb-8">
+                2026：關係性與轉變
+            </h3>
+            <p class="text-xl text-neutral-600 dark:text-neutral-300 leading-relaxed mb-12">
+                第 82 屆惠特尼雙年展將於 2026 年 3 月 8 日開幕。由策展人 <strong>Marcela Guerrero</strong> 與 <strong>Drew Sawyer</strong> 領軍。<br>
+                在參訪了 300 多間工作室後，他們將展覽核心定調為「關係性」（Relationality）——探索物種間的親緣、家族紐帶與技術親和力。
+            </p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-left">
+                <div class="p-4 border-l-2 border-neutral-200 dark:border-neutral-800">
+                    <span class="block text-2xl font-bold mb-1">Marcela Guerrero</span>
+                    <span class="text-xs text-neutral-500">首位拉丁裔女性共同策展人</span>
+                </div>
+                <div class="p-4 border-l-2 border-neutral-200 dark:border-neutral-800">
+                    <span class="block text-2xl font-bold mb-1">Drew Sawyer</span>
+                    <span class="text-xs text-neutral-500">攝影與酷兒藝術史專家</span>
+                </div>
+                <div class="p-4 border-l-2 border-neutral-200 dark:border-neutral-800">
+                    <span class="block text-2xl font-bold mb-1">56</span>
+                    <span class="text-xs text-neutral-500">位參展藝術家與團體</span>
+                </div>
+                <div class="p-4 border-l-2 border-neutral-200 dark:border-neutral-800">
+                    <span class="block text-2xl font-bold mb-1">FREE</span>
+                    <span class="text-xs text-neutral-500">25歲以下觀眾免費入場</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 6: Visit Info -->
+    <section id="visit" class="py-24 bg-neutral-100 dark:bg-neutral-900">
+        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-12 rounded-3xl bg-white dark:bg-black overflow-hidden shadow-2xl">
+                <div class="relative h-96 md:h-auto">
+                     <!-- User provided Building Image -->
+                    <img src="https://api.felo.ai/images/s/18tSHU59na?width=1330&amp;height=1067" alt="Whitney Museum Building by Renzo Piano" class="absolute inset-0 w-full h-full object-cover">
+                </div>
+                <div class="p-8 md:p-16 flex flex-col justify-center">
+                    <h2 class="text-3xl font-display font-bold mb-8">參觀資訊</h2>
+                    
+                    <ul class="space-y-6 mb-10">
+                        <li class="flex items-start gap-4">
+                            <i class="fas fa-map-marker-alt mt-1 text-whitney-amber"></i>
+                            <div>
+                                <strong class="block text-neutral-900 dark:text-white">地點</strong>
+                                <span class="text-neutral-600 dark:text-neutral-400">99 Gansevoort Street, New York, NY 10014<br>(Meatpacking District, 鄰近 High Line)</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i class="fas fa-clock mt-1 text-whitney-amber"></i>
+                            <div>
+                                <strong class="block text-neutral-900 dark:text-white">開放時間</strong>
+                                <span class="text-neutral-600 dark:text-neutral-400">週三至週一：10:30 am – 6 pm<br>週五：10:30 am – 10 pm<br>週二休館</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <i class="fas fa-ticket-alt mt-1 text-whitney-amber"></i>
+                            <div>
+                                <strong class="block text-neutral-900 dark:text-white">票價</strong>
+                                <span class="text-neutral-600 dark:text-neutral-400">成人 $30 / 學生與長者 $24<br>25歲以下及會員免費</span>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <a href="#" class="inline-flex justify-center items-center gap-x-3 text-center bg-neutral-900 hover:bg-neutral-800 text-white text-sm font-medium rounded-full py-3 px-6 transition-all dark:bg-white dark:text-black dark:hover:bg-neutral-200">
+                        預約購票
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-black border-t border-neutral-200 dark:border-neutral-800 py-12">
+        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-2">
+                    <a class="text-xl font-display font-bold uppercase tracking-tight mb-4 block" href="#">
+                        Whitney <span class="text-whitney-amber">Biennial</span>
+                    </a>
+                    <p class="text-sm text-neutral-500 max-w-xs">
+                        美國當代藝術的晴雨表，持續記錄、挑戰並重新定義藝術的邊界。
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-sm uppercase tracking-wider">連結</h4>
+                    <ul class="space-y-2 text-sm text-neutral-500">
+                        <li><a href="#" class="hover:text-black dark:hover:text-white transition-colors">展覽回顧</a></li>
+                        <li><a href="#" class="hover:text-black dark:hover:text-white transition-colors">藝術家名單</a></li>
+                        <li><a href="#" class="hover:text-black dark:hover:text-white transition-colors">媒體報導</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4 text-sm uppercase tracking-wider">社交媒體</h4>
+                    <div class="flex gap-4">
+                        <a href="#" class="text-neutral-400 hover:text-whitney-amber transition-colors"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="#" class="text-neutral-400 hover:text-whitney-amber transition-colors"><i class="fab fa-twitter text-xl"></i></a>
+                        <a href="#" class="text-neutral-400 hover:text-whitney-amber transition-colors"><i class="fab fa-youtube text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pt-8 border-t border-neutral-100 dark:border-neutral-900 flex flex-col md:flex-row justify-between items-center text-xs text-neutral-400 gap-4">
+                <div>
+                    <p>免責申明：基於公開資料，僅供參考，不構成建議</p>
+                    <p>資料來源：網頁公開資訊</p>
+                </div>
+                <div class="text-right">
+                    <p>設計：Dunk | 2025</p>
+                    <p>版權所有： © Dunk</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Dark Mode Toggle Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        // Check local storage or system preference
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            if (html.classList.contains('dark')) {
+                html.classList.remove('dark');
+                localStorage.setItem('color-theme', 'light');
+            } else {
+                html.classList.add('dark');
+                localStorage.setItem('color-theme', 'dark');
+            }
+            // Re-render charts on theme change
+            renderCharts();
+        });
+
+        // ECharts Initialization
+        function renderCharts() {
+            const isDark = html.classList.contains('dark');
+            const textColor = isDark ? '#a3a3a3' : '#525252';
+            const backgroundColor = 'transparent';
+            const gridColor = isDark ? '#404040' : '#e5e5e5';
+
+            // Chart 1: Demographics (Pie)
+            const chartDemographics = echarts.init(document.getElementById('chart-demographics'), isDark ? 'dark' : null);
+            const demoOption = {
+                backgroundColor: backgroundColor,
+                tooltip: { trigger: 'item' },
+                legend: { top: '5%', left: 'center', textStyle: { color: textColor } },
+                series: [
+                    {
+                        name: '藝術家世代',
+                        type: 'pie',
+                        radius: ['40%', '70%'],
+                        avoidLabelOverlap: false,
+                        itemStyle: {
+                            borderRadius: 10,
+                            borderColor: isDark ? '#171717' : '#fff',
+                            borderWidth: 2
+                        },
+                        label: { show: false, position: 'center' },
+                        emphasis: {
+                            label: {
+                                show: true,
+                                fontSize: 20,
+                                fontWeight: 'bold',
+                                color: textColor
+                            }
+                        },
+                        labelLine: { show: false },
+                        data: [
+                            { value: 60, name: '千禧世代 (1981-1996)', itemStyle: { color: '#d97706' } }, // Amber
+                            { value: 40, name: '其他世代', itemStyle: { color: '#525252' } }
+                        ]
+                    }
+                ]
+            };
+            chartDemographics.setOption(demoOption);
+
+            // Chart 2: Education (Bar)
+            const chartEducation = echarts.init(document.getElementById('chart-education'), isDark ? 'dark' : null);
+            const eduOption = {
+                backgroundColor: backgroundColor,
+                tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+                grid: { left: '3%', right: '4%', bottom: '3%', containLabel: true },
+                xAxis: [
+                    {
+                        type: 'category',
+                        data: ['UCLA', 'Columbia', 'Yale', 'CCA', '其他'],
+                        axisTick: { alignWithLabel: true },
+                        axisLabel: { color: textColor }
+                    }
+                ],
+                yAxis: [
+                    {
+                        type: 'value',
+                        splitLine: { lineStyle: { type: 'dashed', color: gridColor } },
+                        axisLabel: { color: textColor }
+                    }
+                ],
+                series: [
+                    {
+                        name: '藝術家人數',
+                        type: 'bar',
+                        barWidth: '60%',
+                        data: [5, 5, 4, 4, {value: 53, itemStyle: {color: '#525252'}}], // Approximate rest
+                        itemStyle: {
+                            color: function(params) {
+                                const colors = ['#6366f1', '#818cf8', '#a5b4fc', '#c7d2fe', '#525252'];
+                                return colors[params.dataIndex % colors.length];
+                            },
+                            borderRadius: [4, 4, 0, 0]
+                        }
+                    }
+                ]
+            };
+            chartEducation.setOption(eduOption);
+
+            // Chart 3: Timeline (Custom Visual)
+            const chartTimeline = echarts.init(document.getElementById('chart-timeline'), isDark ? 'dark' : null);
+            const timelineOption = {
+                 backgroundColor: backgroundColor,
+                 tooltip: {
+                    trigger: 'axis',
+                    formatter: function (params) {
+                        return `${params[0].name}<br/>${params[0].value} : ${params[0].data.desc}`;
+                    }
+                 },
+                 grid: { left: '5%', right: '5%', top: '10%', bottom: '10%', containLabel: true },
+                 xAxis: {
+                    type: 'category',
+                    boundaryGap: false,
+                    data: ['1914', '1929', '1932', '1966', '1973', '2015', '2019', '2024', '2026'],
+                    axisLine: { lineStyle: { color: textColor } },
+                    axisLabel: { color: textColor }
+                 },
+                 yAxis: {
+                    type: 'category',
+                    data: ['事件', '變革'],
+                    show: false
+                 },
+                 series: [
+                    {
+                        name: '里程碑',
+                        type: 'line',
+                        symbol: 'circle',
+                        symbolSize: 12,
+                        lineStyle: { color: '#d97706', width: 3 },
+                        itemStyle: { color: '#d97706', borderWidth: 2, borderColor: '#fff' },
+                        data: [
+                            { value: '成立工作室', desc: 'Gertrude Whitney 成立工作室' },
+                            { value: 'MET 拒絕', desc: 'MET 拒絕捐贈，促使建館' },
+                            { value: '首屆年度展', desc: '惠特尼年度展創立' },
+                            { value: 'Breuer 建築', desc: '搬入 Marcel Breuer 設計的建築' },
+                            { value: '雙年展', desc: '改制為雙年展格式' },
+                            { value: 'Meatpacking', desc: '搬入 Renzo Piano 新館' },
+                            { value: '抗議', desc: '催淚瓦斯雙年展爭議' },
+                            { value: '第81屆', desc: '優於真實之物 (AI/身份)' },
+                            { value: '第82屆', desc: '未來展覽 (關係性)' }
+                        ],
+                        label: {
+                            show: true,
+                            position: 'top',
+                            formatter: '{b}',
+                            color: textColor,
+                            fontSize: 10
+                        }
+                    }
+                 ]
+            };
+            chartTimeline.setOption(timelineOption);
+
+            // Resize listener
+            window.addEventListener('resize', function() {
+                chartDemographics.resize();
+                chartEducation.resize();
+                chartTimeline.resize();
+            });
+        }
+
+        // Initialize Charts on Load
+        document.addEventListener('DOMContentLoaded', renderCharts);
+        
+    </script>
+
+</body></html>
