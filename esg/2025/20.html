@@ -1,0 +1,1155 @@
+
+<!DOCTYPE html><html lang="zh-TW" class="scroll-smooth dark"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20251226_永續週報 | 永續發展的悖論</title>
+    <meta name="description" content="探討ESG與永續金融中的三個關鍵悖論：AI能源消耗、電動車轉型與核能廢料處理。">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {            
+            theme: {
+                extend: {
+                    colors: {
+                        esg: {
+                            forest: '#2d5016',    // 主色：深森林綠
+                            deep: '#1a4d3a',      // 主色變體：墨綠色
+                            text: '#333333',      // 文字色：深炭灰
+                            blue: '#0066cc',      // 連結色：專業藍
+                            navy: '#1e3a8a',      // 輔助色：海軍藍
+                            light: '#e8f5e8',     // 輔助色：淺綠
+                            orange: '#ff6b35',    // 強調色：橙色
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Noto Sans TC', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+
+    <style>
+        html {
+            height: 100% !important;
+            overflow-y: scroll !important;
+            overflow-x: hidden !important;
+            scroll-behavior: smooth !important;
+        }
+        body {
+            height: auto !important;
+            min-height: 100vh !important;
+            overflow-y: visible !important;
+            overflow-x: hidden !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            font-family: 'Noto Sans TC', sans-serif;
+            position: relative !important;
+        }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .dark .glass-nav {
+            background: rgba(26, 77, 58, 0.9);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .text-justify {
+            text-align: justify;
+        }
+        /* Hide scrollbar for clean UI */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2d5016;
+            border-radius: 4px;
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: #111;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #1a4d3a;
+        }
+    </style>
+<style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style><style id="felo-iframe-styles">html,body{margin:0 !important;padding:0 !important;overflow:auto !important;}</style><style data-id="immersive-translate-input-injected-css">.immersive-translate-input {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2147483647;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.immersive-translate-attach-loading::after {
+  content: " ";
+
+  --loading-color: #f78fb6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+  position: relative;
+  color: white;
+  left: -100px;
+  box-sizing: border-box;
+  animation: immersiveTranslateShadowRolling 1.5s linear infinite;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-2000%, -50%);
+  z-index: 100;
+}
+
+.immersive-translate-loading-spinner {
+  vertical-align: middle !important;
+  width: 10px !important;
+  height: 10px !important;
+  display: inline-block !important;
+  margin: 0 4px !important;
+  border: 2px rgba(221, 244, 255, 0.6) solid !important;
+  border-top: 2px rgba(0, 0, 0, 0.375) solid !important;
+  border-left: 2px rgba(0, 0, 0, 0.375) solid !important;
+  border-radius: 50% !important;
+  padding: 0 !important;
+  -webkit-animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+  animation: immersive-translate-loading-animation 0.6s infinite linear !important;
+}
+
+@-webkit-keyframes immersive-translate-loading-animation {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+
+@keyframes immersive-translate-loading-animation {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+.immersive-translate-input-loading {
+  --loading-color: #f78fb6;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: block;
+  margin: 12px auto;
+  position: relative;
+  color: white;
+  left: -100px;
+  box-sizing: border-box;
+  animation: immersiveTranslateShadowRolling 1.5s linear infinite;
+}
+
+@keyframes immersiveTranslateShadowRolling {
+  0% {
+    box-shadow: 0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  12% {
+    box-shadow: 100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  25% {
+    box-shadow: 110px 0 var(--loading-color), 100px 0 var(--loading-color),
+      0px 0 rgba(255, 255, 255, 0), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  36% {
+    box-shadow: 120px 0 var(--loading-color), 110px 0 var(--loading-color),
+      100px 0 var(--loading-color), 0px 0 rgba(255, 255, 255, 0);
+  }
+
+  50% {
+    box-shadow: 130px 0 var(--loading-color), 120px 0 var(--loading-color),
+      110px 0 var(--loading-color), 100px 0 var(--loading-color);
+  }
+
+  62% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color),
+      120px 0 var(--loading-color), 110px 0 var(--loading-color);
+  }
+
+  75% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      130px 0 var(--loading-color), 120px 0 var(--loading-color);
+  }
+
+  87% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      200px 0 rgba(255, 255, 255, 0), 130px 0 var(--loading-color);
+  }
+
+  100% {
+    box-shadow: 200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0),
+      200px 0 rgba(255, 255, 255, 0), 200px 0 rgba(255, 255, 255, 0);
+  }
+}
+
+.immersive-translate-toast {
+  display: flex;
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  right: 0;
+  top: 1%;
+  width: fit-content;
+  padding: 12px 20px;
+  margin: auto;
+  overflow: auto;
+  background: #fef6f9;
+  box-shadow: 0px 4px 10px 0px rgba(0, 10, 30, 0.06);
+  font-size: 15px;
+  border-radius: 8px;
+  color: #333;
+}
+
+.immersive-translate-toast-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.immersive-translate-toast-hidden {
+  margin: 0 20px 0 72px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.immersive-translate-toast-close {
+  color: #666666;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 0 10px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-toast {
+    top: 0;
+    padding: 12px 0px 0 10px;
+  }
+  .immersive-translate-toast-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .immersive-translate-toast-hidden {
+    margin: 10px auto;
+  }
+}
+
+.immersive-translate-dialog {
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  top: 0;
+  display: flex;
+  width: 300px;
+  flex-direction: column;
+  align-items: center;
+  font-size: 15px;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  height: fit-content;
+  border-radius: 20px;
+  background-color: #fff;
+}
+
+.immersive-translate-modal {
+  display: none;
+  position: fixed;
+  z-index: 2147483647;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  font-size: 15px;
+}
+
+.immersive-translate-modal-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 40px 24px 24px;
+  border-radius: 12px;
+  width: 350px;
+  font-family: system-ui, -apple-system, "Segoe UI", "Roboto", "Ubuntu",
+    "Cantarell", "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+  position: relative;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-modal-content {
+    margin: 25% auto !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .immersive-translate-modal-content {
+    width: 80vw !important;
+    margin: 20vh auto !important;
+    padding: 20px 12px 12px !important;
+  }
+
+  .immersive-translate-modal-title {
+    font-size: 14px !important;
+  }
+
+  .immersive-translate-modal-body {
+    font-size: 13px !important;
+    max-height: 60vh !important;
+  }
+
+  .immersive-translate-btn {
+    font-size: 13px !important;
+    padding: 8px 16px !important;
+    margin: 0 4px !important;
+  }
+
+  .immersive-translate-modal-footer {
+    gap: 6px !important;
+    margin-top: 16px !important;
+  }
+}
+
+.immersive-translate-modal .immersive-translate-modal-content-in-input {
+  max-width: 500px;
+}
+.immersive-translate-modal-content-in-input .immersive-translate-modal-body {
+  text-align: left;
+  max-height: unset;
+}
+
+.immersive-translate-modal-title {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333333;
+}
+
+.immersive-translate-modal-body {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333333;
+  margin-top: 24px;
+  word-break: break-all;
+}
+
+@media screen and (max-width: 768px) {
+  .immersive-translate-modal-body {
+    max-height: 250px;
+    overflow-y: auto;
+  }
+}
+
+.immersive-translate-close {
+  color: #666666;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.immersive-translate-close:hover,
+.immersive-translate-close:focus {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.immersive-translate-modal-footer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.immersive-translate-btn {
+  width: fit-content;
+  color: #fff;
+  background-color: #ea4c89;
+  border: none;
+  font-size: 14px;
+  margin: 0 8px;
+  padding: 9px 30px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.immersive-translate-btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.immersive-translate-btn:hover {
+  background-color: #f082ac;
+}
+.immersive-translate-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.immersive-translate-btn:disabled:hover {
+  background-color: #ea4c89;
+}
+
+.immersive-translate-link-btn {
+  background-color: transparent;
+  color: #ea4c89;
+  border: none;
+  cursor: pointer;
+  height: 30px;
+  line-height: 30px;
+}
+
+.immersive-translate-cancel-btn {
+  /* gray color */
+  background-color: rgb(89, 107, 120);
+}
+
+.immersive-translate-cancel-btn:hover {
+  background-color: hsl(205, 20%, 32%);
+}
+
+.immersive-translate-action-btn {
+  background-color: transparent;
+  color: #ea4c89;
+  border: 1px solid #ea4c89;
+}
+
+.immersive-translate-btn svg {
+  margin-right: 5px;
+}
+
+.immersive-translate-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #ea4c89;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+.immersive-translate-primary-link {
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-drag: none;
+  text-decoration: none;
+  color: #ea4c89;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+.immersive-translate-modal input[type="radio"] {
+  margin: 0 6px;
+  cursor: pointer;
+}
+
+.immersive-translate-modal label {
+  cursor: pointer;
+}
+
+.immersive-translate-close-action {
+  position: absolute;
+  top: 2px;
+  right: 0px;
+  cursor: pointer;
+}
+
+.imt-image-status {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 16px !important;
+}
+.imt-image-status img,
+.imt-image-status svg,
+.imt-img-loading {
+  width: 28px !important;
+  height: 28px !important;
+  margin: 0 0 8px 0 !important;
+  min-height: 28px !important;
+  min-width: 28px !important;
+  position: relative !important;
+}
+.imt-img-loading {
+  background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAMAAACfWMssAAAAtFBMVEUAAAD////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////oK74hAAAAPHRSTlMABBMIDyQXHwyBfFdDMSw+OjXCb+5RG51IvV/k0rOqlGRM6KKMhdvNyZBz9MaupmxpWyj437iYd/yJVNZeuUC7AAACt0lEQVRIx53T2XKiUBCA4QYOiyCbiAsuuGBcYtxiYtT3f6/pbqoYHVFO5r+iivpo6DpAWYpqeoFfr9f90DsYAuRSWkFnPO50OgR9PwiCUFcl2GEcx+N/YBh6pvKaefHlUgZd1zVe0NbYcQjGBfzrPE8Xz8aF+71D8gG6DHFPpc4a7xFiCDuhaWgKgGIJQ3d5IMGDrpS4S5KgpIm+en9f6PlAhKby4JwEIxlYJV9h5k5nee9GoxHJ2IDSNB0dwdad1NAxDJ/uXDHYmebdk4PdbkS58CIVHdYSUHTYYRWOJblWSyu2lmy3KNFVJNBhxcuGW4YBVCbYGRZwIooipHsNqjM4FbgOQqQqSKQQU9V8xmi1QlgHqQQ6DDBvRUVCDirs+EzGDGOQTCATgtYTnbCVLgsVgRE0T1QE0qHCFAht2z6dLvJQs3Lo2FQoDxWNUiBhaP4eRgwNkI+dAjVOA/kUrIDwf3CG8NfNOE0eiFotSuo+rBiq8tD9oY4Qzc6YJw99hl1wzpQvD7ef2M8QgnOGJfJw+EltQc+oX2yn907QB22WZcvlUpd143dqQu+8pCJZuGE4xCuPXJqqcs5sNpsI93Rmzym1k4Npk+oD1SH3/a3LOK/JpUBpWfqNySxWzCfNCUITuDG5dtuphrUJ1myeIE9bIsPiKrfqTai5WZxbhtNphYx6GEIHihyGFTI69lje/rxajdh0s0msZ0zYxyPLhYCb1CyHm9Qsd2H37Y3lugVwL9kNh8Ot8cha6fUNQ8nuXi5z9/ExsAO4zQrb/ev1yrCB7lGyQzgYDGuxq1toDN/JGvN+HyWNHKB7zEoK+PX11e12G431erGYzwmytAWU56fkMHY5JJnDRR2eZji3AwtIcrEV8Cojat/BdQ7XOwGV1e1hDjGGjXbdArm8uJZtCH5MbcctVX8A1WpqumJHwckAAAAASUVORK5CYII=");
+  background-size: 28px 28px;
+  animation: image-loading-rotate 1s linear infinite !important;
+}
+
+.imt-image-status span {
+  color: var(--bg-2, #fff) !important;
+  font-size: 14px !important;
+  line-height: 14px !important;
+  font-weight: 500 !important;
+  font-family: "PingFang SC", Arial, sans-serif !important;
+}
+
+.imt-primary-button {
+  display: flex;
+  padding: 12px 80px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  background: #ea4c89;
+  color: #fff;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  border: none;
+  cursor: pointer;
+}
+
+.imt-retry-text {
+  color: #999;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  cursor: pointer;
+}
+
+.imt-action-container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.imt-modal-content-text {
+  text-align: left;
+  color: #333;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+@keyframes image-loading-rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.imt-linear-gradient-text {
+  background: linear-gradient(90deg, #00a6ff 0%, #c369ff 52.4%, #ff4590 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.imt-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imt-linear-black-btn {
+  border-radius: 50px;
+  background: linear-gradient(66deg, #222 19%, #696969 94.25%);
+  height: 48px;
+  width: 100%;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+}
+</style></head>
+<body class="bg-gray-50 text-esg-text dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <i class="fa-solid fa-leaf text-esg-forest dark:text-esg-light text-2xl"></i>
+                    <span class="font-bold text-xl tracking-wider text-esg-forest dark:text-white">ESG 永續週報</span>
+                </div>
+                <div class="flex items-center space-x-6">
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none">
+                        <i class="fa-solid fa-moon text-gray-600 dark:hidden"></i>
+                        <i class="fa-solid fa-sun text-yellow-400 hidden dark:block"></i>
+                    </button>
+                    <a href="#conclusion" class="hidden md:inline-flex items-center justify-center px-5 py-2 border border-transparent text-sm font-medium rounded-full text-white bg-esg-orange hover:bg-orange-600 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                        閱讀結論
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-esg-forest dark:bg-gray-950">
+        <!-- Abstract Background Pattern SVG -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M0 100 C 20 0 50 0 100 100 Z" fill="#ffffff" style="pointer-events: none;"></path>
+                <path d="M0 100 C 50 0 80 0 100 0 Z" fill="none" stroke="#ffffff" stroke-width="0.5" style="pointer-events: none;"></path>
+            </svg>
+        </div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="inline-block py-1 px-3 rounded-full bg-esg-light/10 border border-esg-light/20 text-esg-light text-sm font-medium mb-6 backdrop-blur-sm">
+                20251226_永續週報
+            </span>
+            <h1 class="text-4xl md:text-6xl font-black text-white mb-8 leading-tight tracking-tight">
+                我們解決問題的方法，<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-esg-light to-esg-orange">正在製造更大的麻煩？</span>
+            </h1>
+            <p class="mt-4 max-w-3xl mx-auto text-xl text-gray-200 font-light mb-12">
+                三個你必須知道的永續發展悖論：從AI的能源代價、電動車的政策轉折，到核能廢料的跨世代難題。
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto text-left mt-12">
+                <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10 hover:bg-white/20 transition duration-300">
+                    <div class="text-esg-orange text-2xl mb-3"><i class="fa-solid fa-server"></i></div>
+                    <h3 class="text-white font-bold text-lg mb-2">地理謬誤 (AI)</h3>
+                    <p class="text-gray-300 text-sm">誤以為將數據中心移至太空就能解決地球資源枯竭的問題。</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10 hover:bg-white/20 transition duration-300">
+                    <div class="text-esg-orange text-2xl mb-3"><i class="fa-solid fa-car-battery"></i></div>
+                    <h3 class="text-white font-bold text-lg mb-2">執行謬誤 (電動車)</h3>
+                    <p class="text-gray-300 text-sm">忽略了社會經濟現實與技術路徑挑戰，導致政策轉彎。</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10 hover:bg-white/20 transition duration-300">
+                    <div class="text-esg-orange text-2xl mb-3"><i class="fa-solid fa-radiation"></i></div>
+                    <h3 class="text-white font-bold text-lg mb-2">時間謬誤 (核能)</h3>
+                    <p class="text-gray-300 text-sm">專注即時效益，將數百年的廢料風險轉嫁給未來世代。</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Introduction Section -->
+    <section class="py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-6">
+                    <h2 class="text-3xl font-bold text-esg-forest dark:text-esg-light">
+                        簡介：從你我血液中的微塑膠談起
+                    </h2>
+                    <div class="prose dark:prose-invert text-lg text-gray-600 dark:text-gray-300 text-justify">
+                        <p>
+                            最新的血液檢測結果帶來一個令人不安的消息：即使是那些努力減少塑膠使用的人，體內也普遍存在著微塑膠。這項發現不僅是一個健康警訊，更揭示了一個我們這個時代反覆出現的模式。
+                        </p>
+                        <p>
+                            人類為了解決一個問題（例如，透過塑膠帶來便利與衛生）而創造的發明，卻在無意間引發了更深遠、更難解決的新問題。塑膠污染從一個海洋生態議題，升級為滲透人體的健康隱憂。
+                        </p>
+                        <div class="bg-esg-light/30 dark:bg-esg-forest/20 p-4 rounded-l-md border-l-4 border-esg-forest dark:border-esg-light">
+                            <p class="italic font-medium text-esg-deep dark:text-esg-light m-0">
+                                「我們所採用的『解決方案』本身，正在成為未来世代必須面對的巨大挑戰。」
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Visualization: Microplastics -->
+                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-700">
+                    <div class="mb-4">
+                        <h4 class="text-lg font-bold text-gray-800 dark:text-white flex items-center gap-2">
+                            <i class="fa-solid fa-vial text-esg-orange"></i>
+                            人體血液微塑膠檢測現狀
+                        </h4>
+                        <p class="text-xs text-gray-500">數據示意來源：Environment International (2022)</p>
+                    </div>
+                    <!-- ECharts Container -->
+                    <div id="chart-microplastics" class="w-full h-80" _echarts_instance_="ec_1766704111632" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" data-chart-option="{&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;darkMode&quot;:true,&quot;color&quot;:[&quot;#4992ff&quot;,&quot;#7cffb2&quot;,&quot;#fddd60&quot;,&quot;#ff6e76&quot;,&quot;#58d9f9&quot;,&quot;#05c091&quot;,&quot;#ff8a45&quot;,&quot;#8d48e3&quot;,&quot;#dd79ff&quot;],&quot;textStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;,&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;timeAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;logAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;valueAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;categoryAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;},&quot;show&quot;:false},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;line&quot;:{&quot;symbol&quot;:&quot;circle&quot;},&quot;graph&quot;:{&quot;color&quot;:[&quot;#4992ff&quot;,&quot;#7cffb2&quot;,&quot;#fddd60&quot;,&quot;#ff6e76&quot;,&quot;#58d9f9&quot;,&quot;#05c091&quot;,&quot;#ff8a45&quot;,&quot;#8d48e3&quot;,&quot;#dd79ff&quot;]},&quot;gauge&quot;:{&quot;title&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;},&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:[[1,&quot;rgba(207,212,219,0.2)&quot;]]}},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;},&quot;detail&quot;:{&quot;color&quot;:&quot;#EEF1FA&quot;}},&quot;candlestick&quot;:{&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#f64e56&quot;,&quot;color0&quot;:&quot;#54ea92&quot;,&quot;borderColor&quot;:&quot;#f64e56&quot;,&quot;borderColor0&quot;:&quot;#54ea92&quot;}},&quot;colorBy&quot;:&quot;series&quot;,&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;axisPointer&quot;:[{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#817f91&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#817f91&quot;},&quot;label&quot;:{&quot;color&quot;:&quot;#fff&quot;,&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[{&quot;trigger&quot;:&quot;item&quot;,&quot;z&quot;:60,&quot;show&quot;:true,&quot;showContent&quot;:true,&quot;triggerOn&quot;:&quot;mousemove|click&quot;,&quot;alwaysShowContent&quot;:false,&quot;displayMode&quot;:&quot;single&quot;,&quot;renderMode&quot;:&quot;auto&quot;,&quot;confine&quot;:null,&quot;showDelay&quot;:0,&quot;hideDelay&quot;:100,&quot;transitionDuration&quot;:0.4,&quot;enterable&quot;:false,&quot;backgroundColor&quot;:&quot;#fff&quot;,&quot;shadowBlur&quot;:10,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, .2)&quot;,&quot;shadowOffsetX&quot;:1,&quot;shadowOffsetY&quot;:2,&quot;borderRadius&quot;:4,&quot;borderWidth&quot;:1,&quot;padding&quot;:null,&quot;extraCssText&quot;:&quot;&quot;,&quot;axisPointer&quot;:{&quot;type&quot;:&quot;line&quot;,&quot;axis&quot;:&quot;auto&quot;,&quot;animation&quot;:&quot;auto&quot;,&quot;animationDurationUpdate&quot;:200,&quot;animationEasingUpdate&quot;:&quot;exponentialOut&quot;,&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#999&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;,&quot;textStyle&quot;:{}}},&quot;textStyle&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;fontSize&quot;:14}}],&quot;series&quot;:[{&quot;name&quot;:&quot;檢測結果&quot;,&quot;type&quot;:&quot;pie&quot;,&quot;radius&quot;:[&quot;50%&quot;,&quot;70%&quot;],&quot;avoidLabelOverlap&quot;:false,&quot;itemStyle&quot;:{&quot;borderRadius&quot;:10,&quot;borderColor&quot;:&quot;#1f2937&quot;,&quot;borderWidth&quot;:2,&quot;borderJoin&quot;:&quot;round&quot;},&quot;label&quot;:{&quot;show&quot;:false,&quot;position&quot;:&quot;center&quot;,&quot;rotate&quot;:0,&quot;overflow&quot;:&quot;truncate&quot;,&quot;alignTo&quot;:&quot;none&quot;,&quot;edgeDistance&quot;:&quot;25%&quot;,&quot;bleedMargin&quot;:10,&quot;distanceToLabelLine&quot;:5},&quot;emphasis&quot;:{&quot;label&quot;:{&quot;show&quot;:true,&quot;fontSize&quot;:24,&quot;fontWeight&quot;:&quot;bold&quot;,&quot;formatter&quot;:&quot;{d}%&quot;},&quot;scale&quot;:true,&quot;scaleSize&quot;:5,&quot;labelLine&quot;:{&quot;show&quot;:false}},&quot;labelLine&quot;:{&quot;show&quot;:false,&quot;length&quot;:15,&quot;length2&quot;:15,&quot;smooth&quot;:false,&quot;minTurnAngle&quot;:90,&quot;maxSurfaceAngle&quot;:90,&quot;lineStyle&quot;:{&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;}},&quot;data&quot;:[{&quot;value&quot;:80,&quot;name&quot;:&quot;檢測出微塑膠&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#ff6b35&quot;}},{&quot;value&quot;:20,&quot;name&quot;:&quot;未檢測出&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#2d5016&quot;}}],&quot;z&quot;:2,&quot;legendHoverLink&quot;:true,&quot;colorBy&quot;:&quot;data&quot;,&quot;center&quot;:[&quot;50%&quot;,&quot;50%&quot;],&quot;clockwise&quot;:true,&quot;startAngle&quot;:90,&quot;minAngle&quot;:0,&quot;minShowLabelAngle&quot;:0,&quot;selectedOffset&quot;:10,&quot;percentPrecision&quot;:2,&quot;stillShowZeroSum&quot;:true,&quot;left&quot;:0,&quot;top&quot;:0,&quot;right&quot;:0,&quot;bottom&quot;:0,&quot;width&quot;:null,&quot;height&quot;:null,&quot;showEmptyCircle&quot;:true,&quot;emptyCircleStyle&quot;:{&quot;color&quot;:&quot;lightgray&quot;,&quot;opacity&quot;:1},&quot;labelLayout&quot;:{&quot;hideOverlap&quot;:true},&quot;animationType&quot;:&quot;expansion&quot;,&quot;animationDuration&quot;:1000,&quot;animationTypeUpdate&quot;:&quot;transition&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;}],&quot;visualMap&quot;:[],&quot;legend&quot;:[{&quot;bottom&quot;:&quot;0%&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#e5e7eb&quot;},&quot;z&quot;:4,&quot;show&quot;:true,&quot;orient&quot;:&quot;horizontal&quot;,&quot;left&quot;:&quot;center&quot;,&quot;top&quot;:null,&quot;align&quot;:&quot;auto&quot;,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderColor&quot;:&quot;#ccc&quot;,&quot;borderRadius&quot;:0,&quot;borderWidth&quot;:0,&quot;padding&quot;:5,&quot;itemGap&quot;:10,&quot;itemWidth&quot;:25,&quot;itemHeight&quot;:14,&quot;symbolRotate&quot;:&quot;inherit&quot;,&quot;symbolKeepAspect&quot;:true,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderWidth&quot;:&quot;auto&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;inherit&quot;,&quot;opacity&quot;:&quot;inherit&quot;,&quot;borderColor&quot;:&quot;inherit&quot;,&quot;borderWidth&quot;:&quot;auto&quot;,&quot;borderCap&quot;:&quot;inherit&quot;,&quot;borderJoin&quot;:&quot;inherit&quot;,&quot;borderDashOffset&quot;:&quot;inherit&quot;,&quot;borderMiterLimit&quot;:&quot;inherit&quot;},&quot;lineStyle&quot;:{&quot;width&quot;:&quot;auto&quot;,&quot;color&quot;:&quot;inherit&quot;,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveWidth&quot;:2,&quot;opacity&quot;:&quot;inherit&quot;,&quot;type&quot;:&quot;inherit&quot;,&quot;cap&quot;:&quot;inherit&quot;,&quot;join&quot;:&quot;inherit&quot;,&quot;dashOffset&quot;:&quot;inherit&quot;,&quot;miterLimit&quot;:&quot;inherit&quot;},&quot;selectedMode&quot;:true,&quot;selector&quot;:false,&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;borderRadius&quot;:10,&quot;padding&quot;:[3,5,3,5],&quot;fontSize&quot;:12,&quot;fontFamily&quot;:&quot;sans-serif&quot;,&quot;color&quot;:&quot;#666&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#666&quot;},&quot;emphasis&quot;:{&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;color&quot;:&quot;#eee&quot;,&quot;backgroundColor&quot;:&quot;#666&quot;}},&quot;selectorPosition&quot;:&quot;auto&quot;,&quot;selectorItemGap&quot;:7,&quot;selectorButtonGap&quot;:10,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;selected&quot;:{}}],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 526px; height: 320px; padding: 0px; margin: 0px; border-width: 0px;"><canvas data-zr-dom-id="zr_0" width="657" height="400" style="position: absolute; left: 0px; top: 0px; width: 526px; height: 320px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class=""></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content: The 3 Paradoxes -->
+    <main class="space-y-24 pb-24">
+        
+        <!-- Paradox 1: AI & Space -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white dark:bg-gray-800 rounded-[2rem] shadow-2xl overflow-hidden border border-gray-100 dark:border-gray-700">
+                <div class="grid grid-cols-1 lg:grid-cols-5 h-full">
+                    <!-- Image Area -->
+                    <div class="lg:col-span-2 relative min-h-[300px] lg:min-h-full">
+                        <img src="https://api.felo.ai/images/s/2QVmBJcLbd" alt="太空資料中心概念圖" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-8">
+                            <div class="text-white">
+                                <span class="bg-esg-orange text-xs font-bold px-2 py-1 rounded text-white mb-2 inline-block">悖論 1</span>
+                                <h3 class="text-2xl font-bold">AI 的巨大代價</h3>
+                                <p class="text-gray-300 text-sm mt-1">地面資源告急，我們要把問題「發射」到太空？</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Content Area -->
+                    <div class="lg:col-span-3 p-8 lg:p-12 flex flex-col justify-between">
+                        <div class="prose dark:prose-invert max-w-none text-gray-600 dark:text-gray-300 mb-8 text-justify">
+                            <p>
+                                隨著人工智慧需求的爆炸性增長，地面資料中心正面臨能源與水資源的物理極限。科技產業提出將資料中心部署到太空的構想，試圖規避限制。
+                            </p>
+                            <p>
+                                然而，天文學家警告此舉將導致<strong>太空垃圾急劇增加</strong>、<strong>光污染</strong>與<strong>無線電干擾</strong>，可能犧牲掉我們探索宇宙的眼睛。這是一個典型的「將問題轉移而非解決」的歷史重演，類似過去將工業廢料傾倒入海洋。
+                            </p>
+                        </div>
+                        
+                        <!-- Chart: Data Center Energy -->
+                        <div class="bg-gray-50 dark:bg-gray-900 rounded-xl p-6 border border-gray-100 dark:border-gray-700">
+                            <h4 class="text-sm font-bold text-gray-700 dark:text-gray-200 mb-4 uppercase tracking-wide">
+                                資料中心能源消耗趨勢 (TWh)
+                            </h4>
+                            <div id="chart-ai-energy" class="w-full h-64" _echarts_instance_="ec_1766704111633" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" data-chart-option="{&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;darkMode&quot;:true,&quot;color&quot;:[&quot;#4992ff&quot;,&quot;#7cffb2&quot;,&quot;#fddd60&quot;,&quot;#ff6e76&quot;,&quot;#58d9f9&quot;,&quot;#05c091&quot;,&quot;#ff8a45&quot;,&quot;#8d48e3&quot;,&quot;#dd79ff&quot;],&quot;textStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;,&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;timeAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;logAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;valueAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;categoryAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;},&quot;show&quot;:false},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;line&quot;:{&quot;symbol&quot;:&quot;circle&quot;},&quot;graph&quot;:{&quot;color&quot;:[&quot;#4992ff&quot;,&quot;#7cffb2&quot;,&quot;#fddd60&quot;,&quot;#ff6e76&quot;,&quot;#58d9f9&quot;,&quot;#05c091&quot;,&quot;#ff8a45&quot;,&quot;#8d48e3&quot;,&quot;#dd79ff&quot;]},&quot;gauge&quot;:{&quot;title&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;},&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:[[1,&quot;rgba(207,212,219,0.2)&quot;]]}},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;},&quot;detail&quot;:{&quot;color&quot;:&quot;#EEF1FA&quot;}},&quot;candlestick&quot;:{&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#f64e56&quot;,&quot;color0&quot;:&quot;#54ea92&quot;,&quot;borderColor&quot;:&quot;#f64e56&quot;,&quot;borderColor0&quot;:&quot;#54ea92&quot;}},&quot;colorBy&quot;:&quot;series&quot;,&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;axisPointer&quot;:[{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#817f91&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#817f91&quot;},&quot;label&quot;:{&quot;color&quot;:&quot;#fff&quot;,&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[{&quot;trigger&quot;:&quot;axis&quot;,&quot;z&quot;:60,&quot;show&quot;:true,&quot;showContent&quot;:true,&quot;triggerOn&quot;:&quot;mousemove|click&quot;,&quot;alwaysShowContent&quot;:false,&quot;displayMode&quot;:&quot;single&quot;,&quot;renderMode&quot;:&quot;auto&quot;,&quot;confine&quot;:null,&quot;showDelay&quot;:0,&quot;hideDelay&quot;:100,&quot;transitionDuration&quot;:0.4,&quot;enterable&quot;:false,&quot;backgroundColor&quot;:&quot;#fff&quot;,&quot;shadowBlur&quot;:10,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, .2)&quot;,&quot;shadowOffsetX&quot;:1,&quot;shadowOffsetY&quot;:2,&quot;borderRadius&quot;:4,&quot;borderWidth&quot;:1,&quot;padding&quot;:null,&quot;extraCssText&quot;:&quot;&quot;,&quot;axisPointer&quot;:{&quot;type&quot;:&quot;line&quot;,&quot;axis&quot;:&quot;auto&quot;,&quot;animation&quot;:&quot;auto&quot;,&quot;animationDurationUpdate&quot;:200,&quot;animationEasingUpdate&quot;:&quot;exponentialOut&quot;,&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#999&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;,&quot;textStyle&quot;:{}}},&quot;textStyle&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;fontSize&quot;:14}}],&quot;yAxis&quot;:[{&quot;type&quot;:&quot;value&quot;,&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#374151&quot;,&quot;type&quot;:&quot;dashed&quot;,&quot;width&quot;:1},&quot;show&quot;:true},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#e5e7eb&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:&quot;auto&quot;,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]},&quot;show&quot;:false},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;,&quot;width&quot;:1},&quot;show&quot;:false},&quot;boundaryGap&quot;:[0,0],&quot;axisTick&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;splitNumber&quot;:5,&quot;minorTick&quot;:{&quot;show&quot;:false,&quot;splitNumber&quot;:5,&quot;length&quot;:3,&quot;lineStyle&quot;:{}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{},&quot;offset&quot;:0}],&quot;xAxis&quot;:[{&quot;type&quot;:&quot;category&quot;,&quot;data&quot;:[&quot;2020&quot;,&quot;2022&quot;,&quot;2024&quot;,&quot;2026(預測)&quot;,&quot;2030(預測)&quot;],&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#374151&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:true,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#e5e7eb&quot;,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:false},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]},&quot;show&quot;:false},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}},&quot;boundaryGap&quot;:true,&quot;deduplication&quot;:null,&quot;axisTick&quot;:{&quot;alignWithLabel&quot;:false,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{&quot;status&quot;:&quot;hide&quot;,&quot;value&quot;:4},&quot;offset&quot;:0}],&quot;grid&quot;:[{&quot;top&quot;:&quot;15%&quot;,&quot;left&quot;:&quot;3%&quot;,&quot;right&quot;:&quot;4%&quot;,&quot;bottom&quot;:&quot;3%&quot;,&quot;containLabel&quot;:true,&quot;show&quot;:false,&quot;z&quot;:0,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#ccc&quot;}],&quot;series&quot;:[{&quot;data&quot;:[200,460,650,1050,2000],&quot;type&quot;:&quot;bar&quot;,&quot;name&quot;:&quot;全球資料中心耗電量&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:{&quot;colorStops&quot;:[{&quot;offset&quot;:0,&quot;color&quot;:&quot;#1a4d3a&quot;},{&quot;offset&quot;:1,&quot;color&quot;:&quot;#2d5016&quot;}],&quot;x&quot;:0,&quot;y&quot;:0,&quot;x2&quot;:0,&quot;y2&quot;:1,&quot;type&quot;:&quot;linear&quot;,&quot;global&quot;:false}},&quot;showBackground&quot;:true,&quot;backgroundStyle&quot;:{&quot;color&quot;:&quot;rgba(255,255,255,0.05)&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderType&quot;:&quot;solid&quot;,&quot;borderRadius&quot;:0,&quot;shadowBlur&quot;:0,&quot;shadowColor&quot;:null,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:0,&quot;opacity&quot;:1},&quot;z&quot;:2,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;barMinHeight&quot;:0,&quot;barMinAngle&quot;:0,&quot;large&quot;:false,&quot;largeThreshold&quot;:400,&quot;progressive&quot;:3000,&quot;progressiveChunkMode&quot;:&quot;mod&quot;,&quot;clip&quot;:true,&quot;roundCap&quot;:false,&quot;select&quot;:{&quot;itemStyle&quot;:{&quot;borderColor&quot;:&quot;#212121&quot;}},&quot;realtimeSort&quot;:false,&quot;label&quot;:{},&quot;emphasis&quot;:{&quot;label&quot;:{}}}],&quot;visualMap&quot;:[],&quot;legend&quot;:[],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 583px; height: 256px; padding: 0px; margin: 0px; border-width: 0px;"><canvas data-zr-dom-id="zr_0" width="728" height="320" style="position: absolute; left: 0px; top: 0px; width: 583px; height: 256px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class=""></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Paradox 2: EV Transition -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white dark:bg-gray-800 rounded-[2rem] shadow-2xl overflow-hidden border border-gray-100 dark:border-gray-700">
+                <div class="grid grid-cols-1 lg:grid-cols-5 h-full">
+                    <!-- Content Area (Swapped for Zig-Zag effect on desktop) -->
+                    <div class="lg:col-span-3 p-8 lg:p-12 order-2 lg:order-1 flex flex-col justify-between">
+                        <div class="mb-8">
+                            <span class="text-esg-forest dark:text-esg-light font-bold tracking-wider text-sm uppercase">政策 vs 現實</span>
+                            <h3 class="text-3xl font-bold text-gray-900 dark:text-white mt-2 mb-6">電動車的十字路口</h3>
+                            
+                            <div class="prose dark:prose-invert max-w-none text-gray-600 dark:text-gray-300 text-justify">
+                                <p>
+                                    歐盟原定2035年全面禁售燃油車的宏大計畫，如今正面臨「煞車」。汽車製造商的遊說、基礎設施不足以及高昂的轉型成本，迫使歐盟重新評估，甚至考慮允許合成燃料（e-fuels）。
+                                </p>
+                                <p>
+                                    這場角力顯示，即使目標明確（碳中和），系統性轉型在面對經濟現實時，必須學會妥協。<strong>通往永續的道路並非只有一條，但任何妥協都可能延緩實現最終目標的時程。</strong>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Chart: EV Adoption -->
+                        <div class="bg-gray-50 dark:bg-gray-900 rounded-xl p-6 border border-gray-100 dark:border-gray-700">
+                             <h4 class="text-sm font-bold text-gray-700 dark:text-gray-200 mb-4 uppercase tracking-wide">
+                                歐盟乘用車市場份額預測變化 (妥協情境)
+                            </h4>
+                            <div id="chart-ev-share" class="w-full h-64" _echarts_instance_="ec_1766704111634" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" data-chart-option="{&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;darkMode&quot;:true,&quot;color&quot;:[&quot;#4992ff&quot;,&quot;#7cffb2&quot;,&quot;#fddd60&quot;,&quot;#ff6e76&quot;,&quot;#58d9f9&quot;,&quot;#05c091&quot;,&quot;#ff8a45&quot;,&quot;#8d48e3&quot;,&quot;#dd79ff&quot;],&quot;textStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;,&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;timeAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;logAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;valueAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;}},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;categoryAxis&quot;:{&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;}},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;},&quot;show&quot;:false},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]}},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}}},&quot;line&quot;:{&quot;symbol&quot;:&quot;circle&quot;},&quot;graph&quot;:{&quot;color&quot;:[&quot;#4992ff&quot;,&quot;#7cffb2&quot;,&quot;#fddd60&quot;,&quot;#ff6e76&quot;,&quot;#58d9f9&quot;,&quot;#05c091&quot;,&quot;#ff8a45&quot;,&quot;#8d48e3&quot;,&quot;#dd79ff&quot;]},&quot;gauge&quot;:{&quot;title&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;},&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:[[1,&quot;rgba(207,212,219,0.2)&quot;]]}},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;},&quot;detail&quot;:{&quot;color&quot;:&quot;#EEF1FA&quot;}},&quot;candlestick&quot;:{&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#f64e56&quot;,&quot;color0&quot;:&quot;#54ea92&quot;,&quot;borderColor&quot;:&quot;#f64e56&quot;,&quot;borderColor0&quot;:&quot;#54ea92&quot;}},&quot;colorBy&quot;:&quot;series&quot;,&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;axisPointer&quot;:[{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#817f91&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#817f91&quot;},&quot;label&quot;:{&quot;color&quot;:&quot;#fff&quot;,&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[{&quot;trigger&quot;:&quot;axis&quot;,&quot;z&quot;:60,&quot;show&quot;:true,&quot;showContent&quot;:true,&quot;triggerOn&quot;:&quot;mousemove|click&quot;,&quot;alwaysShowContent&quot;:false,&quot;displayMode&quot;:&quot;single&quot;,&quot;renderMode&quot;:&quot;auto&quot;,&quot;confine&quot;:null,&quot;showDelay&quot;:0,&quot;hideDelay&quot;:100,&quot;transitionDuration&quot;:0.4,&quot;enterable&quot;:false,&quot;backgroundColor&quot;:&quot;#fff&quot;,&quot;shadowBlur&quot;:10,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, .2)&quot;,&quot;shadowOffsetX&quot;:1,&quot;shadowOffsetY&quot;:2,&quot;borderRadius&quot;:4,&quot;borderWidth&quot;:1,&quot;padding&quot;:null,&quot;extraCssText&quot;:&quot;&quot;,&quot;axisPointer&quot;:{&quot;type&quot;:&quot;line&quot;,&quot;axis&quot;:&quot;auto&quot;,&quot;animation&quot;:&quot;auto&quot;,&quot;animationDurationUpdate&quot;:200,&quot;animationEasingUpdate&quot;:&quot;exponentialOut&quot;,&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#999&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;,&quot;textStyle&quot;:{}}},&quot;textStyle&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;fontSize&quot;:14}}],&quot;yAxis&quot;:[{&quot;type&quot;:&quot;value&quot;,&quot;name&quot;:&quot;市佔率 (%)&quot;,&quot;min&quot;:0,&quot;max&quot;:100,&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#374151&quot;,&quot;type&quot;:&quot;dashed&quot;,&quot;width&quot;:1},&quot;show&quot;:true},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#e5e7eb&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9B8CE&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:&quot;auto&quot;,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]},&quot;show&quot;:false},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;,&quot;width&quot;:1},&quot;show&quot;:false},&quot;boundaryGap&quot;:[0,0],&quot;axisTick&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;splitNumber&quot;:5,&quot;minorTick&quot;:{&quot;show&quot;:false,&quot;splitNumber&quot;:5,&quot;length&quot;:3,&quot;lineStyle&quot;:{}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{},&quot;offset&quot;:0}],&quot;xAxis&quot;:[{&quot;type&quot;:&quot;category&quot;,&quot;boundaryGap&quot;:false,&quot;data&quot;:[&quot;2023&quot;,&quot;2025&quot;,&quot;2027&quot;,&quot;2030&quot;,&quot;2035&quot;],&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#374151&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:true,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#e5e7eb&quot;,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#484753&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:false},&quot;splitArea&quot;:{&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(255,255,255,0.02)&quot;,&quot;rgba(255,255,255,0.05)&quot;]},&quot;show&quot;:false},&quot;minorSplitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#20203B&quot;}},&quot;deduplication&quot;:null,&quot;axisTick&quot;:{&quot;alignWithLabel&quot;:false,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{&quot;status&quot;:&quot;hide&quot;,&quot;value&quot;:4},&quot;offset&quot;:0}],&quot;grid&quot;:[{&quot;top&quot;:&quot;15%&quot;,&quot;left&quot;:&quot;3%&quot;,&quot;right&quot;:&quot;4%&quot;,&quot;bottom&quot;:&quot;3%&quot;,&quot;containLabel&quot;:true,&quot;show&quot;:false,&quot;z&quot;:0,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#ccc&quot;}],&quot;series&quot;:[{&quot;name&quot;:&quot;原始理想目標 (100% BEV)&quot;,&quot;type&quot;:&quot;line&quot;,&quot;data&quot;:[15,25,50,80,100],&quot;smooth&quot;:true,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#2d5016&quot;,&quot;width&quot;:3,&quot;type&quot;:&quot;dashed&quot;},&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#2d5016&quot;},&quot;symbol&quot;:&quot;circle&quot;,&quot;z&quot;:3,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;clip&quot;:true,&quot;label&quot;:{&quot;position&quot;:&quot;top&quot;},&quot;endLabel&quot;:{&quot;show&quot;:false,&quot;valueAnimation&quot;:true,&quot;distance&quot;:8},&quot;emphasis&quot;:{&quot;scale&quot;:true,&quot;label&quot;:{}},&quot;step&quot;:false,&quot;smoothMonotone&quot;:null,&quot;symbolSize&quot;:4,&quot;symbolRotate&quot;:null,&quot;showSymbol&quot;:true,&quot;showAllSymbol&quot;:&quot;auto&quot;,&quot;connectNulls&quot;:false,&quot;sampling&quot;:&quot;none&quot;,&quot;animationEasing&quot;:&quot;linear&quot;,&quot;progressive&quot;:0,&quot;hoverLayerThreshold&quot;:null,&quot;universalTransition&quot;:{&quot;divideShape&quot;:&quot;clone&quot;},&quot;triggerLineEvent&quot;:false},{&quot;name&quot;:&quot;妥協後現實 (BEV + e-fuels)&quot;,&quot;type&quot;:&quot;line&quot;,&quot;data&quot;:[15,22,40,65,90],&quot;smooth&quot;:true,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#ff6b35&quot;,&quot;width&quot;:4,&quot;type&quot;:&quot;solid&quot;},&quot;areaStyle&quot;:{&quot;color&quot;:{&quot;colorStops&quot;:[{&quot;offset&quot;:0,&quot;color&quot;:&quot;rgba(255, 107, 53, 0.3)&quot;},{&quot;offset&quot;:1,&quot;color&quot;:&quot;rgba(255, 107, 53, 0)&quot;}],&quot;x&quot;:0,&quot;y&quot;:0,&quot;x2&quot;:0,&quot;y2&quot;:1,&quot;type&quot;:&quot;linear&quot;,&quot;global&quot;:false}},&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#ff6b35&quot;},&quot;symbol&quot;:&quot;circle&quot;,&quot;z&quot;:3,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;clip&quot;:true,&quot;label&quot;:{&quot;position&quot;:&quot;top&quot;},&quot;endLabel&quot;:{&quot;show&quot;:false,&quot;valueAnimation&quot;:true,&quot;distance&quot;:8},&quot;emphasis&quot;:{&quot;scale&quot;:true,&quot;label&quot;:{}},&quot;step&quot;:false,&quot;smoothMonotone&quot;:null,&quot;symbolSize&quot;:4,&quot;symbolRotate&quot;:null,&quot;showSymbol&quot;:true,&quot;showAllSymbol&quot;:&quot;auto&quot;,&quot;connectNulls&quot;:false,&quot;sampling&quot;:&quot;none&quot;,&quot;animationEasing&quot;:&quot;linear&quot;,&quot;progressive&quot;:0,&quot;hoverLayerThreshold&quot;:null,&quot;universalTransition&quot;:{&quot;divideShape&quot;:&quot;clone&quot;},&quot;triggerLineEvent&quot;:false}],&quot;visualMap&quot;:[],&quot;legend&quot;:[{&quot;top&quot;:&quot;0%&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#e5e7eb&quot;},&quot;z&quot;:4,&quot;show&quot;:true,&quot;orient&quot;:&quot;horizontal&quot;,&quot;left&quot;:&quot;center&quot;,&quot;align&quot;:&quot;auto&quot;,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderColor&quot;:&quot;#ccc&quot;,&quot;borderRadius&quot;:0,&quot;borderWidth&quot;:0,&quot;padding&quot;:5,&quot;itemGap&quot;:10,&quot;itemWidth&quot;:25,&quot;itemHeight&quot;:14,&quot;symbolRotate&quot;:&quot;inherit&quot;,&quot;symbolKeepAspect&quot;:true,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderWidth&quot;:&quot;auto&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;inherit&quot;,&quot;opacity&quot;:&quot;inherit&quot;,&quot;borderColor&quot;:&quot;inherit&quot;,&quot;borderWidth&quot;:&quot;auto&quot;,&quot;borderCap&quot;:&quot;inherit&quot;,&quot;borderJoin&quot;:&quot;inherit&quot;,&quot;borderDashOffset&quot;:&quot;inherit&quot;,&quot;borderMiterLimit&quot;:&quot;inherit&quot;},&quot;lineStyle&quot;:{&quot;width&quot;:&quot;auto&quot;,&quot;color&quot;:&quot;inherit&quot;,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveWidth&quot;:2,&quot;opacity&quot;:&quot;inherit&quot;,&quot;type&quot;:&quot;inherit&quot;,&quot;cap&quot;:&quot;inherit&quot;,&quot;join&quot;:&quot;inherit&quot;,&quot;dashOffset&quot;:&quot;inherit&quot;,&quot;miterLimit&quot;:&quot;inherit&quot;},&quot;selectedMode&quot;:true,&quot;selector&quot;:false,&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;borderRadius&quot;:10,&quot;padding&quot;:[3,5,3,5],&quot;fontSize&quot;:12,&quot;fontFamily&quot;:&quot;sans-serif&quot;,&quot;color&quot;:&quot;#666&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#666&quot;},&quot;emphasis&quot;:{&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;color&quot;:&quot;#eee&quot;,&quot;backgroundColor&quot;:&quot;#666&quot;}},&quot;selectorPosition&quot;:&quot;auto&quot;,&quot;selectorItemGap&quot;:7,&quot;selectorButtonGap&quot;:10,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;bottom&quot;:null,&quot;selected&quot;:{}}],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 583px; height: 256px; padding: 0px; margin: 0px; border-width: 0px;"><canvas data-zr-dom-id="zr_0" width="728" height="320" style="position: absolute; left: 0px; top: 0px; width: 583px; height: 256px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class=""></div></div>
+                        </div>
+                    </div>
+
+                    <!-- Image Area -->
+                    <div class="lg:col-span-2 relative min-h-[300px] lg:min-h-full order-1 lg:order-2">
+                        <img src="https://api.felo.ai/images/s/5C2NGz6hQ3" alt="歐洲街道電動車充電站" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-8">
+                            <div class="text-white text-right w-full">
+                                <span class="bg-esg-blue text-xs font-bold px-2 py-1 rounded text-white mb-2 inline-block">悖論 2</span>
+                                <h3 class="text-2xl font-bold">2035 禁令踩煞車？</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Paradox 3: Nuclear Waste -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white dark:bg-gray-800 rounded-[2rem] shadow-2xl overflow-hidden border border-gray-100 dark:border-gray-700">
+                <div class="grid grid-cols-1 lg:grid-cols-5 h-full">
+                    <!-- Image Area -->
+                    <div class="lg:col-span-2 relative min-h-[300px] lg:min-h-full">
+                        <img src="https://api.felo.ai/images/s/3N4mZFx8uG" alt="蘇格蘭船廠核潛艇拆解" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-8">
+                            <div class="text-white">
+                                <span class="bg-gray-600 text-xs font-bold px-2 py-1 rounded text-white mb-2 inline-block">悖論 3</span>
+                                <h3 class="text-2xl font-bold">核能的「乾淨」承諾背後</h3>
+                                <p class="text-gray-300 text-sm mt-1">跨越世代的責任與拆解腳步的停滯。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Content Area -->
+                    <div class="lg:col-span-3 p-8 lg:p-12 flex flex-col justify-between">
+                        <div class="prose dark:prose-invert max-w-none text-gray-600 dark:text-gray-300 mb-8 text-justify">
+                            <p>
+                                蘇格蘭一項雄心勃勃的核潛艇拆解計畫因安全疑慮而被暫停。此事件凸顯了核設施退役過程的技術複雜性與巨大的安全風險。
+                            </p>
+                            <p>
+                                核廢料處理的任何延遲，都意味著潛在的放射性污染風險將持續存在。<strong>今天的「解決方案」（低碳核能）若不考量完整的生命週期成本，將無可避免地成為明日的棘手遺產</strong>，其代價將由我們的後代來承擔。
+                            </p>
+                        </div>
+                        
+                        <!-- Mermaid Flowchart: Nuclear Lifecycle Risks -->
+                        <div class="bg-gray-50 dark:bg-gray-900 rounded-xl p-6 border border-gray-100 dark:border-gray-700 overflow-x-auto">
+                            <h4 class="text-sm font-bold text-gray-700 dark:text-gray-200 mb-4 uppercase tracking-wide">
+                                核能生命週期與風險滯後示意
+                            </h4>
+                            <div class="mermaid flex justify-center" data-processed="true"><svg aria-roledescription="flowchart-v2" role="graphics-document document" viewBox="-8 -8 732.4125366210938 168" style="max-width: 732.4125366210938px;" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="100%" id="mermaid-1766703893164"><style style="pointer-events: none;">#mermaid-1766703893164{font-family:Noto Sans TC;font-size:16px;fill:#ccc;}#mermaid-1766703893164 .error-icon{fill:#a44141;}#mermaid-1766703893164 .error-text{fill:#ddd;stroke:#ddd;}#mermaid-1766703893164 .edge-thickness-normal{stroke-width:2px;}#mermaid-1766703893164 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-1766703893164 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-1766703893164 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-1766703893164 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-1766703893164 .marker{fill:lightgrey;stroke:lightgrey;}#mermaid-1766703893164 .marker.cross{stroke:lightgrey;}#mermaid-1766703893164 svg{font-family:Noto Sans TC;font-size:16px;}#mermaid-1766703893164 .label{font-family:Noto Sans TC;color:#ccc;}#mermaid-1766703893164 .cluster-label text{fill:#F9FFFE;}#mermaid-1766703893164 .cluster-label span,#mermaid-1766703893164 p{color:#F9FFFE;}#mermaid-1766703893164 .label text,#mermaid-1766703893164 span,#mermaid-1766703893164 p{fill:#ccc;color:#ccc;}#mermaid-1766703893164 .node rect,#mermaid-1766703893164 .node circle,#mermaid-1766703893164 .node ellipse,#mermaid-1766703893164 .node polygon,#mermaid-1766703893164 .node path{fill:#1f2020;stroke:#81B1DB;stroke-width:1px;}#mermaid-1766703893164 .flowchart-label text{text-anchor:middle;}#mermaid-1766703893164 .node .label{text-align:center;}#mermaid-1766703893164 .node.clickable{cursor:pointer;}#mermaid-1766703893164 .arrowheadPath{fill:lightgrey;}#mermaid-1766703893164 .edgePath .path{stroke:lightgrey;stroke-width:2.0px;}#mermaid-1766703893164 .flowchart-link{stroke:lightgrey;fill:none;}#mermaid-1766703893164 .edgeLabel{background-color:#ffffff;text-align:center;}#mermaid-1766703893164 .edgeLabel rect{opacity:0.5;background-color:#ffffff;fill:#ffffff;}#mermaid-1766703893164 .labelBkg{background-color:rgba(255, 255, 255, 0.5);}#mermaid-1766703893164 .cluster rect{fill:hsl(180, 1.5873015873%, 28.3529411765%);stroke:rgba(255, 255, 255, 0.25);stroke-width:1px;}#mermaid-1766703893164 .cluster text{fill:#F9FFFE;}#mermaid-1766703893164 .cluster span,#mermaid-1766703893164 p{color:#F9FFFE;}#mermaid-1766703893164 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:Noto Sans TC;font-size:12px;background:#fff;border:1px solid rgba(255, 255, 255, 0.25);border-radius:2px;pointer-events:none;z-index:100;}#mermaid-1766703893164 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#ccc;}#mermaid-1766703893164 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}</style><g style="pointer-events: none;"><marker orient="auto" markerHeight="12" markerWidth="12" markerUnits="userSpaceOnUse" refY="5" refX="6" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1766703893164_flowchart-pointEnd" style="pointer-events: none;"><path style="stroke-width: 1; stroke-dasharray: 1, 0; pointer-events: none;" class="arrowMarkerPath" d="M 0 0 L 10 5 L 0 10 z"></path></marker><marker orient="auto" markerHeight="12" markerWidth="12" markerUnits="userSpaceOnUse" refY="5" refX="4.5" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1766703893164_flowchart-pointStart" style="pointer-events: none;"><path style="stroke-width: 1; stroke-dasharray: 1, 0; pointer-events: none;" class="arrowMarkerPath" d="M 0 5 L 10 10 L 10 0 z"></path></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5" refX="11" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1766703893164_flowchart-circleEnd" style="pointer-events: none;"><circle style="stroke-width: 1; stroke-dasharray: 1, 0; pointer-events: none;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5" refX="-1" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1766703893164_flowchart-circleStart" style="pointer-events: none;"><circle style="stroke-width: 1; stroke-dasharray: 1, 0; pointer-events: none;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5.2" refX="12" viewBox="0 0 11 11" class="marker cross flowchart" id="mermaid-1766703893164_flowchart-crossEnd" style="pointer-events: none;"><path style="stroke-width: 2; stroke-dasharray: 1, 0; pointer-events: none;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5.2" refX="-1" viewBox="0 0 11 11" class="marker cross flowchart" id="mermaid-1766703893164_flowchart-crossStart" style="pointer-events: none;"><path style="stroke-width: 2; stroke-dasharray: 1, 0; pointer-events: none;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><g class="root" style="pointer-events: none;"><g class="clusters" style="pointer-events: none;"></g><g class="edgePaths" style="pointer-events: none;"><path marker-end="url(#mermaid-1766703893164_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-A LE-B" id="L-A-B-0" d="M95,82L99.167,82C103.333,82,111.667,82,119.117,82C126.567,82,133.133,82,136.417,82L139.7,82"></path><path marker-end="url(#mermaid-1766703893164_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-B LE-C" id="L-B-C-0" d="M234.825,82L238.992,82C243.158,82,251.492,82,259.025,82.066C266.559,82.132,273.292,82.264,276.659,82.33L280.026,82.396"></path><path marker-end="url(#mermaid-1766703893164_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-C LE-D" id="L-C-D-0" d="M389.236,60.824L398.266,55.937C407.295,51.049,425.354,41.275,439,36.387C452.646,31.5,461.879,31.5,466.496,31.5L471.113,31.5"></path><path marker-end="url(#mermaid-1766703893164_flowchart-pointEnd)" style="fill: none; pointer-events: none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-C LE-E" id="L-C-E-0" d="M389.236,104.176L398.266,108.897C407.295,113.617,425.354,123.059,439,127.779C452.646,132.5,461.879,132.5,466.496,132.5L471.113,132.5"></path><path marker-end="url(#mermaid-1766703893164_flowchart-pointEnd)" style="fill: none; stroke-width: 2px; stroke-dasharray: 3; pointer-events: none;" class="edge-thickness-normal edge-pattern-dotted flowchart-link LS-D LE-F" id="L-D-F-0" d="M587.413,31.5L591.579,31.5C595.746,31.5,604.079,31.5,611.529,31.5C618.979,31.5,625.546,31.5,628.829,31.5L632.113,31.5"></path></g><g class="edgeLabels" style="pointer-events: none;"><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g transform="translate(443.4125061035156, 31.5)" class="edgeLabel" style="pointer-events: none;"><g transform="translate(-8, -12)" class="label" style="pointer-events: none;"><foreignObject height="24" width="16" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;">是</span></div></foreignObject></g></g><g transform="translate(443.4125061035156, 132.5)" class="edgeLabel" style="pointer-events: none;"><g transform="translate(-8, -12)" class="label" style="pointer-events: none;"><foreignObject height="24" width="16" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;">否</span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g transform="translate(0, 0)" class="label" style="pointer-events: none;"><foreignObject height="0" width="0" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g></g><g class="nodes" style="pointer-events: none;"><g transform="translate(47.5, 82)" id="flowchart-A-0" class="node default default flowchart-label" style="pointer-events: none;"><rect height="63" width="95" y="-31.5" x="-47.5" ry="0" rx="0" style="fill: rgb(232, 245, 232); stroke: rgb(45, 80, 22); stroke-width: 2px; pointer-events: none;" class="basic label-container"></rect><g transform="translate(-40, -24)" style="color: rgb(51, 51, 51); pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="48" width="80" style="pointer-events: none;"><div xmlns="http://www.w3.org/1999/xhtml" style="color: rgb(51, 51, 51); display: inline-block; white-space: nowrap; pointer-events: none;"><span style="color: rgb(51, 51, 51); pointer-events: none;" class="nodeLabel">建設與運營<br style="pointer-events: none;">(低碳發電)</span></div></foreignObject></g></g><g transform="translate(189.91250228881836, 82)" id="flowchart-B-1" class="node default default flowchart-label" style="pointer-events: none;"><rect height="63" width="89.82500457763672" y="-31.5" x="-44.91250228881836" ry="0" rx="0" style="pointer-events: none;" class="basic label-container"></rect><g transform="translate(-37.41250228881836, -24)" style="pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="48" width="74.82500457763672" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="pointer-events: none;">退役階段<br style="pointer-events: none;">(技術複雜)</span></div></foreignObject></g></g><g transform="translate(347.6187553405762, 82)" id="flowchart-C-3" class="node default default flowchart-label" style="pointer-events: none;"><polygon style="pointer-events: none;" transform="translate(-62.79375076293945,62.79375076293945)" class="label-container" points="62.79375076293945,0 125.5875015258789,-62.79375076293945 62.79375076293945,-125.5875015258789 0,-62.79375076293945"></polygon><g transform="translate(-35.79375076293945, -12)" style="pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="71.5875015258789" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="pointer-events: none;">拆解延遲?</span></div></foreignObject></g></g><g transform="translate(531.9125061035156, 31.5)" id="flowchart-D-5" class="node default default flowchart-label" style="pointer-events: none;"><rect height="63" width="111" y="-31.5" x="-55.5" ry="0" rx="0" style="fill: rgb(254, 226, 226); stroke: rgb(239, 68, 68); stroke-width: 2px; pointer-events: none;" class="basic label-container"></rect><g transform="translate(-48, -24)" style="color: rgb(51, 51, 51); pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="48" width="96" style="pointer-events: none;"><div xmlns="http://www.w3.org/1999/xhtml" style="color: rgb(51, 51, 51); display: inline-block; white-space: nowrap; pointer-events: none;"><span style="color: rgb(51, 51, 51); pointer-events: none;" class="nodeLabel">風險持續累積<br style="pointer-events: none;">(跨世代負擔)</span></div></foreignObject></g></g><g transform="translate(531.9125061035156, 132.5)" id="flowchart-E-7" class="node default default flowchart-label" style="pointer-events: none;"><rect height="39" width="111" y="-19.5" x="-55.5" ry="0" rx="0" style="pointer-events: none;" class="basic label-container"></rect><g transform="translate(-48, -12)" style="pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="24" width="96" style="pointer-events: none;"><div style="display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="pointer-events: none;">高昂處理成本</span></div></foreignObject></g></g><g transform="translate(676.9125061035156, 31.5)" id="flowchart-F-9" class="node default default flowchart-label" style="pointer-events: none;"><rect height="63" width="79" y="-31.5" x="-39.5" ry="0" rx="0" style="fill: rgb(254, 242, 242); stroke: rgb(239, 68, 68); stroke-dasharray: 5, 5; pointer-events: none;" class="basic label-container"></rect><g transform="translate(-32, -24)" style="color: rgb(51, 51, 51); pointer-events: none;" class="label"><rect style="pointer-events: none;"></rect><foreignObject height="48" width="64" style="pointer-events: none;"><div xmlns="http://www.w3.org/1999/xhtml" style="color: rgb(51, 51, 51); display: inline-block; white-space: nowrap; pointer-events: none;"><span style="color: rgb(51, 51, 51); pointer-events: none;" class="nodeLabel">後代承擔<br style="pointer-events: none;">環境代價</span></div></foreignObject></g></g></g></g></g></svg></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Conclusion Section -->
+    <section id="conclusion" class="py-24 bg-esg-light/30 dark:bg-esg-forest/10 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-esg-forest dark:text-white mb-12">
+                結論：在尋找答案時，我們問對了問題嗎？
+            </h2>
+            
+            <div class="relative">
+                <!-- Center Line -->
+                <div class="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gray-200 dark:bg-gray-700 -translate-x-1/2 hidden md:block"></div>
+                
+                <div class="space-y-12">
+                    <!-- Point 1 -->
+                    <div class="relative flex flex-col md:flex-row items-center gap-8 group">
+                        <div class="flex-1 md:text-right">
+                            <h3 class="text-xl font-bold text-esg-deep dark:text-esg-light">地理謬誤</h3>
+                            <p class="text-gray-600 dark:text-gray-400 mt-2">相信轉移地點（地球到太空）就能消除問題，而非解決根源。</p>
+                        </div>
+                        <div class="w-12 h-12 bg-esg-forest text-white rounded-full flex items-center justify-center z-10 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            <i class="fa-solid fa-earth-americas"></i>
+                        </div>
+                        <div class="flex-1 md:text-left opacity-0 md:opacity-100"></div>
+                    </div>
+
+                    <!-- Point 2 -->
+                    <div class="relative flex flex-col md:flex-row items-center gap-8 group">
+                        <div class="flex-1 md:text-right opacity-0 md:opacity-100 hidden md:block"></div>
+                        <div class="w-12 h-12 bg-esg-orange text-white rounded-full flex items-center justify-center z-10 shadow-lg group-hover:scale-110 transition-transform duration-300 order-2 md:order-1">
+                            <i class="fa-solid fa-gavel"></i>
+                        </div>
+                        <div class="flex-1 md:text-left order-1 md:order-2 text-center md:text-left">
+                            <h3 class="text-xl font-bold text-esg-deep dark:text-esg-light">執行謬誤</h3>
+                            <p class="text-gray-600 dark:text-gray-400 mt-2">假設理想目標能輕易克服現實阻力，忽略了必要的妥協。</p>
+                        </div>
+                    </div>
+
+                    <!-- Point 3 -->
+                    <div class="relative flex flex-col md:flex-row items-center gap-8 group">
+                        <div class="flex-1 md:text-right">
+                            <h3 class="text-xl font-bold text-esg-deep dark:text-esg-light">時間謬誤</h3>
+                            <p class="text-gray-600 dark:text-gray-400 mt-2">享受即時技術效益，將長期風險轉嫁給未出生的世代。</p>
+                        </div>
+                        <div class="w-12 h-12 bg-esg-navy text-white rounded-full flex items-center justify-center z-10 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            <i class="fa-solid fa-hourglass-half"></i>
+                        </div>
+                        <div class="flex-1 md:text-left opacity-0 md:opacity-100"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16 p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-xl border-t-4 border-esg-forest">
+                <p class="text-lg md:text-xl font-medium text-gray-800 dark:text-gray-200">
+                    在追求快速、高效的解決方案時，我們是否忽略了真正的「永續」所需要的深思熟慮與跨世代的責任感？這或許是我們這個時代最重要的課題。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h5 class="text-white font-bold text-lg mb-4">關於本報告</h5>
+                    <p class="text-sm leading-relaxed">
+                        本網頁旨在探討ESG發展中的複雜性與悖論，內容基於2025年12月26日永續週報。
+                    </p>
+                </div>
+                <div>
+                    <h5 class="text-white font-bold text-lg mb-4">免責聲明</h5>
+                    <p class="text-sm leading-relaxed">
+                        基於公開資料，僅供參考，不構成投資或決策建議。資料來源：網頁公開資訊。
+                    </p>
+                </div>
+                <div>
+                     <h5 class="text-white font-bold text-lg mb-4">關注我們</h5>
+                     <div class="flex space-x-4">
+                         <a href="#" class="text-gray-400 hover:text-white transition"><i class="fa-brands fa-linkedin fa-lg"></i></a>
+                         <a href="#" class="text-gray-400 hover:text-white transition"><i class="fa-brands fa-twitter fa-lg"></i></a>
+                         <a href="#" class="text-gray-400 hover:text-white transition"><i class="fa-solid fa-envelope fa-lg"></i></a>
+                     </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm">版權所有 © 2025 Dunk | Designed by Dunk</p>
+                <p class="text-xs mt-2 md:mt-0 opacity-60">Generated via ESG Analysis Tool</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts for Logic & Charts -->
+    <script>
+        // --- Dark Mode Logic ---
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        
+        // Initial Theme Check
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+
+        // Toggle Event
+        themeToggleBtn.addEventListener('click', function() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.theme = 'light';
+                updateCharts('light');
+                updateMermaid('default');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.theme = 'dark';
+                updateCharts('dark');
+                updateMermaid('dark');
+            }
+        });
+
+        // --- Mermaid Initialization ---
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: document.documentElement.classList.contains('dark') ? 'dark' : 'base',
+            themeVariables: {
+                fontFamily: 'Noto Sans TC',
+                primaryColor: '#e8f5e8',
+                edgeLabelBackground: '#ffffff',
+                tertiaryColor: '#fff'
+            }
+        });
+
+        function updateMermaid(theme) {
+            // Reload page to re-render mermaid roughly (simpler than dynamic re-render)
+            // Ideally, we just swap class, but Mermaid is static. 
+            // For this demo, we assume user accepts static mermaid or reload.
+            // A dynamic re-render approach:
+            location.reload(); 
+        }
+
+        // --- ECharts Initialization ---
+        let charts = [];
+
+        function initCharts() {
+            const theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+            const textColor = theme === 'dark' ? '#e5e7eb' : '#333333';
+            const gridColor = theme === 'dark' ? '#374151' : '#e5e7eb';
+
+            // 1. Microplastics Chart
+            const chart1Dom = document.getElementById('chart-microplastics');
+            if (chart1Dom) {
+                const chart1 = echarts.init(chart1Dom, theme === 'dark' ? 'dark' : null);
+                const option1 = {
+                    backgroundColor: 'transparent',
+                    tooltip: { trigger: 'item' },
+                    legend: { bottom: '0%', textStyle: { color: textColor } },
+                    series: [
+                        {
+                            name: '檢測結果',
+                            type: 'pie',
+                            radius: ['50%', '70%'],
+                            avoidLabelOverlap: false,
+                            itemStyle: {
+                                borderRadius: 10,
+                                borderColor: theme === 'dark' ? '#1f2937' : '#fff',
+                                borderWidth: 2
+                            },
+                            label: {
+                                show: false,
+                                position: 'center'
+                            },
+                            emphasis: {
+                                label: {
+                                    show: true,
+                                    fontSize: 24,
+                                    fontWeight: 'bold',
+                                    formatter: '{d}%'
+                                }
+                            },
+                            labelLine: { show: false },
+                            data: [
+                                { value: 80, name: '檢測出微塑膠', itemStyle: { color: '#ff6b35' } },
+                                { value: 20, name: '未檢測出', itemStyle: { color: '#2d5016' } }
+                            ]
+                        }
+                    ]
+                };
+                chart1.setOption(option1);
+                charts.push(chart1);
+            }
+
+            // 2. AI Energy Chart
+            const chart2Dom = document.getElementById('chart-ai-energy');
+            if (chart2Dom) {
+                const chart2 = echarts.init(chart2Dom, theme === 'dark' ? 'dark' : null);
+                const option2 = {
+                    backgroundColor: 'transparent',
+                    tooltip: { trigger: 'axis' },
+                    grid: { top: '15%', left: '3%', right: '4%', bottom: '3%', containLabel: true },
+                    xAxis: {
+                        type: 'category',
+                        data: ['2020', '2022', '2024', '2026(預測)', '2030(預測)'],
+                        axisLine: { lineStyle: { color: gridColor } },
+                        axisLabel: { color: textColor }
+                    },
+                    yAxis: {
+                        type: 'value',
+                        splitLine: { lineStyle: { color: gridColor, type: 'dashed' } },
+                        axisLabel: { color: textColor }
+                    },
+                    series: [
+                        {
+                            data: [200, 460, 650, 1050, 2000],
+                            type: 'bar',
+                            name: '全球資料中心耗電量',
+                            itemStyle: {
+                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                    { offset: 0, color: '#1a4d3a' },
+                                    { offset: 1, color: '#2d5016' }
+                                ])
+                            },
+                            showBackground: true,
+                            backgroundStyle: { color: theme === 'dark' ? 'rgba(255,255,255,0.05)' : 'rgba(180, 180, 180, 0.1)' }
+                        }
+                    ]
+                };
+                chart2.setOption(option2);
+                charts.push(chart2);
+            }
+
+            // 3. EV Market Share Chart
+            const chart3Dom = document.getElementById('chart-ev-share');
+            if (chart3Dom) {
+                const chart3 = echarts.init(chart3Dom, theme === 'dark' ? 'dark' : null);
+                const option3 = {
+                    backgroundColor: 'transparent',
+                    tooltip: { trigger: 'axis' },
+                    legend: { top: '0%', textStyle: { color: textColor } },
+                    grid: { top: '15%', left: '3%', right: '4%', bottom: '3%', containLabel: true },
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: ['2023', '2025', '2027', '2030', '2035'],
+                        axisLine: { lineStyle: { color: gridColor } },
+                        axisLabel: { color: textColor }
+                    },
+                    yAxis: {
+                        type: 'value',
+                        name: '市佔率 (%)',
+                        min: 0,
+                        max: 100,
+                        splitLine: { lineStyle: { color: gridColor, type: 'dashed' } },
+                        axisLabel: { color: textColor }
+                    },
+                    series: [
+                        {
+                            name: '原始理想目標 (100% BEV)',
+                            type: 'line',
+                            data: [15, 25, 50, 80, 100],
+                            smooth: true,
+                            lineStyle: { color: '#2d5016', width: 3, type: 'dashed' },
+                            itemStyle: { color: '#2d5016' }
+                        },
+                        {
+                            name: '妥協後現實 (BEV + e-fuels)',
+                            type: 'line',
+                            data: [15, 22, 40, 65, 90],
+                            smooth: true,
+                            lineStyle: { color: '#ff6b35', width: 4 },
+                            areaStyle: {
+                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                    { offset: 0, color: 'rgba(255, 107, 53, 0.3)' },
+                                    { offset: 1, color: 'rgba(255, 107, 53, 0)' }
+                                ])
+                            },
+                            itemStyle: { color: '#ff6b35' }
+                        }
+                    ]
+                };
+                chart3.setOption(option3);
+                charts.push(chart3);
+            }
+        }
+
+        function updateCharts(theme) {
+            charts.forEach(chart => chart.dispose());
+            charts = [];
+            initCharts();
+        }
+
+        // Initialize on load
+        window.addEventListener('load', initCharts);
+        
+        // Responsive resize
+        window.addEventListener('resize', function() {
+            charts.forEach(chart => chart.resize());
+        });
+
+    </script>
+
+</body></html>
