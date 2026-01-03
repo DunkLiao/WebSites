@@ -1,0 +1,659 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>樸茨茅斯百年慶典 Portsmouth100 | 百年自豪，未來無限</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {            
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Playfair Display"', '"Noto Serif TC"', 'serif'],
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                    },
+                    colors: {
+                        'portsmouth-blue': '#003087', // Classic Naval Blue
+                        'portsmouth-gold': '#C5A900', // Heraldic Gold
+                        'deep-sea': '#0f172a',
+                        'paper': '#f8fafc',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Preline UI -->
+    <script src="https://cdn.jsdelivr.net/npm/preline@2.3.0/dist/preline.min.js"></script>
+    
+    <!-- Mermaid.js -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    
+    <!-- Apache ECharts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+
+    <style>
+        .hero-gradient {
+            background: linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.7));
+        }
+        .text-stroke {
+            -webkit-text-stroke: 1px rgba(255,255,255,0.1);
+        }
+        /* Hide scrollbar for clean horizontal scroll */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<script src="https://felo.ai/js/iframe.js?v=1767400144184"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style></head>
+<body class="bg-paper dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-sans transition-colors duration-300">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <span class="font-serif text-2xl font-bold text-portsmouth-blue dark:text-white tracking-tight">Portsmouth<span class="text-portsmouth-gold">100</span></span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#history" class="text-sm font-medium hover:text-portsmouth-blue dark:hover:text-portsmouth-gold transition-colors">歷史足跡</a>
+                    <a href="#events" class="text-sm font-medium hover:text-portsmouth-blue dark:hover:text-portsmouth-gold transition-colors">年度慶典</a>
+                    <a href="#art" class="text-sm font-medium hover:text-portsmouth-blue dark:hover:text-portsmouth-gold transition-colors">藝術裝置</a>
+                    <a href="#legacy" class="text-sm font-medium hover:text-portsmouth-blue dark:hover:text-portsmouth-gold transition-colors">未來願景</a>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button id="theme-toggle" type="button" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus:outline-none focus:ring-2 focus:ring-portsmouth-blue">
+                        <i class="fas fa-moon dark:hidden text-gray-600"></i>
+                        <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 dark:text-gray-300 hover:text-portsmouth-blue focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-900 border-t border-gray-200 dark:border-gray-800">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#history" class="block px-3 py-2 text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md">歷史足跡</a>
+                <a href="#events" class="block px-3 py-2 text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md">年度慶典</a>
+                <a href="#art" class="block px-3 py-2 text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md">藝術裝置</a>
+                <a href="#legacy" class="block px-3 py-2 text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md">未來願景</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://image.pollinations.ai/prompt/Portsmouth%20Guildhall%20Square%20celebration%20fireworks%20night%20cinematic%20crowd%20joyful%20historic%20architecture%204k%20photorealistic?nologo=true" alt="Portsmouth Celebration" class="w-full h-full object-cover">
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto" data-aos="fade-up">
+            <p class="text-portsmouth-gold font-serif text-lg md:text-xl tracking-[0.2em] uppercase mb-4">1926 — 2026</p>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-6 leading-tight">
+                百年自豪<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 italic">未來無限</span>
+            </h1>
+            <p class="text-gray-200 text-lg md:text-2xl max-w-2xl mx-auto font-light mb-10 leading-relaxed">
+                紀念樸茨茅斯獲頒城市地位一百週年。<br>從海軍重鎮到文化之都，我們以歷史為光，駛向無限可能的未來。
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#events" class="px-8 py-4 bg-portsmouth-gold hover:bg-yellow-600 text-white font-semibold rounded-full transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                    探索慶典活動
+                </a>
+                <a href="#history" class="px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/30 font-semibold rounded-full transition-all duration-300">
+                    閱讀城市故事
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-white/50 text-2xl"></i>
+        </div>
+    </header>
+
+    <!-- Intro: The Aha-Moment Summary -->
+    <section class="py-24 px-4 bg-white dark:bg-slate-900">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+            <div class="space-y-8">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-slate-900 dark:text-white leading-tight">
+                    天光引路 <br>
+                    <span class="text-portsmouth-blue dark:text-portsmouth-gold text-3xl italic">Heaven's Light Our Guide</span>
+                </h2>
+                <div class="w-20 h-1 bg-portsmouth-gold"></div>
+                <p class="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+                    1926年4月21日，樸茨茅斯正式從「英國第一海軍港口」升格為城市。這不僅是一個行政頭銜的變更，更是這座島嶼城市身份認同的轉折點。
+                </p>
+                <p class="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+                    Portsmouth100 是一場為期一年的盛大慶典，我們將通過<b>「歷史榮耀」、「社區文化」、「未來願景」與「經濟增長」</b>四大支柱，重新連結過去與未來。這不僅是對100年的回顧，更是申請「2029年英國文化之城」的序章。
+                </p>
+            </div>
+            <div class="relative">
+                <div class="absolute -top-4 -left-4 w-full h-full border-2 border-portsmouth-gold rounded-lg transform translate-x-4 translate-y-4 z-0"></div>
+                <img src="https://image.pollinations.ai/prompt/HMS%20Victory%20ship%20in%20Portsmouth%20historic%20dockyard%20sunny%20day%20majestic%20british%20flag%20high%20detail%20wide%20angle?nologo=true" alt="HMS Victory" class="relative z-10 rounded-lg shadow-2xl w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                <div class="absolute bottom-6 left-6 z-20 bg-white/90 dark:bg-slate-800/90 backdrop-blur px-4 py-2 rounded shadow-lg">
+                    <p class="text-sm font-bold text-portsmouth-blue dark:text-portsmouth-gold">海軍遺產</p>
+                    <p class="text-xs text-slate-600 dark:text-slate-400">HMS Victory 與城市精神的象徵</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Timeline Section -->
+    <section id="history" class="py-24 bg-slate-50 dark:bg-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-portsmouth-blue dark:text-blue-400 font-bold tracking-wider uppercase">Legacy</span>
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-slate-900 dark:text-white mt-2">從市鎮到文化之城</h2>
+            </div>
+
+            <!-- Steps / Timeline -->
+            <div class="grid md:grid-cols-4 gap-8">
+                <!-- 1194 -->
+                <div class="group relative bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-gray-300 hover:border-portsmouth-blue">
+                    <div class="text-5xl font-bold text-slate-200 dark:text-slate-700 absolute top-4 right-4 group-hover:text-portsmouth-blue/10 transition-colors">1194</div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3 relative z-10">皇家特許狀</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed relative z-10">
+                        理查德一世授予首份皇家特許狀，賦予樸茨茅斯舉辦市集與法庭的權利，奠定了作為市鎮的基礎。
+                    </p>
+                </div>
+
+                <!-- 1926 -->
+                <div class="group relative bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-portsmouth-gold transform md:-translate-y-4">
+                    <div class="text-5xl font-bold text-slate-200 dark:text-slate-700 absolute top-4 right-4 group-hover:text-portsmouth-gold/10 transition-colors">1926</div>
+                    <div class="inline-block px-2 py-1 bg-portsmouth-gold/20 text-portsmouth-gold text-xs font-bold rounded mb-3">關鍵里程碑</div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3 relative z-10">晉升城市</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed relative z-10">
+                        4月21日，憑藉「王國首要海軍港口」的特殊地位，樸茨茅斯終於獲得夢寐以求的城市地位 (City Status)。
+                    </p>
+                </div>
+
+                <!-- 1944 -->
+                <div class="group relative bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-gray-300 hover:border-red-500">
+                    <div class="text-5xl font-bold text-slate-200 dark:text-slate-700 absolute top-4 right-4 group-hover:text-red-500/10 transition-colors">1944</div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3 relative z-10">D-Day 出發地</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed relative z-10">
+                        二戰期間城市雖遭重創，但作為諾曼第登陸的主要集結地，樸茨茅斯展現了無與倫比的韌性與勇氣。
+                    </p>
+                </div>
+
+                <!-- 2026 -->
+                <div class="group relative bg-white dark:bg-slate-900 p-8 rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-gray-300 hover:border-purple-500">
+                    <div class="text-5xl font-bold text-slate-200 dark:text-slate-700 absolute top-4 right-4 group-hover:text-purple-500/10 transition-colors">2026</div>
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3 relative z-10">Portsmouth100</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed relative z-10">
+                        慶祝百年榮耀。由傳統海軍城市轉型為充滿活力的創意、文化與創新中心，劍指2029文化之城。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Art & Culture Showcase (Highlight) -->
+    <section id="art" class="py-24 bg-deep-sea text-white overflow-hidden relative">
+        <!-- Abstract Background Decoration -->
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-portsmouth-blue/20 blur-3xl rounded-full translate-x-1/3"></div>
+
+        <div class="max-w-7xl mx-auto px-4 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <!-- Image Area -->
+                <div class="relative group">
+                    <div class="absolute -inset-2 bg-gradient-to-r from-portsmouth-gold to-purple-600 rounded-2xl blur opacity-30 group-hover:opacity-75 transition duration-1000"></div>
+                    <!-- User Provided Image -->
+                    <img src="https://api.felo.ai/images/s/wB5eWv06JL?width=1330&height=1000" alt="Southsea Castle Lighthouse by Nathan Coley" class="relative rounded-xl shadow-2xl w-full object-cover border border-white/10">
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent p-6 rounded-b-xl">
+                        <p class="text-portsmouth-gold font-bold uppercase text-sm tracking-widest mb-1">Nathan Coley 裝置藝術</p>
+                        <h3 class="text-xl font-serif">OUTWITHSIDEWAYSOMEWHEREWITH</h3>
+                    </div>
+                </div>
+
+                <!-- Text Area -->
+                <div class="space-y-8">
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold leading-tight">
+                        點亮歷史的<br><span class="text-portsmouth-gold">新光芒</span>
+                    </h2>
+                    <p class="text-slate-300 text-lg font-light leading-relaxed">
+                        作為 Portsmouth100 的核心藝術項目，特納獎提名藝術家 <b>Nathan Coley</b> 重新激活了自2017年退役的南海城堡（Southsea Castle）燈塔。
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-lightbulb text-portsmouth-gold text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">流動的文字</h4>
+                                <p class="text-slate-400 text-sm">文字在燈塔周圍循環移動，重現昔日燈塔引導船隻時的閃爍律動。</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-eye text-portsmouth-gold text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-2">三年常設展</h4>
+                                <p class="text-slate-400 text-sm">這件由英格蘭藝術委員會資助的作品將保留至少三年，成為海岸線上的新地標。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-8 border-t border-white/10 mt-8">
+                        <h4 class="text-lg font-serif mb-4 flex items-center gap-2">
+                            <i class="fas fa-palette text-purple-400"></i> 同場加映：樸茨茅斯之獅 (Pride of Portsmouth)
+                        </h4>
+                        <p class="text-slate-400 text-sm mb-4">
+                            與 Wild in Art 合作，25-30 座由藝術家繪製的獅子雕塑將遍布全城，打造一座充滿活力的露天畫廊。
+                        </p>
+                        <a href="#events" class="text-purple-400 hover:text-purple-300 text-sm font-semibold flex items-center gap-2 group">
+                            查看藝術步道詳情 <i class="fas fa-arrow-right transform group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Calendar Section -->
+    <section id="events" class="py-24 bg-white dark:bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-serif font-bold text-slate-900 dark:text-white mb-4">2026 全年慶典日曆</h2>
+                <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+                    從冬季的啟動儀式到秋季的傳承反思，Portsmouth100 融合了傳統節日與百年特展。
+                </p>
+            </div>
+
+            <div class="grid gap-12 lg:grid-cols-2">
+                <!-- Phase 1: Winter -->
+                <div class="bg-slate-50 dark:bg-slate-800 rounded-2xl p-8 border border-gray-100 dark:border-gray-700 hover:border-portsmouth-blue dark:hover:border-portsmouth-gold transition-colors">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="text-4xl text-blue-500"><i class="far fa-snowflake"></i></div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-900 dark:text-white">第一階段：啟動與紀念</h3>
+                            <p class="text-slate-500 dark:text-slate-400 text-sm">1月 — 3月</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-6 border-l-2 border-gray-200 dark:border-gray-700 pl-6 ml-2">
+                        <li class="relative">
+                            <span class="absolute -left-[31px] w-4 h-4 rounded-full bg-blue-500 ring-4 ring-white dark:ring-slate-800"></span>
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline">
+                                <span class="font-bold text-slate-800 dark:text-slate-200">Portsmouth100 啟動儀式</span>
+                                <span class="text-xs font-mono text-blue-600 bg-blue-100 dark:bg-blue-900/30 dark:text-blue-300 px-2 py-1 rounded">1月1日</span>
+                            </div>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Castle Field。Batala 鼓樂隊、電影首映、煙火秀與燈塔藝術揭幕。</p>
+                        </li>
+                        <li class="relative">
+                            <span class="absolute -left-[31px] w-4 h-4 rounded-full bg-gray-300 dark:bg-gray-600 ring-4 ring-white dark:ring-slate-800"></span>
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline">
+                                <span class="font-bold text-slate-800 dark:text-slate-200">大轟炸紀念週末</span>
+                                <span class="text-xs font-mono text-slate-500 px-2 py-1">1月10-11日</span>
+                            </div>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Royal Garrison Church。紀念二戰樸茨茅斯大轟炸85週年。</p>
+                        </li>
+                        <li class="relative">
+                            <span class="absolute -left-[31px] w-4 h-4 rounded-full bg-gray-300 dark:bg-gray-600 ring-4 ring-white dark:ring-slate-800"></span>
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline">
+                                <span class="font-bold text-slate-800 dark:text-slate-200">狄更斯誕辰慶典</span>
+                                <span class="text-xs font-mono text-slate-500 px-2 py-1">2月7日</span>
+                            </div>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">紀念城市最著名的文學之子查爾斯·狄更斯。</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Phase 2: Spring -->
+                <div class="bg-slate-50 dark:bg-slate-800 rounded-2xl p-8 border border-gray-100 dark:border-gray-700 hover:border-portsmouth-gold transition-colors">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="text-4xl text-portsmouth-gold"><i class="fas fa-crown"></i></div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-900 dark:text-white">第二階段：百年正日與榮耀</h3>
+                            <p class="text-slate-500 dark:text-slate-400 text-sm">4月 — 6月</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-6 border-l-2 border-gray-200 dark:border-gray-700 pl-6 ml-2">
+                        <li class="relative">
+                            <span class="absolute -left-[31px] w-4 h-4 rounded-full bg-portsmouth-gold ring-4 ring-white dark:ring-slate-800"></span>
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline">
+                                <span class="font-bold text-slate-800 dark:text-slate-200 text-lg">城市百年紀念日</span>
+                                <span class="text-xs font-mono text-yellow-700 bg-yellow-100 dark:bg-yellow-900/30 dark:text-yellow-300 px-2 py-1 rounded">4月21日</span>
+                            </div>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 mt-1"><b>核心焦點。</b> 市議會特別紀念會議、全城社區慶祝活動。</p>
+                        </li>
+                        <li class="relative">
+                            <span class="absolute -left-[31px] w-4 h-4 rounded-full bg-gray-300 dark:bg-gray-600 ring-4 ring-white dark:ring-slate-800"></span>
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline">
+                                <span class="font-bold text-slate-800 dark:text-slate-200">Sing 100 音樂節</span>
+                                <span class="text-xs font-mono text-slate-500 px-2 py-1">5月8-10日</span>
+                            </div>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">Guildhall。草根音樂慶典與盛大音樂會。</p>
+                        </li>
+                        <li class="relative">
+                            <span class="absolute -left-[31px] w-4 h-4 rounded-full bg-gray-300 dark:bg-gray-600 ring-4 ring-white dark:ring-slate-800"></span>
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline">
+                                <span class="font-bold text-slate-800 dark:text-slate-200">國際港口50週年</span>
+                                <span class="text-xs font-mono text-slate-500 px-2 py-1">6月17日</span>
+                            </div>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">慶祝英國最成功的市政擁有港口成立半世紀。</p>
+                        </li>
+                    </ul>
+                </div>
+                
+                 <!-- Phase 3: Summer -->
+                 <div class="bg-slate-50 dark:bg-slate-800 rounded-2xl p-8 border border-gray-100 dark:border-gray-700 hover:border-green-500 transition-colors">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="text-4xl text-green-500"><i class="fas fa-sun"></i></div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-900 dark:text-white">第三階段：夏日藝術與驕傲</h3>
+                            <p class="text-slate-500 dark:text-slate-400 text-sm">7月 — 9月</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-6 border-l-2 border-gray-200 dark:border-gray-700 pl-6 ml-2">
+                        <li class="relative">
+                            <span class="absolute -left-[31px] w-4 h-4 rounded-full bg-green-500 ring-4 ring-white dark:ring-slate-800"></span>
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline">
+                                <span class="font-bold text-slate-800 dark:text-slate-200">獅子藝術步道啟動</span>
+                                <span class="text-xs font-mono text-green-700 bg-green-100 dark:bg-green-900/30 dark:text-green-300 px-2 py-1 rounded">7月中旬</span>
+                            </div>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">全城範圍。25-30座彩繪獅子雕塑，打造露天畫廊。</p>
+                        </li>
+                        <li class="relative">
+                            <span class="absolute -left-[31px] w-4 h-4 rounded-full bg-gray-300 dark:bg-gray-600 ring-4 ring-white dark:ring-slate-800"></span>
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline">
+                                <span class="font-bold text-slate-800 dark:text-slate-200">Victorious 音樂節</span>
+                                <span class="text-xs font-mono text-slate-500 px-2 py-1">8月</span>
+                            </div>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">南海海濱。英國頂級音樂節之一，特別百年慶祝環節。</p>
+                        </li>
+                    </ul>
+                </div>
+
+                 <!-- Phase 4: Autumn -->
+                 <div class="bg-slate-50 dark:bg-slate-800 rounded-2xl p-8 border border-gray-100 dark:border-gray-700 hover:border-orange-500 transition-colors">
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="text-4xl text-orange-500"><i class="fas fa-leaf"></i></div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-slate-900 dark:text-white">第四階段：反思與傳承</h3>
+                            <p class="text-slate-500 dark:text-slate-400 text-sm">10月 — 12月</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-6 border-l-2 border-gray-200 dark:border-gray-700 pl-6 ml-2">
+                        <li class="relative">
+                            <span class="absolute -left-[31px] w-4 h-4 rounded-full bg-orange-500 ring-4 ring-white dark:ring-slate-800"></span>
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline">
+                                <span class="font-bold text-slate-800 dark:text-slate-200">We Built This City</span>
+                                <span class="text-xs font-mono text-orange-700 bg-orange-100 dark:bg-orange-900/30 dark:text-orange-300 px-2 py-1 rounded">10月</span>
+                            </div>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">60歲以上長者節。致敬建設這座城市的先輩。</p>
+                        </li>
+                        <li class="relative">
+                            <span class="absolute -left-[31px] w-4 h-4 rounded-full bg-gray-300 dark:bg-gray-600 ring-4 ring-white dark:ring-slate-800"></span>
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline">
+                                <span class="font-bold text-slate-800 dark:text-slate-200">獅子雕塑慈善拍賣</span>
+                                <span class="text-xs font-mono text-slate-500 px-2 py-1">9月/10月</span>
+                            </div>
+                            <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">為城市遺產基金籌集資金，延續百年影響力。</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data & Economic Impact Section -->
+    <section class="py-24 bg-paper dark:bg-slate-900 border-t border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid lg:grid-cols-3 gap-12">
+                <!-- Text Info -->
+                <div class="lg:col-span-1 space-y-6">
+                    <span class="text-xs font-bold tracking-widest text-portsmouth-blue dark:text-portsmouth-gold uppercase">Impact</span>
+                    <h2 class="text-3xl font-serif font-bold text-slate-900 dark:text-white">經濟與社區影響力</h2>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                        Portsmouth100 不僅是慶典，更是經濟引擎。旅遊業目前每年為城市帶來超過 <b>7億英鎊</b> 的收入，並支撐著 <b>12,500</b> 個工作崗位。
+                    </p>
+                    <p class="text-slate-600 dark:text-slate-400 leading-relaxed">
+                        透過社區資助計畫，我們正在為小型團體和大型文化組織提供資金，解鎖來自國家遺產基金的更多資源。
+                    </p>
+                </div>
+
+                <!-- ECharts: Tourism Data -->
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
+                    <h4 class="text-lg font-bold mb-4 text-center">旅遊業經濟貢獻</h4>
+                    <div id="tourismChart" class="w-full h-72"></div>
+                </div>
+
+                <!-- Mermaid: Funding Flow -->
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 flex flex-col">
+                    <h4 class="text-lg font-bold mb-4 text-center">社區資助槓桿模型</h4>
+                    <div class="mermaid flex-grow flex items-center justify-center text-sm">
+                        flowchart TD
+                            A["社區資助池"] --> B{"資助層級"}
+                            B -->|小型| C["£3,000 種子基金"]
+                            B -->|大型| D["£10,000 啟動基金"]
+                            C -->|解鎖外部資金| E["最高 £30,000"]
+                            D -->|解鎖外部資金| F["最高 £100,000"]
+                            E --> G["社區遺產項目"]
+                            F --> G
+                            style A fill:#003087,stroke:#fff,color:#fff
+                            style G fill:#C5A900,stroke:#fff,color:#fff
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legacy & Future Vision -->
+    <section id="legacy" class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-portsmouth-blue dark:bg-slate-900">
+            <img src="https://image.pollinations.ai/prompt/Modern%20futuristic%20Portsmouth%20city%20skyline%20sustainable%20green%20port%20bright%20future%20concept%20art%20minimalist?nologo=true" alt="Future Vision" class="w-full h-full object-cover opacity-20 mix-blend-overlay">
+        </div>
+        
+        <div class="relative z-10 max-w-4xl mx-auto text-center px-4">
+            <i class="fas fa-city text-5xl text-portsmouth-gold mb-6 animate-pulse"></i>
+            <h2 class="text-4xl md:text-5xl font-serif font-bold text-white mb-8">邁向2029：英國文化之城</h2>
+            <p class="text-xl text-blue-100 leading-relaxed mb-12">
+                Portsmouth100 是我們通往更宏大目標的跳板。我們正雄心勃勃地競逐 <b>2029年英國文化之城 (UK City of Culture)</b> 的頭銜。<br>
+                從海軍歷史的守護者，到創意產業的孵化器，樸茨茅斯的故事才剛剛開始。
+            </p>
+            
+            <div class="grid sm:grid-cols-3 gap-6 text-left">
+                <div class="bg-white/10 backdrop-blur p-6 rounded-xl border border-white/20">
+                    <h4 class="text-portsmouth-gold font-bold mb-2">環境韌性</h4>
+                    <p class="text-sm text-gray-200">透過南海海岸防禦計畫與港口岸電系統，打造可持續發展的綠色海濱城市。</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur p-6 rounded-xl border border-white/20">
+                    <h4 class="text-portsmouth-gold font-bold mb-2">數字記憶</h4>
+                    <p class="text-sm text-gray-200">"Revoicing the Archive" 項目利用AI與數字技術，讓無聲的歷史檔案重現生機。</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur p-6 rounded-xl border border-white/20">
+                    <h4 class="text-portsmouth-gold font-bold mb-2">青年機遇</h4>
+                    <p class="text-sm text-gray-200">為下一代創造創意產業就業機會，確保2026年的遺產惠及未來的領導者。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 text-slate-400 py-12 text-sm">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <span class="font-serif text-2xl font-bold text-white tracking-tight block mb-2">Portsmouth<span class="text-portsmouth-gold">100</span></span>
+                <p>1926 — 2026 Centenary Celebration</p>
+            </div>
+            
+            <div class="flex gap-6">
+                <!-- Placeholder Social Icons -->
+                <a href="#" class="hover:text-white transition-colors"><i class="fab fa-facebook fa-lg"></i></a>
+                <a href="#" class="hover:text-white transition-colors"><i class="fab fa-instagram fa-lg"></i></a>
+                <a href="#" class="hover:text-white transition-colors"><i class="fab fa-twitter fa-lg"></i></a>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 mt-8 pt-8 border-t border-slate-800 text-center md:text-left text-xs text-slate-500">
+            <p class="mb-2">免責申明：基於公開資料，僅供參考，不構成建議</p>
+            <p class="mb-2">資料來源：網頁公開資訊 (Portsmouth City Council, Visit Portsmouth)</p>
+            <p>版權所有： © Dunk | 設計：Dunk 2026</p>
+        </div>
+    </footer>
+
+    <!-- Scripts for Logic -->
+    <script>
+        // Dark Mode Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        // Check system preference
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+
+        // Toggle function
+        themeToggleBtn.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            if (html.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+            updateChartsTheme();
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Mermaid Initialization
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: document.documentElement.classList.contains('dark') ? 'dark' : 'base',
+            themeVariables: {
+                primaryColor: '#003087',
+                secondaryColor: '#C5A900',
+                lineColor: '#94a3b8'
+            }
+        });
+
+        // ECharts Initialization
+        let tourismChart = null;
+
+        function initCharts() {
+            const chartDom = document.getElementById('tourismChart');
+            const isDark = document.documentElement.classList.contains('dark');
+            const theme = isDark ? 'dark' : null;
+            const textColor = isDark ? '#cbd5e1' : '#334155';
+
+            if (tourismChart) {
+                tourismChart.dispose();
+            }
+
+            tourismChart = echarts.init(chartDom, theme);
+            const option = {
+                backgroundColor: 'transparent',
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{b}: {c} ({d}%)'
+                },
+                legend: {
+                    top: '5%',
+                    left: 'center',
+                    textStyle: { color: textColor }
+                },
+                series: [
+                    {
+                        name: '經濟貢獻',
+                        type: 'pie',
+                        radius: ['40%', '70%'],
+                        avoidLabelOverlap: false,
+                        itemStyle: {
+                            borderRadius: 10,
+                            borderColor: isDark ? '#1e293b' : '#fff',
+                            borderWidth: 2
+                        },
+                        label: {
+                            show: false,
+                            position: 'center'
+                        },
+                        emphasis: {
+                            label: {
+                                show: true,
+                                fontSize: 20,
+                                fontWeight: 'bold',
+                                color: textColor
+                            }
+                        },
+                        labelLine: {
+                            show: false
+                        },
+                        data: [
+                            { value: 700, name: '年度收入 (£ 百萬)', itemStyle: { color: '#C5A900' } },
+                            { value: 12.5, name: '工作崗位 (千)', itemStyle: { color: '#003087' } },
+                            { value: 200, name: '間接效益 (估算)', itemStyle: { color: '#64748b' } }
+                        ]
+                    }
+                ]
+            };
+
+            tourismChart.setOption(option);
+        }
+
+        // Update charts on theme change
+        function updateChartsTheme() {
+            initCharts();
+            // Re-render Mermaid (Needs reload in simple implementation or distinct logic, simple reload here for robustness)
+            location.reload(); 
+        }
+
+        // Init on load
+        window.addEventListener('load', initCharts);
+        window.addEventListener('resize', () => {
+            tourismChart && tourismChart.resize();
+        });
+
+    </script>
+</body>
+</html>
