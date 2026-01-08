@@ -1,0 +1,88 @@
+# 配色方案
+color_scheme:
+  # 主色調
+  primary:
+    name: "紅色"
+    hex: "#9A0036"
+    description: "主要品牌色"
+    usage: "品牌識別、重要視覺元素"
+  
+  # 輔助色
+  secondary:
+    - name: "粉紅色"
+      hex: "#EEBAC0"
+      usage: "次要元素和按鈕"
+    
+    - name: "紫紅色"
+      hex: "#941C61"
+      usage: "次要元素和按鈕"
+    
+    - name: "白色"
+      hex: "#FFFFFF"
+      usage: "背景主色"
+    
+    - name: "淺灰色"
+      hex: "#F5F5F5"
+      usage: "區塊分隔"
+    
+    - name: "深灰色"
+      hex: "#333333"
+      usage: "文字內容"
+  
+  # 強調色
+  accent:
+    - name: "金色"
+      usage: "重要資訊和CTA按鈕"
+    
+    - name: "橙色"
+      usage: "重要資訊和CTA按鈕"
+
+# 版面佈局
+layout:
+  # 主要內容區域
+  main_content:
+    style: "卡片式設計"
+    layout_type:
+      - "左右分欄"
+      - "格狀佈局"
+    
+    feature_blocks:
+      background: "#FFFFFF"
+      border: "淺色邊框"
+      description: "重要功能區塊使用白色背景搭配淺色邊框"
+
+# 視覺元素特色
+visual_elements:
+  # 字體
+  typography:
+    font_family: "無襯線字體"
+    characteristics: "清晰易讀"
+  
+  # 圖示
+  icons:
+    style: "簡潔的線性圖示風格"
+  
+  # 按鈕設計
+  buttons:
+    shape: "圓角矩形"
+    effect: "微妙的陰影效果"
+  
+  # 分隔線
+  dividers:
+    style:
+      - "細線"
+      - "淺色背景區分不同功能區塊"
+
+# 設計原則
+design_principles:
+  - principle: "資訊層次清晰"
+    description: "重要功能易於找到"
+  
+  - principle: "專業與友善並重"
+    description: "保持專業形象同時兼顧使用者友善性"
+  
+  - principle: "數據準確性"
+    description: "數據呈現準確且更新及時"
+  
+  - principle: "信任感與穩定性"
+    description: "整體設計傳達信任感和穩定性"
