@@ -1,0 +1,604 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>尚-米榭·巴斯奇亞 | 符號與權力的解構者</title>
+    <meta name="description" content="深入探索尚-米榭·巴斯奇亞的藝術生涯、視覺語義與當代遺產。從街頭塗鴉SAMO到全球藝術市場的藍籌股象徵。">
+    <meta name="author" content="Dunk">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Oswald:wght@400;600&family=Permanent+Marker&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        display: ['"Oswald"', 'sans-serif'],
+                        marker: ['"Permanent Marker"', 'cursive'],
+                    },
+                    colors: {
+                        basquiat: {
+                            black: '#1a1a1a',
+                            canvas: '#fdfbf7', // Raw canvas off-white
+                            yellow: '#fce300', // Crown yellow
+                            red: '#e63946',
+                            blue: '#1d3557',
+                            gray: '#2b2d42'
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- UI Components -->
+    <script src="https://cdn.jsdelivr.net/npm/preline@2.3.0/dist/preline.min.js"></script>
+    
+    <!-- Visualization Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+
+    <style>
+        /* Custom Utilities */
+        .text-stroke {
+            -webkit-text-stroke: 1px currentColor;
+            color: transparent;
+        }
+        .grain-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.05;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+        /* Hide scrollbar for clean look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+<script src="https://felo.ai/js/iframe.js?v=1768007819262"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style></head>
+<body class="bg-basquiat-canvas text-basquiat-black dark:bg-basquiat-black dark:text-stone-100 transition-colors duration-300 antialiased overflow-x-hidden">
+
+    <!-- Navbar -->
+    <header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-basquiat-black/80 backdrop-blur-md border-b border-stone-200 dark:border-stone-800 transition-all duration-300">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Global">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-4">
+                    <a class="flex-none text-2xl font-display font-bold uppercase tracking-wider hover:text-basquiat-red transition-colors" href="#">
+                        BASQUIAT<span class="text-xs align-top ml-1">©</span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center gap-8 font-sans font-medium text-sm tracking-wide">
+                    <a class="hover:text-basquiat-red transition-colors" href="#biography">生平</a>
+                    <a class="hover:text-basquiat-red transition-colors" href="#style">風格符號</a>
+                    <a class="hover:text-basquiat-red transition-colors" href="#works">重要作品</a>
+                    <a class="hover:text-basquiat-red transition-colors" href="#market">市場數據</a>
+                    <a class="hover:text-basquiat-red transition-colors" href="#exhibitions">展覽</a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button id="theme-toggle" type="button" class="p-2 rounded-full hover:bg-stone-200 dark:hover:bg-stone-800 transition-colors focus:outline-none focus:ring-2 focus:ring-basquiat-yellow">
+                        <span class="sr-only">切換主題</span>
+                        <i class="fas fa-sun text-lg dark:hidden"></i>
+                        <i class="fas fa-moon text-lg hidden dark:block text-basquiat-yellow"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://image.pollinations.ai/prompt/Jean-Michel%20Basquiat%20style%20painting,%20abstract,%20neo-expressionism,%20chaotic%20lines,%20crown%20motif,%20skull,%20vibrant%20colors,%20textured%20canvas,%20masterpiece,%204k?nologo=true" 
+                 alt="Basquiat Style Art" 
+                 class="w-full h-full object-cover opacity-80 dark:opacity-40 transition-opacity duration-500">
+            <div class="absolute inset-0 bg-gradient-to-t from-basquiat-canvas via-transparent to-basquiat-canvas/50 dark:from-basquiat-black dark:via-transparent dark:to-basquiat-black/80"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 text-center">
+            <div class="mb-6 animate-float">
+                <!-- SVG Crown -->
+                <svg class="w-24 h-24 mx-auto text-basquiat-yellow dark:text-basquiat-yellow drop-shadow-lg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 80L20 40L35 65L50 20L65 65L80 40L90 80H10Z" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                </svg>
+            </div>
+            <h1 class="text-6xl md:text-9xl font-display font-bold uppercase leading-tight tracking-tighter mb-4 text-basquiat-black dark:text-white mix-blend-overlay dark:mix-blend-normal">
+                THE RADIANT<br>CHILD
+            </h1>
+            <h2 class="text-xl md:text-3xl font-marker text-basquiat-red mb-8 transform -rotate-2">
+                尚-米榭·巴斯奇亞
+            </h2>
+            <p class="max-w-2xl mx-auto text-lg md:text-xl font-light leading-relaxed mb-10 bg-white/80 dark:bg-black/60 backdrop-blur-sm p-6 rounded-sm border-l-4 border-basquiat-black dark:border-basquiat-yellow shadow-xl">
+                從曼哈頓街頭的 SAMO© 到當代藝術的藍籌股傳奇。<br>
+                他是符號與權力的解構者，以原始的優雅挑戰西方藝術史的正典。
+            </p>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-arrow-down text-2xl text-basquiat-black dark:text-white opacity-50"></i>
+        </div>
+    </section>
+
+    <!-- Biography / Timeline Section -->
+    <section id="biography" class="py-24 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-16 text-center">
+                <h2 class="text-4xl md:text-5xl font-display font-bold mb-4 uppercase">生命軌跡</h2>
+                <div class="w-24 h-1 bg-basquiat-black dark:bg-basquiat-yellow mx-auto"></div>
+                <p class="mt-4 text-lg text-stone-600 dark:text-stone-400">短暫而熾熱的 27 年，從布魯克林到世界巔峰</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+                <!-- Text Content -->
+                <div class="space-y-12">
+                    <!-- 1960-1977 -->
+                    <div class="relative pl-8 border-l-2 border-basquiat-black dark:border-stone-700 pb-8">
+                        <span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-basquiat-black dark:bg-basquiat-yellow"></span>
+                        <h3 class="text-2xl font-bold font-display mb-2">1960-1977：多元基因與解剖學視角</h3>
+                        <p class="text-stone-600 dark:text-stone-300 leading-relaxed">
+                            出生於布魯克林，擁有海地與波多黎各血統。1968 年遭遇嚴重車禍，母親贈送的一本<strong class="text-basquiat-red">《格雷氏解剖學》</strong>成為他日後對骨骼、臟器與人體解構痴迷的起點。
+                        </p>
+                    </div>
+
+                    <!-- 1977-1980 -->
+                    <div class="relative pl-8 border-l-2 border-basquiat-black dark:border-stone-700 pb-8">
+                        <span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-basquiat-black dark:bg-basquiat-yellow"></span>
+                        <h3 class="text-2xl font-bold font-display mb-2">1977-1980：SAMO© 與街頭詩學</h3>
+                        <p class="text-stone-600 dark:text-stone-300 leading-relaxed">
+                            與 Al Diaz 合作，在曼哈頓下城牆面噴塗「SAMO©」，以富有哲理的短句嘲諷消費主義與藝術圈。1979 年底宣告「SAMO IS DEAD」，標誌著從街頭轉向畫布。
+                        </p>
+                        <div class="mt-4 p-4 bg-stone-200 dark:bg-stone-800 font-marker text-sm transform -rotate-1 shadow-inner">
+                            "SAMO© AS AN ALTERNATIVE TO GOD"
+                        </div>
+                    </div>
+
+                    <!-- 1981-1982 -->
+                    <div class="relative pl-8 border-l-2 border-basquiat-black dark:border-stone-700 pb-8">
+                        <span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-basquiat-black dark:bg-basquiat-yellow"></span>
+                        <h3 class="text-2xl font-bold font-display mb-2">1981-1982：光輝之子與巔峰</h3>
+                        <p class="text-stone-600 dark:text-stone-300 leading-relaxed">
+                            《Artforum》發表文章〈光輝之子〉，確立其巨星地位。1982 年是其創作的「黃金年度」，作品產量驚人，成為卡塞爾文件展最年輕藝術家。創作出著名的《Untitled (Skull)》。
+                        </p>
+                    </div>
+
+                    <!-- 1983-1988 -->
+                    <div class="relative pl-8 border-l-2 border-basquiat-black dark:border-stone-700">
+                        <span class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-basquiat-black dark:bg-basquiat-yellow"></span>
+                        <h3 class="text-2xl font-bold font-display mb-2">1983-1988：合作、掙扎與隕落</h3>
+                        <p class="text-stone-600 dark:text-stone-300 leading-relaxed">
+                            與安迪·沃荷（Andy Warhol）建立深厚友誼並合作。沃荷去世後，巴斯奇亞陷入孤獨與藥物成癮。1988 年 8 月 12 日，因海洛因過量在紐約去世，年僅 27 歲。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Visual/Mermaid -->
+                <div class="relative">
+                     <!-- Context Image -->
+                     <img src="https://image.pollinations.ai/prompt/New%20York%20City%201980s%20street%20scene,%20graffiti,%20soho,%20gritty,%20black%20and%20white%20photography%20style,%20cinematic?nologo=true" 
+                     class="w-full h-64 object-cover mb-8 rounded-sm shadow-2xl filter grayscale contrast-125" alt="1980s NYC">
+                    
+                    <div class="bg-white dark:bg-stone-800 p-6 rounded-xl shadow-lg border border-stone-200 dark:border-stone-700">
+                        <h4 class="text-lg font-bold mb-4 border-b border-stone-300 dark:border-stone-600 pb-2">人際網絡與影響圖譜</h4>
+                        <div class="mermaid text-center overflow-x-auto">
+                            mindmap
+                                root((尚-米榭·巴斯奇亞))
+                                    影響源
+                                        Gray's Anatomy(解剖學)
+                                        爵士樂(Bebop)
+                                        非洲藝術
+                                        抽象表現主義
+                                    重要關係
+                                        Andy Warhol(導師/摯友)
+                                        Keith Haring(同代藝術家)
+                                        Madonna(短暫戀人)
+                                        Al Diaz(SAMO© 夥伴)
+                                    關鍵時期
+                                        SAMO©(街頭)
+                                        Gray樂隊(噪音實驗)
+                                        1982黃金年(巔峰)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Art Style & Symbols -->
+    <section id="style" class="py-24 bg-stone-100 dark:bg-stone-950 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-16">
+                <h2 class="text-4xl md:text-5xl font-display font-bold mb-4 uppercase">視覺語義</h2>
+                <p class="max-w-3xl text-lg text-stone-600 dark:text-stone-400">
+                    巴斯奇亞的作品是繪畫、素描與文字的混合體，充滿了強烈的「二元對立」張力：財富與貧窮、整合與隔離、內在與外在。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Symbol 1: Crown -->
+                <div class="group bg-white dark:bg-stone-900 p-8 rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-basquiat-yellow relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <i class="fas fa-crown text-9xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 flex items-center gap-3">
+                        <i class="fas fa-crown text-basquiat-yellow"></i> 王冠 (The Crown)
+                    </h3>
+                    <p class="text-stone-600 dark:text-stone-300">
+                        最標誌性的符號。象徵黑人英雄的「自我加冕」，將爵士樂手和運動員提升至聖徒或國王的高度。同時也暗示著對藝術界權力結構的挑戰與宣示。
+                    </p>
+                </div>
+
+                <!-- Symbol 2: Skull -->
+                <div class="group bg-white dark:bg-stone-900 p-8 rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-basquiat-black dark:border-stone-500 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <i class="fas fa-skull text-9xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 flex items-center gap-3">
+                        <i class="fas fa-skull text-stone-800 dark:text-stone-200"></i> 顱骨 (The Skull)
+                    </h3>
+                    <p class="text-stone-600 dark:text-stone-300">
+                        受《格雷氏解剖學》啟發，呈現「活著的骷髏」。不僅是死亡的象徵（Memento Mori），更是對人類思維的解剖，以及黑人身體在社會中脆弱性的隱喻。
+                    </p>
+                </div>
+
+                <!-- Symbol 3: Text -->
+                <div class="group bg-white dark:bg-stone-900 p-8 rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 border-t-4 border-basquiat-red relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <i class="fas fa-font text-9xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4 flex items-center gap-3">
+                        <i class="fas fa-pen-nib text-basquiat-red"></i> 文本與刪除 (Text)
+                    </h3>
+                    <p class="text-stone-600 dark:text-stone-300">
+                        「我劃掉單詞是為了讓你更想去讀它。」<br>
+                        文字既是視覺元素也是內容核心。通過重複、劃掉（Crossing out）來模擬歷史被書寫與抹除的過程，強調資訊的模糊性。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Works Showcase -->
+    <section id="works" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-4xl md:text-5xl font-display font-bold mb-12 uppercase text-right border-b-2 border-stone-200 dark:border-stone-800 pb-4">
+            重要作品解析 <span class="text-basquiat-red text-6xl">.</span>
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Work 1 -->
+            <div class="flex flex-col bg-white dark:bg-stone-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                <div class="h-64 overflow-hidden relative group">
+                    <img src="https://image.pollinations.ai/prompt/Basquiat%20painting%20Untitled%20Skull%201982,%20intense%20neo-expressionism,%20blue%20background,%20scrawled%20black%20skull,%20frenetic%20brushstrokes?nologo=true" 
+                         alt="Untitled (Skull)" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute bottom-0 left-0 bg-basquiat-black text-white px-3 py-1 font-display text-sm">1982</div>
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <h3 class="text-xl font-bold mb-2">Untitled (Skull)</h3>
+                    <p class="text-sm text-stone-500 mb-4">壓克力、油畫棒於畫布</p>
+                    <p class="text-stone-600 dark:text-stone-300 text-sm flex-1">
+                        狂亂筆觸呈現「活著的骷髏」，模糊生與死界限。2017 年以 1.105 億美元成交，刷新美國藝術家紀錄。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Work 2 -->
+            <div class="flex flex-col bg-white dark:bg-stone-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                <div class="h-64 overflow-hidden relative group">
+                    <img src="https://image.pollinations.ai/prompt/Basquiat%20painting%20Irony%20of%20Negro%20Policeman,%20primitive%20figure,%20top%20hat,%20text%20integration,%20yellow%20background?nologo=true" 
+                         alt="Irony of Negro Policeman" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute bottom-0 left-0 bg-basquiat-black text-white px-3 py-1 font-display text-sm">1981</div>
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <h3 class="text-xl font-bold mb-2">Irony of Negro Policeman</h3>
+                    <p class="text-sm text-stone-500 mb-4">混合媒材</p>
+                    <p class="text-stone-600 dark:text-stone-300 text-sm flex-1">
+                        描繪身穿制服的黑人警察，批判黑人警察為壓迫黑人的白人至上主義制度服務的矛盾性。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Work 3 -->
+            <div class="flex flex-col bg-white dark:bg-stone-900 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300">
+                <div class="h-64 overflow-hidden relative group">
+                    <img src="https://image.pollinations.ai/prompt/Basquiat%20painting%20Hollywood%20Africans,%20yellow%20canvas,%20three%20figures,%20text%20sugar%20cane%20tobacco,%20graffiti%20style?nologo=true" 
+                         alt="Hollywood Africans" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                    <div class="absolute bottom-0 left-0 bg-basquiat-black text-white px-3 py-1 font-display text-sm">1983</div>
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <h3 class="text-xl font-bold mb-2">Hollywood Africans</h3>
+                    <p class="text-sm text-stone-500 mb-4">壓克力、油畫棒</p>
+                    <p class="text-stone-600 dark:text-stone-300 text-sm flex-1">
+                        描繪自己與朋友，畫布上散落「SUGAR CANE」、「TOBACCO」等詞彙，批判娛樂產業對黑人文化的刻板印象與商品化。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Data Visualization -->
+    <section id="market" class="py-24 bg-stone-900 text-stone-100 relative">
+        <div class="absolute inset-0 opacity-10" style="background-image: repeating-linear-gradient(45deg, #444 0, #444 1px, transparent 0, transparent 50%); background-size: 10px 10px;"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                <div class="lg:col-span-1">
+                    <h2 class="text-4xl font-display font-bold mb-6 text-basquiat-yellow">市場神話</h2>
+                    <p class="text-stone-400 mb-6">
+                        儘管巴斯奇亞生前批判藝術的商品化，其作品卻在21世紀屢創天價。1982年創作的作品尤為珍貴。
+                    </p>
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="text-5xl font-bold text-white">$110.5M</div>
+                        <div class="text-sm text-stone-400">最高拍賣紀錄<br>Untitled (1982)</div>
+                    </div>
+                    <ul class="space-y-4 text-sm text-stone-400">
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-gavel text-basquiat-red"></i> 2017年蘇富比刷新美國藝術家紀錄
+                        </li>
+                        <li class="flex items-center gap-2">
+                            <i class="fas fa-chart-line text-basquiat-red"></i> 85-90% 作品由私人收藏
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="lg:col-span-2">
+                    <div class="bg-stone-800 p-6 rounded-lg border border-stone-700 shadow-2xl">
+                        <h3 class="text-lg font-bold mb-4 text-stone-200">全球拍賣最高成交紀錄 (百萬美元)</h3>
+                        <!-- ECharts Container -->
+                        <div id="auctionChart" class="w-full h-96"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exhibitions List -->
+    <section id="exhibitions" class="py-24 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-4xl font-display font-bold mb-12 text-center">即將展出 (2025-2026)</h2>
+        
+        <div class="space-y-6">
+            <!-- Exhibition Item 1 -->
+            <div class="group relative bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 p-6 rounded-lg hover:border-basquiat-yellow transition-all duration-300">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                        <div class="text-sm font-bold text-basquiat-red mb-1 uppercase tracking-widest">Seoul, Korea</div>
+                        <h3 class="text-2xl font-bold mb-2 group-hover:text-basquiat-blue transition-colors">Signs: Connecting Past and Future</h3>
+                        <p class="text-stone-500 text-sm">DDP Museum (東大門設計廣場)</p>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-lg font-display font-bold">2025.09 - 2026.01</div>
+                        <span class="inline-block mt-2 px-3 py-1 bg-stone-100 dark:bg-stone-800 text-xs rounded-full">最大規模回顧展</span>
+                    </div>
+                </div>
+                <div class="mt-4 pt-4 border-t border-stone-100 dark:border-stone-800 text-stone-600 dark:text-stone-400 text-sm">
+                    展出超過70幅繪畫及珍貴筆記本，探討其與亞洲文化的隱祕聯繫及符號學意義。
+                </div>
+            </div>
+
+            <!-- Exhibition Item 2 -->
+            <div class="group relative bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 p-6 rounded-lg hover:border-basquiat-yellow transition-all duration-300">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                        <div class="text-sm font-bold text-basquiat-red mb-1 uppercase tracking-widest">Denmark</div>
+                        <h3 class="text-2xl font-bold mb-2 group-hover:text-basquiat-blue transition-colors">Headstrong – Basquiat on Paper</h3>
+                        <p class="text-stone-500 text-sm">Louisiana Museum of Modern Art</p>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-lg font-display font-bold">2026.01 - 2026.05</div>
+                        <span class="inline-block mt-2 px-3 py-1 bg-stone-100 dark:bg-stone-800 text-xs rounded-full">學術回顧</span>
+                    </div>
+                </div>
+                <div class="mt-4 pt-4 border-t border-stone-100 dark:border-stone-800 text-stone-600 dark:text-stone-400 text-sm">
+                    專注於「頭部」素描的深入研究，揭示其心理肖像的深度與解剖學視角的演變。
+                </div>
+            </div>
+
+            <!-- Exhibition Item 3 -->
+            <div class="group relative bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-800 p-6 rounded-lg hover:border-basquiat-yellow transition-all duration-300">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                    <div>
+                        <div class="text-sm font-bold text-basquiat-red mb-1 uppercase tracking-widest">Washington D.C.</div>
+                        <h3 class="text-2xl font-bold mb-2 group-hover:text-basquiat-blue transition-colors">Basquiat x Banksy</h3>
+                        <p class="text-stone-500 text-sm">Hirshhorn Museum</p>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-lg font-display font-bold">至 2026.01.19</div>
+                        <span class="inline-block mt-2 px-3 py-1 bg-stone-100 dark:bg-stone-800 text-xs rounded-full">跨時空對話</span>
+                    </div>
+                </div>
+                <div class="mt-4 pt-4 border-t border-stone-100 dark:border-stone-800 text-stone-600 dark:text-stone-400 text-sm">
+                    探討兩位不同時代街頭之王在社會抗爭語義上的傳承與對抗。
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-stone-900 border-t border-stone-800 text-stone-400 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-center md:text-left">
+                <div class="text-2xl font-display font-bold text-white mb-2">BASQUIAT</div>
+                <p class="text-sm">© 2026 Dunk. 版權所有。</p>
+                <p class="text-sm mt-1">網頁設計：Dunk</p>
+            </div>
+            
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-white transition-colors"><i class="fab fa-instagram text-xl"></i></a>
+                <a href="#" class="hover:text-white transition-colors"><i class="fab fa-twitter text-xl"></i></a>
+                <a href="#" class="hover:text-white transition-colors"><i class="fas fa-envelope text-xl"></i></a>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pt-8 border-t border-stone-800 text-xs text-stone-500 text-center">
+            <p>免責申明：基於公開資料，僅供參考，不構成建議 | 資料來源：網頁公開資訊</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Dark Mode Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        // Check system preference on load
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            if (html.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+                initCharts('dark');
+            } else {
+                localStorage.theme = 'light';
+                initCharts('light');
+            }
+            // Re-init Mermaid
+            mermaid.init(undefined, document.querySelectorAll('.mermaid'));
+        });
+
+        // Initialize Mermaid
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: html.classList.contains('dark') ? 'dark' : 'neutral',
+            fontFamily: '"Noto Sans TC", sans-serif',
+            securityLevel: 'loose',
+        });
+
+        // ECharts Initialization
+        let auctionChart = null;
+
+        function initCharts(theme) {
+            const chartDom = document.getElementById('auctionChart');
+            if (!chartDom) return;
+
+            if (auctionChart) {
+                auctionChart.dispose();
+            }
+
+            const isDark = theme === 'dark' || (theme === undefined && html.classList.contains('dark'));
+            const textColor = isDark ? '#e5e5e5' : '#333333';
+            const gridColor = isDark ? '#444444' : '#eeeeee';
+
+            auctionChart = echarts.init(chartDom, isDark ? 'dark' : null);
+            
+            const option = {
+                backgroundColor: 'transparent',
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: { type: 'shadow' }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'value',
+                    axisLabel: {
+                        formatter: '${value}M',
+                        color: textColor
+                    },
+                    splitLine: {
+                        lineStyle: { color: gridColor }
+                    }
+                },
+                yAxis: {
+                    type: 'category',
+                    data: ['Untitled (Skull)', 'In This Case', 'Untitled (Devil)', 'El Gran Espectaculo', 'Versus Medici'],
+                    axisLabel: {
+                        color: textColor,
+                        width: 100,
+                        overflow: 'break'
+                    }
+                },
+                series: [
+                    {
+                        name: '成交價格',
+                        type: 'bar',
+                        data: [110.5, 93.1, 85.0, 67.1, 50.8],
+                        itemStyle: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+                                { offset: 0, color: '#e63946' }, // Basquiat Red
+                                { offset: 1, color: '#fce300' }  // Basquiat Yellow
+                            ])
+                        },
+                        label: {
+                            show: true,
+                            position: 'right',
+                            formatter: '${c} M',
+                            color: textColor
+                        }
+                    }
+                ]
+            };
+
+            auctionChart.setOption(option);
+        }
+
+        // Init charts on load
+        window.addEventListener('load', () => initCharts());
+        
+        // Resize charts
+        window.addEventListener('resize', () => {
+            if (auctionChart) auctionChart.resize();
+        });
+
+    </script>
+</body>
+</html>
