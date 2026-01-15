@@ -1,0 +1,429 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026永續新現實：四個讓你意想不到的衝擊性轉變 | ESG報告</title>
+    <meta name="description" content="2026永續金融主題報告，揭示核武器、電動車、智慧回收與生態危機的四大轉變。">
+    <meta name="author" content="Dunk">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {            
+            theme: {
+                extend: {
+                    colors: {
+                        esg: {
+                            forest: '#2d5016', // 主色
+                            dark: '#1a4d3a',   // 墨綠
+                            text: '#333333',   // 深炭灰
+                            blue: '#0066cc',   // 專業藍
+                            light: '#e8f5e8',  // 輔助淺綠
+                            accent: '#ff6b35', // 強調橙色
+                            gray: '#f8f9fa',   // 背景灰白
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Noto Serif TC"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+
+    <style>
+        /* Custom Styles */
+        body {
+            font-feature-settings: "palt";
+        }
+        .text-justify-inter {
+            text-align: justify;
+            text-justify: inter-ideograph;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .dark .glass-panel {
+            background: rgba(30, 41, 59, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .esg-header-text {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        /* Chart container heights */
+        .chart-container {
+            height: 350px;
+            width: 100%;
+        }
+    </style>
+<script src="https://felo.ai/js/iframe.js?v=1768518290565"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style></head>
+<body class="bg-[#f8f9fa] text-[#333333] dark:bg-slate-900 dark:text-gray-100 font-sans transition-colors duration-300"><body class="bg-[#f8f9fa] text-[#333333] dark:bg-slate-900 dark:text-gray-100 font-sans transition-colors duration-300" contenteditable="false" spellcheck="false">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-gray-200 dark:border-slate-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <i class="fa-solid fa-leaf text-esg-forest dark:text-green-400 text-xl"></i>
+                    <span class="font-serif font-bold text-xl tracking-wide text-esg-forest dark:text-white">ESG FOCUS 2026</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors focus:outline-none">
+                        <i class="fas fa-moon text-gray-600 dark:text-yellow-400 text-lg"></i>
+                    </button>
+                    <a href="#report-start" class="hidden md:inline-block px-4 py-2 bg-esg-forest hover:bg-esg-dark text-white rounded-md text-sm font-medium transition-colors">
+                        閱讀報告
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative w-full h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-esg-forest">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://image.pollinations.ai/prompt/futuristic%20sustainable%20city%20blending%20nature%20and%20technology,%20forest%20skyscrapers,%20wind%20turbines,%20clean%20energy,%20cinematic%20lighting,%20deep%20green%20atmosphere,%20photorealistic,%208k?nologo=true" alt="2026 Sustainable Future City" class="w-full h-full object-cover opacity-60 mix-blend-overlay">
+            <div class="absolute inset-0 bg-gradient-to-b from-esg-forest/80 via-esg-forest/60 to-esg-forest/95"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-10 max-w-5xl mx-auto px-6 text-center text-white">
+            <span class="inline-block py-1 px-3 rounded-full bg-esg-accent/20 border border-esg-accent text-esg-accent text-sm font-bold tracking-wider mb-6 backdrop-blur-sm animate-fade-in-up">
+                2026 特別報告
+            </span>
+            <h1 class="font-serif text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 esg-header-text animate-fade-in-up delay-100">
+                2026永續新現實：<br>四個讓你意想不到的衝擊性轉變
+            </h1>
+            <p class="text-lg md:text-2xl text-gray-200 max-w-3xl mx-auto font-light mb-10 animate-fade-in-up delay-200">
+                從核武綠能化、中國電動車霸權、智慧垃圾桶革命到企鵝生態危機，這是一場重塑全球金融與環境的深刻變局。
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in-up delay-300">
+                <a href="#intro" class="px-8 py-3 bg-esg-accent hover:bg-orange-600 text-white font-bold rounded-lg transition-transform transform hover:scale-105 shadow-lg flex items-center justify-center gap-2">
+                    開始探索 <i class="fa-solid fa-arrow-down"></i>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Decoration -->
+        <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-[#f8f9fa] dark:from-slate-900 to-transparent z-20"></div>
+    </header>
+
+    <!-- Intro Section -->
+    <section id="intro" class="py-20 px-6 max-w-4xl mx-auto">
+        <div class="prose prose-lg dark:prose-invert max-w-none text-justify-inter">
+            <div class="border-l-4 border-esg-forest dark:border-green-500 pl-6 py-2 mb-8 bg-esg-light dark:bg-green-900/20 rounded-r-lg">
+                <p class="text-xl font-serif text-esg-forest dark:text-green-300 font-medium italic m-0">
+                    「就在我們看不見的角落，一些最深刻、甚至令人驚訝的變革正在發生...」
+                </p>
+            </div>
+            <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-lg">
+                「永續」與「ESG」無疑是當代最熱門的詞彙,它們充斥在新聞報導與企業報告中。然而,對許多人來說,這些概念似乎仍有些遙遠,甚至已被簡化為企業的樣板術語。但就在我們看不見的角落,一些最深刻、甚至令人驚訝的變革正在發生,它們正以前所未有的方式,重新定義能源、科技、金融乃至我們與生態的關係。本文將揭示四個來自2026年初、最令人意想不到的永續發展真相,它們的衝擊性,或許會讓你對未來有全新的看法。
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content: The 4 Shifts -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 space-y-24">
+
+        <!-- Topic 1: Nuclear -->
+        <article class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="order-2 lg:order-1 space-y-6">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="flex items-center justify-center w-10 h-10 rounded-full bg-esg-forest text-white font-bold">1</span>
+                    <h2 class="text-2xl md:text-3xl font-serif font-bold text-gray-800 dark:text-white">綠色金融的震撼彈: 核武器竟成ESG合規投資?</h2>
+                </div>
+                <div class="glass-panel p-6 rounded-xl shadow-sm bg-white dark:bg-slate-800 border-l-4 border-esg-accent">
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-justify-inter">
+                        這聽起來像是一則諷刺新聞,但卻是千真萬確的現實。繼2025年底一項具爭議的政策轉變後,歐盟於12月30日發布新指南,正式將核武器重新分類為其永續金融框架下的可接受投資。這項決策徹底挑戰了公眾對於「永續」的普遍認知,將一個代表毀滅性力量的產業,貼上了綠色金融的標籤。此政策的背後,反映了在地緣政治局勢緊張下,各國在國防安全需求與永續投資標準之間的複雜權衡。這個反直覺的舉動帶來兩個立即且深遠的後果:它不僅可能引導數十億受ESG規範的資金流入國防工業,同時也點燃了一場關於「永續」定義的全球性倫理風暴。
+                    </p>
+                </div>
+            </div>
+            <div class="order-1 lg:order-2">
+                <div class="rounded-2xl overflow-hidden shadow-xl bg-white dark:bg-slate-800 p-4 border border-gray-100 dark:border-slate-700">
+                    <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wide mb-4 text-center">2026 ESG 投資流向預測 (模擬數據)</h3>
+                    <!-- Chart Container -->
+                    <div id="chart-nuclear" class="chart-container" _echarts_instance_="ec_1768518323541" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" data-chart-option="{&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;color&quot;:[&quot;#1a4d3a&quot;,&quot;#ff6b35&quot;,&quot;#94a3b8&quot;],&quot;darkMode&quot;:&quot;auto&quot;,&quot;colorBy&quot;:&quot;series&quot;,&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;textStyle&quot;:{&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;axisPointer&quot;:[{&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9BEC9&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;label&quot;:{&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;color&quot;:&quot;#fff&quot;,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[{&quot;trigger&quot;:&quot;item&quot;,&quot;z&quot;:60,&quot;show&quot;:true,&quot;showContent&quot;:true,&quot;triggerOn&quot;:&quot;mousemove|click&quot;,&quot;alwaysShowContent&quot;:false,&quot;displayMode&quot;:&quot;single&quot;,&quot;renderMode&quot;:&quot;auto&quot;,&quot;confine&quot;:null,&quot;showDelay&quot;:0,&quot;hideDelay&quot;:100,&quot;transitionDuration&quot;:0.4,&quot;enterable&quot;:false,&quot;backgroundColor&quot;:&quot;#fff&quot;,&quot;shadowBlur&quot;:10,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, .2)&quot;,&quot;shadowOffsetX&quot;:1,&quot;shadowOffsetY&quot;:2,&quot;borderRadius&quot;:4,&quot;borderWidth&quot;:1,&quot;padding&quot;:null,&quot;extraCssText&quot;:&quot;&quot;,&quot;axisPointer&quot;:{&quot;type&quot;:&quot;line&quot;,&quot;axis&quot;:&quot;auto&quot;,&quot;animation&quot;:&quot;auto&quot;,&quot;animationDurationUpdate&quot;:200,&quot;animationEasingUpdate&quot;:&quot;exponentialOut&quot;,&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#999&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;,&quot;textStyle&quot;:{}}},&quot;textStyle&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;fontSize&quot;:14}}],&quot;series&quot;:[{&quot;name&quot;:&quot;資金流向&quot;,&quot;type&quot;:&quot;pie&quot;,&quot;radius&quot;:[&quot;40%&quot;,&quot;70%&quot;],&quot;avoidLabelOverlap&quot;:false,&quot;itemStyle&quot;:{&quot;borderRadius&quot;:10,&quot;borderColor&quot;:&quot;#fff&quot;,&quot;borderWidth&quot;:2,&quot;borderJoin&quot;:&quot;round&quot;},&quot;label&quot;:{&quot;show&quot;:false,&quot;position&quot;:&quot;center&quot;,&quot;rotate&quot;:0,&quot;overflow&quot;:&quot;truncate&quot;,&quot;alignTo&quot;:&quot;none&quot;,&quot;edgeDistance&quot;:&quot;25%&quot;,&quot;bleedMargin&quot;:10,&quot;distanceToLabelLine&quot;:5},&quot;emphasis&quot;:{&quot;label&quot;:{&quot;show&quot;:true,&quot;fontSize&quot;:18,&quot;fontWeight&quot;:&quot;bold&quot;,&quot;color&quot;:&quot;#333&quot;},&quot;scale&quot;:true,&quot;scaleSize&quot;:5,&quot;labelLine&quot;:{&quot;show&quot;:false}},&quot;labelLine&quot;:{&quot;show&quot;:false,&quot;length&quot;:15,&quot;length2&quot;:15,&quot;smooth&quot;:false,&quot;minTurnAngle&quot;:90,&quot;maxSurfaceAngle&quot;:90,&quot;lineStyle&quot;:{&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;}},&quot;data&quot;:[{&quot;value&quot;:45,&quot;name&quot;:&quot;國防工業 (新增ESG)&quot;},{&quot;value&quot;:35,&quot;name&quot;:&quot;傳統再生能源&quot;},{&quot;value&quot;:20,&quot;name&quot;:&quot;其他永續項目&quot;}],&quot;z&quot;:2,&quot;legendHoverLink&quot;:true,&quot;colorBy&quot;:&quot;data&quot;,&quot;center&quot;:[&quot;50%&quot;,&quot;50%&quot;],&quot;clockwise&quot;:true,&quot;startAngle&quot;:90,&quot;minAngle&quot;:0,&quot;minShowLabelAngle&quot;:0,&quot;selectedOffset&quot;:10,&quot;percentPrecision&quot;:2,&quot;stillShowZeroSum&quot;:true,&quot;left&quot;:0,&quot;top&quot;:0,&quot;right&quot;:0,&quot;bottom&quot;:0,&quot;width&quot;:null,&quot;height&quot;:null,&quot;showEmptyCircle&quot;:true,&quot;emptyCircleStyle&quot;:{&quot;color&quot;:&quot;lightgray&quot;,&quot;opacity&quot;:1},&quot;labelLayout&quot;:{&quot;hideOverlap&quot;:true},&quot;animationType&quot;:&quot;expansion&quot;,&quot;animationDuration&quot;:1000,&quot;animationTypeUpdate&quot;:&quot;transition&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;}],&quot;visualMap&quot;:[],&quot;legend&quot;:[{&quot;bottom&quot;:&quot;0%&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#333&quot;},&quot;z&quot;:4,&quot;show&quot;:true,&quot;orient&quot;:&quot;horizontal&quot;,&quot;left&quot;:&quot;center&quot;,&quot;top&quot;:null,&quot;align&quot;:&quot;auto&quot;,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderColor&quot;:&quot;#ccc&quot;,&quot;borderRadius&quot;:0,&quot;borderWidth&quot;:0,&quot;padding&quot;:5,&quot;itemGap&quot;:10,&quot;itemWidth&quot;:25,&quot;itemHeight&quot;:14,&quot;symbolRotate&quot;:&quot;inherit&quot;,&quot;symbolKeepAspect&quot;:true,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderWidth&quot;:&quot;auto&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;inherit&quot;,&quot;opacity&quot;:&quot;inherit&quot;,&quot;borderColor&quot;:&quot;inherit&quot;,&quot;borderWidth&quot;:&quot;auto&quot;,&quot;borderCap&quot;:&quot;inherit&quot;,&quot;borderJoin&quot;:&quot;inherit&quot;,&quot;borderDashOffset&quot;:&quot;inherit&quot;,&quot;borderMiterLimit&quot;:&quot;inherit&quot;},&quot;lineStyle&quot;:{&quot;width&quot;:&quot;auto&quot;,&quot;color&quot;:&quot;inherit&quot;,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveWidth&quot;:2,&quot;opacity&quot;:&quot;inherit&quot;,&quot;type&quot;:&quot;inherit&quot;,&quot;cap&quot;:&quot;inherit&quot;,&quot;join&quot;:&quot;inherit&quot;,&quot;dashOffset&quot;:&quot;inherit&quot;,&quot;miterLimit&quot;:&quot;inherit&quot;},&quot;selectedMode&quot;:true,&quot;selector&quot;:false,&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;borderRadius&quot;:10,&quot;padding&quot;:[3,5,3,5],&quot;fontSize&quot;:12,&quot;fontFamily&quot;:&quot;sans-serif&quot;,&quot;color&quot;:&quot;#666&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#666&quot;},&quot;emphasis&quot;:{&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;color&quot;:&quot;#eee&quot;,&quot;backgroundColor&quot;:&quot;#666&quot;}},&quot;selectorPosition&quot;:&quot;auto&quot;,&quot;selectorItemGap&quot;:7,&quot;selectorButtonGap&quot;:10,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;selected&quot;:{}}],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 550px; height: 350px; padding: 0px; margin: 0px; border-width: 0px;"><canvas data-zr-dom-id="zr_0" width="687" height="437" style="position: absolute; left: 0px; top: 0px; width: 550px; height: 350px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class=""></div></div>
+                    <p class="text-xs text-center text-gray-400 mt-2">*此圖表為視覺化模擬，反映政策變動後的潛在資金流向</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Topic 2: EV -->
+        <article class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="order-1">
+                <div class="rounded-2xl overflow-hidden shadow-xl bg-white dark:bg-slate-800 p-4 border border-gray-100 dark:border-slate-700">
+                    <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wide mb-4 text-center">全球電動車市場份額趨勢 (2020-2026)</h3>
+                    <!-- Chart Container -->
+                    <div id="chart-ev" class="chart-container" _echarts_instance_="ec_1768518323542" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" data-chart-option="{&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;darkMode&quot;:&quot;auto&quot;,&quot;colorBy&quot;:&quot;series&quot;,&quot;color&quot;:[&quot;#5470c6&quot;,&quot;#91cc75&quot;,&quot;#fac858&quot;,&quot;#ee6666&quot;,&quot;#73c0de&quot;,&quot;#3ba272&quot;,&quot;#fc8452&quot;,&quot;#9a60b4&quot;,&quot;#ea7ccc&quot;],&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;textStyle&quot;:{&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;axisPointer&quot;:[{&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9BEC9&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;label&quot;:{&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;color&quot;:&quot;#fff&quot;,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[{&quot;trigger&quot;:&quot;axis&quot;,&quot;z&quot;:60,&quot;show&quot;:true,&quot;showContent&quot;:true,&quot;triggerOn&quot;:&quot;mousemove|click&quot;,&quot;alwaysShowContent&quot;:false,&quot;displayMode&quot;:&quot;single&quot;,&quot;renderMode&quot;:&quot;auto&quot;,&quot;confine&quot;:null,&quot;showDelay&quot;:0,&quot;hideDelay&quot;:100,&quot;transitionDuration&quot;:0.4,&quot;enterable&quot;:false,&quot;backgroundColor&quot;:&quot;#fff&quot;,&quot;shadowBlur&quot;:10,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, .2)&quot;,&quot;shadowOffsetX&quot;:1,&quot;shadowOffsetY&quot;:2,&quot;borderRadius&quot;:4,&quot;borderWidth&quot;:1,&quot;padding&quot;:null,&quot;extraCssText&quot;:&quot;&quot;,&quot;axisPointer&quot;:{&quot;type&quot;:&quot;line&quot;,&quot;axis&quot;:&quot;auto&quot;,&quot;animation&quot;:&quot;auto&quot;,&quot;animationDurationUpdate&quot;:200,&quot;animationEasingUpdate&quot;:&quot;exponentialOut&quot;,&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#999&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;,&quot;textStyle&quot;:{}}},&quot;textStyle&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;fontSize&quot;:14}}],&quot;yAxis&quot;:[{&quot;type&quot;:&quot;value&quot;,&quot;name&quot;:&quot;市場份額(%)&quot;,&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;type&quot;:&quot;dashed&quot;,&quot;color&quot;:&quot;#e5e7eb&quot;,&quot;width&quot;:1},&quot;show&quot;:true},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;boundaryGap&quot;:[0,0],&quot;axisLine&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#6E7079&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;axisTick&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;splitNumber&quot;:5,&quot;minorTick&quot;:{&quot;show&quot;:false,&quot;splitNumber&quot;:5,&quot;length&quot;:3,&quot;lineStyle&quot;:{}},&quot;minorSplitLine&quot;:{&quot;show&quot;:false,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#F4F7FD&quot;,&quot;width&quot;:1}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{},&quot;splitArea&quot;:{&quot;show&quot;:false,&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(250,250,250,0.2)&quot;,&quot;rgba(210,219,238,0.2)&quot;]}},&quot;offset&quot;:0}],&quot;xAxis&quot;:[{&quot;type&quot;:&quot;category&quot;,&quot;boundaryGap&quot;:false,&quot;data&quot;:[&quot;2020&quot;,&quot;2021&quot;,&quot;2022&quot;,&quot;2023&quot;,&quot;2024&quot;,&quot;2025&quot;,&quot;2026&quot;],&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;deduplication&quot;:null,&quot;splitLine&quot;:{&quot;show&quot;:false,&quot;lineStyle&quot;:{&quot;color&quot;:[&quot;#E0E6F1&quot;],&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;}},&quot;axisTick&quot;:{&quot;alignWithLabel&quot;:false,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{&quot;status&quot;:&quot;hide&quot;,&quot;value&quot;:6},&quot;axisLine&quot;:{&quot;show&quot;:true,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#6E7079&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;splitArea&quot;:{&quot;show&quot;:false,&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(250,250,250,0.2)&quot;,&quot;rgba(210,219,238,0.2)&quot;]}},&quot;offset&quot;:0}],&quot;grid&quot;:[{&quot;left&quot;:&quot;3%&quot;,&quot;right&quot;:&quot;4%&quot;,&quot;bottom&quot;:&quot;10%&quot;,&quot;containLabel&quot;:true,&quot;show&quot;:false,&quot;z&quot;:0,&quot;top&quot;:60,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#ccc&quot;}],&quot;series&quot;:[{&quot;name&quot;:&quot;中國品牌&quot;,&quot;type&quot;:&quot;line&quot;,&quot;stack&quot;:&quot;Total&quot;,&quot;smooth&quot;:true,&quot;lineStyle&quot;:{&quot;width&quot;:3,&quot;color&quot;:&quot;#ff6b35&quot;,&quot;type&quot;:&quot;solid&quot;},&quot;areaStyle&quot;:{&quot;opacity&quot;:0.1,&quot;color&quot;:&quot;#ff6b35&quot;},&quot;data&quot;:[15,22,30,42,55,62,68],&quot;z&quot;:3,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;clip&quot;:true,&quot;label&quot;:{&quot;position&quot;:&quot;top&quot;},&quot;endLabel&quot;:{&quot;show&quot;:false,&quot;valueAnimation&quot;:true,&quot;distance&quot;:8},&quot;emphasis&quot;:{&quot;scale&quot;:true,&quot;label&quot;:{}},&quot;step&quot;:false,&quot;smoothMonotone&quot;:null,&quot;symbol&quot;:&quot;emptyCircle&quot;,&quot;symbolSize&quot;:4,&quot;symbolRotate&quot;:null,&quot;showSymbol&quot;:true,&quot;showAllSymbol&quot;:&quot;auto&quot;,&quot;connectNulls&quot;:false,&quot;sampling&quot;:&quot;none&quot;,&quot;animationEasing&quot;:&quot;linear&quot;,&quot;progressive&quot;:0,&quot;hoverLayerThreshold&quot;:null,&quot;universalTransition&quot;:{&quot;divideShape&quot;:&quot;clone&quot;},&quot;triggerLineEvent&quot;:false},{&quot;name&quot;:&quot;特斯拉&quot;,&quot;type&quot;:&quot;line&quot;,&quot;stack&quot;:&quot;Total&quot;,&quot;smooth&quot;:true,&quot;lineStyle&quot;:{&quot;width&quot;:2,&quot;color&quot;:&quot;#2d5016&quot;,&quot;type&quot;:&quot;solid&quot;},&quot;data&quot;:[18,20,21,19,18,17,15],&quot;z&quot;:3,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;clip&quot;:true,&quot;label&quot;:{&quot;position&quot;:&quot;top&quot;},&quot;endLabel&quot;:{&quot;show&quot;:false,&quot;valueAnimation&quot;:true,&quot;distance&quot;:8},&quot;emphasis&quot;:{&quot;scale&quot;:true,&quot;label&quot;:{}},&quot;step&quot;:false,&quot;smoothMonotone&quot;:null,&quot;symbol&quot;:&quot;emptyCircle&quot;,&quot;symbolSize&quot;:4,&quot;symbolRotate&quot;:null,&quot;showSymbol&quot;:true,&quot;showAllSymbol&quot;:&quot;auto&quot;,&quot;connectNulls&quot;:false,&quot;sampling&quot;:&quot;none&quot;,&quot;animationEasing&quot;:&quot;linear&quot;,&quot;progressive&quot;:0,&quot;hoverLayerThreshold&quot;:null,&quot;universalTransition&quot;:{&quot;divideShape&quot;:&quot;clone&quot;},&quot;triggerLineEvent&quot;:false},{&quot;name&quot;:&quot;傳統車廠&quot;,&quot;type&quot;:&quot;line&quot;,&quot;stack&quot;:&quot;Total&quot;,&quot;smooth&quot;:true,&quot;lineStyle&quot;:{&quot;width&quot;:2,&quot;color&quot;:&quot;#94a3b8&quot;,&quot;type&quot;:&quot;solid&quot;},&quot;data&quot;:[67,58,49,39,27,21,17],&quot;z&quot;:3,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;clip&quot;:true,&quot;label&quot;:{&quot;position&quot;:&quot;top&quot;},&quot;endLabel&quot;:{&quot;show&quot;:false,&quot;valueAnimation&quot;:true,&quot;distance&quot;:8},&quot;emphasis&quot;:{&quot;scale&quot;:true,&quot;label&quot;:{}},&quot;step&quot;:false,&quot;smoothMonotone&quot;:null,&quot;symbol&quot;:&quot;emptyCircle&quot;,&quot;symbolSize&quot;:4,&quot;symbolRotate&quot;:null,&quot;showSymbol&quot;:true,&quot;showAllSymbol&quot;:&quot;auto&quot;,&quot;connectNulls&quot;:false,&quot;sampling&quot;:&quot;none&quot;,&quot;animationEasing&quot;:&quot;linear&quot;,&quot;progressive&quot;:0,&quot;hoverLayerThreshold&quot;:null,&quot;universalTransition&quot;:{&quot;divideShape&quot;:&quot;clone&quot;},&quot;triggerLineEvent&quot;:false}],&quot;visualMap&quot;:[],&quot;legend&quot;:[{&quot;data&quot;:[&quot;中國品牌&quot;,&quot;特斯拉&quot;,&quot;傳統車廠&quot;],&quot;textStyle&quot;:{&quot;color&quot;:&quot;#333&quot;},&quot;bottom&quot;:0,&quot;z&quot;:4,&quot;show&quot;:true,&quot;orient&quot;:&quot;horizontal&quot;,&quot;left&quot;:&quot;center&quot;,&quot;top&quot;:null,&quot;align&quot;:&quot;auto&quot;,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderColor&quot;:&quot;#ccc&quot;,&quot;borderRadius&quot;:0,&quot;borderWidth&quot;:0,&quot;padding&quot;:5,&quot;itemGap&quot;:10,&quot;itemWidth&quot;:25,&quot;itemHeight&quot;:14,&quot;symbolRotate&quot;:&quot;inherit&quot;,&quot;symbolKeepAspect&quot;:true,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderWidth&quot;:&quot;auto&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;inherit&quot;,&quot;opacity&quot;:&quot;inherit&quot;,&quot;borderColor&quot;:&quot;inherit&quot;,&quot;borderWidth&quot;:&quot;auto&quot;,&quot;borderCap&quot;:&quot;inherit&quot;,&quot;borderJoin&quot;:&quot;inherit&quot;,&quot;borderDashOffset&quot;:&quot;inherit&quot;,&quot;borderMiterLimit&quot;:&quot;inherit&quot;},&quot;lineStyle&quot;:{&quot;width&quot;:&quot;auto&quot;,&quot;color&quot;:&quot;inherit&quot;,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveWidth&quot;:2,&quot;opacity&quot;:&quot;inherit&quot;,&quot;type&quot;:&quot;inherit&quot;,&quot;cap&quot;:&quot;inherit&quot;,&quot;join&quot;:&quot;inherit&quot;,&quot;dashOffset&quot;:&quot;inherit&quot;,&quot;miterLimit&quot;:&quot;inherit&quot;},&quot;selectedMode&quot;:true,&quot;selector&quot;:false,&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;borderRadius&quot;:10,&quot;padding&quot;:[3,5,3,5],&quot;fontSize&quot;:12,&quot;fontFamily&quot;:&quot;sans-serif&quot;,&quot;color&quot;:&quot;#666&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#666&quot;},&quot;emphasis&quot;:{&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;color&quot;:&quot;#eee&quot;,&quot;backgroundColor&quot;:&quot;#666&quot;}},&quot;selectorPosition&quot;:&quot;auto&quot;,&quot;selectorItemGap&quot;:7,&quot;selectorButtonGap&quot;:10,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;selected&quot;:{}}],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 550px; height: 350px; padding: 0px; margin: 0px; border-width: 0px;"><canvas data-zr-dom-id="zr_0" width="687" height="437" style="position: absolute; left: 0px; top: 0px; width: 550px; height: 350px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class=""></div></div>
+                </div>
+            </div>
+            <div class="order-2 space-y-6">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="flex items-center justify-center w-10 h-10 rounded-full bg-esg-forest text-white font-bold">2</span>
+                    <h2 class="text-2xl md:text-3xl font-serif font-bold text-gray-800 dark:text-white">矽谷神話的裂痕: 馬斯克承認中國電動車取得領先</h2>
+                </div>
+                <div class="glass-panel p-6 rounded-xl shadow-sm bg-white dark:bg-slate-800 border-l-4 border-esg-blue">
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-justify-inter">
+                        長期以來,特斯拉一直是電動車革命的代名詞。然而,在2026年初,執行長伊隆·馬斯克卻公開承認,中國在電動車的競賽中已經取得領先地位。馬斯克甚至修正了他過去對比亞迪(BYD)等中國品牌不以為然的輕視態度,坦承對其崛起感到訝異。這個戲劇性的態度轉變,不僅是一家公司的成敗,更是一個時代的註腳。它象徵著全球新能源汽車產業的格局發生了根本性的轉變。在強力的政策支持、快速的技術創新與龐大的市場擴張下,中國電動車產業以驚人的速度重塑了全球競爭版圖。矽谷所創造的電動車神話,正迎來最嚴峻的挑戰者。
+                    </p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Topic 3: Trash -->
+        <article class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="order-2 lg:order-1 space-y-6">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="flex items-center justify-center w-10 h-10 rounded-full bg-esg-forest text-white font-bold">3</span>
+                    <h2 class="text-2xl md:text-3xl font-serif font-bold text-gray-800 dark:text-white">你家的垃圾桶, 可能就是下一個環保英雄</h2>
+                </div>
+                <div class="glass-panel p-6 rounded-xl shadow-sm bg-white dark:bg-slate-800 border-l-4 border-esg-forest">
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-justify-inter">
+                        當我們談論解決塑膠污染,想到的多半是淨灘或國家級的禁塑令。但在2026年的消費性電子展(CES)上,一家名為Clear Drop的公司展示了一款可能改變遊戲規則的發明:一個能將塑膠廢棄物變成「磚塊」的智慧垃圾桶。其原理極具變革性:它將那些最難回收的軟性塑膠(如塑膠袋、保鮮膜)投入其中,自動高效壓縮成密度極高、規格統一且易於運輸的固體磚塊。這項技術承諾能實現100%的軟性塑膠廢棄物從垃圾掩埋場轉移,將一種高體積、低價值的廢棄物流,轉變為密實、標準化的商品,從根本上解決了軟性塑膠回收的物流惡夢。這個例子提醒我們,改變世界的永續方案,有時並非來自宏觀政策,而是來自解決日常痛點的聰明發明。
+                    </p>
+                </div>
+            </div>
+            <div class="order-1 lg:order-2">
+                <div class="rounded-2xl overflow-hidden shadow-xl bg-white dark:bg-slate-800 p-6 border border-gray-100 dark:border-slate-700 flex flex-col items-center justify-center min-h-[400px]">
+                    <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wide mb-6 text-center">Clear Drop 智慧回收流程圖解</h3>
+                    <div class="mermaid w-full flex justify-center" data-processed="true"><svg id="mermaid-1768518328191" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="max-width: 181.52500915527344px;" viewBox="-8 -8 181.52500915527344 806.125" role="graphics-document document" aria-roledescription="flowchart-v2"><style style="pointer-events: none;">#mermaid-1768518328191{font-family:"Noto Sans TC",sans-serif;font-size:16px;fill:#333;}#mermaid-1768518328191 .error-icon{fill:#552222;}#mermaid-1768518328191 .error-text{fill:#552222;stroke:#552222;}#mermaid-1768518328191 .edge-thickness-normal{stroke-width:2px;}#mermaid-1768518328191 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-1768518328191 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-1768518328191 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-1768518328191 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-1768518328191 .marker{fill:#333333;stroke:#333333;}#mermaid-1768518328191 .marker.cross{stroke:#333333;}#mermaid-1768518328191 svg{font-family:"Noto Sans TC",sans-serif;font-size:16px;}#mermaid-1768518328191 .label{font-family:"Noto Sans TC",sans-serif;color:#333;}#mermaid-1768518328191 .cluster-label text{fill:#333;}#mermaid-1768518328191 .cluster-label span,#mermaid-1768518328191 p{color:#333;}#mermaid-1768518328191 .label text,#mermaid-1768518328191 span,#mermaid-1768518328191 p{fill:#333;color:#333;}#mermaid-1768518328191 .node rect,#mermaid-1768518328191 .node circle,#mermaid-1768518328191 .node ellipse,#mermaid-1768518328191 .node polygon,#mermaid-1768518328191 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-1768518328191 .flowchart-label text{text-anchor:middle;}#mermaid-1768518328191 .node .label{text-align:center;}#mermaid-1768518328191 .node.clickable{cursor:pointer;}#mermaid-1768518328191 .arrowheadPath{fill:#333333;}#mermaid-1768518328191 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaid-1768518328191 .flowchart-link{stroke:#333333;fill:none;}#mermaid-1768518328191 .edgeLabel{background-color:#e8e8e8;text-align:center;}#mermaid-1768518328191 .edgeLabel rect{opacity:0.5;background-color:#e8e8e8;fill:#e8e8e8;}#mermaid-1768518328191 .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#mermaid-1768518328191 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-1768518328191 .cluster text{fill:#333;}#mermaid-1768518328191 .cluster span,#mermaid-1768518328191 p{color:#333;}#mermaid-1768518328191 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"Noto Sans TC",sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-1768518328191 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-1768518328191 :root{--mermaid-font-family:"Noto Sans TC",sans-serif;}</style><g style="pointer-events: none;"><marker id="mermaid-1768518328191_flowchart-pointEnd" class="marker flowchart" viewBox="0 0 10 10" refX="6" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto" style="pointer-events: none;"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0; pointer-events: none;"></path></marker><marker id="mermaid-1768518328191_flowchart-pointStart" class="marker flowchart" viewBox="0 0 10 10" refX="4.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto" style="pointer-events: none;"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0; pointer-events: none;"></path></marker><marker id="mermaid-1768518328191_flowchart-circleEnd" class="marker flowchart" viewBox="0 0 10 10" refX="11" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto" style="pointer-events: none;"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0; pointer-events: none;"></circle></marker><marker id="mermaid-1768518328191_flowchart-circleStart" class="marker flowchart" viewBox="0 0 10 10" refX="-1" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto" style="pointer-events: none;"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0; pointer-events: none;"></circle></marker><marker id="mermaid-1768518328191_flowchart-crossEnd" class="marker cross flowchart" viewBox="0 0 11 11" refX="12" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto" style="pointer-events: none;"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0; pointer-events: none;"></path></marker><marker id="mermaid-1768518328191_flowchart-crossStart" class="marker cross flowchart" viewBox="0 0 11 11" refX="-1" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto" style="pointer-events: none;"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0; pointer-events: none;"></path></marker><g class="root" style="pointer-events: none;"><g class="clusters" style="pointer-events: none;"></g><g class="edgePaths" style="pointer-events: none;"><path d="M82.763,39L82.763,45.167C82.763,51.333,82.763,63.667,82.763,75.117C82.763,86.567,82.763,97.133,82.763,102.417L82.763,107.7" id="L-A-B-0" class=" edge-thickness-normal edge-pattern-solid flowchart-link LS-A LE-B" style="fill: none; pointer-events: none;" marker-end="url(#mermaid-1768518328191_flowchart-pointEnd)"></path><path d="M82.763,152L82.763,158.167C82.763,164.333,82.763,176.667,82.834,188.2C82.906,199.733,83.049,210.467,83.12,215.834L83.192,221.2" id="L-B-C-0" class=" edge-thickness-normal edge-pattern-solid flowchart-link LS-B LE-C" style="fill: none; pointer-events: none;" marker-end="url(#mermaid-1768518328191_flowchart-pointEnd)"></path><path d="M83.263,370.063L83.179,376.146C83.096,382.229,82.929,394.396,82.846,405.763C82.763,417.129,82.763,427.696,82.763,432.979L82.763,438.263" id="L-C-D-0" class=" edge-thickness-normal edge-pattern-solid flowchart-link LS-C LE-D" style="fill: none; pointer-events: none;" marker-end="url(#mermaid-1768518328191_flowchart-pointEnd)"></path><path d="M82.763,482.563L82.763,488.729C82.763,494.896,82.763,507.229,82.763,518.679C82.763,530.129,82.763,540.696,82.763,545.979L82.763,551.263" id="L-D-E-0" class=" edge-thickness-normal edge-pattern-solid flowchart-link LS-D LE-E" style="fill: none; pointer-events: none;" marker-end="url(#mermaid-1768518328191_flowchart-pointEnd)"></path><path d="M82.763,595.563L82.763,601.729C82.763,607.896,82.763,620.229,82.763,631.679C82.763,643.129,82.763,653.696,82.763,658.979L82.763,664.263" id="L-E-F-0" class=" edge-thickness-normal edge-pattern-solid flowchart-link LS-E LE-F" style="fill: none; pointer-events: none;" marker-end="url(#mermaid-1768518328191_flowchart-pointEnd)"></path></g><g class="edgeLabels" style="pointer-events: none;"><g class="edgeLabel" transform="translate(82.76250457763672, 76)" style="pointer-events: none;"><g class="label" transform="translate(-48, -12)" style="pointer-events: none;"><foreignObject width="96" height="24" style="pointer-events: none;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap; pointer-events: none;"><span class="edgeLabel" style="pointer-events: none;">投入軟性塑膠</span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(82.76250457763672, 189)" style="pointer-events: none;"><g class="label" transform="translate(-57.025001525878906, -12)" style="pointer-events: none;"><foreignObject width="114.05000305175781" height="24" style="pointer-events: none;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap; pointer-events: none;"><span class="edgeLabel" style="pointer-events: none;">自動識別 &amp; 加熱</span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(82.76250457763672, 406.5625)" style="pointer-events: none;"><g class="label" transform="translate(-32, -12)" style="pointer-events: none;"><foreignObject width="64" height="24" style="pointer-events: none;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap; pointer-events: none;"><span class="edgeLabel" style="pointer-events: none;">高密度化</span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(82.76250457763672, 519.5625)" style="pointer-events: none;"><g class="label" transform="translate(-40, -12)" style="pointer-events: none;"><foreignObject width="80" height="24" style="pointer-events: none;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap; pointer-events: none;"><span class="edgeLabel" style="pointer-events: none;">標準化物流</span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(82.76250457763672, 632.5625)" style="pointer-events: none;"><g class="label" transform="translate(-32, -12)" style="pointer-events: none;"><foreignObject width="64" height="24" style="pointer-events: none;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap; pointer-events: none;"><span class="edgeLabel" style="pointer-events: none;">減少掩埋</span></div></foreignObject></g></g></g><g class="nodes" style="pointer-events: none;"><g class="node default default flowchart-label" id="flowchart-A-0" transform="translate(82.76250457763672, 19.5)" style="pointer-events: none;"><rect class="basic label-container" style="fill: rgb(249, 250, 251); stroke: rgb(51, 51, 51); stroke-width: 1px; pointer-events: none;" rx="0" ry="0" x="-60.28125" y="-19.5" width="120.5625" height="39"></rect><g class="label" style="pointer-events: none;" transform="translate(-52.78125, -12)"><rect style="pointer-events: none;"></rect><foreignObject width="105.5625" height="24" style="pointer-events: none;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap; pointer-events: none;"><span class="nodeLabel" style="pointer-events: none;">🏠 家庭垃圾源</span></div></foreignObject></g></g><g class="node default default flowchart-label" id="flowchart-B-1" transform="translate(82.76250457763672, 132.5)" style="pointer-events: none;"><rect class="basic label-container" style="fill: rgb(232, 245, 232); stroke: rgb(45, 80, 22); stroke-width: 2px; pointer-events: none;" rx="5" ry="5" x="-60.28125" y="-19.5" width="120.5625" height="39"></rect><g class="label" style="pointer-events: none;" transform="translate(-52.78125, -12)"><rect style="pointer-events: none;"></rect><foreignObject width="105.5625" height="24" style="pointer-events: none;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap; pointer-events: none;"><span class="nodeLabel" style="pointer-events: none;">🗑️ 智慧垃圾桶</span></div></foreignObject></g></g><g class="node default default flowchart-label" id="flowchart-C-3" transform="translate(82.76250457763672, 297.78125)" style="pointer-events: none;"><polygon points="71.78125,0 143.5625,-71.78125 71.78125,-143.5625 0,-71.78125" class="label-container" transform="translate(-71.78125,71.78125)" style="pointer-events: none;"></polygon><g class="label" style="pointer-events: none;" transform="translate(-44.78125, -12)"><rect style="pointer-events: none;"></rect><foreignObject width="89.5625" height="24" style="pointer-events: none;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap; pointer-events: none;"><span class="nodeLabel" style="pointer-events: none;">⚙️ 壓縮處理</span></div></foreignObject></g></g><g class="node default default flowchart-label" id="flowchart-D-5" transform="translate(82.76250457763672, 463.0625)" style="pointer-events: none;"><rect class="basic label-container" style="fill: rgb(255, 107, 53); stroke: rgb(255, 255, 255); pointer-events: none;" rx="0" ry="0" x="-76.28125" y="-19.5" width="152.5625" height="39"></rect><g class="label" style="color: rgb(255, 255, 255); pointer-events: none;" transform="translate(-68.78125, -12)"><rect style="pointer-events: none;"></rect><foreignObject width="137.5625" height="24" style="pointer-events: none;"><div style="color: rgb(255, 255, 255); display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="color: rgb(255, 255, 255); pointer-events: none;">🧱 統一規格塑膠磚</span></div></foreignObject></g></g><g class="node default default flowchart-label" id="flowchart-E-7" transform="translate(82.76250457763672, 576.0625)" style="pointer-events: none;"><rect class="basic label-container" style="pointer-events: none;" rx="0" ry="0" x="-82.76250457763672" y="-19.5" width="165.52500915527344" height="39"></rect><g class="label" style="pointer-events: none;" transform="translate(-75.26250457763672, -12)"><rect style="pointer-events: none;"></rect><foreignObject width="150.52500915527344" height="24" style="pointer-events: none;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap; pointer-events: none;"><span class="nodeLabel" style="pointer-events: none;">🚚 100% 回收再利用</span></div></foreignObject></g></g><g class="node default default flowchart-label" id="flowchart-F-9" transform="translate(82.76250457763672, 729.84375)" style="pointer-events: none;"><circle style="fill: rgb(45, 80, 22); stroke: rgb(255, 255, 255); pointer-events: none;" rx="0" ry="0" r="60.28125" width="120.5625" height="39"></circle><g class="label" style="color: rgb(255, 255, 255); pointer-events: none;" transform="translate(-52.78125, -12)"><rect style="pointer-events: none;"></rect><foreignObject width="105.5625" height="24" style="pointer-events: none;"><div style="color: rgb(255, 255, 255); display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="color: rgb(255, 255, 255); pointer-events: none;">🌿 零廢棄目標</span></div></foreignObject></g></g></g></g></g></svg></div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Topic 4: Penguins -->
+        <article class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="order-1">
+                <div class="rounded-2xl overflow-hidden shadow-xl bg-white dark:bg-slate-800 p-4 border border-gray-100 dark:border-slate-700">
+                    <h3 class="text-sm font-bold text-gray-500 uppercase tracking-wide mb-4 text-center">南非企鵝族群數量 vs 工業化捕撈強度</h3>
+                    <!-- Chart Container -->
+                    <div id="chart-penguin" class="chart-container" _echarts_instance_="ec_1768518323543" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" data-chart-option="{&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;darkMode&quot;:&quot;auto&quot;,&quot;colorBy&quot;:&quot;series&quot;,&quot;color&quot;:[&quot;#5470c6&quot;,&quot;#91cc75&quot;,&quot;#fac858&quot;,&quot;#ee6666&quot;,&quot;#73c0de&quot;,&quot;#3ba272&quot;,&quot;#fc8452&quot;,&quot;#9a60b4&quot;,&quot;#ea7ccc&quot;],&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;textStyle&quot;:{&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;axisPointer&quot;:[{&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9BEC9&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;label&quot;:{&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;color&quot;:&quot;#fff&quot;,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[{&quot;trigger&quot;:&quot;axis&quot;,&quot;axisPointer&quot;:{&quot;type&quot;:&quot;cross&quot;,&quot;axis&quot;:&quot;auto&quot;,&quot;animation&quot;:&quot;auto&quot;,&quot;animationDurationUpdate&quot;:200,&quot;animationEasingUpdate&quot;:&quot;exponentialOut&quot;,&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#999&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;,&quot;textStyle&quot;:{}}},&quot;z&quot;:60,&quot;show&quot;:true,&quot;showContent&quot;:true,&quot;triggerOn&quot;:&quot;mousemove|click&quot;,&quot;alwaysShowContent&quot;:false,&quot;displayMode&quot;:&quot;single&quot;,&quot;renderMode&quot;:&quot;auto&quot;,&quot;confine&quot;:null,&quot;showDelay&quot;:0,&quot;hideDelay&quot;:100,&quot;transitionDuration&quot;:0.4,&quot;enterable&quot;:false,&quot;backgroundColor&quot;:&quot;#fff&quot;,&quot;shadowBlur&quot;:10,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, .2)&quot;,&quot;shadowOffsetX&quot;:1,&quot;shadowOffsetY&quot;:2,&quot;borderRadius&quot;:4,&quot;borderWidth&quot;:1,&quot;padding&quot;:null,&quot;extraCssText&quot;:&quot;&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;fontSize&quot;:14}}],&quot;yAxis&quot;:[{&quot;type&quot;:&quot;value&quot;,&quot;name&quot;:&quot;企鵝數量&quot;,&quot;min&quot;:0,&quot;max&quot;:100,&quot;interval&quot;:20,&quot;axisLabel&quot;:{&quot;formatter&quot;:&quot;{value} K&quot;,&quot;color&quot;:&quot;#666&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;splitLine&quot;:{&quot;show&quot;:false,&quot;lineStyle&quot;:{&quot;color&quot;:[&quot;#E0E6F1&quot;],&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;}},&quot;boundaryGap&quot;:[0,0],&quot;axisLine&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#6E7079&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;axisTick&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;splitNumber&quot;:5,&quot;minorTick&quot;:{&quot;show&quot;:false,&quot;splitNumber&quot;:5,&quot;length&quot;:3,&quot;lineStyle&quot;:{}},&quot;minorSplitLine&quot;:{&quot;show&quot;:false,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#F4F7FD&quot;,&quot;width&quot;:1}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{&quot;status&quot;:&quot;hide&quot;,&quot;value&quot;:100},&quot;splitArea&quot;:{&quot;show&quot;:false,&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(250,250,250,0.2)&quot;,&quot;rgba(210,219,238,0.2)&quot;]}},&quot;offset&quot;:0},{&quot;type&quot;:&quot;value&quot;,&quot;name&quot;:&quot;捕撈噸數&quot;,&quot;min&quot;:0,&quot;max&quot;:500,&quot;interval&quot;:100,&quot;axisLabel&quot;:{&quot;formatter&quot;:&quot;{value} kt&quot;,&quot;color&quot;:&quot;#666&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;type&quot;:&quot;dashed&quot;,&quot;color&quot;:&quot;#e5e7eb&quot;,&quot;width&quot;:1},&quot;show&quot;:true},&quot;boundaryGap&quot;:[0,0],&quot;axisLine&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#6E7079&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;axisTick&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;splitNumber&quot;:5,&quot;minorTick&quot;:{&quot;show&quot;:false,&quot;splitNumber&quot;:5,&quot;length&quot;:3,&quot;lineStyle&quot;:{}},&quot;minorSplitLine&quot;:{&quot;show&quot;:false,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#F4F7FD&quot;,&quot;width&quot;:1}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{&quot;status&quot;:&quot;hide&quot;,&quot;value&quot;:500},&quot;splitArea&quot;:{&quot;show&quot;:false,&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(250,250,250,0.2)&quot;,&quot;rgba(210,219,238,0.2)&quot;]}},&quot;offset&quot;:0}],&quot;xAxis&quot;:[{&quot;type&quot;:&quot;category&quot;,&quot;data&quot;:[&quot;1996&quot;,&quot;2001&quot;,&quot;2006&quot;,&quot;2011&quot;,&quot;2016&quot;,&quot;2021&quot;,&quot;2026&quot;],&quot;axisPointer&quot;:{&quot;type&quot;:&quot;shadow&quot;,&quot;status&quot;:&quot;hide&quot;,&quot;value&quot;:6},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;boundaryGap&quot;:true,&quot;deduplication&quot;:null,&quot;splitLine&quot;:{&quot;show&quot;:false,&quot;lineStyle&quot;:{&quot;color&quot;:[&quot;#E0E6F1&quot;],&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;}},&quot;axisTick&quot;:{&quot;alignWithLabel&quot;:false,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisLine&quot;:{&quot;show&quot;:true,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#6E7079&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;splitArea&quot;:{&quot;show&quot;:false,&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(250,250,250,0.2)&quot;,&quot;rgba(210,219,238,0.2)&quot;]}},&quot;offset&quot;:0}],&quot;grid&quot;:[{&quot;left&quot;:&quot;3%&quot;,&quot;right&quot;:&quot;4%&quot;,&quot;bottom&quot;:&quot;10%&quot;,&quot;containLabel&quot;:true,&quot;show&quot;:false,&quot;z&quot;:0,&quot;top&quot;:60,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#ccc&quot;}],&quot;series&quot;:[{&quot;name&quot;:&quot;企鵝數量&quot;,&quot;type&quot;:&quot;bar&quot;,&quot;barWidth&quot;:&quot;40%&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#2d5016&quot;,&quot;borderRadius&quot;:[4,4,0,0]},&quot;data&quot;:[80,72,60,45,30,20,15],&quot;z&quot;:2,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;barMinHeight&quot;:0,&quot;barMinAngle&quot;:0,&quot;large&quot;:false,&quot;largeThreshold&quot;:400,&quot;progressive&quot;:3000,&quot;progressiveChunkMode&quot;:&quot;mod&quot;,&quot;clip&quot;:true,&quot;roundCap&quot;:false,&quot;showBackground&quot;:false,&quot;backgroundStyle&quot;:{&quot;color&quot;:&quot;rgba(180, 180, 180, 0.2)&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderType&quot;:&quot;solid&quot;,&quot;borderRadius&quot;:0,&quot;shadowBlur&quot;:0,&quot;shadowColor&quot;:null,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:0,&quot;opacity&quot;:1},&quot;select&quot;:{&quot;itemStyle&quot;:{&quot;borderColor&quot;:&quot;#212121&quot;}},&quot;realtimeSort&quot;:false,&quot;label&quot;:{},&quot;emphasis&quot;:{&quot;label&quot;:{}}},{&quot;name&quot;:&quot;漁業捕撈量&quot;,&quot;type&quot;:&quot;line&quot;,&quot;yAxisIndex&quot;:1,&quot;smooth&quot;:true,&quot;lineStyle&quot;:{&quot;width&quot;:3,&quot;color&quot;:&quot;#ff6b35&quot;,&quot;type&quot;:&quot;solid&quot;},&quot;data&quot;:[150,200,280,350,420,450,480],&quot;z&quot;:3,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;clip&quot;:true,&quot;label&quot;:{&quot;position&quot;:&quot;top&quot;},&quot;endLabel&quot;:{&quot;show&quot;:false,&quot;valueAnimation&quot;:true,&quot;distance&quot;:8},&quot;emphasis&quot;:{&quot;scale&quot;:true,&quot;label&quot;:{}},&quot;step&quot;:false,&quot;smoothMonotone&quot;:null,&quot;symbol&quot;:&quot;emptyCircle&quot;,&quot;symbolSize&quot;:4,&quot;symbolRotate&quot;:null,&quot;showSymbol&quot;:true,&quot;showAllSymbol&quot;:&quot;auto&quot;,&quot;connectNulls&quot;:false,&quot;sampling&quot;:&quot;none&quot;,&quot;animationEasing&quot;:&quot;linear&quot;,&quot;progressive&quot;:0,&quot;hoverLayerThreshold&quot;:null,&quot;universalTransition&quot;:{&quot;divideShape&quot;:&quot;clone&quot;},&quot;triggerLineEvent&quot;:false}],&quot;visualMap&quot;:[],&quot;legend&quot;:[{&quot;data&quot;:[&quot;企鵝數量&quot;,&quot;漁業捕撈量&quot;],&quot;textStyle&quot;:{&quot;color&quot;:&quot;#333&quot;},&quot;bottom&quot;:0,&quot;z&quot;:4,&quot;show&quot;:true,&quot;orient&quot;:&quot;horizontal&quot;,&quot;left&quot;:&quot;center&quot;,&quot;top&quot;:null,&quot;align&quot;:&quot;auto&quot;,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderColor&quot;:&quot;#ccc&quot;,&quot;borderRadius&quot;:0,&quot;borderWidth&quot;:0,&quot;padding&quot;:5,&quot;itemGap&quot;:10,&quot;itemWidth&quot;:25,&quot;itemHeight&quot;:14,&quot;symbolRotate&quot;:&quot;inherit&quot;,&quot;symbolKeepAspect&quot;:true,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderWidth&quot;:&quot;auto&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;inherit&quot;,&quot;opacity&quot;:&quot;inherit&quot;,&quot;borderColor&quot;:&quot;inherit&quot;,&quot;borderWidth&quot;:&quot;auto&quot;,&quot;borderCap&quot;:&quot;inherit&quot;,&quot;borderJoin&quot;:&quot;inherit&quot;,&quot;borderDashOffset&quot;:&quot;inherit&quot;,&quot;borderMiterLimit&quot;:&quot;inherit&quot;},&quot;lineStyle&quot;:{&quot;width&quot;:&quot;auto&quot;,&quot;color&quot;:&quot;inherit&quot;,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveWidth&quot;:2,&quot;opacity&quot;:&quot;inherit&quot;,&quot;type&quot;:&quot;inherit&quot;,&quot;cap&quot;:&quot;inherit&quot;,&quot;join&quot;:&quot;inherit&quot;,&quot;dashOffset&quot;:&quot;inherit&quot;,&quot;miterLimit&quot;:&quot;inherit&quot;},&quot;selectedMode&quot;:true,&quot;selector&quot;:false,&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;borderRadius&quot;:10,&quot;padding&quot;:[3,5,3,5],&quot;fontSize&quot;:12,&quot;fontFamily&quot;:&quot;sans-serif&quot;,&quot;color&quot;:&quot;#666&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#666&quot;},&quot;emphasis&quot;:{&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;color&quot;:&quot;#eee&quot;,&quot;backgroundColor&quot;:&quot;#666&quot;}},&quot;selectorPosition&quot;:&quot;auto&quot;,&quot;selectorItemGap&quot;:7,&quot;selectorButtonGap&quot;:10,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;selected&quot;:{}}],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 550px; height: 350px; padding: 0px; margin: 0px; border-width: 0px;"><canvas data-zr-dom-id="zr_0" width="687" height="437" style="position: absolute; left: 0px; top: 0px; width: 550px; height: 350px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class=""></div></div>
+                    <div class="mt-4 p-3 bg-red-50 dark:bg-red-900/30 rounded-lg border border-red-100 dark:border-red-900">
+                        <div class="flex items-center gap-2 text-red-600 dark:text-red-400">
+                            <i class="fa-solid fa-circle-exclamation"></i>
+                            <span class="font-bold text-sm">數據警示：族群數量減少近 80%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="order-2 space-y-6">
+                <div class="flex items-center gap-3 mb-2">
+                    <span class="flex items-center justify-center w-10 h-10 rounded-full bg-esg-forest text-white font-bold">4</span>
+                    <h2 class="text-2xl md:text-3xl font-serif font-bold text-gray-800 dark:text-white">企鵝的悲歌: 兇手不是氣候變遷, 而是我們的餐盤</h2>
+                </div>
+                <div class="glass-panel p-6 rounded-xl shadow-sm bg-white dark:bg-slate-800 border-l-4 border-red-500">
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-justify-inter">
+                        在南非,可愛的企鵝正上演一場悲劇。最新研究顯示,在過去30年間,當地企鵝族群數量銳減了近80%,超過60,000隻企鵝就此消失。過去,我們習慣將這類生態災難籠統地歸咎於「氣候變遷」,但這次的研究卻揭示了一個更直接、更殘酷的兇手。研究明確指出,導致企鵝高死亡率的主要原因,是牠們的關鍵食物來源——鳳尾魚和沙丁魚——因人類的過度捕撈而嚴重枯竭。這項發現令人深感不安,因為它將罪責從一個巨大、近乎抽象的力量(氣候變遷),轉移到一個具體、可測量且受監管的人類活動(工業化捕魚)。它用直接的指控取代了方便的藉口,使我們的集體不作為變得更難以辯護。解決方案也因此變得明確:加強漁業管理,並鼓勵消費者選擇永續海產品。
+                    </p>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <!-- Conclusion Section -->
+    <section class="bg-esg-forest text-white py-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-5xl font-serif font-bold mb-8">結語: 在變局中重新思考未來</h2>
+            <div class="grid md:grid-cols-2 gap-8 text-left mb-12">
+                <div class="bg-white/10 backdrop-blur-md p-6 rounded-lg border border-white/20">
+                    <h3 class="text-xl font-bold text-esg-accent mb-3"><i class="fa-solid fa-scale-balanced mr-2"></i>定義不穩定</h3>
+                    <p class="text-gray-200 text-sm leading-relaxed">
+                        2026年初的這四個快照揭示了,永續的未來正由一系列悖論(將ESG武器化)、權力轉移(電動車競賽)所定義。當「綠色」與「進步」的既定定義變得不再穩定...
+                    </p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md p-6 rounded-lg border border-white/20">
+                    <h3 class="text-xl font-bold text-esg-accent mb-3"><i class="fa-solid fa-compass mr-2"></i>如何航行?</h3>
+                    <p class="text-gray-200 text-sm leading-relaxed">
+                        關鍵問題已非我們「是否」應該行動,而是我們該「如何」校準自身的假設與投資,去應對一個注定充滿未知的未來?
+                    </p>
+                </div>
+            </div>
+            <p class="text-lg md:text-xl font-light opacity-90">
+                挑戰不再僅僅是提升意識,而是學會在這些複雜且時常相互矛盾的新現實中航行。
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 dark:bg-slate-950 text-gray-500 py-12 border-t border-gray-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-sm">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h4 class="font-bold text-gray-700 dark:text-gray-300 mb-4">免責聲明</h4>
+                    <p>本網頁報告基於公開資料製作，僅供參考與教育用途。內容不構成任何投資建議、財務指導或法律意見。投資有風險，決策前請諮詢專業人士。</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-700 dark:text-gray-300 mb-4">資料來源</h4>
+                    <p>內容彙整自2026年初之網頁公開資訊、歐盟政策指南、CES消費電子展報導及南非生態研究報告。</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-700 dark:text-gray-300 mb-4">聯繫與版權</h4>
+                    <p>版權所有 © 2026 Dunk</p>
+                    <p class="mt-2">作者: Dunk</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="hover:text-esg-blue"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="hover:text-esg-blue"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="hover:text-esg-blue"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center pt-8 border-t border-gray-200 dark:border-slate-800">
+                <p>© 2026 Dunk. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Initialization Scripts -->
+    <script>
+        // --- 1. Dark Mode Toggle Logic ---
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+        
+        // Check system preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            htmlElement.classList.add('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            const isDark = htmlElement.classList.contains('dark');
+            
+            // Re-render Charts for theme consistency
+            renderCharts(isDark ? 'dark' : 'light');
+            
+            // Re-render Mermaid (Basic reload implementation as mermaid theme swap is complex dynamically)
+            location.reload(); 
+        });
+
+        // --- 2. Mermaid Initialization ---
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: document.documentElement.classList.contains('dark') ? 'dark' : 'default',
+            securityLevel: 'loose',
+            fontFamily: '"Noto Sans TC", sans-serif'
+        });
+
+        // --- 3. ECharts Visualization ---
+        
+        let chartNuclear, chartEV, chartPenguin;
+
+        function initCharts() {
+            const isDark = document.documentElement.classList.contains('dark') ? 'dark' : null;
+            renderCharts(isDark);
+        }
+
+        function renderCharts(theme) {
+            // Colors
+            const colorPalette = ['#2d5016', '#ff6b35', '#0066cc', '#9ca3af', '#e8f5e8'];
+
+            // 1. Nuclear Investment Chart (Pie)
+            if (chartNuclear) chartNuclear.dispose();
+            chartNuclear = echarts.init(document.getElementById('chart-nuclear'), theme);
+            chartNuclear.setOption({
+                backgroundColor: 'transparent',
+                color: ['#1a4d3a', '#ff6b35', '#94a3b8'],
+                tooltip: { trigger: 'item' },
+                legend: { bottom: '0%', textStyle: { color: theme === 'dark' ? '#ccc' : '#333' } },
+                series: [{
+                    name: '資金流向',
+                    type: 'pie',
+                    radius: ['40%', '70%'],
+                    avoidLabelOverlap: false,
+                    itemStyle: { borderRadius: 10, borderColor: theme === 'dark' ? '#1e293b' : '#fff', borderWidth: 2 },
+                    label: { show: false, position: 'center' },
+                    emphasis: { label: { show: true, fontSize: 18, fontWeight: 'bold', color: theme === 'dark' ? '#fff' : '#333' } },
+                    labelLine: { show: false },
+                    data: [
+                        { value: 45, name: '國防工業 (新增ESG)' },
+                        { value: 35, name: '傳統再生能源' },
+                        { value: 20, name: '其他永續項目' }
+                    ]
+                }]
+            });
+
+            // 2. EV Market Share Chart (Line)
+            if (chartEV) chartEV.dispose();
+            chartEV = echarts.init(document.getElementById('chart-ev'), theme);
+            chartEV.setOption({
+                backgroundColor: 'transparent',
+                tooltip: { trigger: 'axis' },
+                legend: { data: ['中國品牌', '特斯拉', '傳統車廠'], textStyle: { color: theme === 'dark' ? '#ccc' : '#333' }, bottom: 0 },
+                grid: { left: '3%', right: '4%', bottom: '10%', containLabel: true },
+                xAxis: { type: 'category', boundaryGap: false, data: ['2020', '2021', '2022', '2023', '2024', '2025', '2026'], axisLabel: { color: theme === 'dark' ? '#ccc' : '#666' } },
+                yAxis: { type: 'value', name: '市場份額(%)', splitLine: { lineStyle: { type: 'dashed', color: theme === 'dark' ? '#334155' : '#e5e7eb' } }, axisLabel: { color: theme === 'dark' ? '#ccc' : '#666' } },
+                series: [
+                    { name: '中國品牌', type: 'line', stack: 'Total', smooth: true, lineStyle: { width: 3, color: '#ff6b35' }, areaStyle: { opacity: 0.1, color: '#ff6b35' }, data: [15, 22, 30, 42, 55, 62, 68] },
+                    { name: '特斯拉', type: 'line', stack: 'Total', smooth: true, lineStyle: { width: 2, color: '#2d5016' }, data: [18, 20, 21, 19, 18, 17, 15] },
+                    { name: '傳統車廠', type: 'line', stack: 'Total', smooth: true, lineStyle: { width: 2, color: '#94a3b8' }, data: [67, 58, 49, 39, 27, 21, 17] }
+                ]
+            });
+
+            // 3. Penguin vs Fishing Chart (Bar + Line)
+            if (chartPenguin) chartPenguin.dispose();
+            chartPenguin = echarts.init(document.getElementById('chart-penguin'), theme);
+            chartPenguin.setOption({
+                backgroundColor: 'transparent',
+                tooltip: { trigger: 'axis', axisPointer: { type: 'cross' } },
+                legend: { data: ['企鵝數量', '漁業捕撈量'], textStyle: { color: theme === 'dark' ? '#ccc' : '#333' }, bottom: 0 },
+                grid: { left: '3%', right: '4%', bottom: '10%', containLabel: true },
+                xAxis: [{ type: 'category', data: ['1996', '2001', '2006', '2011', '2016', '2021', '2026'], axisPointer: { type: 'shadow' }, axisLabel: { color: theme === 'dark' ? '#ccc' : '#666' } }],
+                yAxis: [
+                    { type: 'value', name: '企鵝數量', min: 0, max: 100, interval: 20, axisLabel: { formatter: '{value} K', color: theme === 'dark' ? '#ccc' : '#666' }, splitLine: { show: false } },
+                    { type: 'value', name: '捕撈噸數', min: 0, max: 500, interval: 100, axisLabel: { formatter: '{value} kt', color: theme === 'dark' ? '#ccc' : '#666' }, splitLine: { lineStyle: { type: 'dashed', color: theme === 'dark' ? '#334155' : '#e5e7eb' } } }
+                ],
+                series: [
+                    { name: '企鵝數量', type: 'bar', barWidth: '40%', itemStyle: { color: '#2d5016', borderRadius: [4, 4, 0, 0] }, data: [80, 72, 60, 45, 30, 20, 15] },
+                    { name: '漁業捕撈量', type: 'line', yAxisIndex: 1, smooth: true, lineStyle: { width: 3, color: '#ff6b35' }, data: [150, 200, 280, 350, 420, 450, 480] }
+                ]
+            });
+        }
+
+        // Initialize on load
+        window.addEventListener('load', initCharts);
+
+        // Resize charts on window resize
+        window.addEventListener('resize', () => {
+            chartNuclear && chartNuclear.resize();
+            chartEV && chartEV.resize();
+            chartPenguin && chartPenguin.resize();
+        });
+
+    </script>
+
+<div class="mermaidTooltip" style="opacity: 0;"></div></body></body>
+</html>
