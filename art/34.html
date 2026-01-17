@@ -1,0 +1,638 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>加薩之心 HeART of Gaza | 兒童藝術展與深度研究報告</title>
+    <meta name="description" content="全球視域下的創傷見證與文化抵抗：「加薩之心」(HeART of Gaza)暨巴勒斯坦兒童藝術展覽。從數位連結到實體見證，透過兒童畫作看見戰爭下的韌性與希望。">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Noto Serif TC"', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f9f7f5', // 紙張白
+                            100: '#efebe6',
+                            200: '#e0d8cf',
+                            300: '#cabbad',
+                            400: '#b29c89', // 陶土色淡
+                            500: '#9a7e68',
+                            600: '#8d6e5a', // 陶土色
+                            700: '#75594a',
+                            800: '#614a3f',
+                            900: '#4f3d35', // 深褐
+                        },
+                        accent: {
+                            olive: '#556b2f', // 橄欖綠 (和平/土地)
+                            sand: '#d2b48c',
+                            blood: '#8a3324', // 象徵創傷
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Preline UI -->
+    <script src="https://cdn.jsdelivr.net/npm/preline@2.3.0/dist/preline.min.js"></script>
+
+    <!-- Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+
+    <style>
+        /* Custom Styles for Editorial Feel */
+        .editorial-text {
+            line-height: 1.8;
+            letter-spacing: 0.02em;
+        }
+        .image-mask-organic {
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            transition: border-radius 0.5s ease;
+        }
+        .image-mask-organic:hover {
+            border-radius: 50%;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .dark .glass-panel {
+            background: rgba(30, 30, 30, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+    </style>
+<script src="https://felo.ai/js/iframe.js?v=1768610181228"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style></head>
+<body class="bg-brand-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 font-sans"><body class="bg-brand-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300 font-sans" contenteditable="false" spellcheck="false" data-listener-added_d240e37e="true">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-brand-200 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <i class="fa-solid fa-paintbrush text-brand-600 dark:text-brand-400 text-2xl"></i>
+                    <span class="font-serif font-bold text-xl tracking-wide">加薩之心 <span class="text-sm font-sans font-light text-gray-500 dark:text-gray-400">HeART of Gaza</span></span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#origin" class="hover:text-brand-600 dark:hover:text-brand-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">緣起</a>
+                        <a href="#methodology" class="hover:text-brand-600 dark:hover:text-brand-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">藝術家帳篷</a>
+                        <a href="#gallery" class="hover:text-brand-600 dark:hover:text-brand-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">視覺見證</a>
+                        <a href="#impact" class="hover:text-brand-600 dark:hover:text-brand-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">全球影響</a>
+                        <a href="#future" class="hover:text-brand-600 dark:hover:text-brand-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">2026展望</a>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="https://chuffed.org/project/128384-heart-of-gaza" target="_blank" class="hidden sm:block bg-brand-600 hover:bg-brand-700 text-white px-5 py-2 rounded-full text-sm font-medium transition-all shadow-lg hover:shadow-xl">
+                        支持項目
+                    </a>
+                    <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+                        <i id="theme-toggle-dark-icon" class="fas fa-moon"></i>
+                        <i id="theme-toggle-light-icon" class="hidden fas fa-sun"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://image.pollinations.ai/prompt/Palestinian%20child%20painting%20colorful%20art%20inside%20a%20canvas%20tent%20in%20Gaza,%20sunlight%20filtering%20through,%20cinematic,%20photorealistic,%20hopeful,%20dusty%20atmosphere,%20highly%20detailed,%204k?nologo=true" alt="加薩兒童在帳篷中作畫" class="w-full h-full object-cover filter brightness-75 dark:brightness-50">
+        </div>
+        
+        <!-- Content -->
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto" data-aos="fade-up">
+            <div class="mb-6">
+                <span class="bg-white/20 backdrop-blur-sm text-white px-4 py-1 rounded-full text-sm tracking-wider uppercase border border-white/30">2024 - 2026 全球巡展與研究報告</span>
+            </div>
+            <h1 class="font-serif text-5xl md:text-7xl font-bold text-white mb-6 leading-tight text-shadow">
+                全球視域下的創傷見證<br>與文化抵抗
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-100 mb-10 font-light max-w-3xl mx-auto text-shadow editorial-text">
+                當顏色在眼中褪去，畫筆變得沉重，<br>
+                加薩兒童用藝術在廢墟中重建被剝奪的童年。
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#gallery" class="bg-white text-gray-900 hover:bg-gray-100 px-8 py-4 rounded-full text-lg font-medium transition-all transform hover:scale-105 shadow-xl">
+                    瀏覽線上展覽
+                </a>
+                <a href="#methodology" class="bg-transparent border-2 border-white text-white hover:bg-white/10 px-8 py-4 rounded-full text-lg font-medium transition-all">
+                    閱讀深度報告
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-white">
+            <i class="fa-solid fa-chevron-down text-2xl"></i>
+        </div>
+    </header>
+
+    <!-- Section 1: Origin & Introduction -->
+    <section id="origin" class="py-20 md:py-32 bg-brand-50 dark:bg-gray-900 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Text Content -->
+                <div class="order-2 lg:order-1">
+                    <h2 class="font-serif text-3xl md:text-4xl text-gray-900 dark:text-white mb-6">絲論：從 WhatsApp 到全球的數位橋樑</h2>
+                    <div class="w-20 h-1 bg-brand-500 mb-8"></div>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-6 editorial-text">
+                        這一切並非始於大型機構的策劃，而是源於愛爾蘭建築師 <strong>Féile Butler</strong> 與加薩代爾巴拉赫的咖啡館經營者 <strong>Mohammed Timraz</strong> 之間的一次私人 WhatsApp 對話。
+                    </p>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-6 editorial-text">
+                        當正規教育崩潰，公共空間成為廢墟，「加薩之心」(HeART of Gaza) 應運而生。這不僅是兒童畫作的展示，更是一場跨越物理封鎖的「反檔案」行動。透過點對點的傳輸，被圍困區域的微觀敘事轉化為國際社會無法忽視的視覺檔案。
+                    </p>
+                    <blockquote class="border-l-4 border-accent-blood pl-6 py-2 my-8 italic text-gray-700 dark:text-gray-400">
+                        「這真的是要重新人道化那些完全被非人化的巴勒斯坦人。」—— Féile Butler
+                    </blockquote>
+                </div>
+
+                <!-- Mermaid Chart -->
+                <div class="order-1 lg:order-2 bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700">
+                    <h3 class="text-center text-sm font-bold text-gray-400 uppercase tracking-widest mb-6">數位策展與物質化流程</h3>
+                    <div class="mermaid flex justify-center" data-processed="true"><svg aria-roledescription="flowchart-v2" role="graphics-document document" viewBox="-8 -7.999996185302734 498.53125 821.3091430664062" style="max-width: 498.53125px;" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="100%" id="mermaid-1768610235515"><style>#mermaid-1768610235515{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}#mermaid-1768610235515 .error-icon{fill:#552222;}#mermaid-1768610235515 .error-text{fill:#552222;stroke:#552222;}#mermaid-1768610235515 .edge-thickness-normal{stroke-width:2px;}#mermaid-1768610235515 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-1768610235515 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-1768610235515 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-1768610235515 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-1768610235515 .marker{fill:#333333;stroke:#333333;}#mermaid-1768610235515 .marker.cross{stroke:#333333;}#mermaid-1768610235515 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaid-1768610235515 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#mermaid-1768610235515 .cluster-label text{fill:#333;}#mermaid-1768610235515 .cluster-label span,#mermaid-1768610235515 p{color:#333;}#mermaid-1768610235515 .label text,#mermaid-1768610235515 span,#mermaid-1768610235515 p{fill:#333;color:#333;}#mermaid-1768610235515 .node rect,#mermaid-1768610235515 .node circle,#mermaid-1768610235515 .node ellipse,#mermaid-1768610235515 .node polygon,#mermaid-1768610235515 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-1768610235515 .flowchart-label text{text-anchor:middle;}#mermaid-1768610235515 .node .label{text-align:center;}#mermaid-1768610235515 .node.clickable{cursor:pointer;}#mermaid-1768610235515 .arrowheadPath{fill:#333333;}#mermaid-1768610235515 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaid-1768610235515 .flowchart-link{stroke:#333333;fill:none;}#mermaid-1768610235515 .edgeLabel{background-color:#e8e8e8;text-align:center;}#mermaid-1768610235515 .edgeLabel rect{opacity:0.5;background-color:#e8e8e8;fill:#e8e8e8;}#mermaid-1768610235515 .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#mermaid-1768610235515 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-1768610235515 .cluster text{fill:#333;}#mermaid-1768610235515 .cluster span,#mermaid-1768610235515 p{color:#333;}#mermaid-1768610235515 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-1768610235515 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-1768610235515 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}</style><g><marker orient="auto" markerHeight="12" markerWidth="12" markerUnits="userSpaceOnUse" refY="5" refX="6" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1768610235515_flowchart-pointEnd"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 0 L 10 5 L 0 10 z"></path></marker><marker orient="auto" markerHeight="12" markerWidth="12" markerUnits="userSpaceOnUse" refY="5" refX="4.5" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1768610235515_flowchart-pointStart"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 5 L 10 10 L 10 0 z"></path></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5" refX="11" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1768610235515_flowchart-circleEnd"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5" refX="-1" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1768610235515_flowchart-circleStart"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5.2" refX="12" viewBox="0 0 11 11" class="marker cross flowchart" id="mermaid-1768610235515_flowchart-crossEnd"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5.2" refX="-1" viewBox="0 0 11 11" class="marker cross flowchart" id="mermaid-1768610235515_flowchart-crossStart"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path marker-end="url(#mermaid-1768610235515_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-A LE-B" id="L-A-B-0" d="M153.375,64.999L148.04,70.351C142.704,75.703,132.033,86.406,126.698,95.042C121.363,103.677,121.363,110.243,121.363,113.527L121.363,116.81"></path><path marker-end="url(#mermaid-1768610235515_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-B LE-C" id="L-B-C-0" d="M121.363,161.11L121.363,165.277C121.363,169.443,121.363,177.777,121.363,185.227C121.363,192.677,121.363,199.243,121.363,202.527L121.363,205.81"></path><path marker-end="url(#mermaid-1768610235515_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-C LE-D" id="L-C-D-0" d="M121.363,250.11L121.363,256.277C121.363,262.443,121.363,274.777,121.434,286.31C121.506,297.843,121.649,308.577,121.72,313.944L121.792,319.31"></path><path marker-end="url(#mermaid-1768610235515_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-D LE-E" id="L-D-E-0" d="M121.863,363.61L121.779,369.693C121.696,375.777,121.529,387.943,121.446,399.31C121.363,410.677,121.363,421.243,121.363,426.527L121.363,431.81"></path><path marker-end="url(#mermaid-1768610235515_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-E LE-G" id="L-E-G-0" d="M121.363,514.309L121.363,520.476C121.363,526.642,121.363,538.976,121.363,550.426C121.363,561.876,121.363,572.442,121.363,577.726L121.363,583.009"></path><path marker-end="url(#mermaid-1768610235515_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-G LE-H" id="L-G-H-0" d="M121.363,627.309L121.363,631.476C121.363,635.642,121.363,643.976,121.363,651.426C121.363,658.876,121.363,665.442,121.363,668.726L121.363,672.009"></path><path marker-end="url(#mermaid-1768610235515_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-H LE-I" id="L-H-I-0" d="M121.363,716.309L121.363,720.476C121.363,724.642,121.363,732.976,127.915,740.872C134.468,748.769,147.573,756.228,154.126,759.958L160.678,763.687"></path><path marker-end="url(#mermaid-1768610235515_flowchart-pointEnd)" style="fill:none;stroke-width:2px;stroke-dasharray:3;" class="edge-thickness-normal edge-pattern-dotted flowchart-link LS-I LE-A" id="L-I-A-0" d="M233.803,766.309L241.123,762.142C248.444,757.976,263.084,749.642,270.405,738.059C277.725,726.476,277.725,711.642,277.725,696.809C277.725,681.976,277.725,667.142,277.725,652.309C277.725,637.476,277.725,622.642,277.725,605.809C277.725,588.976,277.725,570.142,277.725,548.126C277.725,526.109,277.725,500.909,277.725,475.71C277.725,450.51,277.725,425.31,277.725,403.293C277.725,381.277,277.725,362.443,277.725,343.61C277.725,324.777,277.725,305.943,277.725,287.11C277.725,268.277,277.725,249.443,277.725,232.61C277.725,215.777,277.725,200.943,277.725,186.11C277.725,171.277,277.725,156.443,277.725,141.61C277.725,126.777,277.725,111.943,273.013,99.8C268.301,87.658,258.878,78.205,254.166,73.479L249.454,68.753"></path></g><g class="edgeLabels"><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g transform="translate(121.36250305175781, 287.10992431640625)" class="edgeLabel"><g transform="translate(-32, -12)" class="label"><foreignObject height="24" width="64"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">數位傳輸</span></div></foreignObject></g></g><g transform="translate(121.36250305175781, 400.10992431640625)" class="edgeLabel"><g transform="translate(-24, -12)" class="label"><foreignObject height="24" width="48"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">互聯網</span></div></foreignObject></g></g><g transform="translate(121.36250305175781, 551.3091354370117)" class="edgeLabel"><g transform="translate(-32, -12)" class="label"><foreignObject height="24" width="64"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">分發檔案</span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g transform="translate(277.7250061035156, 400.10992431640625)" class="edgeLabel"><g transform="translate(-32, -12)" class="label"><foreignObject height="24" width="64"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">掃描回傳</span></div></foreignObject></g></g></g><g class="nodes"><g transform="translate(199.54375457763672, 36.054962158203125)" id="flowchart-A-0" class="node default flowchart-label"><path transform="translate(-49.400001525878906,-36.05496007113132)" d="M 0,11.036640047420878 a 49.400001525878906,11.036640047420878 0,0,0 98.80000305175781 0 a 49.400001525878906,11.036640047420878 0,0,0 -98.80000305175781 0 l 0,50.036640047420875 a 49.400001525878906,11.036640047420878 0,0,0 98.80000305175781 0 l 0,-50.036640047420875" style="fill:#f9f7f5;stroke:#614a3f;stroke-width:2px;"></path><g transform="translate(-41.900001525878906, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="83.80000305175781"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">加薩 (Gaza)</span></div></foreignObject></g></g><g transform="translate(121.36250305175781, 141.60992431640625)" id="flowchart-B-1" class="node default flowchart-label"><rect height="39" width="111" y="-19.5" x="-55.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-48, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="96"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">兒童創作畫作</span></div></foreignObject></g></g><g transform="translate(121.36250305175781, 230.60992431640625)" id="flowchart-C-2" class="node default default flowchart-label"><rect height="39" width="242.72500610351562" y="-19.5" x="-121.36250305175781" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-113.86250305175781, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="227.72500610351562"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">Mohammed Timraz 掃描/數位化</span></div></foreignObject></g></g><g transform="translate(121.36250305175781, 343.60992431640625)" id="flowchart-D-3" class="node default flowchart-label"><polygon style="fill:#8a3324;stroke:#333;stroke-width:0px;" transform="translate(-117.4312515258789,19.5)" class="label-container" points="9.75,0 225.1125030517578,0 234.8625030517578,-19.5 225.1125030517578,-39 9.75,-39 0,-19.5"></polygon><g transform="translate(-100.1812515258789, -12)" style="color:#fff;" class="label"><rect></rect><foreignObject height="24" width="200.3625030517578"><div xmlns="http://www.w3.org/1999/xhtml" style="color: rgb(255, 255, 255); display: inline-block; white-space: nowrap;"><span style="color:#fff;" class="nodeLabel">突破封鎖 (WhatsApp/Cloud)</span></div></foreignObject></g></g><g transform="translate(121.36250305175781, 475.709529876709)" id="flowchart-E-4" class="node default default flowchart-label"><path transform="translate(-64.875,-38.59960745829244)" d="M 0,12.733071638861627 a 64.875,12.733071638861627 0,0,0 129.75 0 a 64.875,12.733071638861627 0,0,0 -129.75 0 l 0,51.73307163886163 a 64.875,12.733071638861627 0,0,0 129.75 0 l 0,-51.73307163886163" style="fill:#e0d8cf;stroke:#556b2f;stroke-width:2px;"></path><g transform="translate(-57.375, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="114.75"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">愛爾蘭 (Ireland)</span></div></foreignObject></g></g><g transform="translate(390.73751068115234, 36.054962158203125)" id="flowchart-F-5" class="node default default flowchart-label"><rect height="39" width="183.58750915527344" y="-19.5" x="-91.79375457763672" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-84.29375457763672, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="168.58750915527344"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">Féile Butler 接收與策展</span></div></foreignObject></g></g><g transform="translate(121.36250305175781, 607.8091354370117)" id="flowchart-G-6" class="node default default flowchart-label"><rect height="39" width="141.7375030517578" y="-19.5" x="-70.8687515258789" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-63.368751525878906, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="126.73750305175781"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">全球夥伴 (Global)</span></div></foreignObject></g></g><g transform="translate(121.36250305175781, 696.8091354370117)" id="flowchart-H-7" class="node default default flowchart-label"><rect height="39" width="175" y="-19.5" x="-87.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-80, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="160"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">列印、裱框、在地展出</span></div></foreignObject></g></g><g transform="translate(199.54375457763672, 785.8091354370117)" id="flowchart-I-8" class="node default default flowchart-label"><rect height="39" width="234.8249969482422" y="-19.5" x="-117.4124984741211" ry="0" rx="0" style="fill:#d2b48c;stroke:#333;stroke-dasharray: 5 5;" class="basic label-container"></rect><g transform="translate(-109.9124984741211, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="219.8249969482422"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">觀眾回應式創作 (Response Art)</span></div></foreignObject></g></g></g></g></g></svg></div>
+                    <p class="text-center text-xs text-gray-400 mt-4">圖表：去中心化的全球協作模式</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: The Artists' Tent (Methodology) -->
+    <section id="methodology" class="py-20 bg-white dark:bg-gray-800 relative overflow-hidden">
+        <!-- Decorative Background -->
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-brand-100/50 dark:bg-gray-700/30 skew-x-12 transform origin-top-right"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="font-serif text-3xl md:text-5xl text-gray-900 dark:text-white mb-4">策展方法論：作為抵抗空間的「藝術家帳篷」</h2>
+                <p class="text-xl text-gray-500 dark:text-gray-400 max-w-2xl mx-auto">
+                    在廢墟中建立心理的「安全空間」(Safe Space)
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1: Physical Space -->
+                <div class="group bg-brand-50 dark:bg-gray-900 rounded-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-transparent hover:border-brand-300">
+                    <div class="w-14 h-14 bg-brand-200 dark:bg-gray-700 rounded-full flex items-center justify-center mb-6 text-brand-700 dark:text-brand-300">
+                        <i class="fa-solid fa-tent text-2xl"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold mb-4 text-gray-900 dark:text-white">實體空間的重構</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        位於代爾巴拉赫的「藝術家帳篷」(The Artists' Tent) 不僅是物理遮蔽所，更是心理避難所。每次容納12名兒童，進行12節藝術療癒課程，重建主體性。
+                    </p>
+                </div>
+
+                <!-- Card 2: Expansion -->
+                <div class="group bg-brand-50 dark:bg-gray-900 rounded-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-transparent hover:border-brand-300">
+                    <div class="w-14 h-14 bg-brand-200 dark:bg-gray-700 rounded-full flex items-center justify-center mb-6 text-brand-700 dark:text-brand-300">
+                        <i class="fa-solid fa-network-wired text-2xl"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold mb-4 text-gray-900 dark:text-white">分散式網絡</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        至2025年8月，已擴展至加薩市、汗尤尼斯、馬瓦西等7個地點。結合Naghem、Nour等當地工作者的投入，形成強大的韌性網絡，受益兒童超過320名。
+                    </p>
+                </div>
+
+                <!-- Card 3: Aid Integration -->
+                <div class="group bg-brand-50 dark:bg-gray-900 rounded-xl p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-transparent hover:border-brand-300">
+                    <div class="w-14 h-14 bg-brand-200 dark:bg-gray-700 rounded-full flex items-center justify-center mb-6 text-brand-700 dark:text-brand-300">
+                        <i class="fa-solid fa-hand-holding-heart text-2xl"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold mb-4 text-gray-900 dark:text-white">藝術 + 援助</h3>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
+                        透過展覽籌得資金，不僅購買畫具，更提供藥物、食品、清潔水與現金資助。確保兒童在精神獲得撫慰的同時，生存基本需求也能得到保障。
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <img src="https://image.pollinations.ai/prompt/art%20workshop%20inside%20a%20tent%20in%20Deir%20al-Balah%20Gaza,%20children%20drawing,%20colorful%20art%20supplies,%20smiling%20instructors,%20warm%20lighting,%20documentary%20photography,%20realistic?nologo=true" alt="藝術家帳篷工作坊實景概念圖" class="w-full h-96 object-cover rounded-2xl shadow-lg filter sepia-[.2]">
+                <p class="text-sm text-gray-500 mt-2 italic">代爾巴拉赫的藝術療癒工作坊概念影像</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Visual Semiotics (Gallery) -->
+    <section id="gallery" class="py-20 bg-brand-900 text-brand-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-16">
+                <h2 class="font-serif text-3xl md:text-5xl text-white mb-6">視覺符號學：創傷、記憶與未來的色彩</h2>
+                <p class="text-xl text-brand-200 max-w-3xl">
+                    透過對視覺文本的細讀，我們解構出兩個核心的對立主題：「恐懼的具象化」與「韌性的符號」。
+                </p>
+            </div>
+
+            <!-- Theme 1: Fear -->
+            <div class="flex flex-col md:flex-row gap-12 items-center mb-24">
+                <div class="w-full md:w-1/2">
+                    <div class="relative">
+                         <img src="https://api.felo.ai/images/s/4DQS21C2JW's%20crayon%20drawing%20of%20a%20grey%20tank%20and%20a%20red%20bleeding%20cat%20outside%20a%20house,%20minimalist,%20crude%20style,%20white%20paper%20texture,%20heartbreaking,%20expressive%20art%20therapy?nologo=true" alt="恐懼的具象化" class="w-full rounded-lg shadow-2xl border-4 border-white/10 transform rotate-1 hover:rotate-0 transition-all duration-500">
+                         <div class="absolute -bottom-6 -right-6 bg-accent-blood text-white p-4 rounded-lg shadow-lg max-w-xs">
+                             <p class="font-serif italic text-sm">"加薩已成為一座鬼城" <br>- Qamar Timraz</p>
+                         </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <h3 class="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+                        <i class="fa-solid fa-ghost text-brand-400"></i> 恐懼的具象化
+                    </h3>
+                    <p class="text-brand-100 mb-4 leading-relaxed">
+                        <strong>坦克、廢墟與失色的世界：</strong><br>
+                        7歲女童 Shahed 的畫作以極簡筆觸描繪坦克向家庭開火，流血的貓揭示了戰爭對共生生命的摧毀。
+                    </p>
+                    <p class="text-brand-100 leading-relaxed">
+                        Jory Abu Harb (12歲) 寫道：「畫筆在我手中變得沉重，顏色在我眼中褪色。」這是戰爭對感官世界與創造力的直接剝奪。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Theme 2: Resilience -->
+            <div class="flex flex-col md:flex-row-reverse gap-12 items-center">
+                <div class="w-full md:w-1/2">
+                    <div class="relative">
+                        <img src="https://api.felo.ai/images/s/4DQS21C2JW's%20drawing%20of%20a%20boy%20carrying%20a%20house%20on%20his%20back%20like%20a%20backpack,%20colorful,%20symbolic,%20watercolour%20style,%20hopeful%20but%20heavy,%20palestinian%20flag,%20sunshine?nologo=true" alt="背著房子的孩子" class="w-full rounded-lg shadow-2xl border-4 border-white/10 transform -rotate-1 hover:rotate-0 transition-all duration-500">
+                         <div class="absolute -bottom-6 -left-6 bg-accent-olive text-white p-4 rounded-lg shadow-lg max-w-xs">
+                             <p class="font-serif italic text-sm">"House On His Back" <br>- Ahmed, 12歲</p>
+                         </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <h3 class="text-2xl font-bold text-white mb-4 flex items-center gap-3">
+                        <i class="fa-solid fa-horse text-brand-400"></i> 韌性的符號
+                    </h3>
+                    <p class="text-brand-100 mb-4 leading-relaxed">
+                        <strong>馬、生日蛋糕與背上的房子：</strong><br>
+                        儘管充滿死亡意象，畫作中仍大量出現對日常的渴望：生日蛋糕、寵物、家庭聚會。
+                    </p>
+                    <p class="text-brand-100 leading-relaxed">
+                        Ahmed 的《背著房子的孩子》隱喻了流亡經驗——家不再是固定的地點，而是必須隨身攜帶的記憶。而 Qamar 對馬的夢想與 Aya 畫中微笑的太陽，展現了「想像的逃逸」作為心理生存的重要機制。
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Absence Memorial -->
+            <div class="mt-24 p-8 border border-white/20 rounded-xl bg-white/5 backdrop-blur-sm text-center">
+                <p class="text-gray-400 text-sm mb-2 uppercase tracking-widest">缺席的在場</p>
+                <p class="text-lg text-brand-100 max-w-2xl mx-auto italic">
+                    特別致敬已故藝術家 Mohammed (13歲) 與 Reema (9歲)。他們在2023年10月的空襲中與家族26人一同罹難。他們的作品是「不同尋常的歷史證言」。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Global Impact (Data & Map) -->
+    <section id="impact" class="py-20 bg-brand-50 dark:bg-gray-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="font-serif text-3xl md:text-5xl text-gray-900 dark:text-white mb-4">全球巡展軌跡 (2024-2026)</h2>
+                <p class="text-gray-600 dark:text-gray-400">從斯萊戈到紐約，120+ 城市的共同見證</p>
+            </div>
+
+            <!-- Stats Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+                <div class="text-center p-6 bg-white dark:bg-gray-700 rounded-xl shadow-sm">
+                    <div class="text-4xl font-bold text-brand-600 dark:text-brand-400 mb-2">27+</div>
+                    <div class="text-sm text-gray-500 dark:text-gray-300">參展兒童藝術家</div>
+                </div>
+                <div class="text-center p-6 bg-white dark:bg-gray-700 rounded-xl shadow-sm">
+                    <div class="text-4xl font-bold text-brand-600 dark:text-brand-400 mb-2">120+</div>
+                    <div class="text-sm text-gray-500 dark:text-gray-300">全球巡展城市</div>
+                </div>
+                <div class="text-center p-6 bg-white dark:bg-gray-700 rounded-xl shadow-sm">
+                    <div class="text-4xl font-bold text-brand-600 dark:text-brand-400 mb-2">320+</div>
+                    <div class="text-sm text-gray-500 dark:text-gray-300">當地受益兒童</div>
+                </div>
+                <div class="text-center p-6 bg-white dark:bg-gray-700 rounded-xl shadow-sm">
+                    <div class="text-4xl font-bold text-brand-600 dark:text-brand-400 mb-2">8</div>
+                    <div class="text-sm text-gray-500 dark:text-gray-300">加薩境內工作坊</div>
+                </div>
+            </div>
+
+            <!-- ECharts Container -->
+            <div class="bg-white dark:bg-gray-900 rounded-2xl shadow-xl overflow-hidden p-4 border border-gray-100 dark:border-gray-700">
+                <div id="globalmap" class="w-full h-96 md:h-[500px]" _echarts_instance_="ec_1768610216167" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" data-chart-option="{&quot;backgroundColor&quot;:&quot;#ffffff&quot;,&quot;animationDurationUpdate&quot;:1500,&quot;animationEasingUpdate&quot;:&quot;quinticInOut&quot;,&quot;darkMode&quot;:&quot;auto&quot;,&quot;colorBy&quot;:&quot;series&quot;,&quot;color&quot;:[&quot;#5470c6&quot;,&quot;#91cc75&quot;,&quot;#fac858&quot;,&quot;#ee6666&quot;,&quot;#73c0de&quot;,&quot;#3ba272&quot;,&quot;#fc8452&quot;,&quot;#9a60b4&quot;,&quot;#ea7ccc&quot;],&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;textStyle&quot;:{&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;title&quot;:[{&quot;text&quot;:&quot;全球展覽網絡分佈&quot;,&quot;subtext&quot;:&quot;從加薩到世界&quot;,&quot;left&quot;:&quot;center&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#374151&quot;,&quot;fontSize&quot;:18,&quot;fontWeight&quot;:&quot;bold&quot;},&quot;z&quot;:6,&quot;show&quot;:true,&quot;target&quot;:&quot;blank&quot;,&quot;subtarget&quot;:&quot;blank&quot;,&quot;top&quot;:0,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderColor&quot;:&quot;#ccc&quot;,&quot;borderWidth&quot;:0,&quot;padding&quot;:5,&quot;itemGap&quot;:10,&quot;subtextStyle&quot;:{&quot;fontSize&quot;:12,&quot;color&quot;:&quot;#6E7079&quot;},&quot;right&quot;:null}],&quot;axisPointer&quot;:[{&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9BEC9&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;label&quot;:{&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;color&quot;:&quot;#fff&quot;,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[{&quot;z&quot;:60,&quot;show&quot;:true,&quot;showContent&quot;:true,&quot;trigger&quot;:&quot;item&quot;,&quot;triggerOn&quot;:&quot;mousemove|click&quot;,&quot;alwaysShowContent&quot;:false,&quot;displayMode&quot;:&quot;single&quot;,&quot;renderMode&quot;:&quot;auto&quot;,&quot;confine&quot;:null,&quot;showDelay&quot;:0,&quot;hideDelay&quot;:100,&quot;transitionDuration&quot;:0.4,&quot;enterable&quot;:false,&quot;backgroundColor&quot;:&quot;#fff&quot;,&quot;shadowBlur&quot;:10,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, .2)&quot;,&quot;shadowOffsetX&quot;:1,&quot;shadowOffsetY&quot;:2,&quot;borderRadius&quot;:4,&quot;borderWidth&quot;:1,&quot;padding&quot;:null,&quot;extraCssText&quot;:&quot;&quot;,&quot;axisPointer&quot;:{&quot;type&quot;:&quot;line&quot;,&quot;axis&quot;:&quot;auto&quot;,&quot;animation&quot;:&quot;auto&quot;,&quot;animationDurationUpdate&quot;:200,&quot;animationEasingUpdate&quot;:&quot;exponentialOut&quot;,&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#999&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;,&quot;textStyle&quot;:{}}},&quot;textStyle&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;fontSize&quot;:14}}],&quot;series&quot;:[{&quot;type&quot;:&quot;graph&quot;,&quot;layout&quot;:&quot;circular&quot;,&quot;circular&quot;:{&quot;rotateLabel&quot;:true},&quot;data&quot;:[{&quot;name&quot;:&quot;加薩 (Gaza)&quot;,&quot;symbolSize&quot;:50,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#8a3324&quot;}},{&quot;name&quot;:&quot;斯萊戈 (Sligo)&quot;,&quot;symbolSize&quot;:40,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#556b2f&quot;}},{&quot;name&quot;:&quot;都柏林 (Dublin)&quot;,&quot;symbolSize&quot;:35,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#556b2f&quot;}},{&quot;name&quot;:&quot;紐約 (NYC)&quot;,&quot;symbolSize&quot;:35,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#d2b48c&quot;}},{&quot;name&quot;:&quot;倫敦 (London)&quot;,&quot;symbolSize&quot;:30,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#9a7e68&quot;}},{&quot;name&quot;:&quot;柏林 (Berlin)&quot;,&quot;symbolSize&quot;:30,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#9a7e68&quot;}},{&quot;name&quot;:&quot;羅馬 (Rome)&quot;,&quot;symbolSize&quot;:25,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#cabbad&quot;}},{&quot;name&quot;:&quot;約克 (York)&quot;,&quot;symbolSize&quot;:25,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#cabbad&quot;}},{&quot;name&quot;:&quot;高威 (Galway)&quot;,&quot;symbolSize&quot;:25,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#556b2f&quot;}},{&quot;name&quot;:&quot;恩尼斯 (Ennis)&quot;,&quot;symbolSize&quot;:25,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#556b2f&quot;}},{&quot;name&quot;:&quot;芝加哥 (Chicago)&quot;,&quot;symbolSize&quot;:25,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#d2b48c&quot;}},{&quot;name&quot;:&quot;蒙彼利埃&quot;,&quot;symbolSize&quot;:20,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#cabbad&quot;}},{&quot;name&quot;:&quot;劍橋&quot;,&quot;symbolSize&quot;:20,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#cabbad&quot;}}],&quot;links&quot;:[{&quot;source&quot;:&quot;加薩 (Gaza)&quot;,&quot;target&quot;:&quot;斯萊戈 (Sligo)&quot;},{&quot;source&quot;:&quot;斯萊戈 (Sligo)&quot;,&quot;target&quot;:&quot;都柏林 (Dublin)&quot;},{&quot;source&quot;:&quot;斯萊戈 (Sligo)&quot;,&quot;target&quot;:&quot;高威 (Galway)&quot;},{&quot;source&quot;:&quot;斯萊戈 (Sligo)&quot;,&quot;target&quot;:&quot;恩尼斯 (Ennis)&quot;},{&quot;source&quot;:&quot;都柏林 (Dublin)&quot;,&quot;target&quot;:&quot;倫敦 (London)&quot;},{&quot;source&quot;:&quot;倫敦 (London)&quot;,&quot;target&quot;:&quot;柏林 (Berlin)&quot;},{&quot;source&quot;:&quot;倫敦 (London)&quot;,&quot;target&quot;:&quot;約克 (York)&quot;},{&quot;source&quot;:&quot;倫敦 (London)&quot;,&quot;target&quot;:&quot;劍橋&quot;},{&quot;source&quot;:&quot;柏林 (Berlin)&quot;,&quot;target&quot;:&quot;羅馬 (Rome)&quot;},{&quot;source&quot;:&quot;柏林 (Berlin)&quot;,&quot;target&quot;:&quot;蒙彼利埃&quot;},{&quot;source&quot;:&quot;斯萊戈 (Sligo)&quot;,&quot;target&quot;:&quot;紐約 (NYC)&quot;},{&quot;source&quot;:&quot;紐約 (NYC)&quot;,&quot;target&quot;:&quot;芝加哥 (Chicago)&quot;}],&quot;roam&quot;:true,&quot;label&quot;:{&quot;show&quot;:true,&quot;position&quot;:&quot;right&quot;,&quot;formatter&quot;:&quot;{b}&quot;},&quot;lineStyle&quot;:{&quot;color&quot;:&quot;source&quot;,&quot;curveness&quot;:0.3,&quot;width&quot;:1,&quot;opacity&quot;:0.5},&quot;z&quot;:2,&quot;coordinateSystem&quot;:&quot;view&quot;,&quot;legendHoverLink&quot;:true,&quot;force&quot;:{&quot;initLayout&quot;:null,&quot;repulsion&quot;:[0,50],&quot;gravity&quot;:0.1,&quot;friction&quot;:0.6,&quot;edgeLength&quot;:30,&quot;layoutAnimation&quot;:true},&quot;left&quot;:&quot;center&quot;,&quot;top&quot;:&quot;center&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;symbolSize&quot;:10,&quot;edgeSymbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;edgeSymbolSize&quot;:10,&quot;edgeLabel&quot;:{&quot;position&quot;:&quot;middle&quot;,&quot;distance&quot;:5},&quot;draggable&quot;:false,&quot;center&quot;:null,&quot;zoom&quot;:1,&quot;nodeScaleRatio&quot;:0.6,&quot;itemStyle&quot;:{},&quot;emphasis&quot;:{&quot;scale&quot;:true,&quot;label&quot;:{&quot;show&quot;:true},&quot;edgeLabel&quot;:{}},&quot;select&quot;:{&quot;itemStyle&quot;:{&quot;borderColor&quot;:&quot;#212121&quot;}}}],&quot;visualMap&quot;:[],&quot;legend&quot;:[],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 1182px; height: 500px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas data-zr-dom-id="zr_0" width="1477" height="625" style="position: absolute; left: 0px; top: 0px; width: 1182px; height: 500px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class=""></div></div>
+            </div>
+            <p class="text-center text-xs text-gray-400 mt-4">
+                *地圖顯示主要樞紐與傳播路徑：愛爾蘭（發源地）、英國、歐洲大陸、北美。
+            </p>
+        </div>
+    </section>
+
+    <!-- Section 5: Future & 2026 -->
+    <section id="future" class="py-20 bg-white dark:bg-gray-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-serif text-3xl md:text-4xl text-gray-900 dark:text-white mb-10 text-center">2026年展覽展望</h2>
+            
+            <div class="space-y-6">
+                <!-- Event 1 -->
+                <div class="flex flex-col md:flex-row bg-brand-50 dark:bg-gray-800 rounded-xl overflow-hidden border-l-4 border-brand-500 shadow-md">
+                    <div class="p-6 md:w-1/4 bg-brand-100 dark:bg-gray-700 flex flex-col justify-center text-center">
+                        <span class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase">2026 JAN</span>
+                        <span class="text-3xl font-bold text-brand-800 dark:text-brand-300">15-19</span>
+                    </div>
+                    <div class="p-6 md:w-3/4">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Sui Gallery 展覽</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-2"><i class="fa-solid fa-location-dot mr-2"></i>愛爾蘭，恩尼斯 (Ennis)</p>
+                        <p class="text-sm text-gray-500">由 Féile Butler 主持開幕，展示最新的兒童創作與視覺見證。</p>
+                    </div>
+                </div>
+
+                <!-- Event 2 -->
+                <div class="flex flex-col md:flex-row bg-brand-50 dark:bg-gray-800 rounded-xl overflow-hidden border-l-4 border-accent-olive shadow-md">
+                    <div class="p-6 md:w-1/4 bg-brand-100 dark:bg-gray-700 flex flex-col justify-center text-center">
+                        <span class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase">2026 JAN</span>
+                        <span class="text-3xl font-bold text-brand-800 dark:text-brand-300">17</span>
+                    </div>
+                    <div class="p-6 md:w-3/4">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">"Colours That Survived" (倖存的色彩)</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-2"><i class="fa-solid fa-location-dot mr-2"></i>美國，紐約 (New York)</p>
+                        <p class="text-sm text-gray-500">高度媒體曝光的北美重要展覽，將加薩兒童的聲音帶入世界文化中心。</p>
+                    </div>
+                </div>
+
+                <!-- Event 3 -->
+                <div class="flex flex-col md:flex-row bg-brand-50 dark:bg-gray-800 rounded-xl overflow-hidden border-l-4 border-gray-400 shadow-md">
+                    <div class="p-6 md:w-1/4 bg-brand-100 dark:bg-gray-700 flex flex-col justify-center text-center">
+                        <span class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase">2026 EARLY</span>
+                        <span class="text-3xl font-bold text-brand-800 dark:text-brand-300">Ongoing</span>
+                    </div>
+                    <div class="p-6 md:w-3/4">
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Galway City Museum</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-2"><i class="fa-solid fa-location-dot mr-2"></i>愛爾蘭，高威 (Galway)</p>
+                        <p class="text-sm text-gray-500">持續進行的長期展覽，深化社區對話與教育推廣。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 bg-brand-800 dark:bg-black text-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        <div class="relative z-10 max-w-3xl mx-auto px-4">
+            <h2 class="font-serif text-4xl text-white mb-6">我們看見了你們，我們與你們站在一起</h2>
+            <p class="text-xl text-brand-100 mb-10">
+                支持「藝術家帳篷」的持續運作，為加薩兒童提供急需的心理療癒與生存物資。<br>
+                每一筆捐款都將轉化為畫筆、藥物與希望。
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-6">
+                <a href="https://chuffed.org/project/128384-heart-of-gaza" target="_blank" class="bg-accent-olive hover:bg-green-700 text-white px-8 py-4 rounded-full text-lg font-bold transition-all shadow-xl flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-heart"></i> 立即捐款支持
+                </a>
+                <a href="https://www.instagram.com/heart.of.gaza/" target="_blank" class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/50 px-8 py-4 rounded-full text-lg font-bold transition-all flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-instagram"></i> 關注 Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h4 class="text-white font-serif text-lg mb-4">加薩之心 HeART of Gaza</h4>
+                    <p class="text-sm leading-relaxed">
+                        一場全球性的文化抵抗與見證運動，致力於通過藝術療癒與國際展示，為加薩兒童賦權。
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-serif text-lg mb-4">聯絡與資源</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white transition-colors">媒體資料包</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">申請策展</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">教育資源</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-serif text-lg mb-4">發起人</h4>
+                    <p class="text-sm">Féile Butler (愛爾蘭)</p>
+                    <p class="text-sm">Mohammed Timraz (加薩)</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-xs">
+                <p class="mb-2">免責申明：基於公開資料，僅供參考，不構成建議 | 資料來源：網頁公開資訊</p>
+                <p>版權所有： © 2026 Dunk (Design by Dunk)</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // 1. Dark Mode Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+
+        // Set initial state
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+            lightIcon.classList.remove('hidden');
+        } else {
+            document.documentElement.classList.remove('dark');
+            darkIcon.classList.remove('hidden');
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            darkIcon.classList.toggle('hidden');
+            lightIcon.classList.toggle('hidden');
+
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+            // Re-render Charts on theme change
+            renderCharts(); 
+        });
+
+        // 2. Mermaid Initialization
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: document.documentElement.classList.contains('dark') ? 'dark' : 'default',
+            flowchart: { curve: 'basis' }
+        });
+
+        // 3. ECharts Initialization
+        let mapChart = null;
+
+        function renderCharts() {
+            const isDark = document.documentElement.classList.contains('dark');
+            const themeColor = isDark ? '#1f2937' : '#ffffff';
+            const textColor = isDark ? '#e5e7eb' : '#374151';
+            
+            // Dispose existing chart if any
+            if (mapChart) {
+                mapChart.dispose();
+            }
+
+            const chartDom = document.getElementById('globalmap');
+            mapChart = echarts.init(chartDom, isDark ? 'dark' : null);
+
+            // Using a Scatter plot on a Geo coordinate system to simulate the map
+            // Since we don't have the map JSON file loaded, we simulate a clean visualization
+            // In a real scenario, we would fetch world.json. Here we use a stylized approach.
+            
+            const option = {
+                backgroundColor: isDark ? '#111827' : '#ffffff',
+                title: {
+                    text: '展覽擴散網絡',
+                    left: 'center',
+                    top: 20,
+                    textStyle: {
+                        color: textColor,
+                        fontFamily: '"Noto Serif TC", serif'
+                    }
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{b}'
+                },
+                geo: {
+                    map: 'world', // Requires world.js, attempting to use standard geo setup if available or fallback
+                    roam: true,
+                    label: { show: false },
+                    itemStyle: {
+                        areaColor: isDark ? '#374151' : '#f3f4f6',
+                        borderColor: isDark ? '#4b5563' : '#d1d5db'
+                    },
+                    emphasis: {
+                        itemStyle: { areaColor: '#d2b48c' }
+                    }
+                },
+                series: [
+                    {
+                        name: '核心樞紐',
+                        type: 'effectScatter',
+                        coordinateSystem: 'geo', // This needs geo map loaded. 
+                        // FALLBACK: Since I cannot load external big geoJSON, I will create a graph relation chart instead which is safer and visually effective without external map json dependencies.
+                    }
+                ]
+            };
+
+            // Alternative: Graph visualization for Network if map json is missing
+            const graphOption = {
+                backgroundColor: isDark ? '#111827' : '#ffffff',
+                title: {
+                    text: '全球展覽網絡分佈',
+                    subtext: '從加薩到世界',
+                    left: 'center',
+                    textStyle: { color: textColor }
+                },
+                tooltip: {},
+                animationDurationUpdate: 1500,
+                animationEasingUpdate: 'quinticInOut',
+                series: [
+                    {
+                        type: 'graph',
+                        layout: 'circular',
+                        circular: { rotateLabel: true },
+                        data: [
+                            { name: '加薩 (Gaza)', symbolSize: 50, itemStyle: { color: '#8a3324' } },
+                            { name: '斯萊戈 (Sligo)', symbolSize: 40, itemStyle: { color: '#556b2f' } },
+                            { name: '都柏林 (Dublin)', symbolSize: 35, itemStyle: { color: '#556b2f' } },
+                            { name: '紐約 (NYC)', symbolSize: 35, itemStyle: { color: '#d2b48c' } },
+                            { name: '倫敦 (London)', symbolSize: 30, itemStyle: { color: '#9a7e68' } },
+                            { name: '柏林 (Berlin)', symbolSize: 30, itemStyle: { color: '#9a7e68' } },
+                            { name: '羅馬 (Rome)', symbolSize: 25, itemStyle: { color: '#cabbad' } },
+                            { name: '約克 (York)', symbolSize: 25, itemStyle: { color: '#cabbad' } },
+                            { name: '高威 (Galway)', symbolSize: 25, itemStyle: { color: '#556b2f' } },
+                            { name: '恩尼斯 (Ennis)', symbolSize: 25, itemStyle: { color: '#556b2f' } },
+                            { name: '芝加哥 (Chicago)', symbolSize: 25, itemStyle: { color: '#d2b48c' } },
+                            { name: '蒙彼利埃', symbolSize: 20, itemStyle: { color: '#cabbad' } },
+                            { name: '劍橋', symbolSize: 20, itemStyle: { color: '#cabbad' } },
+                        ],
+                        links: [
+                            { source: '加薩 (Gaza)', target: '斯萊戈 (Sligo)' },
+                            { source: '斯萊戈 (Sligo)', target: '都柏林 (Dublin)' },
+                            { source: '斯萊戈 (Sligo)', target: '高威 (Galway)' },
+                            { source: '斯萊戈 (Sligo)', target: '恩尼斯 (Ennis)' },
+                            { source: '都柏林 (Dublin)', target: '倫敦 (London)' },
+                            { source: '倫敦 (London)', target: '柏林 (Berlin)' },
+                            { source: '倫敦 (London)', target: '約克 (York)' },
+                            { source: '倫敦 (London)', target: '劍橋' },
+                            { source: '柏林 (Berlin)', target: '羅馬 (Rome)' },
+                            { source: '柏林 (Berlin)', target: '蒙彼利埃' },
+                            { source: '斯萊戈 (Sligo)', target: '紐約 (NYC)' },
+                            { source: '紐約 (NYC)', target: '芝加哥 (Chicago)' }
+                        ],
+                        roam: true,
+                        label: {
+                            show: true,
+                            position: 'right',
+                            formatter: '{b}'
+                        },
+                        lineStyle: {
+                            color: 'source',
+                            curveness: 0.3
+                        }
+                    }
+                ]
+            };
+            
+            mapChart.setOption(graphOption);
+        }
+
+        // Initial render
+        window.addEventListener('load', renderCharts);
+        window.addEventListener('resize', () => {
+            if(mapChart) mapChart.resize();
+        });
+
+    </script>
+
+<div class="mermaidTooltip" style="opacity: 0;"></div></body></body>
+</html>
