@@ -1,0 +1,594 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 永續週報 | 未來趨勢報告</title>
+    <meta name="description" content="深入剖析2026年五大永續趨勢：從國防ESG到水資源破產，重新定義可持續發展。">
+    <meta name="author" content="Dunk">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Preline UI -->
+    <script src="https://cdn.jsdelivr.net/npm/preline@2.3.0/dist/preline.min.js"></script>
+    
+    <!-- ECharts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    
+    <!-- Mermaid -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {            
+            theme: {
+                extend: {
+                    colors: {
+                        esg: {
+                            dark: '#1a4d3a',    // 墨綠色 - 主色
+                            forest: '#2d5016',  // 深森林綠
+                            light: '#e8f5e8',   // 淺綠色 - 輔助
+                            accent: '#ff6b35',  // 橙色 - 強調
+                            link: '#1e3a8a',    // 海軍藍
+                            text: '#333333',    // 深炭灰
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        .esg-header h1 {
+            font-weight: 900;
+            letter-spacing: -0.025em;
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .dark .glass-panel {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Chart Containers */
+        .chart-container {
+            width: 100%;
+            height: 400px;
+        }
+        
+        .text-justify-inter {
+            text-align: justify;
+            text-justify: inter-ideograph;
+        }
+    </style>
+<script src="https://felo.ai/js/iframe.js?v=1769122737663"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style></head>
+<body class="bg-stone-50 dark:bg-slate-900 text-esg-text dark:text-gray-200 transition-colors duration-300"><body class="bg-stone-50 dark:bg-slate-900 text-esg-text dark:text-gray-200 transition-colors duration-300" contenteditable="false" spellcheck="false">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300 glass-panel border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-esg-forest dark:text-esg-light font-serif font-bold text-xl tracking-wider">
+                        <i class="fa-solid fa-leaf mr-2 text-esg-accent"></i>ESG 永續週報
+                    </span>
+                    <span class="ml-4 text-xs font-mono text-gray-500 border-l border-gray-300 pl-4">2026.01.23 Issue</span>
+                </div>
+                
+                <div class="flex items-center space-x-4">
+                    <!-- Dark Mode Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-full text-gray-500 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-esg-forest transition-colors">
+                        <i class="fas fa-sun hidden dark:block"></i>
+                        <i class="fas fa-moon block dark:hidden"></i>
+                    </button>
+                    <a href="#contact" class="hidden md:inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-esg-forest hover:bg-esg-dark transition-colors shadow-sm">
+                        訂閱報告
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- Abstract Background -->
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-esg-light/50 via-white to-white dark:from-slate-900 dark:via-slate-900 dark:to-esg-dark/20"></div>
+            <div class="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-esg-forest/5 rounded-full blur-3xl dark:bg-esg-accent/5"></div>
+            <div class="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-esg-accent/10 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal active">
+            <span class="inline-block py-1 px-3 rounded-full bg-esg-light dark:bg-esg-forest/30 text-esg-forest dark:text-esg-light text-xs font-bold tracking-widest uppercase mb-6 border border-esg-forest/10">
+                2026 Future Trends
+            </span>
+            <div class="esg-header mb-8">
+                <h1 class="text-5xl md:text-7xl text-gray-900 dark:text-white leading-tight">
+                    <span class="block text-esg-forest dark:text-esg-light mb-2">「永續」的定義</span>
+                    <span class="block font-serif italic text-4xl md:text-6xl text-gray-600 dark:text-gray-300 mt-4">正在被顛覆</span>
+                </h1>
+            </div>
+            
+            <p class="mt-6 max-w-2xl mx-auto text-xl text-gray-600 dark:text-gray-300 leading-relaxed font-light border-l-4 border-esg-accent pl-6 text-left">
+                從核武變身ESG投資，到水資源破產與AI建築，<br class="hidden md:block">
+                這五個違反直覺的趨勢，正在重塑國防、經濟與你我的未來。
+            </p>
+
+            <div class="mt-12 flex justify-center gap-4">
+                <div class="flex -space-x-2 overflow-hidden">
+                    <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white dark:ring-slate-900 object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&amp;fit=crop&amp;w=100&amp;q=80" alt="Expert 1">
+                    <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white dark:ring-slate-900 object-cover" src="https://api.felo.ai/images/s/1QUl6d3byh" alt="Expert 2">
+                    <img class="inline-block h-10 w-10 rounded-full ring-2 ring-white dark:ring-slate-900 object-cover" src="https://api.felo.ai/images/s/92RcSAQGOk" alt="Expert 3">
+                </div>
+                <div class="text-sm text-left flex flex-col justify-center">
+                    <span class="font-bold text-gray-900 dark:text-white">專業洞察</span>
+                    <span class="text-gray-500 dark:text-gray-400">已被 12k+ 企業決策者閱讀</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-32 pb-32">
+
+        <!-- 1.0 Intro -->
+        <section class="reveal max-w-4xl mx-auto">
+            <div class="prose prose-lg dark:prose-invert mx-auto">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
+                    <span class="text-esg-forest dark:text-esg-accent mr-3 text-5xl opacity-20 font-serif">01</span>
+                    重新思考「永續」的真正意涵
+                </h2>
+                <div class="bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-esg-light rounded-bl-full opacity-50 dark:opacity-10"></div>
+                    <p class="text-justify-inter text-gray-600 dark:text-gray-300 mb-0 leading-loose">
+                        「永續發展」無疑是當代最熱門的詞彙，從企業報告到生活消費，無所不在。然而，當我們以為對它瞭若指掌時，其背後的真實樣貌，正以前所未見的速度演變，遠比我們想像的更複雜、更令人意外。它不再僅僅是環保或社會責任的同義詞，而是滲透到國防安全、全球經濟、個人職涯，甚至是健康管理的每一個層面。本文將深入剖析近期全球新聞中最具衝擊性、甚至違反直覺的五大永續趨勢。這些趨勢正在重新定義遊戲規則，邀請您一同探索這個關鍵概念的未來，以及它將如何影響我們每一個人。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2.0 Trend 1: Defense & ESG -->
+        <section class="reveal grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-5 order-2 lg:order-1">
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl group">
+                    <img src="https://api.felo.ai/images/s/26l5jETVWt" alt="ESG Market Growth Chart" class="w-full h-auto object-cover transform transition duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-6">
+                        <p class="text-white text-sm font-medium">資料來源：Fortune Business Insights / 歐盟永續金融框架</p>
+                    </div>
+                </div>
+                <div class="mt-6 bg-esg-light dark:bg-slate-800 p-6 rounded-xl border-l-4 border-esg-forest">
+                    <h4 class="font-bold text-esg-forest dark:text-esg-accent mb-2">關鍵爭議點</h4>
+                    <p class="text-sm text-gray-700 dark:text-gray-300">
+                        將致命武器與永續發展劃上等號，直接挑戰了公眾對於「永續」等於環保與社會責任的普遍認知。
+                    </p>
+                </div>
+            </div>
+            <div class="lg:col-span-7 order-1 lg:order-2">
+                <span class="text-esg-accent font-bold tracking-wider uppercase text-sm mb-2 block">Trend One</span>
+                <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                    當國防遇上 ESG<br>
+                    <span class="text-esg-forest dark:text-gray-400 text-2xl">核武器竟成「永續投資」？</span>
+                </h2>
+                <div class="space-y-6 text-gray-600 dark:text-gray-300 text-lg leading-relaxed text-justify-inter">
+                    <p>
+                        一向被視為和平與環保象徵的「永續金融」（ESG），正迎來一場顛覆性的變革。歐盟在2025年底更新了其永續金融框架指南，正式將<strong class="text-gray-900 dark:text-white font-bold bg-yellow-100 dark:bg-yellow-900/30 px-1">核武器相關投資納入可接受的範圍</strong>。這項決策的背景是全球日益加劇的地緣政治緊張，歐盟旨在為成員國強化國防能力提供更大的投資彈性。
+                    </p>
+                    <p>
+                        此舉之所以極具爭議性，是因為它顯得格外反直覺。這不僅引發了國際社會對於永續原則的廣泛辯論，更可能從根本上改變全球永續投資的流向與格局。歐盟此舉縮小了原先對「受爭議軍備」的廣泛定義，使得部分國防工業資產得以被視為永續投資，可能導致ESG資金流向國防領域，從而稀釋ESG評級的環境與社會面向強度。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3.0 Trend 2: Water Bankruptcy (Dark Theme Section) -->
+        <section class="reveal bg-slate-900 text-white rounded-3xl p-8 md:p-16 relative overflow-hidden shadow-2xl">
+            <!-- Background Decoration -->
+            <div class="absolute top-0 right-0 w-full h-full opacity-20 pointer-events-none">
+                <img src="https://api.felo.ai/images/s/2IETAOga3n" alt="Water Crisis" class="w-full h-full object-cover grayscale mix-blend-overlay">
+            </div>
+
+            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">
+                        全球警報<br>
+                        <span class="text-blue-400">「水資源破產」時代</span>
+                    </h2>
+                    <p class="text-gray-300 text-lg mb-8 leading-relaxed">
+                        聯合國最新發布的報告提出了一個驚人的結論：人類對水的消耗速度遠遠超過了地球可持續供給的極限。報告中的關鍵數據令人警惕：全球將近 <span class="text-esg-accent font-bold text-2xl">75%</span> 的人口正生活在水資源壓力區域。
+                    </p>
+                    <div class="bg-slate-800/80 backdrop-blur border border-slate-700 p-6 rounded-xl">
+                        <h4 class="text-blue-300 font-bold mb-2">對臺灣的啟示</h4>
+                        <p class="text-sm text-gray-400">
+                            儘管臺灣並非極端缺水國家，但在氣候變遷的衝擊下，水情不穩的風險日益增高。尤其是半導體等高耗水產業，未來可能因水價上漲或供應鏈中斷，而面臨直接的營運挑戰。
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- ECharts Data Visualization -->
+                <div class="flex flex-col justify-center bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10">
+                    <h3 class="text-center text-gray-200 mb-4 font-mono text-sm">全球水資源壓力人口佔比</h3>
+                    <div id="waterChart" class="chart-container" _echarts_instance_="ec_1769122747355" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);" data-chart-option="{&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;darkMode&quot;:&quot;auto&quot;,&quot;colorBy&quot;:&quot;series&quot;,&quot;color&quot;:[&quot;#5470c6&quot;,&quot;#91cc75&quot;,&quot;#fac858&quot;,&quot;#ee6666&quot;,&quot;#73c0de&quot;,&quot;#3ba272&quot;,&quot;#fc8452&quot;,&quot;#9a60b4&quot;,&quot;#ea7ccc&quot;],&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;textStyle&quot;:{&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;axisPointer&quot;:[{&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9BEC9&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;label&quot;:{&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;color&quot;:&quot;#fff&quot;,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[],&quot;series&quot;:[{&quot;type&quot;:&quot;gauge&quot;,&quot;startAngle&quot;:180,&quot;endAngle&quot;:0,&quot;min&quot;:0,&quot;max&quot;:100,&quot;splitNumber&quot;:10,&quot;radius&quot;:&quot;90%&quot;,&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;width&quot;:30,&quot;color&quot;:[[0.25,&quot;#7CFFB2&quot;],[0.5,&quot;#58D9F9&quot;],[0.75,&quot;#FDDD60&quot;],[1,&quot;#FF6E76&quot;]]},&quot;show&quot;:true,&quot;roundCap&quot;:false},&quot;pointer&quot;:{&quot;itemStyle&quot;:{&quot;color&quot;:&quot;auto&quot;},&quot;icon&quot;:null,&quot;offsetCenter&quot;:[0,0],&quot;show&quot;:true,&quot;showAbove&quot;:true,&quot;length&quot;:&quot;60%&quot;,&quot;width&quot;:6,&quot;keepAspect&quot;:false},&quot;axisTick&quot;:{&quot;distance&quot;:-30,&quot;length&quot;:8,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#fff&quot;,&quot;width&quot;:2,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:true,&quot;splitNumber&quot;:5},&quot;splitLine&quot;:{&quot;distance&quot;:-30,&quot;length&quot;:30,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#fff&quot;,&quot;width&quot;:4,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:true},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;inherit&quot;,&quot;distance&quot;:40,&quot;fontSize&quot;:10,&quot;show&quot;:true,&quot;rotate&quot;:0},&quot;detail&quot;:{&quot;valueAnimation&quot;:true,&quot;formatter&quot;:&quot;{value}%&quot;,&quot;color&quot;:&quot;inherit&quot;,&quot;fontSize&quot;:30,&quot;offsetCenter&quot;:[0,&quot;20%&quot;],&quot;show&quot;:true,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderWidth&quot;:0,&quot;borderColor&quot;:&quot;#ccc&quot;,&quot;width&quot;:100,&quot;height&quot;:null,&quot;padding&quot;:[5,10],&quot;fontWeight&quot;:&quot;bold&quot;,&quot;lineHeight&quot;:30},&quot;data&quot;:[{&quot;value&quot;:75,&quot;name&quot;:&quot;水資源壓力人口&quot;,&quot;title&quot;:{&quot;offsetCenter&quot;:[0,&quot;50%&quot;],&quot;fontSize&quot;:14,&quot;color&quot;:&quot;#333&quot;}}],&quot;z&quot;:2,&quot;colorBy&quot;:&quot;data&quot;,&quot;center&quot;:[&quot;50%&quot;,&quot;50%&quot;],&quot;legendHoverLink&quot;:true,&quot;clockwise&quot;:true,&quot;progress&quot;:{&quot;show&quot;:false,&quot;overlap&quot;:true,&quot;width&quot;:10,&quot;roundCap&quot;:false,&quot;clip&quot;:true},&quot;anchor&quot;:{&quot;show&quot;:false,&quot;showAbove&quot;:false,&quot;size&quot;:6,&quot;icon&quot;:&quot;circle&quot;,&quot;offsetCenter&quot;:[0,0],&quot;keepAspect&quot;:false,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#fff&quot;,&quot;borderWidth&quot;:0,&quot;borderColor&quot;:&quot;#5470c6&quot;}},&quot;title&quot;:{&quot;show&quot;:true,&quot;offsetCenter&quot;:[0,&quot;20%&quot;],&quot;color&quot;:&quot;#464646&quot;,&quot;fontSize&quot;:16,&quot;valueAnimation&quot;:false},&quot;label&quot;:{},&quot;emphasis&quot;:{&quot;label&quot;:{}}}],&quot;visualMap&quot;:[],&quot;legend&quot;:[],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 462px; height: 400px; padding: 0px; margin: 0px; border-width: 0px;"><canvas data-zr-dom-id="zr_0" width="577" height="500" style="position: absolute; left: 0px; top: 0px; width: 462px; height: 400px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div></div>
+                    <p class="text-center text-xs text-gray-500 mt-2">資料來源：聯合國水資源報告 / 網頁公開資訊</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4.0 Trend 3: Ocean Treaty -->
+        <section class="reveal">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">海洋的歷史性轉捩點</h2>
+                <p class="text-xl text-esg-link dark:text-blue-400 font-medium">公海不再是無法無天的「蠻荒西部」</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="col-span-1 md:col-span-2 bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-lg border border-gray-100 dark:border-gray-700">
+                    <div class="h-64 overflow-hidden relative">
+                         <img src="https://api.felo.ai/images/s/xqsQryEzwe" alt="BBNJ Treaty" class="w-full h-full object-cover">
+                         <div class="absolute bottom-0 left-0 bg-esg-link text-white px-4 py-1 text-sm font-bold">2026.01.17 正式生效</div>
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">全球海洋治理的新紀元</h3>
+                        <p class="text-gray-600 dark:text-gray-300 leading-relaxed text-justify-inter">
+                            聯合國《公海保護條約》（BBNJ協定）標誌著全球海洋治理進入了一個嶄新的紀元。這份歷經十年艱難談判達成的條約，確立了建立跨國界的海洋保護區（MPAs）、對在公海進行的經濟活動實施更嚴格的環境影響評估（EIAs）等核心措施。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Visual 2: Mermaid Diagram for Goals -->
+                <div class="col-span-1 bg-blue-50 dark:bg-slate-800/50 rounded-2xl p-6 border border-blue-100 dark:border-blue-900/30 flex flex-col justify-center items-center">
+                    <div class="mermaid text-center w-full" data-processed="true"><svg aria-roledescription="flowchart-v2" role="graphics-document document" viewBox="-8 -8 513.8874816894531 425" style="max-width: 513.8874816894531px;" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="100%" id="mermaid-1769122749460"><style>#mermaid-1769122749460{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}#mermaid-1769122749460 .error-icon{fill:#552222;}#mermaid-1769122749460 .error-text{fill:#552222;stroke:#552222;}#mermaid-1769122749460 .edge-thickness-normal{stroke-width:2px;}#mermaid-1769122749460 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-1769122749460 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-1769122749460 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-1769122749460 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-1769122749460 .marker{fill:#333333;stroke:#333333;}#mermaid-1769122749460 .marker.cross{stroke:#333333;}#mermaid-1769122749460 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaid-1769122749460 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#mermaid-1769122749460 .cluster-label text{fill:#333;}#mermaid-1769122749460 .cluster-label span,#mermaid-1769122749460 p{color:#333;}#mermaid-1769122749460 .label text,#mermaid-1769122749460 span,#mermaid-1769122749460 p{fill:#333;color:#333;}#mermaid-1769122749460 .node rect,#mermaid-1769122749460 .node circle,#mermaid-1769122749460 .node ellipse,#mermaid-1769122749460 .node polygon,#mermaid-1769122749460 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-1769122749460 .flowchart-label text{text-anchor:middle;}#mermaid-1769122749460 .node .label{text-align:center;}#mermaid-1769122749460 .node.clickable{cursor:pointer;}#mermaid-1769122749460 .arrowheadPath{fill:#333333;}#mermaid-1769122749460 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaid-1769122749460 .flowchart-link{stroke:#333333;fill:none;}#mermaid-1769122749460 .edgeLabel{background-color:#e8e8e8;text-align:center;}#mermaid-1769122749460 .edgeLabel rect{opacity:0.5;background-color:#e8e8e8;fill:#e8e8e8;}#mermaid-1769122749460 .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#mermaid-1769122749460 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-1769122749460 .cluster text{fill:#333;}#mermaid-1769122749460 .cluster span,#mermaid-1769122749460 p{color:#333;}#mermaid-1769122749460 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-1769122749460 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-1769122749460 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}</style><g><marker orient="auto" markerHeight="12" markerWidth="12" markerUnits="userSpaceOnUse" refY="5" refX="6" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1769122749460_flowchart-pointEnd"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 0 L 10 5 L 0 10 z"></path></marker><marker orient="auto" markerHeight="12" markerWidth="12" markerUnits="userSpaceOnUse" refY="5" refX="4.5" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1769122749460_flowchart-pointStart"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 5 L 10 10 L 10 0 z"></path></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5" refX="11" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1769122749460_flowchart-circleEnd"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5" refX="-1" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1769122749460_flowchart-circleStart"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5.2" refX="12" viewBox="0 0 11 11" class="marker cross flowchart" id="mermaid-1769122749460_flowchart-crossEnd"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5.2" refX="-1" viewBox="0 0 11 11" class="marker cross flowchart" id="mermaid-1769122749460_flowchart-crossStart"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path marker-end="url(#mermaid-1769122749460_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-A LE-B" id="L-A-B-0" d="M274.244,39L274.244,43.167C274.244,47.333,274.244,55.667,274.31,63.2C274.376,70.734,274.508,77.467,274.574,80.834L274.64,84.201"></path><path marker-end="url(#mermaid-1769122749460_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-B LE-C" id="L-B-C-0" d="M233.118,165.874L206.431,176.895C179.743,187.916,126.368,209.958,99.681,224.262C72.994,238.567,72.994,245.133,72.994,248.417L72.994,251.7"></path><path marker-end="url(#mermaid-1769122749460_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-B LE-D" id="L-B-D-0" d="M274.744,207.5L274.66,211.583C274.577,215.667,274.41,223.833,274.327,231.2C274.244,238.567,274.244,245.133,274.244,248.417L274.244,251.7"></path><path marker-end="url(#mermaid-1769122749460_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-B LE-E" id="L-B-E-0" d="M314.119,168.125L335.563,178.771C357.006,189.417,399.894,210.708,421.338,224.637C442.781,238.567,442.781,245.133,442.781,248.417L442.781,251.7"></path><path marker-end="url(#mermaid-1769122749460_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-E LE-F" id="L-E-F-0" d="M442.781,296L442.781,302.167C442.781,308.333,442.781,320.667,442.781,332.117C442.781,343.567,442.781,354.133,442.781,359.417L442.781,364.7"></path></g><g class="edgeLabels"><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g transform="translate(442.78125, 333)" class="edgeLabel"><g transform="translate(-16, -12)" class="label"><foreignObject height="24" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">保護</span></div></foreignObject></g></g></g><g class="nodes"><g transform="translate(274.2437515258789, 19.5)" id="flowchart-A-0" class="node default default flowchart-label"><rect height="39" width="82.95000457763672" y="-19.5" x="-41.47500228881836" ry="0" rx="0" style="fill:#1e3a8a;stroke:#fff;" class="basic label-container"></rect><g transform="translate(-33.97500228881836, -12)" style="color:#fff;" class="label"><rect></rect><foreignObject height="24" width="67.95000457763672"><div xmlns="http://www.w3.org/1999/xhtml" style="color: rgb(255, 255, 255); display: inline-block; white-space: nowrap;"><span style="color:#fff;" class="nodeLabel">BBNJ協定</span></div></foreignObject></g></g><g transform="translate(274.2437515258789, 148)" id="flowchart-B-1" class="node default default flowchart-label"><polygon style="" transform="translate(-59,59)" class="label-container" points="59,0 118,-59 59,-118 0,-59"></polygon><g transform="translate(-32, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="64"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">核心措施</span></div></foreignObject></g></g><g transform="translate(72.9937515258789, 276.5)" id="flowchart-C-3" class="node default default flowchart-label"><rect height="39" width="145.9875030517578" y="-19.5" x="-72.9937515258789" ry="5" rx="5" style="" class="basic label-container"></rect><g transform="translate(-65.4937515258789, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="130.9875030517578"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">海洋保護區 (MPAs)</span></div></foreignObject></g></g><g transform="translate(274.2437515258789, 276.5)" id="flowchart-D-5" class="node default default flowchart-label"><rect height="39" width="156.5124969482422" y="-19.5" x="-78.2562484741211" ry="5" rx="5" style="" class="basic label-container"></rect><g transform="translate(-70.7562484741211, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="141.5124969482422"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">環境影響評估 (EIAs)</span></div></foreignObject></g></g><g transform="translate(442.78125, 276.5)" id="flowchart-E-7" class="node default default flowchart-label"><rect height="39" width="80.5625" y="-19.5" x="-40.28125" ry="5" rx="5" style="" class="basic label-container"></rect><g transform="translate(-32.78125, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="65.5625"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">2030目標</span></div></foreignObject></g></g><g transform="translate(442.78125, 389.5)" id="flowchart-F-9" class="node default default flowchart-label"><rect height="39" width="110.2125015258789" y="-19.5" x="-55.10625076293945" ry="0" rx="0" style="fill:#ff6b35;stroke:#333;" class="basic label-container"></rect><g transform="translate(-47.60625076293945, -12)" style="color:#fff;" class="label"><rect></rect><foreignObject height="24" width="95.2125015258789"><div xmlns="http://www.w3.org/1999/xhtml" style="color: rgb(255, 255, 255); display: inline-block; white-space: nowrap;"><span style="color:#fff;" class="nodeLabel">30% 全球海洋</span></div></foreignObject></g></g></g></g></g></svg></div>
+                    <div class="mt-6 text-sm text-gray-500 dark:text-gray-400 text-center">
+                        <p class="font-bold">臺灣影響：</p>
+                        遠洋漁業將面臨更嚴格規範，傳統模式勢必轉型。
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5.0 Trend 4: Career & Health -->
+        <section class="reveal bg-gradient-to-r from-stone-100 to-white dark:from-slate-800 dark:to-slate-900 rounded-3xl p-10 border border-stone-200 dark:border-slate-700">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="flex-1">
+                    <span class="text-orange-500 font-bold tracking-wider uppercase text-sm mb-2 block">Personal Resilience</span>
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">「永續」走入日常<br>從職涯規劃到體重管理</h2>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                        「永續」的概念正迅速地從宏觀的環境議題，擴展到與我們息息相關的個人層面。這意味著建立更具韌性、更平衡的長期策略，無論是在職涯發展還是個人健康上，短視近利的模式都將被淘汰。
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 h-6 w-6 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mt-1">
+                                <i class="fas fa-briefcase text-esg-forest dark:text-green-400 text-xs"></i>
+                            </div>
+                            <span class="ml-3 text-gray-700 dark:text-gray-300"><strong>職涯：</strong> 企業轉向「具永續性」增長，聚焦長期價值技能。</span>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="flex-shrink-0 h-6 w-6 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center mt-1">
+                                <i class="fas fa-heart-pulse text-esg-forest dark:text-green-400 text-xs"></i>
+                            </div>
+                            <span class="ml-3 text-gray-700 dark:text-gray-300"><strong>健康：</strong> 超越「少吃多動」，納入壓力管理與睡眠品質的全面生活方式。</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="flex-1 w-full">
+                    <!-- Comparison Visualization (SVG constructed) -->
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-sm border-t-4 border-gray-300 text-center opacity-70">
+                            <div class="text-gray-400 mb-2"><i class="fas fa-history text-2xl"></i></div>
+                            <h4 class="font-bold text-gray-500 mb-2">舊模式</h4>
+                            <p class="text-xs text-gray-500">盲目擴張<br>少吃多動<br>短視近利</p>
+                        </div>
+                        <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-lg border-t-4 border-esg-forest transform scale-105 z-10">
+                            <div class="text-esg-forest dark:text-esg-light mb-2"><i class="fas fa-leaf text-2xl"></i></div>
+                            <h4 class="font-bold text-gray-900 dark:text-white mb-2">永續新模式</h4>
+                            <p class="text-xs text-gray-600 dark:text-gray-300">效率與長期價值<br>全面生活方式<br>韌性與平衡</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6.0 Trend 5: AI & Construction -->
+        <section class="reveal">
+            <h2 class="text-4xl font-bold text-center text-gray-900 dark:text-white mb-12">
+                未來已來：<span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">AI 與機器人打造「無限循環」建築</span>
+            </h2>
+            
+            <div class="bg-white dark:bg-slate-800 rounded-3xl overflow-hidden shadow-2xl border border-gray-100 dark:border-gray-700">
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    <div class="relative min-h-[400px]">
+                        <img src="https://api.felo.ai/images/s/OZWVfaeYWY" alt="AI Robot Architecture" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-all"></div>
+                    </div>
+                    <div class="p-10 flex flex-col justify-center">
+                        <div class="mb-6">
+                             <span class="px-3 py-1 text-xs font-semibold text-purple-600 bg-purple-100 rounded-full dark:bg-purple-900/30 dark:text-purple-300">循環經濟新範式</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">可重複重建的亭子</h3>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                            近期一組學生團隊設計並建造了一個「可重複重建的亭子」，導入機器人自動化技術，使其能夠被精確地拆卸、重新組裝。這項設計不僅是技術上的突破，更是循環經濟原則在建築領域的極致體現。
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 mt-auto">
+                            <div class="p-4 bg-gray-50 dark:bg-slate-700/50 rounded-lg">
+                                <p class="text-3xl font-bold text-gray-900 dark:text-white mb-1">AI</p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">優化設計與風險評估</p>
+                            </div>
+                            <div class="p-4 bg-gray-50 dark:bg-slate-700/50 rounded-lg">
+                                <p class="text-3xl font-bold text-gray-900 dark:text-white mb-1">數倍</p>
+                                <p class="text-xs text-gray-500 dark:text-gray-400">行業效率提升預期</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7.0 Conclusion -->
+        <section class="reveal max-w-4xl mx-auto text-center py-20">
+            <i class="fas fa-quote-left text-4xl text-esg-forest/20 dark:text-white/20 mb-6"></i>
+            <h2 class="text-3xl md:text-5xl font-serif font-bold text-gray-900 dark:text-white mb-8 leading-tight">
+                在變動中，<br>你將如何定義自己的「永續」？
+            </h2>
+            <p class="text-xl text-gray-600 dark:text-gray-300 mb-10 leading-relaxed">
+                它不再是一個單一、靜態的概念，而是一個複雜、動態且與我們每個人都息息相關的系統。當「永續」的邊界日益模糊，我們該如何校準自己的羅盤，做出真正有益於未來世代的選擇？
+            </p>
+            <a href="#" class="inline-flex items-center justify-center px-8 py-4 border border-transparent text-lg font-medium rounded-full text-white bg-esg-accent hover:bg-orange-600 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                分享這份報告 <i class="fas fa-share-alt ml-2"></i>
+            </a>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-esg-forest text-white py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                <div class="mb-6 md:mb-0">
+                    <span class="text-2xl font-serif font-bold">Dunk 永續觀察</span>
+                    <p class="text-esg-light/60 text-sm mt-2">洞察未來，定義永續。</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-white/60 hover:text-white transition-colors"><i class="fab fa-linkedin text-xl"></i></a>
+                    <a href="#" class="text-white/60 hover:text-white transition-colors"><i class="fab fa-twitter text-xl"></i></a>
+                    <a href="#" class="text-white/60 hover:text-white transition-colors"><i class="fab fa-facebook text-xl"></i></a>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between text-xs text-white/40">
+                <div class="mb-4 md:mb-0 space-y-2">
+                    <p>免責聲明：基於公開資料，僅供參考，不構成建議。</p>
+                    <p>資料來源：網頁公開資訊、Fortune Business Insights、聯合國報告。</p>
+                </div>
+                <div class="text-right">
+                    <p>作者：Dunk | 版權所有：© 2026 Dunk</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // --- 1. Dark Mode Toggle ---
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        // Initial Check
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            if (html.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+            // Update Charts on Theme Change
+            initCharts();
+            initMermaid();
+        });
+
+        // --- 2. Intersection Observer for Scroll Animations ---
+        const reveals = document.querySelectorAll('.reveal');
+        
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    // Optional: Stop observing once revealed
+                    // observer.unobserve(entry.target); 
+                }
+            });
+        }, {
+            root: null,
+            threshold: 0.15
+        });
+
+        reveals.forEach(reveal => revealObserver.observe(reveal));
+
+        // --- 3. ECharts Initialization ---
+        let waterChartInstance = null;
+
+        function initCharts() {
+            const isDark = html.classList.contains('dark');
+            const container = document.getElementById('waterChart');
+            
+            if (waterChartInstance) {
+                waterChartInstance.dispose();
+            }
+
+            if (!container) return;
+
+            waterChartInstance = echarts.init(container, isDark ? 'dark' : null);
+            
+            const option = {
+                backgroundColor: 'transparent',
+                series: [
+                    {
+                        type: 'gauge',
+                        startAngle: 180,
+                        endAngle: 0,
+                        min: 0,
+                        max: 100,
+                        splitNumber: 10,
+                        radius: '90%',
+                        axisLine: {
+                            lineStyle: {
+                                width: 30,
+                                color: [
+                                    [0.25, '#7CFFB2'],
+                                    [0.5, '#58D9F9'],
+                                    [0.75, '#FDDD60'],
+                                    [1, '#FF6E76']
+                                ]
+                            }
+                        },
+                        pointer: {
+                            itemStyle: {
+                                color: 'auto'
+                            }
+                        },
+                        axisTick: {
+                            distance: -30,
+                            length: 8,
+                            lineStyle: {
+                                color: '#fff',
+                                width: 2
+                            }
+                        },
+                        splitLine: {
+                            distance: -30,
+                            length: 30,
+                            lineStyle: {
+                                color: '#fff',
+                                width: 4
+                            }
+                        },
+                        axisLabel: {
+                            color: 'inherit',
+                            distance: 40,
+                            fontSize: 10
+                        },
+                        detail: {
+                            valueAnimation: true,
+                            formatter: '{value}%',
+                            color: 'inherit',
+                            fontSize: 30,
+                            offsetCenter: [0, '20%']
+                        },
+                        data: [
+                            {
+                                value: 75,
+                                name: '水資源壓力人口',
+                                title: {
+                                    offsetCenter: [0, '50%'],
+                                    fontSize: 14,
+                                    color: isDark ? '#ddd' : '#333'
+                                }
+                            }
+                        ]
+                    }
+                ]
+            };
+
+            waterChartInstance.setOption(option);
+        }
+
+        // --- 4. Mermaid Initialization ---
+        function initMermaid() {
+            const isDark = html.classList.contains('dark');
+            mermaid.initialize({
+                startOnLoad: true,
+                theme: isDark ? 'dark' : 'default',
+                securityLevel: 'loose',
+                flowchart: {
+                    useMaxWidth: true,
+                    htmlLabels: true
+                }
+            });
+            // Mermaid auto-renders on load, but for dynamic theme switching in a SPA context, 
+            // one might need to re-render. Since this is a static page, CSS variables handle most of it
+            // or a reload is simpler for heavy diagrams. Here we rely on initial load.
+        }
+
+        // Run on load
+        window.addEventListener('load', () => {
+            initCharts();
+            // Mermaid runs automatically via startOnLoad: true
+        });
+
+        // Resize Charts
+        window.addEventListener('resize', () => {
+            if (waterChartInstance) waterChartInstance.resize();
+        });
+
+    </script>
+
+<div class="mermaidTooltip" style="opacity: 0;"></div></body></body>
+</html>
