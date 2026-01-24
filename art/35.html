@@ -1,0 +1,653 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>士利拉-藝術家心繫王太后 | 藝術慈善展覽 2026</title>
+    <meta name="description" content="泰國藝術家攜手慈善，向王太后致敬並為癌患募款。2026年2月於士利拉醫院舉辦。">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Preline UI -->
+    <script src="https://cdn.jsdelivr.net/npm/preline@2.3.0/dist/preline.min.js"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- ECharts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    
+    <!-- Mermaid -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        royal: {
+                            50: '#f0f4ff',
+                            100: '#e0eaff',
+                            200: '#c7d9ff',
+                            300: '#a3c3ff',
+                            400: '#7fa5ff',
+                            500: '#587eff',
+                            600: '#3452e6',
+                            700: '#253db5',
+                            800: '#1e3291', // Royal Blue Base
+                            900: '#1e2b73',
+                            950: '#131945',
+                        },
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706', // Antique Gold
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Noto Serif TC"', '"Playfair Display"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-overlay {
+            background: linear-gradient(to bottom, rgba(19, 25, 69, 0.4), rgba(19, 25, 69, 0.8));
+        }
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .scroll-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+<script src="https://felo.ai/js/iframe.js?v=1769216550965"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style></head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-200 font-sans antialiased selection:bg-royal-200 selection:text-royal-900 transition-colors duration-300"><body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-200 font-sans antialiased selection:bg-royal-200 selection:text-royal-900 transition-colors duration-300" contenteditable="false" spellcheck="false" data-listener-added_00569885="true">
+
+    <!-- Navigation -->
+    <header class="fixed top-0 w-full z-50 transition-all duration-300 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-paintbrush text-royal-800 dark:text-royal-400 text-2xl"></i>
+                <a href="#" class="text-xl font-serif font-bold text-slate-900 dark:text-white tracking-wide">
+                    Siriraj Art <span class="text-royal-600 dark:text-royal-400">2026</span>
+                </a>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#about" class="hover:text-royal-600 dark:hover:text-royal-400 transition-colors">展覽簡介</a>
+                <a href="#artworks" class="hover:text-royal-600 dark:hover:text-royal-400 transition-colors">藝術作品</a>
+                <a href="#charity" class="hover:text-royal-600 dark:hover:text-royal-400 transition-colors">慈善使命</a>
+                <a href="#legacy" class="hover:text-royal-600 dark:hover:text-royal-400 transition-colors">王太后傳承</a>
+                <a href="#contact" class="hover:text-royal-600 dark:hover:text-royal-400 transition-colors">參觀資訊</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <button id="theme-toggle" type="button" class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-slate-600 dark:text-slate-400 focus:outline-none focus:ring-2 focus:ring-royal-500">
+                    <i class="fa-solid fa-moon hidden dark:block"></i>
+                    <i class="fa-solid fa-sun block dark:hidden"></i>
+                </button>
+                <a href="#donate" class="hidden sm:inline-flex items-center justify-center px-5 py-2 text-sm font-semibold text-white transition-all duration-200 bg-royal-800 border border-transparent rounded-full hover:bg-royal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-royal-800 shadow-lg shadow-royal-800/20">
+                    支持募款
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://image.pollinations.ai/prompt/Thai%20royal%20art%20gallery%2C%20elegant%20oil%20painting%20of%20Queen%20Sirikit%20style%2C%20golden%20frames%2C%20soft%20lighting%2C%20museum%20atmosphere%2C%20photorealistic%2C%208k%2C%20cinematic%2C%20blue%20and%20gold%20tones?nologo=true" alt="泰國皇家藝術畫廊氛圍" class="w-full h-full object-cover">
+            <div class="hero-overlay absolute inset-0"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-4 text-center">
+            <span class="inline-block py-1 px-3 rounded-full bg-royal-100/10 border border-royal-200/30 text-royal-100 text-sm font-medium mb-6 backdrop-blur-sm scroll-reveal visible">
+                2026年2月14日 - 28日 • 士利拉醫院
+            </span>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-white mb-6 leading-tight tracking-tight scroll-reveal visible" style="transition-delay: 100ms;">
+                士利拉-藝術家<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-royal-200 via-white to-royal-200">心繫王太后</span>
+            </h1>
+            <p class="text-lg md:text-xl text-royal-100/90 mb-10 max-w-2xl mx-auto font-light leading-relaxed scroll-reveal visible" style="transition-delay: 200ms;">
+                "In Loving Remembrance of the Queen Mother"
+                <br>
+                匯聚 200 位泰國藝術家之心，以 93 幅鉅作致敬詩麗吉王太后，
+                <br>
+                為經濟困難的癌症患者點亮希望之光。
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center scroll-reveal visible" style="transition-delay: 300ms;">
+                <a href="#about" class="px-8 py-3.5 text-base font-medium text-royal-900 bg-white rounded-full hover:bg-royal-50 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1">
+                    探索展覽
+                </a>
+                <a href="#charity" class="px-8 py-3.5 text-base font-medium text-white border border-white/30 bg-white/10 backdrop-blur-sm rounded-full hover:bg-white/20 transition-all">
+                    了解慈善使命
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Down Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-white/50">
+            <i class="fa-solid fa-chevron-down text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- Introduction / About -->
+    <section id="about" class="py-20 md:py-32 bg-white dark:bg-slate-900 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1 scroll-reveal visible">
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-slate-900 dark:text-white mb-6">
+                        藝術與慈善的<span class="text-royal-800 dark:text-royal-400">神聖交匯</span>
+                    </h2>
+                    <div class="w-20 h-1 bg-royal-600 mb-8"></div>
+                    <p class="text-lg text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
+                        本次展覽是由<strong>士利拉醫院</strong>、<strong>癌症基金會</strong>以及<strong>泰國藝術大學舊生協會</strong>共同策劃的歷史性盛會。展覽不僅是對已故王太后詩麗吉陛下的深切緬懷，更是一場關於生命與希望的接力。
+                    </p>
+                    <p class="text-lg text-slate-600 dark:text-slate-300 mb-8 leading-relaxed">
+                        展覽核心在於「功德經濟」(Economy of Merit) 的實踐。通過藝術的力量，我們將審美體驗轉化為實質的人道主義援助，直接回應泰國癌症護理中嚴峻的財務挑戰。
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50 dark:bg-slate-800/50">
+                            <div class="text-royal-600 dark:text-royal-400 text-3xl font-bold mb-1">93</div>
+                            <div class="text-sm text-slate-500 dark:text-slate-400">致敬畫作 (幅)</div>
+                        </div>
+                        <div class="p-4 border border-slate-200 dark:border-slate-700 rounded-lg bg-slate-50 dark:bg-slate-800/50">
+                            <div class="text-royal-600 dark:text-royal-400 text-3xl font-bold mb-1">200+</div>
+                            <div class="text-sm text-slate-500 dark:text-slate-400">參與藝術家</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="order-1 lg:order-2 relative scroll-reveal visible">
+                    <div class="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl relative">
+                        <img src="https://image.pollinations.ai/prompt/Thai%20master%20artist%20painting%20a%20royal%20portrait%2C%20serene%20expression%2C%20acrylic%20on%20canvas%2C%20studio%20setting%2C%20warm%20golden%20light%2C%20cultural%20heritage?nologo=true" alt="藝術家創作過程" class="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-8">
+                            <p class="text-white font-serif italic">"藝術不僅是審美，更是治癒心靈的良藥。"</p>
+                        </div>
+                    </div>
+                    <!-- Decorative Elements -->
+                    <div class="absolute -top-10 -right-10 w-40 h-40 bg-royal-100 dark:bg-royal-900/30 rounded-full blur-3xl -z-10"></div>
+                    <div class="absolute -bottom-10 -left-10 w-40 h-40 bg-gold-400/20 rounded-full blur-3xl -z-10"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artworks Section -->
+    <section id="artworks" class="py-20 bg-slate-50 dark:bg-slate-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 scroll-reveal visible">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-slate-900 dark:text-white mb-4">
+                    藝術珍藏與規格
+                </h2>
+                <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+                    展出的93幅作品象徵王太后的高壽與傳奇一生。作品主要採用壓克力顏料創作，風格橫跨寫實肖像至當代抽象演繹。
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 mb-16">
+                <!-- Large Format Card -->
+                <div class="group bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-100 dark:border-slate-700 scroll-reveal visible">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://image.pollinations.ai/prompt/Large%20scale%20Thai%20royal%20painting%2C%20240x240cm%2C%20majestic%20portrait%2C%20detailed%20acrylic%20art%2C%20museum%20display?nologo=true" alt="大型畫作展示" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 right-4 bg-royal-600 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                            Monumental
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-baseline mb-4">
+                            <h3 class="text-2xl font-serif font-bold text-slate-900 dark:text-white">大型紀念鉅作</h3>
+                            <span class="text-royal-600 dark:text-royal-400 font-bold text-lg">13 幅</span>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 mb-6">
+                            尺寸：<strong>240 x 240 cm</strong>
+                        </p>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-6">
+                            由國家藝術家及大師級畫家執筆，宏偉展現王太后的皇室職責與慈愛容顏。適合大型機構收藏與展示。
+                        </p>
+                        <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> 國家藝術家親筆</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> 極具收藏價值的博物館級作品</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Standard Format Card -->
+                <div class="group bg-white dark:bg-slate-900 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-slate-100 dark:border-slate-700 scroll-reveal visible" style="transition-delay: 100ms;">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="https://image.pollinations.ai/prompt/Gallery%20wall%20with%20square%20paintings%2C%20150x150cm%2C%20Thai%20contemporary%20art%2C%20diverse%20styles%2C%20art%20exhibition?nologo=true" alt="標準畫作展示" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute top-4 right-4 bg-gold-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                            Standard
+                        </div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-baseline mb-4">
+                            <h3 class="text-2xl font-serif font-bold text-slate-900 dark:text-white">標準典藏作品</h3>
+                            <span class="text-royal-600 dark:text-royal-400 font-bold text-lg">80 幅</span>
+                        </div>
+                        <p class="text-slate-600 dark:text-slate-400 mb-6">
+                            尺寸：<strong>150 x 150 cm</strong>
+                        </p>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-6">
+                            由Silpakorn大學校友、學生及受邀藝術家創作，提供更親密和多樣化的視角解讀王太后的精神遺產。
+                        </p>
+                        <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> 風格多樣，詮釋豐富</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500"></i> 適合私人收藏家與慈善家</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Visualization: Comparison -->
+            <div class="bg-white dark:bg-slate-900 p-6 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 scroll-reveal visible">
+                <h4 class="text-lg font-bold text-slate-800 dark:text-slate-200 mb-6 text-center">展品構成概覽</h4>
+                <div id="artworksChart" class="w-full h-64" _echarts_instance_="ec_1769216551879" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" data-chart-option="{&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;darkMode&quot;:&quot;auto&quot;,&quot;colorBy&quot;:&quot;series&quot;,&quot;color&quot;:[&quot;#5470c6&quot;,&quot;#91cc75&quot;,&quot;#fac858&quot;,&quot;#ee6666&quot;,&quot;#73c0de&quot;,&quot;#3ba272&quot;,&quot;#fc8452&quot;,&quot;#9a60b4&quot;,&quot;#ea7ccc&quot;],&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;textStyle&quot;:{&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;axisPointer&quot;:[{&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9BEC9&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;label&quot;:{&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;color&quot;:&quot;#fff&quot;,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[{&quot;trigger&quot;:&quot;item&quot;,&quot;z&quot;:60,&quot;show&quot;:true,&quot;showContent&quot;:true,&quot;triggerOn&quot;:&quot;mousemove|click&quot;,&quot;alwaysShowContent&quot;:false,&quot;displayMode&quot;:&quot;single&quot;,&quot;renderMode&quot;:&quot;auto&quot;,&quot;confine&quot;:null,&quot;showDelay&quot;:0,&quot;hideDelay&quot;:100,&quot;transitionDuration&quot;:0.4,&quot;enterable&quot;:false,&quot;backgroundColor&quot;:&quot;#fff&quot;,&quot;shadowBlur&quot;:10,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, .2)&quot;,&quot;shadowOffsetX&quot;:1,&quot;shadowOffsetY&quot;:2,&quot;borderRadius&quot;:4,&quot;borderWidth&quot;:1,&quot;padding&quot;:null,&quot;extraCssText&quot;:&quot;&quot;,&quot;axisPointer&quot;:{&quot;type&quot;:&quot;line&quot;,&quot;axis&quot;:&quot;auto&quot;,&quot;animation&quot;:&quot;auto&quot;,&quot;animationDurationUpdate&quot;:200,&quot;animationEasingUpdate&quot;:&quot;exponentialOut&quot;,&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#999&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;,&quot;textStyle&quot;:{}}},&quot;textStyle&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;fontSize&quot;:14}}],&quot;series&quot;:[{&quot;name&quot;:&quot;畫作類型&quot;,&quot;type&quot;:&quot;pie&quot;,&quot;radius&quot;:[&quot;40%&quot;,&quot;70%&quot;],&quot;avoidLabelOverlap&quot;:false,&quot;itemStyle&quot;:{&quot;borderRadius&quot;:10,&quot;borderColor&quot;:&quot;#fff&quot;,&quot;borderWidth&quot;:2,&quot;borderJoin&quot;:&quot;round&quot;},&quot;label&quot;:{&quot;show&quot;:true,&quot;formatter&quot;:&quot;{b}: {c}&quot;,&quot;color&quot;:&quot;#334155&quot;,&quot;rotate&quot;:0,&quot;overflow&quot;:&quot;truncate&quot;,&quot;position&quot;:&quot;outer&quot;,&quot;alignTo&quot;:&quot;none&quot;,&quot;edgeDistance&quot;:&quot;25%&quot;,&quot;bleedMargin&quot;:10,&quot;distanceToLabelLine&quot;:5},&quot;data&quot;:[{&quot;value&quot;:13,&quot;name&quot;:&quot;大型鉅作 (2.4m)&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#1e3a8a&quot;}},{&quot;value&quot;:80,&quot;name&quot;:&quot;標準作品 (1.5m)&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#fbbf24&quot;}}],&quot;z&quot;:2,&quot;legendHoverLink&quot;:true,&quot;colorBy&quot;:&quot;data&quot;,&quot;center&quot;:[&quot;50%&quot;,&quot;50%&quot;],&quot;clockwise&quot;:true,&quot;startAngle&quot;:90,&quot;minAngle&quot;:0,&quot;minShowLabelAngle&quot;:0,&quot;selectedOffset&quot;:10,&quot;percentPrecision&quot;:2,&quot;stillShowZeroSum&quot;:true,&quot;left&quot;:0,&quot;top&quot;:0,&quot;right&quot;:0,&quot;bottom&quot;:0,&quot;width&quot;:null,&quot;height&quot;:null,&quot;labelLine&quot;:{&quot;show&quot;:true,&quot;length&quot;:15,&quot;length2&quot;:15,&quot;smooth&quot;:false,&quot;minTurnAngle&quot;:90,&quot;maxSurfaceAngle&quot;:90,&quot;lineStyle&quot;:{&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;}},&quot;showEmptyCircle&quot;:true,&quot;emptyCircleStyle&quot;:{&quot;color&quot;:&quot;lightgray&quot;,&quot;opacity&quot;:1},&quot;labelLayout&quot;:{&quot;hideOverlap&quot;:true},&quot;emphasis&quot;:{&quot;scale&quot;:true,&quot;scaleSize&quot;:5,&quot;label&quot;:{&quot;show&quot;:true},&quot;labelLine&quot;:{&quot;show&quot;:true}},&quot;animationType&quot;:&quot;expansion&quot;,&quot;animationDuration&quot;:1000,&quot;animationTypeUpdate&quot;:&quot;transition&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;}],&quot;visualMap&quot;:[],&quot;legend&quot;:[{&quot;bottom&quot;:&quot;0%&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#334155&quot;},&quot;z&quot;:4,&quot;show&quot;:true,&quot;orient&quot;:&quot;horizontal&quot;,&quot;left&quot;:&quot;center&quot;,&quot;top&quot;:null,&quot;align&quot;:&quot;auto&quot;,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderColor&quot;:&quot;#ccc&quot;,&quot;borderRadius&quot;:0,&quot;borderWidth&quot;:0,&quot;padding&quot;:5,&quot;itemGap&quot;:10,&quot;itemWidth&quot;:25,&quot;itemHeight&quot;:14,&quot;symbolRotate&quot;:&quot;inherit&quot;,&quot;symbolKeepAspect&quot;:true,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderWidth&quot;:&quot;auto&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;inherit&quot;,&quot;opacity&quot;:&quot;inherit&quot;,&quot;borderColor&quot;:&quot;inherit&quot;,&quot;borderWidth&quot;:&quot;auto&quot;,&quot;borderCap&quot;:&quot;inherit&quot;,&quot;borderJoin&quot;:&quot;inherit&quot;,&quot;borderDashOffset&quot;:&quot;inherit&quot;,&quot;borderMiterLimit&quot;:&quot;inherit&quot;},&quot;lineStyle&quot;:{&quot;width&quot;:&quot;auto&quot;,&quot;color&quot;:&quot;inherit&quot;,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveWidth&quot;:2,&quot;opacity&quot;:&quot;inherit&quot;,&quot;type&quot;:&quot;inherit&quot;,&quot;cap&quot;:&quot;inherit&quot;,&quot;join&quot;:&quot;inherit&quot;,&quot;dashOffset&quot;:&quot;inherit&quot;,&quot;miterLimit&quot;:&quot;inherit&quot;},&quot;selectedMode&quot;:true,&quot;selector&quot;:false,&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;borderRadius&quot;:10,&quot;padding&quot;:[3,5,3,5],&quot;fontSize&quot;:12,&quot;fontFamily&quot;:&quot;sans-serif&quot;,&quot;color&quot;:&quot;#666&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#666&quot;},&quot;emphasis&quot;:{&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;color&quot;:&quot;#eee&quot;,&quot;backgroundColor&quot;:&quot;#666&quot;}},&quot;selectorPosition&quot;:&quot;auto&quot;,&quot;selectorItemGap&quot;:7,&quot;selectorButtonGap&quot;:10,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;selected&quot;:{}}],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 1166px; height: 256px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas data-zr-dom-id="zr_0" width="1457" height="320" style="position: absolute; left: 0px; top: 0px; width: 1166px; height: 256px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class=""></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Charity Mission -->
+    <section id="charity" class="py-20 bg-white dark:bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12">
+                <!-- Left: Text Content -->
+                <div class="lg:col-span-5 scroll-reveal visible">
+                    <span class="text-royal-600 dark:text-royal-400 font-bold tracking-wider uppercase text-sm">Our Mission</span>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-slate-900 dark:text-white mt-2 mb-6">
+                        為90%的無助者<br>伸出援手
+                    </h2>
+                    <p class="text-slate-600 dark:text-slate-300 mb-6 text-justify">
+                        癌症是泰國的主要死因，對家庭財務造成毀滅性打擊。根據士利拉醫院的數據，超過 <strong class="text-royal-700 dark:text-royal-400">90%</strong> 的癌症患者需要財務援助才能完成治療療程。
+                    </p>
+                    <p class="text-slate-600 dark:text-slate-300 mb-8 text-justify">
+                        先進的基因組醫療和精準治療雖然有效，但成本高昂。您的每一次捐贈，都將直接流入<strong>士利拉癌症基金會</strong>，用於：
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-royal-100 text-royal-600 dark:bg-royal-900 dark:text-royal-300 mt-1">
+                                <i class="fa-solid fa-hand-holding-medical"></i>
+                            </span>
+                            <span class="ml-4 text-slate-700 dark:text-slate-300">支付貧困患者的直接醫療費用</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-royal-100 text-royal-600 dark:bg-royal-900 dark:text-royal-300 mt-1">
+                                <i class="fa-solid fa-microscope"></i>
+                            </span>
+                            <span class="ml-4 text-slate-700 dark:text-slate-300">支持前沿癌症研究與設備採購</span>
+                        </li>
+                    </ul>
+                    <div class="bg-royal-50 dark:bg-royal-900/30 p-4 rounded-lg border-l-4 border-royal-600">
+                        <p class="text-sm text-royal-800 dark:text-royal-200 font-medium">
+                            <i class="fa-solid fa-info-circle mr-2"></i>
+                            捐款者可享泰國雙倍稅收減免優惠。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right: Visualizations -->
+                <div class="lg:col-span-7 space-y-8">
+                    <!-- Burden Chart -->
+                    <div class="bg-slate-50 dark:bg-slate-800/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 scroll-reveal shadow-sm visible">
+                        <h4 class="text-center font-bold text-slate-800 dark:text-slate-200 mb-2">士利拉醫院癌症患者財務狀況</h4>
+                        <div id="burdenChart" class="w-full h-64" _echarts_instance_="ec_1769216551880" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);" data-chart-option="{&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;darkMode&quot;:&quot;auto&quot;,&quot;colorBy&quot;:&quot;series&quot;,&quot;color&quot;:[&quot;#5470c6&quot;,&quot;#91cc75&quot;,&quot;#fac858&quot;,&quot;#ee6666&quot;,&quot;#73c0de&quot;,&quot;#3ba272&quot;,&quot;#fc8452&quot;,&quot;#9a60b4&quot;,&quot;#ea7ccc&quot;],&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;textStyle&quot;:{&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;axisPointer&quot;:[{&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9BEC9&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;label&quot;:{&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;color&quot;:&quot;#fff&quot;,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[],&quot;yAxis&quot;:[{&quot;type&quot;:&quot;value&quot;,&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#334155&quot;,&quot;formatter&quot;:&quot;{value}%&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#e2e8f0&quot;,&quot;type&quot;:&quot;dashed&quot;,&quot;width&quot;:1},&quot;show&quot;:true},&quot;boundaryGap&quot;:[0,0],&quot;axisLine&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#6E7079&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;axisTick&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;splitNumber&quot;:5,&quot;minorTick&quot;:{&quot;show&quot;:false,&quot;splitNumber&quot;:5,&quot;length&quot;:3,&quot;lineStyle&quot;:{}},&quot;minorSplitLine&quot;:{&quot;show&quot;:false,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#F4F7FD&quot;,&quot;width&quot;:1}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{},&quot;splitArea&quot;:{&quot;show&quot;:false,&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(250,250,250,0.2)&quot;,&quot;rgba(210,219,238,0.2)&quot;]}},&quot;offset&quot;:0}],&quot;xAxis&quot;:[{&quot;type&quot;:&quot;category&quot;,&quot;data&quot;:[&quot;需財務援助&quot;,&quot;可自費&quot;],&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#334155&quot;,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#334155&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:true,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;boundaryGap&quot;:true,&quot;deduplication&quot;:null,&quot;splitLine&quot;:{&quot;show&quot;:false,&quot;lineStyle&quot;:{&quot;color&quot;:[&quot;#E0E6F1&quot;],&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;}},&quot;axisTick&quot;:{&quot;alignWithLabel&quot;:false,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{},&quot;splitArea&quot;:{&quot;show&quot;:false,&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(250,250,250,0.2)&quot;,&quot;rgba(210,219,238,0.2)&quot;]}},&quot;offset&quot;:0}],&quot;grid&quot;:[{&quot;top&quot;:&quot;10%&quot;,&quot;bottom&quot;:&quot;20%&quot;,&quot;left&quot;:&quot;15%&quot;,&quot;right&quot;:&quot;10%&quot;,&quot;show&quot;:false,&quot;z&quot;:0,&quot;containLabel&quot;:false,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#ccc&quot;}],&quot;series&quot;:[{&quot;data&quot;:[{&quot;value&quot;:90,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#dc2626&quot;}},{&quot;value&quot;:10,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#cbd5e1&quot;}}],&quot;type&quot;:&quot;bar&quot;,&quot;barWidth&quot;:&quot;50%&quot;,&quot;label&quot;:{&quot;show&quot;:true,&quot;position&quot;:&quot;top&quot;,&quot;formatter&quot;:&quot;{c}%&quot;,&quot;color&quot;:&quot;#334155&quot;,&quot;fontSize&quot;:16,&quot;fontWeight&quot;:&quot;bold&quot;},&quot;z&quot;:2,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;barMinHeight&quot;:0,&quot;barMinAngle&quot;:0,&quot;large&quot;:false,&quot;largeThreshold&quot;:400,&quot;progressive&quot;:3000,&quot;progressiveChunkMode&quot;:&quot;mod&quot;,&quot;clip&quot;:true,&quot;roundCap&quot;:false,&quot;showBackground&quot;:false,&quot;backgroundStyle&quot;:{&quot;color&quot;:&quot;rgba(180, 180, 180, 0.2)&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderType&quot;:&quot;solid&quot;,&quot;borderRadius&quot;:0,&quot;shadowBlur&quot;:0,&quot;shadowColor&quot;:null,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:0,&quot;opacity&quot;:1},&quot;select&quot;:{&quot;itemStyle&quot;:{&quot;borderColor&quot;:&quot;#212121&quot;}},&quot;realtimeSort&quot;:false,&quot;emphasis&quot;:{&quot;label&quot;:{&quot;show&quot;:true}}}],&quot;visualMap&quot;:[],&quot;legend&quot;:[],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 640px; height: 256px; padding: 0px; margin: 0px; border-width: 0px;"><canvas data-zr-dom-id="zr_0" width="800" height="320" style="position: absolute; left: 0px; top: 0px; width: 640px; height: 256px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div></div>
+                    </div>
+                    
+                    <!-- Flow Chart -->
+                    <div class="bg-slate-50 dark:bg-slate-800/50 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 scroll-reveal shadow-sm visible">
+                        <h4 class="text-center font-bold text-slate-800 dark:text-slate-200 mb-4">善款流向與影響機制</h4>
+                        <div class="mermaid flex justify-center" data-processed="true"><svg aria-roledescription="flowchart-v2" role="graphics-document document" viewBox="-8 -8 946.800048828125 144" style="max-width: 946.800048828125px;" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="100%" id="mermaid-1769216569637"><style>#mermaid-1769216569637{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}#mermaid-1769216569637 .error-icon{fill:#552222;}#mermaid-1769216569637 .error-text{fill:#552222;stroke:#552222;}#mermaid-1769216569637 .edge-thickness-normal{stroke-width:2px;}#mermaid-1769216569637 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-1769216569637 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-1769216569637 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-1769216569637 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-1769216569637 .marker{fill:#333333;stroke:#333333;}#mermaid-1769216569637 .marker.cross{stroke:#333333;}#mermaid-1769216569637 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaid-1769216569637 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#mermaid-1769216569637 .cluster-label text{fill:#333;}#mermaid-1769216569637 .cluster-label span,#mermaid-1769216569637 p{color:#333;}#mermaid-1769216569637 .label text,#mermaid-1769216569637 span,#mermaid-1769216569637 p{fill:#333;color:#333;}#mermaid-1769216569637 .node rect,#mermaid-1769216569637 .node circle,#mermaid-1769216569637 .node ellipse,#mermaid-1769216569637 .node polygon,#mermaid-1769216569637 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-1769216569637 .flowchart-label text{text-anchor:middle;}#mermaid-1769216569637 .node .label{text-align:center;}#mermaid-1769216569637 .node.clickable{cursor:pointer;}#mermaid-1769216569637 .arrowheadPath{fill:#333333;}#mermaid-1769216569637 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaid-1769216569637 .flowchart-link{stroke:#333333;fill:none;}#mermaid-1769216569637 .edgeLabel{background-color:#e8e8e8;text-align:center;}#mermaid-1769216569637 .edgeLabel rect{opacity:0.5;background-color:#e8e8e8;fill:#e8e8e8;}#mermaid-1769216569637 .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#mermaid-1769216569637 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-1769216569637 .cluster text{fill:#333;}#mermaid-1769216569637 .cluster span,#mermaid-1769216569637 p{color:#333;}#mermaid-1769216569637 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-1769216569637 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-1769216569637 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}</style><g><marker orient="auto" markerHeight="12" markerWidth="12" markerUnits="userSpaceOnUse" refY="5" refX="6" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1769216569637_flowchart-pointEnd"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 0 L 10 5 L 0 10 z"></path></marker><marker orient="auto" markerHeight="12" markerWidth="12" markerUnits="userSpaceOnUse" refY="5" refX="4.5" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1769216569637_flowchart-pointStart"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 5 L 10 10 L 10 0 z"></path></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5" refX="11" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1769216569637_flowchart-circleEnd"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5" refX="-1" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1769216569637_flowchart-circleStart"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5.2" refX="12" viewBox="0 0 11 11" class="marker cross flowchart" id="mermaid-1769216569637_flowchart-crossEnd"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5.2" refX="-1" viewBox="0 0 11 11" class="marker cross flowchart" id="mermaid-1769216569637_flowchart-crossStart"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path marker-end="url(#mermaid-1769216569637_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-A LE-B" id="L-A-B-0" d="M328.4,52.8L340.567,51C352.733,49.2,377.067,45.6,400.527,45.519C423.987,45.439,446.574,48.878,457.867,50.597L469.16,52.316"></path><path marker-end="url(#mermaid-1769216569637_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-B LE-C" id="L-B-C-0" d="M609.22,44.5L622.75,40.333C636.28,36.167,663.34,27.833,692.853,23.667C722.367,19.5,754.333,19.5,770.317,19.5L786.3,19.5"></path><path marker-end="url(#mermaid-1769216569637_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-B LE-D" id="L-B-D-0" d="M609.22,83.5L622.75,87.667C636.28,91.833,663.34,100.167,688.153,104.333C712.967,108.5,735.533,108.5,746.817,108.5L758.1,108.5"></path><path marker-end="url(#mermaid-1769216569637_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-E LE-A" id="L-E-A-0" d="M63,64L72.5,64C82,64,101,64,119.117,64C137.233,64,154.467,64,163.083,64L171.7,64"></path><path marker-end="url(#mermaid-1769216569637_flowchart-pointEnd)" style="fill:none;stroke-width:2px;stroke-dasharray:3;" class="edge-thickness-normal edge-pattern-dotted flowchart-link LS-B LE-A" id="L-B-A-0" d="M474.4,74.886L462.233,76.738C450.067,78.591,425.733,82.295,402.274,82.477C378.814,82.658,356.229,79.317,344.936,77.646L333.643,75.975"></path></g><g class="edgeLabels"><g transform="translate(401.40000915527344, 42)" class="edgeLabel"><g transform="translate(-32, -12)" class="label"><foreignObject height="24" width="64"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">捐贈資金</span></div></foreignObject></g></g><g transform="translate(690.4000091552734, 19.5)" class="edgeLabel"><g transform="translate(-48, -12)" class="label"><foreignObject height="24" width="96"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">醫療費用支付</span></div></foreignObject></g></g><g transform="translate(690.4000091552734, 108.5)" class="edgeLabel"><g transform="translate(-32, -12)" class="label"><foreignObject height="24" width="64"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">研究經費</span></div></foreignObject></g></g><g transform="translate(120, 64)" class="edgeLabel"><g transform="translate(-32, -12)" class="label"><foreignObject height="24" width="64"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">捐贈畫作</span></div></foreignObject></g></g><g transform="translate(401.40000915527344, 86)" class="edgeLabel"><g transform="translate(-48, -12)" class="label"><foreignObject height="24" width="96"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">雙倍稅收減免</span></div></foreignObject></g></g></g><g class="nodes"><g transform="translate(252.70000457763672, 64)" id="flowchart-A-0" class="node default default flowchart-label"><rect height="39" width="151.40000915527344" y="-19.5" x="-75.70000457763672" ry="0" rx="0" style="fill:#eff6ff;stroke:#1e3a8a;stroke-width:2px;" class="basic label-container"></rect><g transform="translate(-68.20000457763672, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="136.40000915527344"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">捐款者/藝術愛好者</span></div></foreignObject></g></g><g transform="translate(545.9000091552734, 64)" id="flowchart-B-1" class="node default default flowchart-label"><rect height="39" width="143" y="-19.5" x="-71.5" ry="5" rx="5" style="fill:#1e3a8a;stroke:#1e3a8a;" class="basic label-container"></rect><g transform="translate(-64, -12)" style="color:#fff;" class="label"><rect></rect><foreignObject height="24" width="128"><div xmlns="http://www.w3.org/1999/xhtml" style="color: rgb(255, 255, 255); display: inline-block; white-space: nowrap;"><span style="color:#fff;" class="nodeLabel">士利拉癌症基金會</span></div></foreignObject></g></g><g transform="translate(847.1000137329102, 19.5)" id="flowchart-C-3" class="node default default flowchart-label"><rect height="39" width="111" y="-19.5" x="-55.5" ry="0" rx="0" style="fill:#dcfce7;stroke:#166534;" class="basic label-container"></rect><g transform="translate(-48, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="96"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">貧困癌症患者</span></div></foreignObject></g></g><g transform="translate(847.1000137329102, 108.5)" id="flowchart-D-5" class="node default default flowchart-label"><rect height="39" width="167.40000915527344" y="-19.5" x="-83.70000457763672" ry="0" rx="0" style="fill:#f3e8ff;stroke:#6b21a8;" class="basic label-container"></rect><g transform="translate(-76.20000457763672, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="152.40000915527344"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">精準醫療/基因組項目</span></div></foreignObject></g></g><g transform="translate(31.5, 64)" id="flowchart-E-6" class="node default default flowchart-label"><rect height="39" width="63" y="-19.5" x="-31.5" ry="0" rx="0" style="fill:#fff7ed;stroke:#c2410c;" class="basic label-container"></rect><g transform="translate(-24, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="48"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">藝術家</span></div></foreignObject></g></g></g></g></g></svg></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Queen Mother's Legacy -->
+    <section id="legacy" class="py-20 bg-slate-900 text-white relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 opacity-10">
+            <svg class="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M0 100 C 20 0 50 0 100 100 Z" fill="url(#grad1)" style="pointer-events: none;"></path>
+                <defs style="pointer-events: none;">
+                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%" style="pointer-events: none;">
+                        <stop offset="0%" style="stop-color: rgb(255, 255, 255); stop-opacity: 1; pointer-events: none;"></stop>
+                        <stop offset="100%" style="stop-color: rgb(200, 200, 255); stop-opacity: 1; pointer-events: none;"></stop>
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 scroll-reveal visible">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold mb-4">王太后的慈愛遺產</h2>
+                <div class="w-16 h-1 bg-gold-400 mx-auto mb-6"></div>
+                <p class="text-slate-300 max-w-2xl mx-auto">
+                    詩麗吉王太后畢生致力於提升泰國人民的生活品質，她在醫療與文化保存方面的貢獻將永世流傳。
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="p-8 bg-slate-800/50 rounded-xl border border-slate-700 hover:border-gold-500/50 transition-colors scroll-reveal visible">
+                    <div class="w-16 h-16 mx-auto bg-royal-800 rounded-full flex items-center justify-center text-2xl text-gold-400 mb-6">
+                        <i class="fa-solid fa-ribbon"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">乳癌防治中心 (QSCBC)</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        2004年創立，為所有社會階層的婦女提供世界級的乳癌診斷與治療，特別關注貧困弱勢群體。
+                    </p>
+                </div>
+
+                <div class="p-8 bg-slate-800/50 rounded-xl border border-slate-700 hover:border-gold-500/50 transition-colors scroll-reveal visible" style="transition-delay: 100ms;">
+                    <div class="w-16 h-16 mx-auto bg-royal-800 rounded-full flex items-center justify-center text-2xl text-gold-400 mb-6">
+                        <i class="fa-solid fa-masks-theater"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">孔劇 (Khon) 保存</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        復興泰國傳統面具舞劇，使其於2018年被聯合國教科文組織列為人類非物質文化遺產。
+                    </p>
+                </div>
+
+                <div class="p-8 bg-slate-800/50 rounded-xl border border-slate-700 hover:border-gold-500/50 transition-colors scroll-reveal visible" style="transition-delay: 200ms;">
+                    <div class="w-16 h-16 mx-auto bg-royal-800 rounded-full flex items-center justify-center text-2xl text-gold-400 mb-6">
+                        <i class="fa-solid fa-shirt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">泰國絲綢博物館</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        建立詩麗吉王后紡織博物館，保存傳統編織工藝，並將泰絲推向國際時尚舞台。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practical Info / Footer CTA -->
+    <section id="contact" class="py-20 bg-royal-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+        <div class="max-w-4xl mx-auto px-4 text-center scroll-reveal visible" data-element-id="79a4e346-fc30-4648-b048-66480fed3045">
+            <h2 class="text-3xl font-serif font-bold text-slate-900 dark:text-white mb-8">參觀與捐贈資訊</h2>
+            
+            <div class="bg-white dark:bg-slate-800 shadow-xl rounded-2xl p-8 md:p-12 mb-12">
+                <div class="grid md:grid-cols-2 gap-8 text-left">
+                    <div>
+                        <h3 class="text-lg font-bold text-royal-800 dark:text-royal-400 mb-4 flex items-center">
+                            <i class="fa-solid fa-calendar-days mr-3"></i> 展覽時間
+                        </h3>
+                        <p class="text-slate-600 dark:text-slate-300">2026年 2月14日 - 2月28日</p>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm">每日 10:00 - 20:00</p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-royal-800 dark:text-royal-400 mb-4 flex items-center">
+                            <i class="fa-solid fa-map-location-dot mr-3"></i> 展覽地點
+                        </h3>
+                        <p class="text-slate-600 dark:text-slate-300">士利拉 Piyamaharajkarun 醫院</p>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm">2樓 門診大廳 (Outpatient Lobby)</p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-royal-800 dark:text-royal-400 mb-4 flex items-center">
+                            <i class="fa-solid fa-phone mr-3"></i> 聯繫捐贈
+                        </h3>
+                        <p class="text-slate-600 dark:text-slate-300">電話: 02-419-9117 至 8</p>
+                        <p class="text-slate-600 dark:text-slate-300">LINE ID: <span class="font-mono bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 px-2 py-0.5 rounded">CA_SIRIRAJ</span></p>
+                    </div>
+                    <div>
+                        <h3 class="text-lg font-bold text-royal-800 dark:text-royal-400 mb-4 flex items-center">
+                            <i class="fa-solid fa-envelope mr-3"></i> 電子郵件
+                        </h3>
+                        <p class="text-slate-600 dark:text-slate-300 break-all"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="b8dbd996cbd1cad1cad9d2f8dfd5d9d1d496dbd7d5">[email&#160;protected]</a></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="inline-flex flex-col gap-4">
+                <p class="text-slate-500 dark:text-slate-400 text-sm mb-2">您的善款將成為病患重生的希望</p>
+                <a href="#contact" class="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-royal-800 rounded-full hover:bg-royal-700 shadow-lg shadow-royal-800/30 hover:-translate-y-1">
+                    <i class="fa-solid fa-heart mr-2"></i> 立即聯繫捐款
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-center md:text-left">
+                    <h5 class="text-white font-serif font-bold text-lg mb-2">Siriraj Art 2026</h5>
+                    <p class="text-sm">In Loving Remembrance of the Queen Mother</p>
+                </div>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-facebook text-xl"></i></a>
+                    <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-line text-xl"></i></a>
+                    <a href="#" class="hover:text-white transition-colors"><i class="fa-brands fa-instagram text-xl"></i></a>
+                </div>
+            </div>
+            
+            <div class="border-t border-slate-800 mt-8 pt-8 text-xs text-center md:text-left space-y-2">
+                <p>免責申明：基於公開資料，僅供參考，不構成建議。</p>
+                <p>資料來源：網頁公開資訊 (士利拉醫院、泰國文化部等)。</p>
+                <div class="flex flex-col md:flex-row justify-between mt-4">
+                    <span>版權所有： © Dunk 2026</span>
+                    <span>Designed by Dunk</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Dark Mode Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        // Initial Theme Check
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            if (html.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+            updateChartsTheme();
+            updateMermaidTheme();
+        });
+
+        // ECharts Initialization
+        let artworkChartInstance = null;
+        let burdenChartInstance = null;
+
+        function initCharts() {
+            const isDark = html.classList.contains('dark');
+            const textColor = isDark ? '#cbd5e1' : '#334155';
+            const bgColor = 'transparent';
+
+            // Artwork Distribution Chart
+            const artworkDom = document.getElementById('artworksChart');
+            if (artworkDom) {
+                if (artworkChartInstance) artworkChartInstance.dispose();
+                artworkChartInstance = echarts.init(artworkDom, isDark ? 'dark' : null);
+                
+                artworkChartInstance.setOption({
+                    backgroundColor: bgColor,
+                    tooltip: { trigger: 'item' },
+                    legend: { bottom: '0%', textStyle: { color: textColor } },
+                    series: [
+                        {
+                            name: '畫作類型',
+                            type: 'pie',
+                            radius: ['40%', '70%'],
+                            avoidLabelOverlap: false,
+                            itemStyle: {
+                                borderRadius: 10,
+                                borderColor: isDark ? '#1e293b' : '#fff',
+                                borderWidth: 2
+                            },
+                            label: {
+                                show: true,
+                                formatter: '{b}: {c}',
+                                color: textColor
+                            },
+                            data: [
+                                { value: 13, name: '大型鉅作 (2.4m)', itemStyle: { color: '#1e3a8a' } }, // Royal Blue
+                                { value: 80, name: '標準作品 (1.5m)', itemStyle: { color: '#fbbf24' } }  // Gold
+                            ]
+                        }
+                    ]
+                });
+            }
+
+            // Financial Burden Chart
+            const burdenDom = document.getElementById('burdenChart');
+            if (burdenDom) {
+                if (burdenChartInstance) burdenChartInstance.dispose();
+                burdenChartInstance = echarts.init(burdenDom, isDark ? 'dark' : null);
+                
+                burdenChartInstance.setOption({
+                    backgroundColor: bgColor,
+                    grid: { top: '10%', bottom: '20%', left: '15%', right: '10%' },
+                    xAxis: {
+                        type: 'category',
+                        data: ['需財務援助', '可自費'],
+                        axisLabel: { color: textColor },
+                        axisLine: { lineStyle: { color: textColor } }
+                    },
+                    yAxis: {
+                        type: 'value',
+                        axisLabel: { color: textColor, formatter: '{value}%' },
+                        splitLine: { lineStyle: { color: isDark ? '#334155' : '#e2e8f0', type: 'dashed' } }
+                    },
+                    series: [
+                        {
+                            data: [
+                                { value: 90, itemStyle: { color: '#dc2626' } }, // Red for urgency
+                                { value: 10, itemStyle: { color: '#cbd5e1' } }
+                            ],
+                            type: 'bar',
+                            barWidth: '50%',
+                            label: {
+                                show: true,
+                                position: 'top',
+                                formatter: '{c}%',
+                                color: textColor,
+                                fontSize: 16,
+                                fontWeight: 'bold'
+                            }
+                        }
+                    ]
+                });
+            }
+        }
+
+        function updateChartsTheme() {
+            initCharts();
+        }
+
+        // Mermaid Initialization
+        function initMermaid() {
+            const isDark = html.classList.contains('dark');
+            mermaid.initialize({
+                startOnLoad: true,
+                theme: isDark ? 'dark' : 'default',
+                securityLevel: 'loose',
+                flowchart: {
+                    curve: 'basis'
+                }
+            });
+        }
+        
+        function updateMermaidTheme() {
+            // Mermaid doesn't support dynamic re-render easily without clearing.
+            // For this single page, reloading content or simple CSS variable usage is preferred.
+            // Here we just re-run init in case dynamic loading is needed, 
+            // but for static content, CSS vars in mermaid definition handle some parts.
+            // A full reload might be needed for perfect theme switch in mermaid, 
+            // but for UX smoothness we skip full reload and rely on initial load or user refresh.
+            // However, we can try to re-render if the container content was dynamic.
+            // Since it's static, we rely on the initial theme for now or complex re-render logic.
+            // To keep it simple and robust:
+            location.reload(); // Simplest way to ensure Mermaid theme updates correctly
+        }
+
+        // Only reload mermaid on theme toggle if absolutely necessary (commented out to prevent jarring UX)
+        // themeToggleBtn.addEventListener('click', () => setTimeout(() => location.reload(), 100));
+
+        // Scroll Reveal Animation
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Init on load
+        window.addEventListener('load', () => {
+            initCharts();
+            initMermaid();
+        });
+
+        // Resize handler
+        window.addEventListener('resize', () => {
+            if(artworkChartInstance) artworkChartInstance.resize();
+            if(burdenChartInstance) burdenChartInstance.resize();
+        });
+
+    </script>
+
+<div class="mermaidTooltip" style="opacity: 0;"></div></body></body></body></body>
+</html>
