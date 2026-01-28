@@ -1,0 +1,651 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 永續週報：5個你意想不到的永續新現實</title>
+    
+    <!-- Fonts: Noto Sans TC -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        esg: {
+                            dark: '#1a4d3a',    // 墨綠色
+                            main: '#2d5016',    // 深森林綠
+                            light: '#e8f5e8',   // 淺綠色
+                            accent: '#ff6b35',  // 橙色
+                            link: '#0066cc',    // 專業藍
+                            navy: '#1e3a8a',    // 海軍藍
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Preline UI -->
+    <script src="https://cdn.jsdelivr.net/npm/preline@2.3.0/dist/preline.min.js"></script>
+    
+    <!-- ECharts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    
+    <!-- Mermaid -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+
+    <style>
+        /* Custom Styles for Animation & Layout */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .esg-header h1 {
+            letter-spacing: -0.025em;
+        }
+        
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .dark .glass-nav {
+            background: rgba(15, 23, 42, 0.9);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .chart-container {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            border-radius: 1rem;
+        }
+
+        /* Mermaid Scoped Styles */
+        .mermaid {
+            display: flex;
+            justify-content: center;
+            background-color: transparent;
+        }
+    </style>
+<script src="https://felo.ai/js/iframe.js?v=1769641612172"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style></head>
+<body class="bg-[#f8f9fa] dark:bg-slate-900 text-[#333333] dark:text-gray-200 transition-colors duration-300"><body class="bg-[#f8f9fa] dark:bg-slate-900 text-[#333333] dark:text-gray-200 transition-colors duration-300" contenteditable="false" spellcheck="false">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-esg-main dark:text-green-400 font-serif tracking-tight">
+                        <i class="fa-solid fa-leaf mr-2"></i>永續週報
+                    </span>
+                    <span class="ml-3 text-xs font-medium text-gray-500 uppercase tracking-widest border-l pl-3 border-gray-300 dark:border-gray-600">2026.01.29</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors text-gray-600 dark:text-gray-300 focus:outline-none focus:ring-2 focus:ring-esg-main" aria-label="Toggle Dark Mode">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:block"></i>
+                    </button>
+                    <a href="#conclusion" class="hidden md:inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-esg-main hover:bg-esg-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-esg-main transition-all">
+                        訂閱報告
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://image.pollinations.ai/prompt/Cinematic%20wide%20shot%20of%20a%20futuristic%20sustainable%20city%20integrated%20with%20nature,%20wind%20turbines,%20clean%20water,%20golden%20hour,%20photorealistic,%208k,%20high%20contrast?nologo=true" alt="Future Sustainable City" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-b from-white/90 via-white/70 to-[#f8f9fa] dark:from-slate-900/90 dark:via-slate-900/80 dark:to-slate-900"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in-up">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-esg-light dark:bg-esg-main/30 text-esg-main dark:text-green-300 text-sm font-bold tracking-wide mb-6 uppercase border border-green-200 dark:border-green-800">
+                2026 關鍵趨勢報告
+            </div>
+            <h1 class="esg-header text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+                5個你意想不到的<br><span class="text-esg-main dark:text-green-400">永續新現實</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-10 max-w-3xl mx-auto font-light">
+                從「水資源破產」到核武竟也算ESG？揭開2026年全球永續發展背後的深刻兩難與驚人轉變。
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#content-start" class="inline-flex items-center justify-center px-8 py-3.5 border border-transparent text-base font-medium rounded-lg text-white bg-esg-accent hover:bg-orange-600 transition-all shadow-lg hover:shadow-xl">
+                    開始閱讀
+                    <i class="fa-solid fa-arrow-down ml-2 animate-bounce"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Introduction Block -->
+    <section id="content-start" class="py-20 bg-white dark:bg-slate-800 border-y border-gray-100 dark:border-gray-700">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-lg text-gray-700 dark:text-gray-300 leading-relaxed fade-in-up">
+            <p class="mb-6 first-letter:text-5xl first-letter:font-serif first-letter:font-bold first-letter:text-esg-main first-letter:mr-1 float-none">
+                當我們談論「永續」，腦中浮現的畫面通常是資源回收、隨手關燈，或是選擇環保產品。這些個人實踐固然重要，但它們僅是永續發展這幅巨大拼圖的一小部分。在2026年的今天，全球永續的真實面貌，遠比我們想像的更為複雜、充滿矛盾，甚至有些發展令人瞠目結舌。
+            </p>
+            <p class="mb-6">
+                現實是，永續不再只是一套清晰的環保準則，而是一個充滿深刻兩難與驚人轉變的領域。從國際金融規範的重新定義，到未來城市發展的根本衝突，我們正處於一個必須在理想與現實、經濟與倫理之間不斷權衡的時代。
+            </p>
+            <div class="border-l-4 border-esg-main pl-6 italic text-gray-500 dark:text-gray-400">
+                「本文將揭示五個正在重塑我們世界的永續新現實。它們或許違反直覺，甚至引發爭議，但卻是理解當代永續挑戰與突破的關鍵。」
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content: Cards Layout -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 space-y-32">
+        
+        <!-- Topic 1: Nuclear & ESG -->
+        <article class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center fade-in-up group">
+            <div class="order-2 lg:order-1 relative">
+                <div class="absolute -inset-4 bg-esg-light dark:bg-green-900/20 rounded-2xl opacity-50 blur-xl group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div class="relative bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-6 border border-gray-100 dark:border-gray-700 overflow-hidden">
+                    <h3 class="text-sm font-bold text-gray-400 uppercase mb-4 tracking-wider">數據洞察：歐盟 ESG 定義轉向</h3>
+                    <div id="chart-nuclear" class="chart-container" _echarts_instance_="ec_1769641614638" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" data-chart-option="{&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;darkMode&quot;:&quot;auto&quot;,&quot;colorBy&quot;:&quot;series&quot;,&quot;color&quot;:[&quot;#5470c6&quot;,&quot;#91cc75&quot;,&quot;#fac858&quot;,&quot;#ee6666&quot;,&quot;#73c0de&quot;,&quot;#3ba272&quot;,&quot;#fc8452&quot;,&quot;#9a60b4&quot;,&quot;#ea7ccc&quot;],&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;textStyle&quot;:{&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;title&quot;:[{&quot;text&quot;:&quot;歐盟 ESG 投資組合資格變動&quot;,&quot;left&quot;:&quot;center&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#334155&quot;,&quot;fontSize&quot;:16,&quot;fontWeight&quot;:&quot;bold&quot;},&quot;z&quot;:6,&quot;show&quot;:true,&quot;target&quot;:&quot;blank&quot;,&quot;subtext&quot;:&quot;&quot;,&quot;subtarget&quot;:&quot;blank&quot;,&quot;top&quot;:0,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderColor&quot;:&quot;#ccc&quot;,&quot;borderWidth&quot;:0,&quot;padding&quot;:5,&quot;itemGap&quot;:10,&quot;subtextStyle&quot;:{&quot;fontSize&quot;:12,&quot;color&quot;:&quot;#6E7079&quot;},&quot;right&quot;:null}],&quot;axisPointer&quot;:[{&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9BEC9&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;label&quot;:{&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;color&quot;:&quot;#fff&quot;,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[{&quot;trigger&quot;:&quot;item&quot;,&quot;z&quot;:60,&quot;show&quot;:true,&quot;showContent&quot;:true,&quot;triggerOn&quot;:&quot;mousemove|click&quot;,&quot;alwaysShowContent&quot;:false,&quot;displayMode&quot;:&quot;single&quot;,&quot;renderMode&quot;:&quot;auto&quot;,&quot;confine&quot;:null,&quot;showDelay&quot;:0,&quot;hideDelay&quot;:100,&quot;transitionDuration&quot;:0.4,&quot;enterable&quot;:false,&quot;backgroundColor&quot;:&quot;#fff&quot;,&quot;shadowBlur&quot;:10,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, .2)&quot;,&quot;shadowOffsetX&quot;:1,&quot;shadowOffsetY&quot;:2,&quot;borderRadius&quot;:4,&quot;borderWidth&quot;:1,&quot;padding&quot;:null,&quot;extraCssText&quot;:&quot;&quot;,&quot;axisPointer&quot;:{&quot;type&quot;:&quot;line&quot;,&quot;axis&quot;:&quot;auto&quot;,&quot;animation&quot;:&quot;auto&quot;,&quot;animationDurationUpdate&quot;:200,&quot;animationEasingUpdate&quot;:&quot;exponentialOut&quot;,&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#999&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;,&quot;textStyle&quot;:{}}},&quot;textStyle&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;fontSize&quot;:14}}],&quot;series&quot;:[{&quot;name&quot;:&quot;資產類別&quot;,&quot;type&quot;:&quot;pie&quot;,&quot;radius&quot;:[&quot;40%&quot;,&quot;70%&quot;],&quot;avoidLabelOverlap&quot;:false,&quot;itemStyle&quot;:{&quot;borderRadius&quot;:10,&quot;borderColor&quot;:&quot;#fff&quot;,&quot;borderWidth&quot;:2,&quot;borderJoin&quot;:&quot;round&quot;},&quot;label&quot;:{&quot;show&quot;:false,&quot;position&quot;:&quot;center&quot;,&quot;rotate&quot;:0,&quot;overflow&quot;:&quot;truncate&quot;,&quot;alignTo&quot;:&quot;none&quot;,&quot;edgeDistance&quot;:&quot;25%&quot;,&quot;bleedMargin&quot;:10,&quot;distanceToLabelLine&quot;:5},&quot;emphasis&quot;:{&quot;label&quot;:{&quot;show&quot;:true,&quot;fontSize&quot;:20,&quot;fontWeight&quot;:&quot;bold&quot;,&quot;color&quot;:&quot;#334155&quot;},&quot;scale&quot;:true,&quot;scaleSize&quot;:5,&quot;labelLine&quot;:{&quot;show&quot;:true}},&quot;data&quot;:[{&quot;value&quot;:15,&quot;name&quot;:&quot;核能/國防 (新納入)&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#ff6b35&quot;}},{&quot;value&quot;:35,&quot;name&quot;:&quot;再生能源&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#2d5016&quot;}},{&quot;value&quot;:25,&quot;name&quot;:&quot;綠色建築&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#1a4d3a&quot;}},{&quot;value&quot;:25,&quot;name&quot;:&quot;其他永續資產&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#0066cc&quot;}}],&quot;z&quot;:2,&quot;legendHoverLink&quot;:true,&quot;colorBy&quot;:&quot;data&quot;,&quot;center&quot;:[&quot;50%&quot;,&quot;50%&quot;],&quot;clockwise&quot;:true,&quot;startAngle&quot;:90,&quot;minAngle&quot;:0,&quot;minShowLabelAngle&quot;:0,&quot;selectedOffset&quot;:10,&quot;percentPrecision&quot;:2,&quot;stillShowZeroSum&quot;:true,&quot;left&quot;:0,&quot;top&quot;:0,&quot;right&quot;:0,&quot;bottom&quot;:0,&quot;width&quot;:null,&quot;height&quot;:null,&quot;labelLine&quot;:{&quot;show&quot;:false,&quot;length&quot;:15,&quot;length2&quot;:15,&quot;smooth&quot;:false,&quot;minTurnAngle&quot;:90,&quot;maxSurfaceAngle&quot;:90,&quot;lineStyle&quot;:{&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;}},&quot;showEmptyCircle&quot;:true,&quot;emptyCircleStyle&quot;:{&quot;color&quot;:&quot;lightgray&quot;,&quot;opacity&quot;:1},&quot;labelLayout&quot;:{&quot;hideOverlap&quot;:true},&quot;animationType&quot;:&quot;expansion&quot;,&quot;animationDuration&quot;:1000,&quot;animationTypeUpdate&quot;:&quot;transition&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;}],&quot;visualMap&quot;:[],&quot;legend&quot;:[{&quot;bottom&quot;:&quot;5%&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#334155&quot;},&quot;z&quot;:4,&quot;show&quot;:true,&quot;orient&quot;:&quot;horizontal&quot;,&quot;left&quot;:&quot;center&quot;,&quot;top&quot;:null,&quot;align&quot;:&quot;auto&quot;,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderColor&quot;:&quot;#ccc&quot;,&quot;borderRadius&quot;:0,&quot;borderWidth&quot;:0,&quot;padding&quot;:5,&quot;itemGap&quot;:10,&quot;itemWidth&quot;:25,&quot;itemHeight&quot;:14,&quot;symbolRotate&quot;:&quot;inherit&quot;,&quot;symbolKeepAspect&quot;:true,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderWidth&quot;:&quot;auto&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;inherit&quot;,&quot;opacity&quot;:&quot;inherit&quot;,&quot;borderColor&quot;:&quot;inherit&quot;,&quot;borderWidth&quot;:&quot;auto&quot;,&quot;borderCap&quot;:&quot;inherit&quot;,&quot;borderJoin&quot;:&quot;inherit&quot;,&quot;borderDashOffset&quot;:&quot;inherit&quot;,&quot;borderMiterLimit&quot;:&quot;inherit&quot;},&quot;lineStyle&quot;:{&quot;width&quot;:&quot;auto&quot;,&quot;color&quot;:&quot;inherit&quot;,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveWidth&quot;:2,&quot;opacity&quot;:&quot;inherit&quot;,&quot;type&quot;:&quot;inherit&quot;,&quot;cap&quot;:&quot;inherit&quot;,&quot;join&quot;:&quot;inherit&quot;,&quot;dashOffset&quot;:&quot;inherit&quot;,&quot;miterLimit&quot;:&quot;inherit&quot;},&quot;selectedMode&quot;:true,&quot;selector&quot;:false,&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;borderRadius&quot;:10,&quot;padding&quot;:[3,5,3,5],&quot;fontSize&quot;:12,&quot;fontFamily&quot;:&quot;sans-serif&quot;,&quot;color&quot;:&quot;#666&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#666&quot;},&quot;emphasis&quot;:{&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;color&quot;:&quot;#eee&quot;,&quot;backgroundColor&quot;:&quot;#666&quot;}},&quot;selectorPosition&quot;:&quot;auto&quot;,&quot;selectorItemGap&quot;:7,&quot;selectorButtonGap&quot;:10,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;selected&quot;:{}}],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 534px; height: 400px; padding: 0px; margin: 0px; border-width: 0px;"><canvas data-zr-dom-id="zr_0" width="667" height="500" style="position: absolute; left: 0px; top: 0px; width: 534px; height: 400px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class=""></div></div>
+                    <p class="text-xs text-gray-400 mt-2 text-center">資料來源：歐盟永續金融指導方針 (2026)</p>
+                </div>
+            </div>
+            <div class="order-1 lg:order-2 space-y-6">
+                <div class="flex items-center gap-3 text-esg-main dark:text-green-400 font-bold tracking-widest uppercase text-sm">
+                    <span class="w-8 h-[2px] bg-esg-accent"></span>
+                    Reality No.1
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white leading-tight">
+                    核武也能「永續」？<br>歐盟ESG的驚人轉向
+                </h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                    你沒看錯。長期以來被視為倫理投資絕對紅線的核子武器，如今在特定條件下，竟被歐盟納入了其永續金融（ESG）的框架之中。這項政策變動的核心，是縮小了「被禁止軍備」的範圍。
+                </p>
+                <p class="text-base text-gray-600 dark:text-gray-400">
+                    在地緣政治日益緊張、各國對國防安全需求升高的背景下，歐盟的決定反映了現實政治與永續理想之間的複雜權衡。當旨在毀滅的武器也能被貼上永續標籤時，我們該如何定義投資的社會責任？
+                </p>
+            </div>
+        </article>
+
+        <!-- Topic 2: Water Bankruptcy -->
+        <article class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center fade-in-up group">
+            <div class="space-y-6">
+                <div class="flex items-center gap-3 text-esg-main dark:text-green-400 font-bold tracking-widest uppercase text-sm">
+                    <span class="w-8 h-[2px] bg-esg-accent"></span>
+                    Reality No.2
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white leading-tight">
+                    地球水資源帳戶已「破產」：<br>聯合國的嚴厲警告
+                </h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                    如果說地球有一個水資源帳戶，那麼根據聯合國的最新報告，這個帳戶已經透支。世界已步入「全球水資源破產」的階段，人類的消耗速度已遠遠超出地球生態系統的永續承載能力。
+                </p>
+                <div class="grid grid-cols-2 gap-4 mt-6">
+                    <div class="bg-blue-50 dark:bg-blue-900/30 p-4 rounded-lg border-l-4 border-blue-500">
+                        <span class="block text-3xl font-bold text-blue-600 dark:text-blue-400">75%</span>
+                        <span class="text-sm text-gray-600 dark:text-gray-300">全球人口每年至少經歷一個月嚴重缺水</span>
+                    </div>
+                    <div class="bg-orange-50 dark:bg-orange-900/30 p-4 rounded-lg border-l-4 border-orange-500">
+                        <span class="block text-3xl font-bold text-orange-600 dark:text-orange-400">Crisis</span>
+                        <span class="text-sm text-gray-600 dark:text-gray-300">糧食安全與半導體產業面臨高風險</span>
+                    </div>
+                </div>
+            </div>
+            <div class="relative">
+                <div class="absolute -inset-4 bg-blue-100 dark:bg-blue-900/20 rounded-2xl opacity-50 blur-xl group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div class="relative bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-6 border border-gray-100 dark:border-gray-700">
+                    <h3 class="text-sm font-bold text-gray-400 uppercase mb-4 tracking-wider">全球水資源壓力指數</h3>
+                    <div id="chart-water" class="chart-container" _echarts_instance_="ec_1769641614639" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" data-chart-option="{&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;darkMode&quot;:&quot;auto&quot;,&quot;colorBy&quot;:&quot;series&quot;,&quot;color&quot;:[&quot;#5470c6&quot;,&quot;#91cc75&quot;,&quot;#fac858&quot;,&quot;#ee6666&quot;,&quot;#73c0de&quot;,&quot;#3ba272&quot;,&quot;#fc8452&quot;,&quot;#9a60b4&quot;,&quot;#ea7ccc&quot;],&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;textStyle&quot;:{&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;axisPointer&quot;:[{&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9BEC9&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;label&quot;:{&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;color&quot;:&quot;#fff&quot;,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[{&quot;trigger&quot;:&quot;axis&quot;,&quot;axisPointer&quot;:{&quot;type&quot;:&quot;shadow&quot;,&quot;axis&quot;:&quot;auto&quot;,&quot;animation&quot;:&quot;auto&quot;,&quot;animationDurationUpdate&quot;:200,&quot;animationEasingUpdate&quot;:&quot;exponentialOut&quot;,&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#999&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;,&quot;textStyle&quot;:{}}},&quot;z&quot;:60,&quot;show&quot;:true,&quot;showContent&quot;:true,&quot;triggerOn&quot;:&quot;mousemove|click&quot;,&quot;alwaysShowContent&quot;:false,&quot;displayMode&quot;:&quot;single&quot;,&quot;renderMode&quot;:&quot;auto&quot;,&quot;confine&quot;:null,&quot;showDelay&quot;:0,&quot;hideDelay&quot;:100,&quot;transitionDuration&quot;:0.4,&quot;enterable&quot;:false,&quot;backgroundColor&quot;:&quot;#fff&quot;,&quot;shadowBlur&quot;:10,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, .2)&quot;,&quot;shadowOffsetX&quot;:1,&quot;shadowOffsetY&quot;:2,&quot;borderRadius&quot;:4,&quot;borderWidth&quot;:1,&quot;padding&quot;:null,&quot;extraCssText&quot;:&quot;&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;fontSize&quot;:14}}],&quot;yAxis&quot;:[{&quot;type&quot;:&quot;category&quot;,&quot;data&quot;:[&quot;全球平均&quot;,&quot;中東地區&quot;,&quot;北非地區&quot;,&quot;南亞地區&quot;,&quot;部分歐洲&quot;],&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#334155&quot;,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;boundaryGap&quot;:true,&quot;deduplication&quot;:null,&quot;splitLine&quot;:{&quot;show&quot;:false,&quot;lineStyle&quot;:{&quot;color&quot;:[&quot;#E0E6F1&quot;],&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;}},&quot;axisTick&quot;:{&quot;alignWithLabel&quot;:false,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{&quot;status&quot;:&quot;hide&quot;,&quot;value&quot;:4},&quot;axisLine&quot;:{&quot;show&quot;:true,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#6E7079&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;splitArea&quot;:{&quot;show&quot;:false,&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(250,250,250,0.2)&quot;,&quot;rgba(210,219,238,0.2)&quot;]}},&quot;offset&quot;:0}],&quot;xAxis&quot;:[{&quot;type&quot;:&quot;value&quot;,&quot;boundaryGap&quot;:[0,0.01],&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#e2e8f0&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:true},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#334155&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;axisLine&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#6E7079&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;axisTick&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;splitNumber&quot;:5,&quot;minorTick&quot;:{&quot;show&quot;:false,&quot;splitNumber&quot;:5,&quot;length&quot;:3,&quot;lineStyle&quot;:{}},&quot;minorSplitLine&quot;:{&quot;show&quot;:false,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#F4F7FD&quot;,&quot;width&quot;:1}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{},&quot;splitArea&quot;:{&quot;show&quot;:false,&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(250,250,250,0.2)&quot;,&quot;rgba(210,219,238,0.2)&quot;]}},&quot;offset&quot;:0}],&quot;grid&quot;:[{&quot;left&quot;:&quot;3%&quot;,&quot;right&quot;:&quot;4%&quot;,&quot;bottom&quot;:&quot;3%&quot;,&quot;containLabel&quot;:true,&quot;show&quot;:false,&quot;z&quot;:0,&quot;top&quot;:60,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#ccc&quot;}],&quot;series&quot;:[{&quot;name&quot;:&quot;水資源壓力指數&quot;,&quot;type&quot;:&quot;bar&quot;,&quot;data&quot;:[65,95,92,85,45],&quot;itemStyle&quot;:{&quot;color&quot;:{&quot;colorStops&quot;:[{&quot;offset&quot;:0,&quot;color&quot;:&quot;#60a5fa&quot;},{&quot;offset&quot;:1,&quot;color&quot;:&quot;#1e3a8a&quot;}],&quot;x&quot;:0,&quot;y&quot;:0,&quot;x2&quot;:1,&quot;y2&quot;:0,&quot;type&quot;:&quot;linear&quot;,&quot;global&quot;:false}},&quot;label&quot;:{&quot;show&quot;:true,&quot;position&quot;:&quot;right&quot;,&quot;color&quot;:&quot;#334155&quot;,&quot;formatter&quot;:&quot;{c}%&quot;},&quot;z&quot;:2,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;barMinHeight&quot;:0,&quot;barMinAngle&quot;:0,&quot;large&quot;:false,&quot;largeThreshold&quot;:400,&quot;progressive&quot;:3000,&quot;progressiveChunkMode&quot;:&quot;mod&quot;,&quot;clip&quot;:true,&quot;roundCap&quot;:false,&quot;showBackground&quot;:false,&quot;backgroundStyle&quot;:{&quot;color&quot;:&quot;rgba(180, 180, 180, 0.2)&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderType&quot;:&quot;solid&quot;,&quot;borderRadius&quot;:0,&quot;shadowBlur&quot;:0,&quot;shadowColor&quot;:null,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:0,&quot;opacity&quot;:1},&quot;select&quot;:{&quot;itemStyle&quot;:{&quot;borderColor&quot;:&quot;#212121&quot;}},&quot;realtimeSort&quot;:false,&quot;emphasis&quot;:{&quot;label&quot;:{&quot;show&quot;:true}}}],&quot;visualMap&quot;:[],&quot;legend&quot;:[],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 534px; height: 400px; padding: 0px; margin: 0px; border-width: 0px;"><canvas data-zr-dom-id="zr_0" width="667" height="500" style="position: absolute; left: 0px; top: 0px; width: 534px; height: 400px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class=""></div></div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Topic 3: The Line Dilemma -->
+        <article class="grid grid-cols-1 lg:grid-cols-1 gap-12 fade-in-up">
+            <div class="text-center max-w-3xl mx-auto mb-8">
+                <div class="flex items-center justify-center gap-3 text-esg-main dark:text-green-400 font-bold tracking-widest uppercase text-sm mb-4">
+                    <span class="w-8 h-[2px] bg-esg-accent"></span>
+                    Reality No.3
+                    <span class="w-8 h-[2px] bg-esg-accent"></span>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                    未來烏托邦的兩難：該蓋住宅還是數據中心？
+                </h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300">
+                    沙烏地阿拉伯「The Line」計畫面臨根本性的戰略衝突：有限的資源應優先分配給支持數位經濟的高耗能數據中心，還是滿足社會福祉的住宅？
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+                <!-- Image Card -->
+                <div class="relative rounded-2xl overflow-hidden shadow-2xl h-full min-h-[400px]">
+                    <img src="https://image.pollinations.ai/prompt/Saudi%20Arabia%20The%20Line%20megacity%20in%20desert,%20mirrored%20architecture,%20data%20centers%20vs%20housing%20concept,%20cinematic,%20photorealistic?nologo=true" alt="The Line Future City" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-8">
+                        <p class="text-white font-medium">經濟發展與宜居性的永恆拉鋸</p>
+                    </div>
+                </div>
+
+                <!-- Mermaid Diagram Card -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-8 border border-gray-100 dark:border-gray-700 flex flex-col justify-center">
+                    <h3 class="text-sm font-bold text-gray-400 uppercase mb-6 tracking-wider text-center">資源分配決策困境</h3>
+                    <div class="mermaid" data-processed="true"><svg aria-roledescription="flowchart-v2" role="graphics-document document" viewBox="-8 -8 610 535.875" style="max-width: 610px;" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="100%" id="mermaid-1769641618154"><style>#mermaid-1769641618154{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}#mermaid-1769641618154 .error-icon{fill:#552222;}#mermaid-1769641618154 .error-text{fill:#552222;stroke:#552222;}#mermaid-1769641618154 .edge-thickness-normal{stroke-width:2px;}#mermaid-1769641618154 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-1769641618154 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-1769641618154 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-1769641618154 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-1769641618154 .marker{fill:#333333;stroke:#333333;}#mermaid-1769641618154 .marker.cross{stroke:#333333;}#mermaid-1769641618154 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaid-1769641618154 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#mermaid-1769641618154 .cluster-label text{fill:#333;}#mermaid-1769641618154 .cluster-label span,#mermaid-1769641618154 p{color:#333;}#mermaid-1769641618154 .label text,#mermaid-1769641618154 span,#mermaid-1769641618154 p{fill:#333;color:#333;}#mermaid-1769641618154 .node rect,#mermaid-1769641618154 .node circle,#mermaid-1769641618154 .node ellipse,#mermaid-1769641618154 .node polygon,#mermaid-1769641618154 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-1769641618154 .flowchart-label text{text-anchor:middle;}#mermaid-1769641618154 .node .label{text-align:center;}#mermaid-1769641618154 .node.clickable{cursor:pointer;}#mermaid-1769641618154 .arrowheadPath{fill:#333333;}#mermaid-1769641618154 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaid-1769641618154 .flowchart-link{stroke:#333333;fill:none;}#mermaid-1769641618154 .edgeLabel{background-color:#ffffff;text-align:center;}#mermaid-1769641618154 .edgeLabel rect{opacity:0.5;background-color:#ffffff;fill:#ffffff;}#mermaid-1769641618154 .labelBkg{background-color:rgba(255, 255, 255, 0.5);}#mermaid-1769641618154 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-1769641618154 .cluster text{fill:#333;}#mermaid-1769641618154 .cluster span,#mermaid-1769641618154 p{color:#333;}#mermaid-1769641618154 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:#f8f9fa;border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-1769641618154 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-1769641618154 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}</style><g><marker orient="auto" markerHeight="12" markerWidth="12" markerUnits="userSpaceOnUse" refY="5" refX="6" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1769641618154_flowchart-pointEnd"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 0 L 10 5 L 0 10 z"></path></marker><marker orient="auto" markerHeight="12" markerWidth="12" markerUnits="userSpaceOnUse" refY="5" refX="4.5" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1769641618154_flowchart-pointStart"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 5 L 10 10 L 10 0 z"></path></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5" refX="11" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1769641618154_flowchart-circleEnd"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5" refX="-1" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1769641618154_flowchart-circleStart"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5.2" refX="12" viewBox="0 0 11 11" class="marker cross flowchart" id="mermaid-1769641618154_flowchart-crossEnd"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5.2" refX="-1" viewBox="0 0 11 11" class="marker cross flowchart" id="mermaid-1769641618154_flowchart-crossStart"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path marker-end="url(#mermaid-1769641618154_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-A LE-B" id="L-A-B-0" d="M297,39L297,43.167C297,47.333,297,55.667,297.066,63.2C297.132,70.734,297.264,77.467,297.33,80.834L297.396,84.201"></path><path marker-end="url(#mermaid-1769641618154_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-B LE-C" id="L-B-C-0" d="M255.476,187.351L235.563,200.438C215.65,213.525,175.825,239.7,155.913,258.071C136,276.442,136,287.008,136,292.292L136,297.575"></path><path marker-end="url(#mermaid-1769641618154_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-B LE-D" id="L-B-D-0" d="M339.524,187.351L359.27,200.438C379.016,213.525,418.508,239.7,438.254,258.071C458,276.442,458,287.008,458,292.292L458,297.575"></path><path marker-end="url(#mermaid-1769641618154_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-C LE-E" id="L-C-E-0" d="M100.725,341.875L93.187,346.042C85.65,350.208,70.575,358.542,63.037,365.992C55.5,373.442,55.5,380.008,55.5,383.292L55.5,386.575"></path><path marker-end="url(#mermaid-1769641618154_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-C LE-F" id="L-C-F-0" d="M171.275,341.875L178.813,346.042C186.35,350.208,201.425,358.542,208.963,365.992C216.5,373.442,216.5,380.008,216.5,383.292L216.5,386.575"></path><path marker-end="url(#mermaid-1769641618154_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-D LE-G" id="L-D-G-0" d="M422.725,341.875L415.187,346.042C407.65,350.208,392.575,358.542,385.037,365.992C377.5,373.442,377.5,380.008,377.5,383.292L377.5,386.575"></path><path marker-end="url(#mermaid-1769641618154_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-D LE-H" id="L-D-H-0" d="M493.275,341.875L500.813,346.042C508.35,350.208,523.425,358.542,530.963,365.992C538.5,373.442,538.5,380.008,538.5,383.292L538.5,386.575"></path><path marker-end="url(#mermaid-1769641618154_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-E LE-I" id="L-E-I-0" d="M55.5,430.875L55.5,435.042C55.5,439.208,55.5,447.542,69.723,455.64C83.947,463.738,112.394,471.6,126.617,475.532L140.841,479.463"></path><path marker-end="url(#mermaid-1769641618154_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-G LE-I" id="L-G-I-0" d="M377.5,430.875L377.5,435.042C377.5,439.208,377.5,447.542,363.277,455.64C349.053,463.738,320.606,471.6,306.383,475.532L292.159,479.463"></path></g><g class="edgeLabels"><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g transform="translate(136, 265.875)" class="edgeLabel"><g transform="translate(-32, -12)" class="label"><foreignObject height="24" width="64"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">數位經濟</span></div></foreignObject></g></g><g transform="translate(458, 265.875)" class="edgeLabel"><g transform="translate(-32, -12)" class="label"><foreignObject height="24" width="64"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">社會福祉</span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g></g><g class="nodes"><g transform="translate(297, 19.5)" id="flowchart-A-0" class="node default default flowchart-label"><rect height="39" width="169.6999969482422" y="-19.5" x="-84.8499984741211" ry="0" rx="0" style="fill:#1a4d3a;stroke:#333;stroke-width:0px;" class="basic label-container"></rect><g transform="translate(-77.3499984741211, -12)" style="color:#fff;" class="label"><rect></rect><foreignObject height="24" width="154.6999969482422"><div xmlns="http://www.w3.org/1999/xhtml" style="color: rgb(255, 255, 255); display: inline-block; white-space: nowrap;"><span style="color:#fff;" class="nodeLabel">有限資源: 土地與能源</span></div></foreignObject></g></g><g transform="translate(297, 158.9375)" id="flowchart-B-1" class="node default default flowchart-label"><polygon style="" transform="translate(-69.9375,69.9375)" class="label-container" points="69.9375,0 139.875,-69.9375 69.9375,-139.875 0,-69.9375"></polygon><g transform="translate(-42.9375, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="85.875"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">優先分配給?</span></div></foreignObject></g></g><g transform="translate(136, 322.375)" id="flowchart-C-3" class="node default default flowchart-label"><rect height="39" width="127" y="-19.5" x="-63.5" ry="0" rx="0" style="fill:#ff6b35;stroke:#333;stroke-width:0px;" class="basic label-container"></rect><g transform="translate(-56, -12)" style="color:#fff;" class="label"><rect></rect><foreignObject height="24" width="112"><div xmlns="http://www.w3.org/1999/xhtml" style="color: rgb(255, 255, 255); display: inline-block; white-space: nowrap;"><span style="color:#fff;" class="nodeLabel">高耗能數據中心</span></div></foreignObject></g></g><g transform="translate(458, 322.375)" id="flowchart-D-5" class="node default default flowchart-label"><rect height="39" width="111" y="-19.5" x="-55.5" ry="0" rx="0" style="fill:#0066cc;stroke:#333;stroke-width:0px;" class="basic label-container"></rect><g transform="translate(-48, -12)" style="color:#fff;" class="label"><rect></rect><foreignObject height="24" width="96"><div xmlns="http://www.w3.org/1999/xhtml" style="color: rgb(255, 255, 255); display: inline-block; white-space: nowrap;"><span style="color:#fff;" class="nodeLabel">宜居住宅社區</span></div></foreignObject></g></g><g transform="translate(55.5, 411.375)" id="flowchart-E-7" class="node default default flowchart-label"><rect height="39" width="111" y="-19.5" x="-55.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-48, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="96"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">經濟收益提升</span></div></foreignObject></g></g><g transform="translate(216.5, 411.375)" id="flowchart-F-9" class="node default default flowchart-label"><rect height="39" width="111" y="-19.5" x="-55.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-48, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="96"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">能源消耗劇增</span></div></foreignObject></g></g><g transform="translate(377.5, 411.375)" id="flowchart-G-11" class="node default default flowchart-label"><rect height="39" width="111" y="-19.5" x="-55.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-48, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="96"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">滿足基本人權</span></div></foreignObject></g></g><g transform="translate(538.5, 411.375)" id="flowchart-H-13" class="node default default flowchart-label"><rect height="39" width="111" y="-19.5" x="-55.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-48, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="96"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">經濟回報較慢</span></div></foreignObject></g></g><g transform="translate(216.5, 500.375)" id="flowchart-I-15" class="node default default flowchart-label"><rect height="39" width="164.875" y="-19.5" x="-82.4375" ry="0" rx="0" style="fill:#333;stroke:#333;stroke-width:0px;" class="basic label-container"></rect><g transform="translate(-74.9375, -12)" style="color:#fff;" class="label"><rect></rect><foreignObject height="24" width="149.875"><div xmlns="http://www.w3.org/1999/xhtml" style="color: rgb(255, 255, 255); display: inline-block; white-space: nowrap;"><span style="color:#fff;" class="nodeLabel">永續發展的經濟支柱?</span></div></foreignObject></g></g></g></g></g></svg></div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Topic 4: High Seas Treaty -->
+        <article class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center fade-in-up group">
+            <div class="order-2 lg:order-1 relative">
+                <div class="absolute -inset-4 bg-blue-50 dark:bg-cyan-900/20 rounded-2xl opacity-50 blur-xl group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div class="relative bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-6 border border-gray-100 dark:border-gray-700">
+                    <h3 class="text-sm font-bold text-gray-400 uppercase mb-4 tracking-wider">公海保護範圍擴張</h3>
+                    <div id="chart-ocean" class="chart-container" _echarts_instance_="ec_1769641614640" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0);" data-chart-option="{&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;darkMode&quot;:&quot;auto&quot;,&quot;colorBy&quot;:&quot;series&quot;,&quot;color&quot;:[&quot;#5470c6&quot;,&quot;#91cc75&quot;,&quot;#fac858&quot;,&quot;#ee6666&quot;,&quot;#73c0de&quot;,&quot;#3ba272&quot;,&quot;#fc8452&quot;,&quot;#9a60b4&quot;,&quot;#ea7ccc&quot;],&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;textStyle&quot;:{&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;axisPointer&quot;:[{&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9BEC9&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;label&quot;:{&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;color&quot;:&quot;#fff&quot;,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[],&quot;series&quot;:[{&quot;type&quot;:&quot;gauge&quot;,&quot;startAngle&quot;:180,&quot;endAngle&quot;:0,&quot;min&quot;:0,&quot;max&quot;:100,&quot;splitNumber&quot;:10,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#0066cc&quot;},&quot;progress&quot;:{&quot;show&quot;:true,&quot;width&quot;:30,&quot;overlap&quot;:true,&quot;roundCap&quot;:false,&quot;clip&quot;:true},&quot;pointer&quot;:{&quot;show&quot;:false,&quot;icon&quot;:null,&quot;offsetCenter&quot;:[0,0],&quot;showAbove&quot;:true,&quot;length&quot;:&quot;60%&quot;,&quot;width&quot;:6,&quot;keepAspect&quot;:false},&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;width&quot;:30,&quot;color&quot;:[[1,&quot;#E6EBF8&quot;]]},&quot;show&quot;:true,&quot;roundCap&quot;:false},&quot;axisTick&quot;:{&quot;distance&quot;:-45,&quot;splitNumber&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:2,&quot;color&quot;:&quot;#999&quot;,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:true,&quot;length&quot;:6},&quot;splitLine&quot;:{&quot;distance&quot;:-52,&quot;length&quot;:14,&quot;lineStyle&quot;:{&quot;width&quot;:3,&quot;color&quot;:&quot;#999&quot;,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:true},&quot;axisLabel&quot;:{&quot;distance&quot;:-20,&quot;color&quot;:&quot;#999&quot;,&quot;fontSize&quot;:10,&quot;show&quot;:true,&quot;rotate&quot;:0},&quot;anchor&quot;:{&quot;show&quot;:false,&quot;showAbove&quot;:false,&quot;size&quot;:6,&quot;icon&quot;:&quot;circle&quot;,&quot;offsetCenter&quot;:[0,0],&quot;keepAspect&quot;:false,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#fff&quot;,&quot;borderWidth&quot;:0,&quot;borderColor&quot;:&quot;#5470c6&quot;}},&quot;title&quot;:{&quot;show&quot;:false,&quot;offsetCenter&quot;:[0,&quot;20%&quot;],&quot;color&quot;:&quot;#464646&quot;,&quot;fontSize&quot;:16,&quot;valueAnimation&quot;:false},&quot;detail&quot;:{&quot;valueAnimation&quot;:true,&quot;width&quot;:&quot;60%&quot;,&quot;lineHeight&quot;:40,&quot;borderRadius&quot;:8,&quot;offsetCenter&quot;:[0,&quot;-15%&quot;],&quot;fontSize&quot;:30,&quot;fontWeight&quot;:&quot;bolder&quot;,&quot;formatter&quot;:&quot;目標: 30%&quot;,&quot;color&quot;:&quot;#334155&quot;,&quot;show&quot;:true,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderWidth&quot;:0,&quot;borderColor&quot;:&quot;#ccc&quot;,&quot;height&quot;:null,&quot;padding&quot;:[5,10]},&quot;data&quot;:[{&quot;value&quot;:1,&quot;name&quot;:&quot;過去保護比例&quot;}],&quot;z&quot;:2,&quot;colorBy&quot;:&quot;data&quot;,&quot;center&quot;:[&quot;50%&quot;,&quot;50%&quot;],&quot;legendHoverLink&quot;:true,&quot;radius&quot;:&quot;75%&quot;,&quot;clockwise&quot;:true,&quot;label&quot;:{},&quot;emphasis&quot;:{&quot;label&quot;:{}}},{&quot;type&quot;:&quot;gauge&quot;,&quot;startAngle&quot;:180,&quot;endAngle&quot;:0,&quot;min&quot;:0,&quot;max&quot;:100,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#2d5016&quot;},&quot;progress&quot;:{&quot;show&quot;:true,&quot;width&quot;:8,&quot;overlap&quot;:true,&quot;roundCap&quot;:false,&quot;clip&quot;:true},&quot;pointer&quot;:{&quot;show&quot;:false,&quot;icon&quot;:null,&quot;offsetCenter&quot;:[0,0],&quot;showAbove&quot;:true,&quot;length&quot;:&quot;60%&quot;,&quot;width&quot;:6,&quot;keepAspect&quot;:false},&quot;axisLine&quot;:{&quot;show&quot;:false,&quot;roundCap&quot;:false,&quot;lineStyle&quot;:{&quot;color&quot;:[[1,&quot;#E6EBF8&quot;]],&quot;width&quot;:10}},&quot;axisTick&quot;:{&quot;show&quot;:false,&quot;splitNumber&quot;:5,&quot;length&quot;:6,&quot;distance&quot;:10,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#63677A&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;}},&quot;splitLine&quot;:{&quot;show&quot;:false,&quot;length&quot;:10,&quot;distance&quot;:10,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#63677A&quot;,&quot;width&quot;:3,&quot;type&quot;:&quot;solid&quot;}},&quot;axisLabel&quot;:{&quot;show&quot;:false,&quot;distance&quot;:15,&quot;color&quot;:&quot;#464646&quot;,&quot;fontSize&quot;:12,&quot;rotate&quot;:0},&quot;detail&quot;:{&quot;show&quot;:false,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderWidth&quot;:0,&quot;borderColor&quot;:&quot;#ccc&quot;,&quot;width&quot;:100,&quot;height&quot;:null,&quot;padding&quot;:[5,10],&quot;offsetCenter&quot;:[0,&quot;40%&quot;],&quot;color&quot;:&quot;#464646&quot;,&quot;fontSize&quot;:30,&quot;fontWeight&quot;:&quot;bold&quot;,&quot;lineHeight&quot;:30,&quot;valueAnimation&quot;:false},&quot;data&quot;:[{&quot;value&quot;:30,&quot;name&quot;:&quot;BBNJ目標&quot;}],&quot;z&quot;:2,&quot;colorBy&quot;:&quot;data&quot;,&quot;center&quot;:[&quot;50%&quot;,&quot;50%&quot;],&quot;legendHoverLink&quot;:true,&quot;radius&quot;:&quot;75%&quot;,&quot;clockwise&quot;:true,&quot;splitNumber&quot;:10,&quot;anchor&quot;:{&quot;show&quot;:false,&quot;showAbove&quot;:false,&quot;size&quot;:6,&quot;icon&quot;:&quot;circle&quot;,&quot;offsetCenter&quot;:[0,0],&quot;keepAspect&quot;:false,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#fff&quot;,&quot;borderWidth&quot;:0,&quot;borderColor&quot;:&quot;#5470c6&quot;}},&quot;title&quot;:{&quot;show&quot;:true,&quot;offsetCenter&quot;:[0,&quot;20%&quot;],&quot;color&quot;:&quot;#464646&quot;,&quot;fontSize&quot;:16,&quot;valueAnimation&quot;:false},&quot;label&quot;:{},&quot;emphasis&quot;:{&quot;label&quot;:{}}}],&quot;visualMap&quot;:[],&quot;legend&quot;:[],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 534px; height: 400px; padding: 0px; margin: 0px; border-width: 0px;"><canvas data-zr-dom-id="zr_0" width="667" height="500" style="position: absolute; left: 0px; top: 0px; width: 534px; height: 400px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div></div>
+                </div>
+            </div>
+            <div class="order-1 lg:order-2 space-y-6">
+                <div class="flex items-center gap-3 text-esg-main dark:text-green-400 font-bold tracking-widest uppercase text-sm">
+                    <span class="w-8 h-[2px] bg-esg-accent"></span>
+                    Reality No.4
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white leading-tight">
+                    海洋迎來曙光：<br>史上首部《公海條約》正式生效
+                </h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                    2026年1月17日，《公海條約》（BBNJ協議）正式生效。這項條約首次為覆蓋地球三分之二海洋面積的「公海」建立了全面的法律保護框架。
+                </p>
+                <ul class="space-y-3 mt-4">
+                    <li class="flex items-start">
+                        <i class="fa-solid fa-check text-green-500 mt-1 mr-3"></i>
+                        <span class="text-gray-600 dark:text-gray-400">授權建立廣泛的海洋保護區 (MPAs)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fa-solid fa-check text-green-500 mt-1 mr-3"></i>
+                        <span class="text-gray-600 dark:text-gray-400">深海採礦與捕魚需進行嚴格環境影響評估</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fa-solid fa-check text-green-500 mt-1 mr-3"></i>
+                        <span class="text-gray-600 dark:text-gray-400">臺灣遠洋漁業將面臨更嚴格的國際規範</span>
+                    </li>
+                </ul>
+            </div>
+        </article>
+
+        <!-- Topic 5: Inequality -->
+        <article class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center fade-in-up group">
+            <div class="space-y-6">
+                <div class="flex items-center gap-3 text-esg-main dark:text-green-400 font-bold tracking-widest uppercase text-sm">
+                    <span class="w-8 h-[2px] bg-esg-accent"></span>
+                    Reality No.5
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white leading-tight">
+                    「夠好的生活」由誰定義？<br>永續發展的公平性大哉問
+                </h2>
+                <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+                    我們是否應該為資源消耗設定「永續生活限制」？這個看似合理的想法觸動了社會公平性的敏感神經。在財富分配極度不均的世界，由誰來定義什麼是「足夠好」？
+                </p>
+                <p class="text-base text-gray-600 dark:text-gray-400">
+                    這場辯論已超越單純環境議題，若限制由上而下決定，可能不成比例地傷害低收入群體，讓窮人為富人的過度消費買單。
+                </p>
+            </div>
+            <div class="relative">
+                <div class="absolute -inset-4 bg-purple-50 dark:bg-purple-900/20 rounded-2xl opacity-50 blur-xl group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div class="relative bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-6 border border-gray-100 dark:border-gray-700">
+                    <h3 class="text-sm font-bold text-gray-400 uppercase mb-4 tracking-wider">碳排放與收入不平等</h3>
+                    <div id="chart-inequality" class="chart-container" _echarts_instance_="ec_1769641614641" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" data-chart-option="{&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;darkMode&quot;:&quot;auto&quot;,&quot;colorBy&quot;:&quot;series&quot;,&quot;color&quot;:[&quot;#5470c6&quot;,&quot;#91cc75&quot;,&quot;#fac858&quot;,&quot;#ee6666&quot;,&quot;#73c0de&quot;,&quot;#3ba272&quot;,&quot;#fc8452&quot;,&quot;#9a60b4&quot;,&quot;#ea7ccc&quot;],&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;textStyle&quot;:{&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;axisPointer&quot;:[{&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9BEC9&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;label&quot;:{&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;color&quot;:&quot;#fff&quot;,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[{&quot;trigger&quot;:&quot;axis&quot;,&quot;z&quot;:60,&quot;show&quot;:true,&quot;showContent&quot;:true,&quot;triggerOn&quot;:&quot;mousemove|click&quot;,&quot;alwaysShowContent&quot;:false,&quot;displayMode&quot;:&quot;single&quot;,&quot;renderMode&quot;:&quot;auto&quot;,&quot;confine&quot;:null,&quot;showDelay&quot;:0,&quot;hideDelay&quot;:100,&quot;transitionDuration&quot;:0.4,&quot;enterable&quot;:false,&quot;backgroundColor&quot;:&quot;#fff&quot;,&quot;shadowBlur&quot;:10,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, .2)&quot;,&quot;shadowOffsetX&quot;:1,&quot;shadowOffsetY&quot;:2,&quot;borderRadius&quot;:4,&quot;borderWidth&quot;:1,&quot;padding&quot;:null,&quot;extraCssText&quot;:&quot;&quot;,&quot;axisPointer&quot;:{&quot;type&quot;:&quot;line&quot;,&quot;axis&quot;:&quot;auto&quot;,&quot;animation&quot;:&quot;auto&quot;,&quot;animationDurationUpdate&quot;:200,&quot;animationEasingUpdate&quot;:&quot;exponentialOut&quot;,&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#999&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;,&quot;textStyle&quot;:{}}},&quot;textStyle&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;fontSize&quot;:14}}],&quot;yAxis&quot;:[{&quot;type&quot;:&quot;value&quot;,&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#334155&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#e2e8f0&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:true},&quot;boundaryGap&quot;:[0,0],&quot;axisLine&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#6E7079&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;axisTick&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;splitNumber&quot;:5,&quot;minorTick&quot;:{&quot;show&quot;:false,&quot;splitNumber&quot;:5,&quot;length&quot;:3,&quot;lineStyle&quot;:{}},&quot;minorSplitLine&quot;:{&quot;show&quot;:false,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#F4F7FD&quot;,&quot;width&quot;:1}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{},&quot;splitArea&quot;:{&quot;show&quot;:false,&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(250,250,250,0.2)&quot;,&quot;rgba(210,219,238,0.2)&quot;]}},&quot;offset&quot;:0}],&quot;xAxis&quot;:[{&quot;type&quot;:&quot;category&quot;,&quot;data&quot;:[&quot;最富裕 10%&quot;,&quot;中間 40%&quot;,&quot;最貧窮 50%&quot;],&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#334155&quot;,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;boundaryGap&quot;:true,&quot;deduplication&quot;:null,&quot;splitLine&quot;:{&quot;show&quot;:false,&quot;lineStyle&quot;:{&quot;color&quot;:[&quot;#E0E6F1&quot;],&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;}},&quot;axisTick&quot;:{&quot;alignWithLabel&quot;:false,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{&quot;status&quot;:&quot;hide&quot;,&quot;value&quot;:2},&quot;axisLine&quot;:{&quot;show&quot;:true,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#6E7079&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;splitArea&quot;:{&quot;show&quot;:false,&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(250,250,250,0.2)&quot;,&quot;rgba(210,219,238,0.2)&quot;]}},&quot;offset&quot;:0}],&quot;grid&quot;:[{&quot;containLabel&quot;:true,&quot;bottom&quot;:&quot;10%&quot;,&quot;show&quot;:false,&quot;z&quot;:0,&quot;left&quot;:&quot;10%&quot;,&quot;top&quot;:60,&quot;right&quot;:&quot;10%&quot;,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#ccc&quot;}],&quot;series&quot;:[{&quot;name&quot;:&quot;碳排放量佔比&quot;,&quot;type&quot;:&quot;bar&quot;,&quot;data&quot;:[48,40,12],&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#1a4d3a&quot;},&quot;barWidth&quot;:&quot;30%&quot;,&quot;z&quot;:2,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;barMinHeight&quot;:0,&quot;barMinAngle&quot;:0,&quot;large&quot;:false,&quot;largeThreshold&quot;:400,&quot;progressive&quot;:3000,&quot;progressiveChunkMode&quot;:&quot;mod&quot;,&quot;clip&quot;:true,&quot;roundCap&quot;:false,&quot;showBackground&quot;:false,&quot;backgroundStyle&quot;:{&quot;color&quot;:&quot;rgba(180, 180, 180, 0.2)&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderType&quot;:&quot;solid&quot;,&quot;borderRadius&quot;:0,&quot;shadowBlur&quot;:0,&quot;shadowColor&quot;:null,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:0,&quot;opacity&quot;:1},&quot;select&quot;:{&quot;itemStyle&quot;:{&quot;borderColor&quot;:&quot;#212121&quot;}},&quot;realtimeSort&quot;:false,&quot;label&quot;:{},&quot;emphasis&quot;:{&quot;label&quot;:{}}},{&quot;name&quot;:&quot;氣候損失承受比&quot;,&quot;type&quot;:&quot;line&quot;,&quot;data&quot;:[3,22,75],&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#ff6b35&quot;},&quot;symbolSize&quot;:10,&quot;lineStyle&quot;:{&quot;width&quot;:4,&quot;type&quot;:&quot;solid&quot;},&quot;z&quot;:3,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;clip&quot;:true,&quot;label&quot;:{&quot;position&quot;:&quot;top&quot;},&quot;endLabel&quot;:{&quot;show&quot;:false,&quot;valueAnimation&quot;:true,&quot;distance&quot;:8},&quot;emphasis&quot;:{&quot;scale&quot;:true,&quot;label&quot;:{}},&quot;step&quot;:false,&quot;smooth&quot;:false,&quot;smoothMonotone&quot;:null,&quot;symbol&quot;:&quot;emptyCircle&quot;,&quot;symbolRotate&quot;:null,&quot;showSymbol&quot;:true,&quot;showAllSymbol&quot;:&quot;auto&quot;,&quot;connectNulls&quot;:false,&quot;sampling&quot;:&quot;none&quot;,&quot;animationEasing&quot;:&quot;linear&quot;,&quot;progressive&quot;:0,&quot;hoverLayerThreshold&quot;:null,&quot;universalTransition&quot;:{&quot;divideShape&quot;:&quot;clone&quot;},&quot;triggerLineEvent&quot;:false}],&quot;visualMap&quot;:[],&quot;legend&quot;:[{&quot;data&quot;:[&quot;碳排放量佔比&quot;,&quot;氣候損失承受比&quot;],&quot;textStyle&quot;:{&quot;color&quot;:&quot;#334155&quot;},&quot;bottom&quot;:0,&quot;z&quot;:4,&quot;show&quot;:true,&quot;orient&quot;:&quot;horizontal&quot;,&quot;left&quot;:&quot;center&quot;,&quot;top&quot;:null,&quot;align&quot;:&quot;auto&quot;,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderColor&quot;:&quot;#ccc&quot;,&quot;borderRadius&quot;:0,&quot;borderWidth&quot;:0,&quot;padding&quot;:5,&quot;itemGap&quot;:10,&quot;itemWidth&quot;:25,&quot;itemHeight&quot;:14,&quot;symbolRotate&quot;:&quot;inherit&quot;,&quot;symbolKeepAspect&quot;:true,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderWidth&quot;:&quot;auto&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;inherit&quot;,&quot;opacity&quot;:&quot;inherit&quot;,&quot;borderColor&quot;:&quot;inherit&quot;,&quot;borderWidth&quot;:&quot;auto&quot;,&quot;borderCap&quot;:&quot;inherit&quot;,&quot;borderJoin&quot;:&quot;inherit&quot;,&quot;borderDashOffset&quot;:&quot;inherit&quot;,&quot;borderMiterLimit&quot;:&quot;inherit&quot;},&quot;lineStyle&quot;:{&quot;width&quot;:&quot;auto&quot;,&quot;color&quot;:&quot;inherit&quot;,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveWidth&quot;:2,&quot;opacity&quot;:&quot;inherit&quot;,&quot;type&quot;:&quot;inherit&quot;,&quot;cap&quot;:&quot;inherit&quot;,&quot;join&quot;:&quot;inherit&quot;,&quot;dashOffset&quot;:&quot;inherit&quot;,&quot;miterLimit&quot;:&quot;inherit&quot;},&quot;selectedMode&quot;:true,&quot;selector&quot;:false,&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;borderRadius&quot;:10,&quot;padding&quot;:[3,5,3,5],&quot;fontSize&quot;:12,&quot;fontFamily&quot;:&quot;sans-serif&quot;,&quot;color&quot;:&quot;#666&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#666&quot;},&quot;emphasis&quot;:{&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;color&quot;:&quot;#eee&quot;,&quot;backgroundColor&quot;:&quot;#666&quot;}},&quot;selectorPosition&quot;:&quot;auto&quot;,&quot;selectorItemGap&quot;:7,&quot;selectorButtonGap&quot;:10,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;selected&quot;:{}}],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 534px; height: 400px; padding: 0px; margin: 0px; border-width: 0px;"><canvas data-zr-dom-id="zr_0" width="667" height="500" style="position: absolute; left: 0px; top: 0px; width: 534px; height: 400px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class=""></div></div>
+                </div>
+            </div>
+        </article>
+
+    </main>
+
+    <!-- Conclusion Section -->
+    <section id="conclusion" class="relative py-24 bg-esg-dark text-white overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <svg class="h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <path d="M0 100 C 20 0 50 0 100 100 Z" fill="white" style="pointer-events: none;"></path>
+            </svg>
+        </div>
+        <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in-up">
+            <i class="fa-solid fa-scale-balanced text-5xl text-esg-accent mb-8"></i>
+            <h2 class="text-4xl font-bold mb-8">重新定位我們與永續的關係</h2>
+            <p class="text-xl text-green-100 mb-10 leading-relaxed font-light">
+                這五個故事揭示了當代永續發展的三大核心衝突：倫理與現實、發展與生存、理想與公平。永續發展已非單純的環保議題，而是一個充滿動態權衡的複雜新現實。
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-left mb-12">
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg border border-white/10">
+                    <h4 class="text-esg-accent font-bold mb-2">倫理 vs 現實</h4>
+                    <p class="text-sm text-gray-300">如核武納入ESG，挑戰我們對社會責任的定義。</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg border border-white/10">
+                    <h4 class="text-esg-accent font-bold mb-2">發展 vs 生存</h4>
+                    <p class="text-sm text-gray-300">如未來城市與水資源破產，經濟與生存底線的拉鋸。</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-lg border border-white/10">
+                    <h4 class="text-esg-accent font-bold mb-2">理想 vs 公平</h4>
+                    <p class="text-sm text-gray-300">公海條約的代價與生活限制的定義權，誰在承擔？</p>
+                </div>
+            </div>
+            <button class="bg-esg-accent hover:bg-orange-600 text-white font-bold py-4 px-10 rounded-full transition-all shadow-lg hover:shadow-orange-500/50">
+                加入永續對話
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 dark:bg-slate-950 border-t border-gray-200 dark:border-gray-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <span class="text-2xl font-bold text-esg-main dark:text-green-500 font-serif">
+                        <i class="fa-solid fa-leaf mr-2"></i>永續週報
+                    </span>
+                    <p class="mt-4 text-sm text-gray-500 dark:text-gray-400 max-w-xs">
+                        致力於提供深度、客觀的ESG與永續金融趨勢分析，協助企業與個人在變動的時代做出明智決策。
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-4">關注我們</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-esg-link transition-colors"><i class="fa-brands fa-twitter text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-esg-link transition-colors"><i class="fa-brands fa-linkedin text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-esg-link transition-colors"><i class="fa-brands fa-facebook text-xl"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-4">聯絡資訊</h4>
+                    <p class="text-sm text-gray-500 dark:text-gray-400"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f4979b9a80959780b49187938391919f988dda979b99">[email&#160;protected]</a></p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Taipei, Taiwan</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-200 dark:border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-400">
+                <div class="text-center md:text-left mb-4 md:mb-0">
+                    <p>免責聲明：基於公開資料，僅供參考，不構成建議</p>
+                    <p>資料來源：網頁公開資訊</p>
+                    <p>網頁設計：Dunk | 版權所有：© 2026 Dunk</p>
+                </div>
+                <div class="flex space-x-6">
+                    <a href="#" class="hover:text-gray-600 dark:hover:text-gray-200">隱私政策</a>
+                    <a href="#" class="hover:text-gray-600 dark:hover:text-gray-200">使用條款</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript logic -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // 1. Dark Mode Toggle
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        // Initial Theme Check
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            if (html.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+            // Re-render visuals on theme change
+            initCharts(); 
+            initMermaid();
+        });
+
+        // 2. Intersection Observer for Fade Animations
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        // 3. ECharts Initialization
+        let chartInstances = {};
+
+        function initCharts() {
+            const isDark = html.classList.contains('dark');
+            const textColor = isDark ? '#e2e8f0' : '#334155';
+            const gridColor = isDark ? '#475569' : '#e2e8f0';
+            const theme = isDark ? 'dark' : null;
+
+            // Dispose old instances
+            Object.values(chartInstances).forEach(chart => chart && chart.dispose());
+
+            // --- Chart 1: Nuclear/ESG Pie Chart ---
+            const chartNuclearDom = document.getElementById('chart-nuclear');
+            if (chartNuclearDom) {
+                const chartNuclear = echarts.init(chartNuclearDom, theme);
+                chartNuclear.setOption({
+                    backgroundColor: 'transparent',
+                    title: {
+                        text: '歐盟 ESG 投資組合資格變動',
+                        left: 'center',
+                        textStyle: { color: textColor, fontSize: 16 }
+                    },
+                    tooltip: { trigger: 'item' },
+                    legend: { bottom: '5%', textStyle: { color: textColor } },
+                    series: [{
+                        name: '資產類別',
+                        type: 'pie',
+                        radius: ['40%', '70%'],
+                        avoidLabelOverlap: false,
+                        itemStyle: { borderRadius: 10, borderColor: isDark?'#1e293b':'#fff', borderWidth: 2 },
+                        label: { show: false, position: 'center' },
+                        emphasis: { label: { show: true, fontSize: 20, fontWeight: 'bold', color: textColor } },
+                        data: [
+                            { value: 15, name: '核能/國防 (新納入)', itemStyle: { color: '#ff6b35' } },
+                            { value: 35, name: '再生能源', itemStyle: { color: '#2d5016' } },
+                            { value: 25, name: '綠色建築', itemStyle: { color: '#1a4d3a' } },
+                            { value: 25, name: '其他永續資產', itemStyle: { color: '#0066cc' } }
+                        ]
+                    }]
+                });
+                chartInstances.nuclear = chartNuclear;
+            }
+
+            // --- Chart 2: Water Stress Bar Chart ---
+            const chartWaterDom = document.getElementById('chart-water');
+            if (chartWaterDom) {
+                const chartWater = echarts.init(chartWaterDom, theme);
+                chartWater.setOption({
+                    backgroundColor: 'transparent',
+                    tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+                    grid: { left: '3%', right: '4%', bottom: '3%', containLabel: true },
+                    xAxis: { type: 'value', boundaryGap: [0, 0.01], splitLine: { lineStyle: { color: gridColor } }, axisLabel: { color: textColor } },
+                    yAxis: { type: 'category', data: ['全球平均', '中東地區', '北非地區', '南亞地區', '部分歐洲'], axisLabel: { color: textColor } },
+                    series: [{
+                        name: '水資源壓力指數',
+                        type: 'bar',
+                        data: [65, 95, 92, 85, 45],
+                        itemStyle: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+                                { offset: 0, color: '#60a5fa' },
+                                { offset: 1, color: '#1e3a8a' }
+                            ])
+                        },
+                        label: { show: true, position: 'right', color: textColor, formatter: '{c}%' }
+                    }]
+                });
+                chartInstances.water = chartWater;
+            }
+
+            // --- Chart 4: Ocean Protection Gauge ---
+            const chartOceanDom = document.getElementById('chart-ocean');
+            if (chartOceanDom) {
+                const chartOcean = echarts.init(chartOceanDom, theme);
+                chartOcean.setOption({
+                    backgroundColor: 'transparent',
+                    series: [{
+                        type: 'gauge',
+                        startAngle: 180,
+                        endAngle: 0,
+                        min: 0,
+                        max: 100,
+                        splitNumber: 10,
+                        itemStyle: { color: '#0066cc' },
+                        progress: { show: true, width: 30 },
+                        pointer: { show: false },
+                        axisLine: { lineStyle: { width: 30 } },
+                        axisTick: { distance: -45, splitNumber: 5, lineStyle: { width: 2, color: '#999' } },
+                        splitLine: { distance: -52, length: 14, lineStyle: { width: 3, color: '#999' } },
+                        axisLabel: { distance: -20, color: '#999', fontSize: 10 },
+                        anchor: { show: false },
+                        title: { show: false },
+                        detail: {
+                            valueAnimation: true,
+                            width: '60%',
+                            lineHeight: 40,
+                            borderRadius: 8,
+                            offsetCenter: [0, '-15%'],
+                            fontSize: 30,
+                            fontWeight: 'bolder',
+                            formatter: '目標: 30%',
+                            color: textColor
+                        },
+                        data: [{ value: 1, name: '過去保護比例' }] // Animated to new value ideally
+                    },
+                    {
+                        type: 'gauge',
+                        startAngle: 180,
+                        endAngle: 0,
+                        min: 0,
+                        max: 100,
+                        itemStyle: { color: '#2d5016' },
+                        progress: { show: true, width: 8 },
+                        pointer: { show: false },
+                        axisLine: { show: false },
+                        axisTick: { show: false },
+                        splitLine: { show: false },
+                        axisLabel: { show: false },
+                        detail: { show: false },
+                        data: [{ value: 30, name: 'BBNJ目標' }]
+                    }]
+                });
+                chartInstances.ocean = chartOcean;
+            }
+
+            // --- Chart 5: Inequality Bar/Line ---
+            const chartInequalityDom = document.getElementById('chart-inequality');
+            if (chartInequalityDom) {
+                const chartInequality = echarts.init(chartInequalityDom, theme);
+                chartInequality.setOption({
+                    backgroundColor: 'transparent',
+                    tooltip: { trigger: 'axis' },
+                    legend: { data: ['碳排放量佔比', '氣候損失承受比'], textStyle: { color: textColor }, bottom: 0 },
+                    grid: { containLabel: true, bottom: '10%' },
+                    xAxis: { 
+                        type: 'category', 
+                        data: ['最富裕 10%', '中間 40%', '最貧窮 50%'],
+                        axisLabel: { color: textColor }
+                    },
+                    yAxis: { type: 'value', axisLabel: { color: textColor }, splitLine: { lineStyle: { color: gridColor } } },
+                    series: [
+                        {
+                            name: '碳排放量佔比',
+                            type: 'bar',
+                            data: [48, 40, 12],
+                            itemStyle: { color: '#1a4d3a' },
+                            barWidth: '30%'
+                        },
+                        {
+                            name: '氣候損失承受比',
+                            type: 'line',
+                            data: [3, 22, 75],
+                            itemStyle: { color: '#ff6b35' },
+                            symbolSize: 10,
+                            lineStyle: { width: 4 }
+                        }
+                    ]
+                });
+                chartInstances.inequality = chartInequality;
+            }
+        }
+
+        // 4. Mermaid Initialization with Theme Support
+        function initMermaid() {
+            const isDark = html.classList.contains('dark');
+            const mermaidTheme = isDark ? 'dark' : 'default';
+            
+            // Re-render approach usually involves clearing and re-inserting, 
+            // but for simplicity here we rely on initial load matching.
+            // If dynamic switch is needed, we would re-run mermaid.run()
+            mermaid.initialize({ 
+                startOnLoad: true, 
+                theme: mermaidTheme,
+                flowchart: { curve: 'basis' },
+                themeVariables: {
+                    primaryColor: '#1a4d3a',
+                    edgeLabelBackground: isDark ? '#1e293b' : '#ffffff',
+                    tertiaryColor: '#f8f9fa'
+                }
+            });
+        }
+
+        // Window Resize Handler
+        window.addEventListener('resize', () => {
+            Object.values(chartInstances).forEach(chart => chart && chart.resize());
+        });
+
+        // Initialize Everything
+        initCharts();
+        initMermaid();
+
+    </script>
+
+<div class="mermaidTooltip" style="opacity: 0;"></div></body></body>
+</html>
