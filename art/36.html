@@ -1,0 +1,645 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>啟示錄：Leo Twiggs 的藝術 | 吉布斯藝術博物館回顧展</title>
+    <meta name="description" content="2026年吉布斯藝術博物館大型回顧展——啟示錄：Leo Twiggs 的藝術。探索這位南卡羅來納州藝術巨擘六十年的蠟染創作與歷史反思。">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Playfair Display"', '"Noto Serif TC"', 'serif'],
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                    },
+                    colors: {
+                        'twiggs-blue': '#1e3a8a', // Deep Indigo
+                        'twiggs-red': '#881337', // Faded Red
+                        'batik-wax': '#f5f5dc', // Beige/Wax
+                        'charcoal': '#1c1917',
+                        'paper': '#fbfaf8',
+                    },
+                    backgroundImage: {
+                        'texture-pattern': "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- UI Components -->
+    <script src="https://cdn.jsdelivr.net/npm/preline@2.3.0/dist/preline.min.js"></script>
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Visualization Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+
+    <style>
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #888; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555; 
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: #1f2937;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #4b5563;
+        }
+        
+        /* Crackle Effect Overlay */
+        .crackle-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 10;
+        }
+    </style>
+<script src="https://felo.ai/js/iframe.js?v=1769730761683"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style></head>
+<body class="bg-paper dark:bg-charcoal text-gray-800 dark:text-gray-200 transition-colors duration-300 font-sans selection:bg-twiggs-red selection:text-white"><body class="bg-paper dark:bg-charcoal text-gray-800 dark:text-gray-200 transition-colors duration-300 font-sans selection:bg-twiggs-red selection:text-white" contenteditable="false" spellcheck="false">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 bg-white/80 dark:bg-charcoal/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo Area -->
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <span class="font-serif text-2xl font-bold tracking-tighter text-gray-900 dark:text-white">
+                        REVELATIONS
+                        <span class="block text-xs font-sans font-normal text-twiggs-red tracking-widest uppercase">The Art of Leo Twiggs</span>
+                    </span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#about" class="text-sm font-medium hover:text-twiggs-red transition-colors">藝術家簡介</a>
+                    <a href="#themes" class="text-sm font-medium hover:text-twiggs-red transition-colors">展覽主題</a>
+                    <a href="#works" class="text-sm font-medium hover:text-twiggs-red transition-colors">核心作品</a>
+                    <a href="#technique" class="text-sm font-medium hover:text-twiggs-red transition-colors">蠟染工藝</a>
+                    <a href="#visit" class="px-5 py-2.5 text-sm font-medium text-white bg-gray-900 dark:bg-white dark:text-gray-900 rounded-full hover:bg-twiggs-red dark:hover:bg-gray-200 transition-all">
+                        參觀展覽
+                    </a>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button id="theme-toggle" type="button" class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+                        <i class="fas fa-moon hidden dark:inline-block"></i>
+                        <i class="fas fa-sun inline-block dark:hidden"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                     <button id="mobile-menu-btn" class="text-gray-900 dark:text-white focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-charcoal border-b border-gray-200 dark:border-gray-700">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="#about" class="block px-3 py-2 text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md">藝術家簡介</a>
+                <a href="#themes" class="block px-3 py-2 text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md">展覽主題</a>
+                <a href="#works" class="block px-3 py-2 text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800 rounded-md">核心作品</a>
+                <a href="#visit" class="block px-3 py-2 text-base font-medium text-twiggs-red">參觀展覽</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen min-h-[800px] flex items-center justify-center overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://image.pollinations.ai/prompt/abstract%20batik%20art%20texture%20Leo%20Twiggs%20style%2C%20deep%20indigo%20and%20faded%20confederate%20red%2C%20cracked%20wax%20lines%2C%20southern%20gothic%20atmosphere%2C%20cinematic%20lighting%2C%20high%20resolution?nologo=true" alt="Leo Twiggs 風格蠟染藝術背景" class="w-full h-full object-cover transition-transform duration-[20s] hover:scale-105 transform scale-100 animate-slow-zoom">
+            <div class="absolute inset-0 bg-gradient-to-b from-gray-900/40 via-gray-900/60 to-paper dark:to-charcoal"></div>
+            <div class="crackle-overlay"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto mt-16">
+            <div class="inline-block mb-6 px-4 py-1 border border-white/30 rounded-full bg-white/10 backdrop-blur-sm text-white/90 text-xs tracking-[0.2em] uppercase reveal-on-scroll reveal-visible">
+                Gibbes Museum of Art | 2026.01.30 - 05.03
+            </div>
+            
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-9xl font-bold text-white mb-6 tracking-tight leading-none drop-shadow-lg reveal-on-scroll reveal-visible" style="transition-delay: 100ms;">
+                啟示錄<br>
+                <span class="text-3xl md:text-5xl lg:text-6xl font-normal italic opacity-90 block mt-4">The Art of Leo Twiggs</span>
+            </h1>
+            
+            <p class="mt-8 text-lg md:text-xl text-gray-200 max-w-2xl mx-auto font-light leading-relaxed reveal-on-scroll" style="transition-delay: 200ms;">
+                歷史的裂縫，記憶的織物。<br>
+                南卡羅來納州首個全面回顧展，致敬一位將蠟染工藝昇華為靈魂對話的先驅。
+            </p>
+
+            <div class="mt-12 flex flex-col sm:flex-row gap-4 justify-center reveal-on-scroll" style="transition-delay: 300ms;">
+                <a href="#about" class="px-8 py-4 bg-white text-gray-900 rounded-none hover:bg-gray-100 transition-all font-serif italic border border-white">
+                    探索生平
+                </a>
+                <a href="#visit" class="px-8 py-4 bg-transparent text-white border border-white/50 hover:bg-white/10 hover:border-white transition-all font-sans uppercase text-sm tracking-widest flex items-center justify-center">
+                    購票資訊
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-white/50">
+            <i class="fas fa-chevron-down text-2xl"></i>
+        </div>
+    </section>
+
+    <!-- Introduction Section (Magazine Layout) -->
+    <section id="about" class="py-24 bg-paper dark:bg-charcoal relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <!-- Image Column -->
+                <div class="relative reveal-on-scroll">
+                    <div class="absolute -top-4 -left-4 w-full h-full border border-gray-900/10 dark:border-white/10 z-0"></div>
+                    <img src="https://image.pollinations.ai/prompt/portrait%20of%20Leo%20Twiggs%20elderly%20african%20american%20artist%20wearing%20glasses%20and%20suit%2C%20warm%20smile%2C%20standing%20in%20art%20studio%20with%20batik%20paintings%20in%20background%2C%20soft%20natural%20window%20light%2C%20photorealistic%2C%20dignified?nologo=true" alt="Leo Twiggs 博士肖像" class="relative z-10 w-full h-[600px] object-cover filter grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl">
+                    <div class="absolute bottom-8 right-[-20px] bg-white dark:bg-gray-800 p-6 shadow-xl z-20 max-w-xs">
+                        <p class="font-serif italic text-2xl text-twiggs-red">"所有的藝術都是人類經驗的儲藏庫。"</p>
+                        <p class="text-sm mt-2 text-gray-500 text-right">— Dr. Leo Twiggs</p>
+                    </div>
+                </div>
+
+                <!-- Text Column -->
+                <div class="space-y-8 reveal-on-scroll" style="transition-delay: 200ms;">
+                    <h2 class="text-xs font-bold tracking-[0.2em] uppercase text-twiggs-blue dark:text-blue-400">關於藝術家</h2>
+                    <h3 class="font-serif text-4xl md:text-5xl font-bold text-gray-900 dark:text-white leading-tight">
+                        歷史交匯點上的<br>視覺啟示
+                    </h3>
+                    
+                    <div class="prose dark:prose-invert text-gray-600 dark:text-gray-300 font-light leading-relaxed">
+                        <p class="first-letter:text-5xl first-letter:font-serif first-letter:mr-2 first-letter:float-left first-letter:text-gray-900 dark:first-letter:text-white">
+                            2026年，吉布斯藝術博物館隆重推出「啟示錄：Leo Twiggs 的藝術」。這不僅是對這位現年92歲高齡藝術家逾六十年職業生涯的致敬，更是南卡羅來納州歷史上首個為其本土藝術巨擘舉辦的全面回顧展。
+                        </p>
+                        <p>
+                            Leo Twiggs 的生命軌跡是一部與南部體制及經濟困境抗爭的史詩。從聖史蒂芬的貧寒少年，到成為佐治亞大學首位獲得藝術教育博士學位的非裔美國人，他始終堅持用藝術作為一種「修補」與「對話」的工具。
+                        </p>
+                    </div>
+
+                    <!-- Milestones Data Visualization (ECharts) -->
+                    <div class="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
+                        <h4 class="font-serif text-lg mb-4 text-gray-900 dark:text-white">生涯關鍵里程碑</h4>
+                        <div id="milestoneChart" class="w-full h-64" _echarts_instance_="ec_1769730763502" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" data-chart-option="{&quot;darkMode&quot;:&quot;auto&quot;,&quot;colorBy&quot;:&quot;series&quot;,&quot;color&quot;:[&quot;#5470c6&quot;,&quot;#91cc75&quot;,&quot;#fac858&quot;,&quot;#ee6666&quot;,&quot;#73c0de&quot;,&quot;#3ba272&quot;,&quot;#fc8452&quot;,&quot;#9a60b4&quot;,&quot;#ea7ccc&quot;],&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;textStyle&quot;:{&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;axisPointer&quot;:[{&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9BEC9&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;label&quot;:{&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;color&quot;:&quot;#fff&quot;,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[{&quot;trigger&quot;:&quot;axis&quot;,&quot;axisPointer&quot;:{&quot;type&quot;:&quot;shadow&quot;,&quot;axis&quot;:&quot;auto&quot;,&quot;animation&quot;:&quot;auto&quot;,&quot;animationDurationUpdate&quot;:200,&quot;animationEasingUpdate&quot;:&quot;exponentialOut&quot;,&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#999&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;,&quot;textStyle&quot;:{}}},&quot;z&quot;:60,&quot;show&quot;:true,&quot;showContent&quot;:true,&quot;triggerOn&quot;:&quot;mousemove|click&quot;,&quot;alwaysShowContent&quot;:false,&quot;displayMode&quot;:&quot;single&quot;,&quot;renderMode&quot;:&quot;auto&quot;,&quot;confine&quot;:null,&quot;showDelay&quot;:0,&quot;hideDelay&quot;:100,&quot;transitionDuration&quot;:0.4,&quot;enterable&quot;:false,&quot;backgroundColor&quot;:&quot;#fff&quot;,&quot;shadowBlur&quot;:10,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, .2)&quot;,&quot;shadowOffsetX&quot;:1,&quot;shadowOffsetY&quot;:2,&quot;borderRadius&quot;:4,&quot;borderWidth&quot;:1,&quot;padding&quot;:null,&quot;extraCssText&quot;:&quot;&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;fontSize&quot;:14}}],&quot;yAxis&quot;:[{&quot;type&quot;:&quot;category&quot;,&quot;data&quot;:[&quot;出生&quot;,&quot;Claflin畢業&quot;,&quot;NYU碩士&quot;,&quot;UGA博士&quot;,&quot;Gibbes首展&quot;,&quot;回顧展&quot;],&quot;axisLine&quot;:{&quot;show&quot;:false,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#6E7079&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;axisTick&quot;:{&quot;show&quot;:false,&quot;alignWithLabel&quot;:false,&quot;interval&quot;:&quot;auto&quot;,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#333&quot;,&quot;fontFamily&quot;:&quot;&quot;Noto Serif TC&quot;, serif&quot;,&quot;fontWeight&quot;:&quot;bold&quot;,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;boundaryGap&quot;:true,&quot;deduplication&quot;:null,&quot;splitLine&quot;:{&quot;show&quot;:false,&quot;lineStyle&quot;:{&quot;color&quot;:[&quot;#E0E6F1&quot;],&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{&quot;status&quot;:&quot;hide&quot;,&quot;value&quot;:5},&quot;splitArea&quot;:{&quot;show&quot;:false,&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(250,250,250,0.2)&quot;,&quot;rgba(210,219,238,0.2)&quot;]}},&quot;offset&quot;:0}],&quot;xAxis&quot;:[{&quot;type&quot;:&quot;value&quot;,&quot;min&quot;:1930,&quot;max&quot;:2030,&quot;splitLine&quot;:{&quot;show&quot;:false,&quot;lineStyle&quot;:{&quot;color&quot;:[&quot;#E0E6F1&quot;],&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;}},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;boundaryGap&quot;:[0,0],&quot;axisLine&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#6E7079&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;axisTick&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;splitNumber&quot;:5,&quot;minorTick&quot;:{&quot;show&quot;:false,&quot;splitNumber&quot;:5,&quot;length&quot;:3,&quot;lineStyle&quot;:{}},&quot;minorSplitLine&quot;:{&quot;show&quot;:false,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#F4F7FD&quot;,&quot;width&quot;:1}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{},&quot;splitArea&quot;:{&quot;show&quot;:false,&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(250,250,250,0.2)&quot;,&quot;rgba(210,219,238,0.2)&quot;]}},&quot;offset&quot;:0}],&quot;grid&quot;:[{&quot;left&quot;:&quot;3%&quot;,&quot;right&quot;:&quot;4%&quot;,&quot;bottom&quot;:&quot;3%&quot;,&quot;containLabel&quot;:true,&quot;show&quot;:false,&quot;z&quot;:0,&quot;top&quot;:60,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#ccc&quot;}],&quot;series&quot;:[{&quot;name&quot;:&quot;年份&quot;,&quot;type&quot;:&quot;bar&quot;,&quot;data&quot;:[1934,1956,1964,1970,1976,2026],&quot;itemStyle&quot;:{&quot;color&quot;:{&quot;colorStops&quot;:[{&quot;offset&quot;:0,&quot;color&quot;:&quot;#1e3a8a&quot;},{&quot;offset&quot;:1,&quot;color&quot;:&quot;#881337&quot;}],&quot;x&quot;:0,&quot;y&quot;:0,&quot;x2&quot;:1,&quot;y2&quot;:0,&quot;type&quot;:&quot;linear&quot;,&quot;global&quot;:false},&quot;borderRadius&quot;:[0,4,4,0]},&quot;label&quot;:{&quot;show&quot;:true,&quot;position&quot;:&quot;right&quot;,&quot;color&quot;:&quot;#333&quot;},&quot;z&quot;:2,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;barMinHeight&quot;:0,&quot;barMinAngle&quot;:0,&quot;large&quot;:false,&quot;largeThreshold&quot;:400,&quot;progressive&quot;:3000,&quot;progressiveChunkMode&quot;:&quot;mod&quot;,&quot;clip&quot;:true,&quot;roundCap&quot;:false,&quot;showBackground&quot;:false,&quot;backgroundStyle&quot;:{&quot;color&quot;:&quot;rgba(180, 180, 180, 0.2)&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderType&quot;:&quot;solid&quot;,&quot;borderRadius&quot;:0,&quot;shadowBlur&quot;:0,&quot;shadowColor&quot;:null,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:0,&quot;opacity&quot;:1},&quot;select&quot;:{&quot;itemStyle&quot;:{&quot;borderColor&quot;:&quot;#212121&quot;}},&quot;realtimeSort&quot;:false,&quot;emphasis&quot;:{&quot;label&quot;:{&quot;show&quot;:true}}}],&quot;visualMap&quot;:[],&quot;legend&quot;:[],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 576px; height: 256px; padding: 0px; margin: 0px; border-width: 0px;"><canvas data-zr-dom-id="zr_0" width="720" height="320" style="position: absolute; left: 0px; top: 0px; width: 576px; height: 256px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class=""></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technique Section (Parallax/Texture) -->
+    <section id="technique" class="py-24 bg-gray-100 dark:bg-gray-900 overflow-hidden relative">
+        <div class="absolute inset-0 opacity-10 dark:opacity-20 pointer-events-none">
+            <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <filter id="noise" style="pointer-events: none;">
+                    <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch" style="pointer-events: none;"></feTurbulence>
+                </filter>
+                <rect width="100%" height="100%" filter="url(#noise)" style="pointer-events: none;"></rect>
+            </svg>
+        </div>
+
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+            <span class="inline-block py-1 px-3 rounded-full bg-twiggs-blue/10 text-twiggs-blue dark:text-blue-300 text-xs font-semibold tracking-wider mb-6">媒介創新</span>
+            <h2 class="font-serif text-4xl md:text-5xl font-bold mb-8 text-gray-900 dark:text-white">蠟染：時間的裂紋</h2>
+            <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed mb-12">
+                Leo Twiggs 將傳統的蠟染工藝（Batik）從實用性紡織品昇華為純藝術。他將染料視為顏料，直接在棉布上塗抹。蠟質乾燥後產生的獨特「裂紋」(Crackle)，成為他作品中象徵南方記憶斑駁、歷史陳舊感的視覺語言。
+            </p>
+        </div>
+
+        <!-- Technique Steps Grid -->
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+            <!-- Step 1 -->
+            <div class="group relative overflow-hidden h-80 bg-white dark:bg-gray-800 shadow-lg reveal-on-scroll">
+                <div class="absolute inset-0 bg-gray-200 dark:bg-gray-700">
+                     <img src="https://image.pollinations.ai/prompt/macro%20photography%20of%20hot%20wax%20being%20applied%20to%20cotton%20fabric%20with%20a%20brush%2C%20artistic%20process%2C%20studio%20lighting?nologo=true" alt="施蠟" class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/80 to-transparent text-white">
+                    <h3 class="font-serif text-2xl mb-1">1. 施蠟與染色</h3>
+                    <p class="text-sm opacity-80">如爵士樂般的即興與冥想，直接將染料繪於棉布之上。</p>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="group relative overflow-hidden h-80 bg-white dark:bg-gray-800 shadow-lg reveal-on-scroll" style="transition-delay: 100ms;">
+                <div class="absolute inset-0 bg-gray-200 dark:bg-gray-700">
+                    <img src="https://image.pollinations.ai/prompt/close%20up%20texture%20of%20dried%20wax%20cracking%20on%20fabric%2C%20intricate%20patterns%2C%20macro%20detail?nologo=true" alt="裂紋" class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/80 to-transparent text-white">
+                    <h3 class="font-serif text-2xl mb-1">2. 裂紋形成</h3>
+                    <p class="text-sm opacity-80">時間的烙印。蠟質乾燥破裂，讓染料滲透形成不可預測的紋理。</p>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="group relative overflow-hidden h-80 bg-white dark:bg-gray-800 shadow-lg reveal-on-scroll" style="transition-delay: 200ms;">
+                <div class="absolute inset-0 bg-gray-200 dark:bg-gray-700">
+                    <img src="https://image.pollinations.ai/prompt/finished%20batik%20painting%20mounted%20on%20board%2C%20museum%20gallery%20setting%2C%20deep%20colors%20and%20textures?nologo=true" alt="裝裱" class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-black/80 to-transparent text-white">
+                    <h3 class="font-serif text-2xl mb-1">3. 乾裱成畫</h3>
+                    <p class="text-sm opacity-80">將完成的棉布乾裱於畫板，賦予織物油畫般的莊重感。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Themes Section (Mermaid Visualization) -->
+    <section id="themes" class="py-24 bg-paper dark:bg-charcoal border-t border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal-on-scroll">
+                <h2 class="font-serif text-4xl font-bold text-gray-900 dark:text-white">策展結構：五個篇章</h2>
+                <p class="mt-4 text-gray-600 dark:text-gray-400">客座策展人 Frank Martin 博士採用非線性敘事，探索藝術家六十年的演變。</p>
+            </div>
+
+            <!-- Mermaid Chart Container -->
+            <div class="bg-white dark:bg-gray-800/50 rounded-xl shadow-sm p-8 md:p-12 overflow-x-auto reveal-on-scroll">
+                <div class="mermaid flex justify-center min-w-[800px]" data-processed="true"><svg aria-roledescription="flowchart-v2" role="graphics-document document" viewBox="-8 -8 873.2999877929688 361.5" style="max-width: 873.2999877929688px;" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="100%" id="mermaid-1769730856254"><style>#mermaid-1769730856254{font-family:"Noto Serif TC",serif;font-size:16px;fill:#1c1917;}#mermaid-1769730856254 .error-icon{fill:hsl(220, 27.2727272727%, 100%);}#mermaid-1769730856254 .error-text{fill:#000000;stroke:#000000;}#mermaid-1769730856254 .edge-thickness-normal{stroke-width:2px;}#mermaid-1769730856254 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-1769730856254 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-1769730856254 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-1769730856254 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-1769730856254 .marker{fill:#881337;stroke:#881337;}#mermaid-1769730856254 .marker.cross{stroke:#881337;}#mermaid-1769730856254 svg{font-family:"Noto Serif TC",serif;font-size:16px;}#mermaid-1769730856254 .label{font-family:"Noto Serif TC",serif;color:#1c1917;}#mermaid-1769730856254 .cluster-label text{fill:#000000;}#mermaid-1769730856254 .cluster-label span,#mermaid-1769730856254 p{color:#000000;}#mermaid-1769730856254 .label text,#mermaid-1769730856254 span,#mermaid-1769730856254 p{fill:#1c1917;color:#1c1917;}#mermaid-1769730856254 .node rect,#mermaid-1769730856254 .node circle,#mermaid-1769730856254 .node ellipse,#mermaid-1769730856254 .node polygon,#mermaid-1769730856254 .node path{fill:#fbfaf8;stroke:hsl(40, 0%, 87.8431372549%);stroke-width:1px;}#mermaid-1769730856254 .flowchart-label text{text-anchor:middle;}#mermaid-1769730856254 .node .label{text-align:center;}#mermaid-1769730856254 .node.clickable{cursor:pointer;}#mermaid-1769730856254 .arrowheadPath{fill:#0b0b0b;}#mermaid-1769730856254 .edgePath .path{stroke:#881337;stroke-width:2.0px;}#mermaid-1769730856254 .flowchart-link{stroke:#881337;fill:none;}#mermaid-1769730856254 .edgeLabel{background-color:hsl(-80, 27.2727272727%, 97.8431372549%);text-align:center;}#mermaid-1769730856254 .edgeLabel rect{opacity:0.5;background-color:hsl(-80, 27.2727272727%, 97.8431372549%);fill:hsl(-80, 27.2727272727%, 97.8431372549%);}#mermaid-1769730856254 .labelBkg{background-color:rgba(250, 248, 251, 0.5);}#mermaid-1769730856254 .cluster rect{fill:hsl(220, 27.2727272727%, 100%);stroke:hsl(220, 0%, 90%);stroke-width:1px;}#mermaid-1769730856254 .cluster text{fill:#000000;}#mermaid-1769730856254 .cluster span,#mermaid-1769730856254 p{color:#000000;}#mermaid-1769730856254 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"Noto Serif TC",serif;font-size:12px;background:hsl(220, 27.2727272727%, 100%);border:1px solid hsl(220, 0%, 90%);border-radius:2px;pointer-events:none;z-index:100;}#mermaid-1769730856254 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#1c1917;}#mermaid-1769730856254 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}#mermaid-1769730856254 .section&gt;*{fill:#fbfaf8!important;stroke:#881337!important;stroke-width:2px!important;color:#1c1917!important;font-family:'Playfair Display'!important;}#mermaid-1769730856254 .section span{fill:#fbfaf8!important;stroke:#881337!important;stroke-width:2px!important;color:#1c1917!important;font-family:'Playfair Display'!important;}#mermaid-1769730856254 .section tspan{fill:#1c1917!important;}#mermaid-1769730856254 .darkSection&gt;*{fill:#1c1917!important;stroke:#f5f5dc!important;stroke-width:2px!important;color:#fff!important;font-family:'Playfair Display'!important;}#mermaid-1769730856254 .darkSection span{fill:#1c1917!important;stroke:#f5f5dc!important;stroke-width:2px!important;color:#fff!important;font-family:'Playfair Display'!important;}#mermaid-1769730856254 .darkSection tspan{fill:#fff!important;}</style><g><marker orient="auto" markerHeight="12" markerWidth="12" markerUnits="userSpaceOnUse" refY="5" refX="6" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1769730856254_flowchart-pointEnd"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 0 L 10 5 L 0 10 z"></path></marker><marker orient="auto" markerHeight="12" markerWidth="12" markerUnits="userSpaceOnUse" refY="5" refX="4.5" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1769730856254_flowchart-pointStart"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 5 L 10 10 L 10 0 z"></path></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5" refX="11" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1769730856254_flowchart-circleEnd"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5" refX="-1" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1769730856254_flowchart-circleStart"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5.2" refX="12" viewBox="0 0 11 11" class="marker cross flowchart" id="mermaid-1769730856254_flowchart-crossEnd"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5.2" refX="-1" viewBox="0 0 11 11" class="marker cross flowchart" id="mermaid-1769730856254_flowchart-crossStart"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><g class="root"><g class="clusters"></g><g class="edgePaths"><path marker-end="url(#mermaid-1769730856254_flowchart-pointEnd)" style="stroke:#9ca3af;stroke-width:1px;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-A LE-B" id="L-A-B-0" d="M82.557,226L87.649,221.833C92.742,217.667,102.927,209.333,111.303,205.167C119.679,201,126.246,201,129.529,201L132.813,201"></path><path marker-end="url(#mermaid-1769730856254_flowchart-pointEnd)" style="stroke:#9ca3af;stroke-width:1px;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-B LE-C" id="L-B-C-0" d="M230.608,169.5L236.171,165.333C241.735,161.167,252.861,152.833,261.708,148.667C270.554,144.5,277.121,144.5,280.404,144.5L283.688,144.5"></path><path marker-end="url(#mermaid-1769730856254_flowchart-pointEnd)" style="stroke:#9ca3af;stroke-width:1px;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-C LE-D" id="L-C-D-0" d="M378.66,113L384.09,108.833C389.519,104.667,400.378,96.333,409.091,92.167C417.804,88,424.371,88,427.654,88L430.938,88"></path><path marker-end="url(#mermaid-1769730856254_flowchart-pointEnd)" style="stroke:#9ca3af;stroke-width:1px;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-D LE-E" id="L-D-E-0" d="M550.256,56.5L556.838,52.333C563.421,48.167,576.585,39.833,586.451,35.667C596.317,31.5,602.883,31.5,606.167,31.5L609.45,31.5"></path><path style="stroke:#9ca3af;stroke-width:1px;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-A LE-A_desc" id="L-A-A_desc-0" d="M82.557,289L87.649,293.167C92.742,297.333,102.927,305.667,114.009,309.833C125.092,314,137.071,314,143.06,314L149.05,314"></path><path style="stroke:#9ca3af;stroke-width:1px;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-B LE-B_desc" id="L-B-B_desc-0" d="M230.608,232.5L236.171,236.667C241.735,240.833,252.861,249.167,264.112,253.333C275.363,257.5,286.738,257.5,292.425,257.5L298.113,257.5"></path><path style="stroke:#9ca3af;stroke-width:1px;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-C LE-C_desc" id="L-C-C_desc-0" d="M378.66,176L384.09,180.167C389.519,184.333,400.378,192.667,413.631,196.833C426.883,201,442.529,201,450.352,201L458.175,201"></path><path style="stroke:#9ca3af;stroke-width:1px;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-D LE-D_desc" id="L-D-D_desc-0" d="M550.256,119.5L556.838,123.667C563.421,127.833,576.585,136.167,587.547,140.333C598.508,144.5,607.267,144.5,611.646,144.5L616.025,144.5"></path><path style="stroke:#9ca3af;stroke-width:1px;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-E LE-E_desc" id="L-E-E_desc-0" d="M712.3,31.5L716.467,31.5C720.633,31.5,728.967,31.5,737.3,31.5C745.633,31.5,753.967,31.5,758.133,31.5L762.3,31.5"></path></g><g class="edgeLabels"><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g></g><g class="nodes"><g transform="translate(44.056251525878906, 257.5)" id="flowchart-A-0" class="node default section flowchart-label"><rect height="63" width="88.11250305175781" y="-31.5" x="-44.056251525878906" ry="5" rx="5" style="" class="basic label-container"></rect><g transform="translate(-36.556251525878906, -24)" style="" class="label"><rect></rect><foreignObject height="48" width="73.11250305175781"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">I. 被困<br>Marooned</span></div></foreignObject></g></g><g transform="translate(188.5500030517578, 201)" id="flowchart-B-1" class="node default section flowchart-label"><rect height="63" width="100.875" y="-31.5" x="-50.4375" ry="5" rx="5" style="" class="basic label-container"></rect><g transform="translate(-42.9375, -24)" style="" class="label"><rect></rect><foreignObject height="48" width="85.875"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">II. 覺醒<br>Awakenings</span></div></foreignObject></g></g><g transform="translate(337.6125030517578, 144.5)" id="flowchart-C-2" class="node default section flowchart-label"><rect height="63" width="97.25" y="-31.5" x="-48.625" ry="5" rx="5" style="" class="basic label-container"></rect><g transform="translate(-41.125, -24)" style="" class="label"><rect></rect><foreignObject height="48" width="82.25"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">III. 過渡<br>Transitions</span></div></foreignObject></g></g><g transform="translate(500.4937515258789, 88)" id="flowchart-D-3" class="node default section flowchart-label"><rect height="63" width="128.51250457763672" y="-31.5" x="-64.25625228881836" ry="5" rx="5" style="" class="basic label-container"></rect><g transform="translate(-56.75625228881836, -24)" style="" class="label"><rect></rect><foreignObject height="48" width="113.51250457763672"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">IV. 轉變<br>Transformation</span></div></foreignObject></g></g><g transform="translate(663.5250015258789, 31.5)" id="flowchart-E-4" class="node default section flowchart-label"><rect height="63" width="97.55000305175781" y="-31.5" x="-48.775001525878906" ry="5" rx="5" style="" class="basic label-container"></rect><g transform="translate(-41.275001525878906, -24)" style="" class="label"><rect></rect><foreignObject height="48" width="82.55000305175781"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">V. 啟示<br>Revelations</span></div></foreignObject></g></g><g transform="translate(188.5500030517578, 314)" id="flowchart-A_desc-5" class="node default default flowchart-label"><rect height="63" width="79" y="-31.5" x="-39.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-32, -24)" style="" class="label"><rect></rect><foreignObject height="48" width="64"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">孤立感<br>身份探索</span></div></foreignObject></g></g><g transform="translate(337.6125030517578, 257.5)" id="flowchart-B_desc-6" class="node default default flowchart-label"><rect height="63" width="79" y="-31.5" x="-39.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-32, -24)" style="" class="label"><rect></rect><foreignObject height="48" width="64"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">早期油畫<br>抽象實驗</span></div></foreignObject></g></g><g transform="translate(500.4937515258789, 201)" id="flowchart-C_desc-7" class="node default default flowchart-label"><rect height="63" width="84.63750457763672" y="-31.5" x="-42.31875228881836" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-34.81875228881836, -24)" style="" class="label"><rect></rect><foreignObject height="48" width="69.63750457763672"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">南方意象<br>鐵路/遷移</span></div></foreignObject></g></g><g transform="translate(663.5250015258789, 144.5)" id="flowchart-D_desc-8" class="node default default flowchart-label"><rect height="63" width="95" y="-31.5" x="-47.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-40, -24)" style="" class="label"><rect></rect><foreignObject height="48" width="80"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">邦聯旗<br>解構與重組</span></div></foreignObject></g></g><g transform="translate(809.8000030517578, 31.5)" id="flowchart-E_desc-9" class="node default default flowchart-label"><rect height="63" width="95" y="-31.5" x="-47.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-40, -24)" style="" class="label"><rect></rect><foreignObject height="48" width="80"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">安魂曲<br>希望與韌性</span></div></foreignObject></g></g></g></g></g></svg></div>
+                <p class="text-center text-xs text-gray-400 mt-4 italic">展覽主題流向圖</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deep Dive: Works (Z-Pattern Layout) -->
+    <section id="works" class="py-0">
+        <!-- Work 1: Commemoration -->
+        <div class="grid grid-cols-1 md:grid-cols-2 min-h-[80vh]">
+            <div class="bg-gray-100 dark:bg-gray-900 flex items-center justify-center p-12 order-1 md:order-1">
+                <div class="max-w-lg space-y-6 reveal-on-scroll">
+                    <span class="text-twiggs-red font-bold tracking-widest text-sm uppercase">Transformation</span>
+                    <h3 class="font-serif text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">解構邦聯旗</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                        Twiggs 並不將聯邦旗(Confederate Flag)描繪成威嚴的象徵，而是將其處理成破損、褪色且被污漬覆蓋的「遺物」。
+                    </p>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                        他認為這是南部白人選擇記住、而黑人選擇遺忘的圖騰。通過藝術化處理，他對其進行「解除武裝」，將其從政治爭拗中抽離，成為歷史教訓的載體。
+                    </p>
+                    <div class="pt-4">
+                        <ul class="space-y-2 text-sm text-gray-500 dark:text-gray-400">
+                            <li><i class="fas fa-circle text-[8px] mr-2 text-twiggs-red"></i>系列：《紀念》、《最後的旗幟》</li>
+                            <li><i class="fas fa-circle text-[8px] mr-2 text-twiggs-red"></i>象徵：褪色的遺物、歷史的傷痕</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="relative h-[60vh] md:h-auto order-2 md:order-2 bg-gray-300">
+                <img src="https://image.pollinations.ai/prompt/faded%20and%20tattered%20confederate%20flag%20painting%20by%20Leo%20Twiggs%2C%20batik%20texture%2C%20abstract%20and%20ghostly%2C%20museum%20lighting%2C%20symbolic%20art?nologo=true" alt="Commemoration Series" class="absolute inset-0 w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black/10 mix-blend-multiply"></div>
+            </div>
+        </div>
+
+        <!-- Work 2: Requiem (Dark Mode Highlight) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 min-h-[80vh] bg-twiggs-blue text-white">
+            <div class="relative h-[60vh] md:h-auto order-2 md:order-1 bg-gray-800">
+                 <img src="https://image.pollinations.ai/prompt/Requiem%20for%20Mother%20Emanuel%20painting%20series%20by%20Leo%20Twiggs%2C%20nine%20crosses%20morphing%20from%20stars%2C%20deep%20blue%20and%20somber%20tones%2C%20batik%20style%2C%20spiritual%20art?nologo=true" alt="Requiem for Mother Emanuel" class="absolute inset-0 w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity duration-500">
+            </div>
+            <div class="flex items-center justify-center p-12 order-1 md:order-2 bg-charcoal">
+                <div class="max-w-lg space-y-6 reveal-on-scroll">
+                    <span class="text-blue-300 font-bold tracking-widest text-sm uppercase">Revelations</span>
+                    <h3 class="font-serif text-4xl md:text-5xl font-bold text-white">母親埃馬紐埃爾安魂曲</h3>
+                    <p class="text-gray-300 leading-relaxed">
+                        這是展覽中最具震撼力的部分。九幅蠟染畫作，創作於2015年查爾斯頓教堂慘案後。這是一場從恐怖、悲傷到最終救贖的「視覺朝聖」。
+                    </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+                        <div class="bg-white/10 p-4 rounded-lg backdrop-blur-sm border border-white/10">
+                            <h4 class="font-bold text-lg mb-1">數字「9」</h4>
+                            <p class="text-xs text-gray-300">象徵九位遇難者，以及悲劇發生的時間。</p>
+                        </div>
+                        <div class="bg-white/10 p-4 rounded-lg backdrop-blur-sm border border-white/10">
+                            <h4 class="font-bold text-lg mb-1">轉化</h4>
+                            <p class="text-xs text-gray-300">旗幟上的星星演變為十字架，仇恨轉化為寬恕。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visit Info & Events -->
+    <section id="visit" class="py-24 bg-paper dark:bg-charcoal">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                
+                <!-- Info Card -->
+                <div class="lg:col-span-1 space-y-8 reveal-on-scroll">
+                    <h2 class="font-serif text-4xl font-bold text-gray-900 dark:text-white">參觀資訊</h2>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1.5 w-6 text-twiggs-red"></i>
+                            <div>
+                                <h4 class="font-bold text-gray-900 dark:text-white">地點</h4>
+                                <p class="text-gray-600 dark:text-gray-400">吉布斯藝術博物館<br>Gibbes Museum of Art<br>135 Meeting St, Charleston, SC</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-calendar-alt mt-1.5 w-6 text-twiggs-red"></i>
+                            <div>
+                                <h4 class="font-bold text-gray-900 dark:text-white">展期</h4>
+                                <p class="text-gray-600 dark:text-gray-400">2026年1月30日 – 5月3日</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fas fa-clock mt-1.5 w-6 text-twiggs-red"></i>
+                            <div>
+                                <h4 class="font-bold text-gray-900 dark:text-white">開放時間</h4>
+                                <p class="text-gray-600 dark:text-gray-400">週一至週六: 10AM - 5PM<br>週日: 1PM - 5PM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#" class="inline-block w-full text-center px-6 py-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 font-bold uppercase tracking-wider hover:bg-twiggs-red dark:hover:bg-gray-200 transition-colors">
+                        規劃您的行程
+                    </a>
+                </div>
+
+                <!-- Events List -->
+                <div class="lg:col-span-2 reveal-on-scroll" style="transition-delay: 200ms;">
+                    <h3 class="font-serif text-2xl font-bold text-gray-900 dark:text-white mb-8 pb-4 border-b border-gray-200 dark:border-gray-700">
+                        系列活動
+                    </h3>
+                    
+                    <div class="space-y-6">
+                        <!-- Event 1 -->
+                        <div class="group flex flex-col sm:flex-row gap-6 p-6 bg-white dark:bg-gray-800 rounded-xl hover:shadow-lg transition-all border border-gray-100 dark:border-gray-700">
+                            <div class="sm:w-24 sm:h-24 bg-twiggs-red/10 text-twiggs-red flex flex-col items-center justify-center rounded-lg flex-shrink-0">
+                                <span class="text-sm font-bold uppercase">Jan</span>
+                                <span class="text-3xl font-bold font-serif">30</span>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-twiggs-red transition-colors">啟示錄行動：與藝術家對話</h4>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm mb-3">特邀 Leo Twiggs 博士、策展人 Frank Martin 博士及嘉賓進行開幕對談。</p>
+                                <span class="inline-flex items-center text-xs font-semibold uppercase tracking-wider text-gray-500">
+                                    <i class="fas fa-ticket-alt mr-2"></i> 需預約
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Event 2 -->
+                        <div class="group flex flex-col sm:flex-row gap-6 p-6 bg-white dark:bg-gray-800 rounded-xl hover:shadow-lg transition-all border border-gray-100 dark:border-gray-700">
+                            <div class="sm:w-24 sm:h-24 bg-blue-100 text-blue-800 flex flex-col items-center justify-center rounded-lg flex-shrink-0">
+                                <span class="text-sm font-bold uppercase">Jan</span>
+                                <span class="text-3xl font-bold font-serif">31</span>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-twiggs-red transition-colors">生成式拼貼工作坊</h4>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm mb-3">由 Austin Reynolds 主持，學習如何重新構建圖像與意義。</p>
+                                <span class="inline-flex items-center text-xs font-semibold uppercase tracking-wider text-gray-500">
+                                    <i class="fas fa-paint-brush mr-2"></i> 公眾工作坊
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Event 3 -->
+                        <div class="group flex flex-col sm:flex-row gap-6 p-6 bg-white dark:bg-gray-800 rounded-xl hover:shadow-lg transition-all border border-gray-100 dark:border-gray-700">
+                            <div class="sm:w-24 sm:h-24 bg-gray-100 text-gray-800 flex flex-col items-center justify-center rounded-lg flex-shrink-0">
+                                <span class="text-sm font-bold uppercase">Mar</span>
+                                <span class="text-3xl font-bold font-serif">11</span>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-twiggs-red transition-colors">「來自家鄉的訊息」電影節</h4>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm mb-3">聚焦探索種族、政治和階級分歧的南方電影製作人作品展映。</p>
+                                <span class="inline-flex items-center text-xs font-semibold uppercase tracking-wider text-gray-500">
+                                    <i class="fas fa-film mr-2"></i> 特別放映
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-2">
+                    <span class="font-serif text-2xl font-bold text-white tracking-tighter block mb-4">REVELATIONS</span>
+                    <p class="text-sm leading-relaxed max-w-sm">
+                        本次展覽適逢美國建國250週年及南卡羅來納州建州週年，由 Frank Martin 博士策展，BlueCross BlueShield of SC 及 Gaylord and Dorothy Donnelley Foundation 支持。
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-wider mb-4 text-sm">鏈接</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-white transition-colors">吉布斯藝術博物館</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Leo Twiggs 官方網站</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">媒體報導</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-wider mb-4 text-sm">社交媒體</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-white transition-colors"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="hover:text-white transition-colors"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs">
+                <p>免責申明：基於公開資料，僅供參考，不構成建議 | 資料來源：網頁公開資訊</p>
+                <p class="mt-2 md:mt-0">版權所有： © 2026 Dunk (Dunk)</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Dark Mode Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        // Initialize Theme
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+
+        // Toggle Theme
+        themeToggleBtn.addEventListener('click', function() {
+            html.classList.toggle('dark');
+            if (html.classList.contains('dark')) {
+                localStorage.setItem('color-theme', 'dark');
+                updateCharts('dark');
+            } else {
+                localStorage.setItem('color-theme', 'light');
+                updateCharts('light');
+            }
+            renderMermaid(); // Re-render Mermaid for correct colors
+        });
+
+        // Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal-on-scroll');
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            const elementVisible = 150;
+            
+            revealElements.forEach((reveal) => {
+                const elementTop = reveal.getBoundingClientRect().top;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveal.classList.add('reveal-visible');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Trigger once on load
+
+        // Mobile Menu
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // ECharts Initialization (Milestones)
+        let milestoneChart = null;
+        
+        function initCharts() {
+            const chartDom = document.getElementById('milestoneChart');
+            milestoneChart = echarts.init(chartDom);
+            
+            const option = {
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: { type: 'shadow' }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'value',
+                    min: 1930,
+                    max: 2030,
+                    splitLine: { show: false },
+                    axisLabel: {
+                         color: document.documentElement.classList.contains('dark') ? '#ccc' : '#666'
+                    }
+                },
+                yAxis: {
+                    type: 'category',
+                    data: ['出生', 'Claflin畢業', 'NYU碩士', 'UGA博士', 'Gibbes首展', '回顧展'],
+                    axisLine: { show: false },
+                    axisTick: { show: false },
+                    axisLabel: {
+                        color: document.documentElement.classList.contains('dark') ? '#fff' : '#333',
+                        fontFamily: '"Noto Serif TC", serif',
+                        fontWeight: 'bold'
+                    }
+                },
+                series: [
+                    {
+                        name: '年份',
+                        type: 'bar',
+                        data: [1934, 1956, 1964, 1970, 1976, 2026],
+                        itemStyle: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+                                { offset: 0, color: '#1e3a8a' }, // Twiggs Blue
+                                { offset: 1, color: '#881337' }  // Twiggs Red
+                            ]),
+                            borderRadius: [0, 4, 4, 0]
+                        },
+                        label: {
+                            show: true,
+                            position: 'right',
+                            color: document.documentElement.classList.contains('dark') ? '#fff' : '#333'
+                        }
+                    }
+                ]
+            };
+            milestoneChart.setOption(option);
+        }
+
+        // Update Charts on Theme Change
+        function updateCharts(theme) {
+            if(milestoneChart) {
+                milestoneChart.dispose();
+                initCharts();
+            }
+        }
+
+        // Mermaid Initialization
+        function renderMermaid() {
+            const isDark = document.documentElement.classList.contains('dark');
+            mermaid.initialize({ 
+                startOnLoad: true,
+                theme: isDark ? 'dark' : 'base',
+                themeVariables: {
+                    fontFamily: '"Noto Serif TC", serif',
+                    primaryColor: isDark ? '#1c1917' : '#fbfaf8',
+                    primaryTextColor: isDark ? '#fff' : '#1c1917',
+                    lineColor: '#881337'
+                }
+            });
+        }
+
+        // Initialize Everything
+        document.addEventListener('DOMContentLoaded', () => {
+            initCharts();
+            renderMermaid();
+            window.addEventListener('resize', () => {
+                milestoneChart && milestoneChart.resize();
+            });
+        });
+
+    </script>
+
+<div class="mermaidTooltip" style="opacity: 0;"></div></body></body></body>
+</html>
