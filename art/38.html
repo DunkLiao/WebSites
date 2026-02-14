@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>光影魔術師：維托里奧·斯托拉羅 | Vittorio Storaro</title>
+    <meta name="description" content="致敬電影攝影大師維托里奧·斯托拉羅，探索其「用光寫作」的影像哲學與色彩美學。">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;600;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Preline UI -->
+    <script src="https://cdn.jsdelivr.net/npm/preline@2.3.0/dist/preline.min.js"></script>
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Noto Serif TC"', '"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        cinematic: {
+                            black: '#0a0a0a',
+                            dark: '#121212',
+                            gray: '#1f1f1f',
+                            gold: '#d4af37',
+                            red: '#8a1c1c',
+                            orange: '#cc5500',
+                            yellow: '#eec900',
+                            green: '#2d5a27',
+                            blue: '#1e3a5f',
+                            indigo: '#2e1a47',
+                            violet: '#4b0082',
+                        }
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Hero Text Gradient */
+        .text-gradient-gold {
+            background: linear-gradient(to right, #fbfbfb, #d4af37, #fbfbfb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% auto;
+            animation: shine 5s linear infinite;
+        }
+        
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        /* Abstract Light Shapes */
+        .light-beam {
+            position: absolute;
+            width: 200px;
+            height: 800px;
+            background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0) 100%);
+            transform: rotate(45deg);
+            filter: blur(40px);
+            pointer-events: none;
+        }
+        
+        /* Reveal Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Film Grain Effect */
+        .film-grain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 50;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+    </style>
+<script src="https://felo.ai/js/iframe.js?v=1771028589733"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style></head>
+<body class="bg-white dark:bg-cinematic-black text-gray-800 dark:text-gray-200 transition-colors duration-300 font-sans antialiased overflow-x-hidden">
+
+    <!-- Film Grain Overlay -->
+    <div class="film-grain"></div>
+
+    <!-- Navigation -->
+    <header class="fixed top-0 w-full z-50 transition-all duration-300 backdrop-blur-md bg-white/80 dark:bg-cinematic-black/80 border-b border-gray-200 dark:border-white/10" id="navbar">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <a href="#" class="font-serif text-2xl font-bold tracking-widest uppercase text-cinematic-black dark:text-white group">
+                    <span class="text-cinematic-gold group-hover:text-yellow-400 transition-colors">V</span>Storaro
+                </a>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide uppercase">
+                <a href="#biography" class="hover:text-cinematic-gold transition-colors">生平</a>
+                <a href="#philosophy" class="hover:text-cinematic-gold transition-colors">用光寫作</a>
+                <a href="#colors" class="hover:text-cinematic-gold transition-colors">色彩光譜</a>
+                <a href="#works" class="hover:text-cinematic-gold transition-colors">代表作品</a>
+                <a href="#exhibition" class="hover:text-cinematic-gold transition-colors">展覽資訊</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <button id="theme-toggle" type="button" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-white/10 transition-colors focus:outline-none" aria-label="Toggle Dark Mode">
+                    <i class="fas fa-sun text-yellow-500 hidden dark:block"></i>
+                    <i class="fas fa-moon text-cinematic-black block dark:hidden"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-cinematic-black">
+        <!-- Abstract Background -->
+        <div class="absolute inset-0 z-0">
+            <div class="light-beam top-[-20%] left-[20%] w-[300px] h-[1200px] bg-white/5 rotate-[30deg]"></div>
+            <div class="light-beam top-[-10%] right-[30%] w-[150px] h-[1000px] bg-cinematic-gold/10 rotate-[-15deg]"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-cinematic-black via-transparent to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+            <p class="reveal text-cinematic-gold font-serif text-lg md:text-xl tracking-[0.3em] uppercase mb-4">The Magician of Light</p>
+            <h1 class="reveal delay-100 font-serif text-5xl md:text-8xl font-bold mb-6 text-white leading-tight">
+                光影魔術師<br>
+                <span class="text-3xl md:text-6xl font-light italic text-gray-400">維托里奧·斯托拉羅</span>
+            </h1>
+            <div class="w-24 h-1 bg-cinematic-gold mx-auto mb-8 reveal delay-200"></div>
+            <p class="reveal delay-300 text-gray-300 text-lg md:text-xl max-w-2xl mx-auto font-light leading-relaxed">
+                「攝影不僅僅是照明，而是在運動的影像中書寫。光是語言，色彩是情感，影像是永恆。」
+            </p>
+            <div class="mt-12 reveal delay-500">
+                <a href="#philosophy" class="group inline-flex items-center gap-3 px-8 py-3 border border-white/30 rounded-full text-white hover:bg-white hover:text-black transition-all duration-300">
+                    <span>探索光影哲學</span>
+                    <i class="fas fa-arrow-down group-hover:translate-y-1 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Biography Section (Layout: Editorial) -->
+    <section id="biography" class="py-24 bg-white dark:bg-neutral-900 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Text Content -->
+                <div class="reveal order-2 lg:order-1">
+                    <h2 class="font-serif text-4xl md:text-5xl font-bold mb-8 text-cinematic-black dark:text-white">
+                        <span class="text-cinematic-gold block text-lg font-sans font-medium tracking-widest uppercase mb-2">關於大師</span>
+                        投影室裡的覺醒
+                    </h2>
+                    <div class="space-y-6 text-gray-600 dark:text-gray-300 leading-relaxed text-justify">
+                        <p>
+                            1940年生於羅馬，維托里奧·斯托拉羅的電影啟蒙源於父親工作的電影放映室。在嘈雜的環境中，他常在無聲的狀態下觀看黑白電影，這種獨特的經歷迫使他學會僅透過<span class="font-bold text-cinematic-gold">光影變化、構圖張力與角色動態</span>來理解故事。
+                        </p>
+                        <p>
+                            他拒絕「攝影指導」(Director of Photography) 這一傳統稱謂，更傾向於稱自己為<span class="font-bold text-cinematic-black dark:text-white">「影像作家」(Author of Photography)</span>。對他而言，攝影機不是記錄工具，而是如作家的筆一般的創作樂器。
+                        </p>
+                        <p>
+                            作為史上最年輕的羅馬實驗電影中心學生之一，他將技術與藝術史完美結合，三度榮獲奧斯卡最佳攝影獎（《現代啟示錄》、《烽火赤焰萬里情》、《末代皇帝》），確立了他在電影史上不可撼動的地位。
+                        </p>
+                    </div>
+                    
+                    <div class="mt-10 grid grid-cols-3 gap-8 border-t border-gray-200 dark:border-white/10 pt-8">
+                        <div>
+                            <span class="block text-4xl font-serif font-bold text-cinematic-gold">3</span>
+                            <span class="text-sm uppercase tracking-wider text-gray-500">奧斯卡獎</span>
+                        </div>
+                        <div>
+                            <span class="block text-4xl font-serif font-bold text-cinematic-gold">50+</span>
+                            <span class="text-sm uppercase tracking-wider text-gray-500">年職業生涯</span>
+                        </div>
+                        <div>
+                            <span class="block text-4xl font-serif font-bold text-cinematic-gold">∞</span>
+                            <span class="text-sm uppercase tracking-wider text-gray-500">光影傳承</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Abstract Visual Representation of "Lens" -->
+                <div class="reveal order-1 lg:order-2 flex justify-center">
+                    <div class="relative w-80 h-80 md:w-96 md:h-96">
+                        <!-- CSS Art: Camera Lens / Aperture -->
+                        <div class="absolute inset-0 rounded-full border border-gray-200 dark:border-white/10 flex items-center justify-center animate-[spin_60s_linear_infinite]">
+                            <div class="w-[90%] h-[90%] rounded-full border border-gray-300 dark:border-white/5"></div>
+                            <div class="w-[80%] h-[80%] rounded-full border border-gray-400 dark:border-white/10"></div>
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <!-- Central Element -->
+                            <div class="w-64 h-64 bg-gradient-to-br from-gray-100 to-gray-300 dark:from-gray-800 dark:to-black rounded-full shadow-2xl flex items-center justify-center overflow-hidden relative">
+                                <div class="absolute w-full h-full bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.8),transparent)] opacity-40"></div>
+                                <i class="fas fa-video text-6xl text-gray-400/20 dark:text-white/10"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy Section (Writing with Light) -->
+    <section id="philosophy" class="py-24 bg-neutral-100 dark:bg-black transition-colors relative overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cinematic-gold to-transparent opacity-30"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20 reveal">
+                <h2 class="font-serif text-4xl md:text-5xl font-bold mb-4 text-cinematic-black dark:text-white">Scrivere con la Luce</h2>
+                <h3 class="text-xl md:text-2xl font-light text-cinematic-gold tracking-wide">用光寫作：三大影像支柱</h3>
+                <p class="mt-6 max-w-3xl mx-auto text-gray-600 dark:text-gray-400">
+                    「光不只是把東西照亮，而是和劇本、剪接同等重要的敘事元素。」
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="reveal delay-100 group relative p-8 bg-white dark:bg-cinematic-dark border border-gray-200 dark:border-white/10 hover:border-cinematic-gold dark:hover:border-cinematic-gold transition-all duration-500">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <i class="fas fa-palette text-6xl text-cinematic-gold"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold mb-4 dark:text-white">色彩即語言</h3>
+                    <p class="text-sm font-sans text-gray-500 mb-4 uppercase tracking-widest">Color as a Language</p>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">
+                        色彩絕不是隨便好看而已。每一種顏色都有心理與象徵意義。受歌德《色彩論》影響，斯托拉羅為角色與主題設計特定的色彩軸線，用顏色講述角色的心理與劇情推進。
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="reveal delay-200 group relative p-8 bg-white dark:bg-cinematic-dark border border-gray-200 dark:border-white/10 hover:border-cinematic-gold dark:hover:border-cinematic-gold transition-all duration-500">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <i class="fas fa-eye text-6xl text-cinematic-gold"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold mb-4 dark:text-white">視覺原型</h3>
+                    <p class="text-sm font-sans text-gray-500 mb-4 uppercase tracking-widest">Visual Archetypes</p>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">
+                        引用神話、哲學、宗教裡的「原型」，讓畫面裡的光與色彩對應到跨文化的共同經驗。透過「精神色彩」，喚起觀眾潛意識裡的集體意象，超越單純的寫實再現。
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="reveal delay-300 group relative p-8 bg-white dark:bg-cinematic-dark border border-gray-200 dark:border-white/10 hover:border-cinematic-gold dark:hover:border-cinematic-gold transition-all duration-500">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                        <i class="fas fa-lightbulb text-6xl text-cinematic-gold"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold mb-4 dark:text-white">光即角色</h3>
+                    <p class="text-sm font-sans text-gray-500 mb-4 uppercase tracking-widest">Light as a Character</p>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">
+                        光不是背景，而是主動參與劇情的「角色」。光的明暗、冷暖、方向隨著戲劇張力起伏，像角色心境的外化。光可以「背叛」畫面表層，暗示角色的內在孤獨。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Color Theory Section (The Spectrum) -->
+    <section id="colors" class="py-24 bg-white dark:bg-cinematic-black transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-16 reveal">
+                <h2 class="font-serif text-4xl font-bold mb-4 dark:text-white text-center">斯托拉羅的色彩生理學</h2>
+                <p class="text-center text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                    他建立了一套嚴謹的體系，將牛頓的光譜理論與歌德的感性理論相結合，為每一種顏色定義了特定的情感坐標與生命階段意義。
+                </p>
+            </div>
+
+            <!-- Color Spectrum Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-0 border border-gray-200 dark:border-gray-800 reveal">
+                
+                <!-- Red -->
+                <div class="relative group h-64 lg:h-96 overflow-hidden">
+                    <div class="absolute inset-0 bg-cinematic-red transition-transform duration-700 group-hover:scale-110 opacity-90"></div>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center text-white p-4 opacity-100 lg:opacity-70 group-hover:opacity-100 transition-opacity bg-black/20">
+                        <h3 class="font-serif text-2xl font-bold mb-2">RED</h3>
+                        <p class="text-xs uppercase tracking-widest mb-4">起點 / 原始衝動</p>
+                        <p class="text-sm text-center hidden group-hover:block animate-fade-in-up">生命、血、火、危險<br>《末代皇帝》出生</p>
+                    </div>
+                </div>
+
+                <!-- Orange -->
+                <div class="relative group h-64 lg:h-96 overflow-hidden">
+                    <div class="absolute inset-0 bg-cinematic-orange transition-transform duration-700 group-hover:scale-110 opacity-90"></div>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center text-white p-4 opacity-100 lg:opacity-70 group-hover:opacity-100 transition-opacity bg-black/20">
+                        <h3 class="font-serif text-2xl font-bold mb-2">ORANGE</h3>
+                        <p class="text-xs uppercase tracking-widest mb-4">演化 / 溫暖</p>
+                        <p class="text-sm text-center hidden group-hover:block animate-fade-in-up">家庭、落日、平衡<br>《巴黎最後探戈》</p>
+                    </div>
+                </div>
+
+                <!-- Yellow -->
+                <div class="relative group h-64 lg:h-96 overflow-hidden">
+                    <div class="absolute inset-0 bg-cinematic-yellow transition-transform duration-700 group-hover:scale-110 opacity-90"></div>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center text-white p-4 opacity-100 lg:opacity-70 group-hover:opacity-100 transition-opacity bg-black/20">
+                        <h3 class="font-serif text-2xl font-bold mb-2">YELLOW</h3>
+                        <p class="text-xs uppercase tracking-widest mb-4">高峰 / 覺醒</p>
+                        <p class="text-sm text-center hidden group-hover:block animate-fade-in-up">能量、神聖、皇權<br>《末代皇帝》加冕</p>
+                    </div>
+                </div>
+
+                <!-- Green -->
+                <div class="relative group h-64 lg:h-96 overflow-hidden">
+                    <div class="absolute inset-0 bg-cinematic-green transition-transform duration-700 group-hover:scale-110 opacity-90"></div>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center text-white p-4 opacity-100 lg:opacity-70 group-hover:opacity-100 transition-opacity bg-black/20">
+                        <h3 class="font-serif text-2xl font-bold mb-2">GREEN</h3>
+                        <p class="text-xs uppercase tracking-widest mb-4">中轉 / 再生</p>
+                        <p class="text-sm text-center hidden group-hover:block animate-fade-in-up">自然、成長、中性<br>《現代啟示錄》叢林</p>
+                    </div>
+                </div>
+
+                <!-- Blue -->
+                <div class="relative group h-64 lg:h-96 overflow-hidden">
+                    <div class="absolute inset-0 bg-cinematic-blue transition-transform duration-700 group-hover:scale-110 opacity-90"></div>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center text-white p-4 opacity-100 lg:opacity-70 group-hover:opacity-100 transition-opacity bg-black/20">
+                        <h3 class="font-serif text-2xl font-bold mb-2">BLUE</h3>
+                        <p class="text-xs uppercase tracking-widest mb-4">深層 / 智性</p>
+                        <p class="text-sm text-center hidden group-hover:block animate-fade-in-up">冷靜、孤獨、陰影<br>《狄克崔西》</p>
+                    </div>
+                </div>
+
+                <!-- Indigo -->
+                <div class="relative group h-64 lg:h-96 overflow-hidden">
+                    <div class="absolute inset-0 bg-cinematic-indigo transition-transform duration-700 group-hover:scale-110 opacity-90"></div>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center text-white p-4 opacity-100 lg:opacity-70 group-hover:opacity-100 transition-opacity bg-black/20">
+                        <h3 class="font-serif text-2xl font-bold mb-2">INDIGO</h3>
+                        <p class="text-xs uppercase tracking-widest mb-4">社會化 / 權力</p>
+                        <p class="text-sm text-center hidden group-hover:block animate-fade-in-up">結構、傳統、沉思<br>滿洲國時期</p>
+                    </div>
+                </div>
+
+                <!-- Violet -->
+                <div class="relative group h-64 lg:h-96 overflow-hidden">
+                    <div class="absolute inset-0 bg-cinematic-violet transition-transform duration-700 group-hover:scale-110 opacity-90"></div>
+                    <div class="absolute inset-0 flex flex-col items-center justify-center text-white p-4 opacity-100 lg:opacity-70 group-hover:opacity-100 transition-opacity bg-black/20">
+                        <h3 class="font-serif text-2xl font-bold mb-2">VIOLET</h3>
+                        <p class="text-xs uppercase tracking-widest mb-4">終點 / 靈性</p>
+                        <p class="text-sm text-center hidden group-hover:block animate-fade-in-up">超越、死亡、神秘<br>晚年歸鄉</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filmography Section (Z-Pattern) -->
+    <section id="works" class="py-24 bg-neutral-50 dark:bg-neutral-900 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-serif text-4xl font-bold mb-20 dark:text-white text-center reveal">光影實踐：大師傑作</h2>
+            
+            <!-- Work 1: Apocalypse Now -->
+            <div class="flex flex-col md:flex-row items-center gap-12 mb-24 reveal">
+                <div class="w-full md:w-1/2 relative h-80 bg-cinematic-dark overflow-hidden rounded-lg group">
+                    <!-- Conceptual Abstract Art for Apocalypse Now -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-black via-cinematic-green to-cinematic-orange opacity-80 group-hover:opacity-60 transition-opacity duration-700"></div>
+                    <div class="absolute bottom-0 w-full h-1/2 bg-gradient-to-t from-black to-transparent"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                         <!-- SVG Icon representation -->
+                         <i class="fas fa-helicopter text-8xl text-white/20 group-hover:text-white/40 transition-colors transform group-hover:scale-110 duration-700"></i>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <span class="text-cinematic-orange font-bold tracking-widest text-sm uppercase">1979 | 奧斯卡最佳攝影</span>
+                    <h3 class="font-serif text-3xl font-bold mt-2 mb-4 dark:text-white">現代啟示錄 (Apocalypse Now)</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                        斯托拉羅用色彩與光線來表現角色心理墮入黑暗的歷程。越深入戰區，畫面越充滿濃重的橙紅與陰影，象徵戰爭的瘋狂與地獄感。人造光與自然光的衝突表現了文化侵略。
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-500 dark:text-gray-400">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-cinematic-orange"></i> <span>心理崩壞的視覺化</span></li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-cinematic-orange"></i> <span>剪影與神秘感</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Work 2: The Last Emperor -->
+            <div class="flex flex-col md:flex-row-reverse items-center gap-12 mb-24 reveal">
+                <div class="w-full md:w-1/2 relative h-80 bg-cinematic-dark overflow-hidden rounded-lg group">
+                    <!-- Conceptual Abstract Art for Last Emperor -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-cinematic-red via-cinematic-gold to-cinematic-blue opacity-80 group-hover:opacity-60 transition-opacity duration-700"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <i class="fas fa-crown text-8xl text-white/20 group-hover:text-white/40 transition-colors transform group-hover:scale-110 duration-700"></i>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 text-left md:text-right">
+                    <span class="text-cinematic-gold font-bold tracking-widest text-sm uppercase">1987 | 奧斯卡最佳攝影</span>
+                    <h3 class="font-serif text-3xl font-bold mt-2 mb-4 dark:text-white">末代皇帝 (The Last Emperor)</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                        色彩理論的最完美實踐。溥儀的一生被構思為一場穿越光譜的旅程：紅色象徵出生與血統，黃色象徵皇權與覺醒，綠色象徵失勢後的平民化。日落場景的光色變化隱喻了帝國的終結。
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-500 dark:text-gray-400 flex flex-col items-start md:items-end">
+                        <li class="flex items-center gap-2 md:flex-row-reverse"><i class="fas fa-check text-cinematic-gold"></i> <span>自然光與陰影的極致運用</span></li>
+                        <li class="flex items-center gap-2 md:flex-row-reverse"><i class="fas fa-check text-cinematic-gold"></i> <span>被光影囚禁的一生</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Work 3: Dick Tracy -->
+            <div class="flex flex-col md:flex-row items-center gap-12 reveal">
+                <div class="w-full md:w-1/2 relative h-80 bg-cinematic-dark overflow-hidden rounded-lg group">
+                    <!-- Conceptual Abstract Art for Dick Tracy -->
+                    <div class="absolute inset-0 bg-gradient-to-bl from-blue-600 via-yellow-500 to-red-600 opacity-90 group-hover:opacity-70 transition-opacity duration-700"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <i class="fas fa-user-secret text-8xl text-white/20 group-hover:text-white/40 transition-colors transform group-hover:scale-110 duration-700"></i>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <span class="text-blue-500 font-bold tracking-widest text-sm uppercase">1990 | 漫畫風格美學</span>
+                    <h3 class="font-serif text-3xl font-bold mt-2 mb-4 dark:text-white">迪克崔西 (Dick Tracy)</h3>
+                    <p class="text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                        將電影拍成動態漫畫。刻意使用極度鮮豔的紅、黃、藍、綠原色。英雄與反派幾乎可以單憑顏色區分。證明了「用光寫作」也可以應用在高度風格化的商業片中。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Exhibition Info -->
+    <section id="exhibition" class="py-24 bg-white dark:bg-black transition-colors border-t border-gray-100 dark:border-gray-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+            <div class="inline-block p-2 px-4 border border-cinematic-gold text-cinematic-gold text-xs tracking-widest uppercase mb-8">Current Exhibition</div>
+            <h2 class="font-serif text-4xl md:text-5xl font-bold mb-8 dark:text-white">光影魔術師：致敬展</h2>
+            
+            <div class="bg-neutral-50 dark:bg-neutral-900 p-10 rounded-xl shadow-lg border border-gray-100 dark:border-white/5">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                    <div>
+                        <h4 class="text-sm uppercase text-gray-500 tracking-wider mb-2">地點 Location</h4>
+                        <p class="font-serif text-xl dark:text-white">Palazzo Merulana, Rome</p>
+                    </div>
+                    <div>
+                        <h4 class="text-sm uppercase text-gray-500 tracking-wider mb-2">主題 Theme</h4>
+                        <p class="font-serif text-xl dark:text-white">Scrivere con la Luce (用光寫作)</p>
+                    </div>
+                    <div>
+                        <h4 class="text-sm uppercase text-gray-500 tracking-wider mb-2">展品 Highlights</h4>
+                        <p class="font-serif text-xl dark:text-white">50幅原創攝影作品 / 20幅畫布複製品 / 雙重曝光技術展示</p>
+                    </div>
+                    <div>
+                        <h4 class="text-sm uppercase text-gray-500 tracking-wider mb-2">核心區域 Areas</h4>
+                        <div class="flex gap-2">
+                            <span class="bg-white dark:bg-black border border-gray-200 dark:border-white/20 px-3 py-1 text-sm dark:text-gray-300">光</span>
+                            <span class="bg-white dark:bg-black border border-gray-200 dark:border-white/20 px-3 py-1 text-sm dark:text-gray-300">顏色</span>
+                            <span class="bg-white dark:bg-black border border-gray-200 dark:border-white/20 px-3 py-1 text-sm dark:text-gray-300">元素</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-10 pt-8 border-t border-gray-200 dark:border-white/10 text-center">
+                    <p class="text-gray-600 dark:text-gray-400 italic">
+                        「展覽不僅是對職業生涯的回顧，更是對電影攝影藝術的深刻探索，啟發新一代藝術家。」
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-cinematic-black text-white py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-center md:text-left">
+                    <h3 class="font-serif text-2xl font-bold tracking-widest mb-2"><span class="text-cinematic-gold">V</span>Storaro</h3>
+                    <p class="text-gray-500 text-sm">Light is Energy. Cinema is Life.</p>
+                </div>
+                
+                <div class="flex gap-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-instagram text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-twitter text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fas fa-envelope text-xl"></i></a>
+                </div>
+            </div>
+            
+            <div class="mt-12 pt-8 border-t border-white/10 text-center md:text-left flex flex-col md:flex-row justify-between text-xs text-gray-500">
+                <div class="mb-4 md:mb-0 space-y-1">
+                    <p>免責申明：基於公開資料，僅供參考，不構成建議</p>
+                    <p>資料來源：網頁公開資訊</p>
+                    <p>版權所有： © 2026 Dunk (Design by Dunk)</p>
+                </div>
+                <div>
+                    <a href="#" class="hover:text-cinematic-gold mr-4">Privacy Policy</a>
+                    <a href="#" class="hover:text-cinematic-gold">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactions -->
+    <script>
+        // Dark Mode Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        // Check local storage or system preference
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+        });
+
+        // Scroll Reveal Animation using IntersectionObserver
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Only animate once
+                }
+            });
+        }, {
+            root: null,
+            threshold: 0.15, // Trigger when 15% visible
+            rootMargin: "0px"
+        });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Header Background on Scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>
