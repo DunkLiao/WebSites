@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impresa Cultura 2025 | 義大利文化產業復興計畫</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {            
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Noto Serif TC"', 'serif'],
+                        display: ['"Cinzel"', 'serif'],
+                    },
+                    colors: {
+                        'art-red': '#C84B31', // Terracotta
+                        'art-blue': '#2D4263', // Deep Slate
+                        'art-gold': '#ECDBBA', // Pale Gold
+                        'art-dark': '#191919', // Charcoal
+                        'art-light': '#F7F6F2', // Off-White
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: #2d2d2d;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C84B31;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #A03C27;
+        }
+        
+        /* Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero Image Gradient */
+        .hero-gradient {
+            background: linear-gradient(rgba(25, 25, 25, 0.4), rgba(25, 25, 25, 0.8));
+        }
+
+        /* Glassmorphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .dark .glass {
+            background: rgba(25, 25, 25, 0.85);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+    </style>
+<script src="https://felo.ai/js/iframe.js?v=1771544842620"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style></head>
+<body class="bg-art-light text-art-dark dark:bg-art-dark dark:text-art-light transition-colors duration-300 antialiased selection:bg-art-red selection:text-white"><body class="bg-art-light text-art-dark dark:bg-art-dark dark:text-art-light transition-colors duration-300 antialiased selection:bg-art-red selection:text-white" contenteditable="false" spellcheck="false" data-listener-added_b79febae="true">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 glass shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <span class="font-display text-2xl font-bold tracking-widest text-art-red">IMPRESA<span class="text-art-blue dark:text-white">CULTURA</span></span>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#vision" class="text-sm font-medium hover:text-art-red transition-colors">願景與生態</a>
+                    <a href="#data" class="text-sm font-medium hover:text-art-red transition-colors">數據洞察</a>
+                    <a href="#strategy" class="text-sm font-medium hover:text-art-red transition-colors">戰略舉措</a>
+                    <a href="#incentives" class="text-sm font-medium hover:text-art-red transition-colors">激勵政策</a>
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors focus:outline-none">
+                        <i class="fas fa-moon dark:hidden text-art-blue"></i>
+                        <i class="fas fa-sun hidden dark:block text-art-gold"></i>
+                    </button>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="p-2 text-art-dark dark:text-white">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-art-dark border-t dark:border-gray-800">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#vision" class="block px-3 py-2 text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-800">願景與生態</a>
+                <a href="#data" class="block px-3 py-2 text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-800">數據洞察</a>
+                <a href="#strategy" class="block px-3 py-2 text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-800">戰略舉措</a>
+                <a href="#incentives" class="block px-3 py-2 text-base font-medium hover:bg-gray-100 dark:hover:bg-gray-800">激勵政策</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative w-full h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://api.felo.ai/images/s/1Ra98QCduc.jpg?width=1425&amp;height=950" alt="Audience in auditorium" class="w-full h-full object-cover">
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto reveal active">
+            <span class="inline-block py-1 px-3 border border-white/30 rounded-full text-white/80 text-xs tracking-[0.2em] mb-6 uppercase backdrop-blur-sm">Federculture Annual Report</span>
+            <h1 class="text-5xl md:text-7xl font-serif font-bold text-white mb-6 leading-tight">
+                文化作為經濟引擎<br>
+                <span class="text-art-gold italic">Impresa Cultura 2025</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto mb-10 font-light leading-relaxed">
+                這是義大利文化產業的文藝復興。從阿格里真托到米蘭，我們正在重新定義文化遺產與商業增長的邊界，構建一個永續、數位化且具包容性的創新生態系統。
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#vision" class="px-8 py-4 bg-art-red hover:bg-red-700 text-white font-medium rounded-sm transition-all duration-300 shadow-lg hover:shadow-red-500/30">
+                    探索計畫全貌
+                </a>
+                <a href="#data" class="px-8 py-4 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 font-medium rounded-sm transition-all duration-300">
+                    查看市場數據
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll Down Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-white/50">
+            <i class="fas fa-chevron-down text-2xl"></i>
+        </div>
+    </header>
+
+    <!-- Section 1: Vision & Ecosystem (Mondrian Grid Layout) -->
+    <section id="vision" class="py-24 px-4 sm:px-6 lg:px-8 bg-white dark:bg-[#1f1f1f]">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 reveal active">
+                <h2 class="text-3xl md:text-4xl font-serif font-bold text-art-dark dark:text-white mb-4">生態系統核心支柱</h2>
+                <div class="w-24 h-1 bg-art-red mx-auto"></div>
+                <p class="mt-4 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                    ImpresaCultura 2025 計畫不僅是政策，更是一場整合了法律、領土、數位與永續發展的系統性變革。
+                </p>
+            </div>
+
+            <!-- Artistic Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 h-auto md:h-[600px] reveal active">
+                
+                <!-- Main Block -->
+                <div class="md:col-span-2 md:row-span-2 bg-art-blue text-white p-8 md:p-12 flex flex-col justify-between group relative overflow-hidden rounded-sm">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity transform scale-150">
+                        <i class="fas fa-landmark text-9xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-display font-bold mb-4">制度化與法律身份</h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            第206/2023號法律全面執行，文化與創意企業(ICC)首次獲得明確法律身份。這解決了長期以來融資難題，讓文化生產者與傳統製造業平等接入「義大利製造」支持體系。
+                        </p>
+                    </div>
+                    <div class="mt-8">
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3"><i class="fas fa-check text-art-gold"></i> 商業登記簿特別章節</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check text-art-gold"></i> 智慧財產權保護</li>
+                            <li class="flex items-center gap-3"><i class="fas fa-check text-art-gold"></i> 稅收優惠資格確認</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Secondary Block -->
+                <div class="md:col-span-2 bg-art-light dark:bg-gray-800 p-8 flex flex-col justify-center border-l-4 border-art-red rounded-sm">
+                    <h3 class="text-xl font-bold text-art-dark dark:text-white mb-3 flex items-center gap-2">
+                        <i class="fas fa-map-marked-alt text-art-red"></i> 領土協調：阿格里真托 2025
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">
+                        作為2025義大利文化之都，阿格里真托不僅展示考古遺產，更作為實驗場，測試如何將文化資源轉化為就業機會與經濟價值，消除南北文化消費差距。
+                    </p>
+                </div>
+
+                <!-- Tertiary Block 1 -->
+                <div class="bg-art-gold/20 dark:bg-gray-700/50 p-6 flex flex-col justify-center rounded-sm hover:bg-art-gold/30 transition-colors">
+                    <div class="text-art-red text-3xl mb-3"><i class="fas fa-leaf"></i></div>
+                    <h4 class="font-bold text-lg mb-2">2025 永續發展年</h4>
+                    <p class="text-xs text-gray-600 dark:text-gray-300">
+                        全面對接聯合國 Agenda 2030。活動必須符合「零塑料」承諾與社會教育價值，並通過 Imprendigreen 平台進行 CSR 評估。
+                    </p>
+                </div>
+
+                <!-- Tertiary Block 2 -->
+                <div class="bg-gray-100 dark:bg-gray-800 p-6 flex flex-col justify-center rounded-sm hover:shadow-lg transition-shadow">
+                    <div class="text-art-blue text-3xl mb-3"><i class="fas fa-vr-cardboard"></i></div>
+                    <h4 class="font-bold text-lg mb-2">雙重轉型憑證</h4>
+                    <p class="text-xs text-gray-600 dark:text-gray-300">
+                        投入13億歐元工業4.0基金，支持AI、VR導覽、區塊鏈版權管理等數位化投資，推動文化體驗的 "Onlife" 融合。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Data Visualization (ECharts) -->
+    <section id="data" class="py-24 bg-gray-50 dark:bg-black relative overflow-hidden">
+        <!-- Abstract Background -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-5 pointer-events-none">
+            <svg width="100%" height="100%">
+                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse" style="pointer-events: none;">
+                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" stroke-width="1" style="pointer-events: none;"></path>
+                </pattern>
+                <rect width="100%" height="100%" fill="url(#grid)" style="pointer-events: none;"></rect>
+            </svg>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 reveal active">
+                <div>
+                    <h2 class="text-3xl font-serif font-bold text-art-dark dark:text-white">市場趨勢與消費洞察</h2>
+                    <p class="mt-2 text-gray-500 dark:text-gray-400">數據來源：SWG 觀察室 &amp; Federculture 第21屆年度報告</p>
+                </div>
+                <div class="text-right mt-4 md:mt-0">
+                    <div class="text-4xl font-bold text-art-red">~€100</div>
+                    <div class="text-sm text-gray-500 uppercase tracking-wide">2025 家庭月均文化支出</div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 reveal active">
+                <!-- Chart 1: Participation Rates -->
+                <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-sm border border-gray-100 dark:border-gray-800">
+                    <h3 class="text-lg font-bold mb-6 text-center text-art-blue dark:text-gray-200">2025 文化活動參與普及率</h3>
+                    <div id="chart-participation" class="w-full h-80" _echarts_instance_="ec_1771544861532" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" data-chart-option="{&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;color&quot;:[&quot;#37A2DA&quot;,&quot;#32C5E9&quot;,&quot;#67E0E3&quot;,&quot;#9FE6B8&quot;,&quot;#FFDB5C&quot;,&quot;#ff9f7f&quot;,&quot;#fb7293&quot;,&quot;#E062AE&quot;,&quot;#E690D1&quot;,&quot;#e7bcf3&quot;,&quot;#9d96f5&quot;,&quot;#8378EA&quot;,&quot;#96BFFF&quot;],&quot;colorLayer&quot;:[[&quot;#37A2DA&quot;,&quot;#ffd85c&quot;,&quot;#fd7b5f&quot;],[&quot;#37A2DA&quot;,&quot;#67E0E3&quot;,&quot;#FFDB5C&quot;,&quot;#ff9f7f&quot;,&quot;#E062AE&quot;,&quot;#9d96f5&quot;],[&quot;#37A2DA&quot;,&quot;#32C5E9&quot;,&quot;#9FE6B8&quot;,&quot;#FFDB5C&quot;,&quot;#ff9f7f&quot;,&quot;#fb7293&quot;,&quot;#e7bcf3&quot;,&quot;#8378EA&quot;,&quot;#96BFFF&quot;],[&quot;#37A2DA&quot;,&quot;#32C5E9&quot;,&quot;#67E0E3&quot;,&quot;#9FE6B8&quot;,&quot;#FFDB5C&quot;,&quot;#ff9f7f&quot;,&quot;#fb7293&quot;,&quot;#E062AE&quot;,&quot;#E690D1&quot;,&quot;#e7bcf3&quot;,&quot;#9d96f5&quot;,&quot;#8378EA&quot;,&quot;#96BFFF&quot;]],&quot;darkMode&quot;:&quot;auto&quot;,&quot;colorBy&quot;:&quot;series&quot;,&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;textStyle&quot;:{&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;axisPointer&quot;:[{&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9BEC9&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;label&quot;:{&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;color&quot;:&quot;#fff&quot;,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[{&quot;trigger&quot;:&quot;axis&quot;,&quot;z&quot;:60,&quot;show&quot;:true,&quot;showContent&quot;:true,&quot;triggerOn&quot;:&quot;mousemove|click&quot;,&quot;alwaysShowContent&quot;:false,&quot;displayMode&quot;:&quot;single&quot;,&quot;renderMode&quot;:&quot;auto&quot;,&quot;confine&quot;:null,&quot;showDelay&quot;:0,&quot;hideDelay&quot;:100,&quot;transitionDuration&quot;:0.4,&quot;enterable&quot;:false,&quot;backgroundColor&quot;:&quot;#fff&quot;,&quot;shadowBlur&quot;:10,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, .2)&quot;,&quot;shadowOffsetX&quot;:1,&quot;shadowOffsetY&quot;:2,&quot;borderRadius&quot;:4,&quot;borderWidth&quot;:1,&quot;padding&quot;:null,&quot;extraCssText&quot;:&quot;&quot;,&quot;axisPointer&quot;:{&quot;type&quot;:&quot;line&quot;,&quot;axis&quot;:&quot;auto&quot;,&quot;animation&quot;:&quot;auto&quot;,&quot;animationDurationUpdate&quot;:200,&quot;animationEasingUpdate&quot;:&quot;exponentialOut&quot;,&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#999&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;,&quot;textStyle&quot;:{}}},&quot;textStyle&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;fontSize&quot;:14}}],&quot;yAxis&quot;:[{&quot;type&quot;:&quot;value&quot;,&quot;axisLabel&quot;:{&quot;formatter&quot;:&quot;{value}%&quot;,&quot;color&quot;:&quot;#333&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#eee&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:true},&quot;boundaryGap&quot;:[0,0],&quot;axisLine&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#6E7079&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;axisTick&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;splitNumber&quot;:5,&quot;minorTick&quot;:{&quot;show&quot;:false,&quot;splitNumber&quot;:5,&quot;length&quot;:3,&quot;lineStyle&quot;:{}},&quot;minorSplitLine&quot;:{&quot;show&quot;:false,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#F4F7FD&quot;,&quot;width&quot;:1}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{},&quot;splitArea&quot;:{&quot;show&quot;:false,&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(250,250,250,0.2)&quot;,&quot;rgba(210,219,238,0.2)&quot;]}},&quot;offset&quot;:0}],&quot;xAxis&quot;:[{&quot;type&quot;:&quot;category&quot;,&quot;data&quot;:[&quot;電視/串流&quot;,&quot;音樂&quot;,&quot;閱讀&quot;,&quot;博物館&quot;,&quot;露天表演&quot;,&quot;電影院&quot;],&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#333&quot;,&quot;interval&quot;:0,&quot;rotate&quot;:30,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#eee&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:true,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;boundaryGap&quot;:true,&quot;deduplication&quot;:null,&quot;splitLine&quot;:{&quot;show&quot;:false,&quot;lineStyle&quot;:{&quot;color&quot;:[&quot;#E0E6F1&quot;],&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;}},&quot;axisTick&quot;:{&quot;alignWithLabel&quot;:false,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{&quot;status&quot;:&quot;hide&quot;,&quot;value&quot;:5},&quot;splitArea&quot;:{&quot;show&quot;:false,&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(250,250,250,0.2)&quot;,&quot;rgba(210,219,238,0.2)&quot;]}},&quot;offset&quot;:0}],&quot;grid&quot;:[{&quot;top&quot;:&quot;10%&quot;,&quot;right&quot;:&quot;5%&quot;,&quot;bottom&quot;:&quot;10%&quot;,&quot;left&quot;:&quot;10%&quot;,&quot;show&quot;:false,&quot;z&quot;:0,&quot;containLabel&quot;:false,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#ccc&quot;}],&quot;series&quot;:[{&quot;data&quot;:[92,84,68,49,48,45],&quot;type&quot;:&quot;bar&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:{&quot;colorStops&quot;:[{&quot;offset&quot;:0,&quot;color&quot;:&quot;#C84B31&quot;},{&quot;offset&quot;:1,&quot;color&quot;:&quot;#ECDBBA&quot;}],&quot;x&quot;:0,&quot;y&quot;:0,&quot;x2&quot;:0,&quot;y2&quot;:1,&quot;type&quot;:&quot;linear&quot;,&quot;global&quot;:false}},&quot;label&quot;:{&quot;show&quot;:true,&quot;position&quot;:&quot;top&quot;,&quot;color&quot;:&quot;#333&quot;,&quot;formatter&quot;:&quot;{c}%&quot;},&quot;z&quot;:2,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;barMinHeight&quot;:0,&quot;barMinAngle&quot;:0,&quot;large&quot;:false,&quot;largeThreshold&quot;:400,&quot;progressive&quot;:3000,&quot;progressiveChunkMode&quot;:&quot;mod&quot;,&quot;clip&quot;:true,&quot;roundCap&quot;:false,&quot;showBackground&quot;:false,&quot;backgroundStyle&quot;:{&quot;color&quot;:&quot;rgba(180, 180, 180, 0.2)&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderType&quot;:&quot;solid&quot;,&quot;borderRadius&quot;:0,&quot;shadowBlur&quot;:0,&quot;shadowColor&quot;:null,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:0,&quot;opacity&quot;:1},&quot;select&quot;:{&quot;itemStyle&quot;:{&quot;borderColor&quot;:&quot;#212121&quot;}},&quot;realtimeSort&quot;:false,&quot;emphasis&quot;:{&quot;label&quot;:{&quot;show&quot;:true}}}],&quot;visualMap&quot;:[],&quot;legend&quot;:[],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 892px; height: 320px; padding: 0px; margin: 0px; border-width: 0px;"><canvas data-zr-dom-id="zr_0" width="892" height="320" style="position: absolute; left: 0px; top: 0px; width: 892px; height: 320px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class=""></div></div>
+                </div>
+
+                <!-- Chart 2: Funding Mix -->
+                <div class="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-sm border border-gray-100 dark:border-gray-800">
+                    <h3 class="text-lg font-bold mb-6 text-center text-art-blue dark:text-gray-200">"Cultura Cresce" 資金分配重點</h3>
+                    <div id="chart-funding" class="w-full h-80" _echarts_instance_="ec_1771544861533" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" data-chart-option="{&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;color&quot;:[&quot;#37A2DA&quot;,&quot;#32C5E9&quot;,&quot;#67E0E3&quot;,&quot;#9FE6B8&quot;,&quot;#FFDB5C&quot;,&quot;#ff9f7f&quot;,&quot;#fb7293&quot;,&quot;#E062AE&quot;,&quot;#E690D1&quot;,&quot;#e7bcf3&quot;,&quot;#9d96f5&quot;,&quot;#8378EA&quot;,&quot;#96BFFF&quot;],&quot;colorLayer&quot;:[[&quot;#37A2DA&quot;,&quot;#ffd85c&quot;,&quot;#fd7b5f&quot;],[&quot;#37A2DA&quot;,&quot;#67E0E3&quot;,&quot;#FFDB5C&quot;,&quot;#ff9f7f&quot;,&quot;#E062AE&quot;,&quot;#9d96f5&quot;],[&quot;#37A2DA&quot;,&quot;#32C5E9&quot;,&quot;#9FE6B8&quot;,&quot;#FFDB5C&quot;,&quot;#ff9f7f&quot;,&quot;#fb7293&quot;,&quot;#e7bcf3&quot;,&quot;#8378EA&quot;,&quot;#96BFFF&quot;],[&quot;#37A2DA&quot;,&quot;#32C5E9&quot;,&quot;#67E0E3&quot;,&quot;#9FE6B8&quot;,&quot;#FFDB5C&quot;,&quot;#ff9f7f&quot;,&quot;#fb7293&quot;,&quot;#E062AE&quot;,&quot;#E690D1&quot;,&quot;#e7bcf3&quot;,&quot;#9d96f5&quot;,&quot;#8378EA&quot;,&quot;#96BFFF&quot;]],&quot;darkMode&quot;:&quot;auto&quot;,&quot;colorBy&quot;:&quot;series&quot;,&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;textStyle&quot;:{&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;axisPointer&quot;:[{&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9BEC9&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;label&quot;:{&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;color&quot;:&quot;#fff&quot;,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[{&quot;trigger&quot;:&quot;item&quot;,&quot;z&quot;:60,&quot;show&quot;:true,&quot;showContent&quot;:true,&quot;triggerOn&quot;:&quot;mousemove|click&quot;,&quot;alwaysShowContent&quot;:false,&quot;displayMode&quot;:&quot;single&quot;,&quot;renderMode&quot;:&quot;auto&quot;,&quot;confine&quot;:null,&quot;showDelay&quot;:0,&quot;hideDelay&quot;:100,&quot;transitionDuration&quot;:0.4,&quot;enterable&quot;:false,&quot;backgroundColor&quot;:&quot;#fff&quot;,&quot;shadowBlur&quot;:10,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, .2)&quot;,&quot;shadowOffsetX&quot;:1,&quot;shadowOffsetY&quot;:2,&quot;borderRadius&quot;:4,&quot;borderWidth&quot;:1,&quot;padding&quot;:null,&quot;extraCssText&quot;:&quot;&quot;,&quot;axisPointer&quot;:{&quot;type&quot;:&quot;line&quot;,&quot;axis&quot;:&quot;auto&quot;,&quot;animation&quot;:&quot;auto&quot;,&quot;animationDurationUpdate&quot;:200,&quot;animationEasingUpdate&quot;:&quot;exponentialOut&quot;,&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#999&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;,&quot;textStyle&quot;:{}}},&quot;textStyle&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;fontSize&quot;:14}}],&quot;series&quot;:[{&quot;name&quot;:&quot;資金分配&quot;,&quot;type&quot;:&quot;pie&quot;,&quot;radius&quot;:[&quot;40%&quot;,&quot;70%&quot;],&quot;avoidLabelOverlap&quot;:false,&quot;itemStyle&quot;:{&quot;borderRadius&quot;:10,&quot;borderColor&quot;:&quot;#fff&quot;,&quot;borderWidth&quot;:2,&quot;borderJoin&quot;:&quot;round&quot;},&quot;label&quot;:{&quot;show&quot;:false,&quot;position&quot;:&quot;center&quot;,&quot;rotate&quot;:0,&quot;overflow&quot;:&quot;truncate&quot;,&quot;alignTo&quot;:&quot;none&quot;,&quot;edgeDistance&quot;:&quot;25%&quot;,&quot;bleedMargin&quot;:10,&quot;distanceToLabelLine&quot;:5},&quot;emphasis&quot;:{&quot;label&quot;:{&quot;show&quot;:true,&quot;fontSize&quot;:&quot;20&quot;,&quot;fontWeight&quot;:&quot;bold&quot;,&quot;color&quot;:&quot;#333&quot;},&quot;scale&quot;:true,&quot;scaleSize&quot;:5,&quot;labelLine&quot;:{&quot;show&quot;:false}},&quot;labelLine&quot;:{&quot;show&quot;:false,&quot;length&quot;:15,&quot;length2&quot;:15,&quot;smooth&quot;:false,&quot;minTurnAngle&quot;:90,&quot;maxSurfaceAngle&quot;:90,&quot;lineStyle&quot;:{&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;}},&quot;data&quot;:[{&quot;value&quot;:50,&quot;name&quot;:&quot;零息貸款&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#2D4263&quot;}},{&quot;value&quot;:30,&quot;name&quot;:&quot;無償資助&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#C84B31&quot;}},{&quot;value&quot;:20,&quot;name&quot;:&quot;營運資金覆蓋&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#ECDBBA&quot;}}],&quot;z&quot;:2,&quot;legendHoverLink&quot;:true,&quot;colorBy&quot;:&quot;data&quot;,&quot;center&quot;:[&quot;50%&quot;,&quot;50%&quot;],&quot;clockwise&quot;:true,&quot;startAngle&quot;:90,&quot;minAngle&quot;:0,&quot;minShowLabelAngle&quot;:0,&quot;selectedOffset&quot;:10,&quot;percentPrecision&quot;:2,&quot;stillShowZeroSum&quot;:true,&quot;left&quot;:0,&quot;top&quot;:0,&quot;right&quot;:0,&quot;bottom&quot;:0,&quot;width&quot;:null,&quot;height&quot;:null,&quot;showEmptyCircle&quot;:true,&quot;emptyCircleStyle&quot;:{&quot;color&quot;:&quot;lightgray&quot;,&quot;opacity&quot;:1},&quot;labelLayout&quot;:{&quot;hideOverlap&quot;:true},&quot;animationType&quot;:&quot;expansion&quot;,&quot;animationDuration&quot;:1000,&quot;animationTypeUpdate&quot;:&quot;transition&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;}],&quot;visualMap&quot;:[],&quot;legend&quot;:[{&quot;bottom&quot;:&quot;0%&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#333&quot;},&quot;z&quot;:4,&quot;show&quot;:true,&quot;orient&quot;:&quot;horizontal&quot;,&quot;left&quot;:&quot;center&quot;,&quot;top&quot;:null,&quot;align&quot;:&quot;auto&quot;,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderColor&quot;:&quot;#ccc&quot;,&quot;borderRadius&quot;:0,&quot;borderWidth&quot;:0,&quot;padding&quot;:5,&quot;itemGap&quot;:10,&quot;itemWidth&quot;:25,&quot;itemHeight&quot;:14,&quot;symbolRotate&quot;:&quot;inherit&quot;,&quot;symbolKeepAspect&quot;:true,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderWidth&quot;:&quot;auto&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;inherit&quot;,&quot;opacity&quot;:&quot;inherit&quot;,&quot;borderColor&quot;:&quot;inherit&quot;,&quot;borderWidth&quot;:&quot;auto&quot;,&quot;borderCap&quot;:&quot;inherit&quot;,&quot;borderJoin&quot;:&quot;inherit&quot;,&quot;borderDashOffset&quot;:&quot;inherit&quot;,&quot;borderMiterLimit&quot;:&quot;inherit&quot;},&quot;lineStyle&quot;:{&quot;width&quot;:&quot;auto&quot;,&quot;color&quot;:&quot;inherit&quot;,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveWidth&quot;:2,&quot;opacity&quot;:&quot;inherit&quot;,&quot;type&quot;:&quot;inherit&quot;,&quot;cap&quot;:&quot;inherit&quot;,&quot;join&quot;:&quot;inherit&quot;,&quot;dashOffset&quot;:&quot;inherit&quot;,&quot;miterLimit&quot;:&quot;inherit&quot;},&quot;selectedMode&quot;:true,&quot;selector&quot;:false,&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;borderRadius&quot;:10,&quot;padding&quot;:[3,5,3,5],&quot;fontSize&quot;:12,&quot;fontFamily&quot;:&quot;sans-serif&quot;,&quot;color&quot;:&quot;#666&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#666&quot;},&quot;emphasis&quot;:{&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;color&quot;:&quot;#eee&quot;,&quot;backgroundColor&quot;:&quot;#666&quot;}},&quot;selectorPosition&quot;:&quot;auto&quot;,&quot;selectorItemGap&quot;:7,&quot;selectorButtonGap&quot;:10,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;selected&quot;:{}}],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 892px; height: 320px; padding: 0px; margin: 0px; border-width: 0px;"><canvas data-zr-dom-id="zr_0" width="892" height="320" style="position: absolute; left: 0px; top: 0px; width: 892px; height: 320px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class=""></div></div>
+                </div>
+            </div>
+
+            <!-- Key Metrics Cards -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 reveal active">
+                <div class="bg-white dark:bg-gray-900 p-6 text-center rounded border-t-4 border-art-red">
+                    <div class="text-3xl font-bold text-gray-800 dark:text-white">+49%</div>
+                    <div class="text-xs text-gray-500 mt-1">博物館參觀增長</div>
+                </div>
+                <div class="bg-white dark:bg-gray-900 p-6 text-center rounded border-t-4 border-art-blue">
+                    <div class="text-3xl font-bold text-gray-800 dark:text-white">€1.5億</div>
+                    <div class="text-xs text-gray-500 mt-1">南部專項支持資金</div>
+                </div>
+                <div class="bg-white dark:bg-gray-900 p-6 text-center rounded border-t-4 border-art-gold">
+                    <div class="text-3xl font-bold text-gray-800 dark:text-white">92%</div>
+                    <div class="text-xs text-gray-500 mt-1">數位影視普及率</div>
+                </div>
+                <div class="bg-white dark:bg-gray-900 p-6 text-center rounded border-t-4 border-green-600">
+                    <div class="text-3xl font-bold text-gray-800 dark:text-white">€1000</div>
+                    <div class="text-xs text-gray-500 mt-1">青年文化卡+功績卡</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Strategic Initiatives (Zig-Zag Layout) -->
+    <section id="strategy" class="py-24 px-4 sm:px-6 lg:px-8 bg-white dark:bg-[#151515]">
+        <div class="max-w-7xl mx-auto space-y-24">
+            
+            <!-- Item 1: Corporate Culture Week -->
+            <div class="flex flex-col md:flex-row items-center gap-12 reveal active">
+                <div class="w-full md:w-1/2 order-2 md:order-1">
+                    <div class="relative pl-8 border-l-2 border-art-blue">
+                        <span class="text-art-red font-bold text-sm tracking-widest uppercase mb-2 block">Confindustria</span>
+                        <h3 class="text-3xl font-serif font-bold text-art-dark dark:text-white mb-6">第24屆「企業文化週」</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                            主題為「講述創業精神：為了開放與互聯企業的成長」。2025年的核心創新是首次舉辦全國性的「企業開放日」，讓公眾直擊企業核心，了解義大利工業背後的人文價值與創新精神。
+                        </p>
+                        <ul class="space-y-2 text-sm text-gray-500 dark:text-gray-500">
+                            <li><i class="fas fa-calendar-alt w-6"></i> 2025年11月14日 - 28日</li>
+                            <li><i class="fas fa-map-marker-alt w-6"></i> 全國性開放活動 (Bologna, Speed Up Lab等)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 order-1 md:order-2">
+                    <div class="relative">
+                        <div class="absolute -top-4 -right-4 w-24 h-24 bg-art-gold/30 rounded-full z-0"></div>
+                        <img src="https://api.felo.ai/images/s/1TrouUhVok.jpg?width=439&amp;height=442" alt="Confindustria Eagle Logo" class="relative z-10 w-full max-w-sm mx-auto shadow-2xl rounded-sm object-contain bg-white p-4">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2: Culture + Enterprise Award -->
+            <div class="flex flex-col md:flex-row items-center gap-12 reveal active">
+                <div class="w-full md:w-1/2">
+                    <div class="relative group">
+                        <div class="absolute inset-0 bg-art-red transform translate-x-3 translate-y-3 rounded-sm transition-transform group-hover:translate-x-2 group-hover:translate-y-2"></div>
+                        <img src="https://api.felo.ai/images/s/4V1pJGvG3e.jpg?width=1411&amp;height=303" alt="Cultura + Impresa Logo" class="relative z-10 w-full shadow-lg rounded-sm object-cover bg-white">
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <div class="pl-0 md:pl-8">
+                        <span class="text-art-red font-bold text-sm tracking-widest uppercase mb-2 block">第12屆大獎</span>
+                        <h3 class="text-3xl font-serif font-bold text-art-dark dark:text-white mb-6">文化+企業獎 (Premio Cultura+Impresa)</h3>
+                        <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                            表彰企業與文化界最成功的公私合作項目。2025年特別引入了與 IULM 大學合作開發的 VAAS 模型，這是首個用於科學評估文化贊助有效性的工具。
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-xs rounded-full">文化贊助</span>
+                            <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-xs rounded-full">企業文化製作</span>
+                            <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-xs rounded-full">藝術紅利</span>
+                            <span class="px-3 py-1 bg-art-gold/30 text-art-dark text-xs rounded-full">VAAS評估模型</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Section 4: Workflow Visualization (Mermaid) -->
+    <section class="py-24 bg-art-light dark:bg-gray-900 border-y border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 reveal active">
+                <h2 class="text-3xl font-serif font-bold text-art-dark dark:text-white">計畫運作邏輯</h2>
+                <p class="mt-4 text-gray-500">從中央政策到地方落地的轉化路徑</p>
+            </div>
+            
+            <div class="reveal overflow-x-auto flex justify-center bg-white dark:bg-[#1a1a1a] p-8 rounded-xl shadow-inner active">
+                <div class="mermaid" data-processed="true"><svg id="mermaid-1771544862994" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="max-width: 949.44140625px;" viewBox="-8 -8 949.44140625 582.7838134765625" role="graphics-document document" aria-roledescription="flowchart-v2"><style>#mermaid-1771544862994{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}#mermaid-1771544862994 .error-icon{fill:#552222;}#mermaid-1771544862994 .error-text{fill:#552222;stroke:#552222;}#mermaid-1771544862994 .edge-thickness-normal{stroke-width:2px;}#mermaid-1771544862994 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-1771544862994 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-1771544862994 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-1771544862994 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-1771544862994 .marker{fill:#333333;stroke:#333333;}#mermaid-1771544862994 .marker.cross{stroke:#333333;}#mermaid-1771544862994 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaid-1771544862994 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#mermaid-1771544862994 .cluster-label text{fill:#333;}#mermaid-1771544862994 .cluster-label span,#mermaid-1771544862994 p{color:#333;}#mermaid-1771544862994 .label text,#mermaid-1771544862994 span,#mermaid-1771544862994 p{fill:#333;color:#333;}#mermaid-1771544862994 .node rect,#mermaid-1771544862994 .node circle,#mermaid-1771544862994 .node ellipse,#mermaid-1771544862994 .node polygon,#mermaid-1771544862994 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-1771544862994 .flowchart-label text{text-anchor:middle;}#mermaid-1771544862994 .node .label{text-align:center;}#mermaid-1771544862994 .node.clickable{cursor:pointer;}#mermaid-1771544862994 .arrowheadPath{fill:#333333;}#mermaid-1771544862994 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaid-1771544862994 .flowchart-link{stroke:#333333;fill:none;}#mermaid-1771544862994 .edgeLabel{background-color:#e8e8e8;text-align:center;}#mermaid-1771544862994 .edgeLabel rect{opacity:0.5;background-color:#e8e8e8;fill:#e8e8e8;}#mermaid-1771544862994 .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#mermaid-1771544862994 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-1771544862994 .cluster text{fill:#333;}#mermaid-1771544862994 .cluster span,#mermaid-1771544862994 p{color:#333;}#mermaid-1771544862994 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-1771544862994 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-1771544862994 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}#mermaid-1771544862994 .govt&gt;*{fill:#2D4263!important;stroke:#fff!important;stroke-width:2px!important;color:#fff!important;}#mermaid-1771544862994 .govt span{fill:#2D4263!important;stroke:#fff!important;stroke-width:2px!important;color:#fff!important;}#mermaid-1771544862994 .govt tspan{fill:#fff!important;}#mermaid-1771544862994 .fund&gt;*{fill:#C84B31!important;stroke:#fff!important;stroke-width:2px!important;color:#fff!important;}#mermaid-1771544862994 .fund span{fill:#C84B31!important;stroke:#fff!important;stroke-width:2px!important;color:#fff!important;}#mermaid-1771544862994 .fund tspan{fill:#fff!important;}#mermaid-1771544862994 .biz&gt;*{fill:#ECDBBA!important;stroke:#2D4263!important;stroke-width:2px!important;color:#333!important;}#mermaid-1771544862994 .biz span{fill:#ECDBBA!important;stroke:#2D4263!important;stroke-width:2px!important;color:#333!important;}#mermaid-1771544862994 .biz tspan{fill:#333!important;}#mermaid-1771544862994 .impact&gt;*{fill:#F7F6F2!important;stroke:#C84B31!important;stroke-width:2px!important;stroke-dasharray:5 5!important;color:#333!important;}#mermaid-1771544862994 .impact span{fill:#F7F6F2!important;stroke:#C84B31!important;stroke-width:2px!important;stroke-dasharray:5 5!important;color:#333!important;}#mermaid-1771544862994 .impact tspan{fill:#333!important;}</style><g><marker id="mermaid-1771544862994_flowchart-pointEnd" class="marker flowchart" viewBox="0 0 10 10" refX="6" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1771544862994_flowchart-pointStart" class="marker flowchart" viewBox="0 0 10 10" refX="4.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1771544862994_flowchart-circleEnd" class="marker flowchart" viewBox="0 0 10 10" refX="11" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1771544862994_flowchart-circleStart" class="marker flowchart" viewBox="0 0 10 10" refX="-1" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0;"></circle></marker><marker id="mermaid-1771544862994_flowchart-crossEnd" class="marker cross flowchart" viewBox="0 0 11 11" refX="12" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><marker id="mermaid-1771544862994_flowchart-crossStart" class="marker cross flowchart" viewBox="0 0 11 11" refX="-1" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0;"></path></marker><g class="root"><g class="clusters"><g class="cluster default flowchart-label" id="Outcome"><rect style="" rx="0" ry="0" x="198.0078125" y="453.78377532958984" width="735.21484375" height="113"></rect><g class="cluster-label" transform="translate(525.615234375, 453.78377532958984)"><foreignObject width="80" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">產出與影響</span></div></foreignObject></g></g><g class="cluster default flowchart-label" id="Action"><rect style="" rx="0" ry="0" x="34.03125" y="314.78377532958984" width="889.09765625" height="89"></rect><g class="cluster-label" transform="translate(438.580078125, 314.78377532958984)"><foreignObject width="80" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">執行與實體</span></div></foreignObject></g></g><g class="cluster default flowchart-label" id="Funding"><rect style="" rx="0" ry="0" x="339.515625" y="151.78377532958984" width="593.92578125" height="113"></rect><g class="cluster-label" transform="translate(596.478515625, 151.78377532958984)"><foreignObject width="80" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">資金與支持</span></div></foreignObject></g></g><g class="cluster default flowchart-label" id="Policy"><rect style="" rx="0" ry="0" x="0" y="0" width="319.515625" height="264.78377532958984"></rect><g class="cluster-label" transform="translate(119.7578125, 0)"><foreignObject width="80" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">政策制定層</span></div></foreignObject></g></g></g><g class="edgePaths"><path d="M221.516,86.976L216.353,93.61C211.19,100.245,200.865,113.514,195.702,124.316C190.539,135.117,190.539,143.45,229.498,154.603C268.456,165.756,346.374,179.729,385.332,186.715L424.291,193.701" id="L-MiC-Fund1-0" class=" edge-thickness-normal edge-pattern-solid flowchart-link LS-MiC LE-Fund1" style="fill:none;" marker-end="url(#mermaid-1771544862994_flowchart-pointEnd)"></path><path d="M264.777,94.853L266.691,100.174C268.606,105.496,272.436,116.14,274.351,125.629C276.266,135.117,276.266,143.45,362.478,156.127C448.691,168.805,621.117,185.825,707.329,194.336L793.542,202.846" id="L-MiC-Fund3-0" class=" edge-thickness-normal edge-pattern-solid flowchart-link LS-MiC LE-Fund3" style="fill:none;" marker-end="url(#mermaid-1771544862994_flowchart-pointEnd)"></path><path d="M108.063,101.784L108.063,105.95C108.063,110.117,108.063,118.45,108.063,126.784C108.063,135.117,108.063,143.45,108.063,150.9C108.063,158.35,108.063,164.917,108.063,168.2L108.063,171.484" id="L-Conf-Law-0" class=" edge-thickness-normal edge-pattern-solid flowchart-link LS-Conf LE-Law" style="fill:none;" marker-end="url(#mermaid-1771544862994_flowchart-pointEnd)"></path><path d="M108.063,239.784L108.063,243.95C108.063,248.117,108.063,256.45,108.063,264.784C108.063,273.117,108.063,281.45,108.063,289.784C108.063,298.117,108.063,306.45,144.382,316.027C180.701,325.604,253.339,336.424,289.658,341.834L325.977,347.244" id="L-Law-ICC-0" class=" edge-thickness-normal edge-pattern-solid flowchart-link LS-Law LE-ICC" style="fill:none;" marker-end="url(#mermaid-1771544862994_flowchart-pointEnd)"></path><path d="M458.004,239.784L451.707,243.95C445.41,248.117,432.817,256.45,426.52,264.784C420.223,273.117,420.223,281.45,420.223,289.784C420.223,298.117,420.223,306.45,419.221,313.938C418.22,321.426,416.217,328.068,415.216,331.388L414.215,334.709" id="L-Fund1-ICC-0" class=" edge-thickness-normal edge-pattern-solid flowchart-link LS-Fund1 LE-ICC" style="fill:none;" marker-end="url(#mermaid-1771544862994_flowchart-pointEnd)"></path><path d="M581.711,229.997L602.031,235.795C622.35,241.593,662.99,253.188,683.309,263.153C703.629,273.117,703.629,281.45,703.629,289.784C703.629,298.117,703.629,306.45,703.629,313.9C703.629,321.35,703.629,327.917,703.629,331.2L703.629,334.484" id="L-Fund1-Startups-0" class=" edge-thickness-normal edge-pattern-solid flowchart-link LS-Fund1 LE-Startups" style="fill:none;" marker-end="url(#mermaid-1771544862994_flowchart-pointEnd)"></path><path d="M848.629,239.784L848.629,243.95C848.629,248.117,848.629,256.45,848.629,264.784C848.629,273.117,848.629,281.45,848.629,289.784C848.629,298.117,848.629,306.45,848.629,313.9C848.629,321.35,848.629,327.917,848.629,331.2L848.629,334.484" id="L-Fund3-Bookstores-0" class=" edge-thickness-normal edge-pattern-solid flowchart-link LS-Fund3 LE-Bookstores" style="fill:none;" marker-end="url(#mermaid-1771544862994_flowchart-pointEnd)"></path><path d="M640.868,239.784L634.571,243.95C628.274,248.117,615.68,256.45,609.383,264.784C603.086,273.117,603.086,281.45,603.086,289.784C603.086,298.117,603.086,306.45,583.832,314.982C564.577,323.514,526.068,332.245,506.814,336.61L487.559,340.975" id="L-Fund2-ICC-0" class=" edge-thickness-normal edge-pattern-solid flowchart-link LS-Fund2 LE-ICC" style="fill:none;" marker-end="url(#mermaid-1771544862994_flowchart-pointEnd)"></path><path d="M347.955,378.784L335.381,382.95C322.806,387.117,297.657,395.45,285.082,403.784C272.508,412.117,272.508,420.45,272.508,428.784C272.508,437.117,272.508,445.45,272.508,454.9C272.508,464.35,272.508,474.917,272.508,480.2L272.508,485.484" id="L-ICC-Job-0" class=" edge-thickness-normal edge-pattern-solid flowchart-link LS-ICC LE-Job" style="fill:none;" marker-end="url(#mermaid-1771544862994_flowchart-pointEnd)"></path><path d="M460.635,378.784L472.137,382.95C483.64,387.117,506.644,395.45,518.146,403.784C529.648,412.117,529.648,420.45,529.648,428.784C529.648,437.117,529.648,445.45,529.648,454.9C529.648,464.35,529.648,474.917,529.648,480.2L529.648,485.484" id="L-ICC-Digit-0" class=" edge-thickness-normal edge-pattern-solid flowchart-link LS-ICC LE-Digit" style="fill:none;" marker-end="url(#mermaid-1771544862994_flowchart-pointEnd)"></path><path d="M703.629,378.784L703.629,382.95C703.629,387.117,703.629,395.45,703.629,403.784C703.629,412.117,703.629,420.45,703.629,428.784C703.629,437.117,703.629,445.45,711.852,453.414C720.074,461.377,736.52,468.969,744.743,472.766L752.965,476.562" id="L-Startups-Local-0" class=" edge-thickness-normal edge-pattern-solid flowchart-link LS-Startups LE-Local" style="fill:none;" marker-end="url(#mermaid-1771544862994_flowchart-pointEnd)"></path><path d="M848.629,378.784L848.629,382.95C848.629,387.117,848.629,395.45,848.629,403.784C848.629,412.117,848.629,420.45,848.629,428.784C848.629,437.117,848.629,445.45,847.289,452.964C845.949,460.477,843.268,467.17,841.928,470.517L840.588,473.864" id="L-Bookstores-Local-0" class=" edge-thickness-normal edge-pattern-solid flowchart-link LS-Bookstores LE-Local" style="fill:none;" marker-end="url(#mermaid-1771544862994_flowchart-pointEnd)"></path></g><g class="edgeLabels"><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g class="label" transform="translate(0, 0)"><foreignObject width="0" height="0"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="edgeLabel"></span></div></foreignObject></g></g></g><g class="nodes"><g class="node default impact flowchart-label" id="flowchart-Job-9" transform="translate(272.5078125, 510.28377532958984)"><rect class="basic label-container" style="" rx="0" ry="0" x="-39.5" y="-19.5" width="79" height="39"></rect><g class="label" style="" transform="translate(-32, -12)"><rect></rect><foreignObject width="64" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">就業增長</span></div></foreignObject></g></g><g class="node default impact flowchart-label" id="flowchart-Digit-10" transform="translate(529.6484375, 510.28377532958984)"><rect class="basic label-container" style="" rx="0" ry="0" x="-47.5" y="-19.5" width="95" height="39"></rect><g class="label" style="" transform="translate(-40, -12)"><rect></rect><foreignObject width="80" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">數位化轉型</span></div></foreignObject></g></g><g class="node default impact flowchart-label" id="flowchart-Local-11" transform="translate(826.00390625, 510.28377532958984)"><rect class="basic label-container" style="" rx="0" ry="0" x="-69.375" y="-31.5" width="138.75" height="63"></rect><g class="label" style="" transform="translate(-61.875, -24)"><rect></rect><foreignObject width="123.75" height="48"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">領土經濟復甦<br>(阿格里真托模式)</span></div></foreignObject></g></g><g class="node default biz flowchart-label" id="flowchart-ICC-6" transform="translate(406.8046875, 359.28377532958984)"><rect class="basic label-container" style="" rx="0" ry="0" x="-75.5859375" y="-19.5" width="151.171875" height="39"></rect><g class="label" style="" transform="translate(-68.0859375, -12)"><rect></rect><foreignObject width="136.171875" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">文化創意企業 (ICC)</span></div></foreignObject></g></g><g class="node default biz flowchart-label" id="flowchart-Startups-7" transform="translate(703.62890625, 359.28377532958984)"><rect class="basic label-container" style="" rx="0" ry="0" x="-55.5" y="-19.5" width="111" height="39"></rect><g class="label" style="" transform="translate(-48, -12)"><rect></rect><foreignObject width="96" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">青年初創企業</span></div></foreignObject></g></g><g class="node default biz flowchart-label" id="flowchart-Bookstores-8" transform="translate(848.62890625, 359.28377532958984)"><rect class="basic label-container" style="" rx="0" ry="0" x="-39.5" y="-19.5" width="79" height="39"></rect><g class="label" style="" transform="translate(-32, -12)"><rect></rect><foreignObject width="64" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">獨立書店</span></div></foreignObject></g></g><g class="node default fund flowchart-label" id="flowchart-Fund1-3" transform="translate(505.609375, 208.28377532958984)"><rect class="basic label-container" style="" rx="0" ry="0" x="-76.1015625" y="-31.5" width="152.203125" height="63"></rect><g class="label" style="" transform="translate(-68.6015625, -24)"><rect></rect><foreignObject width="137.203125" height="48"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">Cultura Cresce計畫<br>(1.5億歐元)</span></div></foreignObject></g></g><g class="node default fund flowchart-label" id="flowchart-Fund2-4" transform="translate(688.47265625, 208.28377532958984)"><rect class="basic label-container" style="" rx="0" ry="0" x="-55.5" y="-31.5" width="111" height="63"></rect><g class="label" style="" transform="translate(-48, -24)"><rect></rect><foreignObject width="96" height="48"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">雙重轉型憑證<br>(數位/綠色)</span></div></foreignObject></g></g><g class="node default fund flowchart-label" id="flowchart-Fund3-5" transform="translate(848.62890625, 208.28377532958984)"><rect class="basic label-container" style="" rx="0" ry="0" x="-49.8125" y="-31.5" width="99.625" height="63"></rect><g class="label" style="" transform="translate(-42.3125, -24)"><rect></rect><foreignObject width="84.625" height="48"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">稅收抵免<br>(Tax Credit)</span></div></foreignObject></g></g><g class="node default govt flowchart-label" id="flowchart-MiC-0" label-offset-y="8.377659574468085" transform="translate(253.015625, 63.39188766479492)"><path style="" d="M 0,8.377659574468085 a 31.5,8.377659574468085 0,0,0 63 0 a 31.5,8.377659574468085 0,0,0 -63 0 l 0,47.37765957446808 a 31.5,8.377659574468085 0,0,0 63 0 l 0,-47.37765957446808" transform="translate(-31.5,-32.066489361702125)"></path><g class="label" style="" transform="translate(-24, -12)"><rect></rect><foreignObject width="48" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">文化部</span></div></foreignObject></g></g><g class="node default govt flowchart-label" id="flowchart-Conf-1" label-offset-y="12.594591241781417" transform="translate(108.0625, 63.39188766479492)"><path style="" d="M 0,12.594591241781417 a 63.453125,12.594591241781417 0,0,0 126.90625 0 a 63.453125,12.594591241781417 0,0,0 -126.90625 0 l 0,51.594591241781416 a 63.453125,12.594591241781417 0,0,0 126.90625 0 l 0,-51.594591241781416" transform="translate(-63.453125,-38.39188686267212)"></path><g class="label" style="" transform="translate(-55.953125, -12)"><rect></rect><foreignObject width="111.90625" height="24"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">Confcommercio</span></div></foreignObject></g></g><g class="node default govt flowchart-label" id="flowchart-Law-2" transform="translate(108.0625, 208.28377532958984)"><rect class="basic label-container" style="" rx="0" ry="0" x="-73.0625" y="-31.5" width="146.125" height="63"></rect><g class="label" style="" transform="translate(-65.5625, -24)"><rect></rect><foreignObject width="131.125" height="48"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap;"><span class="nodeLabel">第206/2023號法律<br>(法律身份確立)</span></div></foreignObject></g></g></g></g></g></svg></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Incentives Breakdown -->
+    <section id="incentives" class="py-24 px-4 sm:px-6 lg:px-8 bg-white dark:bg-[#1f1f1f]">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16 reveal active">
+                <h2 class="text-3xl font-serif font-bold text-art-dark dark:text-white">"Cultura Cresce" 激勵機制詳解</h2>
+                <p class="mt-4 text-gray-600 dark:text-gray-400">針對不同成熟度企業的精準扶持方案，覆蓋高達 80% 的支出。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal active">
+                <!-- Capo A -->
+                <div class="group border border-gray-200 dark:border-gray-700 p-8 rounded-lg hover:shadow-xl transition-all duration-300 hover:border-art-blue bg-white dark:bg-gray-800 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-art-blue text-white text-xs font-bold px-3 py-1 rounded-bl-lg">成熟企業</div>
+                    <h3 class="text-2xl font-bold text-art-dark dark:text-white mb-2">Capo A</h3>
+                    <p class="text-sm text-gray-500 mb-6">成立超過 5 年的企業</p>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex justify-between items-center pb-2 border-b border-gray-100 dark:border-gray-700">
+                            <span class="text-gray-600 dark:text-gray-400">資助上限</span>
+                            <span class="font-bold text-art-dark dark:text-white">€ 2,500,000</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-2 border-b border-gray-100 dark:border-gray-700">
+                            <span class="text-gray-600 dark:text-gray-400">無償資助</span>
+                            <span class="font-bold text-art-red">30%</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-2 border-b border-gray-100 dark:border-gray-700">
+                            <span class="text-gray-600 dark:text-gray-400">零息貸款</span>
+                            <span class="font-bold text-art-blue">50%</span>
+                        </div>
+                    </div>
+                    <button class="w-full py-3 border border-art-blue text-art-blue dark:text-gray-300 dark:border-gray-500 rounded hover:bg-art-blue hover:text-white transition-colors">查看資格細節</button>
+                </div>
+
+                <!-- Capo B -->
+                <div class="group border border-gray-200 dark:border-gray-700 p-8 rounded-lg hover:shadow-xl transition-all duration-300 hover:border-art-red bg-white dark:bg-gray-800 relative overflow-hidden transform md:-translate-y-4">
+                    <div class="absolute top-0 right-0 bg-art-red text-white text-xs font-bold px-3 py-1 rounded-bl-lg">新創 / Start-up</div>
+                    <h3 class="text-2xl font-bold text-art-dark dark:text-white mb-2">Capo B</h3>
+                    <p class="text-sm text-gray-500 mb-6">成立少於 5 年或個人創業者</p>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex justify-between items-center pb-2 border-b border-gray-100 dark:border-gray-700">
+                            <span class="text-gray-600 dark:text-gray-400">資助上限</span>
+                            <span class="font-bold text-art-dark dark:text-white">€ 2,500,000</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-2 border-b border-gray-100 dark:border-gray-700">
+                            <span class="text-gray-600 dark:text-gray-400">無償資助</span>
+                            <span class="font-bold text-art-red">30%</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-2 border-b border-gray-100 dark:border-gray-700">
+                            <span class="text-gray-600 dark:text-gray-400">零息貸款</span>
+                            <span class="font-bold text-art-blue">50%</span>
+                        </div>
+                    </div>
+                    <button class="w-full py-3 bg-art-red text-white rounded hover:bg-red-700 transition-colors shadow-lg shadow-red-500/30">立即申請</button>
+                </div>
+
+                <!-- Capo C -->
+                <div class="group border border-gray-200 dark:border-gray-700 p-8 rounded-lg hover:shadow-xl transition-all duration-300 hover:border-art-gold bg-white dark:bg-gray-800 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-art-gold text-art-dark text-xs font-bold px-3 py-1 rounded-bl-lg">第三部門</div>
+                    <h3 class="text-2xl font-bold text-art-dark dark:text-white mb-2">Capo C</h3>
+                    <p class="text-sm text-gray-500 mb-6">社會企業、ETS、協會</p>
+                    <div class="space-y-4 mb-8">
+                        <div class="flex justify-between items-center pb-2 border-b border-gray-100 dark:border-gray-700">
+                            <span class="text-gray-600 dark:text-gray-400">資助上限</span>
+                            <span class="font-bold text-art-dark dark:text-white">€ 500,000</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-2 border-b border-gray-100 dark:border-gray-700">
+                            <span class="text-gray-600 dark:text-gray-400">無償資助</span>
+                            <span class="font-bold text-green-600">40%</span>
+                        </div>
+                        <div class="flex justify-between items-center pb-2 border-b border-gray-100 dark:border-gray-700">
+                            <span class="text-gray-600 dark:text-gray-400">零息貸款</span>
+                            <span class="font-bold text-art-blue">40%</span>
+                        </div>
+                    </div>
+                    <button class="w-full py-3 border border-art-gold text-art-dark dark:text-white dark:border-gray-500 rounded hover:bg-art-gold hover:text-art-dark transition-colors">查看資格細節</button>
+                </div>
+            </div>
+            
+            <div class="mt-12 p-6 bg-gray-50 dark:bg-gray-800 rounded text-center border-l-4 border-art-red reveal active">
+                <p class="text-gray-600 dark:text-gray-300">
+                    <i class="fas fa-info-circle mr-2 text-art-red"></i> 
+                    <strong>特別提示：</strong> 2025年新增焦點——可資助高達 20% 的營運資金（原材料、水電、員工薪資），並提供價值 10,000 歐元的技術輔導服務。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-art-dark text-white border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div>
+                    <span class="font-display text-2xl font-bold tracking-widest text-white mb-4 block">IMPRESA<span class="text-art-red">CULTURA</span></span>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        致力於將義大利文化資產轉化為可持續的經濟動力。透過創新、數據驅動與法律保障，我們正在構建未來的創意產業。
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-art-gold">相關連結</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Federculture 官方網站</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Confcommercio 年度報告</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">文化+企業獎申請</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Imprendigreen 平台</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4 text-art-gold">關注我們</h4>
+                    <div class="flex space-x-4 mb-6">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-art-red transition-colors"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-art-blue transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-art-gold hover:text-black transition-colors"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+                <div class="mb-4 md:mb-0">
+                    <p>免責申明：基於公開資料，僅供參考，不構成建議</p>
+                    <p>資料來源：網頁公開資訊</p>
+                </div>
+                <div class="text-right">
+                    <p>版權所有： © Dunk 2026</p>
+                    <p class="mt-1">Design by Dunk</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Dark Mode Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+        
+        // Initial Check
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            if (html.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+                initCharts('dark');
+                mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+            } else {
+                localStorage.theme = 'light';
+                initCharts('light');
+                mermaid.initialize({ startOnLoad: true, theme: 'default' });
+            }
+        });
+
+        // Mobile Menu Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Scroll Reveal Animation
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        // Trigger once on load
+        reveal();
+
+        // Navbar Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+
+        // ECharts Initialization
+        let chartParticipation, chartFunding;
+
+        function initCharts(theme) {
+            // Dispose if exists
+            if (chartParticipation) chartParticipation.dispose();
+            if (chartFunding) chartFunding.dispose();
+
+            const textColor = theme === 'dark' ? '#ccc' : '#333';
+            const gridColor = theme === 'dark' ? '#333' : '#eee';
+
+            // Chart 1: Participation
+            chartParticipation = echarts.init(document.getElementById('chart-participation'), theme);
+            const optionParticipation = {
+                backgroundColor: 'transparent',
+                tooltip: { trigger: 'axis' },
+                grid: { top: '10%', right: '5%', bottom: '10%', left: '10%' },
+                xAxis: {
+                    type: 'category',
+                    data: ['電視/串流', '音樂', '閱讀', '博物館', '露天表演', '電影院'],
+                    axisLabel: { color: textColor, interval: 0, rotate: 30 },
+                    axisLine: { lineStyle: { color: gridColor } }
+                },
+                yAxis: {
+                    type: 'value',
+                    axisLabel: { formatter: '{value}%', color: textColor },
+                    splitLine: { lineStyle: { color: gridColor } }
+                },
+                series: [{
+                    data: [92, 84, 68, 49, 48, 45],
+                    type: 'bar',
+                    itemStyle: {
+                        color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                            { offset: 0, color: '#C84B31' },
+                            { offset: 1, color: '#ECDBBA' }
+                        ])
+                    },
+                    label: { show: true, position: 'top', color: textColor, formatter: '{c}%' }
+                }]
+            };
+            chartParticipation.setOption(optionParticipation);
+
+            // Chart 2: Funding Mix
+            chartFunding = echarts.init(document.getElementById('chart-funding'), theme);
+            const optionFunding = {
+                backgroundColor: 'transparent',
+                tooltip: { trigger: 'item' },
+                legend: { bottom: '0%', textStyle: { color: textColor } },
+                series: [{
+                    name: '資金分配',
+                    type: 'pie',
+                    radius: ['40%', '70%'],
+                    avoidLabelOverlap: false,
+                    itemStyle: {
+                        borderRadius: 10,
+                        borderColor: theme === 'dark' ? '#111' : '#fff',
+                        borderWidth: 2
+                    },
+                    label: { show: false, position: 'center' },
+                    emphasis: {
+                        label: { show: true, fontSize: '20', fontWeight: 'bold', color: textColor }
+                    },
+                    labelLine: { show: false },
+                    data: [
+                        { value: 50, name: '零息貸款', itemStyle: { color: '#2D4263' } },
+                        { value: 30, name: '無償資助', itemStyle: { color: '#C84B31' } },
+                        { value: 20, name: '營運資金覆蓋', itemStyle: { color: '#ECDBBA' } }
+                    ]
+                }]
+            };
+            chartFunding.setOption(optionFunding);
+        }
+
+        // Initialize Charts on Load
+        window.addEventListener('load', () => {
+            initCharts(html.classList.contains('dark') ? 'dark' : 'light');
+        });
+
+        // Resize Charts
+        window.addEventListener('resize', () => {
+            if (chartParticipation) chartParticipation.resize();
+            if (chartFunding) chartFunding.resize();
+        });
+
+        // Initialize Mermaid
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: html.classList.contains('dark') ? 'dark' : 'default',
+            securityLevel: 'loose',
+            flowchart: { curve: 'basis' }
+        });
+    </script>
+
+<div class="mermaidTooltip" style="opacity: 0;"></div></body></body>
+</html>
