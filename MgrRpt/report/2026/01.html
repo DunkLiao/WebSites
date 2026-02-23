@@ -1,0 +1,702 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信用風險加權風險性資產 (RWA) 監控報告 | 11501期</title>
+    
+    <!-- Fonts: Noto Sans TC for Traditional Chinese -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    
+    <!-- Icons: Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            main: '#9A0036',      // User specified Red
+                            light: '#C43E5E',
+                            dark: '#6E0026',
+                            bg: '#FFF0F3',
+                        },
+                        accent: {
+                            pink: '#EEBAC0',      // User specified Pink
+                            purple: '#941C61',    // User specified Purple
+                            gold: '#F59E0B',      // Emphasis Gold/Orange
+                        },
+                        neutral: {
+                            light: '#F5F5F5',     // Section divider
+                            dark: '#333333',      // Text
+                            darker: '#1F1F1F',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', '"Inter"', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                        'card': '0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025)',
+                        'glow': '0 0 15px rgba(154, 0, 54, 0.3)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+
+    <style>
+        /* Custom Utilities */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .dark .glass-panel {
+            background: rgba(31, 31, 31, 0.95);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .hero-pattern {
+            background-color: #9A0036;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .section-divider {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            transform: rotate(180deg);
+        }
+
+        .section-divider svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 60px;
+        }
+
+        .section-divider .shape-fill {
+            fill: #FFFFFF;
+        }
+        .dark .section-divider .shape-fill {
+            fill: #171717;
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<script src="https://felo.ai/js/iframe.js?v=1771850725374"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style></head>
+<body class="bg-white dark:bg-neutral-900 text-neutral-dark dark:text-gray-100 transition-colors duration-300 antialiased overflow-x-hidden"><body class="bg-white dark:bg-neutral-900 text-neutral-dark dark:text-gray-100 transition-colors duration-300 antialiased overflow-x-hidden" contenteditable="false" spellcheck="false">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300 glass-panel border-b border-gray-100 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-lg bg-brand-main flex items-center justify-center text-white shadow-glow">
+                        <i class="fa-solid fa-chart-pie text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="block text-xl font-bold tracking-tight text-brand-main dark:text-brand-light">RWA Monitor</span>
+                        <span class="text-xs text-gray-500 dark:text-gray-400 font-medium">信用風險監控儀表板</span>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-6">
+                    <div class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600 dark:text-gray-300">
+                        <a href="#summary" class="hover:text-brand-main transition-colors">總覽</a>
+                        <a href="#analysis" class="hover:text-brand-main transition-colors">趨勢分析</a>
+                        <a href="#details" class="hover:text-brand-main transition-colors">變動明細</a>
+                    </div>
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-gray-600 dark:text-yellow-400 focus:outline-none focus:ring-2 focus:ring-brand-main">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:block"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 hero-pattern text-white overflow-hidden">
+        <!-- Abstract Shapes -->
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-accent-purple opacity-30 blur-3xl rounded-full mix-blend-screen animate-pulse"></div>
+        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-accent-pink opacity-20 blur-3xl rounded-full mix-blend-screen"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 animate-fade-up">
+                    <div class="inline-flex items-center px-3 py-1 rounded-full border border-white/30 bg-white/10 backdrop-blur-md text-sm font-medium text-accent-pink">
+                        <span class="w-2 h-2 rounded-full bg-accent-gold mr-2 animate-pulse"></span>
+                        資料日期：2026-01-31 (SS1027)
+                    </div>
+                    <h1 class="text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
+                        資產結構穩健優化<br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-accent-pink">風險權重顯著降低</span>
+                    </h1>
+                    <p class="text-lg text-gray-100 max-w-xl leading-relaxed opacity-90">
+                        本期信用風險帳面金額雖增加 2,251 億元，但風險性資產 (RWA) 逆勢減少 114 億元。顯示在擴大資產規模的同時，透過優化資產配置與風險對沖，成功提升了資本使用效率。
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <a href="#analysis" class="px-8 py-3.5 bg-white text-brand-main rounded-xl font-bold shadow-lg hover:shadow-xl hover:bg-gray-50 transition-all transform hover:-translate-y-1">
+                            查看詳細分析
+                        </a>
+                        <div class="px-8 py-3.5 rounded-xl border border-white/30 bg-white/5 backdrop-blur-sm text-white font-medium flex items-center gap-3">
+                            <i class="fa-solid fa-file-pdf"></i>
+                            下載報告 (PDF)
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Key Stats Cards (Hero Overlay) -->
+                <div class="grid grid-cols-2 gap-4 lg:gap-6 animate-fade-up" style="animation-delay: 0.2s;">
+                    <!-- Stat 1 -->
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl hover:bg-white/20 transition-all group">
+                        <div class="text-accent-pink text-sm font-medium mb-1">信用風險帳面金額</div>
+                        <div class="text-3xl lg:text-4xl font-bold text-white mb-2">72,083<span class="text-lg opacity-70">億</span></div>
+                        <div class="flex items-center text-sm text-green-300 bg-green-900/30 w-fit px-2 py-0.5 rounded">
+                            <i class="fa-solid fa-arrow-up mr-1.5"></i>
+                            <span>+2,251.23 億</span>
+                        </div>
+                    </div>
+                    <!-- Stat 2 -->
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl hover:bg-white/20 transition-all group">
+                        <div class="text-accent-pink text-sm font-medium mb-1">信用風險性資產(RWA)</div>
+                        <div class="text-3xl lg:text-4xl font-bold text-white mb-2">24,291<span class="text-lg opacity-70">億</span></div>
+                        <div class="flex items-center text-sm text-white bg-white/20 w-fit px-2 py-0.5 rounded">
+                            <i class="fa-solid fa-arrow-down mr-1.5"></i>
+                            <span>-114.01 億</span>
+                        </div>
+                    </div>
+                    <!-- Stat 3 -->
+                    <div class="bg-white/10 backdrop-blur-md border border-white/20 p-6 rounded-2xl hover:bg-white/20 transition-all group col-span-2">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <div class="text-accent-pink text-sm font-medium mb-1">平均風險權重變化</div>
+                                <div class="text-2xl font-bold text-white">資產品質提升</div>
+                                <p class="text-sm text-gray-200 mt-2">主權國家暴險增加但RWA減少，反映高品質資產佔比提升。</p>
+                            </div>
+                            <div class="h-12 w-12 rounded-full bg-accent-gold/20 flex items-center justify-center text-accent-gold">
+                                <i class="fa-solid fa-shield-halved text-xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Wave Divider -->
+        <div class="section-divider">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill" style="pointer-events: none;"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main id="summary" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-10 relative z-20">
+        
+        <!-- Strategy Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
+            <!-- Card 1 -->
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-card hover:shadow-xl transition-all border-t-4 border-accent-purple group">
+                <div class="w-14 h-14 bg-brand-bg dark:bg-brand-dark rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-landmark text-2xl text-brand-main dark:text-brand-light"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">主權暴險增長</h3>
+                <p class="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">
+                    主權國家帳面金額大幅增加 1,793.81 億元，主要來自財政部國庫署融資額度增加。儘管規模擴大，RWA 卻減少 7.04 億元，顯示極低風險權重資產配置奏效。
+                </p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-card hover:shadow-xl transition-all border-t-4 border-accent-pink group">
+                <div class="w-14 h-14 bg-pink-50 dark:bg-pink-900/30 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-building text-2xl text-accent-purple"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">不動產風險優化</h3>
+                <p class="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">
+                    不動產暴險帳面微減 16.35 億元，但 RWA 大幅減少 84.23 億元。商用不動產暴險減少是主因，顯示資產組合正朝向更穩健的方向調整。
+                </p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-white dark:bg-neutral-800 rounded-2xl p-8 shadow-card hover:shadow-xl transition-all border-t-4 border-accent-gold group">
+                <div class="w-14 h-14 bg-amber-50 dark:bg-amber-900/30 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-briefcase text-2xl text-accent-gold"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3 text-gray-900 dark:text-white">企業曝險縮減</h3>
+                <p class="text-gray-600 dark:text-gray-400 leading-relaxed text-sm">
+                    企業暴險帳面金額與 RWA 同步下降（分別減少 139.54 億與 64.46 億）。和碩、台電等大型企業曝險減少，資產分佈更為分散。
+                </p>
+            </div>
+        </div>
+
+        <!-- Charts Section -->
+        <section id="analysis" class="mb-24 scroll-mt-24">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-10">
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">信用風險結構分析</h2>
+                    <p class="text-gray-500 dark:text-gray-400">本期與前期各類別暴險金額與風險性資產比較</p>
+                </div>
+                <div class="flex items-center gap-2 mt-4 md:mt-0">
+                    <span class="flex items-center text-xs font-semibold text-gray-500 dark:text-gray-400">
+                        <span class="w-3 h-3 rounded-full bg-brand-main mr-2"></span>本期 (2026/01)
+                    </span>
+                    <span class="flex items-center text-xs font-semibold text-gray-500 dark:text-gray-400 ml-4">
+                        <span class="w-3 h-3 rounded-full bg-gray-300 mr-2"></span>前期 (2025/12)
+                    </span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Main Bar Chart -->
+                <div class="lg:col-span-2 bg-white dark:bg-neutral-800 p-6 rounded-2xl shadow-soft border border-gray-100 dark:border-neutral-700">
+                    <div id="exposureChart" class="w-full h-[450px]" _echarts_instance_="ec_1771850752111" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" data-chart-option="{&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;darkMode&quot;:&quot;auto&quot;,&quot;colorBy&quot;:&quot;series&quot;,&quot;color&quot;:[&quot;#5470c6&quot;,&quot;#91cc75&quot;,&quot;#fac858&quot;,&quot;#ee6666&quot;,&quot;#73c0de&quot;,&quot;#3ba272&quot;,&quot;#fc8452&quot;,&quot;#9a60b4&quot;,&quot;#ea7ccc&quot;],&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;textStyle&quot;:{&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;axisPointer&quot;:[{&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9BEC9&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;label&quot;:{&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;color&quot;:&quot;#fff&quot;,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[{&quot;trigger&quot;:&quot;axis&quot;,&quot;axisPointer&quot;:{&quot;type&quot;:&quot;shadow&quot;,&quot;axis&quot;:&quot;auto&quot;,&quot;animation&quot;:&quot;auto&quot;,&quot;animationDurationUpdate&quot;:200,&quot;animationEasingUpdate&quot;:&quot;exponentialOut&quot;,&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#999&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;,&quot;textStyle&quot;:{}}},&quot;z&quot;:60,&quot;show&quot;:true,&quot;showContent&quot;:true,&quot;triggerOn&quot;:&quot;mousemove|click&quot;,&quot;alwaysShowContent&quot;:false,&quot;displayMode&quot;:&quot;single&quot;,&quot;renderMode&quot;:&quot;auto&quot;,&quot;confine&quot;:null,&quot;showDelay&quot;:0,&quot;hideDelay&quot;:100,&quot;transitionDuration&quot;:0.4,&quot;enterable&quot;:false,&quot;backgroundColor&quot;:&quot;#fff&quot;,&quot;shadowBlur&quot;:10,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, .2)&quot;,&quot;shadowOffsetX&quot;:1,&quot;shadowOffsetY&quot;:2,&quot;borderRadius&quot;:4,&quot;borderWidth&quot;:1,&quot;padding&quot;:null,&quot;extraCssText&quot;:&quot;&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;fontSize&quot;:14}}],&quot;yAxis&quot;:[{&quot;type&quot;:&quot;value&quot;,&quot;name&quot;:&quot;億元&quot;,&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;type&quot;:&quot;dashed&quot;,&quot;color&quot;:&quot;#E5E5E5&quot;,&quot;width&quot;:1},&quot;show&quot;:true},&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#333333&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;boundaryGap&quot;:[0,0],&quot;axisLine&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#6E7079&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;axisTick&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;splitNumber&quot;:5,&quot;minorTick&quot;:{&quot;show&quot;:false,&quot;splitNumber&quot;:5,&quot;length&quot;:3,&quot;lineStyle&quot;:{}},&quot;minorSplitLine&quot;:{&quot;show&quot;:false,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#F4F7FD&quot;,&quot;width&quot;:1}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{},&quot;splitArea&quot;:{&quot;show&quot;:false,&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(250,250,250,0.2)&quot;,&quot;rgba(210,219,238,0.2)&quot;]}},&quot;offset&quot;:0}],&quot;xAxis&quot;:[{&quot;type&quot;:&quot;category&quot;,&quot;data&quot;:[&quot;主權國家&quot;,&quot;非中央政府&quot;,&quot;銀行同業&quot;,&quot;企業&quot;,&quot;零售&quot;,&quot;不動產&quot;,&quot;權益證券&quot;],&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#333333&quot;,&quot;interval&quot;:0,&quot;rotate&quot;:0,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;axisLine&quot;:{&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#E5E5E5&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;show&quot;:true,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;boundaryGap&quot;:true,&quot;deduplication&quot;:null,&quot;splitLine&quot;:{&quot;show&quot;:false,&quot;lineStyle&quot;:{&quot;color&quot;:[&quot;#E0E6F1&quot;],&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;}},&quot;axisTick&quot;:{&quot;alignWithLabel&quot;:false,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{&quot;status&quot;:&quot;hide&quot;,&quot;value&quot;:5,&quot;seriesDataIndices&quot;:[{&quot;seriesIndex&quot;:0,&quot;dataIndexInside&quot;:5,&quot;dataIndex&quot;:5},{&quot;seriesIndex&quot;:1,&quot;dataIndexInside&quot;:5,&quot;dataIndex&quot;:5}]},&quot;splitArea&quot;:{&quot;show&quot;:false,&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(250,250,250,0.2)&quot;,&quot;rgba(210,219,238,0.2)&quot;]}},&quot;offset&quot;:0}],&quot;grid&quot;:[{&quot;left&quot;:&quot;3%&quot;,&quot;right&quot;:&quot;4%&quot;,&quot;bottom&quot;:&quot;10%&quot;,&quot;containLabel&quot;:true,&quot;show&quot;:false,&quot;z&quot;:0,&quot;top&quot;:60,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#ccc&quot;}],&quot;series&quot;:[{&quot;name&quot;:&quot;本期帳面金額&quot;,&quot;type&quot;:&quot;bar&quot;,&quot;data&quot;:[19783.92,7397.31,7547.66,11671.29,3400.78,18663.46,1185.18],&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#9A0036&quot;,&quot;borderRadius&quot;:[4,4,0,0]},&quot;barWidth&quot;:&quot;30%&quot;,&quot;z&quot;:2,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;barMinHeight&quot;:0,&quot;barMinAngle&quot;:0,&quot;large&quot;:false,&quot;largeThreshold&quot;:400,&quot;progressive&quot;:3000,&quot;progressiveChunkMode&quot;:&quot;mod&quot;,&quot;clip&quot;:true,&quot;roundCap&quot;:false,&quot;showBackground&quot;:false,&quot;backgroundStyle&quot;:{&quot;color&quot;:&quot;rgba(180, 180, 180, 0.2)&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderType&quot;:&quot;solid&quot;,&quot;borderRadius&quot;:0,&quot;shadowBlur&quot;:0,&quot;shadowColor&quot;:null,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:0,&quot;opacity&quot;:1},&quot;select&quot;:{&quot;itemStyle&quot;:{&quot;borderColor&quot;:&quot;#212121&quot;}},&quot;realtimeSort&quot;:false,&quot;label&quot;:{},&quot;emphasis&quot;:{&quot;label&quot;:{}}},{&quot;name&quot;:&quot;前期帳面金額&quot;,&quot;type&quot;:&quot;bar&quot;,&quot;data&quot;:[17990.1,7205.87,7277.61,11810.83,3390.24,18679.81,1166.35],&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#EEBAC0&quot;,&quot;borderRadius&quot;:[4,4,0,0]},&quot;barWidth&quot;:&quot;30%&quot;,&quot;z&quot;:2,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;barMinHeight&quot;:0,&quot;barMinAngle&quot;:0,&quot;large&quot;:false,&quot;largeThreshold&quot;:400,&quot;progressive&quot;:3000,&quot;progressiveChunkMode&quot;:&quot;mod&quot;,&quot;clip&quot;:true,&quot;roundCap&quot;:false,&quot;showBackground&quot;:false,&quot;backgroundStyle&quot;:{&quot;color&quot;:&quot;rgba(180, 180, 180, 0.2)&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderType&quot;:&quot;solid&quot;,&quot;borderRadius&quot;:0,&quot;shadowBlur&quot;:0,&quot;shadowColor&quot;:null,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:0,&quot;opacity&quot;:1},&quot;select&quot;:{&quot;itemStyle&quot;:{&quot;borderColor&quot;:&quot;#212121&quot;}},&quot;realtimeSort&quot;:false,&quot;label&quot;:{},&quot;emphasis&quot;:{&quot;label&quot;:{}}}],&quot;visualMap&quot;:[],&quot;legend&quot;:[{&quot;data&quot;:[&quot;本期帳面金額&quot;,&quot;前期帳面金額&quot;],&quot;textStyle&quot;:{&quot;color&quot;:&quot;#333333&quot;},&quot;bottom&quot;:0,&quot;z&quot;:4,&quot;show&quot;:true,&quot;orient&quot;:&quot;horizontal&quot;,&quot;left&quot;:&quot;center&quot;,&quot;top&quot;:null,&quot;align&quot;:&quot;auto&quot;,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderColor&quot;:&quot;#ccc&quot;,&quot;borderRadius&quot;:0,&quot;borderWidth&quot;:0,&quot;padding&quot;:5,&quot;itemGap&quot;:10,&quot;itemWidth&quot;:25,&quot;itemHeight&quot;:14,&quot;symbolRotate&quot;:&quot;inherit&quot;,&quot;symbolKeepAspect&quot;:true,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderWidth&quot;:&quot;auto&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;inherit&quot;,&quot;opacity&quot;:&quot;inherit&quot;,&quot;borderColor&quot;:&quot;inherit&quot;,&quot;borderWidth&quot;:&quot;auto&quot;,&quot;borderCap&quot;:&quot;inherit&quot;,&quot;borderJoin&quot;:&quot;inherit&quot;,&quot;borderDashOffset&quot;:&quot;inherit&quot;,&quot;borderMiterLimit&quot;:&quot;inherit&quot;},&quot;lineStyle&quot;:{&quot;width&quot;:&quot;auto&quot;,&quot;color&quot;:&quot;inherit&quot;,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveWidth&quot;:2,&quot;opacity&quot;:&quot;inherit&quot;,&quot;type&quot;:&quot;inherit&quot;,&quot;cap&quot;:&quot;inherit&quot;,&quot;join&quot;:&quot;inherit&quot;,&quot;dashOffset&quot;:&quot;inherit&quot;,&quot;miterLimit&quot;:&quot;inherit&quot;},&quot;selectedMode&quot;:true,&quot;selector&quot;:false,&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;borderRadius&quot;:10,&quot;padding&quot;:[3,5,3,5],&quot;fontSize&quot;:12,&quot;fontFamily&quot;:&quot;sans-serif&quot;,&quot;color&quot;:&quot;#666&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#666&quot;},&quot;emphasis&quot;:{&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;color&quot;:&quot;#eee&quot;,&quot;backgroundColor&quot;:&quot;#666&quot;}},&quot;selectorPosition&quot;:&quot;auto&quot;,&quot;selectorItemGap&quot;:7,&quot;selectorButtonGap&quot;:10,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;selected&quot;:{}}],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 720px; height: 450px; padding: 0px; margin: 0px; border-width: 0px; cursor: pointer;"><canvas data-zr-dom-id="zr_0" width="990" height="618" style="position: absolute; left: 0px; top: 0px; width: 720px; height: 450px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class="" style="position: absolute; display: block; border-style: solid; white-space: nowrap; z-index: 9999999; box-shadow: rgba(0, 0, 0, 0.2) 1px 2px 10px; transition: opacity 0.2s cubic-bezier(0.23, 1, 0.32, 1), visibility 0.2s cubic-bezier(0.23, 1, 0.32, 1), transform 0.4s cubic-bezier(0.23, 1, 0.32, 1); background-color: rgb(255, 255, 255); border-width: 1px; border-radius: 4px; color: rgb(102, 102, 102); font: 14px / 21px &quot;Microsoft YaHei&quot;; padding: 10px; top: 0px; left: 0px; transform: translate3d(303px, 201px, 0px); border-color: rgb(255, 255, 255); pointer-events: none; visibility: hidden; opacity: 0;"><div style="margin: 0px 0 0;line-height:1;"><div style="margin: 0px 0 0;line-height:1;"><div style="font-size:14px;color:#666;font-weight:400;line-height:1;">不動產</div><div style="margin: 10px 0 0;line-height:1;"><div style="margin: 0px 0 0;line-height:1;"><div style="margin: 0px 0 0;line-height:1;"><span style="display:inline-block;margin-right:4px;border-radius:10px;width:10px;height:10px;background-color:#9A0036;"></span><span style="font-size:14px;color:#666;font-weight:400;margin-left:2px">本期帳面金額</span><span style="float:right;margin-left:20px;font-size:14px;color:#666;font-weight:900">18,663.46</span><div style="clear:both"></div></div><div style="clear:both"></div></div><div style="margin: 10px 0 0;line-height:1;"><div style="margin: 0px 0 0;line-height:1;"><span style="display:inline-block;margin-right:4px;border-radius:10px;width:10px;height:10px;background-color:#EEBAC0;"></span><span style="font-size:14px;color:#666;font-weight:400;margin-left:2px">前期帳面金額</span><span style="float:right;margin-left:20px;font-size:14px;color:#666;font-weight:900">18,679.81</span><div style="clear:both"></div></div><div style="clear:both"></div></div><div style="clear:both"></div></div><div style="clear:both"></div></div><div style="clear:both"></div></div></div></div>
+                </div>
+
+                <!-- Insight/Pie Chart Area -->
+                <div class="bg-white dark:bg-neutral-800 p-6 rounded-2xl shadow-soft border border-gray-100 dark:border-neutral-700 flex flex-col">
+                    <h3 class="text-lg font-bold mb-4 text-gray-800 dark:text-white border-l-4 border-brand-main pl-3">RWA 構成佔比</h3>
+                    <div id="rwaPieChart" class="w-full flex-grow min-h-[300px]" _echarts_instance_="ec_1771850752112" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" data-chart-option="{&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;darkMode&quot;:&quot;auto&quot;,&quot;colorBy&quot;:&quot;series&quot;,&quot;color&quot;:[&quot;#5470c6&quot;,&quot;#91cc75&quot;,&quot;#fac858&quot;,&quot;#ee6666&quot;,&quot;#73c0de&quot;,&quot;#3ba272&quot;,&quot;#fc8452&quot;,&quot;#9a60b4&quot;,&quot;#ea7ccc&quot;],&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;textStyle&quot;:{&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;axisPointer&quot;:[{&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9BEC9&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;label&quot;:{&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;color&quot;:&quot;#fff&quot;,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[{&quot;trigger&quot;:&quot;item&quot;,&quot;formatter&quot;:&quot;{b}: {c}億 ({d}%)&quot;,&quot;z&quot;:60,&quot;show&quot;:true,&quot;showContent&quot;:true,&quot;triggerOn&quot;:&quot;mousemove|click&quot;,&quot;alwaysShowContent&quot;:false,&quot;displayMode&quot;:&quot;single&quot;,&quot;renderMode&quot;:&quot;auto&quot;,&quot;confine&quot;:null,&quot;showDelay&quot;:0,&quot;hideDelay&quot;:100,&quot;transitionDuration&quot;:0.4,&quot;enterable&quot;:false,&quot;backgroundColor&quot;:&quot;#fff&quot;,&quot;shadowBlur&quot;:10,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, .2)&quot;,&quot;shadowOffsetX&quot;:1,&quot;shadowOffsetY&quot;:2,&quot;borderRadius&quot;:4,&quot;borderWidth&quot;:1,&quot;padding&quot;:null,&quot;extraCssText&quot;:&quot;&quot;,&quot;axisPointer&quot;:{&quot;type&quot;:&quot;line&quot;,&quot;axis&quot;:&quot;auto&quot;,&quot;animation&quot;:&quot;auto&quot;,&quot;animationDurationUpdate&quot;:200,&quot;animationEasingUpdate&quot;:&quot;exponentialOut&quot;,&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#999&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;,&quot;textStyle&quot;:{}}},&quot;textStyle&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;fontSize&quot;:14}}],&quot;series&quot;:[{&quot;name&quot;:&quot;RWA分佈&quot;,&quot;type&quot;:&quot;pie&quot;,&quot;radius&quot;:[&quot;40%&quot;,&quot;70%&quot;],&quot;avoidLabelOverlap&quot;:true,&quot;itemStyle&quot;:{&quot;borderRadius&quot;:5,&quot;borderColor&quot;:&quot;#fff&quot;,&quot;borderWidth&quot;:2,&quot;borderJoin&quot;:&quot;round&quot;},&quot;label&quot;:{&quot;show&quot;:true,&quot;formatter&quot;:&quot;{b}\n{d}%&quot;,&quot;color&quot;:&quot;#333333&quot;,&quot;rotate&quot;:0,&quot;overflow&quot;:&quot;truncate&quot;,&quot;position&quot;:&quot;outer&quot;,&quot;alignTo&quot;:&quot;none&quot;,&quot;edgeDistance&quot;:&quot;25%&quot;,&quot;bleedMargin&quot;:10,&quot;distanceToLabelLine&quot;:5},&quot;emphasis&quot;:{&quot;label&quot;:{&quot;show&quot;:true,&quot;fontSize&quot;:16,&quot;fontWeight&quot;:&quot;bold&quot;},&quot;scale&quot;:true,&quot;scaleSize&quot;:5,&quot;labelLine&quot;:{&quot;show&quot;:true}},&quot;data&quot;:[{&quot;value&quot;:17.33,&quot;name&quot;:&quot;主權國家&quot;},{&quot;value&quot;:693.99,&quot;name&quot;:&quot;非中央政府&quot;},{&quot;value&quot;:2266.86,&quot;name&quot;:&quot;銀行同業&quot;},{&quot;value&quot;:6438.83,&quot;name&quot;:&quot;企業&quot;},{&quot;value&quot;:1567.46,&quot;name&quot;:&quot;零售&quot;},{&quot;value&quot;:9245.45,&quot;name&quot;:&quot;不動產&quot;},{&quot;value&quot;:2074.9,&quot;name&quot;:&quot;權益證券&quot;},{&quot;value&quot;:1986.32,&quot;name&quot;:&quot;其他&quot;}],&quot;color&quot;:[&quot;#9A0036&quot;,&quot;#D94F70&quot;,&quot;#EEBAC0&quot;,&quot;#F59E0B&quot;,&quot;#8B5CF6&quot;,&quot;#941C61&quot;,&quot;#10B981&quot;,&quot;#6B7280&quot;],&quot;z&quot;:2,&quot;legendHoverLink&quot;:true,&quot;colorBy&quot;:&quot;data&quot;,&quot;center&quot;:[&quot;50%&quot;,&quot;50%&quot;],&quot;clockwise&quot;:true,&quot;startAngle&quot;:90,&quot;minAngle&quot;:0,&quot;minShowLabelAngle&quot;:0,&quot;selectedOffset&quot;:10,&quot;percentPrecision&quot;:2,&quot;stillShowZeroSum&quot;:true,&quot;left&quot;:0,&quot;top&quot;:0,&quot;right&quot;:0,&quot;bottom&quot;:0,&quot;width&quot;:null,&quot;height&quot;:null,&quot;labelLine&quot;:{&quot;show&quot;:true,&quot;length&quot;:15,&quot;length2&quot;:15,&quot;smooth&quot;:false,&quot;minTurnAngle&quot;:90,&quot;maxSurfaceAngle&quot;:90,&quot;lineStyle&quot;:{&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;}},&quot;showEmptyCircle&quot;:true,&quot;emptyCircleStyle&quot;:{&quot;color&quot;:&quot;lightgray&quot;,&quot;opacity&quot;:1},&quot;labelLayout&quot;:{&quot;hideOverlap&quot;:true},&quot;animationType&quot;:&quot;expansion&quot;,&quot;animationDuration&quot;:1000,&quot;animationTypeUpdate&quot;:&quot;transition&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;}],&quot;visualMap&quot;:[],&quot;legend&quot;:[{&quot;orient&quot;:&quot;horizontal&quot;,&quot;bottom&quot;:&quot;0&quot;,&quot;left&quot;:&quot;center&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#333333&quot;,&quot;fontSize&quot;:10},&quot;z&quot;:4,&quot;show&quot;:true,&quot;top&quot;:null,&quot;align&quot;:&quot;auto&quot;,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderColor&quot;:&quot;#ccc&quot;,&quot;borderRadius&quot;:0,&quot;borderWidth&quot;:0,&quot;padding&quot;:5,&quot;itemGap&quot;:10,&quot;itemWidth&quot;:25,&quot;itemHeight&quot;:14,&quot;symbolRotate&quot;:&quot;inherit&quot;,&quot;symbolKeepAspect&quot;:true,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderColor&quot;:&quot;#ccc&quot;,&quot;inactiveBorderWidth&quot;:&quot;auto&quot;,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;inherit&quot;,&quot;opacity&quot;:&quot;inherit&quot;,&quot;borderColor&quot;:&quot;inherit&quot;,&quot;borderWidth&quot;:&quot;auto&quot;,&quot;borderCap&quot;:&quot;inherit&quot;,&quot;borderJoin&quot;:&quot;inherit&quot;,&quot;borderDashOffset&quot;:&quot;inherit&quot;,&quot;borderMiterLimit&quot;:&quot;inherit&quot;},&quot;lineStyle&quot;:{&quot;width&quot;:&quot;auto&quot;,&quot;color&quot;:&quot;inherit&quot;,&quot;inactiveColor&quot;:&quot;#ccc&quot;,&quot;inactiveWidth&quot;:2,&quot;opacity&quot;:&quot;inherit&quot;,&quot;type&quot;:&quot;inherit&quot;,&quot;cap&quot;:&quot;inherit&quot;,&quot;join&quot;:&quot;inherit&quot;,&quot;dashOffset&quot;:&quot;inherit&quot;,&quot;miterLimit&quot;:&quot;inherit&quot;},&quot;selectedMode&quot;:true,&quot;selector&quot;:false,&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;borderRadius&quot;:10,&quot;padding&quot;:[3,5,3,5],&quot;fontSize&quot;:12,&quot;fontFamily&quot;:&quot;sans-serif&quot;,&quot;color&quot;:&quot;#666&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#666&quot;},&quot;emphasis&quot;:{&quot;selectorLabel&quot;:{&quot;show&quot;:true,&quot;color&quot;:&quot;#eee&quot;,&quot;backgroundColor&quot;:&quot;#666&quot;}},&quot;selectorPosition&quot;:&quot;auto&quot;,&quot;selectorItemGap&quot;:7,&quot;selectorButtonGap&quot;:10,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;right&quot;:null,&quot;selected&quot;:{}}],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 320px; height: 300px; padding: 0px; margin: 0px; border-width: 0px;"><canvas data-zr-dom-id="zr_0" width="440" height="412" style="position: absolute; left: 0px; top: 0px; width: 320px; height: 300px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class=""></div></div>
+                    <div class="mt-6 bg-brand-bg dark:bg-brand-dark/20 p-4 rounded-xl">
+                        <div class="flex items-start gap-3">
+                            <i class="fa-solid fa-lightbulb text-brand-main dark:text-brand-light mt-1"></i>
+                            <div class="text-sm text-gray-700 dark:text-gray-300">
+                                <span class="font-bold block mb-1">關鍵洞察</span>
+                                不動產暴險雖然帳面金額僅次於主權國家，但其貢獻了最大的 RWA (約佔總 RWA 的 38%)，仍是資本計提的主要來源。
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Logic Flow Visualization -->
+        <section class="mb-24">
+            <div class="bg-neutral-light dark:bg-neutral-800/50 rounded-3xl p-8 lg:p-12 relative overflow-hidden">
+                <!-- Decor -->
+                <div class="absolute top-0 right-0 w-64 h-64 bg-gray-200 dark:bg-gray-700 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+                <div class="absolute bottom-0 left-0 w-64 h-64 bg-accent-pink rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+                
+                <div class="relative z-10">
+                    <h2 class="text-2xl font-bold text-center mb-8 text-gray-900 dark:text-white">資本效率優化邏輯圖解</h2>
+                    <div class="mermaid flex justify-center bg-white dark:bg-neutral-900 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-x-auto" data-processed="true"><svg aria-roledescription="flowchart-v2" role="graphics-document document" viewBox="-8 -8 1324.2613525390625 718.75" style="max-width: 1324.2613525390625px;" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" width="100%" id="mermaid-1771850753491"><style>#mermaid-1771850753491{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}#mermaid-1771850753491 .error-icon{fill:#552222;}#mermaid-1771850753491 .error-text{fill:#552222;stroke:#552222;}#mermaid-1771850753491 .edge-thickness-normal{stroke-width:2px;}#mermaid-1771850753491 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-1771850753491 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-1771850753491 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-1771850753491 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-1771850753491 .marker{fill:#333333;stroke:#333333;}#mermaid-1771850753491 .marker.cross{stroke:#333333;}#mermaid-1771850753491 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaid-1771850753491 .label{font-family:"trebuchet ms",verdana,arial,sans-serif;color:#333;}#mermaid-1771850753491 .cluster-label text{fill:#333;}#mermaid-1771850753491 .cluster-label span,#mermaid-1771850753491 p{color:#333;}#mermaid-1771850753491 .label text,#mermaid-1771850753491 span,#mermaid-1771850753491 p{fill:#333;color:#333;}#mermaid-1771850753491 .node rect,#mermaid-1771850753491 .node circle,#mermaid-1771850753491 .node ellipse,#mermaid-1771850753491 .node polygon,#mermaid-1771850753491 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-1771850753491 .flowchart-label text{text-anchor:middle;}#mermaid-1771850753491 .node .label{text-align:center;}#mermaid-1771850753491 .node.clickable{cursor:pointer;}#mermaid-1771850753491 .arrowheadPath{fill:#333333;}#mermaid-1771850753491 .edgePath .path{stroke:#333333;stroke-width:2.0px;}#mermaid-1771850753491 .flowchart-link{stroke:#333333;fill:none;}#mermaid-1771850753491 .edgeLabel{background-color:#e8e8e8;text-align:center;}#mermaid-1771850753491 .edgeLabel rect{opacity:0.5;background-color:#e8e8e8;fill:#e8e8e8;}#mermaid-1771850753491 .labelBkg{background-color:rgba(232, 232, 232, 0.5);}#mermaid-1771850753491 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-1771850753491 .cluster text{fill:#333;}#mermaid-1771850753491 .cluster span,#mermaid-1771850753491 p{color:#333;}#mermaid-1771850753491 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:12px;background:hsl(80, 100%, 96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-1771850753491 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-1771850753491 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}</style><g><marker orient="auto" markerHeight="12" markerWidth="12" markerUnits="userSpaceOnUse" refY="5" refX="6" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1771850753491_flowchart-pointEnd"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 0 L 10 5 L 0 10 z"></path></marker><marker orient="auto" markerHeight="12" markerWidth="12" markerUnits="userSpaceOnUse" refY="5" refX="4.5" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1771850753491_flowchart-pointStart"><path style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 0 5 L 10 10 L 10 0 z"></path></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5" refX="11" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1771850753491_flowchart-circleEnd"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5" refX="-1" viewBox="0 0 10 10" class="marker flowchart" id="mermaid-1771850753491_flowchart-circleStart"><circle style="stroke-width: 1; stroke-dasharray: 1, 0;" class="arrowMarkerPath" r="5" cy="5" cx="5"></circle></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5.2" refX="12" viewBox="0 0 11 11" class="marker cross flowchart" id="mermaid-1771850753491_flowchart-crossEnd"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><marker orient="auto" markerHeight="11" markerWidth="11" markerUnits="userSpaceOnUse" refY="5.2" refX="-1" viewBox="0 0 11 11" class="marker cross flowchart" id="mermaid-1771850753491_flowchart-crossStart"><path style="stroke-width: 2; stroke-dasharray: 1, 0;" class="arrowMarkerPath" d="M 1,1 l 9,9 M 10,1 l -9,9"></path></marker><g class="root"><g class="clusters"><g id="Result" class="cluster default flowchart-label"><rect height="363.5" width="374.7045440673828" y="312" x="933.5568237304688" ry="0" rx="0" style=""></rect><g transform="translate(1088.9090957641602, 312)" class="cluster-label"><foreignObject height="24" width="64"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">最終結果</span></div></foreignObject></g></g><g id="Impact" class="cluster default flowchart-label"><rect height="376" width="481.55682373046875" y="326.75" x="402" ry="0" rx="0" style=""></rect><g transform="translate(594.7784118652344, 326.75)" class="cluster-label"><foreignObject height="24" width="96"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">風險權重效應</span></div></foreignObject></g></g><g id="Assets" class="cluster default flowchart-label"><rect height="306.75" width="599.6590881347656" y="0" x="0" ry="0" rx="0" style=""></rect><g transform="translate(227.625, 0)" class="cluster-label"><foreignObject height="24" width="144.40908813476562"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">資產變動 (+2,251億)</span></div></foreignObject></g></g></g><g class="edgePaths"><path marker-end="url(#mermaid-1771850753491_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-A LE-B" id="L-A-B-0" d="M152,138.5L156.167,138.5C160.333,138.5,168.667,138.5,176.2,138.566C183.734,138.632,190.467,138.764,193.834,138.83L197.201,138.896"></path><path marker-end="url(#mermaid-1771850753491_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-B LE-C" id="L-B-C-0" d="M293.565,112.065L304.804,102.471C316.043,92.877,338.522,73.688,356.594,64.094C374.667,54.5,388.333,54.5,398.45,54.5C408.567,54.5,415.133,54.5,418.417,54.5L421.7,54.5"></path><path marker-end="url(#mermaid-1771850753491_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-B LE-D" id="L-B-D-0" d="M317.69,141.81L324.909,142.091C332.127,142.373,346.563,142.937,360.615,143.218C374.667,143.5,388.333,143.5,399.639,143.5C410.945,143.5,419.891,143.5,424.364,143.5L428.836,143.5"></path><path marker-end="url(#mermaid-1771850753491_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-B LE-E" id="L-B-E-0" d="M291.912,167.588L303.427,178.406C314.942,189.225,337.971,210.863,356.319,221.681C374.667,232.5,388.333,232.5,399.849,232.5C411.364,232.5,420.728,232.5,425.41,232.5L430.092,232.5"></path><path marker-end="url(#mermaid-1771850753491_flowchart-pointEnd)" style="fill:none;stroke-width:2px;stroke-dasharray:3;" class="edge-thickness-normal edge-pattern-dotted flowchart-link LS-C LE-F" id="L-C-F-0" d="M574.659,54.5L578.826,54.5C582.992,54.5,591.326,54.5,604.992,108.958C618.659,163.417,637.659,272.333,655.776,326.792C673.892,381.25,691.126,381.25,699.742,381.25L708.359,381.25"></path><path marker-end="url(#mermaid-1771850753491_flowchart-pointEnd)" style="fill:none;stroke-width:2px;stroke-dasharray:3;" class="edge-thickness-normal edge-pattern-dotted flowchart-link LS-D LE-G" id="L-D-G-0" d="M567.523,143.5L572.879,143.5C578.235,143.5,588.947,143.5,603.803,197.958C618.659,252.417,637.659,361.333,658.442,415.792C679.226,470.25,701.792,470.25,713.076,470.25L724.359,470.25"></path><path marker-end="url(#mermaid-1771850753491_flowchart-pointEnd)" style="fill:none;stroke-width:2px;stroke-dasharray:3;" class="edge-thickness-normal edge-pattern-dotted flowchart-link LS-E LE-H" id="L-E-H-0" d="M566.267,232.5L571.832,232.5C577.398,232.5,588.528,232.5,603.594,286.958C618.659,341.417,637.659,450.333,658.442,504.792C679.226,559.25,701.792,559.25,713.076,559.25L724.359,559.25"></path><path marker-end="url(#mermaid-1771850753491_flowchart-pointEnd)" style="fill:none;stroke-width:2px;stroke-dasharray:3;" class="edge-thickness-normal edge-pattern-dotted flowchart-link LS-I LE-J" id="L-I-J-0" d="M564.33,648.25L570.218,648.25C576.106,648.25,587.883,648.25,603.271,648.25C618.659,648.25,637.659,648.25,658.442,648.25C679.226,648.25,701.792,648.25,713.076,648.25L724.359,648.25"></path><path marker-end="url(#mermaid-1771850753491_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-F LE-K" id="L-F-K-0" d="M858.557,381.25L862.723,381.25C866.89,381.25,875.223,381.25,883.557,381.25C891.89,381.25,900.223,381.25,908.557,381.25C916.89,381.25,925.223,381.25,943.29,402.799C961.357,424.349,989.158,467.447,1003.058,488.997L1016.958,510.546"></path><path marker-end="url(#mermaid-1771850753491_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-G LE-K" id="L-G-K-0" d="M842.557,470.25L849.39,470.25C856.223,470.25,869.89,470.25,880.89,470.25C891.89,470.25,900.223,470.25,908.557,470.25C916.89,470.25,925.223,470.25,940.125,477.227C955.026,484.204,976.495,498.158,987.229,505.135L997.963,512.112"></path><path marker-end="url(#mermaid-1771850753491_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-H LE-K" id="L-H-K-0" d="M842.557,559.25L849.39,559.25C856.223,559.25,869.89,559.25,880.89,559.25C891.89,559.25,900.223,559.25,908.557,559.25C916.89,559.25,925.223,559.25,932.7,558.421C940.176,557.593,946.796,555.935,950.106,555.107L953.416,554.278"></path><path marker-end="url(#mermaid-1771850753491_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-J LE-K" id="L-J-K-0" d="M842.557,648.25L849.39,648.25C856.223,648.25,869.89,648.25,880.89,648.25C891.89,648.25,900.223,648.25,908.557,648.25C916.89,648.25,925.223,648.25,942.462,633.208C959.7,618.167,985.843,588.084,998.915,573.042L1011.986,558"></path><path marker-end="url(#mermaid-1771850753491_flowchart-pointEnd)" style="fill:none;" class="edge-thickness-normal edge-pattern-solid flowchart-link LS-K LE-L" id="L-K-L-0" d="M1106.261,534.5L1110.428,534.5C1114.595,534.5,1122.928,534.5,1130.378,534.5C1137.828,534.5,1144.395,534.5,1147.678,534.5L1150.961,534.5"></path></g><g class="edgeLabels"><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g transform="translate(361, 54.5)" class="edgeLabel"><g transform="translate(-16, -12)" class="label"><foreignObject height="24" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">增加</span></div></foreignObject></g></g><g transform="translate(361, 143.5)" class="edgeLabel"><g transform="translate(-16, -12)" class="label"><foreignObject height="24" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">增加</span></div></foreignObject></g></g><g transform="translate(361, 232.5)" class="edgeLabel"><g transform="translate(-16, -12)" class="label"><foreignObject height="24" width="32"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">減少</span></div></foreignObject></g></g><g transform="translate(656.6590881347656, 381.25)" class="edgeLabel"><g transform="translate(-24, -12)" class="label"><foreignObject height="24" width="48"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">低權重</span></div></foreignObject></g></g><g transform="translate(656.6590881347656, 470.25)" class="edgeLabel"><g transform="translate(-24, -12)" class="label"><foreignObject height="24" width="48"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">中權重</span></div></foreignObject></g></g><g transform="translate(656.6590881347656, 559.25)" class="edgeLabel"><g transform="translate(-24, -12)" class="label"><foreignObject height="24" width="48"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">高權重</span></div></foreignObject></g></g><g transform="translate(656.6590881347656, 648.25)" class="edgeLabel"><g transform="translate(-32, -12)" class="label"><foreignObject height="24" width="64"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel">風險降低</span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g><g class="edgeLabel"><g transform="translate(0, 0)" class="label"><foreignObject height="0" width="0"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="edgeLabel"></span></div></foreignObject></g></g></g><g class="nodes"><g transform="translate(1032.4090957641602, 534.5)" id="flowchart-K-20" class="node default default flowchart-label"><rect height="39" width="147.7045440673828" y="-19.5" x="-73.8522720336914" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-66.3522720336914, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="132.7045440673828"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">總 RWA 減少 114億</span></div></foreignObject></g></g><g transform="translate(1219.7613677978516, 534.5)" id="flowchart-L-22" class="node default default flowchart-label"><circle height="39" width="127" r="63.5" ry="0" rx="0" style="fill:#9A0036;stroke:#fff;"></circle><g transform="translate(-56, -12)" style="color:#fff;" class="label"><rect></rect><foreignObject height="24" width="112"><div xmlns="http://www.w3.org/1999/xhtml" style="color: rgb(255, 255, 255); display: inline-block; white-space: nowrap;"><span style="color:#fff;" class="nodeLabel">資本適足率提升</span></div></foreignObject></g></g><g transform="translate(786.1079559326172, 381.25)" id="flowchart-F-9" class="node default default flowchart-label"><rect height="39" width="144.89773559570312" y="-19.5" x="-72.44886779785156" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-64.94886779785156, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="129.89773559570312"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">RWA 影響微乎其微</span></div></foreignObject></g></g><g transform="translate(786.1079559326172, 470.25)" id="flowchart-G-11" class="node default default flowchart-label"><rect height="39" width="112.8977279663086" y="-19.5" x="-56.4488639831543" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-48.9488639831543, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="97.8977279663086"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">RWA 同步增加</span></div></foreignObject></g></g><g transform="translate(786.1079559326172, 559.25)" id="flowchart-H-13" class="node default default flowchart-label"><rect height="39" width="112.8977279663086" y="-19.5" x="-56.4488639831543" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-48.9488639831543, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="97.8977279663086"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">RWA 顯著減少</span></div></foreignObject></g></g><g transform="translate(786.1079559326172, 648.25)" id="flowchart-J-15" class="node default default flowchart-label"><rect height="39" width="112.8977279663086" y="-19.5" x="-56.4488639831543" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-48.9488639831543, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="97.8977279663086"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">RWA 大幅下降</span></div></foreignObject></g></g><g transform="translate(500.8295440673828, 648.25)" id="flowchart-I-14" class="node default default flowchart-label"><rect height="39" width="127" y="-19.5" x="-63.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-56, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="112"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">不動產資產重組</span></div></foreignObject></g></g><g transform="translate(261, 138.5)" id="flowchart-B-1" class="node default default flowchart-label"><polygon style="" transform="translate(-59,59)" class="label-container" points="59,0 118,-59 59,-118 0,-59"></polygon><g transform="translate(-32, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="64"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">資產類別</span></div></foreignObject></g></g><g transform="translate(88.5, 138.5)" id="flowchart-A-0" class="node default default flowchart-label"><rect height="39" width="127" y="-19.5" x="-63.5" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-56, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="112"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">總資產規模擴張</span></div></foreignObject></g></g><g transform="translate(500.8295440673828, 54.5)" id="flowchart-C-3" class="node default default flowchart-label"><rect height="39" width="147.65908813476562" y="-19.5" x="-73.82954406738281" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-66.32954406738281, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="132.65908813476562"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">主權國家 +1,793億</span></div></foreignObject></g></g><g transform="translate(500.8295440673828, 143.5)" id="flowchart-D-5" class="node default default flowchart-label"><rect height="39" width="133.38636779785156" y="-19.5" x="-66.69318389892578" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-59.19318389892578, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="118.38636779785156"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">銀行同業 +270億</span></div></foreignObject></g></g><g transform="translate(500.8295440673828, 232.5)" id="flowchart-E-7" class="node default default flowchart-label"><rect height="39" width="130.875" y="-19.5" x="-65.4375" ry="0" rx="0" style="" class="basic label-container"></rect><g transform="translate(-57.9375, -12)" style="" class="label"><rect></rect><foreignObject height="24" width="115.875"><div style="display: inline-block; white-space: nowrap;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel">企業放款 -139億</span></div></foreignObject></g></g></g></g></g></svg></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed List / Top Movers -->
+        <section id="details" class="mb-24 scroll-mt-24">
+             <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-8 border-l-8 border-brand-main pl-4">重點監控對象變動明細</h2>
+             
+             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                 <!-- Increases -->
+                 <div class="space-y-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-8 h-8 rounded-full bg-brand-bg flex items-center justify-center text-brand-main">
+                            <i class="fa-solid fa-arrow-trend-up"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-gray-200">帳面金額顯著增加</h3>
+                    </div>
+                    
+                    <!-- List Item -->
+                    <div class="bg-white dark:bg-neutral-800 p-5 rounded-xl border border-gray-100 dark:border-neutral-700 shadow-sm flex items-center justify-between hover:border-brand-light transition-colors group">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-gray-50 dark:bg-neutral-700 flex items-center justify-center text-gray-500">
+                                <i class="fa-solid fa-building-columns"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold text-gray-900 dark:text-white group-hover:text-brand-main transition-colors">嘉義縣政府</div>
+                                <div class="text-xs text-gray-500">非中央政府公部門</div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="font-bold text-brand-main">+117.18 億</div>
+                            <div class="text-xs text-gray-400">RWA +2.34 億</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-neutral-800 p-5 rounded-xl border border-gray-100 dark:border-neutral-700 shadow-sm flex items-center justify-between hover:border-brand-light transition-colors group">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-gray-50 dark:bg-neutral-700 flex items-center justify-center text-gray-500">
+                                <i class="fa-solid fa-industry"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold text-gray-900 dark:text-white group-hover:text-brand-main transition-colors">文曙科技(股)</div>
+                                <div class="text-xs text-gray-500">企業</div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="font-bold text-brand-main">+59.15 億</div>
+                            <div class="text-xs text-gray-400">RWA 同步增加</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-neutral-800 p-5 rounded-xl border border-gray-100 dark:border-neutral-700 shadow-sm flex items-center justify-between hover:border-brand-light transition-colors group">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-gray-50 dark:bg-neutral-700 flex items-center justify-center text-gray-500">
+                                <i class="fa-solid fa-money-bill-transfer"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold text-gray-900 dark:text-white group-hover:text-brand-main transition-colors">新加坡大華銀行</div>
+                                <div class="text-xs text-gray-500">銀行拆放</div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="font-bold text-brand-main">+97.09 億</div>
+                            <div class="text-xs text-gray-400">RWA +19.42 億</div>
+                        </div>
+                    </div>
+                 </div>
+
+                 <!-- Decreases -->
+                 <div class="space-y-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-8 h-8 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center text-green-600">
+                            <i class="fa-solid fa-arrow-trend-down"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 dark:text-gray-200">帳面金額顯著減少</h3>
+                    </div>
+
+                    <!-- List Item -->
+                    <div class="bg-white dark:bg-neutral-800 p-5 rounded-xl border border-gray-100 dark:border-neutral-700 shadow-sm flex items-center justify-between hover:border-green-500 transition-colors group">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-gray-50 dark:bg-neutral-700 flex items-center justify-center text-gray-500">
+                                <i class="fa-solid fa-train-subway"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold text-gray-900 dark:text-white group-hover:text-green-600 transition-colors">高雄市政府交通局</div>
+                                <div class="text-xs text-gray-500">非中央政府公部門</div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="font-bold text-green-600">-70.58 億</div>
+                            <div class="text-xs text-gray-400">RWA -14.12 億</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-neutral-800 p-5 rounded-xl border border-gray-100 dark:border-neutral-700 shadow-sm flex items-center justify-between hover:border-green-500 transition-colors group">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-gray-50 dark:bg-neutral-700 flex items-center justify-center text-gray-500">
+                                <i class="fa-solid fa-microchip"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold text-gray-900 dark:text-white group-hover:text-green-600 transition-colors">和碩聯合科技(股)</div>
+                                <div class="text-xs text-gray-500">企業</div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="font-bold text-green-600">-67.08 億</div>
+                            <div class="text-xs text-gray-400">RWA -50.31 億</div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-neutral-800 p-5 rounded-xl border border-gray-100 dark:border-neutral-700 shadow-sm flex items-center justify-between hover:border-green-500 transition-colors group">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-gray-50 dark:bg-neutral-700 flex items-center justify-center text-gray-500">
+                                <i class="fa-solid fa-building-user"></i>
+                            </div>
+                            <div>
+                                <div class="font-bold text-gray-900 dark:text-white group-hover:text-green-600 transition-colors">紐約梅隆銀行</div>
+                                <div class="text-xs text-gray-500">銀行存放</div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <div class="font-bold text-green-600">-61.50 億</div>
+                            <div class="text-xs text-gray-400">RWA -12.30 億</div>
+                        </div>
+                    </div>
+                 </div>
+             </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 dark:bg-neutral-900 border-t border-gray-200 dark:border-neutral-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-8 h-8 rounded bg-brand-main flex items-center justify-center text-white text-sm">
+                            <i class="fa-solid fa-shield"></i>
+                        </div>
+                        <span class="text-lg font-bold text-gray-900 dark:text-white">RWA Monitor</span>
+                    </div>
+                    <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed max-w-sm">
+                        本監控平台旨在提供透明、即時的信用風險加權資產分析，協助決策者優化資產配置與風險管理。
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-4">資料來源</h4>
+                    <ul class="space-y-2 text-sm text-gray-500 dark:text-gray-400">
+                        <li>11501_RWA_REPORT_SS1027</li>
+                        <li>金融監理公開資訊</li>
+                        <li>銀行內部財報數據</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-4">相關連結</h4>
+                    <ul class="space-y-2 text-sm text-gray-500 dark:text-gray-400">
+                        <li><a href="#" class="hover:text-brand-main">風險管理政策</a></li>
+                        <li><a href="#" class="hover:text-brand-main">歷史報告存檔</a></li>
+                        <li><a href="#" class="hover:text-brand-main">聯絡分析團隊</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-200 dark:border-neutral-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="text-xs text-gray-400 text-center md:text-left">
+                    <p class="mb-2 font-medium">免責申明：基於公開資料，僅供參考，不構成建議。</p>
+                    <p>版權所有 © 2026 Dunk (Design by Dunk). All rights reserved.</p>
+                </div>
+                <div class="flex gap-4">
+                    <a href="#" class="w-8 h-8 rounded-full bg-gray-200 dark:bg-neutral-800 flex items-center justify-center text-gray-500 hover:bg-brand-main hover:text-white transition-colors">
+                        <i class="fa-brands fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="w-8 h-8 rounded-full bg-gray-200 dark:bg-neutral-800 flex items-center justify-center text-gray-500 hover:bg-brand-main hover:text-white transition-colors">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Data for Charts
+        const categories = ['主權國家', '非中央政府', '銀行同業', '企業', '零售', '不動產', '權益證券'];
+        const bookValueCurrent = [19783.92, 7397.31, 7547.66, 11671.29, 3400.78, 18663.46, 1185.18];
+        const bookValuePrev = [17990.10, 7205.87, 7277.61, 11810.83, 3390.24, 18679.81, 1166.35];
+        const rwaData = [
+            { value: 17.33, name: '主權國家' },
+            { value: 693.99, name: '非中央政府' },
+            { value: 2266.86, name: '銀行同業' },
+            { value: 6438.83, name: '企業' },
+            { value: 1567.46, name: '零售' },
+            { value: 9245.45, name: '不動產' },
+            { value: 2074.90, name: '權益證券' },
+            { value: 1986.32, name: '其他' } // Calculated remainder roughly
+        ];
+
+        let exposureChartInstance = null;
+        let rwaPieChartInstance = null;
+
+        function initCharts() {
+            const isDark = document.documentElement.classList.contains('dark');
+            const textColor = isDark ? '#E5E5E5' : '#333333';
+            const gridColor = isDark ? '#404040' : '#E5E5E5';
+            
+            // 1. Exposure Bar Chart
+            const chartDom = document.getElementById('exposureChart');
+            if (chartDom) {
+                if (exposureChartInstance) exposureChartInstance.dispose();
+                exposureChartInstance = echarts.init(chartDom, isDark ? 'dark' : null);
+                
+                const option = {
+                    backgroundColor: 'transparent',
+                    tooltip: {
+                        trigger: 'axis',
+                        axisPointer: { type: 'shadow' }
+                    },
+                    legend: {
+                        data: ['本期帳面金額', '前期帳面金額'],
+                        textStyle: { color: textColor },
+                        bottom: 0
+                    },
+                    grid: {
+                        left: '3%',
+                        right: '4%',
+                        bottom: '10%',
+                        containLabel: true
+                    },
+                    xAxis: {
+                        type: 'category',
+                        data: categories,
+                        axisLabel: { color: textColor, interval: 0, rotate: 0 },
+                        axisLine: { lineStyle: { color: gridColor } }
+                    },
+                    yAxis: {
+                        type: 'value',
+                        name: '億元',
+                        splitLine: { lineStyle: { type: 'dashed', color: gridColor } },
+                        axisLabel: { color: textColor }
+                    },
+                    series: [
+                        {
+                            name: '本期帳面金額',
+                            type: 'bar',
+                            data: bookValueCurrent,
+                            itemStyle: { color: '#9A0036', borderRadius: [4, 4, 0, 0] },
+                            barWidth: '30%'
+                        },
+                        {
+                            name: '前期帳面金額',
+                            type: 'bar',
+                            data: bookValuePrev,
+                            itemStyle: { color: '#EEBAC0', borderRadius: [4, 4, 0, 0] },
+                            barWidth: '30%'
+                        }
+                    ]
+                };
+                
+                // Responsive adjustment
+                if (window.innerWidth < 768) {
+                    option.xAxis.axisLabel.rotate = 45;
+                }
+                
+                exposureChartInstance.setOption(option);
+            }
+
+            // 2. RWA Pie Chart
+            const pieDom = document.getElementById('rwaPieChart');
+            if (pieDom) {
+                if (rwaPieChartInstance) rwaPieChartInstance.dispose();
+                rwaPieChartInstance = echarts.init(pieDom, isDark ? 'dark' : null);
+
+                const pieOption = {
+                    backgroundColor: 'transparent',
+                    tooltip: {
+                        trigger: 'item',
+                        formatter: '{b}: {c}億 ({d}%)'
+                    },
+                    legend: {
+                        orient: 'horizontal',
+                        bottom: '0',
+                        left: 'center',
+                        textStyle: { color: textColor, fontSize: 10 }
+                    },
+                    series: [
+                        {
+                            name: 'RWA分佈',
+                            type: 'pie',
+                            radius: ['40%', '70%'],
+                            avoidLabelOverlap: true,
+                            itemStyle: {
+                                borderRadius: 5,
+                                borderColor: isDark ? '#262626' : '#fff',
+                                borderWidth: 2
+                            },
+                            label: {
+                                show: true,
+                                formatter: '{b}\n{d}%',
+                                color: textColor
+                            },
+                            emphasis: {
+                                label: {
+                                    show: true,
+                                    fontSize: 16,
+                                    fontWeight: 'bold'
+                                }
+                            },
+                            data: rwaData,
+                            color: [
+                                '#9A0036', // Sovereign
+                                '#D94F70', // Non-Central
+                                '#EEBAC0', // Banks
+                                '#F59E0B', // Corp (Gold)
+                                '#8B5CF6', // Retail
+                                '#941C61', // Real Estate (Purple)
+                                '#10B981', // Equity
+                                '#6B7280'  // Other
+                            ]
+                        }
+                    ]
+                };
+                rwaPieChartInstance.setOption(pieOption);
+            }
+        }
+
+        // Mermaid Initialization
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: document.documentElement.classList.contains('dark') ? 'dark' : 'default',
+            flowchart: { curve: 'basis' }
+        });
+
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        // Check system preference
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+            initCharts();
+            
+            // Re-render Mermaid (Needs reload for clean switch usually, but we can try just reset)
+            // For simplicity in a single file without complex state management, we accept Mermaid might need refresh
+            location.reload(); 
+        });
+
+        // Init charts on load
+        window.addEventListener('load', initCharts);
+        window.addEventListener('resize', () => {
+            if (exposureChartInstance) exposureChartInstance.resize();
+            if (rwaPieChartInstance) rwaPieChartInstance.resize();
+        });
+
+    </script>
+
+<div class="mermaidTooltip" style="opacity: 0;"></div></body></body></body>
+</html>
