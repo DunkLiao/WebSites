@@ -1,0 +1,656 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Met Gala 2026 | 服裝藝術 Costume Art</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        museum: {
+                            DEFAULT: '#1a1a1a', // 深黑
+                            light: '#2d2d2d',
+                            accent: '#d4af37', // 博物館金
+                            secondary: '#f8f5f2', // 紙張白
+                            blue: '#1e3a8a', // 博物館藍
+                        }
+                    },
+                    backgroundImage: {
+                        'gold-gradient': 'linear-gradient(135deg, #d4af37 0%, #f6e27a 50%, #d4af37 100%)',
+                        'silk-texture': 'url("data:image/svg+xml,%3Csvg width=\'100\' height=\'100\' viewBox=\'0 0 100 100\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z\' fill=\'%23d4af37\' fill-opacity=\'0.05\' fill-rule=\'evenodd\'/%3E%3C/svg%3E")',
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 1s ease-out forwards',
+                        'slow-pan': 'pan 20s linear infinite alternate',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        pan: {
+                            '0%': { backgroundPosition: '0% 50%' },
+                            '100%': { backgroundPosition: '100% 50%' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #d4af37;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f6e27a;
+        }
+        
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #d4af37 0%, #fff0b3 50%, #d4af37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .dark .glass-panel {
+            background: rgba(10, 10, 10, 0.6);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+
+        /* Hero Text Stroke for light mode mainly, but useful for depth */
+        .text-stroke {
+            -webkit-text-stroke: 1px rgba(212, 175, 55, 0.3);
+        }
+    </style>
+<script src="https://felo.ai/js/iframe.js?v=1772156093147"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style></head>
+<body class="bg-museum-secondary text-museum-light dark:bg-black dark:text-museum-secondary transition-colors duration-300 font-sans selection:bg-museum-accent selection:text-black"><body class="bg-museum-secondary text-museum-light dark:bg-black dark:text-museum-secondary transition-colors duration-300 font-sans selection:bg-museum-accent selection:text-black" contenteditable="false" spellcheck="false">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300 glass-panel border-b-0 border-b-museum-accent/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <span class="font-serif text-2xl font-bold tracking-wider dark:text-white">THE MET <span class="text-museum-accent">2026</span></span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#about" class="hover:text-museum-accent transition-colors px-3 py-2 text-sm font-medium tracking-widest uppercase">關於</a>
+                        <a href="#theme" class="hover:text-museum-accent transition-colors px-3 py-2 text-sm font-medium tracking-widest uppercase">主題</a>
+                        <a href="#leadership" class="hover:text-museum-accent transition-colors px-3 py-2 text-sm font-medium tracking-widest uppercase">聯合主席</a>
+                        <a href="#analytics" class="hover:text-museum-accent transition-colors px-3 py-2 text-sm font-medium tracking-widest uppercase">數據洞察</a>
+                    </div>
+                </div>
+                <div>
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors focus:outline-none">
+                        <i class="fas fa-moon text-museum-light dark:text-museum-accent text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Abstract Background -->
+        <div class="absolute inset-0 bg-museum-secondary dark:bg-black bg-silk-texture opacity-20 z-0"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-museum-secondary dark:to-black z-10"></div>
+        
+        <!-- Decorative Circle/Spotlight -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-museum-accent/10 rounded-full blur-[120px] z-0"></div>
+
+        <div class="relative z-20 text-center px-4 max-w-5xl mx-auto">
+            <p class="text-museum-accent font-serif italic text-xl md:text-2xl mb-4 animate-fade-in-up" style="animation-delay: 0.2s;">May 4, 2026 | New York</p>
+            <h1 class="font-serif text-6xl md:text-8xl lg:text-9xl font-bold mb-6 tracking-tight leading-none animate-fade-in-up dark:text-white" style="animation-delay: 0.4s;">
+                MET GALA
+            </h1>
+            <div class="w-24 h-1 bg-museum-accent mx-auto mb-8 animate-fade-in-up" style="animation-delay: 0.6s;"></div>
+            <h2 class="font-serif text-4xl md:text-6xl text-gradient-gold mb-8 animate-fade-in-up" style="animation-delay: 0.8s;">
+                Costume Art
+            </h2>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto text-gray-600 dark:text-gray-400 font-light leading-relaxed animate-fade-in-up" style="animation-delay: 1s;">
+                一場關於「穿著的身體」的現象學探索。<br>
+                將時尚從博物館邊緣推向藝術殿堂的中心。
+            </p>
+            
+            <div class="mt-12 animate-fade-in-up" style="animation-delay: 1.2s;">
+                 <div class="inline-block p-[1px] rounded-none bg-gradient-to-r from-transparent via-museum-accent to-transparent">
+                    <div class="bg-white/5 backdrop-blur-sm px-8 py-4 border border-museum-accent/30 text-museum-accent font-serif tracking-widest uppercase text-sm">
+                        Dress Code: Fashion Is Art
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Essential Info Grid (Magazine Layout) -->
+    <section id="about" class="py-24 bg-white dark:bg-neutral-900 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Left: Big Typography Context -->
+                <div class="lg:col-span-4 sticky top-24">
+                    <h3 class="font-serif text-4xl md:text-5xl mb-6 dark:text-white leading-tight">
+                        機構典範的<br><span class="text-museum-accent italic">歷史性轉型</span>
+                    </h3>
+                    <div class="w-12 h-[2px] bg-museum-accent mb-6"></div>
+                    <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
+                        2026年大都會藝術博物館慈善晚宴不僅是社交盛事，更是時尚在西方藝術體系中地位的歷史性躍遷。本次活動旨在為服裝學院籌集年度資金，並揭幕其最具野心的春季特展。
+                    </p>
+                    <ul class="space-y-4 text-sm font-medium tracking-wide">
+                        <li class="flex items-center gap-3 dark:text-gray-300">
+                            <i class="far fa-calendar text-museum-accent"></i> 2026年5月4日 (晚宴)
+                        </li>
+                        <li class="flex items-center gap-3 dark:text-gray-300">
+                            <i class="far fa-clock text-museum-accent"></i> 2026年5月10日 - 2027年1月10日 (展覽)
+                        </li>
+                        <li class="flex items-center gap-3 dark:text-gray-300">
+                            <i class="fas fa-map-marker-alt text-museum-accent"></i> 紐約大都會藝術博物館 Condé Nast Galleries
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Right: Detailed Content Cards -->
+                <div class="lg:col-span-8 space-y-8">
+                    <!-- Exhibition Concept -->
+                    <div class="glass-panel p-8 md:p-10 rounded-sm relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                            <i class="fas fa-quote-right text-6xl text-museum-accent"></i>
+                        </div>
+                        <h4 class="font-serif text-2xl text-museum-accent mb-4">策展核心：體現論 (Embodiment)</h4>
+                        <p class="text-gray-700 dark:text-gray-300 mb-6 leading-relaxed">
+                            服裝學院院長 Andrew Bolton 提出的「服裝藝術」主題，旨在終結「時尚是否為藝術」的長期辯論。展覽放棄傳統年代敘事，改以「身體類型」分類，透過將近400件展品（200件服飾對比200件藝術品）並置，揭示服飾如何塑造身體，以及身體如何賦予服飾生命。
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                            <div class="bg-museum-secondary/50 dark:bg-black/40 p-5 border-l-2 border-museum-accent">
+                                <h5 class="font-bold dark:text-white mb-2">康泰納仕展覽廳</h5>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">全新落成的12,000平方英尺展廳，緊鄰博物館大廳，象徵時尚從邊緣走向中心。</p>
+                            </div>
+                            <div class="bg-museum-secondary/50 dark:bg-black/40 p-5 border-l-2 border-museum-accent">
+                                <h5 class="font-bold dark:text-white mb-2">鏡面投射</h5>
+                                <p class="text-sm text-gray-600 dark:text-gray-400">藝術家 Samar Hejazi 設計的不鏽鋼反射頭部模特，讓觀眾在凝視時尚時看見自我。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dress Code Breakdown -->
+                    <div class="bg-museum-blue text-white p-8 md:p-10 rounded-sm relative overflow-hidden">
+                        <!-- Abstract SVG Background -->
+                        <div class="absolute inset-0 opacity-10">
+                            <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                                <defs style="pointer-events: none;">
+                                    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse" style="pointer-events: none;">
+                                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="0.5" style="pointer-events: none;"></path>
+                                    </pattern>
+                                </defs>
+                                <rect width="100%" height="100%" fill="url(#grid)" style="pointer-events: none;"></rect>
+                            </svg>
+                        </div>
+                        
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-4 mb-6">
+                                <span class="bg-museum-accent text-black text-xs font-bold px-3 py-1 uppercase tracking-widest">Dress Code</span>
+                                <h4 class="font-serif text-3xl">Fashion Is Art</h4>
+                            </div>
+                            <p class="text-gray-200 text-lg font-light mb-8">
+                                賓客被要求超越傳統紅毯邏輯，將身體視為流動的畫布。紅毯將成為一場「活生生的論文陳述」。
+                            </p>
+                            
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                                <div class="p-4 border border-white/20 hover:bg-white/10 transition-colors">
+                                    <i class="fas fa-palette text-2xl mb-3 text-museum-accent"></i>
+                                    <span class="block text-sm">具象藝術轉化</span>
+                                </div>
+                                <div class="p-4 border border-white/20 hover:bg-white/10 transition-colors">
+                                    <i class="fas fa-bone text-2xl mb-3 text-museum-accent"></i>
+                                    <span class="block text-sm">解剖與雕塑感</span>
+                                </div>
+                                <div class="p-4 border border-white/20 hover:bg-white/10 transition-colors">
+                                    <i class="fas fa-history text-2xl mb-3 text-museum-accent"></i>
+                                    <span class="block text-sm">檔案大作重現</span>
+                                </div>
+                                <div class="p-4 border border-white/20 hover:bg-white/10 transition-colors">
+                                    <i class="fas fa-cubes text-2xl mb-3 text-museum-accent"></i>
+                                    <span class="block text-sm">跨界材質應用</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Theme Deep Dive: Body Types -->
+    <section id="theme" class="py-24 bg-museum-secondary dark:bg-black relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-museum-accent uppercase tracking-[0.2em] text-sm font-bold">Exhibition Structure</span>
+                <h2 class="font-serif text-4xl md:text-5xl mt-3 dark:text-white">身體類型學 <span class="italic font-light">Body Typology</span></h2>
+                <p class="mt-4 text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                    展覽打破年代限制，透過六大身體類型，探討身份、政治與人類共通經驗。
+                </p>
+            </div>
+
+            <!-- Horizontal Scroll / Grid for Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="group relative h-96 overflow-hidden bg-white dark:bg-neutral-900 border border-gray-200 dark:border-gray-800 transition-all hover:shadow-2xl hover:border-museum-accent/50">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 z-10"></div>
+                    <!-- Using FontAwesome as visual placeholder for specific body types -->
+                    <div class="absolute inset-0 flex items-center justify-center opacity-10 group-hover:opacity-20 transition-opacity z-0">
+                        <i class="fas fa-venus-mars text-9xl text-gray-500"></i>
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-8 z-20 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <h3 class="text-museum-accent font-serif text-2xl mb-2">裸露身體</h3>
+                        <p class="text-white/60 text-xs uppercase tracking-widest mb-4">The Naked Body</p>
+                        <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 line-clamp-3">
+                            探討「裸體」作為文化建構而非自然狀態。現代「裸裙」與 Albrecht Dürer 版畫的跨時空對話。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="group relative h-96 overflow-hidden bg-white dark:bg-neutral-900 border border-gray-200 dark:border-gray-800 transition-all hover:shadow-2xl hover:border-museum-accent/50">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 z-10"></div>
+                    <div class="absolute inset-0 flex items-center justify-center opacity-10 group-hover:opacity-20 transition-opacity z-0">
+                        <i class="fas fa-columns text-9xl text-gray-500"></i>
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-8 z-20 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <h3 class="text-museum-accent font-serif text-2xl mb-2">古典身體</h3>
+                        <p class="text-white/60 text-xs uppercase tracking-widest mb-4">The Classical Body</p>
+                        <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 line-clamp-3">
+                            解析理想化比例與垂墜美學。Glenn Martens (Y/Project) 對比1-2世紀羅馬大理石雕像。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="group relative h-96 overflow-hidden bg-white dark:bg-neutral-900 border border-gray-200 dark:border-gray-800 transition-all hover:shadow-2xl hover:border-museum-accent/50">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 z-10"></div>
+                    <div class="absolute inset-0 flex items-center justify-center opacity-10 group-hover:opacity-20 transition-opacity z-0">
+                        <i class="fas fa-baby-carriage text-9xl text-gray-500"></i>
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-8 z-20 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <h3 class="text-museum-accent font-serif text-2xl mb-2">懷孕身體</h3>
+                        <p class="text-white/60 text-xs uppercase tracking-widest mb-4">The Pregnant Body</p>
+                        <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 line-clamp-3">
+                            挑戰時尚界對生育形態的長期忽視。歷史孕期服飾與母性藝術創作的深刻並置。
+                        </p>
+                    </div>
+                </div>
+                
+                 <!-- Card 4 -->
+                 <div class="group relative h-96 overflow-hidden bg-white dark:bg-neutral-900 border border-gray-200 dark:border-gray-800 transition-all hover:shadow-2xl hover:border-museum-accent/50">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 z-10"></div>
+                    <div class="absolute inset-0 flex items-center justify-center opacity-10 group-hover:opacity-20 transition-opacity z-0">
+                        <i class="fas fa-hourglass-half text-9xl text-gray-500"></i>
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-8 z-20 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <h3 class="text-museum-accent font-serif text-2xl mb-2">老化身體</h3>
+                        <p class="text-white/60 text-xs uppercase tracking-widest mb-4">The Aging Body</p>
+                        <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 line-clamp-3">
+                            關注身體隨時流逝的自然轉變。展示服裝如何適應並體現長壽者的尊嚴與特質。
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="group relative h-96 overflow-hidden bg-white dark:bg-neutral-900 border border-gray-200 dark:border-gray-800 transition-all hover:shadow-2xl hover:border-museum-accent/50">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 z-10"></div>
+                    <div class="absolute inset-0 flex items-center justify-center opacity-10 group-hover:opacity-20 transition-opacity z-0">
+                        <i class="fas fa-x-ray text-9xl text-gray-500"></i>
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-8 z-20 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <h3 class="text-museum-accent font-serif text-2xl mb-2">解剖身體</h3>
+                        <p class="text-white/60 text-xs uppercase tracking-widest mb-4">The Anatomical Body</p>
+                        <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 line-clamp-3">
+                            呈現內部結構與生理功能的時尚轉化。Walter Van Beirendonck 肌肉衣對比 Max Weber 繪畫。
+                        </p>
+                    </div>
+                </div>
+
+                 <!-- Card 6 -->
+                 <div class="group relative h-96 overflow-hidden bg-white dark:bg-neutral-900 border border-gray-200 dark:border-gray-800 transition-all hover:shadow-2xl hover:border-museum-accent/50">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 z-10"></div>
+                    <div class="absolute inset-0 flex items-center justify-center opacity-10 group-hover:opacity-20 transition-opacity z-0">
+                        <i class="fas fa-skull text-9xl text-gray-500"></i>
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-8 z-20 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <h3 class="text-museum-accent font-serif text-2xl mb-2">凡人身體</h3>
+                        <p class="text-white/60 text-xs uppercase tracking-widest mb-4">The Mortal Body</p>
+                        <p class="text-gray-300 text-sm opacity-0 group-hover:opacity-100 transition-opacity delay-100 duration-500 line-clamp-3">
+                            探討脆弱性、死亡與永恆。19世紀哀悼禮服與 Tiffany &amp; Co. 哀悼胸針。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section id="leadership" class="py-24 bg-white dark:bg-neutral-900 border-t border-museum-accent/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16">
+                <div>
+                    <h2 class="font-serif text-4xl md:text-5xl dark:text-white">官方聯合主席</h2>
+                    <p class="text-museum-accent font-medium mt-2 uppercase tracking-wider">The 2026 Co-Chairs</p>
+                </div>
+                <div class="hidden md:block w-1/3 h-[1px] bg-gray-200 dark:bg-gray-800 mb-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Chair 1 -->
+                <div class="text-center group cursor-default">
+                    <div class="w-full aspect-[3/4] bg-neutral-100 dark:bg-neutral-800 mb-6 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 border-[1px] border-museum-accent scale-95 group-hover:scale-100 transition-transform duration-500"></div>
+                        <i class="fas fa-crown text-6xl text-gray-300 dark:text-gray-700 group-hover:text-museum-accent transition-colors"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl dark:text-white">Beyoncé</h3>
+                    <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mt-1">Music Icon</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-3 px-4">時隔十年首度重返，對展覽藝術價值的強力背書。</p>
+                </div>
+
+                <!-- Chair 2 -->
+                <div class="text-center group cursor-default">
+                    <div class="w-full aspect-[3/4] bg-neutral-100 dark:bg-neutral-800 mb-6 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 border-[1px] border-museum-accent scale-95 group-hover:scale-100 transition-transform duration-500"></div>
+                        <i class="fas fa-film text-6xl text-gray-300 dark:text-gray-700 group-hover:text-museum-accent transition-colors"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl dark:text-white">Nicole Kidman</h3>
+                    <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mt-1">Academy Award Winner</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-3 px-4">代表電影產業對時尚的優雅詮釋與博物館級收藏。</p>
+                </div>
+
+                <!-- Chair 3 -->
+                <div class="text-center group cursor-default">
+                    <div class="w-full aspect-[3/4] bg-neutral-100 dark:bg-neutral-800 mb-6 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 border-[1px] border-museum-accent scale-95 group-hover:scale-100 transition-transform duration-500"></div>
+                        <i class="fas fa-table-tennis text-6xl text-gray-300 dark:text-gray-700 group-hover:text-museum-accent transition-colors"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl dark:text-white">Venus Williams</h3>
+                    <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mt-1">Tennis Legend</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-3 px-4">象徵運動身體在高級時尚語境下的藝術轉化。</p>
+                </div>
+
+                <!-- Chair 4 -->
+                <div class="text-center group cursor-default">
+                    <div class="w-full aspect-[3/4] bg-neutral-100 dark:bg-neutral-800 mb-6 flex items-center justify-center relative overflow-hidden">
+                        <div class="absolute inset-0 border-[1px] border-museum-accent scale-95 group-hover:scale-100 transition-transform duration-500"></div>
+                        <i class="fas fa-glasses text-6xl text-gray-300 dark:text-gray-700 group-hover:text-museum-accent transition-colors"></i>
+                    </div>
+                    <h3 class="font-serif text-2xl dark:text-white">Anna Wintour</h3>
+                    <p class="text-xs font-bold text-gray-500 uppercase tracking-widest mt-1">Editor-in-Chief, Vogue</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mt-3 px-4">特展的永久共同推動者，機構權威依然穩固。</p>
+                </div>
+            </div>
+            
+            <!-- Honorary Info -->
+            <div class="mt-16 text-center border-t border-gray-100 dark:border-gray-800 pt-8">
+                 <p class="text-gray-500 dark:text-gray-400 text-sm">榮譽主席 &amp; 領先資助者</p>
+                 <h4 class="font-serif text-xl dark:text-white mt-2">Jeff Bezos &amp; Lauren Sánchez Bezos</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analytics & Timeline Section (Visualization) -->
+    <section id="analytics" class="py-24 bg-museum-secondary dark:bg-black">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-serif text-4xl mb-12 text-center dark:text-white">活動數據與流程 <br><span class="text-base font-sans text-museum-accent uppercase tracking-widest">Analytics &amp; Schedule</span></h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                
+                <!-- Mermaid Timeline -->
+                <div class="glass-panel p-8 rounded-lg">
+                    <h3 class="font-serif text-2xl mb-6 dark:text-white border-l-4 border-museum-accent pl-4">晚宴流程可視化</h3>
+                    <div class="mermaid flex justify-center" data-processed="true"><svg id="mermaid-1772156128467" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="max-width: 177.0500030517578px;" viewBox="-8 -8 177.0500030517578 764" role="graphics-document document" aria-roledescription="flowchart-v2"><style style="pointer-events: none;">#mermaid-1772156128467{font-family:Noto Sans TC;font-size:16px;fill:#333;}#mermaid-1772156128467 .error-icon{fill:#fff0b3;}#mermaid-1772156128467 .error-text{fill:#000f4c;stroke:#000f4c;}#mermaid-1772156128467 .edge-thickness-normal{stroke-width:2px;}#mermaid-1772156128467 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-1772156128467 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-1772156128467 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-1772156128467 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-1772156128467 .marker{fill:#0b0b0b;stroke:#0b0b0b;}#mermaid-1772156128467 .marker.cross{stroke:#0b0b0b;}#mermaid-1772156128467 svg{font-family:Noto Sans TC;font-size:16px;}#mermaid-1772156128467 .label{font-family:Noto Sans TC;color:#333;}#mermaid-1772156128467 .cluster-label text{fill:#000f4c;}#mermaid-1772156128467 .cluster-label span,#mermaid-1772156128467 p{color:#000f4c;}#mermaid-1772156128467 .label text,#mermaid-1772156128467 span,#mermaid-1772156128467 p{fill:#333;color:#333;}#mermaid-1772156128467 .node rect,#mermaid-1772156128467 .node circle,#mermaid-1772156128467 .node ellipse,#mermaid-1772156128467 .node polygon,#mermaid-1772156128467 .node path{fill:#1a1a1a;stroke:hsl(0, 0%, 0.1960784314%);stroke-width:1px;}#mermaid-1772156128467 .flowchart-label text{text-anchor:middle;}#mermaid-1772156128467 .node .label{text-align:center;}#mermaid-1772156128467 .node.clickable{cursor:pointer;}#mermaid-1772156128467 .arrowheadPath{fill:#0b0b0b;}#mermaid-1772156128467 .edgePath .path{stroke:#0b0b0b;stroke-width:2.0px;}#mermaid-1772156128467 .flowchart-link{stroke:#0b0b0b;fill:none;}#mermaid-1772156128467 .edgeLabel{background-color:#ffffff;text-align:center;}#mermaid-1772156128467 .edgeLabel rect{opacity:0.5;background-color:#ffffff;fill:#ffffff;}#mermaid-1772156128467 .labelBkg{background-color:rgba(255, 255, 255, 0.5);}#mermaid-1772156128467 .cluster rect{fill:#fff0b3;stroke:hsl(48.1578947368, 60%, 75.0980392157%);stroke-width:1px;}#mermaid-1772156128467 .cluster text{fill:#000f4c;}#mermaid-1772156128467 .cluster span,#mermaid-1772156128467 p{color:#000f4c;}#mermaid-1772156128467 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:Noto Sans TC;font-size:12px;background:#fff0b3;border:1px solid hsl(48.1578947368, 60%, 75.0980392157%);border-radius:2px;pointer-events:none;z-index:100;}#mermaid-1772156128467 .flowchartTitleText{text-anchor:middle;font-size:18px;fill:#333;}#mermaid-1772156128467 :root{--mermaid-font-family:Noto Sans TC;}</style><g style="pointer-events: none;"><marker id="mermaid-1772156128467_flowchart-pointEnd" class="marker flowchart" viewBox="0 0 10 10" refX="6" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto" style="pointer-events: none;"><path d="M 0 0 L 10 5 L 0 10 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0; pointer-events: none;"></path></marker><marker id="mermaid-1772156128467_flowchart-pointStart" class="marker flowchart" viewBox="0 0 10 10" refX="4.5" refY="5" markerUnits="userSpaceOnUse" markerWidth="12" markerHeight="12" orient="auto" style="pointer-events: none;"><path d="M 0 5 L 10 10 L 10 0 z" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0; pointer-events: none;"></path></marker><marker id="mermaid-1772156128467_flowchart-circleEnd" class="marker flowchart" viewBox="0 0 10 10" refX="11" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto" style="pointer-events: none;"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0; pointer-events: none;"></circle></marker><marker id="mermaid-1772156128467_flowchart-circleStart" class="marker flowchart" viewBox="0 0 10 10" refX="-1" refY="5" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto" style="pointer-events: none;"><circle cx="5" cy="5" r="5" class="arrowMarkerPath" style="stroke-width: 1; stroke-dasharray: 1, 0; pointer-events: none;"></circle></marker><marker id="mermaid-1772156128467_flowchart-crossEnd" class="marker cross flowchart" viewBox="0 0 11 11" refX="12" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto" style="pointer-events: none;"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0; pointer-events: none;"></path></marker><marker id="mermaid-1772156128467_flowchart-crossStart" class="marker cross flowchart" viewBox="0 0 11 11" refX="-1" refY="5.2" markerUnits="userSpaceOnUse" markerWidth="11" markerHeight="11" orient="auto" style="pointer-events: none;"><path d="M 1,1 l 9,9 M 10,1 l -9,9" class="arrowMarkerPath" style="stroke-width: 2; stroke-dasharray: 1, 0; pointer-events: none;"></path></marker><g class="root" style="pointer-events: none;"><g class="clusters" style="pointer-events: none;"></g><g class="edgePaths" style="pointer-events: none;"><path d="M80.525,63L80.525,69.167C80.525,75.333,80.525,87.667,80.525,99.117C80.525,110.567,80.525,121.133,80.525,126.417L80.525,131.7" id="L-A-B-0" class=" edge-thickness-normal edge-pattern-solid flowchart-link LS-A LE-B" style="fill: none; pointer-events: none;" marker-end="url(#mermaid-1772156128467_flowchart-pointEnd)"></path><path d="M80.525,200L80.525,204.167C80.525,208.333,80.525,216.667,80.591,224.2C80.657,231.734,80.789,238.467,80.855,241.834L80.921,245.201" id="L-B-C-0" class=" edge-thickness-normal edge-pattern-solid flowchart-link LS-B LE-C" style="fill: none; pointer-events: none;" marker-end="url(#mermaid-1772156128467_flowchart-pointEnd)"></path><path d="M65.594,353.069L62.416,361.724C59.238,370.379,52.881,387.69,52.959,401.755C53.036,415.82,59.547,426.639,62.802,432.049L66.058,437.459" id="L-C-D-0" class=" edge-thickness-normal edge-pattern-solid flowchart-link LS-C LE-D" style="fill: none; pointer-events: none;" marker-end="url(#mermaid-1772156128467_flowchart-pointEnd)"></path><path d="M96.456,353.069L99.467,361.724C102.479,370.379,108.502,387.69,108.258,401.755C108.014,415.82,101.503,426.639,98.248,432.049L94.992,437.459" id="L-C-D-1" class=" edge-thickness-normal edge-pattern-solid flowchart-link LS-C LE-D" style="fill: none; pointer-events: none;" marker-end="url(#mermaid-1772156128467_flowchart-pointEnd)"></path><path d="M80.525,481L80.525,485.167C80.525,489.333,80.525,497.667,80.525,505.117C80.525,512.567,80.525,519.133,80.525,522.417L80.525,525.7" id="L-D-E-0" class=" edge-thickness-normal edge-pattern-solid flowchart-link LS-D LE-E" style="fill: none; pointer-events: none;" marker-end="url(#mermaid-1772156128467_flowchart-pointEnd)"></path><path d="M80.525,570L80.525,574.167C80.525,578.333,80.525,586.667,80.525,594.117C80.525,601.567,80.525,608.133,80.525,611.417L80.525,614.7" id="L-E-F-0" class=" edge-thickness-normal edge-pattern-solid flowchart-link LS-E LE-F" style="fill: none; pointer-events: none;" marker-end="url(#mermaid-1772156128467_flowchart-pointEnd)"></path><path d="M80.525,659L80.525,663.167C80.525,667.333,80.525,675.667,80.525,683.117C80.525,690.567,80.525,697.133,80.525,700.417L80.525,703.7" id="L-F-G-0" class=" edge-thickness-normal edge-pattern-solid flowchart-link LS-F LE-G" style="fill: none; pointer-events: none;" marker-end="url(#mermaid-1772156128467_flowchart-pointEnd)"></path></g><g class="edgeLabels" style="pointer-events: none;"><g class="edgeLabel" transform="translate(80.5250015258789, 100)" style="pointer-events: none;"><g class="label" transform="translate(-32, -12)" style="pointer-events: none;"><foreignObject width="64" height="24" style="pointer-events: none;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap; pointer-events: none;"><span class="edgeLabel" style="pointer-events: none;">抵達現場</span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g class="label" transform="translate(0, 0)" style="pointer-events: none;"><foreignObject width="0" height="0" style="pointer-events: none;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap; pointer-events: none;"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(46.525001525878906, 405)" style="pointer-events: none;"><g class="label" transform="translate(-24, -12)" style="pointer-events: none;"><foreignObject width="48" height="24" style="pointer-events: none;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap; pointer-events: none;"><span class="edgeLabel" style="pointer-events: none;">時尚界</span></div></foreignObject></g></g><g class="edgeLabel" transform="translate(114.5250015258789, 405)" style="pointer-events: none;"><g class="label" transform="translate(-24, -12)" style="pointer-events: none;"><foreignObject width="48" height="24" style="pointer-events: none;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap; pointer-events: none;"><span class="edgeLabel" style="pointer-events: none;">贊助商</span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g class="label" transform="translate(0, 0)" style="pointer-events: none;"><foreignObject width="0" height="0" style="pointer-events: none;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap; pointer-events: none;"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g class="label" transform="translate(0, 0)" style="pointer-events: none;"><foreignObject width="0" height="0" style="pointer-events: none;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap; pointer-events: none;"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g><g class="edgeLabel" style="pointer-events: none;"><g class="label" transform="translate(0, 0)" style="pointer-events: none;"><foreignObject width="0" height="0" style="pointer-events: none;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap; pointer-events: none;"><span class="edgeLabel" style="pointer-events: none;"></span></div></foreignObject></g></g></g><g class="nodes" style="pointer-events: none;"><g class="node default default flowchart-label" id="flowchart-A-0" transform="translate(80.5250015258789, 31.5)" style="pointer-events: none;"><rect class="basic label-container" style="fill: rgb(248, 245, 242); stroke: rgb(212, 175, 55); stroke-width: 2px; pointer-events: none;" rx="0" ry="0" x="-61.28125" y="-31.5" width="122.5625" height="63"></rect><g class="label" style="pointer-events: none;" transform="translate(-53.78125, -24)"><rect style="pointer-events: none;"></rect><foreignObject width="107.5625" height="48" style="pointer-events: none;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap; pointer-events: none;"><span class="nodeLabel" style="pointer-events: none;">17:00 飯店出發 <br style="pointer-events: none;">AP Livestream</span></div></foreignObject></g></g><g class="node default default flowchart-label" id="flowchart-B-1" transform="translate(80.5250015258789, 168.5)" style="pointer-events: none;"><rect class="basic label-container" style="fill: rgb(212, 175, 55); stroke: rgb(26, 26, 26); stroke-width: 2px; pointer-events: none;" rx="5" ry="5" x="-61.28125" y="-31.5" width="122.5625" height="63"></rect><g class="label" style="color: rgb(255, 255, 255); pointer-events: none;" transform="translate(-53.78125, -24)"><rect style="pointer-events: none;"></rect><foreignObject width="107.5625" height="48" style="pointer-events: none;"><div style="color: rgb(255, 255, 255); display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="color: rgb(255, 255, 255); pointer-events: none;">18:00 紅毯開始 <br style="pointer-events: none;">Vogue/E! 直播</span></div></foreignObject></g></g><g class="node default default flowchart-label" id="flowchart-C-3" transform="translate(80.5250015258789, 309)" style="pointer-events: none;"><polygon points="59,0 118,-59 59,-118 0,-59" class="label-container" transform="translate(-59,59)" style="pointer-events: none;"></polygon><g class="label" style="pointer-events: none;" transform="translate(-32, -12)"><rect style="pointer-events: none;"></rect><foreignObject width="64" height="24" style="pointer-events: none;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap; pointer-events: none;"><span class="nodeLabel" style="pointer-events: none;">嘉賓入場</span></div></foreignObject></g></g><g class="node default default flowchart-label" id="flowchart-D-5" transform="translate(80.5250015258789, 461.5)" style="pointer-events: none;"><rect class="basic label-container" style="fill: rgb(248, 245, 242); stroke: rgb(51, 51, 51); stroke-width: 1px; pointer-events: none;" rx="0" ry="0" x="-80.5250015258789" y="-19.5" width="161.0500030517578" height="39"></rect><g class="label" style="pointer-events: none;" transform="translate(-73.0250015258789, -12)"><rect style="pointer-events: none;"></rect><foreignObject width="146.0500030517578" height="24" style="pointer-events: none;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap; pointer-events: none;"><span class="nodeLabel" style="pointer-events: none;">雞尾酒會 &amp; 展覽預覽</span></div></foreignObject></g></g><g class="node default default flowchart-label" id="flowchart-E-9" transform="translate(80.5250015258789, 550.5)" style="pointer-events: none;"><rect class="basic label-container" style="fill: rgb(26, 26, 26); stroke: rgb(212, 175, 55); stroke-width: 2px; pointer-events: none;" rx="0" ry="0" x="-61.28125" y="-19.5" width="122.5625" height="39"></rect><g class="label" style="color: rgb(212, 175, 55); pointer-events: none;" transform="translate(-53.78125, -12)"><rect style="pointer-events: none;"></rect><foreignObject width="107.5625" height="24" style="pointer-events: none;"><div style="color: rgb(212, 175, 55); display: inline-block; white-space: nowrap; pointer-events: none;" xmlns="http://www.w3.org/1999/xhtml"><span class="nodeLabel" style="color: rgb(212, 175, 55); pointer-events: none;">20:00 正式晚宴</span></div></foreignObject></g></g><g class="node default default flowchart-label" id="flowchart-F-11" transform="translate(80.5250015258789, 639.5)" style="pointer-events: none;"><rect class="basic label-container" style="pointer-events: none;" rx="0" ry="0" x="-39.5" y="-19.5" width="79" height="39"></rect><g class="label" style="pointer-events: none;" transform="translate(-32, -12)"><rect style="pointer-events: none;"></rect><foreignObject width="64" height="24" style="pointer-events: none;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap; pointer-events: none;"><span class="nodeLabel" style="pointer-events: none;">驚喜表演</span></div></foreignObject></g></g><g class="node default default flowchart-label" id="flowchart-G-13" transform="translate(80.5250015258789, 728.5)" style="pointer-events: none;"><rect class="basic label-container" style="pointer-events: none;" rx="0" ry="0" x="-46.50625228881836" y="-19.5" width="93.01250457763672" height="39"></rect><g class="label" style="pointer-events: none;" transform="translate(-39.00625228881836, -12)"><rect style="pointer-events: none;"></rect><foreignObject width="78.01250457763672" height="24" style="pointer-events: none;"><div xmlns="http://www.w3.org/1999/xhtml" style="display: inline-block; white-space: nowrap; pointer-events: none;"><span class="nodeLabel" style="pointer-events: none;">After Party</span></div></foreignObject></g></g></g></g></g></svg></div>
+                    <p class="text-xs text-center text-gray-500 mt-4">註：所有時間均為美東時間 (EST)</p>
+                </div>
+
+                <!-- ECharts Data -->
+                <div class="glass-panel p-8 rounded-lg flex flex-col">
+                    <h3 class="font-serif text-2xl mb-6 dark:text-white border-l-4 border-museum-accent pl-4">全球媒體影響力預測</h3>
+                    <div id="media-impact-chart" class="w-full h-80 flex-grow" _echarts_instance_="ec_1772156127732" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" data-chart-option="{&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;darkMode&quot;:&quot;auto&quot;,&quot;colorBy&quot;:&quot;series&quot;,&quot;color&quot;:[&quot;#5470c6&quot;,&quot;#91cc75&quot;,&quot;#fac858&quot;,&quot;#ee6666&quot;,&quot;#73c0de&quot;,&quot;#3ba272&quot;,&quot;#fc8452&quot;,&quot;#9a60b4&quot;,&quot;#ea7ccc&quot;],&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;textStyle&quot;:{&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;axisPointer&quot;:[{&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9BEC9&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;label&quot;:{&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;color&quot;:&quot;#fff&quot;,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[{&quot;trigger&quot;:&quot;axis&quot;,&quot;axisPointer&quot;:{&quot;type&quot;:&quot;shadow&quot;,&quot;axis&quot;:&quot;auto&quot;,&quot;animation&quot;:&quot;auto&quot;,&quot;animationDurationUpdate&quot;:200,&quot;animationEasingUpdate&quot;:&quot;exponentialOut&quot;,&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#999&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;,&quot;textStyle&quot;:{}}},&quot;z&quot;:60,&quot;show&quot;:true,&quot;showContent&quot;:true,&quot;triggerOn&quot;:&quot;mousemove|click&quot;,&quot;alwaysShowContent&quot;:false,&quot;displayMode&quot;:&quot;single&quot;,&quot;renderMode&quot;:&quot;auto&quot;,&quot;confine&quot;:null,&quot;showDelay&quot;:0,&quot;hideDelay&quot;:100,&quot;transitionDuration&quot;:0.4,&quot;enterable&quot;:false,&quot;backgroundColor&quot;:&quot;#fff&quot;,&quot;shadowBlur&quot;:10,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, .2)&quot;,&quot;shadowOffsetX&quot;:1,&quot;shadowOffsetY&quot;:2,&quot;borderRadius&quot;:4,&quot;borderWidth&quot;:1,&quot;padding&quot;:null,&quot;extraCssText&quot;:&quot;&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;fontSize&quot;:14}}],&quot;yAxis&quot;:[{&quot;type&quot;:&quot;category&quot;,&quot;data&quot;:[&quot;TikTok Views&quot;,&quot;Instagram Impact&quot;,&quot;Live Stream&quot;,&quot;Twitter/X&quot;],&quot;axisLabel&quot;:{&quot;color&quot;:&quot;#333&quot;,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;boundaryGap&quot;:true,&quot;deduplication&quot;:null,&quot;splitLine&quot;:{&quot;show&quot;:false,&quot;lineStyle&quot;:{&quot;color&quot;:[&quot;#E0E6F1&quot;],&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;}},&quot;axisTick&quot;:{&quot;alignWithLabel&quot;:false,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{&quot;status&quot;:&quot;hide&quot;,&quot;value&quot;:3,&quot;seriesDataIndices&quot;:[{&quot;seriesIndex&quot;:0,&quot;dataIndexInside&quot;:3,&quot;dataIndex&quot;:3},{&quot;seriesIndex&quot;:1,&quot;dataIndexInside&quot;:3,&quot;dataIndex&quot;:3}]},&quot;axisLine&quot;:{&quot;show&quot;:true,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#6E7079&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;splitArea&quot;:{&quot;show&quot;:false,&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(250,250,250,0.2)&quot;,&quot;rgba(210,219,238,0.2)&quot;]}},&quot;offset&quot;:0}],&quot;xAxis&quot;:[{&quot;type&quot;:&quot;value&quot;,&quot;boundaryGap&quot;:[0,0.01],&quot;splitLine&quot;:{&quot;show&quot;:false,&quot;lineStyle&quot;:{&quot;color&quot;:[&quot;#E0E6F1&quot;],&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;}},&quot;axisLine&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#6E7079&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;axisTick&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;splitNumber&quot;:5,&quot;minorTick&quot;:{&quot;show&quot;:false,&quot;splitNumber&quot;:5,&quot;length&quot;:3,&quot;lineStyle&quot;:{}},&quot;minorSplitLine&quot;:{&quot;show&quot;:false,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#F4F7FD&quot;,&quot;width&quot;:1}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{},&quot;axisLabel&quot;:{&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;splitArea&quot;:{&quot;show&quot;:false,&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(250,250,250,0.2)&quot;,&quot;rgba(210,219,238,0.2)&quot;]}},&quot;offset&quot;:0}],&quot;grid&quot;:[{&quot;left&quot;:&quot;3%&quot;,&quot;right&quot;:&quot;4%&quot;,&quot;bottom&quot;:&quot;3%&quot;,&quot;containLabel&quot;:true,&quot;show&quot;:false,&quot;z&quot;:0,&quot;top&quot;:60,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#ccc&quot;}],&quot;series&quot;:[{&quot;name&quot;:&quot;2025 Actual&quot;,&quot;type&quot;:&quot;bar&quot;,&quot;data&quot;:[180,150,80,60],&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#888&quot;},&quot;z&quot;:2,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;barMinHeight&quot;:0,&quot;barMinAngle&quot;:0,&quot;large&quot;:false,&quot;largeThreshold&quot;:400,&quot;progressive&quot;:3000,&quot;progressiveChunkMode&quot;:&quot;mod&quot;,&quot;clip&quot;:true,&quot;roundCap&quot;:false,&quot;showBackground&quot;:false,&quot;backgroundStyle&quot;:{&quot;color&quot;:&quot;rgba(180, 180, 180, 0.2)&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderType&quot;:&quot;solid&quot;,&quot;borderRadius&quot;:0,&quot;shadowBlur&quot;:0,&quot;shadowColor&quot;:null,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:0,&quot;opacity&quot;:1},&quot;select&quot;:{&quot;itemStyle&quot;:{&quot;borderColor&quot;:&quot;#212121&quot;}},&quot;realtimeSort&quot;:false,&quot;label&quot;:{},&quot;emphasis&quot;:{&quot;label&quot;:{}}},{&quot;name&quot;:&quot;2026 Forecast&quot;,&quot;type&quot;:&quot;bar&quot;,&quot;data&quot;:[250,190,120,90],&quot;itemStyle&quot;:{&quot;color&quot;:{&quot;colorStops&quot;:[{&quot;offset&quot;:0,&quot;color&quot;:&quot;#d4af37&quot;},{&quot;offset&quot;:1,&quot;color&quot;:&quot;#f6e27a&quot;}],&quot;x&quot;:0,&quot;y&quot;:0,&quot;x2&quot;:1,&quot;y2&quot;:0,&quot;type&quot;:&quot;linear&quot;,&quot;global&quot;:false}},&quot;z&quot;:2,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;barMinHeight&quot;:0,&quot;barMinAngle&quot;:0,&quot;large&quot;:false,&quot;largeThreshold&quot;:400,&quot;progressive&quot;:3000,&quot;progressiveChunkMode&quot;:&quot;mod&quot;,&quot;clip&quot;:true,&quot;roundCap&quot;:false,&quot;showBackground&quot;:false,&quot;backgroundStyle&quot;:{&quot;color&quot;:&quot;rgba(180, 180, 180, 0.2)&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderType&quot;:&quot;solid&quot;,&quot;borderRadius&quot;:0,&quot;shadowBlur&quot;:0,&quot;shadowColor&quot;:null,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:0,&quot;opacity&quot;:1},&quot;select&quot;:{&quot;itemStyle&quot;:{&quot;borderColor&quot;:&quot;#212121&quot;}},&quot;realtimeSort&quot;:false,&quot;label&quot;:{},&quot;emphasis&quot;:{&quot;label&quot;:{}}}],&quot;visualMap&quot;:[],&quot;legend&quot;:[],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 518px; height: 724px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas data-zr-dom-id="zr_0" width="647" height="905" style="position: absolute; left: 0px; top: 0px; width: 518px; height: 724px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class="" style="position: absolute; display: block; border-style: solid; white-space: nowrap; z-index: 9999999; box-shadow: rgba(0, 0, 0, 0.2) 1px 2px 10px; transition: opacity 0.2s cubic-bezier(0.23, 1, 0.32, 1), visibility 0.2s cubic-bezier(0.23, 1, 0.32, 1), transform 0.4s cubic-bezier(0.23, 1, 0.32, 1); background-color: rgb(255, 255, 255); border-width: 1px; border-radius: 4px; color: rgb(102, 102, 102); font: 14px / 21px &quot;Microsoft YaHei&quot;; padding: 10px; top: 0px; left: 0px; transform: translate3d(225px, 90px, 0px); border-color: rgb(255, 255, 255); pointer-events: none; visibility: hidden; opacity: 0;"><div style="margin: 0px 0 0;line-height:1;"><div style="margin: 0px 0 0;line-height:1;"><div style="font-size:14px;color:#666;font-weight:400;line-height:1;">Twitter/X</div><div style="margin: 10px 0 0;line-height:1;"><div style="margin: 0px 0 0;line-height:1;"><div style="margin: 0px 0 0;line-height:1;"><span style="display:inline-block;margin-right:4px;border-radius:10px;width:10px;height:10px;background-color:#888;"></span><span style="font-size:14px;color:#666;font-weight:400;margin-left:2px">2025 Actual</span><span style="float:right;margin-left:20px;font-size:14px;color:#666;font-weight:900">60</span><div style="clear:both"></div></div><div style="clear:both"></div></div><div style="margin: 10px 0 0;line-height:1;"><div style="margin: 0px 0 0;line-height:1;"><span style="display:inline-block;margin-right:4px;border-radius:10px;width:10px;height:10px;background-color:#d4af37;"></span><span style="font-size:14px;color:#666;font-weight:400;margin-left:2px">2026 Forecast</span><span style="float:right;margin-left:20px;font-size:14px;color:#666;font-weight:900">90</span><div style="clear:both"></div></div><div style="clear:both"></div></div><div style="clear:both"></div></div><div style="clear:both"></div></div><div style="clear:both"></div></div></div></div>
+                    <div class="mt-4 grid grid-cols-3 gap-4 text-center">
+                         <div>
+                             <span class="block text-2xl font-bold text-museum-accent">31M+</span>
+                             <span class="text-xs text-gray-500">2025籌款紀錄($)</span>
+                         </div>
+                         <div>
+                             <span class="block text-2xl font-bold text-museum-accent">400+</span>
+                             <span class="text-xs text-gray-500">展出物件</span>
+                         </div>
+                         <div>
+                            <span class="block text-2xl font-bold text-museum-accent">12k</span>
+                            <span class="text-xs text-gray-500">展廳面積(sq.ft)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Partners Marquee (CSS only text) -->
+            <div class="mt-20 overflow-hidden relative">
+                 <div class="flex whitespace-nowrap animate-slow-pan">
+                     <span class="text-4xl md:text-6xl font-serif text-transparent text-stroke px-8 opacity-30">CONDÉ NAST</span>
+                     <span class="text-4xl md:text-6xl font-serif text-transparent text-stroke px-8 opacity-30">SAINT LAURENT</span>
+                     <span class="text-4xl md:text-6xl font-serif text-transparent text-stroke px-8 opacity-30">AMAZON</span>
+                     <span class="text-4xl md:text-6xl font-serif text-transparent text-stroke px-8 opacity-30">THOM BROWNE</span>
+                     <span class="text-4xl md:text-6xl font-serif text-transparent text-stroke px-8 opacity-30">MICHAEL KORS</span>
+                     <span class="text-4xl md:text-6xl font-serif text-transparent text-stroke px-8 opacity-30">CONDÉ NAST</span>
+                     <span class="text-4xl md:text-6xl font-serif text-transparent text-stroke px-8 opacity-30">SAINT LAURENT</span>
+                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-museum dark:bg-black text-white py-16 border-t border-museum-accent/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <span class="font-serif text-2xl font-bold tracking-wider block mb-6">THE MET <span class="text-museum-accent">2026</span></span>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-md">
+                        本次活動旨在為大都會藝術博物館服裝學院籌集年度營運資金。時尚即是最初的藝術品，而身體是我們用以解讀這件藝術品的唯一語言。
+                    </p>
+                </div>
+                <div>
+                    <h5 class="text-museum-accent uppercase tracking-widest text-xs font-bold mb-6">Explore</h5>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-white transition-colors">展覽購票</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">博物館會員</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">新聞中心</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-museum-accent uppercase tracking-widest text-xs font-bold mb-6">Connect</h5>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-tiktok text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-youtube text-xl"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+                <div class="space-y-2 md:space-y-0 text-center md:text-left">
+                    <p>免責申明：基於公開資料，僅供參考，不構成建議</p>
+                    <p>資料來源：網頁公開資訊</p>
+                    <p>版權所有： © 2026 Dunk | Design by Dunk</p>
+                </div>
+                <div class="mt-4 md:mt-0">
+                    <a href="#" class="hover:text-white mr-4">Privacy Policy</a>
+                    <a href="#" class="hover:text-white">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const icon = themeToggleBtn.querySelector('i');
+        const html = document.documentElement;
+        
+        // Initialize Theme based on system or local storage
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        } else {
+            html.classList.remove('dark');
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+        }
+
+        // Initialize ECharts
+        let chartInstance = null;
+
+        function initCharts() {
+            const chartDom = document.getElementById('media-impact-chart');
+            if (!chartDom) return;
+            
+            const isDark = html.classList.contains('dark');
+            
+            if (chartInstance) {
+                chartInstance.dispose();
+            }
+
+            chartInstance = echarts.init(chartDom, isDark ? 'dark' : null);
+            
+            const option = {
+                backgroundColor: 'transparent',
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: { type: 'shadow' }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'value',
+                    boundaryGap: [0, 0.01],
+                    splitLine: { show: false }
+                },
+                yAxis: {
+                    type: 'category',
+                    data: ['TikTok Views', 'Instagram Impact', 'Live Stream', 'Twitter/X'],
+                    axisLabel: { color: isDark ? '#ccc' : '#333' }
+                },
+                series: [
+                    {
+                        name: '2025 Actual',
+                        type: 'bar',
+                        data: [180, 150, 80, 60],
+                        itemStyle: { color: '#888' }
+                    },
+                    {
+                        name: '2026 Forecast',
+                        type: 'bar',
+                        data: [250, 190, 120, 90],
+                        itemStyle: { 
+                            color: new echarts.graphic.LinearGradient(0, 0, 1, 0, [
+                                { offset: 0, color: '#d4af37' },
+                                { offset: 1, color: '#f6e27a' }
+                            ])
+                        }
+                    }
+                ]
+            };
+            chartInstance.setOption(option);
+        }
+
+        // Initialize Mermaid
+        mermaid.initialize({ 
+            startOnLoad: true,
+            theme: html.classList.contains('dark') ? 'dark' : 'base',
+            securityLevel: 'loose',
+            fontFamily: 'Noto Sans TC'
+        });
+
+        // Toggle Event Listener
+        themeToggleBtn.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            
+            if (html.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                localStorage.theme = 'light';
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+            
+            // Re-render charts for theme consistency
+            initCharts();
+            location.reload(); // Simple reload to re-render mermaid with correct theme is safest for mermaid
+        });
+
+        // Load charts on page load
+        window.addEventListener('load', initCharts);
+        window.addEventListener('resize', () => {
+            if(chartInstance) chartInstance.resize();
+        });
+
+    </script>
+
+<div class="mermaidTooltip" style="opacity: 0;"></div></body></body>
+</html>
