@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>當 AI 遇上永續：2026 科技轉向報告</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary-green: #2d5016;
+            --dark-green: #1a4d3a;
+            --bg-light: #f8f9fa;
+            --text-dark: #333333;
+            --accent-green: #e8f5e8;
+            --highlight-orange: #ff6b35;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+            line-height: 1.8;
+            margin: 0;
+            padding-bottom: 80px;
+        }
+
+        .esg-header {
+            background: linear-gradient(rgba(26, 77, 58, 0.9), rgba(45, 80, 22, 0.9)), 
+                        url('https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2000&auto=format&fit=crop') no-repeat center/cover;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .esg-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: -60px auto 40px;
+            padding: 0 20px;
+        }
+
+        .intro-section {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin-bottom: 40px;
+            border-left: 8px solid var(--primary-green);
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .esg-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.04);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #f1f5f9;
+        }
+
+        @media (min-width: 850px) {
+            .esg-card { flex-direction: row; }
+            .card-visual { width: 400px; min-width: 400px; position: relative; }
+        }
+
+        .card-visual {
+            background: var(--accent-green);
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .card-visual svg {
+            width: 120px;
+            height: 120px;
+            opacity: 0.6;
+            color: var(--dark-green);
+        }
+
+        .card-visual img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .card-visual img.loaded { opacity: 1; }
+
+        .card-content { padding: 35px; flex: 1; }
+
+        .card-tag {
+            display: inline-block;
+            background: var(--accent-green);
+            color: var(--dark-green);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .esg-card h2 {
+            color: var(--dark-green);
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .analysis-box {
+            background-color: var(--accent-green);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-style: italic;
+            border-right: 5px solid var(--primary-green);
+        }
+
+        .conclusion {
+            background: var(--dark-green);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .btn-highlight {
+            background-color: var(--highlight-orange);
+            color: white !important;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-weight: 700;
+            display: inline-block;
+            margin-top: 25px;
+            text-decoration: none;
+        }
+
+        .esg-footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: white;
+            border-top: 1px solid #eee;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            z-index: 100;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="esg-header">
+        <h1>#當 AI 遇上永續：2026 年五大科技轉向與綠色變革</h1>
+        <p class="max-w-2xl mx-auto opacity-90">深入分析 AI 時代下的資源矛盾與潔淨能源轉向，定義 2026 企業 ESG 新航向。</p>
+    </header>
+
+    <main class="container">
+        <!-- Section 1 -->
+        <section class="intro-section">
+            <h2 class="text-2xl font-bold mb-4" style="color: var(--dark-green);">1. 引言：在進步與代價之間的生存遊戲</h2>
+            <p class="text-gray-700">到 2026 年，人工智慧（AI）對硬體資源的無止盡胃口與人類數位遺產生存之間的系統性矛盾，已正式達到臨界點。AI 雖然賦予了生產力，卻也以前所未有的速度吞噬著環境與文化根基。</p>
+        </section>
+
+        <div class="card-grid">
+            <!-- Card 2: AI & DRAM -->
+            <article class="esg-card">
+                <div class="card-visual">
+                    <!--  -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M9 3v2m6-2v2M9 19v2m6-2v2M3 9h2m-2 6h2m14-6h2m-2 6h2M5 7a2 2 0 012-2h10a2 2 0 012 2v10a2 2 0 01-2 2H7a2 2 0 01-2-2V7z" />
+                        <path d="M9 9h6v6H9V9z" />
+                    </svg>
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=800" onload="this.classList.add('loaded')" alt="AI 算力與記憶體">
+                </div>
+                <div class="card-content">
+                    <span class="card-tag">資源分配</span>
+                    <h2>2. AI 的隱形代價：為什麼你的懷舊電玩成了算力競賽的犧牲品？</h2>
+                    <p>AI 對高容量 <strong>DRAM（記憶體）</strong> 的需求排擠了數位文化保存。Myrient 等保存網站因成本關閉，預計帶動台灣 DRAM 製造商營收成長 <strong>15% 至 20%</strong>。</p>
+                    <div class="analysis-box">這揭示了「數位資源不平等」，社會價值在商業回報面前顯得異常脆弱。</div>
+                </div>
+            </article>
+
+            <!-- Card 3: Fusion Energy -->
+            <article class="esg-card">
+                <div class="card-visual">
+                    <!--  -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <circle cx="12" cy="12" r="3" />
+                        <path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32l1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41m11.32-11.32l1.41-1.41" />
+                    </svg>
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=800" onload="this.classList.add('loaded')" alt="核融合能源">
+                </div>
+                <div class="card-content">
+                    <span class="card-tag">能源轉型</span>
+                    <h2>3. 能源聖杯的商業超車：核融合不再是「永遠的 50 年後」</h2>
+                    <p>核融合正式脫離實驗室。德國等大國加入競賽，這項能提供無限潔淨電力的技術，讓台灣有機會從根本上降低能源安全對地緣政治的脆弱性。</p>
+                    <div class="analysis-box">技術路徑已啟動原型反應爐實測，私人資本大規模滲透視其為淨零終極解答。</div>
+                </div>
+            </article>
+
+            <!-- Card 4: Circular Economy -->
+            <article class="esg-card">
+                <div class="card-visual">
+                    <!--  -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 3v18m-9-9h18M5.636 5.636l12.728 12.728M5.636 18.364L18.364 5.636" />
+                        <circle cx="12" cy="12" r="9" />
+                    </svg>
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&q=80&w=800" onload="this.classList.add('loaded')" alt="循環經濟">
+                </div>
+                <div class="card-content">
+                    <span class="card-tag">循環經濟</span>
+                    <h2>4. 循環經濟的「甜蜜」升級：超音波技術把可可殼變成了機能蜂蜜</h2>
+                    <p>利用超音波技術將可可豆殼轉化為機能蜂蜜，實現零化學溶劑綠色生產，能為業者降低 <strong>5% 至 10%</strong> 的原材料成本。</p>
+                    <div class="analysis-box">此模式具高複製性，可應用於台灣咖啡渣或茶葉末，創造全新循環商業模式。</div>
+                </div>
+            </article>
+
+            <!-- Card 5: EU Regs -->
+            <article class="esg-card">
+                <div class="card-visual">
+                    <!--  -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M3 6h18M3 12h18M3 18h18" />
+                        <path d="M12 3v18" />
+                    </svg>
+                    <img src="https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?auto=format&fit=crop&q=80&w=800" onload="this.classList.add('loaded')" alt="法規治理">
+                </div>
+                <div class="card-content">
+                    <span class="card-tag">治理與合規</span>
+                    <h2>5. 數位產品的「生存權」：歐盟法律正在強制終結「計畫性報廢」</h2>
+                    <p>歐盟強制要求 USB-C 與組件易於替換。預測 <strong>30% 台灣上市櫃公司</strong> 將直接受影響，數據透明度將成為吸引國際資金的關鍵。</p>
+                    <div class="analysis-box">「永續介面設計」成為新標配，將效能視為環境責任而非無限擴張。</div>
+                </div>
+            </article>
+
+            <!-- Card 6: AI Ethics -->
+            <article class="esg-card">
+                <div class="card-visual">
+                    <!--  -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    </svg>
+                    <img src="https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&q=80&w=800" onload="this.classList.add('loaded')" alt="社會責任">
+                </div>
+                <div class="card-content">
+                    <span class="card-tag">社會責任</span>
+                    <h2>6. AI 的道德紅線：當科技巨頭與國防部展開最後通牒的較量</h2>
+                    <p>AI 技術被推向軍事邊緣引發倫理危機。台灣應積極參與國際倫理規範制定，避免成為爭議技術的間接供應者。</p>
+                    <div class="analysis-box">失去倫理治理的 AI 進步是巨大的負債，負責任的 AI 才是國家優勢。</div>
+                </div>
+            </article>
+        </div>
+
+        <!-- Conclusion -->
+        <section class="conclusion">
+            <h2 class="text-3xl font-bold mb-4">7. 結語：我們正在定義什麼樣的未來？</h2>
+            <p class="text-lg opacity-90 max-w-3xl mx-auto">永續發展不再只是關於「種樹」，而是關於我們如何在算力稀缺、能源危機與倫理挑戰中保留人類文明的責任感。數據顯示 <strong>30% 台灣企業</strong> 將面臨轉型壓力。</p>
+            <a href="#" class="btn-highlight">下載永續轉型白皮書</a>
+        </section>
+    </main>
+
+    <footer class="esg-footer">
+        <div class="text-gray-500 italic">免責聲明：僅供參考，不構成建議</div>
+        <div class="text-gray-700">資料來源：2026 永續週報 | © Dunk_</div>
+    </footer>
+
+</body>
+</html>
