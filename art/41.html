@@ -1,0 +1,612 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klaus Janson：敘事建築師 | 紐約回顧展 2026</title>
+    <meta name="description" content="Klaus Janson 紐約 Philippe Labaune 藝廊回顧展 - 慶祝漫畫藝術大師 50 年職業生涯與《黑暗騎士歸來》40 週年。">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Playfair Display"', 'serif'],
+                    },
+                    colors: {
+                        'comic-red': '#E62429', // Marvel/Daredevil Red
+                        'ink-black': '#0a0a0a',
+                        'paper-white': '#fdfbf7',
+                        'charcoal': '#1a1a1a',
+                    },
+                    backgroundImage: {
+                        'halftone': "radial-gradient(circle, #333 1px, transparent 1px)",
+                    },
+                    backgroundSize: {
+                        'halftone': '20px 20px',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- UI Components -->
+    <script src="https://cdn.jsdelivr.net/npm/preline@2.3.0/dist/preline.min.js"></script>
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Charts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+
+    <style>
+        /* Custom Utilities */
+        .text-stroke {
+            -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+            color: transparent;
+        }
+        .dark .text-stroke {
+            -webkit-text-stroke: 1px rgba(255,255,255,0.8);
+        }
+        
+        .comic-shadow {
+            box-shadow: 8px 8px 0px 0px rgba(230, 36, 41, 0.8);
+        }
+        
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Fade Up Animation */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Loader */
+        #loader {
+            transition: opacity 0.5s ease;
+        }
+    </style>
+<script src="https://felo.ai/js/iframe.js?v=1772849610934"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style></head>
+<body class="bg-paper-white dark:bg-ink-black text-charcoal dark:text-gray-200 transition-colors duration-300 font-sans antialiased selection:bg-comic-red selection:text-white"><body class="bg-paper-white dark:bg-ink-black text-charcoal dark:text-gray-200 transition-colors duration-300 font-sans antialiased selection:bg-comic-red selection:text-white" contenteditable="false" spellcheck="false" data-listener-added_a6f55c27="true">
+
+    <!-- Loading Screen -->
+    <div id="loader" class="fixed inset-0 z-[60] bg-ink-black flex items-center justify-center" style="opacity: 0; display: none;">
+        <div class="text-center">
+            <div class="text-4xl font-black text-white mb-4 tracking-widest animate-pulse">JANSON</div>
+            <div class="h-1 w-24 bg-comic-red mx-auto"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-ink-black/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-all duration-300" id="navbar">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-black tracking-tighter hover:text-comic-red transition-colors">
+                KJ<span class="text-comic-red">.</span>26
+            </a>
+            
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide">
+                <a href="#exhibition" class="hover:text-comic-red transition-colors">展覽概況</a>
+                <a href="#works" class="hover:text-comic-red transition-colors">經典畫作</a>
+                <a href="#analysis" class="hover:text-comic-red transition-colors">藝術分析</a>
+                <a href="#market" class="hover:text-comic-red transition-colors">市場價值</a>
+                <a href="#visit" class="hover:text-comic-red transition-colors">參觀資訊</a>
+            </div>
+
+            <div class="flex items-center gap-4">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors focus:outline-none" aria-label="切換深色模式">
+                    <i class="fas fa-moon dark:hidden text-gray-800"></i>
+                    <i class="fas fa-sun hidden dark:block text-yellow-400"></i>
+                </button>
+                <a href="#visit" class="hidden md:inline-block px-5 py-2 bg-charcoal dark:bg-white text-white dark:text-charcoal font-bold text-xs uppercase tracking-widest hover:bg-comic-red dark:hover:bg-comic-red dark:hover:text-white transition-all">
+                    預約觀展
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image with Parallax feel -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://api.felo.ai/images/s/wJes4qccmF.jpg" alt="Klaus Janson Exhibition Gallery View" class="w-full h-full object-cover opacity-90 dark:opacity-60 scale-105" id="hero-bg">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-ink-black/40 to-paper-white dark:to-ink-black"></div>
+            <!-- Halftone Overlay for Comic Feel -->
+            <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSIjZmZmIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPC9zdmc+')] z-10"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-20 text-center md:text-left mt-20">
+            <div class="inline-block px-3 py-1 mb-4 border border-comic-red text-comic-red text-xs font-bold uppercase tracking-[0.2em] bg-black/50 backdrop-blur-sm fade-up visible">
+                New York • Philippe Labaune Gallery
+            </div>
+            <h1 class="text-6xl md:text-8xl lg:text-9xl font-black leading-[0.9] tracking-tighter mb-6 text-white mix-blend-difference fade-up delay-100 visible">
+                THE <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-comic-red to-orange-600">NARRATIVE</span> <br>
+                ARCHITECT
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-200 font-serif italic max-w-2xl mb-10 fade-up delay-200 border-l-4 border-comic-red pl-6 visible">
+                Klaus Janson 職業生涯五十週年回顧展。<br>
+                致敬《黑暗騎士歸來》與重新定義美國漫畫視覺語言的大師。
+            </p>
+            
+            <div class="flex flex-col md:flex-row gap-4 fade-up delay-300">
+                <a href="#exhibition" class="group relative px-8 py-4 bg-comic-red text-white font-bold uppercase tracking-widest overflow-hidden">
+                    <span class="relative z-10 group-hover:text-black transition-colors duration-300">探索展覽</span>
+                    <div class="absolute inset-0 bg-white transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-in-out"></div>
+                </a>
+                <a href="#visit" class="px-8 py-4 border border-white/30 text-white font-bold uppercase tracking-widest hover:bg-white hover:text-black transition-all backdrop-blur-sm">
+                    展覽資訊
+                </a>
+            </div>
+        </div>
+        
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce z-20 text-white/50">
+            <i class="fas fa-arrow-down"></i>
+        </div>
+    </section>
+
+    <!-- Intro / Stats Section -->
+    <section class="py-20 bg-white dark:bg-charcoal border-b border-gray-200 dark:border-gray-800" id="exhibition">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-16">
+                <div class="col-span-1 md:col-span-2 pr-0 md:pr-12 fade-up visible">
+                    <h2 class="text-sm font-bold text-comic-red uppercase tracking-widest mb-4">策展摘要</h2>
+                    <p class="text-lg md:text-xl font-light leading-relaxed">
+                        這場在美國的首次全面個展，展示了超過 <span class="font-bold text-comic-red">100</span> 件原創作品。適逢《黑暗騎士歸來》40週年，展覽深入探討 Klaus Janson 如何透過墨線、構圖與光影，將漫畫從單純的圖像提升為具有心理深度的視覺文學。
+                    </p>
+                </div>
+                <div class="border-l border-gray-200 dark:border-gray-700 pl-8 fade-up delay-100 visible">
+                    <div class="text-4xl font-black mb-2">50+</div>
+                    <div class="text-xs uppercase tracking-widest text-gray-500">年職業生涯</div>
+                </div>
+                <div class="border-l border-gray-200 dark:border-gray-700 pl-8 fade-up delay-200 visible">
+                    <div class="text-4xl font-black mb-2">100+</div>
+                    <div class="text-xs uppercase tracking-widest text-gray-500">原稿展出</div>
+                </div>
+            </div>
+
+            <!-- Mermaid Timeline -->
+            <div class="fade-up delay-300 bg-gray-50 dark:bg-ink-black/50 p-8 rounded-lg border border-gray-200 dark:border-gray-800 visible">
+                <h3 class="text-center text-xl font-serif italic mb-8">藝術生涯軌跡</h3>
+                <div class="mermaid flex justify-center" data-processed="true"><div id="dmermaid-1772849614127" style="font-family: &quot;trebuchet ms&quot;, verdana, arial, sans-serif;"><svg id="mermaid-1772849614127" width="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 2412 512" style="max-width: 512px;" role="graphics-document document" aria-roledescription="error"><style>#mermaid-1772849614127{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;fill:#333;}#mermaid-1772849614127 .error-icon{fill:#552222;}#mermaid-1772849614127 .error-text{fill:#552222;stroke:#552222;}#mermaid-1772849614127 .edge-thickness-normal{stroke-width:2px;}#mermaid-1772849614127 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-1772849614127 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-1772849614127 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-1772849614127 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-1772849614127 .marker{fill:#333333;stroke:#333333;}#mermaid-1772849614127 .marker.cross{stroke:#333333;}#mermaid-1772849614127 svg{font-family:"trebuchet ms",verdana,arial,sans-serif;font-size:16px;}#mermaid-1772849614127 :root{--mermaid-font-family:"trebuchet ms",verdana,arial,sans-serif;}</style><g></g><g><path class="error-icon" d="m411.313,123.313c6.25-6.25 6.25-16.375 0-22.625s-16.375-6.25-22.625,0l-32,32-9.375,9.375-20.688-20.688c-12.484-12.5-32.766-12.5-45.25,0l-16,16c-1.261,1.261-2.304,2.648-3.31,4.051-21.739-8.561-45.324-13.426-70.065-13.426-105.867,0-192,86.133-192,192s86.133,192 192,192 192-86.133 192-192c0-24.741-4.864-48.327-13.426-70.065 1.402-1.007 2.79-2.049 4.051-3.31l16-16c12.5-12.492 12.5-32.758 0-45.25l-20.688-20.688 9.375-9.375 32.001-31.999zm-219.313,100.687c-52.938,0-96,43.063-96,96 0,8.836-7.164,16-16,16s-16-7.164-16-16c0-70.578 57.422-128 128-128 8.836,0 16,7.164 16,16s-7.164,16-16,16z"></path><path class="error-icon" d="m459.02,148.98c-6.25-6.25-16.375-6.25-22.625,0s-6.25,16.375 0,22.625l16,16c3.125,3.125 7.219,4.688 11.313,4.688 4.094,0 8.188-1.563 11.313-4.688 6.25-6.25 6.25-16.375 0-22.625l-16.001-16z"></path><path class="error-icon" d="m340.395,75.605c3.125,3.125 7.219,4.688 11.313,4.688 4.094,0 8.188-1.563 11.313-4.688 6.25-6.25 6.25-16.375 0-22.625l-16-16c-6.25-6.25-16.375-6.25-22.625,0s-6.25,16.375 0,22.625l15.999,16z"></path><path class="error-icon" d="m400,64c8.844,0 16-7.164 16-16v-32c0-8.836-7.156-16-16-16-8.844,0-16,7.164-16,16v32c0,8.836 7.156,16 16,16z"></path><path class="error-icon" d="m496,96.586h-32c-8.844,0-16,7.164-16,16 0,8.836 7.156,16 16,16h32c8.844,0 16-7.164 16-16 0-8.836-7.156-16-16-16z"></path><path class="error-icon" d="m436.98,75.605c3.125,3.125 7.219,4.688 11.313,4.688 4.094,0 8.188-1.563 11.313-4.688l32-32c6.25-6.25 6.25-16.375 0-22.625s-16.375-6.25-22.625,0l-32,32c-6.251,6.25-6.251,16.375-0.001,22.625z"></path><text class="error-text" x="1440" y="250" font-size="150px" style="text-anchor: middle;">Syntax error in text</text><text class="error-text" x="1250" y="400" font-size="100px" style="text-anchor: middle;">mermaid version 10.6.1</text></g></svg></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Artworks Section (Z-Layout) -->
+    <section class="py-24 bg-paper-white dark:bg-ink-black overflow-hidden" id="works">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20 fade-up visible">
+                <span class="text-comic-red font-bold tracking-widest uppercase text-sm">Selected Works</span>
+                <h2 class="text-4xl md:text-5xl font-black mt-2 mb-6">光影與墨跡的交響</h2>
+                <div class="w-20 h-1 bg-comic-red mx-auto"></div>
+            </div>
+
+            <!-- Item 1: The Dark Knight Returns -->
+            <div class="flex flex-col lg:flex-row items-center gap-12 mb-32">
+                <div class="w-full lg:w-1/2 relative fade-up visible">
+                    <div class="absolute -top-4 -left-4 w-full h-full border-2 border-comic-red z-0 hidden md:block"></div>
+                    <img src="https://api.felo.ai/images/s/30pz0ETjBK.webp" alt="Dark Knight Returns Artwork" class="relative z-10 w-full shadow-2xl grayscale hover:grayscale-0 transition-all duration-500">
+                </div>
+                <div class="w-full lg:w-1/2 lg:pl-10 fade-up delay-100 visible">
+                    <h3 class="text-3xl font-bold mb-4 font-serif italic">Batman: The Dark Knight Returns</h3>
+                    <div class="text-comic-red font-bold text-sm mb-6 uppercase tracking-wider">1986 • DC Comics</div>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                        這部作品標誌著Janson藝術生涯的巔峰。他的墨線不再只是描邊，而是成為敘事的主體。透過粗糙、富有質感的筆觸，他與 Frank Miller 共同構建了一個衰老、憤怒且充滿悲劇色彩的蝙蝠俠。展覽展出了珍貴的第40週年紀念原稿。
+                    </p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-pen-nib text-comic-red"></i>
+                            <span>結構性墨線：表現高譚市的壓抑感</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-layer-group text-comic-red"></i>
+                            <span>網格破壞：視覺化心理束縛的突破</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Item 2: Daredevil -->
+            <div class="flex flex-col lg:flex-row-reverse items-center gap-12 mb-32">
+                <div class="w-full lg:w-1/2 relative fade-up visible">
+                    <div class="absolute -bottom-4 -right-4 w-full h-full bg-charcoal dark:bg-gray-800 z-0 hidden md:block"></div>
+                    <img src="https://api.felo.ai/images/s/4sVXvBFOBe.jpg" alt="Daredevil Artwork" class="relative z-10 w-full shadow-2xl grayscale hover:grayscale-0 transition-all duration-500">
+                </div>
+                <div class="w-full lg:w-1/2 lg:pr-10 fade-up delay-100 visible">
+                    <h3 class="text-3xl font-bold mb-4 font-serif italic">Daredevil: Bullseye vs. Elektra</h3>
+                    <div class="text-comic-red font-bold text-sm mb-6 uppercase tracking-wider">1982 • Marvel Comics</div>
+                    <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
+                        在與 Frank Miller 合作期間，Janson 重新定義了這部漫畫的黑色電影（Noir）美學。利用細碎的陰影線（Cross-hatching）模擬紐約地獄廚房的陰冷與腐敗，使畫面充滿了觸覺般的真實感。
+                    </p>
+                    <blockquote class="border-l-4 border-comic-red pl-4 py-2 italic text-gray-500 dark:text-gray-400">
+                        "讀者永遠不應該去猜測故事是什麼，那是講故事的人的職責。" — Klaus Janson
+                    </blockquote>
+                </div>
+            </div>
+            
+            <!-- Gallery Grid Small -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 fade-up visible">
+                 <div class="aspect-[2/3] overflow-hidden group">
+                    <img src="https://api.felo.ai/images/s/2oVbL4j0nY.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Marvel Age Cover">
+                 </div>
+                 <div class="aspect-[2/3] overflow-hidden group bg-charcoal">
+                    <img src="https://api.felo.ai/images/s/5zTh10Wu5y.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100" alt="Dark Knight Returns #2">
+                 </div>
+                 <div class="aspect-[2/3] overflow-hidden group">
+                    <img src="https://api.felo.ai/images/s/2S47yh6a0O.jpg" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Daredevil Process">
+                 </div>
+                 <div class="aspect-[2/3] overflow-hidden group bg-comic-red flex items-center justify-center p-6">
+                    <div class="text-white text-center">
+                        <i class="fas fa-arrow-right text-3xl mb-4 group-hover:translate-x-2 transition-transform"></i>
+                        <p class="font-bold uppercase tracking-widest">查看更多<br>展品</p>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Critical Analysis / Philosophy -->
+    <section class="py-24 bg-charcoal text-white relative" id="analysis">
+        <!-- Abstract BG using SVG -->
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+             <svg width="100%" height="100%">
+                <pattern id="lines" x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse" style="pointer-events: none;">
+                    <path d="M0 40L40 0H20L0 20M40 40V20L20 40" stroke="#fff" stroke-width="1" fill="none" style="pointer-events: none;"></path>
+                </pattern>
+                <rect width="100%" height="100%" fill="url(#lines)" style="pointer-events: none;"></rect>
+            </svg>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center mb-16 fade-up visible">
+                <h2 class="text-4xl md:text-6xl font-black mb-8">墨線哲學</h2>
+                <p class="text-xl md:text-2xl font-serif italic text-gray-300">
+                    "墨線師是鉛筆畫家的第二個大腦。"
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <div class="bg-white/5 backdrop-blur-sm p-8 border border-white/10 hover:border-comic-red transition-colors fade-up delay-100 visible">
+                    <div class="text-comic-red text-4xl mb-4"><i class="fas fa-eye"></i></div>
+                    <h3 class="text-xl font-bold mb-4">敘事清晰度 (Clarity)</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Janson 的核心信條。無論風格多麼狂野，墨線必須首先服務於故事的可讀性。透過構圖引導讀者視線，確保沒有任何元素是隨機的。
+                    </p>
+                </div>
+                <div class="bg-white/5 backdrop-blur-sm p-8 border border-white/10 hover:border-comic-red transition-colors fade-up delay-200 visible">
+                    <div class="text-comic-red text-4xl mb-4"><i class="fas fa-tint"></i></div>
+                    <h3 class="text-xl font-bold mb-4">明暗對比 (Chiaroscuro)</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        受到印象派與表現主義的影響，Janson 利用強烈的黑白對比營造心理空間，讓環境背景也能傳遞角色的內在情緒。
+                    </p>
+                </div>
+                <div class="bg-white/5 backdrop-blur-sm p-8 border border-white/10 hover:border-comic-red transition-colors fade-up delay-300 visible">
+                    <div class="text-comic-red text-4xl mb-4"><i class="fas fa-handshake"></i></div>
+                    <h3 class="text-xl font-bold mb-4">變色龍式的適應性</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        從 Gene Colan 的霧狀流動感到 John Romita Jr. 的塊狀結構，Janson 能夠調整自己的介入程度，從而產生「1+1&gt;2」的藝術效果。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Value Analysis (Data Viz) -->
+    <section class="py-24 bg-gray-50 dark:bg-gray-900" id="market">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="fade-up visible">
+                    <span class="text-comic-red font-bold tracking-widest uppercase text-sm">Market Analytics</span>
+                    <h2 class="text-4xl font-black mt-2 mb-6 text-charcoal dark:text-white">漫畫原稿的藝術價值</h2>
+                    <p class="text-gray-600 dark:text-gray-300 mb-6 text-lg">
+                        隨著漫畫藝術被主流藝術界重新評估，Klaus Janson 的原稿，特別是 80 年代黃金時期的作品，市場價值屢創新高。
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center border-b border-gray-200 dark:border-gray-700 py-3">
+                            <span class="font-medium dark:text-gray-200">Daredevil #190 (Page 20)</span>
+                            <span class="font-bold text-comic-red">$75,000</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b border-gray-200 dark:border-gray-700 py-3">
+                            <span class="font-medium dark:text-gray-200">Daredevil #185 (Page 15)</span>
+                            <span class="font-bold text-comic-red">$65,000</span>
+                        </div>
+                        <div class="flex justify-between items-center border-b border-gray-200 dark:border-gray-700 py-3">
+                            <span class="font-medium dark:text-gray-200">Amazing Spider-Man #40 Cover</span>
+                            <span class="font-bold text-comic-red">$12,000</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white dark:bg-ink-black p-6 rounded-xl shadow-xl comic-shadow fade-up delay-200 visible">
+                    <!-- ECharts Container -->
+                    <div id="priceChart" class="w-full h-96" _echarts_instance_="ec_1772849612039" style="user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" data-chart-option="{&quot;backgroundColor&quot;:&quot;transparent&quot;,&quot;darkMode&quot;:&quot;auto&quot;,&quot;colorBy&quot;:&quot;series&quot;,&quot;color&quot;:[&quot;#5470c6&quot;,&quot;#91cc75&quot;,&quot;#fac858&quot;,&quot;#ee6666&quot;,&quot;#73c0de&quot;,&quot;#3ba272&quot;,&quot;#fc8452&quot;,&quot;#9a60b4&quot;,&quot;#ea7ccc&quot;],&quot;gradientColor&quot;:[&quot;#f6efa6&quot;,&quot;#d88273&quot;,&quot;#bf444c&quot;],&quot;aria&quot;:{&quot;decal&quot;:{&quot;decals&quot;:[{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[2,5],&quot;symbolSize&quot;:1,&quot;rotation&quot;:0.5235987755982988},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;circle&quot;,&quot;dashArrayX&quot;:[[8,8],[0,8,8,0]],&quot;dashArrayY&quot;:[6,0],&quot;symbolSize&quot;:0.8},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[1,0],&quot;dashArrayY&quot;:[4,3],&quot;rotation&quot;:-0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[6,6],[0,6,6,0]],&quot;dashArrayY&quot;:[6,0]},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;dashArrayX&quot;:[[1,0],[1,6]],&quot;dashArrayY&quot;:[1,0,6,0],&quot;rotation&quot;:0.7853981633974483},{&quot;color&quot;:&quot;rgba(0, 0, 0, 0.2)&quot;,&quot;symbol&quot;:&quot;triangle&quot;,&quot;dashArrayX&quot;:[[9,9],[0,9,9,0]],&quot;dashArrayY&quot;:[7,2],&quot;symbolSize&quot;:0.75}]}},&quot;textStyle&quot;:{&quot;fontFamily&quot;:&quot;Microsoft YaHei&quot;,&quot;fontSize&quot;:12,&quot;fontStyle&quot;:&quot;normal&quot;,&quot;fontWeight&quot;:&quot;normal&quot;},&quot;stateAnimation&quot;:{&quot;duration&quot;:300,&quot;easing&quot;:&quot;cubicOut&quot;},&quot;animation&quot;:&quot;auto&quot;,&quot;animationDuration&quot;:1000,&quot;animationDurationUpdate&quot;:500,&quot;animationEasing&quot;:&quot;cubicInOut&quot;,&quot;animationEasingUpdate&quot;:&quot;cubicInOut&quot;,&quot;animationThreshold&quot;:2000,&quot;progressiveThreshold&quot;:3000,&quot;progressive&quot;:400,&quot;hoverLayerThreshold&quot;:3000,&quot;useUTC&quot;:false,&quot;axisPointer&quot;:[{&quot;show&quot;:&quot;auto&quot;,&quot;z&quot;:50,&quot;type&quot;:&quot;line&quot;,&quot;snap&quot;:false,&quot;triggerTooltip&quot;:true,&quot;triggerEmphasis&quot;:true,&quot;value&quot;:null,&quot;status&quot;:null,&quot;link&quot;:[],&quot;animation&quot;:null,&quot;animationDurationUpdate&quot;:200,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#B9BEC9&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;},&quot;shadowStyle&quot;:{&quot;color&quot;:&quot;rgba(210,219,238,0.2)&quot;},&quot;label&quot;:{&quot;show&quot;:true,&quot;formatter&quot;:null,&quot;precision&quot;:&quot;auto&quot;,&quot;margin&quot;:3,&quot;color&quot;:&quot;#fff&quot;,&quot;padding&quot;:[5,7,5,7],&quot;backgroundColor&quot;:&quot;auto&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderRadius&quot;:3},&quot;handle&quot;:{&quot;show&quot;:false,&quot;icon&quot;:&quot;M10.7,11.9v-1.3H9.3v1.3c-4.9,0.3-8.8,4.4-8.8,9.4c0,5,3.9,9.1,8.8,9.4h1.3c4.9-0.3,8.8-4.4,8.8-9.4C19.5,16.3,15.6,12.2,10.7,11.9z M13.3,24.4H6.7v-1.2h6.6z M13.3,22H6.7v-1.2h6.6z M13.3,19.6H6.7v-1.2h6.6z&quot;,&quot;size&quot;:45,&quot;margin&quot;:50,&quot;color&quot;:&quot;#333&quot;,&quot;shadowBlur&quot;:3,&quot;shadowColor&quot;:&quot;#aaa&quot;,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:2,&quot;throttle&quot;:40}}],&quot;tooltip&quot;:[{&quot;trigger&quot;:&quot;axis&quot;,&quot;axisPointer&quot;:{&quot;type&quot;:&quot;shadow&quot;,&quot;axis&quot;:&quot;auto&quot;,&quot;animation&quot;:&quot;auto&quot;,&quot;animationDurationUpdate&quot;:200,&quot;animationEasingUpdate&quot;:&quot;exponentialOut&quot;,&quot;crossStyle&quot;:{&quot;color&quot;:&quot;#999&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;dashed&quot;,&quot;textStyle&quot;:{}}},&quot;z&quot;:60,&quot;show&quot;:true,&quot;showContent&quot;:true,&quot;triggerOn&quot;:&quot;mousemove|click&quot;,&quot;alwaysShowContent&quot;:false,&quot;displayMode&quot;:&quot;single&quot;,&quot;renderMode&quot;:&quot;auto&quot;,&quot;confine&quot;:null,&quot;showDelay&quot;:0,&quot;hideDelay&quot;:100,&quot;transitionDuration&quot;:0.4,&quot;enterable&quot;:false,&quot;backgroundColor&quot;:&quot;#fff&quot;,&quot;shadowBlur&quot;:10,&quot;shadowColor&quot;:&quot;rgba(0, 0, 0, .2)&quot;,&quot;shadowOffsetX&quot;:1,&quot;shadowOffsetY&quot;:2,&quot;borderRadius&quot;:4,&quot;borderWidth&quot;:1,&quot;padding&quot;:null,&quot;extraCssText&quot;:&quot;&quot;,&quot;textStyle&quot;:{&quot;color&quot;:&quot;#666&quot;,&quot;fontSize&quot;:14}}],&quot;yAxis&quot;:[{&quot;type&quot;:&quot;category&quot;,&quot;data&quot;:[&quot;Batman: Death &amp; Maidens&quot;,&quot;Dark Knight III Variant&quot;,&quot;Jemm, Son of Saturn&quot;,&quot;Spider-Man #40&quot;,&quot;Daredevil #188&quot;,&quot;Daredevil #185&quot;,&quot;Daredevil #190&quot;],&quot;axisLabel&quot;:{&quot;width&quot;:100,&quot;overflow&quot;:&quot;truncate&quot;,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;boundaryGap&quot;:true,&quot;deduplication&quot;:null,&quot;splitLine&quot;:{&quot;show&quot;:false,&quot;lineStyle&quot;:{&quot;color&quot;:[&quot;#E0E6F1&quot;],&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;}},&quot;axisTick&quot;:{&quot;alignWithLabel&quot;:false,&quot;interval&quot;:&quot;auto&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{&quot;status&quot;:&quot;hide&quot;,&quot;value&quot;:6},&quot;axisLine&quot;:{&quot;show&quot;:true,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#6E7079&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;splitArea&quot;:{&quot;show&quot;:false,&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(250,250,250,0.2)&quot;,&quot;rgba(210,219,238,0.2)&quot;]}},&quot;offset&quot;:0}],&quot;xAxis&quot;:[{&quot;type&quot;:&quot;value&quot;,&quot;axisLabel&quot;:{&quot;formatter&quot;:&quot;${value}&quot;,&quot;show&quot;:true,&quot;inside&quot;:false,&quot;rotate&quot;:0,&quot;showMinLabel&quot;:null,&quot;showMaxLabel&quot;:null,&quot;margin&quot;:8,&quot;fontSize&quot;:12},&quot;splitLine&quot;:{&quot;lineStyle&quot;:{&quot;type&quot;:&quot;dashed&quot;,&quot;opacity&quot;:0.2,&quot;color&quot;:[&quot;#E0E6F1&quot;],&quot;width&quot;:1},&quot;show&quot;:true},&quot;boundaryGap&quot;:[0,0],&quot;axisLine&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;onZero&quot;:true,&quot;onZeroAxisIndex&quot;:null,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#6E7079&quot;,&quot;width&quot;:1,&quot;type&quot;:&quot;solid&quot;},&quot;symbol&quot;:[&quot;none&quot;,&quot;none&quot;],&quot;symbolSize&quot;:[10,15]},&quot;axisTick&quot;:{&quot;show&quot;:&quot;auto&quot;,&quot;inside&quot;:false,&quot;length&quot;:5,&quot;lineStyle&quot;:{&quot;width&quot;:1}},&quot;splitNumber&quot;:5,&quot;minorTick&quot;:{&quot;show&quot;:false,&quot;splitNumber&quot;:5,&quot;length&quot;:3,&quot;lineStyle&quot;:{}},&quot;minorSplitLine&quot;:{&quot;show&quot;:false,&quot;lineStyle&quot;:{&quot;color&quot;:&quot;#F4F7FD&quot;,&quot;width&quot;:1}},&quot;show&quot;:true,&quot;z&quot;:0,&quot;inverse&quot;:false,&quot;name&quot;:&quot;&quot;,&quot;nameLocation&quot;:&quot;end&quot;,&quot;nameRotate&quot;:null,&quot;nameTruncate&quot;:{&quot;maxWidth&quot;:null,&quot;ellipsis&quot;:&quot;...&quot;,&quot;placeholder&quot;:&quot;.&quot;},&quot;nameTextStyle&quot;:{},&quot;nameGap&quot;:15,&quot;silent&quot;:false,&quot;triggerEvent&quot;:false,&quot;tooltip&quot;:{&quot;show&quot;:false},&quot;axisPointer&quot;:{},&quot;splitArea&quot;:{&quot;show&quot;:false,&quot;areaStyle&quot;:{&quot;color&quot;:[&quot;rgba(250,250,250,0.2)&quot;,&quot;rgba(210,219,238,0.2)&quot;]}},&quot;offset&quot;:0}],&quot;grid&quot;:[{&quot;left&quot;:&quot;3%&quot;,&quot;right&quot;:&quot;4%&quot;,&quot;bottom&quot;:&quot;3%&quot;,&quot;containLabel&quot;:true,&quot;show&quot;:false,&quot;z&quot;:0,&quot;top&quot;:60,&quot;backgroundColor&quot;:&quot;rgba(0,0,0,0)&quot;,&quot;borderWidth&quot;:1,&quot;borderColor&quot;:&quot;#ccc&quot;}],&quot;series&quot;:[{&quot;name&quot;:&quot;市場報價 (USD)&quot;,&quot;type&quot;:&quot;bar&quot;,&quot;data&quot;:[{&quot;value&quot;:8000,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#555&quot;}},{&quot;value&quot;:9300,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#555&quot;}},{&quot;value&quot;:10000,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#555&quot;}},{&quot;value&quot;:12000,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#555&quot;}},{&quot;value&quot;:60000,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#E62429&quot;}},{&quot;value&quot;:65000,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#E62429&quot;}},{&quot;value&quot;:75000,&quot;itemStyle&quot;:{&quot;color&quot;:&quot;#E62429&quot;}}],&quot;label&quot;:{&quot;show&quot;:true,&quot;position&quot;:&quot;right&quot;,&quot;formatter&quot;:&quot;${c}&quot;},&quot;barWidth&quot;:&quot;60%&quot;,&quot;z&quot;:2,&quot;coordinateSystem&quot;:&quot;cartesian2d&quot;,&quot;legendHoverLink&quot;:true,&quot;barMinHeight&quot;:0,&quot;barMinAngle&quot;:0,&quot;large&quot;:false,&quot;largeThreshold&quot;:400,&quot;progressive&quot;:3000,&quot;progressiveChunkMode&quot;:&quot;mod&quot;,&quot;clip&quot;:true,&quot;roundCap&quot;:false,&quot;showBackground&quot;:false,&quot;backgroundStyle&quot;:{&quot;color&quot;:&quot;rgba(180, 180, 180, 0.2)&quot;,&quot;borderColor&quot;:null,&quot;borderWidth&quot;:0,&quot;borderType&quot;:&quot;solid&quot;,&quot;borderRadius&quot;:0,&quot;shadowBlur&quot;:0,&quot;shadowColor&quot;:null,&quot;shadowOffsetX&quot;:0,&quot;shadowOffsetY&quot;:0,&quot;opacity&quot;:1},&quot;select&quot;:{&quot;itemStyle&quot;:{&quot;borderColor&quot;:&quot;#212121&quot;}},&quot;realtimeSort&quot;:false,&quot;emphasis&quot;:{&quot;label&quot;:{&quot;show&quot;:true}}}],&quot;visualMap&quot;:[],&quot;legend&quot;:[],&quot;markArea&quot;:[],&quot;markLine&quot;:[],&quot;markPoint&quot;:[],&quot;brush&quot;:[],&quot;dataZoom&quot;:[]}"><div style="position: relative; width: 536px; height: 384px; padding: 0px; margin: 0px; border-width: 0px; cursor: default;"><canvas data-zr-dom-id="zr_0" width="670" height="480" style="position: absolute; left: 0px; top: 0px; width: 536px; height: 384px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class=""></div></div>
+                    <p class="text-xs text-center text-gray-400 mt-4">數據來源：Philippe Labaune Gallery 2026 市場報價</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visitor Information -->
+    <section class="py-24 bg-paper-white dark:bg-ink-black" id="visit">
+        <div class="container mx-auto px-6">
+            <div class="max-w-5xl mx-auto bg-charcoal text-white rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row fade-up visible">
+                <div class="md:w-1/2 p-12 flex flex-col justify-center">
+                    <h2 class="text-3xl font-black mb-8">參觀資訊</h2>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <i class="fas fa-map-marker-alt text-comic-red mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-lg">地點</h4>
+                                <p class="text-gray-400">Philippe Labaune Gallery<br>534 West 24th Street, New York, NY 10011</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <i class="fas fa-calendar-alt text-comic-red mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-lg">展期</h4>
+                                <p class="text-gray-400">2026年3月6日 - 4月11日</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <i class="fas fa-clock text-comic-red mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-lg">開放時間</h4>
+                                <p class="text-gray-400">週四至週六：10:00 AM – 6:00 PM<br>(週日、一、二、三 休館)</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <i class="fas fa-ticket-alt text-comic-red mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-lg">入場</h4>
+                                <p class="text-gray-400">免費對公眾開放</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 relative bg-gray-800">
+                    <!-- Stylized Map Placeholder using CSS pattern -->
+                    <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="text-center">
+                            <i class="fas fa-location-arrow text-4xl text-comic-red mb-4 animate-bounce"></i>
+                            <p class="font-bold tracking-widest uppercase">Chelsea Art District</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white pt-16 pb-8 border-t border-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-12">
+                <div class="mb-8 md:mb-0">
+                    <a href="#" class="text-3xl font-black tracking-tighter">KJ.26</a>
+                    <p class="text-gray-500 text-sm mt-2">Celebrating the Art of Visual Storytelling.</p>
+                </div>
+                <div class="flex gap-6">
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center hover:bg-comic-red transition-colors"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center hover:bg-comic-red transition-colors"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center hover:bg-comic-red transition-colors"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-900 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600">
+                <div class="text-center md:text-left mb-4 md:mb-0">
+                    <p>免責申明：基於公開資料，僅供參考，不構成建議</p>
+                    <p>資料來源：網頁公開資訊 | 作者：Dunk 2026</p>
+                </div>
+                <div class="text-center md:text-right">
+                    <p>版權所有： © Dunk</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Loading Animation
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loader');
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 500);
+            }, 1000);
+        });
+
+        // Dark Mode Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        // Check Local Storage or System Preference
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            if (html.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+            initCharts(); // Re-init charts with new theme
+            initMermaid(); // Re-init mermaid
+        });
+
+        // Intersection Observer for Fade Up Animation
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ECharts Initialization
+        let priceChartInstance = null;
+
+        function initCharts() {
+            const isDark = html.classList.contains('dark');
+            const chartDom = document.getElementById('priceChart');
+            
+            if (priceChartInstance) {
+                priceChartInstance.dispose();
+            }
+
+            priceChartInstance = echarts.init(chartDom, isDark ? 'dark' : null);
+
+            const option = {
+                backgroundColor: 'transparent',
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: { type: 'shadow' }
+                },
+                grid: {
+                    left: '3%',
+                    right: '4%',
+                    bottom: '3%',
+                    containLabel: true
+                },
+                xAxis: {
+                    type: 'value',
+                    axisLabel: {
+                        formatter: '${value}'
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            type: 'dashed',
+                            opacity: 0.2
+                        }
+                    }
+                },
+                yAxis: {
+                    type: 'category',
+                    data: ['Batman: Death & Maidens', 'Dark Knight III Variant', 'Jemm, Son of Saturn', 'Spider-Man #40', 'Daredevil #188', 'Daredevil #185', 'Daredevil #190'],
+                    axisLabel: {
+                        width: 100,
+                        overflow: 'truncate'
+                    }
+                },
+                series: [
+                    {
+                        name: '市場報價 (USD)',
+                        type: 'bar',
+                        data: [
+                            {value: 8000, itemStyle: {color: '#555'}}, 
+                            {value: 9300, itemStyle: {color: '#555'}},
+                            {value: 10000, itemStyle: {color: '#555'}},
+                            {value: 12000, itemStyle: {color: '#555'}},
+                            {value: 60000, itemStyle: {color: '#E62429'}},
+                            {value: 65000, itemStyle: {color: '#E62429'}},
+                            {value: 75000, itemStyle: {color: '#E62429'}}
+                        ],
+                        label: {
+                            show: true,
+                            position: 'right',
+                            formatter: '${c}'
+                        },
+                        barWidth: '60%'
+                    }
+                ]
+            };
+
+            priceChartInstance.setOption(option);
+        }
+
+        // Mermaid Initialization
+        function initMermaid() {
+            const isDark = html.classList.contains('dark');
+            mermaid.initialize({
+                startOnLoad: true,
+                theme: isDark ? 'dark' : 'base',
+                themeVariables: {
+                    fontFamily: 'Noto Sans TC',
+                    primaryColor: '#E62429',
+                    primaryTextColor: '#fff',
+                    primaryBorderColor: '#E62429',
+                    lineColor: isDark ? '#fff' : '#333',
+                    secondaryColor: isDark ? '#1a1a1a' : '#f4f4f4',
+                    tertiaryColor: '#fff'
+                }
+            });
+            // Force re-render logic if needed for dynamic switching, 
+            // but for simple page loads, standard init is fine.
+            // Mermaid creates new SVG on load.
+        }
+
+        // Initial Calls
+        initCharts();
+        
+        // Handle Resize
+        window.addEventListener('resize', () => {
+            if (priceChartInstance) {
+                priceChartInstance.resize();
+            }
+        });
+
+    </script>
+
+</body></body>
+</html>
