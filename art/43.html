@@ -1,0 +1,523 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>museum gugging! 20 Jahre kUNSt - 古金博物館20週年慶</title>
+    <meta name="description" content="奧地利古金博物館(Museum Gugging)20週年慶典：原生藝術的體制化歷程、全球影響力與美學轉型。">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        art: {
+                            blue: '#2C3E50',
+                            orange: '#E67E22',
+                            red: '#E74C3C',
+                            gray: '#95A5A6',
+                            light: '#F8F9FA',
+                            dark: '#1A1A1A'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Noto Serif TC"', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Preline UI -->
+    <script src="https://cdn.jsdelivr.net/npm/preline@2.3.0/dist/preline.min.js"></script>
+
+    <style>
+        /* Custom Styles for Artistic Feel */
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        .dark .glass-effect {
+            background: rgba(26, 26, 26, 0.85);
+        }
+        
+        .art-brush-border {
+            border-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" preserveAspectRatio="none"><path d="M0,0 L100,5 L95,100 L5,95 Z" fill="none" stroke="black" stroke-width="2"/></svg>') 10 stretch;
+        }
+
+        .hero-pattern {
+            background-color: #F8F9FA;
+            background-image: radial-gradient(#95A5A6 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .dark .hero-pattern {
+            background-color: #1A1A1A;
+            background-image: radial-gradient(#333 1px, transparent 1px);
+        }
+
+        .reveal-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Irregular Shape Mask */
+        .blob-shape {
+            clip-path: polygon(45% 0%, 100% 20%, 90% 80%, 20% 100%, 0% 60%);
+        }
+    </style>
+<script src="https://felo.ai/js/iframe.js?v=1773996545817"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style></head>
+<body class="bg-art-light text-gray-800 dark:bg-art-dark dark:text-gray-200 font-sans antialiased transition-colors duration-300">
+
+    <!-- Navigation -->
+    <header class="fixed top-0 w-full z-50 glass-effect border-b border-gray-200 dark:border-gray-800 transition-all duration-300">
+        <nav class="max-w-[85rem] w-full mx-auto px-4 sm:px-6 lg:px-8" aria-label="Global">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <a class="flex-none text-2xl font-serif font-bold text-art-blue dark:text-white tracking-tighter" href="#" aria-label="Brand">
+                    museum gugging<span class="text-art-red">!</span>
+                </a>
+                
+                <div class="flex items-center gap-4">
+                    <div class="hidden sm:block">
+                        <a class="font-medium text-sm text-gray-600 hover:text-art-orange dark:text-gray-400 dark:hover:text-white px-3" href="#about">展覽核心</a>
+                        <a class="font-medium text-sm text-gray-600 hover:text-art-orange dark:text-gray-400 dark:hover:text-white px-3" href="#artists">重點藝術家</a>
+                        <a class="font-medium text-sm text-gray-600 hover:text-art-orange dark:text-gray-400 dark:hover:text-white px-3" href="#guggkasten">guggkasten!</a>
+                        <a class="font-medium text-sm text-gray-600 hover:text-art-orange dark:text-gray-400 dark:hover:text-white px-3" href="#info">參觀資訊</a>
+                    </div>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button type="button" id="theme-toggle" class="hs-dark-mode-active:hidden block hs-dark-mode group flex items-center text-gray-600 hover:text-art-blue font-medium dark:text-gray-400 dark:hover:text-gray-500">
+                        <svg class="flex-shrink-0 w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                    </button>
+                    <button type="button" id="theme-toggle-dark" class="hs-dark-mode-active:block hidden hs-dark-mode group flex items-center text-gray-400 hover:text-white font-medium">
+                        <svg class="flex-shrink-0 w-5 h-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section (Editorial/Magazine Style) -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden hero-pattern">
+        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
+                <div class="max-w-2xl reveal-up">
+                    <p class="inline-block text-sm font-bold tracking-widest text-art-orange uppercase mb-4 border-b-2 border-art-orange pb-1">
+                        2026.03.15 — 2027.01.17
+                    </p>
+                    <h1 class="block text-5xl sm:text-6xl md:text-7xl font-serif font-black text-art-blue dark:text-white leading-tight mb-6">
+                        museum gugging<span class="text-art-red">!</span><br>
+                        <span class="text-3xl sm:text-4xl md:text-5xl font-light italic text-gray-500 dark:text-gray-400">20 Jahre kUNSt</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed max-w-lg">
+                        奧地利古金博物館建館二十週年慶典。這不僅是對過去二十年學術成就的總結，更是一次重新定義原生藝術 (Art Brut) 在當代藝術語境中位置的契機。
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#info" class="inline-flex justify-center items-center gap-x-3 text-center bg-art-blue hover:bg-art-blue/90 text-white text-sm font-medium rounded-none border border-transparent px-8 py-4 transition-colors">
+                            參觀資訊
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="#about" class="inline-flex justify-center items-center gap-x-3 text-center bg-transparent hover:bg-gray-100 dark:hover:bg-gray-800 border border-art-blue dark:border-gray-600 text-art-blue dark:text-gray-300 text-sm font-medium rounded-none px-8 py-4 transition-colors">
+                            探索展覽
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="relative lg:ml-auto reveal-up" style="transition-delay: 0.2s;">
+                    <!-- Abstract SVG Graphic instead of external image to guarantee loading -->
+                    <div class="w-full max-w-md mx-auto aspect-square bg-white dark:bg-gray-800 p-8 shadow-2xl relative">
+                        <div class="absolute -top-4 -right-4 w-24 h-24 bg-art-orange rounded-full mix-blend-multiply opacity-70 animate-pulse"></div>
+                        <div class="absolute -bottom-4 -left-4 w-32 h-32 bg-art-blue rounded-full mix-blend-multiply opacity-70"></div>
+                        <svg viewBox="0 0 200 200" class="w-full h-full text-art-red opacity-80" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="currentColor" d="M45.7,-76.3C58.9,-69.3,69.2,-55.4,78.3,-40.7C87.4,-26,95.3,-10.5,93.4,4C91.5,18.5,79.8,32.1,68.6,44.4C57.4,56.7,46.7,67.7,33.5,75.1C20.3,82.5,4.6,86.3,-10.8,85.1C-26.2,83.9,-41.3,77.7,-53.4,67.7C-65.5,57.7,-74.6,43.9,-81.1,28.7C-87.6,13.5,-91.5,-3.1,-87.3,-17.8C-83.1,-32.5,-70.8,-45.3,-56.8,-53.3C-42.8,-61.3,-27.1,-64.5,-12.3,-69C2.5,-73.5,17.4,-79.3,32.4,-83.4C47.4,-87.5,62.5,-89.9,45.7,-76.3Z" transform="translate(100 100)" />
+                            <circle cx="100" cy="100" r="40" fill="none" stroke="black" stroke-width="4" class="dark:stroke-white"/>
+                            <line x1="20" y1="100" x2="180" y2="100" stroke="black" stroke-width="2" class="dark:stroke-white"/>
+                            <line x1="100" y1="20" x2="100" y2="180" stroke="black" stroke-width="2" class="dark:stroke-white"/>
+                        </svg>
+                        <div class="absolute bottom-4 right-4 text-xs font-serif text-gray-500">Abstract Representation of Art Brut</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Shape Divider -->
+        <div class="absolute bottom-0 w-full overflow-hidden leading-none">
+            <svg class="relative block w-[calc(100%+1.3px)] h-[50px]" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M1200 120L0 16.48 0 0 1200 0 1200 120z" class="fill-white dark:fill-art-dark"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Core About Section (Z-Pattern Layout) -->
+    <section id="about" class="py-24 bg-white dark:bg-art-dark relative">
+        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20 reveal-up">
+                <h2 class="text-3xl md:text-5xl font-serif font-bold text-art-blue dark:text-white mb-4">從臨床診斷到藝術自治</h2>
+                <div class="w-24 h-1 bg-art-red mx-auto"></div>
+                <p class="mt-6 text-gray-600 dark:text-gray-400 max-w-3xl mx-auto text-lg">
+                    展覽核心理念在於「量測基準」，不再將原生藝術視為邊緣創作，而是置於國際當代藝術中心，展現古金藝術 (Gugging Art) 的獨立性。
+                </p>
+            </div>
+
+            <!-- Block 1 -->
+            <div class="grid lg:grid-cols-2 gap-16 items-center mb-24 reveal-up">
+                <div class="order-2 lg:order-1">
+                    <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-4"><span class="text-art-orange">01.</span> 歷史脈絡與體制轉型</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                        古金博物館的成立植根於長達數十年的醫療與藝術交織史。其所在的場址曾是「下奧地利州神經醫院」。1981年「藝術家之屋 (Haus der Künstler)」的成立，標誌著古金模式從臨床治療轉向生活與創作並行的社群模式。
+                    </p>
+                    <ul class="space-y-3 text-sm text-gray-600 dark:text-gray-400">
+                        <li class="flex gap-x-3"><i class="fa-solid fa-check text-art-red mt-1"></i> 全館 1,300 平方公尺的展覽空間</li>
+                        <li class="flex gap-x-3"><i class="fa-solid fa-check text-art-red mt-1"></i> 紀念「藝術家之屋」成立 40 週年</li>
+                        <li class="flex gap-x-3"><i class="fa-solid fa-check text-art-red mt-1"></i> 從「病史敘事」轉向「形式美學分析」</li>
+                    </ul>
+                </div>
+                <div class="order-1 lg:order-2 bg-gray-100 dark:bg-gray-800 p-8 aspect-[4/3] flex items-center justify-center relative">
+                    <div class="absolute inset-0 border-2 border-art-blue dark:border-gray-600 translate-x-4 translate-y-4 -z-10"></div>
+                    <i class="fa-solid fa-landmark-dome text-6xl text-art-gray opacity-50"></i>
+                </div>
+            </div>
+
+            <!-- Block 2 -->
+            <div class="grid lg:grid-cols-2 gap-16 items-center reveal-up">
+                <div class="bg-gray-100 dark:bg-gray-800 p-8 aspect-[4/3] flex items-center justify-center relative">
+                    <div class="absolute inset-0 border-2 border-art-orange translate-x-4 -translate-y-4 -z-10"></div>
+                    <i class="fa-solid fa-users-viewfinder text-6xl text-art-gray opacity-50"></i>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-4"><span class="text-art-blue dark:text-art-orange">02.</span> 包容性博物館實踐</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                        館方把這次週年視為強化「透明、開放與包容性博物館工作」的里程碑。博物館並未迴避其建築物背後的黑暗歷史，試圖將這片曾經的苦難之地轉化為推動社會開放與去標籤化的教育基地。
+                    </p>
+                    <div class="bg-art-light dark:bg-gray-900 border-l-4 border-art-red p-4 italic text-sm text-gray-600 dark:text-gray-400">
+                        "古金博物館已從一個封閉的精神病院場址，成功轉型為充滿生命力、對全社會開放的文化地標。"
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Artists Section (Grid Layout) -->
+    <section id="artists" class="py-24 bg-art-light dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 reveal-up">
+                <div class="max-w-2xl">
+                    <h2 class="text-3xl md:text-5xl font-serif font-bold text-art-blue dark:text-white mb-4">原生藝術的靈魂核心</h2>
+                    <p class="text-gray-600 dark:text-gray-400 text-lg">
+                        展覽聚焦 20 位關鍵藝術家，構成了一幅完整且具備層次感的原生藝術圖譜。
+                    </p>
+                </div>
+                <div class="mt-4 md:mt-0 text-right">
+                    <span class="text-5xl font-black text-gray-200 dark:text-gray-800">20位</span>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Artist 1 -->
+                <div class="bg-white dark:bg-art-dark p-8 border border-gray-200 dark:border-gray-800 hover:border-art-orange dark:hover:border-art-orange transition-colors reveal-up group">
+                    <div class="text-sm font-bold text-art-red tracking-widest uppercase mb-2">90歲冥誕紀念</div>
+                    <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-4 group-hover:text-art-orange transition-colors">奧古斯特．瓦拉<br><span class="text-lg font-normal text-gray-500">August Walla (1936–2001)</span></h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-6">
+                        古金最著名的「全才藝術家」。他創造了一個融合多神論、政治符號與個人神話的龐大宇宙。其藝術是全方位、沉浸式的，甚至將整座藝術家之家的外牆轉變為其神話系統的載體。
+                    </p>
+                    <div class="flex items-center gap-2 text-xs text-gray-500 font-medium">
+                        <i class="fa-solid fa-palette text-art-blue"></i> 繪畫、雕塑、裝置藝術
+                    </div>
+                </div>
+
+                <!-- Artist 2 -->
+                <div class="bg-white dark:bg-art-dark p-8 border border-gray-200 dark:border-gray-800 hover:border-art-blue dark:hover:border-art-blue transition-colors reveal-up group" style="transition-delay: 0.1s;">
+                    <div class="text-sm font-bold text-art-blue dark:text-blue-400 tracking-widest uppercase mb-2">100歲冥誕紀念</div>
+                    <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-4 group-hover:text-art-blue transition-colors">約翰．豪瑟<br><span class="text-lg font-normal text-gray-500">Johann Hauser (1926–1996)</span></h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-6">
+                        古金藝術的旗幟性人物，以其極具辨識度的女性形象與動物描繪著稱。作品具備一種原始且直抵人心的力量，被視為原生藝術中最純粹的表達。
+                    </p>
+                    <div class="flex items-center gap-2 text-xs text-gray-500 font-medium">
+                        <i class="fa-solid fa-paint-roller text-art-orange"></i> 經典標誌: 1969年《獅子》(Löwe)
+                    </div>
+                </div>
+
+                <!-- Artist 3 -->
+                <div class="bg-white dark:bg-art-dark p-8 border border-gray-200 dark:border-gray-800 hover:border-gray-400 transition-colors reveal-up group" style="transition-delay: 0.2s;">
+                    <div class="text-sm font-bold text-gray-500 tracking-widest uppercase mb-2">經典大師</div>
+                    <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-4 group-hover:text-gray-500 transition-colors">奧斯瓦爾德．奇特納<br><span class="text-lg font-normal text-gray-500">Oswald Tschirtner (1920–2007)</span></h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-6">
+                        以極簡的「拉長頭足類」(stretched cephalopods) 線型人風格聞名。其作品展現了原生藝術中對形式的高度精煉，挑戰了傳統的具象描繪。
+                    </p>
+                    <div class="flex items-center gap-2 text-xs text-gray-500 font-medium">
+                        <i class="fa-solid fa-pen-nib text-gray-700 dark:text-gray-300"></i> 極簡線條美學
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center reveal-up">
+                <p class="text-sm text-gray-500 dark:text-gray-400 italic">
+                    * 展覽亦涵蓋海因里希·雷森鮑爾(Heinrich Reisenbauer)、萊拉·巴赫蒂亞爾(Laila Bachtiar, 唯一女性代表)等多位知名創作者。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guggkasten Section (Dark Mode Design) -->
+    <section id="guggkasten" class="py-24 bg-art-blue text-white relative overflow-hidden">
+        <!-- Abstract background elements -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-art-orange opacity-10 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2"></div>
+        
+        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal-up">
+                <h2 class="text-3xl md:text-5xl font-serif font-bold mb-4">guggkasten!</h2>
+                <p class="text-xl text-art-light/80 italic mb-6">「四面牆、四次更換、四次拜訪」</p>
+                <p class="text-white/70">
+                    為增加週年慶典的動態感與學術深度，引入了實驗性展廳。在慶典年度內進行四次不同主題或藝術家的展示，為常設展提供動態的當代視角與補充。
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Quarter 1 -->
+                <div class="bg-white/10 p-6 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all reveal-up">
+                    <div class="text-art-orange font-bold mb-2">第1季 | 2026.03.15 - 06.14</div>
+                    <h4 class="text-xl font-bold mb-3">泰克斯·魯比諾維茨：《氮氣》(Stickstoff)</h4>
+                    <p class="text-sm text-white/70">
+                        利用廢棄的紡織品，透過老式縫紉機進行文字刺繡，將拼貼與縫紉轉化為帶有強烈敘事色彩的藝術形式。
+                    </p>
+                </div>
+                
+                <!-- Quarter 2 -->
+                <div class="bg-white/10 p-6 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all reveal-up" style="transition-delay: 0.1s;">
+                    <div class="text-art-orange font-bold mb-2">第2季 | 2026.06.21 - 09.03</div>
+                    <h4 class="text-xl font-bold mb-3">古金工作室：《工作室之我》</h4>
+                    <p class="text-sm text-white/70">
+                        慶祝工作室25週年。回顧開放創作空間歷史，特別包含「打字機項目」，打破原生藝術僅限於視覺創作的偏見。
+                    </p>
+                </div>
+                
+                <!-- Quarter 3 -->
+                <div class="bg-white/10 p-6 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all reveal-up" style="transition-delay: 0.2s;">
+                    <div class="text-art-orange font-bold mb-2">第3季 | 2026.09.14 - 11.15</div>
+                    <h4 class="text-xl font-bold mb-3">因戈爾夫·埃伯林：《陽光百萬富翁》</h4>
+                    <p class="text-sm text-white/70">
+                        展示這位德國藝術家對於光影與色彩的獨特處理手法，構建了一個充滿光明感的視覺體系。
+                    </p>
+                </div>
+                
+                <!-- Quarter 4 -->
+                <div class="bg-white/10 p-6 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all reveal-up" style="transition-delay: 0.3s;">
+                    <div class="text-art-orange font-bold mb-2">第4季 | 2026.11.23 - 27.01.17</div>
+                    <h4 class="text-xl font-bold mb-3">米凱拉·波拉切克：壓軸展覽</h4>
+                    <p class="text-sm text-white/70">
+                        大型複雜墨水繪畫《daskratzienbouquet》，將具象與抽象元素編織，展現夢幻般的視覺密度與空間深度。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Info & Education Section -->
+    <section id="info" class="py-24 bg-white dark:bg-art-dark">
+        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-12 gap-12">
+                <!-- Practical Info -->
+                <div class="lg:col-span-5 reveal-up">
+                    <h2 class="text-3xl font-serif font-bold text-gray-800 dark:text-white mb-8 border-l-4 border-art-blue pl-4">參觀資訊</h2>
+                    
+                    <div class="bg-gray-50 dark:bg-gray-800/50 p-6 border border-gray-100 dark:border-gray-700">
+                        <ul class="space-y-6">
+                            <li>
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 rounded-full bg-art-blue/10 flex items-center justify-center shrink-0">
+                                        <i class="fa-regular fa-calendar text-art-blue"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-800 dark:text-white">展期</h4>
+                                        <p class="text-sm text-gray-600 dark:text-gray-400">2026年3月15日 - 2027年1月17日</p>
+                                        <p class="text-xs text-art-red mt-1">* 2026年6月20日為「生日慶祝日 (birthday pARTy)」特別活動</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 rounded-full bg-art-blue/10 flex items-center justify-center shrink-0">
+                                        <i class="fa-regular fa-clock text-art-blue"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-800 dark:text-white">開放時間</h4>
+                                        <p class="text-sm text-gray-600 dark:text-gray-400">週二至週日 10:00 - 17:00</p>
+                                        <p class="text-xs text-gray-500 mt-1">週一休館</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="flex items-start gap-4">
+                                    <div class="w-10 h-10 rounded-full bg-art-blue/10 flex items-center justify-center shrink-0">
+                                        <i class="fa-solid fa-location-dot text-art-blue"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-800 dark:text-white">地點</h4>
+                                        <p class="text-sm text-gray-600 dark:text-gray-400">Museum Gugging</p>
+                                        <p class="text-xs text-gray-500 mt-1">Am Campus 2, 3400 Maria Gugging<br>(克洛斯特新堡市，維也納近郊)</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Education Programs -->
+                <div class="lg:col-span-7 reveal-up" style="transition-delay: 0.2s;">
+                    <h2 class="text-3xl font-serif font-bold text-gray-800 dark:text-white mb-8 border-l-4 border-art-orange pl-4">藝術教育與公眾參與</h2>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6">
+                        館方設計了針對不同生命階段的教育方案，致力將深奧的原生藝術轉化為可感知的社會體驗。
+                    </p>
+                    
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <!-- Edu Card 1 -->
+                        <div class="border border-gray-200 dark:border-gray-700 p-5 hover:shadow-md transition-shadow">
+                            <h4 class="font-bold text-art-blue dark:text-blue-400 mb-2">藝術與咖啡 (成人)</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">參觀博物館幕後或特展後，與策展人一起品嚐特製 Gugelhupf 蛋糕與咖啡，交流藝術見解。</p>
+                        </div>
+                        
+                        <!-- Edu Card 2 -->
+                        <div class="border border-gray-200 dark:border-gray-700 p-5 hover:shadow-md transition-shadow">
+                            <h4 class="font-bold text-art-blue dark:text-blue-400 mb-2">創意晚會 Werkstattrunde</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">每月兩次，在實驗室學習繪畫、拼貼，發掘自身內在原生藝術家潛能。</p>
+                        </div>
+                        
+                        <!-- Edu Card 3 -->
+                        <div class="border border-gray-200 dark:border-gray-700 p-5 hover:shadow-md transition-shadow">
+                            <h4 class="font-bold text-art-orange mb-2">兒童與青少年工作坊</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">從0歲幼兒「鳥之家」感知、6-10歲色彩實驗，到11-14歲批判思考藝術定義。</p>
+                        </div>
+                        
+                        <!-- Edu Card 4 -->
+                        <div class="border border-gray-200 dark:border-gray-700 p-5 hover:shadow-md transition-shadow">
+                            <h4 class="font-bold text-art-orange mb-2">專業導覽</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-400">每週日對話式深度導覽，以及每月第一個週日針對特定主題的焦點導覽(Focus Tour)。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
+        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-8 items-center border-b border-gray-800 pb-8 mb-8">
+                <div>
+                    <h2 class="text-2xl font-serif font-bold text-white tracking-tighter mb-2">
+                        museum gugging<span class="text-art-red">!</span>
+                    </h2>
+                    <p class="text-sm text-gray-500">20 Jahre kUNSt | 古金博物館二十週年慶</p>
+                </div>
+                <div class="flex gap-4 md:justify-end">
+                    <!-- Placeholder Social Links -->
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-art-blue hover:text-white transition-colors">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-art-blue hover:text-white transition-colors">
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-art-blue hover:text-white transition-colors">
+                        <i class="fa-solid fa-globe"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-gray-500">
+                <div class="space-y-1 text-center md:text-left">
+                    <p>免責申明：基於公開資料，僅供參考，不構成建議</p>
+                    <p>資料來源：網頁公開資訊</p>
+                </div>
+                <div class="text-center md:text-right">
+                    <p>版權所有： &copy; Dunk</p>
+                    <p class="mt-1">Designed & Coded by Dunk &copy; 2026</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Scroll Reveal Animation
+        document.addEventListener("DOMContentLoaded", function() {
+            const reveals = document.querySelectorAll(".reveal-up");
+
+            function reveal() {
+                const windowHeight = window.innerHeight;
+                const elementVisible = 100;
+
+                reveals.forEach((reveal) => {
+                    const elementTop = reveal.getBoundingClientRect().top;
+                    if (elementTop < windowHeight - elementVisible) {
+                        reveal.classList.add("active");
+                    }
+                });
+            }
+
+            window.addEventListener("scroll", reveal);
+            reveal(); // Trigger once on load
+            
+            // Theme Toggle Logic
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const themeToggleDarkBtn = document.getElementById('theme-toggle-dark');
+            const html = document.documentElement;
+
+            // Check system preference on load
+            if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                html.classList.add('dark');
+            } else {
+                html.classList.remove('dark');
+            }
+
+            function toggleTheme() {
+                if (html.classList.contains('dark')) {
+                    html.classList.remove('dark');
+                    localStorage.theme = 'light';
+                } else {
+                    html.classList.add('dark');
+                    localStorage.theme = 'dark';
+                }
+            }
+
+            themeToggleBtn.addEventListener('click', toggleTheme);
+            themeToggleDarkBtn.addEventListener('click', toggleTheme);
+        });
+    </script>
+</body>
+</html>
