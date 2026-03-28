@@ -1,0 +1,375 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELMI por Elas - 展現女性主體性的音樂盛會</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/preline@2.3.0/dist/preline.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        serif: ['"Noto Serif TC"', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fdf8f6',
+                            100: '#f2e8e5',
+                            200: '#eaddd7',
+                            300: '#e0cec7',
+                            400: '#d2bab0',
+                            500: '#a37c6f',
+                            600: '#8c6456',
+                            700: '#6d4c41',
+                            800: '#543b32',
+                            900: '#3b2923',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .editorial-dropcap::first-letter {
+            font-size: 3.5em;
+            font-weight: bold;
+            float: left;
+            line-height: 0.8;
+            margin-right: 0.1em;
+            color: #8c6456;
+        }
+        .dark .editorial-dropcap::first-letter {
+            color: #d2bab0;
+        }
+        .bg-pattern {
+            background-image: radial-gradient(#eaddd7 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        .dark .bg-pattern {
+            background-image: radial-gradient(#3b2923 1px, transparent 1px);
+        }
+    </style>
+<script src="https://felo.ai/js/iframe.js?v=1774667852061"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style></head>
+<body class="bg-brand-50 text-gray-800 dark:bg-gray-900 dark:text-gray-200 font-sans antialiased transition-colors duration-300">
+
+    <!-- Navigation -->
+    <header class="fixed top-0 w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors">
+        <nav class="max-w-[85rem] w-full mx-auto px-4 sm:px-6 lg:px-8" aria-label="Global">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-none">
+                    <a class="text-xl font-serif font-bold text-brand-700 dark:text-brand-300" href="#" aria-label="Brand">ELMI por Elas</a>
+                </div>
+                <div class="flex flex-row items-center gap-5">
+                    <button type="button" id="theme-toggle" class="hs-dark-mode-active:hidden block text-gray-500 hover:text-gray-600 font-medium dark:text-gray-400 dark:hover:text-gray-500" data-hs-theme-click-value="dark">
+                        <i class="fa-solid fa-moon text-xl"></i>
+                    </button>
+                    <button type="button" id="theme-toggle-dark" class="hs-dark-mode-active:block hidden text-gray-500 hover:text-gray-600 font-medium dark:text-gray-400 dark:hover:text-gray-500" data-hs-theme-click-value="light">
+                        <i class="fa-regular fa-sun text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://api.felo.ai/images/s/46P0TXtL97.jpg" alt="Concert Background" class="w-full h-full object-cover object-center opacity-40 dark:opacity-30">
+            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-brand-50 dark:to-gray-900"></div>
+        </div>
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto mt-16">
+            <span class="block text-sm md:text-base font-medium tracking-widest uppercase text-brand-600 dark:text-brand-400 mb-4">Mês da Mulher · 女性月致敬</span>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-gray-900 dark:text-white mb-6 tracking-tight">
+                ELMI por Elas
+            </h1>
+            <p class="mt-4 text-xl md:text-2xl text-gray-700 dark:text-gray-300 font-light max-w-3xl mx-auto">
+                一場匯聚女性力量與代表性的音樂盛會，透過藝術傾聽、認可與重塑女性的生命歷程。
+            </p>
+        </div>
+    </section>
+
+    <!-- Event Info Grid -->
+    <section class="py-12 md:py-20 bg-brand-50 dark:bg-gray-900">
+        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8 divide-x divide-gray-200 dark:divide-gray-800">
+                <div class="text-center px-4">
+                    <i class="fa-regular fa-calendar text-2xl text-brand-500 mb-3"></i>
+                    <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">日期</h3>
+                    <p class="mt-2 text-lg font-serif font-semibold text-gray-900 dark:text-white">2026年3月26日 (週四)</p>
+                </div>
+                <div class="text-center px-4">
+                    <i class="fa-regular fa-clock text-2xl text-brand-500 mb-3"></i>
+                    <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">時間</h3>
+                    <p class="mt-2 text-lg font-serif font-semibold text-gray-900 dark:text-white">晚間 19:00</p>
+                </div>
+                <div class="text-center px-4">
+                    <i class="fa-solid fa-location-dot text-2xl text-brand-500 mb-3"></i>
+                    <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">地點</h3>
+                    <p class="mt-2 text-lg font-serif font-semibold text-gray-900 dark:text-white">Casa do Brás<br><span class="text-sm font-sans font-normal">巴西 伊塔比拉</span></p>
+                </div>
+                <div class="text-center px-4">
+                    <i class="fa-solid fa-ticket text-2xl text-brand-500 mb-3"></i>
+                    <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wider">票價</h3>
+                    <p class="mt-2 text-lg font-serif font-semibold text-gray-900 dark:text-white">完全免費</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Narrative Section -->
+    <section class="py-16 md:py-24 bg-white dark:bg-gray-800 relative overflow-hidden">
+        <div class="absolute inset-0 bg-pattern opacity-50"></div>
+        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 dark:text-white mb-6">女性主體性與藝術賦權</h2>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 mb-6 leading-relaxed editorial-dropcap">
+                        在當代巴西的文化治理進程中，伊塔比拉(Itabira)不僅是鋼鐵工業與文學巨擘卡洛斯·德拉蒙德·德·安德拉德的故鄉，更成為音樂教育創新的實驗場。由伊塔比拉自由音樂學校(ELMI)主辦的「ELMI por Elas」音樂會，是一場結合性別主體性探討、社會弱勢群體介入及地方文化遺產活化的綜合性文化行動。
+                    </p>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+                        活動是三月「女性月」特別企畫的一部分，旨在透過音樂凸顯不同女性的聲音與生命歷程。演出標語強調「女性主體性」(protagonismo feminino)，呼應當代拉丁美洲藝文界對性別平等的關注。曲目編排刻意避開對女性的刻板印象描繪，轉而強調敏感度、才華與經驗的多樣性。
+                    </p>
+                </div>
+                <div class="relative">
+                    <div class="aspect-w-4 aspect-h-5 rounded-xl overflow-hidden shadow-2xl">
+                        <img src="https://api.felo.ai/images/s/4aRNiDyNu4.jpg" alt="Female Musician" class="object-cover w-full h-full">
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 bg-brand-600 text-white p-6 rounded-lg shadow-xl max-w-xs">
+                        <p class="font-serif italic text-lg">「將藝術打造成傾聽、認可與重視女性的空間。」</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Impact Section -->
+    <section class="py-16 md:py-24 bg-brand-900 text-white">
+        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-5xl font-serif font-bold mb-6">文化去中心化：加比羅巴社區的青年之聲</h2>
+                <p class="text-lg text-brand-200 font-light">
+                    演出亦包含「Coral Jovem FIA（青年合唱團）」的謝幕演出。這不僅是常規的藝術教育，更具備強烈的社會介入屬性。
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+                <div class="space-y-8">
+                    <div class="bg-white/10 p-8 rounded-2xl backdrop-blur-sm border border-white/20">
+                        <h3 class="text-2xl font-serif font-semibold mb-4 text-brand-100">FIA 專案資源配置</h3>
+                        <ul class="space-y-4 text-brand-200">
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check text-brand-400 mt-1 mr-3"></i>
+                                <span><strong>資金來源：</strong>伊塔比拉兒童與青少年基金(FIA)，將民間捐贈與政府撥款轉化為社會公益。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check text-brand-400 mt-1 mr-3"></i>
+                                <span><strong>目標群體：</strong>12至17歲的青少年，主要來自加比羅巴(Gabiroba)社區。</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa-solid fa-check text-brand-400 mt-1 mr-3"></i>
+                                <span><strong>核心目標：</strong>透過音樂教育促進青少年的社會融入與人格發展。</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-white/10 p-8 rounded-2xl backdrop-blur-sm border border-white/20">
+                        <h3 class="text-2xl font-serif font-semibold mb-4 text-brand-100">打破二元對立</h3>
+                        <p class="text-brand-200 leading-relaxed">
+                            在伊塔比拉的都市結構中，邊緣社區往往面臨文化資源匱乏。透過將合唱團排練設置在社區中心，打破了「市中心與邊緣」的二元對立。在舞台上，社區青少年與市中心精英學員同台，提升了文化自豪感，實現了跨層級的社會流動。
+                        </p>
+                    </div>
+                </div>
+                <div class="grid grid-rows-2 gap-6">
+                    <div class="rounded-2xl overflow-hidden shadow-lg h-64">
+                        <img src="https://api.felo.ai/images/s/5RRurppjMY.jpg" alt="Choir Performance" class="w-full h-full object-cover">
+                    </div>
+                    <div class="rounded-2xl overflow-hidden shadow-lg h-64">
+                        <img src="https://api.felo.ai/images/s/1exoqKyULm.jpg" alt="Stage Performance" class="w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Dashboard Style Section -->
+    <section class="py-16 md:py-24 bg-gray-50 dark:bg-gray-900">
+        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 dark:text-white mb-12 text-center">文化影響力數據與趨勢</h2>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400">最低入學年齡</h3>
+                        <i class="fa-solid fa-child text-brand-500"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-gray-900 dark:text-white mb-2">5歲+</div>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">實現音樂教育早期干預與全生命週期覆蓋</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400">FIA Beneficiaries</h3>
+                        <i class="fa-solid fa-users text-brand-500"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-gray-900 dark:text-white mb-2">12-17歲</div>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">精準對齊脆弱社區，實現社會正義</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400">活動性質</h3>
+                        <i class="fa-solid fa-hand-holding-heart text-brand-500"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-gray-900 dark:text-white mb-2">100% 免費</div>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">公益、開放、去中心化，打破文化階層化</p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-sm border border-gray-100 dark:border-gray-700">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-sm font-medium text-gray-500 dark:text-gray-400">性別代表性</h3>
+                        <i class="fa-solid fa-venus text-brand-500"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-gray-900 dark:text-white mb-2">女性月專題</div>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">系統性挑戰藝術領域的性別偏見</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
+        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center text-center md:text-left">
+                <div>
+                    <h4 class="text-white font-serif text-xl font-bold mb-2">ELMI por Elas</h4>
+                    <p class="text-sm">主辦單位：FCCDA × Prefeitura de Itabira</p>
+                </div>
+                <div class="text-sm space-y-2 text-center">
+                    <p>免責申明：基於公開資料，僅供參考，不構成建議</p>
+                    <p>資料來源：網頁公開資訊</p>
+                </div>
+                <div class="text-sm md:text-right">
+                    <p>網頁設計：Dunk</p>
+                    <p>版權所有： &copy; 2026 Dunk. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Theme Toggle Script -->
+    <script>
+        const HSThemeAppearance = {
+            init() {
+                const defaultTheme = 'default'
+                let theme = localStorage.getItem('hs_theme') || defaultTheme
+
+                if (document.querySelector('html').classList.contains('dark')) return
+                this.setAppearance(theme)
+            },
+            _resetStylesOnLoad() {
+                const $resetStyles = document.createElement('style')
+                $resetStyles.innerText = `*{transition: unset !important;}`
+                $resetStyles.setAttribute('data-hs-appearance-onload-styles', '')
+                document.head.appendChild($resetStyles)
+                return $resetStyles
+            },
+            setAppearance(theme, saveInStore = true, dispatchEvent = true) {
+                const $resetStylesEl = this._resetStylesOnLoad()
+
+                if (saveInStore) {
+                    localStorage.setItem('hs_theme', theme)
+                }
+
+                if (theme === 'auto') {
+                    theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default'
+                }
+
+                document.querySelector('html').classList.remove('dark')
+                document.querySelector('html').classList.remove('default')
+                document.querySelector('html').classList.remove('auto')
+
+                document.querySelector('html').classList.add(this.getOriginalAppearance())
+
+                setTimeout(() => {
+                    $resetStylesEl.remove()
+                })
+
+                if (dispatchEvent) {
+                    window.dispatchEvent(new CustomEvent('on-hs-appearance-change', {detail: theme}))
+                }
+            },
+            getAppearance() {
+                let theme = this.getOriginalAppearance()
+                if (theme === 'auto') {
+                    theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default'
+                }
+                return theme
+            },
+            getOriginalAppearance() {
+                const defaultTheme = 'default'
+                return localStorage.getItem('hs_theme') || defaultTheme
+            }
+        }
+        HSThemeAppearance.init()
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+            if (HSThemeAppearance.getOriginalAppearance() === 'auto') {
+                HSThemeAppearance.setAppearance('auto', false)
+            }
+        })
+
+        window.addEventListener('load', () => {
+            const $clickableThemes = document.querySelectorAll('[data-hs-theme-click-value]')
+            const $switchableThemes = document.querySelectorAll('[data-hs-theme-switch]')
+
+            $clickableThemes.forEach($item => {
+                $item.addEventListener('click', () => HSThemeAppearance.setAppearance($item.getAttribute('data-hs-theme-click-value'), true, $item))
+            })
+
+            $switchableThemes.forEach($item => {
+                $item.addEventListener('change', (e) => {
+                    HSThemeAppearance.setAppearance(e.target.checked ? 'dark' : 'default')
+                })
+
+                $item.checked = HSThemeAppearance.getAppearance() === 'dark'
+            })
+
+            window.addEventListener('on-hs-appearance-change', e => {
+                $switchableThemes.forEach($item => {
+                    $item.checked = e.detail === 'dark'
+                })
+            })
+        })
+    </script>
+</body>
+</html>
