@@ -1,0 +1,479 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa de Campo 時尚週 2026 | 加勒比海頂級奢華時尚盛典</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                    },
+                    colors: {
+                        ocean: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            500: '#14b8a6',
+                            700: '#0f766e',
+                            900: '#134e4a',
+                            950: '#042f2e',
+                        },
+                        coral: {
+                            50: '#fff1f2',
+                            500: '#f43f5e',
+                            600: '#e11d48',
+                        },
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Preline UI -->
+    <script src="https://cdn.jsdelivr.net/npm/preline@2.3.0/dist/preline.min.js"></script>
+
+    <style>
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .dark .glass-nav {
+            background: rgba(15, 23, 42, 0.8);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(4, 47, 46, 0.4), rgba(4, 47, 46, 0.8));
+        }
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+<script src="https://felo.ai/js/iframe.js?v=1776001493872"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style></head>
+<body class="bg-stone-50 text-slate-800 dark:bg-slate-900 dark:text-stone-200 font-sans antialiased transition-colors duration-300">
+
+    <!-- Navigation -->
+    <header class="fixed top-0 w-full z-50 glass-nav transition-all duration-300">
+        <nav class="max-w-[85rem] w-full mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between" aria-label="Global">
+            <a class="flex-none text-2xl font-serif font-bold text-ocean-900 dark:text-gold-400 tracking-wider" href="#">
+                CASA DE CAMPO <span class="font-light text-sm tracking-widest block text-slate-500 dark:text-slate-400">FASHION WEEK 2026</span>
+            </a>
+            <div class="flex items-center gap-5">
+                <div class="hidden sm:flex gap-6 text-sm font-medium">
+                    <a class="text-slate-600 hover:text-ocean-700 dark:text-slate-300 dark:hover:text-gold-400 transition" href="#about">關於活動</a>
+                    <a class="text-slate-600 hover:text-ocean-700 dark:text-slate-300 dark:hover:text-gold-400 transition" href="#designers">設計師陣容</a>
+                    <a class="text-slate-600 hover:text-ocean-700 dark:text-slate-300 dark:hover:text-gold-400 transition" href="#schedule">日程安排</a>
+                    <a class="text-slate-600 hover:text-ocean-700 dark:text-slate-300 dark:hover:text-gold-400 transition" href="#wellness">健康與藝術</a>
+                </div>
+                
+                <!-- Dark Mode Toggle -->
+                <button type="button" id="theme-toggle" class="hs-dark-mode-active:hidden block text-slate-500 hover:text-slate-600 font-medium dark:text-slate-400 dark:hover:text-slate-500">
+                    <i class="fa-regular fa-moon text-xl"></i>
+                </button>
+                <button type="button" id="theme-toggle-dark" class="hs-dark-mode-active:block hidden text-slate-500 hover:text-slate-600 font-medium dark:text-slate-400 dark:hover:text-slate-500">
+                    <i class="fa-regular fa-sun text-xl"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://api.felo.ai/images/s/1wv1waxOyZ.webp" alt="Casa de Campo Fashion Week Hero" class="w-full h-full object-cover object-center" />
+            <div class="absolute inset-0 hero-gradient"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto fade-up">
+            <p class="text-gold-400 font-medium tracking-[0.3em] uppercase mb-4 text-sm md:text-base">加勒比海地區首個頂級奢華時尚盛事</p>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-6 leading-tight">
+                時尚、藝術與<br/><span class="italic font-light">健康的交響曲</span>
+            </h1>
+            <p class="text-stone-200 text-lg md:text-xl font-light max-w-2xl mx-auto mb-10">
+                2026年6月4日 - 8日 | 多明尼加共和國 La Romana<br/>
+                將標誌性的 Casa de Campo 度假村轉型為全球奢侈品產業的新樞紐。
+            </p>
+            <a href="#about" class="inline-flex items-center justify-center gap-2 px-8 py-3 border border-gold-400 text-gold-400 hover:bg-gold-400 hover:text-ocean-950 transition-all duration-300 rounded-full font-medium tracking-wide">
+                探索盛典 <i class="fa-solid fa-arrow-down text-sm"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 lg:py-32 bg-stone-50 dark:bg-slate-900">
+        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="relative fade-up">
+                    <img class="w-full rounded-tr-[4rem] rounded-bl-[4rem] shadow-2xl" src="https://api.felo.ai/images/s/4HbJOZUwYI.jpg" alt="Altos de Chavón Architecture">
+                    <div class="absolute -bottom-6 -right-6 bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-xl max-w-xs border border-stone-100 dark:border-slate-700">
+                        <p class="text-sm text-slate-600 dark:text-slate-400 italic">"提升加勒比海乃至全球時尚活動的標準"</p>
+                        <p class="text-xs font-bold text-ocean-700 mt-2 uppercase tracking-wider">— Jason Kycek, CMO</p>
+                    </div>
+                </div>
+                
+                <div class="fade-up">
+                    <h2 class="text-3xl lg:text-4xl font-serif text-slate-800 dark:text-stone-200 mb-6">加勒比海時尚版圖的<span class="text-ocean-600 dark:text-ocean-400 italic">戰略重塑</span></h2>
+                    <p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed mb-6">
+                        在二十一世紀全球奢華產業的演進過程中，多明尼加共和國的 Casa de Campo 度假村已超越了其作為單純避暑勝地的傳統定義，轉而成為一個集時尚、藝術、教育與健康於一體的複雜生態系統。
+                    </p>
+                    <p class="text-slate-600 dark:text-slate-400 text-lg leading-relaxed mb-8">
+                        活動品牌大使由波多黎各女演員、歌手及前環球小姐 <strong class="text-ocean-700 dark:text-gold-400">Dayanara Torres</strong> 擔任，為這場國際時裝盛事增添了全球矚目的明星光環。
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-6 border-t border-slate-200 dark:border-slate-700 pt-8">
+                        <div>
+                            <h3 class="text-4xl font-serif text-ocean-700 dark:text-gold-400 mb-2">5<span class="text-xl">天</span></h3>
+                            <p class="text-sm text-slate-500 uppercase tracking-wide">沉浸式奢華體驗</p>
+                        </div>
+                        <div>
+                            <h3 class="text-4xl font-serif text-ocean-700 dark:text-gold-400 mb-2">10+</h3>
+                            <p class="text-sm text-slate-500 uppercase tracking-wide">國際頂級設計師</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Designers Section -->
+    <section id="designers" class="py-24 bg-white dark:bg-slate-950">
+        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 fade-up">
+                <span class="text-coral-500 font-medium tracking-widest text-sm uppercase">Couture & Craft</span>
+                <h2 class="text-4xl md:text-5xl font-serif text-slate-800 dark:text-stone-200 mt-3 mb-6">跨文化的時尚視野</h2>
+                <p class="text-slate-600 dark:text-slate-400 text-lg">匯聚來自多明尼加、美國及西班牙的知名設計師，展現創新、工藝與文化影響力的多元面貌。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Dominican Designers -->
+                <div class="group relative overflow-hidden rounded-2xl fade-up border border-stone-100 dark:border-slate-800">
+                    <img src="https://api.felo.ai/images/s/5Lj3kxn2UZ.jpg" alt="Dominican Fashion" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex flex-col justify-end p-6">
+                        <h3 class="text-xl font-serif text-white mb-2 border-b border-white/20 pb-2">多明尼加巨擘</h3>
+                        <ul class="text-stone-200 text-sm space-y-1 font-light">
+                            <li>Giannina Azar</li>
+                            <li>Jenny Polanco</li>
+                            <li>Mayle Vásquez</li>
+                            <li>Gaby Alvarez</li>
+                            <li>José Cristian Lagares</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- US Designers -->
+                <div class="group relative overflow-hidden rounded-2xl fade-up border border-stone-100 dark:border-slate-800" style="transition-delay: 100ms;">
+                    <img src="https://api.felo.ai/images/s/4ME8SVy7y2.jpg" alt="US Fashion" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex flex-col justify-end p-6">
+                        <h3 class="text-xl font-serif text-white mb-2 border-b border-white/20 pb-2">美國創新之聲</h3>
+                        <ul class="text-stone-200 text-sm space-y-1 font-light">
+                            <li>Luis Antonio (波多黎各)</li>
+                            <li>Fausto Altamirano (邁阿密)</li>
+                            <li>Berny Martin (印第安納波利斯)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Spain Designers -->
+                <div class="group relative overflow-hidden rounded-2xl fade-up border border-stone-100 dark:border-slate-800" style="transition-delay: 200ms;">
+                    <img src="https://api.felo.ai/images/s/5ShXhcKR9P.webp" alt="Spanish Fashion" class="w-full h-80 object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent flex flex-col justify-end p-6">
+                        <h3 class="text-xl font-serif text-gold-400 mb-2 border-b border-gold-400/30 pb-2">西班牙特邀壓軸</h3>
+                        <ul class="text-stone-200 text-sm space-y-2 font-light">
+                            <li><strong class="text-white font-medium">Custo Barcelona</strong><br><span class="text-xs text-stone-400">世界知名設計師，擔任壓軸特別嘉賓</span></li>
+                            <li><strong class="text-white font-medium">The 2nd Skin Co.</strong><br><span class="text-xs text-stone-400">高級訂製服二人組</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="schedule" class="py-24 lg:py-32 bg-stone-100 dark:bg-slate-900 relative overflow-hidden">
+        <!-- Abstract BG Elements -->
+        <div class="absolute top-0 right-0 w-64 h-64 bg-ocean-500/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-coral-500/5 rounded-full blur-3xl translate-y-1/3 -translate-x-1/3"></div>
+
+        <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="mb-16 fade-up">
+                <h2 class="text-4xl font-serif text-slate-800 dark:text-stone-200 mb-4 border-l-4 border-ocean-500 pl-4">官方日程</h2>
+                <p class="text-slate-600 dark:text-slate-400">2026年6月4日 - 8日，五天的全方位沉浸式體驗。</p>
+            </div>
+
+            <!-- Timeline -->
+            <div class="space-y-8">
+                <!-- Day 1 -->
+                <div class="flex flex-col md:flex-row gap-6 bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-stone-200 dark:border-slate-700 fade-up">
+                    <div class="md:w-48 shrink-0">
+                        <h3 class="text-2xl font-serif text-ocean-700 dark:text-ocean-400">6月4日</h3>
+                        <p class="text-sm text-slate-500 font-medium">星期四</p>
+                    </div>
+                    <div class="flex-1 space-y-4 border-l-2 border-stone-100 dark:border-slate-700 pl-6">
+                        <div class="flex items-start gap-4">
+                            <i class="fa-solid fa-martini-glass-citrus text-coral-500 mt-1"></i>
+                            <div>
+                                <h4 class="font-medium text-slate-800 dark:text-stone-200">歡迎雞尾酒會 & 藝術展開幕</h4>
+                                <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">知名時尚攝影師 Jesús Cordero 藝術展於 Galeria Chavón 開幕。建立視覺藝術與時尚的連結。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <i class="fa-solid fa-utensils text-ocean-500 mt-1"></i>
+                            <div>
+                                <h4 class="font-medium text-slate-800 dark:text-stone-200">私人晚宴</h4>
+                                <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">設計師與國際媒體私人晚宴於 Casa del Rio 舉行。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 2 -->
+                <div class="flex flex-col md:flex-row gap-6 bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-stone-200 dark:border-slate-700 fade-up">
+                    <div class="md:w-48 shrink-0">
+                        <h3 class="text-2xl font-serif text-ocean-700 dark:text-ocean-400">6月5日</h3>
+                        <p class="text-sm text-slate-500 font-medium">星期五</p>
+                    </div>
+                    <div class="flex-1 space-y-4 border-l-2 border-stone-100 dark:border-slate-700 pl-6">
+                        <div class="flex items-start gap-4">
+                            <i class="fa-solid fa-spa text-ocean-500 mt-1"></i>
+                            <div>
+                                <h4 class="font-medium text-slate-800 dark:text-stone-200">晨間健康課程</h4>
+                                <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">瑜珈/皮拉提斯，將「養生奢華」植入生活方式。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <i class="fa-solid fa-microphone-lines text-gold-500 mt-1"></i>
+                            <div>
+                                <h4 class="font-medium text-slate-800 dark:text-stone-200">教育研討會</h4>
+                                <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">「設計師與特別嘉賓對話」系列研討會，涵蓋護膚、化妝、抗衰老醫學。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 bg-stone-50 dark:bg-slate-700 p-4 rounded-lg">
+                            <i class="fa-solid fa-star text-coral-500 mt-1"></i>
+                            <div>
+                                <h4 class="font-medium text-slate-900 dark:text-white">首場頭條伸展台大秀</h4>
+                                <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Marina Riverside Center，利用水畔場地營造戲劇性的展示空間。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 3 -->
+                <div class="flex flex-col md:flex-row gap-6 bg-white dark:bg-slate-800 p-8 rounded-2xl shadow-sm border border-stone-200 dark:border-slate-700 fade-up">
+                    <div class="md:w-48 shrink-0">
+                        <h3 class="text-2xl font-serif text-ocean-700 dark:text-ocean-400">6月6日</h3>
+                        <p class="text-sm text-slate-500 font-medium">星期六</p>
+                    </div>
+                    <div class="flex-1 space-y-4 border-l-2 border-stone-100 dark:border-slate-700 pl-6">
+                        <div class="flex items-start gap-4">
+                            <i class="fa-solid fa-comments text-gold-500 mt-1"></i>
+                            <div>
+                                <h4 class="font-medium text-slate-800 dark:text-stone-200">名人專業分享</h4>
+                                <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">延續設計師對話、名人化妝師與皮膚專家分享。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 bg-stone-50 dark:bg-slate-700 p-4 rounded-lg">
+                            <i class="fa-solid fa-fire text-coral-500 mt-1"></i>
+                            <div>
+                                <h4 class="font-medium text-slate-900 dark:text-white">旗幟伸展台大秀 & 閉幕派對</h4>
+                                <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Minitas Beach Club 泳池甲板盛大晚宴及派對(含現場音樂、煙火)。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wellness & Art / Imagery Section -->
+    <section id="wellness" class="py-0 relative">
+        <div class="grid grid-cols-1 md:grid-cols-2">
+            <div class="h-[500px] md:h-auto">
+                <img src="https://api.felo.ai/images/s/3fIbMMpdMX.jpg" alt="Latin American Fashion Awards" class="w-full h-full object-cover">
+            </div>
+            <div class="bg-ocean-950 p-12 lg:p-24 flex flex-col justify-center text-white">
+                <span class="text-ocean-400 font-medium tracking-widest text-sm uppercase mb-4 block">Holistic Experience</span>
+                <h2 class="text-4xl font-serif mb-6 leading-tight">時尚 × 健康 × 藝術的<br>全方位體驗</h2>
+                <p class="text-ocean-100 mb-8 font-light leading-relaxed">
+                    除伸展台秀之外，本次時尚週特別融合了健康與美容教育元素。我們認為，真正的奢華不僅是視覺的盛宴，更是身心靈的提升。
+                </p>
+                <ul class="space-y-4 text-ocean-200">
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-check text-gold-400"></i> 抗老及長壽醫學專家講座
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-check text-gold-400"></i> 名人化妝師與髮型師分享
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-check text-gold-400"></i> 晨間瑜珈與皮拉提斯課程
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fa-solid fa-check text-gold-400"></i> 與視覺藝術的深度交融
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-stone-900 py-12 text-center text-stone-400">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-2xl font-serif text-white mb-6 tracking-widest">CASA DE CAMPO FW26</h2>
+            <div class="flex justify-center gap-6 mb-8">
+                <a href="#" class="text-stone-400 hover:text-white transition"><i class="fa-brands fa-instagram text-xl"></i></a>
+                <a href="#" class="text-stone-400 hover:text-white transition"><i class="fa-brands fa-facebook text-xl"></i></a>
+                <a href="#" class="text-stone-400 hover:text-white transition"><i class="fa-brands fa-twitter text-xl"></i></a>
+            </div>
+            
+            <div class="border-t border-stone-800 pt-8 mt-8 text-sm space-y-2 font-light">
+                <p>免責申明：基於公開資料，僅供參考，不構成建議</p>
+                <p>資料來源：網頁公開資訊</p>
+                <p>版權所有： © Dunk</p>
+                <p class="text-xs mt-4 opacity-50">Designed by Dunk | 2026</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Dark/Light Mode logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleDarkBtn = document.getElementById('theme-toggle-dark');
+        
+        // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            document.documentElement.classList.add('dark');
+            localStorage.theme = 'dark';
+            themeToggleBtn.classList.add('hidden');
+            themeToggleDarkBtn.classList.remove('hidden');
+        });
+
+        themeToggleDarkBtn.addEventListener('click', function() {
+            document.documentElement.classList.remove('dark');
+            localStorage.theme = 'light';
+            themeToggleDarkBtn.classList.add('hidden');
+            themeToggleBtn.classList.remove('hidden');
+        });
+
+        // Setup initial button state
+        if(document.documentElement.classList.contains('dark')) {
+            themeToggleBtn.classList.add('hidden');
+            themeToggleDarkBtn.classList.remove('hidden');
+        }
+
+        // Scroll Animation
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up').forEach((el) => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>Casa de Campo時尚週</title>
+    <style>
+        .audio-container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        
+        audio {
+            width: 100%;
+            margin-top: 10px;
+        }
+        
+        .audio-info {
+            margin-bottom: 15px;
+        }
+        
+        .audio-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .audio-description {
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="audio-container">
+        <div class="audio-info">
+            <div class="audio-title">Casa de Campo時尚週</div>
+            <div class="audio-description"></div>
+        </div>                
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/2pFwdm6wiIY?si=qMaXN6aa3FG0OY8l" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+</body>
+</html>
