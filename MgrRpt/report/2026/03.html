@@ -1,0 +1,543 @@
+
+<!DOCTYPE html>
+<html lang="zh-TW" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RWA 信用風險報告 - Dunk</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#9A0036',
+                        secondary: {
+                            pink: '#EEBAC0',
+                            purple: '#941C61'
+                        },
+                        accent: {
+                            gold: '#D4AF37',
+                            orange: '#F59E0B'
+                        },
+                        surface: {
+                            light: '#FFFFFF',
+                            gray: '#F5F5F5',
+                            dark: '#333333'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans TC', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- ECharts -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans TC', sans-serif;
+            color: #333333;
+        }
+        .dark body {
+            color: #E5E5E5;
+            background-color: #1A1A1A;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+        .dark .card-hover:hover {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+        }
+        
+        /* Custom scrollbar for tables */
+        .table-container::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        .table-container::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+            border-radius: 4px;
+        }
+        .dark .table-container::-webkit-scrollbar-track {
+            background: #333; 
+        }
+        .table-container::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        .dark .table-container::-webkit-scrollbar-thumb {
+            background: #555; 
+        }
+        .table-container::-webkit-scrollbar-thumb:hover {
+            background: #9A0036; 
+        }
+    </style>
+<script src="https://felo.ai/js/iframe.js?v=1776175395782"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style></head>
+<body class="bg-surface-gray dark:bg-gray-900 transition-colors duration-300">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-chart-pie text-primary text-2xl"></i>
+                    <span class="font-bold text-xl tracking-tight text-gray-900 dark:text-white">RWA <span class="text-primary">Dashboard</span></span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button id="theme-toggle" class="p-2 rounded-full text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors" aria-label="Toggle Dark Mode">
+                        <i class="fa-solid fa-moon dark:hidden"></i>
+                        <i class="fa-solid fa-sun hidden dark:block text-accent-gold"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-28 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div class="text-center space-y-6">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary-pink/20 dark:bg-secondary-purple/20 text-primary dark:text-secondary-pink text-sm font-medium mb-4">
+                <i class="fa-regular fa-calendar-alt"></i>
+                資料期間：2026-02-28 至 2026-03-31
+            </div>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 dark:text-white leading-tight">
+                風險性資產 <br>
+                <span class="text-primary">(RWA) 綜合分析報告</span>
+            </h1>
+            <p class="max-w-2xl mx-auto text-lg text-gray-600 dark:text-gray-300">
+                本報告提供信用風險標準法帳面金額、風險性資產及暴險總額之詳細比較與變動分析，協助掌握核心資本適足狀況。
+            </p>
+        </div>
+
+        <!-- Key Metrics Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16">
+            <!-- Metric 1 -->
+            <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700 card-hover shadow-sm">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="p-3 bg-primary/10 rounded-lg">
+                        <i class="fa-solid fa-money-bill-trend-up text-primary text-xl"></i>
+                    </div>
+                    <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+                        <i class="fa-solid fa-arrow-trend-up"></i> +1,134.94 億
+                    </span>
+                </div>
+                <h3 class="text-gray-500 dark:text-gray-400 text-sm font-medium">信用風險帳面金額小計</h3>
+                <div class="mt-2 flex items-baseline gap-2">
+                    <span class="text-3xl font-bold text-gray-900 dark:text-white">73,992.81</span>
+                    <span class="text-sm text-gray-500 dark:text-gray-400">億元</span>
+                </div>
+            </div>
+
+            <!-- Metric 2 -->
+            <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700 card-hover shadow-sm relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-2 h-full bg-accent-gold"></div>
+                <div class="flex justify-between items-start mb-4">
+                    <div class="p-3 bg-accent-gold/10 rounded-lg">
+                        <i class="fa-solid fa-shield-halved text-accent-gold text-xl"></i>
+                    </div>
+                    <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+                        <i class="fa-solid fa-arrow-trend-up"></i> +390.66 億
+                    </span>
+                </div>
+                <h3 class="text-gray-500 dark:text-gray-400 text-sm font-medium">信用風險性資產合計</h3>
+                <div class="mt-2 flex items-baseline gap-2">
+                    <span class="text-3xl font-bold text-gray-900 dark:text-white">24,774.24</span>
+                    <span class="text-sm text-gray-500 dark:text-gray-400">億元</span>
+                </div>
+            </div>
+
+            <!-- Metric 3 -->
+            <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700 card-hover shadow-sm">
+                <div class="flex justify-between items-start mb-4">
+                    <div class="p-3 bg-secondary-purple/10 rounded-lg">
+                        <i class="fa-solid fa-building-columns text-secondary-purple text-xl"></i>
+                    </div>
+                    <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400">
+                        <i class="fa-solid fa-arrow-trend-up"></i> +918.32 億
+                    </span>
+                </div>
+                <h3 class="text-gray-500 dark:text-gray-400 text-sm font-medium">表內資產暴險金額</h3>
+                <div class="mt-2 flex items-baseline gap-2">
+                    <span class="text-3xl font-bold text-gray-900 dark:text-white">63,138.74</span>
+                    <span class="text-sm text-gray-500 dark:text-gray-400">億元</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24 space-y-16">
+        
+        <!-- Section 1: Data Visualization -->
+        <section>
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-1 h-6 bg-primary rounded-full"></div>
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white">風險分布與變動趨勢</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Chart 1: RWA Distribution -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700 shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">主要暴險類型 RWA 占比 (本期)</h3>
+                    <div id="rwaPieChart" class="w-full h-80"></div>
+                </div>
+
+                <!-- Chart 2: RWA Changes -->
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700 shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-200 mb-4">帳面金額增減數前五大 (億元)</h3>
+                    <div id="rwaBarChart" class="w-full h-80"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Detailed Data Table (Table 3_1) -->
+        <section>
+            <div class="flex items-center justify-between mb-6">
+                <div class="flex items-center gap-3">
+                    <div class="w-1 h-6 bg-secondary-purple rounded-full"></div>
+                    <h2 class="text-2xl font-bold text-gray-900 dark:text-white">信用風險標準法詳細數據</h2>
+                </div>
+                <span class="text-sm text-gray-500 dark:text-gray-400">單位：新台幣億元</span>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm overflow-hidden">
+                <div class="table-container overflow-x-auto">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 whitespace-nowrap">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700/50 dark:text-gray-300">
+                            <tr>
+                                <th scope="col" class="px-6 py-4 font-semibold">暴險類型</th>
+                                <th scope="col" class="px-6 py-4 font-semibold text-right">本期帳面金額</th>
+                                <th scope="col" class="px-6 py-4 font-semibold text-right">前期帳面金額</th>
+                                <th scope="col" class="px-6 py-4 font-semibold text-right">增減數</th>
+                                <th scope="col" class="px-6 py-4 font-semibold text-right bg-primary/5 dark:bg-primary/10">本期 RWA</th>
+                                <th scope="col" class="px-6 py-4 font-semibold text-right bg-primary/5 dark:bg-primary/10">前期 RWA</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                            <!-- Rows -->
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+                                <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">主權國家</td>
+                                <td class="px-6 py-4 text-right">19,880.08</td>
+                                <td class="px-6 py-4 text-right">19,379.14</td>
+                                <td class="px-6 py-4 text-right text-green-600 dark:text-green-400">+500.94</td>
+                                <td class="px-6 py-4 text-right bg-primary/5 dark:bg-primary/10">17.55</td>
+                                <td class="px-6 py-4 text-right bg-primary/5 dark:bg-primary/10">10.95</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+                                <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">非中央政府公部門</td>
+                                <td class="px-6 py-4 text-right">8,061.75</td>
+                                <td class="px-6 py-4 text-right">7,398.30</td>
+                                <td class="px-6 py-4 text-right text-green-600 dark:text-green-400">+663.45</td>
+                                <td class="px-6 py-4 text-right bg-primary/5 dark:bg-primary/10">776.35</td>
+                                <td class="px-6 py-4 text-right bg-primary/5 dark:bg-primary/10">694.18</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+                                <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">銀行</td>
+                                <td class="px-6 py-4 text-right">8,012.00</td>
+                                <td class="px-6 py-4 text-right">8,317.91</td>
+                                <td class="px-6 py-4 text-right text-red-500 dark:text-red-400">-305.91</td>
+                                <td class="px-6 py-4 text-right bg-primary/5 dark:bg-primary/10">2,327.57</td>
+                                <td class="px-6 py-4 text-right bg-primary/5 dark:bg-primary/10">2,392.20</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+                                <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">企業</td>
+                                <td class="px-6 py-4 text-right">12,410.75</td>
+                                <td class="px-6 py-4 text-right">11,962.16</td>
+                                <td class="px-6 py-4 text-right text-green-600 dark:text-green-400">+448.60</td>
+                                <td class="px-6 py-4 text-right bg-primary/5 dark:bg-primary/10 font-semibold">6,735.11</td>
+                                <td class="px-6 py-4 text-right bg-primary/5 dark:bg-primary/10">6,423.75</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+                                <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">零售暴險</td>
+                                <td class="px-6 py-4 text-right">3,374.23</td>
+                                <td class="px-6 py-4 text-right">3,350.49</td>
+                                <td class="px-6 py-4 text-right text-green-600 dark:text-green-400">+23.73</td>
+                                <td class="px-6 py-4 text-right bg-primary/5 dark:bg-primary/10">1,573.87</td>
+                                <td class="px-6 py-4 text-right bg-primary/5 dark:bg-primary/10">1,522.47</td>
+                            </tr>
+                            <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+                                <td class="px-6 py-4 font-medium text-gray-900 dark:text-white">不動產暴險</td>
+                                <td class="px-6 py-4 text-right">18,730.94</td>
+                                <td class="px-6 py-4 text-right">18,693.55</td>
+                                <td class="px-6 py-4 text-right text-green-600 dark:text-green-400">+37.39</td>
+                                <td class="px-6 py-4 text-right bg-primary/5 dark:bg-primary/10 font-semibold text-primary dark:text-secondary-pink">9,185.42</td>
+                                <td class="px-6 py-4 text-right bg-primary/5 dark:bg-primary/10">9,272.92</td>
+                            </tr>
+                             <tr class="hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors bg-gray-50 dark:bg-gray-800/50 font-bold border-t-2 border-gray-300 dark:border-gray-600">
+                                <td class="px-6 py-4 text-gray-900 dark:text-white">小計 / 合計</td>
+                                <td class="px-6 py-4 text-right">73,992.81</td>
+                                <td class="px-6 py-4 text-right">72,857.88</td>
+                                <td class="px-6 py-4 text-right text-green-600 dark:text-green-400">+1,134.94</td>
+                                <td class="px-6 py-4 text-right bg-primary/10 dark:bg-primary/20">24,393.65</td>
+                                <td class="px-6 py-4 text-right bg-primary/10 dark:bg-primary/20">24,098.81</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Exposure Total Comparison -->
+        <section>
+            <div class="flex items-center gap-3 mb-6">
+                <div class="w-1 h-6 bg-accent-gold rounded-full"></div>
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white">暴險總額比較 (7之A1)</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 border border-gray-100 dark:border-gray-700 shadow-sm">
+                    <div id="exposureBarChart" class="w-full h-72"></div>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm overflow-hidden flex flex-col">
+                    <div class="p-4 border-b border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-700/50">
+                        <h3 class="font-semibold text-gray-800 dark:text-gray-200">資產負債表項目明細</h3>
+                    </div>
+                    <div class="table-container overflow-y-auto flex-1 p-0">
+                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                            <thead class="sticky top-0 bg-white dark:bg-gray-800 shadow-sm">
+                                <tr>
+                                    <th class="px-4 py-3 font-medium">項目</th>
+                                    <th class="px-4 py-3 font-medium text-right">本期金額</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-100 dark:divide-gray-700">
+                                <tr><td class="px-4 py-3 text-gray-900 dark:text-gray-300">表內資產</td><td class="px-4 py-3 text-right font-medium">63,138.74</td></tr>
+                                <tr><td class="px-4 py-3 text-gray-900 dark:text-gray-300">衍生性金融商品</td><td class="px-4 py-3 text-right">607.51</td></tr>
+                                <tr><td class="px-4 py-3 text-gray-900 dark:text-gray-300">有價證券融資交易</td><td class="px-4 py-3 text-right">10.98</td></tr>
+                                <tr><td class="px-4 py-3 text-gray-900 dark:text-gray-300">表外項目 CCF 10%</td><td class="px-4 py-3 text-right">837.34</td></tr>
+                                <tr><td class="px-4 py-3 text-gray-900 dark:text-gray-300">表外項目 CCF 40%</td><td class="px-4 py-3 text-right">760.61</td></tr>
+                                <tr><td class="px-4 py-3 text-gray-900 dark:text-gray-300">表外項目 CCF 50%</td><td class="px-4 py-3 text-right">269.69</td></tr>
+                                <tr><td class="px-4 py-3 text-gray-900 dark:text-gray-300">表外項目 CCF 100%</td><td class="px-4 py-3 text-right">212.95</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="text-sm text-gray-500 dark:text-gray-400 space-y-1 text-center md:text-left">
+                    <p><i class="fa-solid fa-circle-info mr-1 text-primary"></i> 免責申明：基於公開資料，僅供參考，不構成建議</p>
+                    <p><i class="fa-solid fa-database mr-1 text-primary"></i> 資料來源：網頁公開資訊</p>
+                </div>
+                <div class="text-sm text-gray-500 dark:text-gray-400 font-medium">
+                    版權所有： © 2026 Dunk (Design by Dunk)
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Dark Mode Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const htmlElement = document.documentElement;
+
+        // Check initial theme
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            htmlElement.classList.add('dark');
+        } else {
+            htmlElement.classList.remove('dark');
+        }
+
+        let charts = [];
+
+        themeToggleBtn.addEventListener('click', () => {
+            htmlElement.classList.toggle('dark');
+            if (htmlElement.classList.contains('dark')) {
+                localStorage.theme = 'dark';
+            } else {
+                localStorage.theme = 'light';
+            }
+            // Re-render charts for theme change
+            initCharts();
+        });
+
+        // ECharts Initialization
+        function initCharts() {
+            // Dispose existing charts
+            charts.forEach(chart => chart.dispose());
+            charts = [];
+
+            const isDark = htmlElement.classList.contains('dark');
+            const textColor = isDark ? '#E5E5E5' : '#333333';
+            const splitLineColor = isDark ? '#404040' : '#E5E7EB';
+
+            // Common ECharts options
+            const commonOptions = {
+                textStyle: { fontFamily: 'Inter, Noto Sans TC, sans-serif' },
+                backgroundColor: 'transparent',
+                tooltip: {
+                    trigger: 'item',
+                    backgroundColor: isDark ? 'rgba(31, 41, 55, 0.9)' : 'rgba(255, 255, 255, 0.9)',
+                    borderColor: isDark ? '#374151' : '#F3F4F6',
+                    textStyle: { color: textColor }
+                }
+            };
+
+            // 1. Pie Chart: RWA Distribution
+            const pieChartDom = document.getElementById('rwaPieChart');
+            if(pieChartDom) {
+                const pieChart = echarts.init(pieChartDom);
+                pieChart.setOption({
+                    ...commonOptions,
+                    color: ['#9A0036', '#941C61', '#EEBAC0', '#D4AF37', '#6B7280'],
+                    tooltip: { trigger: 'item', formatter: '{b}: {c} ({d}%)' },
+                    legend: {
+                        orient: 'horizontal',
+                        bottom: 0,
+                        textStyle: { color: textColor }
+                    },
+                    series: [{
+                        type: 'pie',
+                        radius: ['40%', '70%'],
+                        avoidLabelOverlap: false,
+                        itemStyle: {
+                            borderRadius: 10,
+                            borderColor: isDark ? '#1F2937' : '#fff',
+                            borderWidth: 2
+                        },
+                        label: { show: false, position: 'center' },
+                        emphasis: {
+                            label: { show: true, fontSize: 18, fontWeight: 'bold', color: textColor }
+                        },
+                        labelLine: { show: false },
+                        data: [
+                            { value: 9185.42, name: '不動產' },
+                            { value: 6735.11, name: '企業' },
+                            { value: 2327.57, name: '銀行' },
+                            { value: 2131.15, name: '權益證券' },
+                            { value: 4014.40, name: '其他' } // 合併較小項目
+                        ]
+                    }]
+                });
+                charts.push(pieChart);
+            }
+
+            // 2. Bar Chart: Book Value Changes
+            const barChartDom = document.getElementById('rwaBarChart');
+            if(barChartDom) {
+                const barChart = echarts.init(barChartDom);
+                barChart.setOption({
+                    ...commonOptions,
+                    tooltip: { trigger: 'axis', axisPointer: { type: 'shadow' } },
+                    grid: { left: '3%', right: '4%', bottom: '3%', top: '10%', containLabel: true },
+                    xAxis: {
+                        type: 'value',
+                        splitLine: { lineStyle: { color: splitLineColor, type: 'dashed' } },
+                        axisLabel: { color: textColor }
+                    },
+                    yAxis: {
+                        type: 'category',
+                        data: ['非中央公部門', '主權國家', '企業', '零售', '不動產'].reverse(),
+                        axisLabel: { color: textColor, width: 100, overflow: 'truncate' },
+                        axisLine: { lineStyle: { color: splitLineColor } }
+                    },
+                    series: [{
+                        name: '增減數',
+                        type: 'bar',
+                        data: [
+                            { value: 663.45, itemStyle: { color: '#9A0036' } },
+                            { value: 500.94, itemStyle: { color: '#941C61' } },
+                            { value: 448.60, itemStyle: { color: '#EEBAC0' } },
+                            { value: 23.73, itemStyle: { color: '#D4AF37' } },
+                            { value: 37.39, itemStyle: { color: '#F59E0B' } }
+                        ].reverse(),
+                        label: { show: true, position: 'right', color: textColor, formatter: '+{c}' },
+                        barWidth: '60%',
+                        itemStyle: { borderRadius: [0, 4, 4, 0] }
+                    }]
+                });
+                charts.push(barChart);
+            }
+
+            // 3. Exposure Total Comparison
+            const expBarDom = document.getElementById('exposureBarChart');
+            if(expBarDom) {
+                const expBar = echarts.init(expBarDom);
+                expBar.setOption({
+                    ...commonOptions,
+                    legend: { textStyle: { color: textColor }, top: 0 },
+                    grid: { left: '3%', right: '4%', bottom: '3%', top: '15%', containLabel: true },
+                    xAxis: {
+                        type: 'category',
+                        data: ['表內資產', '表外(CCF 40%)', '表外(CCF 10%)'],
+                        axisLabel: { color: textColor }
+                    },
+                    yAxis: {
+                        type: 'value',
+                        splitLine: { lineStyle: { color: splitLineColor, type: 'dashed' } },
+                        axisLabel: { color: textColor }
+                    },
+                    series: [
+                        {
+                            name: '本期',
+                            type: 'bar',
+                            data: [63138.74, 760.61, 837.34],
+                            itemStyle: { color: '#9A0036', borderRadius: [4, 4, 0, 0] },
+                            barGap: '10%'
+                        },
+                        {
+                            name: '前期',
+                            type: 'bar',
+                            data: [62220.42, 672.65, 814.95],
+                            itemStyle: { color: '#E5E7EB' },
+                            itemStyle: { color: isDark ? '#4B5563' : '#D1D5DB', borderRadius: [4, 4, 0, 0] }
+                        }
+                    ]
+                });
+                charts.push(expBar);
+            }
+        }
+
+        // Initialize on load and resize
+        window.addEventListener('load', initCharts);
+        window.addEventListener('resize', () => {
+            charts.forEach(chart => chart.resize());
+        });
+
+    </script>
+</body>
+</html>
