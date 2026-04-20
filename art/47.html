@@ -1,0 +1,532 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Run the Code: Data-Driven Art Decoded</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- UI Frameworks -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#0A0A0A',
+                            green: '#00FFC2',
+                            purple: '#5D2EE8',
+                            gray: '#F0F0F0',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Charts & Diagrams -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <style>
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .dark .glass-card {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .data-grid-bg {
+            background-image: radial-gradient(circle at 2px 2px, rgba(0, 255, 194, 0.1) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+        .text-glow {
+            text-shadow: 0 0 15px rgba(0, 255, 194, 0.5);
+        }
+    </style>
+<script src="https://felo.ai/js/iframe.js?v=1776611115111"></script>
+ <style>
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #bfc5ce transparent !important;
+}
+*::-webkit-scrollbar {
+  width: 6px !important;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #bfc5ce !important;
+  border-radius: 9999px !important;
+}
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+  border-radius: 9999px !important;
+}
+</style></head>
+<body class="bg-white dark:bg-brand-black text-slate-900 dark:text-brand-gray font-sans transition-colors duration-300">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 border-b border-black/5 dark:border-white/10 bg-white/80 dark:bg-brand-black/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <div class="w-8 h-8 bg-brand-green rounded-sm rotate-45"></div>
+                <span class="font-mono font-bold tracking-tighter text-xl">RUN_THE_CODE</span>
+            </div>
+            <div class="hidden md:flex items-center space-x-8 font-mono text-sm uppercase tracking-widest">
+                <a href="#about" class="hover:text-brand-green transition-colors">概述</a>
+                <a href="#pillars" class="hover:text-brand-green transition-colors">核心支柱</a>
+                <a href="#artworks" class="hover:text-brand-green transition-colors">重點展品</a>
+                <a href="#data" class="hover:text-brand-green transition-colors">數據解碼</a>
+            </div>
+            <button id="theme-toggle" class="p-2 rounded-full hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+                <i class="fa-solid fa-moon dark:hidden"></i>
+                <i class="fa-solid fa-sun hidden dark:block text-brand-green"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <div class="absolute inset-0 z-0 data-grid-bg opacity-30"></div>
+        <!-- Generative Art Background (CSS) -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-purple/20 rounded-full blur-[120px] animate-pulse-slow"></div>
+        <div class="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-brand-green/10 rounded-full blur-[100px] animate-float"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
+            <div class="inline-block px-4 py-1 border border-brand-green/30 rounded-full text-brand-green font-mono text-xs mb-8 animate-fade-in">
+                EXHIBITION 2026.02.27 – 08.02
+            </div>
+            <h1 class="text-6xl md:text-9xl font-extrabold tracking-tighter mb-6 leading-none">
+                RUN THE <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-green to-brand-purple italic">CODE</span>
+            </h1>
+            <p class="text-xl md:text-2xl font-light text-slate-500 dark:text-slate-400 max-w-3xl mx-auto mb-12">
+                Data-Driven Art Decoded: 當數據成為畫筆，代碼成為畫布。探索演算法背後的感官美學。
+            </p>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-6 font-mono">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-location-dot text-brand-green"></i>
+                    <span>Blanton Museum of Art, Austin</span>
+                </div>
+                <div class="hidden md:block w-px h-4 bg-slate-300 dark:bg-slate-700"></div>
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-building-columns text-brand-green"></i>
+                    <span>Thoma Foundation Collection</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+            <i class="fa-solid fa-chevron-down text-slate-400"></i>
+        </div>
+    </section>
+
+    <!-- Section 1: Overview -->
+    <section id="about" class="py-32 bg-slate-50 dark:bg-zinc-900/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-20 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold mb-8">演算法的物質性<br><span class="text-brand-green font-mono text-lg font-normal">Algorithmic Materiality</span></h2>
+                    <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-6">
+                        這是一場聚焦於數據驅動藝術的當代藝術展覽，由卡爾與瑪莉琳·托馬基金會與布蘭頓藝術博物館共同主辦。我們不再將數位資訊視為透明的基礎設施，而是將其轉化為一種具有深刻複雜性的感官媒介。
+                    </p>
+                    <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+                        展覽匯集了來自托馬基金會數位與媒體藝術收藏的約 20 件作品，探索當代藝術如何利用算法和生成式人工智慧（Generative AI）作為創作媒介，重新定義藝術的本質。
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="space-y-4">
+                        <div class="h-48 bg-brand-purple/10 rounded-2xl border border-white/5 flex items-center justify-center">
+                            <i class="fa-solid fa-microchip text-4xl text-brand-purple"></i>
+                        </div>
+                        <div class="h-64 bg-slate-200 dark:bg-white/5 rounded-2xl overflow-hidden">
+                            <img src="https://api.felo.ai/images/s/cYC3jO77Nu.svg" alt="Exhibition Visual" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                        </div>
+                    </div>
+                    <div class="space-y-4 pt-12">
+                        <div class="h-64 bg-slate-200 dark:bg-white/5 rounded-2xl overflow-hidden">
+                            <img src="https://placehold.co/400x600/1a1a1a/5D2EE8?text=Generative+AI" alt="Exhibition Visual" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700">
+                        </div>
+                        <div class="h-48 bg-brand-green/10 rounded-2xl border border-white/5 flex items-center justify-center">
+                            <i class="fa-solid fa-code text-4xl text-brand-green"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Five Pillars -->
+    <section id="pillars" class="py-32">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-24">
+                <h2 class="text-5xl font-extrabold mb-4">五大策展主題</h2>
+                <div class="w-24 h-1 bg-brand-green mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-5 gap-8">
+                <!-- Pillar 1 -->
+                <div class="glass-card p-8 rounded-3xl hover:border-brand-green/50 transition-all group">
+                    <span class="font-mono text-brand-green text-sm mb-4 block">01</span>
+                    <h3 class="text-xl font-bold mb-4 group-hover:text-brand-green transition-colors">技術考古學</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">挖掘數位檔案，將歷史數據轉化為全新的藝術創作素材。</p>
+                </div>
+                <!-- Pillar 2 -->
+                <div class="glass-card p-8 rounded-3xl hover:border-brand-green/50 transition-all group mt-8">
+                    <span class="font-mono text-brand-green text-sm mb-4 block">02</span>
+                    <h3 class="text-xl font-bold mb-4 group-hover:text-brand-green transition-colors">互動與身體</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">觀眾的指紋、心跳與動作即時成為作品運算的關鍵變數。</p>
+                </div>
+                <!-- Pillar 3 -->
+                <div class="glass-card p-8 rounded-3xl hover:border-brand-green/50 transition-all group">
+                    <span class="font-mono text-brand-green text-sm mb-4 block">03</span>
+                    <h3 class="text-xl font-bold mb-4 group-hover:text-brand-green transition-colors">數據驅動系統</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">實時抓取 Google 搜尋趨勢或城市交通流，呈現社會脈動。</p>
+                </div>
+                <!-- Pillar 4 -->
+                <div class="glass-card p-8 rounded-3xl hover:border-brand-green/50 transition-all group mt-8">
+                    <span class="font-mono text-brand-green text-sm mb-4 block">04</span>
+                    <h3 class="text-xl font-bold mb-4 group-hover:text-brand-green transition-colors">重混藝術史</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">利用 AI 重新詮釋古典建築美學，模糊現實與記憶的界線。</p>
+                </div>
+                <!-- Pillar 5 -->
+                <div class="glass-card p-8 rounded-3xl hover:border-brand-green/50 transition-all group">
+                    <span class="font-mono text-brand-green text-sm mb-4 block">05</span>
+                    <h3 class="text-xl font-bold mb-4 group-hover:text-brand-green transition-colors">重塑地景</h3>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">模擬自然生態與工業環境的循環，探索不可逆的變遷。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Data Visualization -->
+    <section id="data" class="py-32 bg-slate-50 dark:bg-brand-black/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="text-4xl font-bold mb-6 italic">數據解碼：媒介與規模</h2>
+                    <p class="text-slate-600 dark:text-slate-400 mb-8">
+                        本次展覽不僅是視覺的饗宴，更是技術規模的展示。透過 ECharts 可視化，我們可以洞察參展作品在技術媒介上的分佈，以及數據驅動藝術的多樣性。
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-brand-green/20 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-server text-brand-green"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">實時數據流</h4>
+                                <p class="text-sm text-slate-500">多件作品依賴實時網路連接與傳感器數據。</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-lg bg-brand-purple/20 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-brain text-brand-purple"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">生成式 AI 模型</h4>
+                                <p class="text-sm text-slate-500">包含大型神經網路訓練出的視覺記憶模型。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="h-[400px] glass-card rounded-3xl p-6" id="media-chart"></div>
+            </div>
+
+            <!-- Mermaid Diagram -->
+            <div class="mt-24 text-center">
+                <h3 class="text-2xl font-mono mb-12 uppercase tracking-widest text-brand-green">The Logic Flow of Data Art</h3>
+                <div class="glass-card p-10 rounded-3xl inline-block w-full max-w-4xl overflow-x-auto">
+                    <div class="mermaid bg-transparent">
+                        flowchart LR
+                            A["原始數據 (Raw Data)"] --> B{"演算法處理 (Algorithm)"}
+                            B --> C["視覺生成 (Visuals)"]
+                            B --> D["互動反饋 (Interaction)"]
+                            C --> E["藝術作品 (Masterpiece)"]
+                            D --> E
+                            E --> F["觀眾感知 (Perception)"]
+                            F -.->|"反饋數據"| A
+                            style A fill:#00FFC2,stroke:#000,stroke-width:2px,color:#000
+                            style B fill:#5D2EE8,stroke:#fff,stroke-width:2px,color:#fff
+                            style E fill:#f0f0f0,stroke:#00FFC2,stroke-width:4px,color:#000
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Featured Artworks -->
+    <section id="artworks" class="py-32">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-5xl font-extrabold mb-20 text-center">重點展品畫廊</h2>
+            
+            <div class="space-y-32">
+                <!-- Artwork 1 -->
+                <div class="flex flex-col md:flex-row gap-16 items-center">
+                    <div class="w-full md:w-1/2 relative group">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-brand-green to-brand-purple opacity-20 blur-2xl group-hover:opacity-40 transition-opacity"></div>
+                        <img src="https://api.felo.ai/images/s/5a9Qq4LnpK.svg" alt="Refik Anadol" class="relative rounded-2xl w-full shadow-2xl">
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <span class="text-brand-purple font-mono font-bold">REFIK ANADOL</span>
+                        <h3 class="text-4xl font-bold mt-2 mb-6">Machine Hallucinations – Study I</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-lg mb-8">
+                            利用生成式 AI 學習數千張哥德式建築照片，將建築的堅固轉化為液態般的視覺流。這不僅是視覺的震撼，更是對「機器記憶」的深刻探索。
+                        </p>
+                        <div class="flex gap-4">
+                            <span class="px-3 py-1 bg-slate-100 dark:bg-white/5 rounded-full text-xs font-mono">Generative AI</span>
+                            <span class="px-3 py-1 bg-slate-100 dark:bg-white/5 rounded-full text-xs font-mono">Custom Software</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Artwork 2 -->
+                <div class="flex flex-col md:flex-row-reverse gap-16 items-center">
+                    <div class="w-full md:w-1/2 relative group">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-brand-purple to-brand-green opacity-20 blur-2xl group-hover:opacity-40 transition-opacity"></div>
+                        <img src="https://api.felo.ai/images/s/2e7ZGV5Kic.svg" alt="teamLab" class="relative rounded-2xl w-full shadow-2xl">
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <span class="text-brand-green font-mono font-bold">TEAMLAB</span>
+                        <h3 class="text-4xl font-bold mt-2 mb-6">The World of Irreversible Change</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-lg mb-8">
+                            與奧斯汀即時天氣同步的數位城市。觀眾的行為將直接影響生態平衡，甚至引發不可逆的城市火災，反思人類對自然環境的責任。
+                        </p>
+                        <div class="flex gap-4">
+                            <span class="px-3 py-1 bg-slate-100 dark:bg-white/5 rounded-full text-xs font-mono">Real-time Data</span>
+                            <span class="px-3 py-1 bg-slate-100 dark:bg-white/5 rounded-full text-xs font-mono">Interactive</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Artwork 3 -->
+                <div class="flex flex-col md:flex-row gap-16 items-center">
+                    <div class="w-full md:w-1/2 relative group">
+                        <div class="absolute -inset-4 bg-brand-green/20 blur-2xl group-hover:opacity-40 transition-opacity"></div>
+                        <img src="https://api.felo.ai/images/s/2k908tJVco.svg" alt="Rafael Lozano-Hemmer" class="relative rounded-2xl w-full shadow-2xl">
+                    </div>
+                    <div class="w-full md:w-1/2">
+                        <span class="text-slate-400 font-mono font-bold">RAFAEL LOZANO-HEMMER</span>
+                        <h3 class="text-4xl font-bold mt-2 mb-6">Pulse Index</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-lg mb-8">
+                            結合生物數據與互動技術，收集觀眾的指紋與心跳數據，構建一個發光的、不斷變化的生物特徵索引，將私密數據轉化為公共景觀。
+                        </p>
+                        <div class="flex gap-4">
+                            <span class="px-3 py-1 bg-slate-100 dark:bg-white/5 rounded-full text-xs font-mono">Biometric Data</span>
+                            <span class="px-3 py-1 bg-slate-100 dark:bg-white/5 rounded-full text-xs font-mono">Installation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Artist List -->
+    <section class="py-32 bg-brand-black text-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl font-mono mb-16 text-center tracking-widest text-brand-green uppercase">Participating Artists</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-y-12 gap-x-8">
+                <div class="border-l border-brand-green/30 pl-6">
+                    <h4 class="text-xl font-bold">Refik Anadol</h4>
+                    <p class="text-sm text-slate-500 font-mono uppercase">Turkey / USA</p>
+                </div>
+                <div class="border-l border-brand-green/30 pl-6">
+                    <h4 class="text-xl font-bold">teamLab</h4>
+                    <p class="text-sm text-slate-500 font-mono uppercase">International Collective</p>
+                </div>
+                <div class="border-l border-brand-green/30 pl-6">
+                    <h4 class="text-xl font-bold">Lozano-Hemmer</h4>
+                    <p class="text-sm text-slate-500 font-mono uppercase">Mexico / Canada</p>
+                </div>
+                <div class="border-l border-brand-green/30 pl-6">
+                    <h4 class="text-xl font-bold">Madeline Hollander</h4>
+                    <p class="text-sm text-slate-500 font-mono uppercase">USA</p>
+                </div>
+                <div class="border-l border-brand-green/30 pl-6">
+                    <h4 class="text-xl font-bold">Daniel Canogar</h4>
+                    <p class="text-sm text-slate-500 font-mono uppercase">Spain</p>
+                </div>
+                <div class="border-l border-brand-green/30 pl-6">
+                    <h4 class="text-xl font-bold">Marina Zurkow</h4>
+                    <p class="text-sm text-slate-500 font-mono uppercase">USA</p>
+                </div>
+                <div class="border-l border-brand-green/30 pl-6">
+                    <h4 class="text-xl font-bold">Leo Villareal</h4>
+                    <p class="text-sm text-slate-500 font-mono uppercase">USA</p>
+                </div>
+                <div class="border-l border-brand-green/30 pl-6">
+                    <h4 class="text-xl font-bold">Camille Utterback</h4>
+                    <p class="text-sm text-slate-500 font-mono uppercase">USA</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-brand-black border-t border-black/5 dark:border-white/10 pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12 mb-20">
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div class="w-6 h-6 bg-brand-green rounded-sm rotate-45"></div>
+                        <span class="font-mono font-bold tracking-tighter">RUN_THE_CODE</span>
+                    </div>
+                    <p class="text-sm text-slate-500 dark:text-slate-400">
+                        探索數據、代碼與藝術之間的交互關係，重新定義數位時代的創作本質。
+                    </p>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-6">展覽資訊</h5>
+                    <ul class="text-sm text-slate-500 dark:text-slate-400 space-y-2">
+                        <li>地點：Blanton Museum of Art</li>
+                        <li>地址：The University of Texas at Austin</li>
+                        <li>日期：2026.02.27 – 2026.08.02</li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-6">主辦單位</h5>
+                    <ul class="text-sm text-slate-500 dark:text-slate-400 space-y-2">
+                        <li>Carl & Marilynn Thoma Foundation</li>
+                        <li>Blanton Museum of Art</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="pt-10 border-t border-black/5 dark:border-white/5 text-center space-y-4">
+                <p class="text-xs text-slate-400">
+                    免責申明：基於公開資料，僅供參考，不構成建議
+                </p>
+                <p class="text-xs text-slate-400">
+                    資料來源：網頁公開資訊
+                </p>
+                <p class="text-xs text-slate-500 font-mono">
+                    版權所有： © Dunk | 2026
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Theme Toggle Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const html = document.documentElement;
+
+        // Initialize theme
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+        } else {
+            html.classList.remove('dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            html.classList.toggle('dark');
+            const isDark = html.classList.contains('dark');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            updateCharts(isDark);
+        });
+
+        // Mermaid Initialization
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: html.classList.contains('dark') ? 'dark' : 'default',
+            fontFamily: 'JetBrains Mono',
+            securityLevel: 'loose'
+        });
+
+        // ECharts Initialization
+        let myChart;
+        function initChart(isDark) {
+            const chartDom = document.getElementById('media-chart');
+            if (myChart) myChart.dispose();
+            myChart = echarts.init(chartDom, isDark ? 'dark' : null);
+            
+            const option = {
+                backgroundColor: 'transparent',
+                title: {
+                    text: '展覽媒介分佈 (Media Distribution)',
+                    left: 'center',
+                    textStyle: {
+                        fontFamily: 'Inter',
+                        fontWeight: 'bold',
+                        color: isDark ? '#F0F0F0' : '#0A0A0A'
+                    }
+                },
+                tooltip: {
+                    trigger: 'item'
+                },
+                series: [
+                    {
+                        name: '展品媒介',
+                        type: 'pie',
+                        radius: ['40%', '70%'],
+                        avoidLabelOverlap: false,
+                        itemStyle: {
+                            borderRadius: 10,
+                            borderColor: isDark ? '#0A0A0A' : '#fff',
+                            borderWidth: 2
+                        },
+                        label: {
+                            show: true,
+                            formatter: '{b}: {d}%',
+                            color: isDark ? '#F0F0F0' : '#0A0A0A'
+                        },
+                        emphasis: {
+                            label: {
+                                show: true,
+                                fontSize: 16,
+                                fontWeight: 'bold'
+                            }
+                        },
+                        data: [
+                            { value: 6, name: '互動裝置 (Interactive)', itemStyle: { color: '#00FFC2' } },
+                            { value: 5, name: '數位影像/AI (Digital/AI)', itemStyle: { color: '#5D2EE8' } },
+                            { value: 4, name: '自定義軟體 (Custom Software)', itemStyle: { color: '#3b82f6' } },
+                            { value: 3, name: 'LED/動態光影 (LED/Light)', itemStyle: { color: '#f43f5e' } },
+                            { value: 2, name: '文字藝術 (Text Art)', itemStyle: { color: '#8b5cf6' } }
+                        ]
+                    }
+                ]
+            };
+            myChart.setOption(option);
+        }
+
+        function updateCharts(isDark) {
+            initChart(isDark);
+            // Re-render Mermaid by updating theme
+            const mermaidDivs = document.querySelectorAll('.mermaid');
+            mermaidDivs.forEach(div => {
+                div.removeAttribute('data-processed');
+            });
+            mermaid.initialize({ theme: isDark ? 'dark' : 'default' });
+            mermaid.init();
+        }
+
+        // Handle window resize for ECharts
+        window.addEventListener('resize', () => {
+            if (myChart) myChart.resize();
+        });
+
+        // Initial chart load
+        initChart(html.classList.contains('dark'));
+    </script>
+</body>
+</html>
