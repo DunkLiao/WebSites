@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>感謝與告別 | Liao's Art 網頁關閉公告</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Noto+Sans+TC:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        .serif {
+            font-family: 'Noto Serif TC', serif;
+        }
+        .fade-in {
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .bg-pattern {
+            background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+<body class="bg-pattern min-h-screen flex items-center justify-center p-6">
+
+    <div class="max-w-2xl w-full bg-white/80 backdrop-blur-md shadow-2xl rounded-2xl p-8 md:p-12 text-center border border-gray-100 fade-in">
+        
+        <!-- 藝術風格裝飾 -->
+        <div class="mb-8">
+            <div class="w-16 h-1 bg-black mx-auto mb-4"></div>
+            <h1 class="serif text-3xl md:text-4xl font-bold tracking-widest text-gray-800">LIAO'S ART</h1>
+            <div class="w-16 h-1 bg-black mx-auto mt-4"></div>
+        </div>
+
+        <!-- 標題 -->
+        <h2 class="text-xl md:text-2xl font-semibold mb-6 text-gray-700">網站即將停止運作公告</h2>
+
+        <!-- 內容 -->
+        <div class="space-y-4 text-gray-600 leading-relaxed text-left md:text-center mb-10">
+            <p>感謝您多年來對 <strong>Dunk's Art</strong> 的關注與支持。</p>
+            <p>這是一個艱難的決定，但由於個人創作重心的轉移與未來規劃，本網站預計將於 <span class="font-bold text-black text-lg">2026 年 4 月 28 日</span> 正式停止服務並下線。</p>
+            <p>這段時間能透過畫作與文字與大家相遇，是我莫大的榮幸。雖然這個空間即將結束，但藝術的探索不會停止。</p>
+        </div>
+       
+
+        <!-- 結尾 -->
+        <div class="text-sm text-gray-400 italic">
+            "Art is not what you see, but what you make others see." — Edgar Degas
+        </div>
+
+        <footer class="mt-12 pt-6 border-t border-gray-100 text-xs text-gray-400">
+            &copy; Liao's Art. All rights reserved.
+        </footer>
+    </div>
+
+</body>
+</html>
