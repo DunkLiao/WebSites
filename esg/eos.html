@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>網站關閉公告 | ESG 資訊平台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #f8fafc;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 gradient-bg">
+
+    <div class="max-w-2xl w-full glass-card rounded-3xl shadow-2xl overflow-hidden">
+        <!-- 頂部裝飾條 -->
+        <div class="h-2 bg-emerald-600"></div>
+
+        <div class="p-8 md:p-12 text-center">
+            <!-- 圖示 -->
+            <div class="mb-6 flex justify-center">
+                <div class="bg-emerald-100 p-4 rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-emerald-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+            </div>
+
+            <!-- 標題 -->
+            <h1 class="text-3xl font-bold text-gray-800 mb-4">服務停止公告</h1>
+            <p class="text-emerald-700 font-medium mb-8 text-lg">感謝您一直以來對我們的支持與關注</p>
+
+            <!-- 內容區 -->
+            <div class="text-left bg-white/50 p-6 rounded-2xl border border-emerald-50 mb-8 space-y-4 text-gray-600 leading-relaxed">
+                <p>親愛的訪客您好：</p>
+                <p>
+                    感謝您過去這段時間對本 ESG 資訊平台的造訪。由於內部營運調整與規劃，本網站預計於 <strong>2026年4月28日</strong> 起正式停止營運並關閉服務。
+                </p>
+                <p>
+                    網站關閉後，相關資訊將不再提供更新與存取。若您有任何未盡事宜或需要進一步的資訊，歡迎透過下方的聯繫方式與我們取得聯繫。
+                </p>
+                <p>
+                    對於造成您的不便，我們深表歉意，並再次感謝您與我們共同關注環境、社會與治理的永續議題。
+                </p>
+            </div>
+
+            <!-- 聯繫按鈕 -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">                
+                <button onclick="window.history.back()" class="inline-flex items-center justify-center px-8 py-3 border border-emerald-200 text-base font-medium rounded-xl text-emerald-700 bg-emerald-50 hover:bg-emerald-100 transition duration-150 ease-in-out">
+                    回上一頁
+                </button>
+            </div>
+        </div>
+
+        <!-- 底部 -->
+        <div class="bg-gray-50 p-6 text-center text-sm text-gray-400 border-t border-gray-100">
+            © 2024 ESG Information Platform. All Rights Reserved.
+        </div>
+    </div>
+
+    <script>
+        // 如果有特定日期倒數，可以在這裡加入邏輯
+        console.log("關站公告頁面已載入");
+    </script>
+</body>
+</html>
