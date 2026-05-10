@@ -1,11 +1,7 @@
 # Dunk's 站台
 
-[Vibe Coding 公益程式體驗營｜2025](/WebSites/DunkVibeCoding/ "資料視覺化")
+[Excel VBA 模組庫](https://dunkliao.github.io/ExcelVBAWithVbs/ "Excel VBA 模組庫")
 
-[資料視覺化](/WebSites/ex_page/ "資料視覺化")
+[SQL 版本控管工具](https://dunkliao.github.io/SQLScriptManage/ "SQL 版本控管工具")
 
-[信用風險監控月報](/WebSites/MgrRpt/ "信用風險監控月報")
-
-[ESG永續部落格](/WebSites/esg/ "ESG永續部落格")
-
-[藝術展覽歷史資訊彙整](/WebSites/art/ "藝術展覽歷史資訊彙整")
+[提示詞管理系統](https://dunkliao.github.io/PromptBook/ "提示詞管理系統")
