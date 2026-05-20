@@ -5,3 +5,5 @@
 [SQL 版本控管工具](https://dunkliao.github.io/SQLScriptManage/ "SQL 版本控管工具")
 
 [提示詞管理系統](https://dunkliao.github.io/PromptBook/ "提示詞管理系統")
+
+[自動化小工具服務網接案](https://dunkliao.github.io/DunkAutoWebSite/ "自動化小工具服務網接案")
