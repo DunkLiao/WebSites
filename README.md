@@ -7,3 +7,7 @@
 [提示詞管理系統](https://dunkliao.github.io/PromptBook/ "提示詞管理系統")
 
 [自動化小工具服務網接案](https://dunkliao.github.io/DunkAutoWebSite/ "自動化小工具服務網接案")
+
+[臺銀番茄鐘](https://bot-style-pomodoro.netlify.app/ "臺銀番茄鐘")
+
+[M365 Copilot 實戰教學](https://m365-in-action.netlify.app/ "臺銀番茄鐘")
