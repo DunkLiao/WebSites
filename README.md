@@ -10,4 +10,6 @@
 
 [臺銀番茄鐘](https://bot-style-pomodoro.netlify.app/ "臺銀番茄鐘")
 
-[M365 Copilot 實戰教學](https://m365-in-action.netlify.app/ "臺銀番茄鐘")
+[M365 Copilot 實戰教學](https://m365-in-action.zeabur.app/ "M365 Copilot 實戰教學")
+
+[課程完課證書合併工具](https://course-certificate-merger.zeabur.app/ "課程完課證書合併工具")
