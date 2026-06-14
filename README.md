@@ -1,8 +1,12 @@
 # Dunk's 站台
 
+[肥肥的守宮日記](https://feifei-pet-portal.zeabur.app/ "肥肥的守宮日記")
+
 [Excel VBA 模組庫](https://dunkliao.github.io/ExcelVBAWithVbs/ "Excel VBA 模組庫")
 
 [SQL 版本控管工具](https://dunkliao.github.io/SQLScriptManage/ "SQL 版本控管工具")
+
+[信用風險監控月報系統](https://dunkliao.github.io/WebSites/MgrRpt/ "信用風險監控月報系統")
 
 [貸款風險儀表板](https://loandashboard-eight.vercel.app/ "貸款風險儀表板")
 

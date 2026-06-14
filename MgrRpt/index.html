@@ -864,6 +864,33 @@
 		.event-card:nth-child(5) { animation-delay: 0.5s; }
 		.event-card:nth-child(6) { animation-delay: 0.6s; }
 
+        /* External Dashboard Link */
+        .external-dashboard-link {
+            text-align: center;
+            margin: 1.5rem auto 2rem;
+        }
+
+        .external-dashboard-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #9A0036, #941C61);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.9rem 1.6rem;
+            border-radius: 999px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(154, 0, 54, 0.25);
+            transition: all 0.3s ease;
+        }
+
+        .external-dashboard-btn:hover {
+            background: linear-gradient(135deg, #B8003F, #A91C6A);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(154, 0, 54, 0.35);
+        }
+
     </style>
 	<script type='text/javascript'>
 	// 等待DOM完全載入
@@ -1156,6 +1183,11 @@
 			<div class="dashboard-header">
 				<h2>信用風險監控儀表板</h2>
 				<p>信用風險指標與放款組合分析</p>
+				<div class="external-dashboard-link">
+					<a href="https://loandashboard-eight.vercel.app/" target="_blank" rel="noopener noreferrer" class="external-dashboard-btn">
+						開啟新版放款儀表板 <span aria-hidden="true">↗</span>
+					</a>
+				</div>
 		</div>
 			<div class="tableau-title">整體風險概況</div>			
 		</div>
