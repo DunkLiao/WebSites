@@ -19,3 +19,5 @@
 [M365 Copilot 實戰教學](https://m365-in-action.zeabur.app/ "M365 Copilot 實戰教學")
 
 [課程完課證書合併工具](https://course-certificate-merger.zeabur.app/ "課程完課證書合併工具")
+
+[Zeabur 部署金鑰產生器](https://dunktw.zeabur.app/webhook/zeabur-keygen "Zeabur 部署金鑰產生器")
