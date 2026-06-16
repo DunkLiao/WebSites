@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dunk's 站台</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 Google Fonts: Noto Sans TC 讓中文字體更乾淨 -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            /* 經典子彈筆記的點陣背景 (Dot Grid) */
+            background-color: #faf9f6; /* 溫暖的紙張白 */
+            background-image: radial-gradient(#d1cdxc 1px, transparent 1px), radial-gradient(#d1cdc5 1px, transparent 1px);
+            background-size: 24px 24px;
+            background-position: 0 0, 12px 12px;
+            color: #333333;
+        }
+
+        /* 筆記本的頁面容器陰影與質感 */
+        .journal-page {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05), 
+                        0 1px 3px rgba(0,0,0,0.03),
+                        inset 0 0 50px rgba(255,255,255,0.5);
+            position: relative;
+        }
+
+        /* 左側的紅線 (模擬筆記本邊界) */
+        .journal-page::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 48px;
+            width: 2px;
+            background-color: rgba(220, 53, 69, 0.2);
+            z-index: 0;
+        }
+
+        @media (max-width: 640px) {
+            .journal-page::before {
+                left: 24px;
+            }
+        }
+
+        /* 螢光筆畫線效果 (Hover狀態) */
+        .highlighter {
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+        }
+        
+        .highlighter::after {
+            content: '';
+            position: absolute;
+            left: -2px;
+            right: -2px;
+            bottom: 4px;
+            height: 40%;
+            background-color: #fef08a; /* Tailwind 黃色 200 */
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+            opacity: 0.8;
+            border-radius: 2px;
+        }
+
+        .group:hover .highlighter::after {
+            transform: scaleX(1);
+        }
+
+        /* 自訂子彈符號變換動畫 */
+        .bullet-icon {
+            transition: all 0.2s ease;
+        }
+        .group:hover .bullet-icon {
+            transform: scale(1.1);
+            color: #111827; /* 更深的顏色 */
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4 sm:p-8">
+
+    <!-- 筆記本頁面 -->
+    <main class="journal-page bg-[#fdfdfc] w-full max-w-2xl rounded-sm p-8 sm:p-16 min-h-[70vh] flex flex-col relative overflow-hidden">
+        
+        <!-- 頁首標題區 -->
+        <header class="mb-10 pl-4 sm:pl-8 relative z-10 border-b-2 border-gray-800 pb-4 inline-block self-start">
+            <h1 class="text-3xl sm:text-4xl font-bold tracking-wider text-gray-800">
+                Dunk's <span class="font-normal italic">站台</span>
+            </h1>
+            <div class="absolute right-0 top-0 text-gray-400 text-sm font-mono transform rotate-2">Index</div>
+        </header>
+
+        <!-- 連結列表 -->
+        <ul class="space-y-5 sm:space-y-6 pl-4 sm:pl-8 relative z-10 flex-grow text-lg sm:text-xl">
+            
+            <!-- Item 1 -->
+            <li class="group">
+                <a href="https://feifei-pet-portal.zeabur.app/" title="肥肥的守宮日記" target="_blank" rel="noopener noreferrer" class="flex items-center text-gray-700 w-fit">
+                    <span class="bullet-icon mr-4 text-gray-400 font-mono select-none">○</span>
+                    <span class="highlighter">肥肥的守宮日記</span>
+                </a>
+            </li>
+
+            <!-- Item 2 -->
+            <li class="group">
+                <a href="https://dunkliao.github.io/ExcelVBAWithVbs/" title="Excel VBA 模組庫" target="_blank" rel="noopener noreferrer" class="flex items-center text-gray-700 w-fit">
+                    <span class="bullet-icon mr-4 text-gray-400 font-mono select-none">○</span>
+                    <span class="highlighter">Excel VBA 模組庫</span>
+                </a>
+            </li>
+
+            <!-- Item 3 -->
+            <li class="group">
+                <a href="https://dunkliao.github.io/SQLScriptManage/" title="SQL 版本控管工具" target="_blank" rel="noopener noreferrer" class="flex items-center text-gray-700 w-fit">
+                    <span class="bullet-icon mr-4 text-gray-400 font-mono select-none">○</span>
+                    <span class="highlighter">SQL 版本控管工具</span>
+                </a>
+            </li>
+
+            <!-- Item 4 -->
+            <li class="group">
+                <a href="https://dunkliao.github.io/WebSites/MgrRpt/" title="信用風險監控月報系統" target="_blank" rel="noopener noreferrer" class="flex items-center text-gray-700 w-fit">
+                    <span class="bullet-icon mr-4 text-gray-400 font-mono select-none">○</span>
+                    <span class="highlighter">信用風險監控月報系統</span>
+                </a>
+            </li>
+
+            <!-- Item 5 -->
+            <li class="group">
+                <a href="https://loandashboard-eight.vercel.app/" title="貸款風險儀表板" target="_blank" rel="noopener noreferrer" class="flex items-center text-gray-700 w-fit">
+                    <span class="bullet-icon mr-4 text-gray-400 font-mono select-none">○</span>
+                    <span class="highlighter">貸款風險儀表板</span>
+                </a>
+            </li>
+
+            <!-- Item 6 -->
+            <li class="group">
+                <a href="https://dunkliao.github.io/PromptBook/" title="提示詞管理系統" target="_blank" rel="noopener noreferrer" class="flex items-center text-gray-700 w-fit">
+                    <span class="bullet-icon mr-4 text-gray-400 font-mono select-none">○</span>
+                    <span class="highlighter">提示詞管理系統</span>
+                </a>
+            </li>
+
+            <!-- Item 7 -->
+            <li class="group">
+                <a href="https://dunkliao.github.io/DunkAutoWebSite/" title="自動化小工具服務網接案" target="_blank" rel="noopener noreferrer" class="flex items-center text-gray-700 w-fit">
+                    <span class="bullet-icon mr-4 text-gray-400 font-mono select-none">○</span>
+                    <span class="highlighter">自動化小工具服務網接案</span>
+                </a>
+            </li>
+
+            <!-- Item 8 -->
+            <li class="group">
+                <a href="https://bot-style-pomodoro.netlify.app/" title="臺銀番茄鐘" target="_blank" rel="noopener noreferrer" class="flex items-center text-gray-700 w-fit">
+                    <span class="bullet-icon mr-4 text-gray-400 font-mono select-none">○</span>
+                    <span class="highlighter">臺銀番茄鐘</span>
+                </a>
+            </li>
+
+            <!-- Item 9 (更新了網址) -->
+            <li class="group">
+                <a href="https://m365-in-action.zeabur.app/" title="M365 Copilot 實戰教學" target="_blank" rel="noopener noreferrer" class="flex items-center text-gray-700 w-fit">
+                    <span class="bullet-icon mr-4 text-gray-400 font-mono select-none">○</span>
+                    <span class="highlighter">M365 Copilot 實戰教學</span>
+                </a>
+            </li>
+
+            <!-- Item 10 -->
+            <li class="group">
+                <a href="https://course-certificate-merger.zeabur.app/" title="課程完課證書合併工具" target="_blank" rel="noopener noreferrer" class="flex items-center text-gray-700 w-fit">
+                    <span class="bullet-icon mr-4 text-gray-400 font-mono select-none">○</span>
+                    <span class="highlighter">課程完課證書合併工具</span>
+                </a>
+            </li>
+
+            <!-- Item 11 -->
+            <li class="group">
+                <a href="https://dunktw.zeabur.app/webhook/zeabur-keygen" title="Zeabur 部署金鑰產生器" target="_blank" rel="noopener noreferrer" class="flex items-center text-gray-700 w-fit">
+                    <span class="bullet-icon mr-4 text-gray-400 font-mono select-none">○</span>
+                    <span class="highlighter">Zeabur 部署金鑰產生器</span>
+                </a>
+            </li>
+
+        </ul>
+
+        <!-- 底部小裝飾 -->
+        <footer class="mt-12 text-center text-gray-400 text-sm font-mono relative z-10 opacity-70">
+            ~ Keep it simple ~
+        </footer>
+    </main>
+
+</body>
+</html>
